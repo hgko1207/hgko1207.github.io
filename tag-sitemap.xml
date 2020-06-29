@@ -4,14 +4,21 @@
 
     <url>
         <loc>http://hgko1207.github.io/tags/%EC%A7%84-%EC%A0%95%EC%82%AC%EC%98%81%EC%83%81/</loc>
-        <lastmod>2020-06-29T05:51:24.784Z</lastmod>
+        <lastmod>2020-06-29T06:59:15.357Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://hgko1207.github.io/tags/Satellite/</loc>
-        <lastmod>2020-06-29T05:51:24.784Z</lastmod>
+        <lastmod>2020-06-29T06:59:15.357Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/tags/Hexo/</loc>
+        <lastmod>2020-06-29T06:55:08.613Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -754,13 +761,6 @@
     <url>
         <loc>http://hgko1207.github.io/tags/Server/</loc>
         <lastmod>2020-06-29T05:48:27.584Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/Hexo/</loc>
-        <lastmod>2020-06-29T05:48:27.583Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
