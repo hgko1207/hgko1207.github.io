@@ -9,8 +9,29 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Information related to IT and satellite</description>
-    <pubDate>Mon, 29 Jun 2020 06:55:08 GMT</pubDate>
+    <pubDate>Tue, 30 Jun 2020 02:26:40 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>string을 이용한 File Path 분리 방법</title>
+      <link>http://hgko1207.github.io/2020/06/30/cpp-coding-1/</link>
+      <guid>http://hgko1207.github.io/2020/06/30/cpp-coding-1/</guid>
+      <pubDate>Tue, 30 Jun 2020 02:05:16 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;h2 id=&quot;개요&quot;&gt;&lt;a href=&quot;#개요&quot; class=&quot;headerlink&quot; title=&quot;개요&quot;&gt;&lt;/a&gt;개요&lt;/h2&gt;&lt;p&gt;string 형식의 파일 경로를 이용하여 File Path와 Name을 분리한다.&lt;/p&gt;
+&lt;h3 id=&quot;File-Path와-F
+        
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<h2 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h2><p>string 형식의 파일 경로를 이용하여 File Path와 Name을 분리한다.</p><h3 id="File-Path와-File-Name-분리"><a href="#File-Path와-File-Name-분리" class="headerlink" title="File Path와 File Name 분리"></a>File Path와 File Name 분리</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">namespace</span> <span class="keyword">using</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span> pullPath = <span class="string">"c:\\test\\test.tif"</span>;</span><br><span class="line"><span class="keyword">int</span> find = pullPath.rfind(<span class="string">"\\"</span>) + <span class="number">1</span>;</span><br><span class="line"><span class="built_in">string</span> filePath = pullPath.substr(<span class="number">0</span>, find);</span><br><span class="line"><span class="built_in">string</span> fileName = pullPath.substr(find, pullPath.length() - find);</span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"Folder Path : "</span> &lt;&lt; filePath &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"File Name : "</span> &lt;&lt; fileName &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 결과</span></span><br><span class="line">Folder Path : c:\\test</span><br><span class="line">File Name : test.tif</span><br></pre></td></tr></table></figure><h3 id="파일-확장자-바꾸기"><a href="#파일-확장자-바꾸기" class="headerlink" title="파일 확장자 바꾸기"></a>파일 확장자 바꾸기</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">namespace</span> <span class="keyword">using</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span> filePath = <span class="string">"c:\\test\\test.tif"</span>;</span><br><span class="line"><span class="built_in">string</span> modExt = <span class="string">"ntf"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> ext = filePath.rfind(<span class="string">"tif"</span>);</span><br><span class="line"><span class="keyword">int</span> name = filePath.rfind(<span class="string">"\\"</span>) + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span> dstPath = filePath.substr(<span class="number">0</span>, name);</span><br><span class="line">dstPath += filePath.substr(name, ext - name);</span><br><span class="line">dstPath += modExt;</span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"Input Path : "</span> &lt;&lt; filePath &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"Output Path : "</span> &lt;&lt; dstPath &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 결과</span></span><br><span class="line">Input Path : c:\\test\\test.tif</span><br><span class="line">Output Path : c:\\test\\test.ntf</span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      <comments>http://hgko1207.github.io/2020/06/30/cpp-coding-1/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Hexo Quick Start</title>
