@@ -9,8 +9,29 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Information related to IT and satellite</description>
-    <pubDate>Tue, 30 Jun 2020 02:26:40 GMT</pubDate>
+    <pubDate>Tue, 30 Jun 2020 04:09:05 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>인공지능 개발준비 - 개발환경 구축(Windows)</title>
+      <link>http://hgko1207.github.io/2020/06/30/ai-development-1/</link>
+      <guid>http://hgko1207.github.io/2020/06/30/ai-development-1/</guid>
+      <pubDate>Tue, 30 Jun 2020 02:34:28 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;인공지능(AI)을 통해 개발을 하기 위해 개발 도구들을 설치합니다.&lt;/p&gt;
+&lt;h2 id=&quot;1-Anaconda-다운로드-및-설치&quot;&gt;&lt;a href=&quot;#1-Anaconda-다운로드-및-설치&quot; class=&quot;headerlink&quot; title=&quot;1. Anac
+        
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<p>인공지능(AI)을 통해 개발을 하기 위해 개발 도구들을 설치합니다.</p><h2 id="1-Anaconda-다운로드-및-설치"><a href="#1-Anaconda-다운로드-및-설치" class="headerlink" title="1. Anaconda 다운로드 및 설치"></a>1. Anaconda 다운로드 및 설치</h2><p>Anaconda는 여러가지 수학 및 과학 패키지들을 기본적으로 포함하고 있는 Python 배포판입니다.<br><br><a href="https://www.anaconda.com/products/individual" target="_blank" rel="noopener">Anaconda 다운로드</a>에 접속하여 아래 부분에 다운로드 화면이 보입니다.<br><br>현재 운영체제에 맞게 선택하여 다운로드 합니다.</p><p><img src="/images/ai/1.png" alt=""></p><p>다운로드가 완료되면 설치를 합니다.</p><p><code>Next</code> 버튼을 클릭하다가 아래 그림에서 <code>All Users</code>를 선택합니다.<br>간혹 Windows에서 사용자의 계정을 한글로 만들었을 경우 설치할 때 또는 열었을 때 에러가 날 수 있기 때문에 선택합니다.</p><p><img src="/images/ai/2.png" alt=""></p><p>또 아래 그림처럼 위의 체크박스도 선택을 하여 환경변수 설정이 되도록 합니다.</p><p><img src="/images/ai/3.png" alt=""></p><p><code>Install</code> 버튼을 클릭하면 설치가 됩니다.</p>]]></content:encoded>
+      
+      <comments>http://hgko1207.github.io/2020/06/30/ai-development-1/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>string을 이용한 File Path 분리 방법</title>
