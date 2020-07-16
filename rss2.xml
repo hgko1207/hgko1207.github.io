@@ -9,8 +9,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Information related to IT and satellite</description>
-    <pubDate>Fri, 10 Jul 2020 08:03:49 GMT</pubDate>
+    <pubDate>Thu, 16 Jul 2020 09:39:09 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>시각화 기초(그래프)</title>
+      <link>http://hgko1207.github.io/2020/07/16/ai-development-5/</link>
+      <guid>http://hgko1207.github.io/2020/07/16/ai-development-5/</guid>
+      <pubDate>Thu, 16 Jul 2020 09:08:35 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;h2 id=&quot;Graph-Visualization&quot;&gt;&lt;a href=&quot;#Graph-Visualization&quot; class=&quot;headerlink&quot; title=&quot;Graph Visualization&quot;&gt;&lt;/a&gt;Graph Visualization&lt;/h2&gt;&lt;h3 i
+        
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<h2 id="Graph-Visualization"><a href="#Graph-Visualization" class="headerlink" title="Graph Visualization"></a>Graph Visualization</h2><h3 id="Load-Packages"><a href="#Load-Packages" class="headerlink" title="Load Packages"></a>Load Packages</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure><h3 id="Basic-Attributes"><a href="#Basic-Attributes" class="headerlink" title="Basic Attributes"></a>Basic Attributes</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">alpha : 투명도</span><br><span class="line">king : 그래프 종류 <span class="string">'line'</span>, <span class="string">'bar'</span>, <span class="string">'barh'</span>, <span class="string">'kde'</span></span><br><span class="line">logy : Y축에 대해 Log scaling</span><br><span class="line">use_index : 객체의 색인을 눈금 이름으로 사용할지 여부</span><br><span class="line">rot : 눈금 이름 돌리기 (rotating) <span class="number">0</span> ~ <span class="number">360</span></span><br><span class="line">xticks, yticks : X, Y축으로 사용할 값</span><br><span class="line">xlim, ylim : X, Y축의 한계</span><br><span class="line">grid : 축의 그리드를 표현할지 여부</span><br><span class="line"></span><br><span class="line">subplots : 각 column에 독립된 subplot 그리기</span><br><span class="line">sharex, sharey : subplots=<span class="literal">True</span> 이면 같은 X, Y축을 공유하고 눈금과 한계를 연결</span><br><span class="line">figsize : 생성될 그래프의 크기를 tuple로 지정</span><br><span class="line">title : 그래프의 제목 지정</span><br><span class="line">legend : subplot의 범례 지정</span><br><span class="line">sort_columns : column을 알파벳 순서로 그린다.</span><br></pre></td></tr></table></figure><h2 id="Matplotlib-사용하기"><a href="#Matplotlib-사용하기" class="headerlink" title="Matplotlib 사용하기"></a>Matplotlib 사용하기</h2><h3 id="점선-그래프-그리기"><a href="#점선-그래프-그리기" class="headerlink" title="점선 그래프 그리기"></a>점선 그래프 그리기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      <comments>http://hgko1207.github.io/2020/07/16/ai-development-5/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Numpy 기초(3)</title>
