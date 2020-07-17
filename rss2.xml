@@ -9,8 +9,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Information related to IT and satellite</description>
-    <pubDate>Thu, 16 Jul 2020 10:12:43 GMT</pubDate>
+    <pubDate>Fri, 17 Jul 2020 09:23:35 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>시각화 기초(이미지)</title>
+      <link>http://hgko1207.github.io/2020/07/17/ai-development-6/</link>
+      <guid>http://hgko1207.github.io/2020/07/17/ai-development-6/</guid>
+      <pubDate>Fri, 17 Jul 2020 09:20:17 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;h2 id=&quot;Image-Visualization&quot;&gt;&lt;a href=&quot;#Image-Visualization&quot; class=&quot;headerlink&quot; title=&quot;Image Visualization&quot;&gt;&lt;/a&gt;Image Visualization&lt;/h2&gt;&lt;h3 i
+        
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<h2 id="Image-Visualization"><a href="#Image-Visualization" class="headerlink" title="Image Visualization"></a>Image Visualization</h2><h3 id="Load-Packages"><a href="#Load-Packages" class="headerlink" title="Load Packages"></a>Load Packages</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure><h3 id="이미지-불러오기"><a href="#이미지-불러오기" class="headerlink" title="이미지 불러오기"></a>이미지 불러오기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In</span></span><br><span class="line">path = <span class="string">'images/dog.jpg'</span></span><br><span class="line"></span><br><span class="line">image_pil = Image.open(path)</span><br><span class="line">image = np.array(image_pil)</span><br><span class="line"></span><br><span class="line">image.shape</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">(<span class="number">400</span>, <span class="number">300</span>, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      <comments>http://hgko1207.github.io/2020/07/17/ai-development-6/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>시각화 기초(그래프)</title>
