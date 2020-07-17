@@ -9,8 +9,29 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Information related to IT and satellite</description>
-    <pubDate>Fri, 17 Jul 2020 09:58:37 GMT</pubDate>
+    <pubDate>Fri, 17 Jul 2020 10:09:39 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Tensorflow 2.0과 Pytorch 소개</title>
+      <link>http://hgko1207.github.io/2020/07/17/ai-dev-1/</link>
+      <guid>http://hgko1207.github.io/2020/07/17/ai-dev-1/</guid>
+      <pubDate>Fri, 17 Jul 2020 10:02:44 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;h2 id=&quot;TensorFlow-2-0&quot;&gt;&lt;a href=&quot;#TensorFlow-2-0&quot; class=&quot;headerlink&quot; title=&quot;TensorFlow 2.0&quot;&gt;&lt;/a&gt;TensorFlow 2.0&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;1.x에 비해 정말 쉬워졌다.
+        
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<h2 id="TensorFlow-2-0"><a href="#TensorFlow-2-0" class="headerlink" title="TensorFlow 2.0"></a>TensorFlow 2.0</h2><ul><li>1.x에 비해 정말 쉬워졌다.</li><li>Numpy Array와 호환이 쉽다.</li><li>TensorBorad, TFLite, TPU</li><li>여전히 많은 사용자들이 사용한다.</li><li>상용 목적으로 주로 사용한다.</li></ul><h2 id="PyTorch"><a href="#PyTorch" class="headerlink" title="PyTorch"></a>PyTorch</h2><ul><li>Dynamic Graph &amp; Define by Run</li><li>쉽고 빠르며 코드가 간결하다.</li><li>빠르게 성장하고 있다.</li><li>커뮤니티가 많이 활성화 되고 있다.</li><li>연구 목적으로 주로 사용한다.</li></ul><p>둘 다 때에 따라 환경에 맞게 사용하면 될 것 같다.</p>]]></content:encoded>
+      
+      <comments>http://hgko1207.github.io/2020/07/17/ai-dev-1/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>시각화 기초(이미지)</title>

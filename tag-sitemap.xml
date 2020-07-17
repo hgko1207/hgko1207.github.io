@@ -3,14 +3,28 @@
 
 
     <url>
-        <loc>http://hgko1207.github.io/tags/Python/</loc>
-        <lastmod>2020-07-17T09:58:37.172Z</lastmod>
+        <loc>http://hgko1207.github.io/tags/Pytorch/</loc>
+        <lastmod>2020-07-17T10:09:39.478Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/tags/Tensorflow/</loc>
+        <lastmod>2020-07-17T10:09:39.478Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://hgko1207.github.io/tags/AI/</loc>
+        <lastmod>2020-07-17T10:09:39.478Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/tags/Python/</loc>
         <lastmod>2020-07-17T09:58:37.172Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
