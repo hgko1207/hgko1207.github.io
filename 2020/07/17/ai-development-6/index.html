@@ -23,7 +23,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/ai/image/1.png">
 <meta property="article:published_time" content="2020-07-17T09:20:17.000Z">
-<meta property="article:modified_time" content="2020-07-17T09:32:11.311Z">
+<meta property="article:modified_time" content="2020-07-17T09:35:26.616Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="Python">
@@ -238,6 +238,16 @@ ga('send', 'pageview');
 <h3 id="흑백-이미지-열기"><a href="#흑백-이미지-열기" class="headerlink" title="흑백 이미지 열기"></a>흑백 이미지 열기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.imshow(image_bw, <span class="string">'gray'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 
 <p><img src="/images/ai/image/3.png" alt=""></p>
+<h3 id="다른-색상으로-cmap-표현하기"><a href="#다른-색상으로-cmap-표현하기" class="headerlink" title="다른 색상으로 cmap 표현하기"></a>다른 색상으로 cmap 표현하기</h3><h4 id="gray-scale"><a href="#gray-scale" class="headerlink" title="gray scale"></a>gray scale</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.imshow(image_bw, <span class="string">'gray'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/ai/image/3.png" alt=""></p>
+<h4 id="RdBu-Red-and-Blue"><a href="#RdBu-Red-and-Blue" class="headerlink" title="RdBu(Red and Blue)"></a>RdBu(Red and Blue)</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.imshow(image_bw, <span class="string">'RdBu'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/ai/image/4.png" alt=""></p>
+<h4 id="jet"><a href="#jet" class="headerlink" title="jet"></a>jet</h4><p>색상 값이 높을수록 빨간색, 낮을수록 파란색으로 표현한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.imshow(image_bw, <span class="string">'jet'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/ai/image/5.png" alt=""></p>
 
         </div>
         <footer class="article-footer">
@@ -326,7 +336,7 @@ ga('send', 'pageview');
         "description": "Image VisualizationLoad Packages12345import numpy as npfrom PIL import Imageimport matplotlib.pyplot as plt%matplotlib inline
 
 이미지 불러오기12345678910# Inpath = 'images/dog.jpg'image_pil = Image.open(path",
-        "wordCount": 219
+        "wordCount": 289
     }
 </script>
 
