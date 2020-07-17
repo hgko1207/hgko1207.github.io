@@ -23,7 +23,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/ai/image/1.png">
 <meta property="article:published_time" content="2020-07-17T09:20:17.000Z">
-<meta property="article:modified_time" content="2020-07-17T09:35:26.616Z">
+<meta property="article:modified_time" content="2020-07-17T09:58:37.172Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="Python">
@@ -248,6 +248,29 @@ ga('send', 'pageview');
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.imshow(image_bw, <span class="string">'jet'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 
 <p><img src="/images/ai/image/5.png" alt=""></p>
+<h3 id="Colorbar-추가하기"><a href="#Colorbar-추가하기" class="headerlink" title="Colorbar 추가하기"></a>Colorbar 추가하기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plt.imshow(image_bw, <span class="string">'jet'</span>)</span><br><span class="line">plt.colorbar()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/ai/image/6.png" alt=""></p>
+<h3 id="이미지-설정"><a href="#이미지-설정" class="headerlink" title="이미지 설정"></a>이미지 설정</h3><p>이미지 보기 사이즈를 조절한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plt.figure(figsize=(<span class="number">10</span>, <span class="number">10</span>))</span><br><span class="line">plt.imshow(image)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/ai/image/7.png" alt=""></p>
+<h3 id="이미지에-제목-추가"><a href="#이미지에-제목-추가" class="headerlink" title="이미지에 제목 추가"></a>이미지에 제목 추가</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plt.title(<span class="string">'Dog'</span>)</span><br><span class="line">plt.imshow(image)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/ai/image/8.png" alt=""></p>
+<h3 id="두-번째-이미지-열기"><a href="#두-번째-이미지-열기" class="headerlink" title="두 번째 이미지 열기"></a>두 번째 이미지 열기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cat_path = <span class="string">'images/cat.jpg'</span></span><br><span class="line"></span><br><span class="line">cat_pil = Image.open(cat_path)</span><br><span class="line">cat_image = np.array(cat_pil)</span><br><span class="line"></span><br><span class="line">plt.imshow(cat_image)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/ai/image/9.png" alt=""></p>
+<h3 id="두-번째-이미지를-첫-번째-이미지-모양에-맞추기"><a href="#두-번째-이미지를-첫-번째-이미지-모양에-맞추기" class="headerlink" title="두 번째 이미지를 첫 번째 이미지 모양에 맞추기"></a>두 번째 이미지를 첫 번째 이미지 모양에 맞추기</h3><h4 id="준비"><a href="#준비" class="headerlink" title="준비"></a>준비</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Install</span></span><br><span class="line">pip install opencv-python</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In</span></span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line">dog_image = cv2.resize(image, (<span class="number">400</span>, <span class="number">300</span>))</span><br><span class="line">dog_image.shape, cat_image.shape</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">((<span class="number">300</span>, <span class="number">400</span>, <span class="number">3</span>), (<span class="number">300</span>, <span class="number">400</span>, <span class="number">3</span>))</span><br></pre></td></tr></table></figure>
+
+<h4 id="이미지-합치기"><a href="#이미지-합치기" class="headerlink" title="이미지 합치기"></a>이미지 합치기</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plt.imshow(dog_image)</span><br><span class="line">plt.imshow(cat_image, alpha=<span class="number">0.5</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/ai/image/10.png" alt=""></p>
+<h3 id="Subplot"><a href="#Subplot" class="headerlink" title="Subplot"></a>Subplot</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">plt.figure(figsize=(<span class="number">10</span>, <span class="number">10</span>))</span><br><span class="line">plt.subplot(<span class="number">221</span>)</span><br><span class="line">plt.imshow(dog_image)</span><br><span class="line">plt.subplot(<span class="number">222</span>)</span><br><span class="line">plt.imshow(image_bw, <span class="string">'gray'</span>)</span><br><span class="line">plt.subplot(<span class="number">223</span>)</span><br><span class="line">plt.imshow(cat_image)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/ai/image/11.png" alt=""></p>
 
         </div>
         <footer class="article-footer">
@@ -336,7 +359,7 @@ ga('send', 'pageview');
         "description": "Image VisualizationLoad Packages12345import numpy as npfrom PIL import Imageimport matplotlib.pyplot as plt%matplotlib inline
 
 이미지 불러오기12345678910# Inpath = 'images/dog.jpg'image_pil = Image.open(path",
-        "wordCount": 289
+        "wordCount": 523
     }
 </script>
 
