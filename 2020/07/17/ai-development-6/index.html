@@ -21,12 +21,14 @@
 <meta property="og:site_name" content="규니의 블로그">
 <meta property="og:description" content="Image VisualizationLoad Packages12345import numpy as npfrom PIL import Imageimport matplotlib.pyplot as plt%matplotlib inline  이미지 불러오기12345678910# Inpath &#x3D; &#39;images&#x2F;dog.jpg&#39;image_pil &#x3D; Image.open(path">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://hgko1207.github.io/images/ai/image/1.png">
 <meta property="article:published_time" content="2020-07-17T09:20:17.000Z">
-<meta property="article:modified_time" content="2020-07-17T09:23:35.463Z">
+<meta property="article:modified_time" content="2020-07-17T09:32:11.311Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hgko1207.github.io/images/ai/image/1.png">
     
 
     
@@ -221,7 +223,21 @@ ga('send', 'pageview');
 
             <h2 id="Image-Visualization"><a href="#Image-Visualization" class="headerlink" title="Image Visualization"></a>Image Visualization</h2><h3 id="Load-Packages"><a href="#Load-Packages" class="headerlink" title="Load Packages"></a>Load Packages</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
 
-<h3 id="이미지-불러오기"><a href="#이미지-불러오기" class="headerlink" title="이미지 불러오기"></a>이미지 불러오기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In</span></span><br><span class="line">path = <span class="string">'images/dog.jpg'</span></span><br><span class="line"></span><br><span class="line">image_pil = Image.open(path)</span><br><span class="line">image = np.array(image_pil)</span><br><span class="line"></span><br><span class="line">image.shape</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">(<span class="number">400</span>, <span class="number">300</span>, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="이미지-불러오기"><a href="#이미지-불러오기" class="headerlink" title="이미지 불러오기"></a>이미지 불러오기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In</span></span><br><span class="line">path = <span class="string">'images/dog.jpg'</span></span><br><span class="line"></span><br><span class="line">image_pil = Image.open(path)</span><br><span class="line">image = np.array(image_pil)</span><br><span class="line"></span><br><span class="line">image.shape</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">(<span class="number">300</span>, <span class="number">400</span>, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="이미지-들여다-보기"><a href="#이미지-들여다-보기" class="headerlink" title="이미지 들여다 보기"></a>이미지 들여다 보기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In</span></span><br><span class="line">np.min(image), np.max(image)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">(<span class="number">0</span>, <span class="number">255</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="그래프로-시각화-하기"><a href="#그래프로-시각화-하기" class="headerlink" title="그래프로 시각화 하기"></a>그래프로 시각화 하기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.hist(image.ravel(), <span class="number">256</span>, [<span class="number">0</span>, <span class="number">256</span>])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/ai/image/1.png" alt=""></p>
+<h3 id="그림-나타내기"><a href="#그림-나타내기" class="headerlink" title="그림 나타내기"></a>그림 나타내기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.imshow(image)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/ai/image/2.png" alt=""></p>
+<h3 id="이미지-흑백으로-열기"><a href="#이미지-흑백으로-열기" class="headerlink" title="이미지 흑백으로 열기"></a>이미지 흑백으로 열기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In</span></span><br><span class="line">image_pil = Image.open(path).convert(<span class="string">"L"</span>)</span><br><span class="line">image_bw = np.array(image_pil)</span><br><span class="line"></span><br><span class="line">image_bw.shape</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">(<span class="number">300</span>, <span class="number">400</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="흑백-이미지-열기"><a href="#흑백-이미지-열기" class="headerlink" title="흑백 이미지 열기"></a>흑백 이미지 열기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.imshow(image_bw, <span class="string">'gray'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/ai/image/3.png" alt=""></p>
 
         </div>
         <footer class="article-footer">
@@ -300,7 +316,7 @@ ga('send', 'pageview');
             "name": "Hyeong Gyun Ko"
         },
         "headline": "시각화 기초(이미지)",
-        "image": "http://hgko1207.github.io",
+        "image": "http://hgko1207.github.io/images/ai/image/1.png",
         "keywords": "AI Python",
         "genre": "Programming AI",
         "datePublished": "2020-07-17",
@@ -310,7 +326,7 @@ ga('send', 'pageview');
         "description": "Image VisualizationLoad Packages12345import numpy as npfrom PIL import Imageimport matplotlib.pyplot as plt%matplotlib inline
 
 이미지 불러오기12345678910# Inpath = 'images/dog.jpg'image_pil = Image.open(path",
-        "wordCount": 89
+        "wordCount": 219
     }
 </script>
 
