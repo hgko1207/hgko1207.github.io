@@ -22,7 +22,7 @@
 <meta property="og:description" content="Load Packages12import numpy as npimport tensorflow as tf  Tensor 생성list -&gt; Tensor 12345# Intf.constant([1, 2, 3])# Out&lt;tf.Tensor: shape&#x3D;(3,), dtype&#x3D;int32, numpy&#x3D;array([1, 2, 3])&gt;  tuple -&gt;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-20T02:30:15.000Z">
-<meta property="article:modified_time" content="2020-07-20T02:40:54.967Z">
+<meta property="article:modified_time" content="2020-07-20T04:00:10.249Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="Tensorflow">
@@ -230,21 +230,40 @@ ga('send', 'pageview');
 <p>Array -&gt; Tensor</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In</span></span><br><span class="line">arr = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">tf.constant(arr)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">&lt;tf.Tensor: shape=(<span class="number">3</span>,), dtype=int32, numpy=array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])&gt;</span><br></pre></td></tr></table></figure>
 
-<h3 id="Tensor에-담긴-정보-확인"><a href="#Tensor에-담긴-정보-확인" class="headerlink" title="Tensor에 담긴 정보 확인"></a>Tensor에 담긴 정보 확인</h3><ul>
-<li>shape 확인</li>
-</ul>
+<h3 id="Tensor에-담긴-정보-확인"><a href="#Tensor에-담긴-정보-확인" class="headerlink" title="Tensor에 담긴 정보 확인"></a>Tensor에 담긴 정보 확인</h3><p>shape 확인</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In</span></span><br><span class="line">tensor = tf.constant(arr)</span><br><span class="line">tensor.shape</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">TensorShape([<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
 
+<p>Data Type 확인</p>
 <ul>
-<li>Data Type 확인<ul>
-<li>주의: Tensor 생성 할 때 Data Type을 정해주지 않기 때문에 혼동이 올 수 있다.</li>
+<li>주의: Tensor를 생성 할 때 Data Type을 정해주지 않기 때문에 혼동이 올 수 있다.</li>
 <li>Data Type에 따라 모델의 무게나 성능 차이에 영향을 줄 수 있다.</li>
 </ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In</span></span><br><span class="line">tensor.dtype</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">tf.int32</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Data Type 정의</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In</span></span><br><span class="line">tf.constant([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], dtype=tf.uint8)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">&lt;tf.Tensor: shape=(<span class="number">3</span>,), dtype=uint8, numpy=array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], dtype=uint8)&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Data Type 변환</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In</span></span><br><span class="line">tf.cast(tensor, dtype=tf.uint8)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">&lt;tf.Tensor: shape=(<span class="number">3</span>,), dtype=uint8, numpy=array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], dtype=uint8)&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Tensor에서 Numpy 불러오기</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In</span></span><br><span class="line">tensor.numpy()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br></pre></td></tr></table></figure>
+
+<p>Numpy로 변환된 것 확인</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In</span></span><br><span class="line">type(tensor.numpy())</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">numpy.ndarray</span><br></pre></td></tr></table></figure>
+
+<h3 id="난수-생성"><a href="#난수-생성" class="headerlink" title="난수 생성"></a>난수 생성</h3><p>Numpy에서는 난수 생성 시 기본적으로 Normal Distribution을 생성</p>
+<ul>
+<li>Normal Distribution은 중심 극한 이론에 의한 연속적인 모양</li>
+<li>Uniform Distribution은 중심 극한 이론과는 무관하며 불연속적이며 일정한 분포</li>
+</ul>
+<p>Numpy에서 사용법</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In</span></span><br><span class="line">np.random.randn(<span class="number">9</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">array([ <span class="number">0.53020669</span>,  <span class="number">0.65508422</span>, <span class="number">-0.59177912</span>,  <span class="number">1.16459962</span>, <span class="number">-1.05122869</span>,</span><br><span class="line">        <span class="number">0.08080872</span>,  <span class="number">0.17245994</span>,  <span class="number">0.08721459</span>, <span class="number">-0.69788519</span>])</span><br></pre></td></tr></table></figure>
+
+<p>TensorFlow에서 사용법</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In</span></span><br><span class="line">tf.random.normal([<span class="number">3</span>, <span class="number">3</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">&lt;tf.Tensor: shape=(<span class="number">3</span>, <span class="number">3</span>), dtype=float32, numpy=</span><br><span class="line">array([[ <span class="number">0.46394104</span>, <span class="number">-0.8973731</span> , <span class="number">-0.1977468</span> ],</span><br><span class="line">       [<span class="number">-1.6685097</span> , <span class="number">-0.8181516</span> , <span class="number">-1.8963411</span> ],</span><br><span class="line">       [ <span class="number">0.5654544</span> ,  <span class="number">0.13616897</span>, <span class="number">-1.7370273</span> ]], dtype=float32)&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In</span></span><br><span class="line">tf.random.uniform([<span class="number">3</span>, <span class="number">3</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">&lt;tf.Tensor: shape=(<span class="number">3</span>, <span class="number">3</span>), dtype=float32, numpy=</span><br><span class="line">array([[<span class="number">0.7996844</span> , <span class="number">0.05048668</span>, <span class="number">0.7060809</span> ],</span><br><span class="line">       [<span class="number">0.9390234</span> , <span class="number">0.29056323</span>, <span class="number">0.33341527</span>],</span><br><span class="line">       [<span class="number">0.4387114</span> , <span class="number">0.13688791</span>, <span class="number">0.12659645</span>]], dtype=float32)&gt;</span><br></pre></td></tr></table></figure>
 
         </div>
         <footer class="article-footer">
@@ -336,7 +355,7 @@ Tensor 생성list -&gt; Tensor
 12345# Intf.constant([1, 2, 3])# Out&lt;tf.Tensor: shape=(3,), dtype=int32, numpy=array([1, 2, 3])&gt;
 
 tuple -&gt;",
-        "wordCount": 236
+        "wordCount": 571
     }
 </script>
 
