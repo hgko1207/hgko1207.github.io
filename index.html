@@ -177,7 +177,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-07-24 17:35:22 / Modified: 18:11:01" itemprop="dateCreated datePublished" datetime="2020-07-24T17:35:22+09:00">2020-07-24</time>
+              <time title="Created: 2020-07-24 17:35:22 / Modified: 18:27:34" itemprop="dateCreated datePublished" datetime="2020-07-24T17:35:22+09:00">2020-07-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -204,46 +204,46 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Optimization-Training">Optimization &amp; Training</h2>
-<h3 id="Load-Packages">Load Packages</h3>
+          <h1 id="optimization-training"><a class="markdownIt-Anchor" href="#optimization-training"></a> Optimization &amp; Training</h1>
+<h2 id="load-packages"><a class="markdownIt-Anchor" href="#load-packages"></a> Load Packages</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras <span class="keyword">import</span> layers</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> tensorflow.keras <span class="keyword">import</span> datasets</span><br></pre></td></tr></table></figure>
-<h3 id="학슴-과정-돌아보기">학슴 과정 돌아보기</h3>
-<p><img src="/images/ai/dev/18.png" alt=""></p>
-<h3 id="Prepare-MNIST-Datset">Prepare MNIST Datset</h3>
+<h2 id="학습-과정-돌아보기"><a class="markdownIt-Anchor" href="#학습-과정-돌아보기"></a> 학습 과정 돌아보기</h2>
+<p><img src="/images/ai/dev/18.png" alt="" /></p>
+<h2 id="prepare-mnist-datset"><a class="markdownIt-Anchor" href="#prepare-mnist-datset"></a> Prepare MNIST Datset</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(train_x, train_y), (test_x, test_y) = datasets.mnist.load_data()</span><br></pre></td></tr></table></figure>
-<h3 id="Build-Model">Build Model</h3>
+<h2 id="build-model"><a class="markdownIt-Anchor" href="#build-model"></a> Build Model</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">inputs = layers.Input((<span class="number">28</span>, <span class="number">28</span>, <span class="number">1</span>))</span><br><span class="line">net = layers.Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">'SAME'</span>)(inputs)</span><br><span class="line">net = layers.Activation(<span class="string">'relu'</span>)(net)</span><br><span class="line">net = layers.Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">'SAME'</span>)(net)</span><br><span class="line">net = layers.Activation(<span class="string">'relu'</span>)(net)</span><br><span class="line">net = layers.MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(net)</span><br><span class="line">net = layers.Dropout(<span class="number">0.25</span>)(net)</span><br><span class="line"></span><br><span class="line">net = layers.Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">'SAME'</span>)(net)</span><br><span class="line">net = layers.Activation(<span class="string">'relu'</span>)(net)</span><br><span class="line">net = layers.Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">'SAME'</span>)(net)</span><br><span class="line">net = layers.Activation(<span class="string">'relu'</span>)(net)</span><br><span class="line">net = layers.MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(net)</span><br><span class="line">net = layers.Dropout(<span class="number">0.25</span>)(net)</span><br><span class="line"></span><br><span class="line">net = layers.Flatten()(net)</span><br><span class="line">net = layers.Dense(<span class="number">512</span>)(net)</span><br><span class="line">net = layers.Activation(<span class="string">'relu'</span>)(net)</span><br><span class="line">net = layers.Dropout(<span class="number">0.5</span>)(net)</span><br><span class="line">net = layers.Dense(<span class="number">10</span>)(net)  <span class="comment"># num_classes</span></span><br><span class="line">net = layers.Activation(<span class="string">'softmax'</span>)(net)</span><br><span class="line"></span><br><span class="line">model = tf.keras.Model(inputs=inputs, outputs=net, name=<span class="string">'Basic_CNN'</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="Optimization">Optimization</h3>
+<h2 id="optimization"><a class="markdownIt-Anchor" href="#optimization"></a> Optimization</h2>
 <p>모델을 학습하기 전에 설정을 한다.</p>
 <ul>
 <li>Loss Function</li>
 <li>Optimization</li>
 <li>Metrics</li>
 </ul>
-<h3 id="Loss-Function">Loss Function</h3>
-<h4 id="Categorical-vs-Binary">Categorical vs Binary</h4>
+<h2 id="loss-function"><a class="markdownIt-Anchor" href="#loss-function"></a> Loss Function</h2>
+<h3 id="categorical-vs-binary"><a class="markdownIt-Anchor" href="#categorical-vs-binary"></a> Categorical vs Binary</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">loss = <span class="string">'binary_crossentropy'</span></span><br><span class="line">loss = <span class="string">'categorical_crossentropy'</span></span><br></pre></td></tr></table></figure>
-<h4 id="sparse-categorical-crossentropy-vs-categorical-crossentropy">sparse_categorical_crossentropy vs categorical_crossentropy</h4>
+<h3 id="sparse_categorical_crossentropy-vs-categorical_crossentropy"><a class="markdownIt-Anchor" href="#sparse_categorical_crossentropy-vs-categorical_crossentropy"></a> sparse_categorical_crossentropy vs categorical_crossentropy</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">loss_fun = tf.keras.losses.sparse_categorical_crossentropy</span><br><span class="line"></span><br><span class="line"><span class="comment"># 또는</span></span><br><span class="line">tf.keras.losses.categorical_crossentropy</span><br><span class="line">tf.keras.losses.binary_crossentropy</span><br></pre></td></tr></table></figure>
-<h3 id="Metrics">Metrics</h3>
+<h2 id="metrics"><a class="markdownIt-Anchor" href="#metrics"></a> Metrics</h2>
 <p>모델을 평가하는 방법이다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># accurany를 이름으로 넣는 방법</span></span><br><span class="line">metrics = [<span class="string">'accuracy'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># tf.keras.metrics</span></span><br><span class="line">metrics = [tf.keras.metrics.Accuracy()]</span><br></pre></td></tr></table></figure>
-<h3 id="Optimizer">Optimizer</h3>
+<h2 id="optimizer"><a class="markdownIt-Anchor" href="#optimizer"></a> Optimizer</h2>
 <ul>
 <li>‘sgd’</li>
 <li>‘rmsprop’</li>
 <li>‘adam’</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">optm = tf.keras.optimizers.Adam()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">tf.keras.optimizers.SGD()</span><br><span class="line">tf.keras.optimizers.RMSprop()</span><br><span class="line">tf.keras.optimizers.Adam()</span><br></pre></td></tr></table></figure>
-<h3 id="Compile">Compile</h3>
+<h2 id="compile"><a class="markdownIt-Anchor" href="#compile"></a> Compile</h2>
 <p>Optimizer 적용을 한다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">model.compile(optimizer=tf.keras.optimizers.Adam(),</span><br><span class="line">              loss=<span class="string">'sparse_categorical_crossentropy'</span>,</span><br><span class="line">              metrics=[tf.keras.metrics.Accuracy()])</span><br></pre></td></tr></table></figure>
-<h3 id="Prepaer-Dataset">Prepaer Dataset</h3>
+<h2 id="prepaer-dataset"><a class="markdownIt-Anchor" href="#prepaer-dataset"></a> Prepaer Dataset</h2>
 <p>학습에 사용할 데이터셋을 준비한다.</p>
 <p>데이터셋 확인</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">train_x.shape, train_y.shape</span><br><span class="line">&gt; ((<span class="number">60000</span>, <span class="number">28</span>, <span class="number">28</span>), (<span class="number">60000</span>,))</span><br><span class="line"></span><br><span class="line">test_x.shape, test_y.shape</span><br><span class="line">&gt; ((<span class="number">10000</span>, <span class="number">28</span>, <span class="number">28</span>), (<span class="number">10000</span>,))</span><br></pre></td></tr></table></figure>
 <p>차원 수 늘리기</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">np.expand_dims(train_x, <span class="number">-1</span>).shape</span><br><span class="line">:arrow_forward: (<span class="number">60000</span>, <span class="number">28</span>, <span class="number">28</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">tf.expand_dims(train_x, <span class="number">-1</span>).shape</span><br><span class="line">:arrow_forward: TensorShape([<span class="number">60000</span>, <span class="number">28</span>, <span class="number">28</span>, <span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">np.expand_dims(train_x, <span class="number">-1</span>).shape</span><br><span class="line">&gt; (<span class="number">60000</span>, <span class="number">28</span>, <span class="number">28</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">tf.expand_dims(train_x, <span class="number">-1</span>).shape</span><br><span class="line">&gt; TensorShape([<span class="number">60000</span>, <span class="number">28</span>, <span class="number">28</span>, <span class="number">1</span>])</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">train_x = train_x[..., tf.newaxis]</span><br><span class="line">test_x = test_x[..., tf.newaxis]</span><br></pre></td></tr></table></figure>
 
       
