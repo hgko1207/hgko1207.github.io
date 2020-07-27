@@ -23,7 +23,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/ai/dev/18.png">
 <meta property="article:published_time" content="2020-07-24T08:35:22.000Z">
-<meta property="article:modified_time" content="2020-07-24T09:29:23.257Z">
+<meta property="article:modified_time" content="2020-07-27T05:39:07.725Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="Tensorflow">
@@ -182,12 +182,6 @@ ga('send', 'pageview');
 </div>
 
                         <div class="main-body-content">
-                            <script
-  data-ad-client="ca-pub-7581566810202853"
-  async
-  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-></script>
-
                             <script src="https://ads-partners.coupang.com/g.js"></script>
 <script>
   new PartnersCoupang.G({ id: 286251 });
@@ -261,8 +255,15 @@ ga('send', 'pageview');
 <h4 id="sparse_categorical_crossentropy-vs-categorical_crossentropy"><a class="markdownIt-Anchor" href="#sparse_categorical_crossentropy-vs-categorical_crossentropy"></a> sparse_categorical_crossentropy vs categorical_crossentropy</h4>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">loss_fun = tf.keras.losses.sparse_categorical_crossentropy</span><br><span class="line"></span><br><span class="line"><span class="comment"># 또는</span></span><br><span class="line">tf.keras.losses.categorical_crossentropy</span><br><span class="line">tf.keras.losses.binary_crossentropy</span><br></pre></td></tr></table></figure>
 <h3 id="metrics"><a class="markdownIt-Anchor" href="#metrics"></a> Metrics</h3>
-<p>모델을 평가하는 방법이다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># accurany를 이름으로 넣는 방법</span></span><br><span class="line">metrics = [<span class="string">'accuracy'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># tf.keras.metrics</span></span><br><span class="line">metrics = [tf.keras.metrics.Accuracy()]</span><br></pre></td></tr></table></figure>
+<p>모델을 평가하는 방법이다.(정확도 측정)</p>
+<ul>
+<li>Accuracy : 예측이 레이블과 일치하는 빈도를 계산</li>
+<li>BinaryAccuracy: 예측이 이진 레이블과 일치하는 빈도를 계산</li>
+<li>CategoricalAccuracy : 예측이 one-hot 레이블과 일치하는 빈도를 계산합니다.</li>
+<li>TopKCategoricalAccuracy : 상위 K 예측에서 대상이 얼마나 자주 나타되는지 계산합니다 .</li>
+<li>SparseTopKCategoricalAccuracy : 상위 K 예측에서 정수 대상이 얼마나 자주 나타하는지 계산합니다 .</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># accurany를 이름으로 넣는 방법</span></span><br><span class="line">metrics = [<span class="string">'accuracy'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># tf.keras.metrics</span></span><br><span class="line">metrics = [tf.keras.metrics.CategoricalAccuracy()]</span><br></pre></td></tr></table></figure>
 <h3 id="optimizer"><a class="markdownIt-Anchor" href="#optimizer"></a> Optimizer</h3>
 <ul>
 <li>‘sgd’</li>
@@ -272,14 +273,22 @@ ga('send', 'pageview');
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">optm = tf.keras.optimizers.Adam()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">tf.keras.optimizers.SGD()</span><br><span class="line">tf.keras.optimizers.RMSprop()</span><br><span class="line">tf.keras.optimizers.Adam()</span><br></pre></td></tr></table></figure>
 <h3 id="compile"><a class="markdownIt-Anchor" href="#compile"></a> Compile</h3>
 <p>Optimizer 적용을 한다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">model.compile(optimizer=tf.keras.optimizers.Adam(),</span><br><span class="line">              loss=<span class="string">'sparse_categorical_crossentropy'</span>,</span><br><span class="line">              metrics=[tf.keras.metrics.Accuracy()])</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">model.compile(optimizer=optm,</span><br><span class="line">              loss=loss_fun,</span><br><span class="line">              metrics=metrics)</span><br></pre></td></tr></table></figure>
 <h2 id="prepaer-dataset"><a class="markdownIt-Anchor" href="#prepaer-dataset"></a> Prepaer Dataset</h2>
 <p>학습에 사용할 데이터셋을 준비한다.</p>
 <p>데이터셋 확인</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">train_x.shape, train_y.shape</span><br><span class="line">&gt; ((<span class="number">60000</span>, <span class="number">28</span>, <span class="number">28</span>), (<span class="number">60000</span>,))</span><br><span class="line"></span><br><span class="line">test_x.shape, test_y.shape</span><br><span class="line">&gt; ((<span class="number">10000</span>, <span class="number">28</span>, <span class="number">28</span>), (<span class="number">10000</span>,))</span><br></pre></td></tr></table></figure>
 <p>차원 수 늘리기</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">np.expand_dims(train_x, <span class="number">-1</span>).shape</span><br><span class="line">&gt; (<span class="number">60000</span>, <span class="number">28</span>, <span class="number">28</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">tf.expand_dims(train_x, <span class="number">-1</span>).shape</span><br><span class="line">&gt; TensorShape([<span class="number">60000</span>, <span class="number">28</span>, <span class="number">28</span>, <span class="number">1</span>])</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">train_x = train_x[..., tf.newaxis]</span><br><span class="line">test_x = test_x[..., tf.newaxis]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 최신 버전</span></span><br><span class="line">train_x = train_x[..., tf.newaxis]</span><br><span class="line">test_x = test_x[..., tf.newaxis]</span><br></pre></td></tr></table></figure>
+<p>Rescaling</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">np.min(train_x), np.max(train_x)</span><br><span class="line">&gt; (<span class="number">0</span>, <span class="number">255</span>)</span><br><span class="line"></span><br><span class="line">train_x = train_x / <span class="number">255.</span></span><br><span class="line">test_x = test_x / <span class="number">255.</span></span><br><span class="line"></span><br><span class="line">np.min(train_x), np.max(train_x)</span><br><span class="line">&gt; (<span class="number">0.0</span>, <span class="number">1.0</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="training"><a class="markdownIt-Anchor" href="#training"></a> Training</h2>
+<p>본격적으로 학습을 한다. 학습용 Hyperparameter 설정 한다.</p>
+<p>num_epochs, batch_size</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 전체 sample 데이터를 이용하여 한 바퀴 돌며 학습하는 것을 1회 epoch이라 부른다.</span></span><br><span class="line">num_epochs = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 모델에 한번에 들어가는 데이터 수를 조절하여 메모리 사용 효율을 향상시킨다.</span></span><br><span class="line">batch_size = <span class="number">32</span></span><br></pre></td></tr></table></figure>
+<p>model.fit</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">model.fit(train_x, train_y,</span><br><span class="line">          batch_size=batch_size,</span><br><span class="line">          shuffle=<span class="literal">True</span>,</span><br><span class="line">          epochs=num_epochs)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Result</span></span><br><span class="line">Train on <span class="number">60000</span> samples</span><br><span class="line"><span class="number">60000</span>/<span class="number">60000</span> [==============================] - <span class="number">99</span>s <span class="number">2</span>ms/sample - loss: <span class="number">0.1414</span> - categorical_accuracy: <span class="number">0.0992</span></span><br></pre></td></tr></table></figure>
 
         </div>
         <script src="https://ads-partners.coupang.com/g.js"></script>
@@ -368,7 +377,7 @@ ga('send', 'pageview');
         "genre": "Programming AI",
         "datePublished": "2020-07-24",
         "dateCreated": "2020-07-24",
-        "dateModified": "2020-07-24",
+        "dateModified": "2020-07-27",
         "url": "http://hgko1207.github.io/2020/07/24/ai-dev-5/",
         "description": " Optimization &amp; Training
  Load Packages
@@ -377,7 +386,7 @@ ga('send', 'pageview');
 
  Prepare MNIST Datset
 1(train_x, train_y), ",
-        "wordCount": 476
+        "wordCount": 690
     }
 </script>
 
