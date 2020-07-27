@@ -236,6 +236,11 @@ ga('send', 'pageview');
 <h3 id="파일-확장자-바꾸기"><a href="#파일-확장자-바꾸기" class="headerlink" title="파일 확장자 바꾸기"></a>파일 확장자 바꾸기</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">namespace</span> <span class="keyword">using</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span> filePath = <span class="string">"c:\\test\\test.tif"</span>;</span><br><span class="line"><span class="built_in">string</span> modExt = <span class="string">"ntf"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> ext = filePath.rfind(<span class="string">"tif"</span>);</span><br><span class="line"><span class="keyword">int</span> name = filePath.rfind(<span class="string">"\\"</span>) + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span> dstPath = filePath.substr(<span class="number">0</span>, name);</span><br><span class="line">dstPath += filePath.substr(name, ext - name);</span><br><span class="line">dstPath += modExt;</span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"Input Path : "</span> &lt;&lt; filePath &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"Output Path : "</span> &lt;&lt; dstPath &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 결과</span></span><br><span class="line">Input Path : c:\\test\\test.tif</span><br><span class="line">Output Path : c:\\test\\test.ntf</span><br></pre></td></tr></table></figure>
 
         </div>
+        <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  new PartnersCoupang.G({ id: 286226 });
+</script>
+
         <footer class="article-footer">
             
 
@@ -500,6 +505,11 @@ File Path와 File Name 분리1234567891011121314#include &lt;iostream&gt;namespa
             
         
     </div>
+    <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  new PartnersCoupang.G({ id: 286226 });
+</script>
+
 </aside>
 
                 </div>
