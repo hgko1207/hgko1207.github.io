@@ -6,7 +6,7 @@
     
 
     
-    <title>JPA Annotation 정리 | 규니의 블로그</title>
+    <title>[JPA] Annotation 정리 | 규니의 블로그</title>
     
       <meta name="msvalidate.01" content="[object Object]" />
     
@@ -14,15 +14,15 @@
     
     <meta name="keywords" content="Web,Spring Framework,Database,Jpa,Hibernate,Annotation" />
     
-    <meta name="description" content="JPA(Hibernate) Annotation 정리JPA로 개발하면서 자주 사용하는 어노테이션을 정리하였습니다. @Entity해당 클래스가 엔티티임을 알리기 위해 사용합니다. 애플리케이션이 실행이 될 때 엔티티 자동검색을 통하여 이 어노테이션이 선언 된 클래스들은 엔티티 빈으로 등록합니다. @Table데이터의 저장소, 테이블을 의미합니다. name 값은 실">
+    <meta name="description" content="JPA(Hibernate) Annotation 정리 JPA로 개발하면서 자주 사용하는 어노테이션을 정리하였습니다. @Entity 해당 클래스가 엔티티임을 알리기 위해 사용합니다. 애플리케이션이 실행이 될 때 엔티티 자동검색을 통하여 이 어노테이션이 선언 된 클래스들은 엔티티 빈으로 등록합니다. @Table 데이터의 저장소, 테이블을 의미합니다. name 값">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JPA Annotation 정리">
+<meta property="og:title" content="[JPA] Annotation 정리">
 <meta property="og:url" content="http://hgko1207.github.io/2019/01/07/jpa-annotation/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="JPA(Hibernate) Annotation 정리JPA로 개발하면서 자주 사용하는 어노테이션을 정리하였습니다. @Entity해당 클래스가 엔티티임을 알리기 위해 사용합니다. 애플리케이션이 실행이 될 때 엔티티 자동검색을 통하여 이 어노테이션이 선언 된 클래스들은 엔티티 빈으로 등록합니다. @Table데이터의 저장소, 테이블을 의미합니다. name 값은 실">
+<meta property="og:description" content="JPA(Hibernate) Annotation 정리 JPA로 개발하면서 자주 사용하는 어노테이션을 정리하였습니다. @Entity 해당 클래스가 엔티티임을 알리기 위해 사용합니다. 애플리케이션이 실행이 될 때 엔티티 자동검색을 통하여 이 어노테이션이 선언 된 클래스들은 엔티티 빈으로 등록합니다. @Table 데이터의 저장소, 테이블을 의미합니다. name 값">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-01-07T05:15:34.000Z">
-<meta property="article:modified_time" content="2020-06-29T05:48:27.602Z">
+<meta property="article:modified_time" content="2020-07-29T04:35:00.348Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="Web">
 <meta property="article:tag" content="Spring Framework">
@@ -200,7 +200,7 @@ ga('send', 'pageview');
                 
     
         <h1 class="article-title" itemprop="name">
-        JPA Annotation 정리
+        [JPA] Annotation 정리
         </h1>
     
 
@@ -239,45 +239,71 @@ ga('send', 'pageview');
 
             
 
-            <h3 id="JPA-Hibernate-Annotation-정리"><a href="#JPA-Hibernate-Annotation-정리" class="headerlink" title="JPA(Hibernate) Annotation 정리"></a>JPA(Hibernate) Annotation 정리</h3><p>JPA로 개발하면서 자주 사용하는 어노테이션을 정리하였습니다.</p>
-<p><strong>@Entity</strong><br>해당 클래스가 엔티티임을 알리기 위해 사용합니다. 애플리케이션이 실행이 될 때 엔티티 자동검색을 통하여 이 어노테이션이 선언 된 클래스들은 엔티티 빈으로 등록합니다.</p>
-<p><strong>@Table</strong><br>데이터의 저장소, 테이블을 의미합니다. name 값은 실제 데이터베이스의 테이블 명을 의미하며, 생략이 가능합니다. 어노테이션을 생략하면 클래스의 이름을 테이블의 이름으로 자동 인식하게 됩니다.</p>
-<p><strong>@Id</strong><br>엔티티빈의 기본키를 의미합니다. 이 어노테이션은 하나의 엔티티에는 반드시 하나가 존재해야 합니다. 복수키도 설정할 수 있습니다.</p>
-<p><strong>@GeneratedValue</strong><br>데이터베이스에 의해 자동으로 생성된 값이라는 의미입니다. 즉, 프로그램 상에서 조작된 데이터가 아닌, 실제 데이터베이스에 데이터가 영속(저장)될 때 생성되는 값입니다. 몇 가지 생성전략이 존재합니다.</p>
+            <h3 id="JPA-Hibernate-Annotation-정리">JPA(Hibernate) Annotation 정리</h3>
+<p>JPA로 개발하면서 자주 사용하는 어노테이션을 정리하였습니다.</p>
+<p><strong>@Entity</strong><br>
+해당 클래스가 엔티티임을 알리기 위해 사용합니다. 애플리케이션이 실행이 될 때 엔티티 자동검색을 통하여 이 어노테이션이 선언 된 클래스들은 엔티티 빈으로 등록합니다.</p>
+<p><strong>@Table</strong><br>
+데이터의 저장소, 테이블을 의미합니다. name 값은 실제 데이터베이스의 테이블 명을 의미하며, 생략이 가능합니다. 어노테이션을 생략하면 클래스의 이름을 테이블의 이름으로 자동 인식하게 됩니다.</p>
+<p><strong>@Id</strong><br>
+엔티티빈의 기본키를 의미합니다. 이 어노테이션은 하나의 엔티티에는 반드시 하나가 존재해야 합니다. 복수키도 설정할 수 있습니다.</p>
+<p><strong>@GeneratedValue</strong><br>
+데이터베이스에 의해 자동으로 생성된 값이라는 의미입니다. 즉, 프로그램 상에서 조작된 데이터가 아닌, 실제 데이터베이스에 데이터가 영속(저장)될 때 생성되는 값입니다. 몇 가지 생성전략이 존재합니다.</p>
 <ul>
 <li>IDENTITY : 기본 키 생성을 데이터베이스가 함</li>
 <li>SEQUENCE : 데이터베이스 시퀀스를 사용해서 기본 키 할당</li>
 <li>TABLE : 키 생성 테이블 생성</li>
 </ul>
-<p><strong>@Column</strong><br>필드와 테이블의 컬럼을 매핑시켜줍니다. 이 어노테이션은 생략이 가능하며, 생략 시 필드의 이름이 테이블의 컬럼으로 자동으로 매핑이 됩니다.</p>
+<p><strong>@Column</strong><br>
+필드와 테이블의 컬럼을 매핑시켜줍니다. 이 어노테이션은 생략이 가능하며, 생략 시 필드의 이름이 테이블의 컬럼으로 자동으로 매핑이 됩니다.</p>
 <ol>
-<li><p>name속성(String)<br>필드와 매핑 될 컬럼의 이름을 명시합니다.</p>
+<li>
+<p>name속성(String)<br>
+필드와 매핑 될 컬럼의 이름을 명시합니다.</p>
 </li>
-<li><p>nullable속성(boolean)<br>해당 컬럼이 null값을 허용하는가 하지않는가의 여부입니다.</p>
+<li>
+<p>nullable속성(boolean)<br>
+해당 컬럼이 null값을 허용하는가 하지않는가의 여부입니다.</p>
 </li>
-<li><p>length속성(int)<br>컬럼의 길이값을 의미합니다.</p>
+<li>
+<p>length속성(int)<br>
+컬럼의 길이값을 의미합니다.</p>
 </li>
-<li><p>unique속성(boolean)<br>컬럼이 유일한 값을 가져야 하는가 아닌가의 여부입니다.</p>
+<li>
+<p>unique속성(boolean)<br>
+컬럼이 유일한 값을 가져야 하는가 아닌가의 여부입니다.</p>
 </li>
-<li><p>insertable속성(boolean)<br>엔티티가 영속될 때 insert에 참여할지 말지를 결정합니다. 기본값은 true</p>
+<li>
+<p>insertable속성(boolean)<br>
+엔티티가 영속될 때 insert에 참여할지 말지를 결정합니다. 기본값은 true</p>
 </li>
-<li><p>updatable속성(boolean)<br>변경된 필드의 값을 테이블에도 반영할지를 결정합니다. 기본값은 true</p>
+<li>
+<p>updatable속성(boolean)<br>
+변경된 필드의 값을 테이블에도 반영할지를 결정합니다. 기본값은 true</p>
 </li>
 </ol>
 <p>name속성을 제외한 나머지 속성은 잘 사용되지 않을 것 이라고 생각됩니다. nullable, length, unique는 DDL과 관련된 속성이고, insertable, updatable은 원래 잘 사용되지 않는 속성이기 때문입니다.</p>
-<p><strong>@Temporal</strong><br>java.util.Date와 java.util.Calendar 값을 매핑 할 때 사용합니다.</p>
+<p><strong>@Temporal</strong><br>
+java.util.Date와 java.util.Calendar 값을 매핑 할 때 사용합니다.</p>
 <ul>
 <li>TemporalType.Date : 년-월-일 의 date 타입 (2019-01-04)</li>
 <li>TemporalType.Time : 시:분:초 의 time 타입 (12:11:11)</li>
 <li>TemporalType.TIMESTAMP : date + time 의 timestamp(datetime) 타입 (2019-01-04 12:11:11)</li>
 <li>어노테이션을 사용하지 않을 경우 기본값은 timestamp 입니다. JPA 데이터베이스 방언에 의해, 데이터베이스의 타입에 따른 timestamp 또는 datetime은 자동으로 작성됩니다.</li>
 </ul>
-<p><strong>@ColumnPosition(1)</strong><br>컬럼 순서 정합니다.</p>
-<p><strong>@Enumerated</strong><br>자바의 enum 타입을 매핑할 때 사용합니다. 속성으로 EnumType.ORDINAL과 EnumType.STRING이 존재하는데 이름 그대로 ORDINAL은 순서를 STRING은 Enum의 이름을 저장합니다.</p>
-<p><strong>@LOB</strong><br>데이터베이스 BLOB, CLOB 타입과 매핑됩니다. CLOB(String, char[], java.sql.CLOB)은 문자, BLOB(byte[], java.sql.BLOB)은 나머지가 매핑됩니다.</p>
-<p><strong>@Transient</strong><br>저장 조회에 사용되지도 않고 그냥 단순 값을 가지고 있고 싶을 때 사용합니다.</p>
-<p><strong>@Access</strong><br>데이터베이스에 엔티티에 값이 저장될 때 필드(AccessType.FIELD)의 값을 직접 접근해서 사용할 것인가 아니면 메서드에 직접(AccessType.PROPERTY) 접근할 것 인가를 설정하는 것 입니다.</p>
-<p><strong>@MappedSuperClass</strong><br>어노테이션을 사용하면 부모 엔티티 접근 없이 부모 클래스의 매핑정보를 사용할 수 있습니다.<br>부모의 내용을 별도로 재정의해서 사용하고 싶은 경우에는 @AttributeOverride를 사용하여 재정의 합니다. 여러 개를 한번에 정의하기 위해서는 @AttributeOverrides를 사용합니다.</p>
+<p><strong>@ColumnPosition(1)</strong><br>
+컬럼 순서 정합니다.</p>
+<p><strong>@Enumerated</strong><br>
+자바의 enum 타입을 매핑할 때 사용합니다. 속성으로 EnumType.ORDINAL과 EnumType.STRING이 존재하는데 이름 그대로 ORDINAL은 순서를 STRING은 Enum의 이름을 저장합니다.</p>
+<p><strong>@LOB</strong><br>
+데이터베이스 BLOB, CLOB 타입과 매핑됩니다. CLOB(String, char[], java.sql.CLOB)은 문자, BLOB(byte[], java.sql.BLOB)은 나머지가 매핑됩니다.</p>
+<p><strong>@Transient</strong><br>
+저장 조회에 사용되지도 않고 그냥 단순 값을 가지고 있고 싶을 때 사용합니다.</p>
+<p><strong>@Access</strong><br>
+데이터베이스에 엔티티에 값이 저장될 때 필드(AccessType.FIELD)의 값을 직접 접근해서 사용할 것인가 아니면 메서드에 직접(AccessType.PROPERTY) 접근할 것 인가를 설정하는 것 입니다.</p>
+<p><strong>@MappedSuperClass</strong><br>
+어노테이션을 사용하면 부모 엔티티 접근 없이 부모 클래스의 매핑정보를 사용할 수 있습니다.<br>
+부모의 내용을 별도로 재정의해서 사용하고 싶은 경우에는 @AttributeOverride를 사용하여 재정의 합니다. 여러 개를 한번에 정의하기 위해서는 @AttributeOverrides를 사용합니다.</p>
 
         </div>
         <script src="https://ads-partners.coupang.com/g.js"></script>
@@ -290,7 +316,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="http://hgko1207.github.io/2019/01/07/jpa-annotation/" data-id="ckc04m6dd0041tkuqarcclalf" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://hgko1207.github.io/2019/01/07/jpa-annotation/" data-id="ckd6vl9eo003vb8uq2ozh13c4" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -360,18 +386,21 @@ ga('send', 'pageview');
             "@type": "Person",
             "name": "Hyeong Gyun Ko"
         },
-        "headline": "JPA Annotation 정리",
+        "headline": "[JPA] Annotation 정리",
         "image": "http://hgko1207.github.io",
         "keywords": "Web Spring Framework Database Jpa Hibernate Annotation",
         "genre": "Programming Spring Framework",
         "datePublished": "2019-01-07",
         "dateCreated": "2019-01-07",
-        "dateModified": "2020-06-29",
+        "dateModified": "2020-07-29",
         "url": "http://hgko1207.github.io/2019/01/07/jpa-annotation/",
-        "description": "JPA(Hibernate) Annotation 정리JPA로 개발하면서 자주 사용하는 어노테이션을 정리하였습니다.
-@Entity해당 클래스가 엔티티임을 알리기 위해 사용합니다. 애플리케이션이 실행이 될 때 엔티티 자동검색을 통하여 이 어노테이션이 선언 된 클래스들은 엔티티 빈으로 등록합니다.
-@Table데이터의 저장소, 테이블을 의미합니다. name 값은 실",
-        "wordCount": 315
+        "description": "JPA(Hibernate) Annotation 정리
+JPA로 개발하면서 자주 사용하는 어노테이션을 정리하였습니다.
+@Entity
+해당 클래스가 엔티티임을 알리기 위해 사용합니다. 애플리케이션이 실행이 될 때 엔티티 자동검색을 통하여 이 어노테이션이 선언 된 클래스들은 엔티티 빈으로 등록합니다.
+@Table
+데이터의 저장소, 테이블을 의미합니다. name 값",
+        "wordCount": 310
     }
 </script>
 
@@ -526,7 +555,7 @@ ga('send', 'pageview');
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/3D/" style="font-size: 11.11px;">3D</a> <a href="/tags/AI/" style="font-size: 18.89px;">AI</a> <a href="/tags/AOP/" style="font-size: 10px;">AOP</a> <a href="/tags/Accuracy/" style="font-size: 10px;">Accuracy</a> <a href="/tags/Address/" style="font-size: 10px;">Address</a> <a href="/tags/Android/" style="font-size: 13.33px;">Android</a> <a href="/tags/Android-Studio/" style="font-size: 11.11px;">Android Studio</a> <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Angular-%EA%B0%95%EC%A2%8C/" style="font-size: 10px;">Angular 강좌</a> <a href="/tags/AngularJS/" style="font-size: 10px;">AngularJS</a> <a href="/tags/Annotation/" style="font-size: 10px;">Annotation</a> <a href="/tags/BLOB/" style="font-size: 10px;">BLOB</a> <a href="/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/tags/C/" style="font-size: 12.22px;">C#</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/CSM/" style="font-size: 10px;">CSM</a> <a href="/tags/Cesium/" style="font-size: 11.11px;">Cesium</a> <a href="/tags/CesiumJS/" style="font-size: 11.11px;">CesiumJS</a> <a href="/tags/Chart/" style="font-size: 10px;">Chart</a> <a href="/tags/Circular-Error/" style="font-size: 10px;">Circular Error</a> <a href="/tags/Clean-Code/" style="font-size: 10px;">Clean Code</a> <a href="/tags/Clone/" style="font-size: 10px;">Clone</a> <a href="/tags/Coordinate-System/" style="font-size: 11.11px;">Coordinate System</a> <a href="/tags/DEM/" style="font-size: 10px;">DEM</a> <a href="/tags/DNS/" style="font-size: 10px;">DNS</a> <a href="/tags/DPPDB/" style="font-size: 10px;">DPPDB</a> <a href="/tags/Dashboard-Template/" style="font-size: 10px;">Dashboard Template</a> <a href="/tags/Database/" style="font-size: 11.11px;">Database</a> <a href="/tags/Daum/" style="font-size: 10px;">Daum</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/Developer/" style="font-size: 10px;">Developer</a> <a href="/tags/Download/" style="font-size: 10px;">Download</a> <a href="/tags/EGit/" style="font-size: 10px;">EGit</a> <a href="/tags/EPSG/" style="font-size: 10px;">EPSG</a> <a href="/tags/ES6/" style="font-size: 11.11px;">ES6</a> <a href="/tags/Eclipse/" style="font-size: 11.11px;">Eclipse</a> <a href="/tags/Expo/" style="font-size: 10px;">Expo</a> <a href="/tags/Expo-Cli/" style="font-size: 10px;">Expo Cli</a> <a href="/tags/Gdal/" style="font-size: 10px;">Gdal</a> <a href="/tags/Geocoder/" style="font-size: 10px;">Geocoder</a> <a href="/tags/Git/" style="font-size: 12.22px;">Git</a> <a href="/tags/GitHub/" style="font-size: 12.22px;">GitHub</a> <a href="/tags/Graph/" style="font-size: 10px;">Graph</a> <a href="/tags/Growth/" style="font-size: 10px;">Growth</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 11.11px;">Hexo</a> <a href="/tags/Hibernate/" style="font-size: 10px;">Hibernate</a> <a href="/tags/Hypen/" style="font-size: 10px;">Hypen</a> <a href="/tags/Hyperspectral/" style="font-size: 10px;">Hyperspectral</a> <a href="/tags/IR/" style="font-size: 10px;">IR</a> <a href="/tags/IT/" style="font-size: 10px;">IT</a> <a href="/tags/Infrared/" style="font-size: 10px;">Infrared</a> <a href="/tags/JPA/" style="font-size: 10px;">JPA</a> <a href="/tags/Java/" style="font-size: 14.44px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jpa/" style="font-size: 10px;">Jpa</a> <a href="/tags/Library/" style="font-size: 10px;">Library</a> <a href="/tags/Linear-Error/" style="font-size: 10px;">Linear Error</a> <a href="/tags/Live-Reload/" style="font-size: 10px;">Live Reload</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/Map/" style="font-size: 11.11px;">Map</a> <a href="/tags/Metronic/" style="font-size: 10px;">Metronic</a> <a href="/tags/Microwave/" style="font-size: 10px;">Microwave</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/NITF/" style="font-size: 10px;">NITF</a> <a href="/tags/Node-js/" style="font-size: 12.22px;">Node.js</a> <a href="/tags/Numpy/" style="font-size: 12.22px;">Numpy</a> <a href="/tags/Openlayers/" style="font-size: 10px;">Openlayers</a> <a href="/tags/PROJ-4/" style="font-size: 10px;">PROJ.4</a> <a href="/tags/Plugin/" style="font-size: 10px;">Plugin</a> <a href="/tags/Postcode/" style="font-size: 10px;">Postcode</a> <a href="/tags/Prism/" style="font-size: 10px;">Prism</a> <a href="/tags/Program/" style="font-size: 10px;">Program</a> <a href="/tags/Python/" style="font-size: 14.44px;">Python</a> <a href="/tags/Pytorch/" style="font-size: 10px;">Pytorch</a> <a href="/tags/Query/" style="font-size: 10px;">Query</a> <a href="/tags/RCP/" style="font-size: 11.11px;">RCP</a> <a href="/tags/React/" style="font-size: 16.67px;">React</a> <a href="/tags/React-Native/" style="font-size: 11.11px;">React Native</a> <a href="/tags/React-UI/" style="font-size: 10px;">React UI</a> <a href="/tags/Refactoring/" style="font-size: 10px;">Refactoring</a> <a href="/tags/Repository/" style="font-size: 11.11px;">Repository</a> <a href="/tags/SAR/" style="font-size: 10px;">SAR</a> <a href="/tags/SAR-%EC%9C%84%EC%84%B1/" style="font-size: 10px;">SAR 위성</a> <a href="/tags/Satellite/" style="font-size: 17.78px;">Satellite</a> <a href="/tags/Sensor/" style="font-size: 11.11px;">Sensor</a> <a href="/tags/SensorModel/" style="font-size: 10px;">SensorModel</a> <a href="/tags/Server/" style="font-size: 10px;">Server</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/Spring-Framework/" style="font-size: 11.11px;">Spring Framework</a> <a href="/tags/Study/" style="font-size: 11.11px;">Study</a> <a href="/tags/Tel/" style="font-size: 10px;">Tel</a> <a href="/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/tags/Tensorflow/" style="font-size: 15.56px;">Tensorflow</a> <a href="/tags/UI-Library/" style="font-size: 10px;">UI Library</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/WFP/" style="font-size: 10px;">WFP</a> <a href="/tags/WPF/" style="font-size: 10px;">WPF</a> <a href="/tags/Web/" style="font-size: 15.56px;">Web</a> <a href="/tags/Web-Design/" style="font-size: 10px;">Web Design</a> <a href="/tags/co-kr/" style="font-size: 10px;">co.kr</a> <a href="/tags/com/" style="font-size: 10px;">com</a> <a href="/tags/domain/" style="font-size: 10px;">domain</a> <a href="/tags/gitignore/" style="font-size: 10px;">gitignore</a> <a href="/tags/input/" style="font-size: 10px;">input</a> <a href="/tags/kakao/" style="font-size: 10px;">kakao</a> <a href="/tags/lombok/" style="font-size: 10px;">lombok</a> <a href="/tags/net/" style="font-size: 10px;">net</a> <a href="/tags/%EA%B4%91%ED%95%99-%EC%9C%84%EC%84%B1/" style="font-size: 10px;">광학 위성</a> <a href="/tags/%EB%A6%AC%EC%95%A1%ED%8A%B8/" style="font-size: 12.22px;">리액트</a> <a href="/tags/%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81/" style="font-size: 10px;">리팩토링</a> <a href="/tags/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C/" style="font-size: 11.11px;">안드로이드</a> <a href="/tags/%EC%9A%B0%ED%8E%B8%EB%B2%88%ED%98%B8-%EC%84%9C%EB%B9%84%EC%8A%A4/" style="font-size: 10px;">우편번호 서비스</a> <a href="/tags/%EC%A0%81%EC%99%B8%EC%84%A0-%EC%84%BC%EC%84%9C/" style="font-size: 10px;">적외선 센서</a> <a href="/tags/%EC%A7%84-%EC%A0%95%EC%82%AC%EC%98%81%EC%83%81/" style="font-size: 10px;">진 정사영상</a>
+            <a href="/tags/3D/" style="font-size: 11.11px;">3D</a> <a href="/tags/AI/" style="font-size: 18.89px;">AI</a> <a href="/tags/AOP/" style="font-size: 10px;">AOP</a> <a href="/tags/Accuracy/" style="font-size: 10px;">Accuracy</a> <a href="/tags/Address/" style="font-size: 10px;">Address</a> <a href="/tags/Android/" style="font-size: 13.33px;">Android</a> <a href="/tags/Android-Studio/" style="font-size: 11.11px;">Android Studio</a> <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Angular-%EA%B0%95%EC%A2%8C/" style="font-size: 10px;">Angular 강좌</a> <a href="/tags/AngularJS/" style="font-size: 10px;">AngularJS</a> <a href="/tags/Annotation/" style="font-size: 10px;">Annotation</a> <a href="/tags/BLOB/" style="font-size: 10px;">BLOB</a> <a href="/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/tags/C/" style="font-size: 12.22px;">C#</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/CSM/" style="font-size: 10px;">CSM</a> <a href="/tags/Cesium/" style="font-size: 10px;">Cesium</a> <a href="/tags/CesiumJS/" style="font-size: 11.11px;">CesiumJS</a> <a href="/tags/Chart/" style="font-size: 10px;">Chart</a> <a href="/tags/Circular-Error/" style="font-size: 10px;">Circular Error</a> <a href="/tags/Clean-Code/" style="font-size: 10px;">Clean Code</a> <a href="/tags/Clone/" style="font-size: 10px;">Clone</a> <a href="/tags/Coordinate-System/" style="font-size: 11.11px;">Coordinate System</a> <a href="/tags/DEM/" style="font-size: 10px;">DEM</a> <a href="/tags/DNS/" style="font-size: 10px;">DNS</a> <a href="/tags/DPPDB/" style="font-size: 10px;">DPPDB</a> <a href="/tags/Dashboard-Template/" style="font-size: 10px;">Dashboard Template</a> <a href="/tags/Database/" style="font-size: 11.11px;">Database</a> <a href="/tags/Daum/" style="font-size: 10px;">Daum</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/Developer/" style="font-size: 10px;">Developer</a> <a href="/tags/Download/" style="font-size: 10px;">Download</a> <a href="/tags/EGit/" style="font-size: 10px;">EGit</a> <a href="/tags/EPSG/" style="font-size: 10px;">EPSG</a> <a href="/tags/ES6/" style="font-size: 11.11px;">ES6</a> <a href="/tags/Eclipse/" style="font-size: 11.11px;">Eclipse</a> <a href="/tags/Expo/" style="font-size: 10px;">Expo</a> <a href="/tags/Expo-Cli/" style="font-size: 10px;">Expo Cli</a> <a href="/tags/Gdal/" style="font-size: 10px;">Gdal</a> <a href="/tags/Geocoder/" style="font-size: 10px;">Geocoder</a> <a href="/tags/Git/" style="font-size: 12.22px;">Git</a> <a href="/tags/GitHub/" style="font-size: 12.22px;">GitHub</a> <a href="/tags/Graph/" style="font-size: 10px;">Graph</a> <a href="/tags/Growth/" style="font-size: 10px;">Growth</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 11.11px;">Hexo</a> <a href="/tags/Hibernate/" style="font-size: 10px;">Hibernate</a> <a href="/tags/Hypen/" style="font-size: 10px;">Hypen</a> <a href="/tags/Hyperspectral/" style="font-size: 10px;">Hyperspectral</a> <a href="/tags/IR/" style="font-size: 10px;">IR</a> <a href="/tags/IT/" style="font-size: 10px;">IT</a> <a href="/tags/Infrared/" style="font-size: 10px;">Infrared</a> <a href="/tags/JPA/" style="font-size: 10px;">JPA</a> <a href="/tags/Java/" style="font-size: 14.44px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jpa/" style="font-size: 10px;">Jpa</a> <a href="/tags/Library/" style="font-size: 10px;">Library</a> <a href="/tags/Linear-Error/" style="font-size: 10px;">Linear Error</a> <a href="/tags/Live-Reload/" style="font-size: 10px;">Live Reload</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/Map/" style="font-size: 12.22px;">Map</a> <a href="/tags/Metronic/" style="font-size: 10px;">Metronic</a> <a href="/tags/Microwave/" style="font-size: 10px;">Microwave</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/NITF/" style="font-size: 10px;">NITF</a> <a href="/tags/Node-js/" style="font-size: 12.22px;">Node.js</a> <a href="/tags/Numpy/" style="font-size: 12.22px;">Numpy</a> <a href="/tags/Openlayers/" style="font-size: 10px;">Openlayers</a> <a href="/tags/PROJ-4/" style="font-size: 10px;">PROJ.4</a> <a href="/tags/Plugin/" style="font-size: 10px;">Plugin</a> <a href="/tags/Postcode/" style="font-size: 10px;">Postcode</a> <a href="/tags/Prism/" style="font-size: 10px;">Prism</a> <a href="/tags/Program/" style="font-size: 10px;">Program</a> <a href="/tags/Python/" style="font-size: 14.44px;">Python</a> <a href="/tags/Pytorch/" style="font-size: 10px;">Pytorch</a> <a href="/tags/Query/" style="font-size: 10px;">Query</a> <a href="/tags/RCP/" style="font-size: 11.11px;">RCP</a> <a href="/tags/React/" style="font-size: 16.67px;">React</a> <a href="/tags/React-Native/" style="font-size: 11.11px;">React Native</a> <a href="/tags/React-UI/" style="font-size: 10px;">React UI</a> <a href="/tags/Refactoring/" style="font-size: 10px;">Refactoring</a> <a href="/tags/Repository/" style="font-size: 11.11px;">Repository</a> <a href="/tags/SAR/" style="font-size: 10px;">SAR</a> <a href="/tags/SAR-%EC%9C%84%EC%84%B1/" style="font-size: 10px;">SAR 위성</a> <a href="/tags/Satellite/" style="font-size: 17.78px;">Satellite</a> <a href="/tags/Sensor/" style="font-size: 11.11px;">Sensor</a> <a href="/tags/SensorModel/" style="font-size: 10px;">SensorModel</a> <a href="/tags/Server/" style="font-size: 10px;">Server</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/Spring-Framework/" style="font-size: 11.11px;">Spring Framework</a> <a href="/tags/Study/" style="font-size: 11.11px;">Study</a> <a href="/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/tags/Tensorflow/" style="font-size: 15.56px;">Tensorflow</a> <a href="/tags/UI-Library/" style="font-size: 10px;">UI Library</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/WFP/" style="font-size: 10px;">WFP</a> <a href="/tags/WPF/" style="font-size: 10px;">WPF</a> <a href="/tags/Web/" style="font-size: 15.56px;">Web</a> <a href="/tags/Web-Design/" style="font-size: 10px;">Web Design</a> <a href="/tags/co-kr/" style="font-size: 10px;">co.kr</a> <a href="/tags/com/" style="font-size: 10px;">com</a> <a href="/tags/domain/" style="font-size: 10px;">domain</a> <a href="/tags/gitignore/" style="font-size: 10px;">gitignore</a> <a href="/tags/input/" style="font-size: 10px;">input</a> <a href="/tags/kakao/" style="font-size: 10px;">kakao</a> <a href="/tags/lombok/" style="font-size: 10px;">lombok</a> <a href="/tags/net/" style="font-size: 10px;">net</a> <a href="/tags/%EA%B4%91%ED%95%99-%EC%9C%84%EC%84%B1/" style="font-size: 10px;">광학 위성</a> <a href="/tags/%EB%A6%AC%EC%95%A1%ED%8A%B8/" style="font-size: 12.22px;">리액트</a> <a href="/tags/%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81/" style="font-size: 10px;">리팩토링</a> <a href="/tags/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C/" style="font-size: 11.11px;">안드로이드</a> <a href="/tags/%EC%9A%B0%ED%8E%B8%EB%B2%88%ED%98%B8-%EC%84%9C%EB%B9%84%EC%8A%A4/" style="font-size: 10px;">우편번호 서비스</a> <a href="/tags/%EC%A0%81%EC%99%B8%EC%84%A0-%EC%84%BC%EC%84%9C/" style="font-size: 10px;">적외선 센서</a> <a href="/tags/%EC%A7%84-%EC%A0%95%EC%82%AC%EC%98%81%EC%83%81/" style="font-size: 10px;">진 정사영상</a>
         </div>
     </div>
 

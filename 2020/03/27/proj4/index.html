@@ -12,7 +12,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="Satellite,PROJ.4,Coordinate System,EPSG" />
+    <meta name="keywords" content="Satellite,Coordinate System,PROJ.4,EPSG" />
     
     <meta name="description" content="​다양한 좌표계 변환을 제공하는 라이브러리 자유롭게 인자를 지정하여 표준이 아닌 좌표계 간도 변환 가능 USGS의 Gerald Evenden에 의해 만들어진 오픈소스 라이브러리 현재 OSGeo 프로젝트 중 하나이며 MIT 라이센스 GeoServer, OpenLayers, PostGIS, QGIS, GDAL, OGR, GeoTools 등 엄청나게 많은 프로">
 <meta property="og:type" content="article">
@@ -25,8 +25,8 @@
 <meta property="article:modified_time" content="2020-06-29T05:48:27.588Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="Satellite">
-<meta property="article:tag" content="PROJ.4">
 <meta property="article:tag" content="Coordinate System">
+<meta property="article:tag" content="PROJ.4">
 <meta property="article:tag" content="EPSG">
 <meta name="twitter:card" content="summary">
     
@@ -245,33 +245,39 @@ ga('send', 'pageview');
 <li>GeoServer, OpenLayers, PostGIS, QGIS, GDAL, OGR, GeoTools 등 엄청나게 많은 프로그램에서 사용 중</li>
 <li>C, C++, JAVA, Javascript 등 다양한 언어로 포팅 되어 있음​</li>
 </ul>
-<h2 id="경위도-좌표계-WGS84"><a href="#경위도-좌표계-WGS84" class="headerlink" title="경위도 좌표계(WGS84)"></a>경위도 좌표계(WGS84)</h2><ul>
+<h2 id="경위도-좌표계wgs84"><a class="markdownIt-Anchor" href="#경위도-좌표계wgs84"></a> 경위도 좌표계(WGS84)</h2>
+<ul>
 <li>GPS가 사용하는 좌표계</li>
 <li>EPSG:4326</li>
 <li>+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs</li>
 <li><a href="https://epsg.io/4326" target="_blank" rel="noopener">https://epsg.io/4326</a></li>
 </ul>
-<h2 id="구글-좌표계-Mercator"><a href="#구글-좌표계-Mercator" class="headerlink" title="구글 좌표계(Mercator)"></a>구글 좌표계(Mercator)</h2><ul>
+<h2 id="구글-좌표계mercator"><a class="markdownIt-Anchor" href="#구글-좌표계mercator"></a> 구글 좌표계(Mercator)</h2>
+<ul>
 <li>EPSG:3857, EPSG:900913</li>
 <li>+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs</li>
 <li><a href="https://epsg.io/3857" target="_blank" rel="noopener">https://epsg.io/3857</a></li>
 </ul>
-<h2 id="TM-Transverse-Mercator"><a href="#TM-Transverse-Mercator" class="headerlink" title="TM(Transverse Mercator)"></a>TM(Transverse Mercator)</h2><ul>
+<h2 id="tmtransverse-mercator"><a class="markdownIt-Anchor" href="#tmtransverse-mercator"></a> TM(Transverse Mercator)</h2>
+<ul>
 <li>국토지리정보원 기준 좌표계</li>
 <li>+proj=tmerc +lat_0=38 +lon_0=127 +k=1 +x_0=200000 +y_0=600000 +ellps=GRS80 +units=m +no_defs</li>
 </ul>
-<h2 id="UTM-Universal-Transverse-Mercator"><a href="#UTM-Universal-Transverse-Mercator" class="headerlink" title="UTM(Universal Transverse Mercator)"></a>UTM(Universal Transverse Mercator)</h2><ul>
+<h2 id="utmuniversal-transverse-mercator"><a class="markdownIt-Anchor" href="#utmuniversal-transverse-mercator"></a> UTM(Universal Transverse Mercator)</h2>
+<ul>
 <li>전세계를 6도 단위로 나누는 표준적인 TM으로 군사지도에서 많이 사용</li>
 </ul>
 <ol>
-<li><p>UTM52N: 경도 120 ~ 126도 사이에서 사용</p>
+<li>
+<p>UTM52N: 경도 120 ~ 126도 사이에서 사용</p>
 <ul>
 <li>EPSG:32652</li>
 <li>+proj=utm +zone=52 +ellps=WGS84 +datum=WGS84 +units=m +no_defs</li>
 <li><a href="https://epsg.io/32652" target="_blank" rel="noopener">https://epsg.io/32652</a></li>
 </ul>
 </li>
-<li><p>UTM51N: 경도 126 ~ 132도 사이에서 사용</p>
+<li>
+<p>UTM51N: 경도 126 ~ 132도 사이에서 사용</p>
 <ul>
 <li>EPSG:32651</li>
 <li>+proj=utm +zone=51 +ellps=WGS84 +datum=WGS84 +units=m +no_defs</li>
@@ -279,12 +285,14 @@ ga('send', 'pageview');
 </ul>
 </li>
 </ol>
-<h2 id="Polar-Stereographic"><a href="#Polar-Stereographic" class="headerlink" title="Polar Stereographic"></a>Polar Stereographic</h2><ul>
+<h2 id="polar-stereographic"><a class="markdownIt-Anchor" href="#polar-stereographic"></a> Polar Stereographic</h2>
+<ul>
 <li>기상청 북반구 표현에 사용</li>
 <li>+proj=stere +lat_0=90 +lat_ts=90 +lon_0=0 +k=0.994 +x_0=2000000 +y_0=2000000 +ellps=WGS84 +datum=WGS84 +units=m +no_defs</li>
 <li><a href="https://spatialreference.org/ref/epsg/wgs-84-ups-north/" target="_blank" rel="noopener">https://spatialreference.org/ref/epsg/wgs-84-ups-north/</a></li>
 </ul>
-<h2 id="참고"><a href="#참고" class="headerlink" title="참고"></a>참고</h2><ul>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
+<ul>
 <li><a href="http://epsg.io/" target="_blank" rel="noopener">epsg.io</a></li>
 <li><a href="https://www.osgeo.kr/17" target="_blank" rel="noopener">한국 주요 좌표계 EPSG코드 및 proj4 인자 정리</a></li>
 </ul>
@@ -300,7 +308,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="http://hgko1207.github.io/2020/03/27/proj4/" data-id="ckc04m6bf000ktkuqcvrbjf7k" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://hgko1207.github.io/2020/03/27/proj4/" data-id="ckd6vhlnu000jl0uq44432j0u" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -372,7 +380,7 @@ ga('send', 'pageview');
         },
         "headline": "PROJ.4 란?",
         "image": "http://hgko1207.github.io",
-        "keywords": "Satellite PROJ.4 Coordinate System EPSG",
+        "keywords": "Satellite Coordinate System PROJ.4 EPSG",
         "genre": "Satellite",
         "datePublished": "2020-03-27",
         "dateCreated": "2020-03-27",
@@ -384,7 +392,7 @@ ga('send', 'pageview');
 USGS의 Gerald Evenden에 의해 만들어진 오픈소스 라이브러리
 현재 OSGeo 프로젝트 중 하나이며 MIT 라이센스
 GeoServer, OpenLayers, PostGIS, QGIS, GDAL, OGR, GeoTools 등 엄청나게 많은 프로",
-        "wordCount": 179
+        "wordCount": 173
     }
 </script>
 
@@ -437,7 +445,7 @@ GeoServer, OpenLayers, PostGIS, QGIS, GDAL, OGR, GeoTools 등 엄청나게 많�
         <strong class="article-nav-caption">newer</strong>
         <p class="article-nav-title">
         
-            React UI 추천
+            [React] UI 추천
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
@@ -539,7 +547,7 @@ GeoServer, OpenLayers, PostGIS, QGIS, GDAL, OGR, GeoTools 등 엄청나게 많�
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/3D/" style="font-size: 11.11px;">3D</a> <a href="/tags/AI/" style="font-size: 18.89px;">AI</a> <a href="/tags/AOP/" style="font-size: 10px;">AOP</a> <a href="/tags/Accuracy/" style="font-size: 10px;">Accuracy</a> <a href="/tags/Address/" style="font-size: 10px;">Address</a> <a href="/tags/Android/" style="font-size: 13.33px;">Android</a> <a href="/tags/Android-Studio/" style="font-size: 11.11px;">Android Studio</a> <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Angular-%EA%B0%95%EC%A2%8C/" style="font-size: 10px;">Angular 강좌</a> <a href="/tags/AngularJS/" style="font-size: 10px;">AngularJS</a> <a href="/tags/Annotation/" style="font-size: 10px;">Annotation</a> <a href="/tags/BLOB/" style="font-size: 10px;">BLOB</a> <a href="/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/tags/C/" style="font-size: 12.22px;">C#</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/CSM/" style="font-size: 10px;">CSM</a> <a href="/tags/Cesium/" style="font-size: 11.11px;">Cesium</a> <a href="/tags/CesiumJS/" style="font-size: 11.11px;">CesiumJS</a> <a href="/tags/Chart/" style="font-size: 10px;">Chart</a> <a href="/tags/Circular-Error/" style="font-size: 10px;">Circular Error</a> <a href="/tags/Clean-Code/" style="font-size: 10px;">Clean Code</a> <a href="/tags/Clone/" style="font-size: 10px;">Clone</a> <a href="/tags/Coordinate-System/" style="font-size: 11.11px;">Coordinate System</a> <a href="/tags/DEM/" style="font-size: 10px;">DEM</a> <a href="/tags/DNS/" style="font-size: 10px;">DNS</a> <a href="/tags/DPPDB/" style="font-size: 10px;">DPPDB</a> <a href="/tags/Dashboard-Template/" style="font-size: 10px;">Dashboard Template</a> <a href="/tags/Database/" style="font-size: 11.11px;">Database</a> <a href="/tags/Daum/" style="font-size: 10px;">Daum</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/Developer/" style="font-size: 10px;">Developer</a> <a href="/tags/Download/" style="font-size: 10px;">Download</a> <a href="/tags/EGit/" style="font-size: 10px;">EGit</a> <a href="/tags/EPSG/" style="font-size: 10px;">EPSG</a> <a href="/tags/ES6/" style="font-size: 11.11px;">ES6</a> <a href="/tags/Eclipse/" style="font-size: 11.11px;">Eclipse</a> <a href="/tags/Expo/" style="font-size: 10px;">Expo</a> <a href="/tags/Expo-Cli/" style="font-size: 10px;">Expo Cli</a> <a href="/tags/Gdal/" style="font-size: 10px;">Gdal</a> <a href="/tags/Geocoder/" style="font-size: 10px;">Geocoder</a> <a href="/tags/Git/" style="font-size: 12.22px;">Git</a> <a href="/tags/GitHub/" style="font-size: 12.22px;">GitHub</a> <a href="/tags/Graph/" style="font-size: 10px;">Graph</a> <a href="/tags/Growth/" style="font-size: 10px;">Growth</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 11.11px;">Hexo</a> <a href="/tags/Hibernate/" style="font-size: 10px;">Hibernate</a> <a href="/tags/Hypen/" style="font-size: 10px;">Hypen</a> <a href="/tags/Hyperspectral/" style="font-size: 10px;">Hyperspectral</a> <a href="/tags/IR/" style="font-size: 10px;">IR</a> <a href="/tags/IT/" style="font-size: 10px;">IT</a> <a href="/tags/Infrared/" style="font-size: 10px;">Infrared</a> <a href="/tags/JPA/" style="font-size: 10px;">JPA</a> <a href="/tags/Java/" style="font-size: 14.44px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jpa/" style="font-size: 10px;">Jpa</a> <a href="/tags/Library/" style="font-size: 10px;">Library</a> <a href="/tags/Linear-Error/" style="font-size: 10px;">Linear Error</a> <a href="/tags/Live-Reload/" style="font-size: 10px;">Live Reload</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/Map/" style="font-size: 11.11px;">Map</a> <a href="/tags/Metronic/" style="font-size: 10px;">Metronic</a> <a href="/tags/Microwave/" style="font-size: 10px;">Microwave</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/NITF/" style="font-size: 10px;">NITF</a> <a href="/tags/Node-js/" style="font-size: 12.22px;">Node.js</a> <a href="/tags/Numpy/" style="font-size: 12.22px;">Numpy</a> <a href="/tags/Openlayers/" style="font-size: 10px;">Openlayers</a> <a href="/tags/PROJ-4/" style="font-size: 10px;">PROJ.4</a> <a href="/tags/Plugin/" style="font-size: 10px;">Plugin</a> <a href="/tags/Postcode/" style="font-size: 10px;">Postcode</a> <a href="/tags/Prism/" style="font-size: 10px;">Prism</a> <a href="/tags/Program/" style="font-size: 10px;">Program</a> <a href="/tags/Python/" style="font-size: 14.44px;">Python</a> <a href="/tags/Pytorch/" style="font-size: 10px;">Pytorch</a> <a href="/tags/Query/" style="font-size: 10px;">Query</a> <a href="/tags/RCP/" style="font-size: 11.11px;">RCP</a> <a href="/tags/React/" style="font-size: 16.67px;">React</a> <a href="/tags/React-Native/" style="font-size: 11.11px;">React Native</a> <a href="/tags/React-UI/" style="font-size: 10px;">React UI</a> <a href="/tags/Refactoring/" style="font-size: 10px;">Refactoring</a> <a href="/tags/Repository/" style="font-size: 11.11px;">Repository</a> <a href="/tags/SAR/" style="font-size: 10px;">SAR</a> <a href="/tags/SAR-%EC%9C%84%EC%84%B1/" style="font-size: 10px;">SAR 위성</a> <a href="/tags/Satellite/" style="font-size: 17.78px;">Satellite</a> <a href="/tags/Sensor/" style="font-size: 11.11px;">Sensor</a> <a href="/tags/SensorModel/" style="font-size: 10px;">SensorModel</a> <a href="/tags/Server/" style="font-size: 10px;">Server</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/Spring-Framework/" style="font-size: 11.11px;">Spring Framework</a> <a href="/tags/Study/" style="font-size: 11.11px;">Study</a> <a href="/tags/Tel/" style="font-size: 10px;">Tel</a> <a href="/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/tags/Tensorflow/" style="font-size: 15.56px;">Tensorflow</a> <a href="/tags/UI-Library/" style="font-size: 10px;">UI Library</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/WFP/" style="font-size: 10px;">WFP</a> <a href="/tags/WPF/" style="font-size: 10px;">WPF</a> <a href="/tags/Web/" style="font-size: 15.56px;">Web</a> <a href="/tags/Web-Design/" style="font-size: 10px;">Web Design</a> <a href="/tags/co-kr/" style="font-size: 10px;">co.kr</a> <a href="/tags/com/" style="font-size: 10px;">com</a> <a href="/tags/domain/" style="font-size: 10px;">domain</a> <a href="/tags/gitignore/" style="font-size: 10px;">gitignore</a> <a href="/tags/input/" style="font-size: 10px;">input</a> <a href="/tags/kakao/" style="font-size: 10px;">kakao</a> <a href="/tags/lombok/" style="font-size: 10px;">lombok</a> <a href="/tags/net/" style="font-size: 10px;">net</a> <a href="/tags/%EA%B4%91%ED%95%99-%EC%9C%84%EC%84%B1/" style="font-size: 10px;">광학 위성</a> <a href="/tags/%EB%A6%AC%EC%95%A1%ED%8A%B8/" style="font-size: 12.22px;">리액트</a> <a href="/tags/%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81/" style="font-size: 10px;">리팩토링</a> <a href="/tags/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C/" style="font-size: 11.11px;">안드로이드</a> <a href="/tags/%EC%9A%B0%ED%8E%B8%EB%B2%88%ED%98%B8-%EC%84%9C%EB%B9%84%EC%8A%A4/" style="font-size: 10px;">우편번호 서비스</a> <a href="/tags/%EC%A0%81%EC%99%B8%EC%84%A0-%EC%84%BC%EC%84%9C/" style="font-size: 10px;">적외선 센서</a> <a href="/tags/%EC%A7%84-%EC%A0%95%EC%82%AC%EC%98%81%EC%83%81/" style="font-size: 10px;">진 정사영상</a>
+            <a href="/tags/3D/" style="font-size: 11.11px;">3D</a> <a href="/tags/AI/" style="font-size: 18.89px;">AI</a> <a href="/tags/AOP/" style="font-size: 10px;">AOP</a> <a href="/tags/Accuracy/" style="font-size: 10px;">Accuracy</a> <a href="/tags/Address/" style="font-size: 10px;">Address</a> <a href="/tags/Android/" style="font-size: 13.33px;">Android</a> <a href="/tags/Android-Studio/" style="font-size: 11.11px;">Android Studio</a> <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Angular-%EA%B0%95%EC%A2%8C/" style="font-size: 10px;">Angular 강좌</a> <a href="/tags/AngularJS/" style="font-size: 10px;">AngularJS</a> <a href="/tags/Annotation/" style="font-size: 10px;">Annotation</a> <a href="/tags/BLOB/" style="font-size: 10px;">BLOB</a> <a href="/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/tags/C/" style="font-size: 12.22px;">C#</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/CSM/" style="font-size: 10px;">CSM</a> <a href="/tags/Cesium/" style="font-size: 10px;">Cesium</a> <a href="/tags/CesiumJS/" style="font-size: 11.11px;">CesiumJS</a> <a href="/tags/Chart/" style="font-size: 10px;">Chart</a> <a href="/tags/Circular-Error/" style="font-size: 10px;">Circular Error</a> <a href="/tags/Clean-Code/" style="font-size: 10px;">Clean Code</a> <a href="/tags/Clone/" style="font-size: 10px;">Clone</a> <a href="/tags/Coordinate-System/" style="font-size: 11.11px;">Coordinate System</a> <a href="/tags/DEM/" style="font-size: 10px;">DEM</a> <a href="/tags/DNS/" style="font-size: 10px;">DNS</a> <a href="/tags/DPPDB/" style="font-size: 10px;">DPPDB</a> <a href="/tags/Dashboard-Template/" style="font-size: 10px;">Dashboard Template</a> <a href="/tags/Database/" style="font-size: 11.11px;">Database</a> <a href="/tags/Daum/" style="font-size: 10px;">Daum</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/Developer/" style="font-size: 10px;">Developer</a> <a href="/tags/Download/" style="font-size: 10px;">Download</a> <a href="/tags/EGit/" style="font-size: 10px;">EGit</a> <a href="/tags/EPSG/" style="font-size: 10px;">EPSG</a> <a href="/tags/ES6/" style="font-size: 11.11px;">ES6</a> <a href="/tags/Eclipse/" style="font-size: 11.11px;">Eclipse</a> <a href="/tags/Expo/" style="font-size: 10px;">Expo</a> <a href="/tags/Expo-Cli/" style="font-size: 10px;">Expo Cli</a> <a href="/tags/Gdal/" style="font-size: 10px;">Gdal</a> <a href="/tags/Geocoder/" style="font-size: 10px;">Geocoder</a> <a href="/tags/Git/" style="font-size: 12.22px;">Git</a> <a href="/tags/GitHub/" style="font-size: 12.22px;">GitHub</a> <a href="/tags/Graph/" style="font-size: 10px;">Graph</a> <a href="/tags/Growth/" style="font-size: 10px;">Growth</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 11.11px;">Hexo</a> <a href="/tags/Hibernate/" style="font-size: 10px;">Hibernate</a> <a href="/tags/Hypen/" style="font-size: 10px;">Hypen</a> <a href="/tags/Hyperspectral/" style="font-size: 10px;">Hyperspectral</a> <a href="/tags/IR/" style="font-size: 10px;">IR</a> <a href="/tags/IT/" style="font-size: 10px;">IT</a> <a href="/tags/Infrared/" style="font-size: 10px;">Infrared</a> <a href="/tags/JPA/" style="font-size: 10px;">JPA</a> <a href="/tags/Java/" style="font-size: 14.44px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jpa/" style="font-size: 10px;">Jpa</a> <a href="/tags/Library/" style="font-size: 10px;">Library</a> <a href="/tags/Linear-Error/" style="font-size: 10px;">Linear Error</a> <a href="/tags/Live-Reload/" style="font-size: 10px;">Live Reload</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/Map/" style="font-size: 12.22px;">Map</a> <a href="/tags/Metronic/" style="font-size: 10px;">Metronic</a> <a href="/tags/Microwave/" style="font-size: 10px;">Microwave</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/NITF/" style="font-size: 10px;">NITF</a> <a href="/tags/Node-js/" style="font-size: 12.22px;">Node.js</a> <a href="/tags/Numpy/" style="font-size: 12.22px;">Numpy</a> <a href="/tags/Openlayers/" style="font-size: 10px;">Openlayers</a> <a href="/tags/PROJ-4/" style="font-size: 10px;">PROJ.4</a> <a href="/tags/Plugin/" style="font-size: 10px;">Plugin</a> <a href="/tags/Postcode/" style="font-size: 10px;">Postcode</a> <a href="/tags/Prism/" style="font-size: 10px;">Prism</a> <a href="/tags/Program/" style="font-size: 10px;">Program</a> <a href="/tags/Python/" style="font-size: 14.44px;">Python</a> <a href="/tags/Pytorch/" style="font-size: 10px;">Pytorch</a> <a href="/tags/Query/" style="font-size: 10px;">Query</a> <a href="/tags/RCP/" style="font-size: 11.11px;">RCP</a> <a href="/tags/React/" style="font-size: 16.67px;">React</a> <a href="/tags/React-Native/" style="font-size: 11.11px;">React Native</a> <a href="/tags/React-UI/" style="font-size: 10px;">React UI</a> <a href="/tags/Refactoring/" style="font-size: 10px;">Refactoring</a> <a href="/tags/Repository/" style="font-size: 11.11px;">Repository</a> <a href="/tags/SAR/" style="font-size: 10px;">SAR</a> <a href="/tags/SAR-%EC%9C%84%EC%84%B1/" style="font-size: 10px;">SAR 위성</a> <a href="/tags/Satellite/" style="font-size: 17.78px;">Satellite</a> <a href="/tags/Sensor/" style="font-size: 11.11px;">Sensor</a> <a href="/tags/SensorModel/" style="font-size: 10px;">SensorModel</a> <a href="/tags/Server/" style="font-size: 10px;">Server</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/Spring-Framework/" style="font-size: 11.11px;">Spring Framework</a> <a href="/tags/Study/" style="font-size: 11.11px;">Study</a> <a href="/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/tags/Tensorflow/" style="font-size: 15.56px;">Tensorflow</a> <a href="/tags/UI-Library/" style="font-size: 10px;">UI Library</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/WFP/" style="font-size: 10px;">WFP</a> <a href="/tags/WPF/" style="font-size: 10px;">WPF</a> <a href="/tags/Web/" style="font-size: 15.56px;">Web</a> <a href="/tags/Web-Design/" style="font-size: 10px;">Web Design</a> <a href="/tags/co-kr/" style="font-size: 10px;">co.kr</a> <a href="/tags/com/" style="font-size: 10px;">com</a> <a href="/tags/domain/" style="font-size: 10px;">domain</a> <a href="/tags/gitignore/" style="font-size: 10px;">gitignore</a> <a href="/tags/input/" style="font-size: 10px;">input</a> <a href="/tags/kakao/" style="font-size: 10px;">kakao</a> <a href="/tags/lombok/" style="font-size: 10px;">lombok</a> <a href="/tags/net/" style="font-size: 10px;">net</a> <a href="/tags/%EA%B4%91%ED%95%99-%EC%9C%84%EC%84%B1/" style="font-size: 10px;">광학 위성</a> <a href="/tags/%EB%A6%AC%EC%95%A1%ED%8A%B8/" style="font-size: 12.22px;">리액트</a> <a href="/tags/%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81/" style="font-size: 10px;">리팩토링</a> <a href="/tags/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C/" style="font-size: 11.11px;">안드로이드</a> <a href="/tags/%EC%9A%B0%ED%8E%B8%EB%B2%88%ED%98%B8-%EC%84%9C%EB%B9%84%EC%8A%A4/" style="font-size: 10px;">우편번호 서비스</a> <a href="/tags/%EC%A0%81%EC%99%B8%EC%84%A0-%EC%84%BC%EC%84%9C/" style="font-size: 10px;">적외선 센서</a> <a href="/tags/%EC%A7%84-%EC%A0%95%EC%82%AC%EC%98%81%EC%83%81/" style="font-size: 10px;">진 정사영상</a>
         </div>
     </div>
 
