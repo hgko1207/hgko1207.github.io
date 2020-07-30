@@ -9,8 +9,29 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Information related to IT and satellite</description>
-    <pubDate>Wed, 29 Jul 2020 05:06:34 GMT</pubDate>
+    <pubDate>Thu, 30 Jul 2020 06:08:00 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[PyTorch] 기초</title>
+      <link>http://hgko1207.github.io/2020/07/30/ai-pytorch-1/</link>
+      <guid>http://hgko1207.github.io/2020/07/30/ai-pytorch-1/</guid>
+      <pubDate>Thu, 30 Jul 2020 06:04:07 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;h2 id=&quot;load-packages&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#load-packages&quot;&gt;&lt;/a&gt; Load Packages&lt;/h2&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;t
+        
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<h2 id="load-packages"><a class="markdownIt-Anchor" href="#load-packages"></a> Load Packages</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> torch</span><br></pre></td></tr></table></figure><h2 id="operations"><a class="markdownIt-Anchor" href="#operations"></a> Operations</h2><p>PyTorch로 수학연산 하기</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      <comments>http://hgko1207.github.io/2020/07/30/ai-pytorch-1/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>[TensorFlow 2.0] Evaluating &amp; Prediction</title>
