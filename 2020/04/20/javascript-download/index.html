@@ -12,20 +12,22 @@
     
     <meta name="keywords" content="JavaScript,BLOB,Download" />
     
-    <meta name="description" content="이미지를 Jcrop 으로 자르고 Canvas 영역을 blob 형식으로 바꿔서 a Tag를 생성하여 다운로드를 시도하였습니다. 크롬에서는 잘 동작하였지만 IE에서는 동작하지 않고 에러를 발생하였습니다. 그래서 아래 코드처럼 변형을 하였더니 둘다 잘 동작하였습니다. 이미지 다운로드 12345678910111213function downloadURI(blob,">
+    <meta name="description" content="이미지를 Jcrop 으로 자르고 Canvas 영역을 blob 형식으로 바꿔서 a Tag를 생성하여 다운로드를 시도하였습니다. 크롬에서는 잘 동작하였지만 IE에서는 동작하지 않고 에러를 발생하였습니다. 그래서 아래 코드처럼 변형을 하였더니 둘다 잘 동작하였습니다.  이미지 다운로드 12345678910111213function downloadURI(blob,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[JavaScript] IE에서 작동하지 않는 BLOB 다운로드">
 <meta property="og:url" content="http://hgko1207.github.io/2020/04/20/javascript-download/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="이미지를 Jcrop 으로 자르고 Canvas 영역을 blob 형식으로 바꿔서 a Tag를 생성하여 다운로드를 시도하였습니다. 크롬에서는 잘 동작하였지만 IE에서는 동작하지 않고 에러를 발생하였습니다. 그래서 아래 코드처럼 변형을 하였더니 둘다 잘 동작하였습니다. 이미지 다운로드 12345678910111213function downloadURI(blob,">
+<meta property="og:description" content="이미지를 Jcrop 으로 자르고 Canvas 영역을 blob 형식으로 바꿔서 a Tag를 생성하여 다운로드를 시도하였습니다. 크롬에서는 잘 동작하였지만 IE에서는 동작하지 않고 에러를 발생하였습니다. 그래서 아래 코드처럼 변형을 하였더니 둘다 잘 동작하였습니다.  이미지 다운로드 12345678910111213function downloadURI(blob,">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/javascript.png">
 <meta property="article:published_time" content="2020-04-20T00:56:01.000Z">
-<meta property="article:modified_time" content="2020-07-29T04:34:10.678Z">
+<meta property="article:modified_time" content="2020-07-30T05:21:51.711Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="BLOB">
 <meta property="article:tag" content="Download">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/javascript.png">
     
 
     
@@ -236,7 +238,7 @@ ga('send', 'pageview');
 
             <p>이미지를 Jcrop 으로 자르고 Canvas 영역을 blob 형식으로 바꿔서 a Tag를 생성하여 다운로드를 시도하였습니다. 크롬에서는 잘 동작하였지만 IE에서는 동작하지 않고 에러를 발생하였습니다.</p>
 <p>그래서 아래 코드처럼 변형을 하였더니 둘다 잘 동작하였습니다.</p>
-<h5 id="이미지-다운로드">이미지 다운로드</h5>
+<h5 id="이미지-다운로드"><a class="markdownIt-Anchor" href="#이미지-다운로드"></a> 이미지 다운로드</h5>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">downloadURI</span>(<span class="params">blob, name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">window</span>.navigator &amp;&amp; <span class="built_in">window</span>.navigator.msSaveOrOpenBlob) &#123;</span><br><span class="line">    <span class="comment">// IE에서 동작</span></span><br><span class="line">    <span class="built_in">window</span>.navigator.msSaveBlob(blob, name);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 크롬에서 동작</span></span><br><span class="line">    <span class="keyword">var</span> link = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>);</span><br><span class="line">    link.download = name;</span><br><span class="line">    link.href = URL.createObjectURL(blob);</span><br><span class="line">    link.click();</span><br><span class="line">    <span class="keyword">delete</span> link;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
         </div>
@@ -321,18 +323,18 @@ ga('send', 'pageview');
             "name": "Hyeong Gyun Ko"
         },
         "headline": "[JavaScript] IE에서 작동하지 않는 BLOB 다운로드",
-        "image": "http://hgko1207.github.io",
+        "image": "http://hgko1207.github.io/images/thumbnail/javascript.png",
         "keywords": "JavaScript BLOB Download",
         "genre": "Web JavaScript",
         "datePublished": "2020-04-20",
         "dateCreated": "2020-04-20",
-        "dateModified": "2020-07-29",
+        "dateModified": "2020-07-30",
         "url": "http://hgko1207.github.io/2020/04/20/javascript-download/",
         "description": "이미지를 Jcrop 으로 자르고 Canvas 영역을 blob 형식으로 바꿔서 a Tag를 생성하여 다운로드를 시도하였습니다. 크롬에서는 잘 동작하였지만 IE에서는 동작하지 않고 에러를 발생하였습니다.
 그래서 아래 코드처럼 변형을 하였더니 둘다 잘 동작하였습니다.
-이미지 다운로드
-12345678910111213function downloadURI(blob, ",
-        "wordCount": 136
+ 이미지 다운로드
+12345678910111213function downloadURI(blob,",
+        "wordCount": 139
     }
 </script>
 
