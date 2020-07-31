@@ -3,6 +3,55 @@
 
 
     <url>
+        <loc>http://hgko1207.github.io/tags/Android/</loc>
+        <lastmod>2020-07-31T01:51:58.377Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/tags/CSS/</loc>
+        <lastmod>2020-07-31T01:49:19.543Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/tags/Web/</loc>
+        <lastmod>2020-07-31T01:49:19.543Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/tags/Chart/</loc>
+        <lastmod>2020-07-31T01:48:20.614Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/tags/JavaScript/</loc>
+        <lastmod>2020-07-31T01:48:20.614Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/tags/%25EC%25A7%2584-%25EC%25A0%2595%25EC%2582%25AC%25EC%2598%2581%25EC%2583%2581/</loc>
+        <lastmod>2020-07-31T01:47:46.071Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/tags/Satellite/</loc>
+        <lastmod>2020-07-31T01:47:46.071Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://hgko1207.github.io/tags/Hyperspectral/</loc>
         <lastmod>2020-07-31T01:47:17.019Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -11,13 +60,6 @@
 
     <url>
         <loc>http://hgko1207.github.io/tags/Sensor/</loc>
-        <lastmod>2020-07-31T01:47:17.019Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/Satellite/</loc>
         <lastmod>2020-07-31T01:47:17.019Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -74,13 +116,6 @@
 
     <url>
         <loc>http://hgko1207.github.io/tags/BLOB/</loc>
-        <lastmod>2020-07-31T01:46:48.998Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/JavaScript/</loc>
         <lastmod>2020-07-31T01:46:48.998Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -276,20 +311,6 @@
     </url>
 
     <url>
-        <loc>http://hgko1207.github.io/tags/CSS/</loc>
-        <lastmod>2020-07-31T01:38:33.603Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/Web/</loc>
-        <lastmod>2020-07-31T01:38:33.603Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hgko1207.github.io/tags/proj4/</loc>
         <lastmod>2020-07-31T01:32:48.624Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -374,13 +395,6 @@
     </url>
 
     <url>
-        <loc>http://hgko1207.github.io/tags/%25EC%25A7%2584-%25EC%25A0%2595%25EC%2582%25AC%25EC%2598%2581%25EC%2583%2581/</loc>
-        <lastmod>2020-07-30T05:35:15.820Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hgko1207.github.io/tags/ES6/</loc>
         <lastmod>2020-07-30T05:26:08.821Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -437,13 +451,6 @@
     </url>
 
     <url>
-        <loc>http://hgko1207.github.io/tags/Android/</loc>
-        <lastmod>2020-07-30T05:25:51.523Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hgko1207.github.io/tags/VSCode/</loc>
         <lastmod>2020-07-30T05:25:48.215Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -474,13 +481,6 @@
     <url>
         <loc>http://hgko1207.github.io/tags/Expo/</loc>
         <lastmod>2020-07-30T05:25:41.409Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/Chart/</loc>
-        <lastmod>2020-07-30T05:21:45.238Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

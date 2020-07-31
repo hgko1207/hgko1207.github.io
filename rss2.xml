@@ -9,8 +9,29 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Information related to IT and satellite</description>
-    <pubDate>Fri, 31 Jul 2020 01:38:33 GMT</pubDate>
+    <pubDate>Fri, 31 Jul 2020 01:51:58 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[Android] FragmentStatePagerAdapter 사용 팁</title>
+      <link>http://hgko1207.github.io/2020/07/31/android-dev-1/</link>
+      <guid>http://hgko1207.github.io/2020/07/31/android-dev-1/</guid>
+      <pubDate>Fri, 31 Jul 2020 01:49:56 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;h3 id=&quot;FragmentStatePagerAdapter의-getItem-이-두-번-호출될-때&quot;&gt;FragmentStatePagerAdapter의 getItem() 이 두 번 호출될 때&lt;/h3&gt;
+&lt;p&gt;Viewpager를 사용하여 Tab을 구성하였을 
+        
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<h3 id="FragmentStatePagerAdapter의-getItem-이-두-번-호출될-때">FragmentStatePagerAdapter의 getItem() 이 두 번 호출될 때</h3><p>Viewpager를 사용하여 Tab을 구성하였을 때 FragmentStatePagerAdapter를 사용하였다.탭에 추가한 Fragment와는 상관없이 getItem()이 두 번 호출이 되어서 Fragment를 두번 로드하게 되는 현상때문에 문제가 생겨 꼬이게 된다. 이럴경우 Fragment 화면이 보일 때와 보이지 않을 때 setUSerVisiblaHint() 함수를 사용하여 처리하는데 탭에 추가한 Fragment가 전부 로드되지 않고 어중간하게 두개의 화면만 로드되었기 때문에 다른 탭을 누르거나 다시 돌아왔을 때 setUSerVisiblaHint()와 onCreateView() 함수 비정상적으로 호출되는 바람에 코딩을 하는데 애먹었었다.</p><p>그래서 찾은 방법은 아래 코드 처럼 viewPagerAdapter에 Fragment를 3개 추가 하였을 때 setOffscreenPageLimit 함수에 숫자 3을 지정하여 3개의 화면이 미리 로드되게 하면 getItem()은 3번 호출되지만 앞에서 문제되는 것을 해결할 수 있었다.</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setupViewPager</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ViewPagerAdapter viewPagerAdapter = <span class="keyword">new</span> ViewPagerAdapter(getSupportFragmentManager());</span><br><span class="line">    viewPagerAdapter.addFragment(<span class="keyword">new</span> MobileFragment());</span><br><span class="line">    viewPagerAdapter.addFragment(<span class="keyword">new</span> LteFragment());</span><br><span class="line">    viewPagerAdapter.addFragment(<span class="keyword">new</span> WifiFragment());</span><br><span class="line">    viewPager.setOffscreenPageLimit(<span class="number">3</span>);</span><br><span class="line">    viewPager.setAdapter(viewPagerAdapter);</span><br><span class="line">    tabLayout.setupWithViewPager(viewPager);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      <comments>http://hgko1207.github.io/2020/07/31/android-dev-1/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>[CSS] 그라데이션 효과</title>
@@ -28,7 +49,7 @@
       </description>
       
       
-      <content:encoded><![CDATA[<p>linear-gradient : CSS3에서 추가된 것으로, 선형 그라데이션 효과를 만들 수 있다.</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">linear-gradient</span>( <span class="selector-tag">direction</span>, <span class="selector-tag">color1</span>, <span class="selector-tag">color2</span>, …, <span class="selector-tag">color3</span> );</span><br></pre></td></tr></table></figure><p><code>direction</code>에는 그라데이션 방향을 입력한다.</p><ul><li><code>to bottom</code> : 위에서 아래로 그라데이션을 만든다. (기본값)</li><li><code>to top</code> : 아래에서 위로 그라데이션을 만든다.</li><li><code>to left</code> : 오른쪽에서 왼쪽으로 그라데이션을 만든다.</li><li><code>to right</code> : 왼쪽에서 오른쪽으로 그라데이션을 만든다.</li><li><code>ndeg</code> : n도의 방향으로 그라데이션을 만든다.</li></ul><h3 id="예시"><a class="markdownIt-Anchor" href="#예시"></a> 예시</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.gradation_bar</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(to right, #ff0000, orange, yellow, #<span class="number">00</span>ff00, #<span class="number">0000</span>ff, indigo, violet);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="결과"><a class="markdownIt-Anchor" href="#결과"></a> 결과</h3><p><img src="/images/ai/css/1.png" alt="" /></p><h3 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h3><ul><li><a href="https://www.colorzilla.com/gradient-editor/" target="_blank" rel="noopener">Ultimate CSS Gradient Generator</a></li></ul>]]></content:encoded>
+      <content:encoded><![CDATA[<p>linear-gradient : CSS3에서 추가된 것으로, 선형 그라데이션 효과를 만들 수 있다.</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">linear-gradient</span>( <span class="selector-tag">direction</span>, <span class="selector-tag">color1</span>, <span class="selector-tag">color2</span>, …, <span class="selector-tag">color3</span> );</span><br></pre></td></tr></table></figure><p><code>direction</code>에는 그라데이션 방향을 입력한다.</p><ul><li><code>to bottom</code> : 위에서 아래로 그라데이션을 만든다. (기본값)</li><li><code>to top</code> : 아래에서 위로 그라데이션을 만든다.</li><li><code>to left</code> : 오른쪽에서 왼쪽으로 그라데이션을 만든다.</li><li><code>to right</code> : 왼쪽에서 오른쪽으로 그라데이션을 만든다.</li><li><code>ndeg</code> : n 도의 방향으로 그라데이션을 만든다.</li></ul><h3 id="예시">예시</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.gradation_bar</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(to right, #ff0000, orange, yellow, #<span class="number">00</span>ff00, #<span class="number">0000</span>ff, indigo, violet);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="결과">결과</h3><p><img src="/images/css/1.png" alt=""></p><h3 id="참고">참고</h3><ul><li><a href="https://www.colorzilla.com/gradient-editor/" target="_blank" rel="noopener">Ultimate CSS Gradient Generator</a></li></ul>]]></content:encoded>
       
       <comments>http://hgko1207.github.io/2020/07/31/css-dev-1/#disqus_thread</comments>
     </item>
@@ -461,23 +482,23 @@
     
     <item>
       <title>진 정사영상</title>
-      <link>http://hgko1207.github.io/2020/06/29/trueorthoimage/</link>
-      <guid>http://hgko1207.github.io/2020/06/29/trueorthoimage/</guid>
+      <link>http://hgko1207.github.io/2020/06/29/satellite-trueorthoimage/</link>
+      <guid>http://hgko1207.github.io/2020/06/29/satellite-trueorthoimage/</guid>
       <pubDate>Mon, 29 Jun 2020 05:50:50 GMT</pubDate>
       <description>
       
         
         
-          &lt;h2 id=&quot;정사영상&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#정사영상&quot;&gt;&lt;/a&gt; 정사영상&lt;/h2&gt;
-&lt;p&gt;높이 차이나 경사 등 지형으로 인해 생긴 기하학적인 왜곡을 제거하여 &lt;span style=&quot;color:#5B9BD5&quot;&gt;
+          &lt;h2 id=&quot;정사영상&quot;&gt;정사영상&lt;/h2&gt;
+&lt;p&gt;높이 차이나 경사 등 지형으로 인해 생긴 기하학적인 왜곡을 제거하여 &lt;span style=&quot;color:#5B9BD5&quot;&gt;&lt;strong&gt;모든 지형지물을 수직으로 내려다 보았을 때의 모습으로 변환한 영상&lt;/s
         
       
       </description>
       
       
-      <content:encoded><![CDATA[<h2 id="정사영상"><a class="markdownIt-Anchor" href="#정사영상"></a> 정사영상</h2><p>높이 차이나 경사 등 지형으로 인해 생긴 기하학적인 왜곡을 제거하여 <span style="color:#5B9BD5"><strong>모든 지형지물을 수직으로 내려다 보았을 때의 모습으로 변환한 영상</strong></span>으로 정사투영영상이라고도 한다.</p><p><img src="/images/ortho/1.png" alt="" /></p><h2 id="진-정사영상"><a class="markdownIt-Anchor" href="#진-정사영상"></a> 진 정사영상</h2><p>정사영상에 비해 지형모델인 <span style="color:#5B9BD5"><strong>수치표면모델(Digital Surface Model,  DSM)을 통해 편위수정을 수행하고 폐색영역 보정 등 방사적 특성을 개선한 정사영상</strong></span>으로 3차원 도시 모델에 적합하다.</p><p><img src="/images/ortho/2.png" alt="" /></p><h2 id="진-정사영상-생성"><a class="markdownIt-Anchor" href="#진-정사영상-생성"></a> 진 정사영상 생성</h2><p><img src="/images/ortho/3.png" alt="" /></p><h2 id="기복-변위relief-displacement"><a class="markdownIt-Anchor" href="#기복-변위relief-displacement"></a> 기복 변위(Relief displacement)</h2><ul><li>렌즈 중심(정확하게는 연직점)으로부터 벗어난 물체는 높이 차이에 따라 왜곡된다.</li><li>대상물(또는 지표면)에 기복이 있을 경우, 연직으로 촬영하여도 축적은 동일하지 않으며, 사진면에서 연직점을 중심으로 방사상의 변위가 생기는데 이를 기복변위라고 한다.</li><li>기복이 있는 지표면을 항공기나 인공위성에서 연직 방향으로 촬영하여도 촬영된 사진에서 연직점 중심으로 방사상으로 생기는 변위이다.</li></ul><p><img src="/images/ortho/4.png" alt="" /></p><p>고층건물들을 눈 여겨 보면, 사진 중심으로부터 사선으로 빗나가는 모양으로 보인다. 건물 꼭대기의 한 점과 그에 대응하는 바닥의 점 사이의 사진상 길이가 기복변위이다.</p><h2 id="미분-편위수정법differential-rectification"><a class="markdownIt-Anchor" href="#미분-편위수정법differential-rectification"></a> 미분 편위수정법(Differential rectification)</h2><ul><li><p>정사 편위수정법의 미소부분만을 투영거리를 수정하면서 차례 차례로 투영해 나가는 방법이다.</p></li><li><p>정사영상을 제작하기 위해, 지면의 고도 차이에 의해서 영상에 나타나는 편위를 수정하는 방법이다.</p></li><li><p><strong>편위 수정(Rectification)</strong></p><ul><li>촬영 당시 생기는 피사체의 변위나 왜곡을 제거하는 과정으로 지상의 모든 점을 지면에 수직으로 투영하는 정사 투영으로 맞추는 과정이며, 미분편위 수정 과정에서 격자위치에 해당되는 수치영상의 위치는 화소 중심에 정확히 일치하지 않으므로 주변 화소의 밝기 값을 이용하여 재배열하여야 한다.</li><li><span style="color:#5B9BD5"><strong>항공사진을 지도와 같은 평면 영상으로 변환하는 기하 보정 과정</strong></span></li></ul></li></ul>]]></content:encoded>
+      <content:encoded><![CDATA[<h2 id="정사영상">정사영상</h2><p>높이 차이나 경사 등 지형으로 인해 생긴 기하학적인 왜곡을 제거하여 <span style="color:#5B9BD5"><strong>모든 지형지물을 수직으로 내려다 보았을 때의 모습으로 변환한 영상</strong></span>으로 정사투영영상이라고도 한다.</p><p><img src="/images/ortho/1.png" alt=""></p><h2 id="진-정사영상">진 정사영상</h2><p>정사영상에 비해 지형모델인 <span style="color:#5B9BD5"><strong>수치표면모델(Digital Surface Model,  DSM)을 통해 편위수정을 수행하고 폐색영역 보정 등 방사적 특성을 개선한 정사영상</strong></span>으로 3차원 도시 모델에 적합하다.</p><p><img src="/images/ortho/2.png" alt=""></p><h2 id="진-정사영상-생성">진 정사영상 생성</h2><p><img src="/images/ortho/3.png" alt=""></p><h2 id="기복-변위-Relief-displacement">기복 변위(Relief displacement)</h2><ul><li>렌즈 중심(정확하게는 연직점)으로부터 벗어난 물체는 높이 차이에 따라 왜곡된다.</li><li>대상물(또는 지표면)에 기복이 있을 경우, 연직으로 촬영하여도 축적은 동일하지 않으며, 사진면에서 연직점을 중심으로 방사상의 변위가 생기는데 이를 기복변위라고 한다.</li><li>기복이 있는 지표면을 항공기나 인공위성에서 연직 방향으로 촬영하여도 촬영된 사진에서 연직점 중심으로 방사상으로 생기는 변위이다.</li></ul><p><img src="/images/ortho/4.png" alt=""></p><p>고층건물들을 눈 여겨 보면, 사진 중심으로부터 사선으로 빗나가는 모양으로 보인다. 건물 꼭대기의 한 점과 그에 대응하는 바닥의 점 사이의 사진상 길이가 기복변위이다.</p><h2 id="미분-편위수정법-Differential-rectification">미분 편위수정법(Differential rectification)</h2><ul><li><p>정사 편위수정법의 미소부분만을 투영거리를 수정하면서 차례 차례로 투영해 나가는 방법이다.</p></li><li><p>정사영상을 제작하기 위해, 지면의 고도 차이에 의해서 영상에 나타나는 편위를 수정하는 방법이다.</p></li><li><p><strong>편위 수정(Rectification)</strong></p><ul><li>촬영 당시 생기는 피사체의 변위나 왜곡을 제거하는 과정으로 지상의 모든 점을 지면에 수직으로 투영하는 정사 투영으로 맞추는 과정이며, 미분편위 수정 과정에서 격자위치에 해당되는 수치영상의 위치는 화소 중심에 정확히 일치하지 않으므로 주변 화소의 밝기 값을 이용하여 재배열하여야 한다.</li><li><span style="color:#5B9BD5"><strong>항공사진을 지도와 같은 평면 영상으로 변환하는 기하 보정 과정</strong></span></li></ul></li></ul>]]></content:encoded>
       
-      <comments>http://hgko1207.github.io/2020/06/29/trueorthoimage/#disqus_thread</comments>
+      <comments>http://hgko1207.github.io/2020/06/29/satellite-trueorthoimage/#disqus_thread</comments>
     </item>
     
     <item>
@@ -1476,25 +1497,25 @@
     
     <item>
       <title>[JavaScript] Chart 라이브러리 정리</title>
-      <link>http://hgko1207.github.io/2019/01/07/chart-library/</link>
-      <guid>http://hgko1207.github.io/2019/01/07/chart-library/</guid>
+      <link>http://hgko1207.github.io/2019/01/07/javascript-chart/</link>
+      <guid>http://hgko1207.github.io/2019/01/07/javascript-chart/</guid>
       <pubDate>Mon, 07 Jan 2019 04:19:53 GMT</pubDate>
       <description>
       
         
         
-          &lt;p&gt;지금까지 웹 개발을 하면서 사용해본 Chart를 정리 해보았습니다.&lt;br /&gt;
-무료인 것도 있고 조건부 무료인 차트도 있었습니다.&lt;br /&gt;
+          &lt;p&gt;지금까지 웹 개발을 하면서 사용해본 Chart를 정리 해보았습니다.&lt;br&gt;
+무료인 것도 있고 조건부 무료인 차트도 있었습니다.&lt;br&gt;
 대부분 사용하기에 편리하고 디자인도 이쁘고 예제도 많아 좋았습니다.&lt;/p&gt;
-&lt;h2 id=&quot;1-amchar
+&lt;h2 id=&quot;1-AmCharts&quot;&gt;
         
       
       </description>
       
       
-      <content:encoded><![CDATA[<p>지금까지 웹 개발을 하면서 사용해본 Chart를 정리 해보았습니다.<br />무료인 것도 있고 조건부 무료인 차트도 있었습니다.<br />대부분 사용하기에 편리하고 디자인도 이쁘고 예제도 많아 좋았습니다.</p><h2 id="1-amcharts"><a class="markdownIt-Anchor" href="#1-amcharts"></a> 1. AmCharts</h2><ul><li>링크 : ​<a href="https://www.amcharts.com/" target="_blank" rel="noopener">https://www.amcharts.com/</a></li><li>예제 : <a href="http://www.amcharts.com/demos/" target="_blank" rel="noopener">http://www.amcharts.com/demos/</a></li><li>유료라이센스 이지만 조건부 무료입니다. 사용해본 라이브러리 중에 기능이 엄청 많고 디자인이 제일 깔끔합니다. 라이센스 비용은 개인이 사용하기에는 부담이 될 수 있지만, 차트에 개발사 링크가 출력되는 조건만 지키면 무료로 사용 가능합니다.</li></ul><h2 id="2-highcharts"><a class="markdownIt-Anchor" href="#2-highcharts"></a> 2. HighCharts</h2><ul><li>링크 : <a href="https://www.highcharts.com/" target="_blank" rel="noopener">https://www.highcharts.com/</a></li><li>amCharts와 같이 조건부 무료입니다. Angular에서도 쓸 수 있고, 차트 종류도 다양하고, 사용법이 편리하며 커스터마이징도 쉽게 할 수 있습니다. 현재 가장 많이 사용하는 차트입니다.</li></ul><h2 id="3-d3-data-driven-documents"><a class="markdownIt-Anchor" href="#3-d3-data-driven-documents"></a> 3. D3 Data-Driven Documents</h2><ul><li>링크 : <a href="https://d3js.org/" target="_blank" rel="noopener">https://d3js.org/</a></li><li>무료다. 데이터 시각화 프레임워크로 잘 알려져 있고, 자바스크립트로 개발을 합니다. HTML5의 SVG(Scalable Vector Graphic)을 통해 다양한 화면 해상도에서 깨짐 없는 가시화가 가능합니다. D3 차트에서는 버블차트와 OpenLayers3에 파이차트를 올려 사용하였습니다. D3는 기본적인 개념과 사용법을 익혀야 사용이 가능하므로 공부를 많이 해야 합니다.</li></ul><h2 id="4-chartjs"><a class="markdownIt-Anchor" href="#4-chartjs"></a> 4. Chart.js</h2><ul><li>링크 : <a href="http://www.chartjs.org/" target="_blank" rel="noopener">http://www.chartjs.org/</a></li><li>예제 : <a href="http://www.chartjs.org/docs/latest/" target="_blank" rel="noopener">http://www.chartjs.org/docs/latest/</a></li><li>오픈소스이며, 전체적으로 깔끔하고 문서도 정리가 잘 되어 있습니다. 인기가 많고, 사용법이 편리하고 이쁩니다.</li></ul><h2 id="5-google-chart"><a class="markdownIt-Anchor" href="#5-google-chart"></a> 5. Google Chart</h2><ul><li>링크 : <a href="https://developers.google.com/chart/" target="_blank" rel="noopener">https://developers.google.com/chart/</a></li><li>구글 차트는 많이 사용해보지 못하였지만, 기능은 많습니다. 하지만 디자인이 다른 차트에 비해 이쁘지 않은 것 같아 많이 사용하지 않았습니다. 그렇지만 사용하기는 편리합니다.</li></ul><h2 id="6-morrisjs"><a class="markdownIt-Anchor" href="#6-morrisjs"></a> 6. Morris.js</h2><ul><li>링크 : <a href="http://morrisjs.github.io/morris.js/" target="_blank" rel="noopener">http://morrisjs.github.io/morris.js/</a></li><li>무료이며 사용이 정말 간단합니다. 그리고 디자인도 심플한 편이라 간단하게 테스트 용으로 많이 사용하였습니다.</li></ul><h2 id="7-chartistjs"><a class="markdownIt-Anchor" href="#7-chartistjs"></a> 7. Chartist.js</h2><ul><li>링크 : <a href="http://gionkunz.github.io/chartist-js/" target="_blank" rel="noopener">http://gionkunz.github.io/chartist-js/</a></li><li>Chartist 또한 인기있는 Chart Javascript 라이브러리 중의 하나로 SVG를 사용하며, CSS를 통해 모양을 다듬을 수 있습니다.</li></ul><p>위의 차트들이 자주 사용하는 차트들입니다.</p>]]></content:encoded>
+      <content:encoded><![CDATA[<p>지금까지 웹 개발을 하면서 사용해본 Chart를 정리 해보았습니다.<br>무료인 것도 있고 조건부 무료인 차트도 있었습니다.<br>대부분 사용하기에 편리하고 디자인도 이쁘고 예제도 많아 좋았습니다.</p><h2 id="1-AmCharts">1. AmCharts</h2><ul><li>링크 : ​<a href="https://www.amcharts.com/" target="_blank" rel="noopener">https://www.amcharts.com/</a></li><li>예제 : <a href="http://www.amcharts.com/demos/" target="_blank" rel="noopener">http://www.amcharts.com/demos/</a></li><li>유료라이센스 이지만 조건부 무료입니다. 사용해본 라이브러리 중에 기능이 엄청 많고 디자인이 제일 깔끔합니다. 라이센스 비용은 개인이 사용하기에는 부담이 될 수 있지만, 차트에 개발사 링크가 출력되는 조건만 지키면 무료로 사용 가능합니다.</li></ul><h2 id="2-HighCharts">2. HighCharts</h2><ul><li>링크 : <a href="https://www.highcharts.com/" target="_blank" rel="noopener">https://www.highcharts.com/</a></li><li>amCharts와 같이 조건부 무료입니다. Angular에서도 쓸 수 있고, 차트 종류도 다양하고, 사용법이 편리하며 커스터마이징도 쉽게 할 수 있습니다. 현재 가장 많이 사용하는 차트입니다.</li></ul><h2 id="3-D3-Data-Driven-Documents">3. D3 Data-Driven Documents</h2><ul><li>링크 : <a href="https://d3js.org/" target="_blank" rel="noopener">https://d3js.org/</a></li><li>무료다. 데이터 시각화 프레임워크로 잘 알려져 있고, 자바스크립트로 개발을 합니다. HTML5의 SVG(Scalable Vector Graphic)을 통해 다양한 화면 해상도에서 깨짐 없는 가시화가 가능합니다. D3 차트에서는 버블차트와 OpenLayers3에 파이차트를 올려 사용하였습니다. D3는 기본적인 개념과 사용법을 익혀야 사용이 가능하므로 공부를 많이 해야 합니다.</li></ul><h2 id="4-Chart-js">4. Chart.js</h2><ul><li>링크 : <a href="http://www.chartjs.org/" target="_blank" rel="noopener">http://www.chartjs.org/</a></li><li>예제 : <a href="http://www.chartjs.org/docs/latest/" target="_blank" rel="noopener">http://www.chartjs.org/docs/latest/</a></li><li>오픈소스이며, 전체적으로 깔끔하고 문서도 정리가 잘 되어 있습니다. 인기가 많고, 사용법이 편리하고 이쁩니다.</li></ul><h2 id="5-Google-Chart">5. Google Chart</h2><ul><li>링크 : <a href="https://developers.google.com/chart/" target="_blank" rel="noopener">https://developers.google.com/chart/</a></li><li>구글 차트는 많이 사용해보지 못하였지만, 기능은 많습니다. 하지만 디자인이 다른 차트에 비해 이쁘지 않은 것 같아 많이 사용하지 않았습니다. 그렇지만 사용하기는 편리합니다.</li></ul><h2 id="6-Morris-js">6. Morris.js</h2><ul><li>링크 : <a href="http://morrisjs.github.io/morris.js/" target="_blank" rel="noopener">http://morrisjs.github.io/morris.js/</a></li><li>무료이며 사용이 정말 간단합니다. 그리고 디자인도 심플한 편이라 간단하게 테스트 용으로 많이 사용하였습니다.</li></ul><h2 id="7-Chartist-js">7. Chartist.js</h2><ul><li>링크 : <a href="http://gionkunz.github.io/chartist-js/" target="_blank" rel="noopener">http://gionkunz.github.io/chartist-js/</a></li><li>Chartist 또한 인기있는 Chart Javascript 라이브러리 중의 하나로 SVG를 사용하며, CSS를 통해 모양을 다듬을 수 있습니다.</li></ul><p>위의 차트들이 자주 사용하는 차트들입니다.</p>]]></content:encoded>
       
-      <comments>http://hgko1207.github.io/2019/01/07/chart-library/#disqus_thread</comments>
+      <comments>http://hgko1207.github.io/2019/01/07/javascript-chart/#disqus_thread</comments>
     </item>
     
     <item>
