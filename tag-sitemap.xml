@@ -3,22 +3,71 @@
 
 
     <url>
+        <loc>http://hgko1207.github.io/tags/proj4/</loc>
+        <lastmod>2020-07-31T01:10:57.784Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/tags/Java/</loc>
+        <lastmod>2020-07-31T01:10:57.784Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/tags/RCP/</loc>
+        <lastmod>2020-07-31T01:04:18.273Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://hgko1207.github.io/tags/PyTorch/</loc>
-        <lastmod>2020-07-30T06:08:00.639Z</lastmod>
+        <lastmod>2020-07-30T08:39:09.293Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://hgko1207.github.io/tags/DeepLearning/</loc>
-        <lastmod>2020-07-30T06:08:00.639Z</lastmod>
+        <lastmod>2020-07-30T08:39:09.293Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://hgko1207.github.io/tags/AI/</loc>
-        <lastmod>2020-07-30T06:08:00.639Z</lastmod>
+        <lastmod>2020-07-30T08:39:09.293Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/tags/Error/</loc>
+        <lastmod>2020-07-30T07:36:12.781Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/tags/Position-Accuracy/</loc>
+        <lastmod>2020-07-30T07:36:12.781Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/tags/Satellite/</loc>
+        <lastmod>2020-07-30T07:36:12.781Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/tags/Accuracy/</loc>
+        <lastmod>2020-07-30T07:36:12.781Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -74,13 +123,6 @@
 
     <url>
         <loc>http://hgko1207.github.io/tags/%25EC%25A7%2584-%25EC%25A0%2595%25EC%2582%25AC%25EC%2598%2581%25EC%2583%2581/</loc>
-        <lastmod>2020-07-30T05:35:15.820Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/Satellite/</loc>
         <lastmod>2020-07-30T05:35:15.820Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -215,27 +257,6 @@
     <url>
         <loc>http://hgko1207.github.io/tags/Gdal/</loc>
         <lastmod>2020-07-30T05:33:01.930Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/Linear-Error/</loc>
-        <lastmod>2020-07-30T05:32:59.376Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/Circular-Error/</loc>
-        <lastmod>2020-07-30T05:32:59.376Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/Accuracy/</loc>
-        <lastmod>2020-07-30T05:32:59.376Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -578,20 +599,6 @@
 
     <url>
         <loc>http://hgko1207.github.io/tags/Plugin/</loc>
-        <lastmod>2020-07-30T04:59:30.103Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/RCP/</loc>
-        <lastmod>2020-07-30T04:59:30.103Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/Java/</loc>
         <lastmod>2020-07-30T04:59:30.103Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
