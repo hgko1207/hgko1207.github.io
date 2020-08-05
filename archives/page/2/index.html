@@ -236,11 +236,14 @@ ga('send', 'pageview');
     
 
         <p class="article-excerpt">
-             Optimization &amp; Training (Expert)
-TensorFlow 공식 홈페이지에서 설명하는 Expert 버전을 사용해봅니다.
- Load Packages
+            TensorFlow 공식 홈페이지에서 설명하는 Expert 버전을 사용해봅니다.
+Load Packages
 1234import tensorflow as tffrom tensorflow.keras import layersfrom tensorflow.keras import datasets
- 학
+학습 과정 돌아보기
+
+Build Model
+
+1234567891011121
         </p>
     </div>
 </article>
@@ -286,13 +289,12 @@ TensorFlow 공식 홈페이지에서 설명하는 Expert 버전을 사용해봅�
     
 
         <p class="article-excerpt">
-             Optimization &amp; Training
- Load Packages
+            Load Packages
 1234import tensorflow as tffrom tensorflow.keras import layersfrom tensorflow.keras import datasets
- 학습 과정 돌아보기
+학습 과정 돌아보기
 
- Prepare MNIST Datset
-1(train_x, train_y), 
+Prepare MNIST Datset
+1(train_x, train_y), (test_x, test_y) = datasets.mnis
         </p>
     </div>
 </article>
@@ -342,11 +344,10 @@ TensorFlow 공식 홈페이지에서 설명하는 Expert 버전을 사용해봅�
     
 
         <p class="article-excerpt">
-             Layer Explaination
- Load Packages
+            Load Packages
 12345import tensorflow as tfimport osimport matplotlib.pyplot as plt%matplotlib inline
- Input Image
-1234567891011from tensorflow.keras import datasets(train_x, train
+Input Image
+1234567891011from tensorflow.keras import datasets(train_x, train_y), (test_x, test_y) 
         </p>
     </div>
 </article>
@@ -392,12 +393,11 @@ TensorFlow 공식 홈페이지에서 설명하는 Expert 버전을 사용해봅�
     
 
         <p class="article-excerpt">
-             Data Preprocess(MNIST)
- Load Packages
+            Load Packages
 123456import numpy as npimport matplotlib.pyplot as pltimport tensorflow as tf%matplotlib inline
- 데이터 불러오기
+데이터 불러오기
 TensorFlow에서 제공해주는 데이터셋(MNIST) 예제 불러오기
-12345678from te
+12345678from tensorflow.keras import data
         </p>
     </div>
 </article>
@@ -447,12 +447,12 @@ TensorFlow에서 제공해주는 데이터셋(MNIST) 예제 불러오기
     
 
         <p class="article-excerpt">
-             Load Packages
+            Load Packages
 12import numpy as npimport tensorflow as tf
- Tensor 생성
+Tensor 생성
 list -&gt; Tensor
 1234tf.constant([1, 2, 3])# Out&lt;tf.Tensor: shape=(3,), dtype=int32, numpy=array([1, 2, 3])&gt;
-tuple -&gt; Te
+tuple -&gt; Tens
         </p>
     </div>
 </article>
@@ -561,11 +561,10 @@ Dynamic Graph &amp; Define by Run
     
 
         <p class="article-excerpt">
-             Image Visualization
- Load Packages
+            Load Packages
 12345import numpy as npfrom PIL import Imageimport matplotlib.pyplot as plt%matplotlib inline
- 이미지 불러오기
-123456789path = 'images/dog.jpg'image_pil = Image.open(path)
+이미지 불러오기
+123456789path = 'images/dog.jpg'image_pil = Image.open(path)image = np.array(image_
         </p>
     </div>
 </article>
@@ -611,11 +610,10 @@ Dynamic Graph &amp; Define by Run
     
 
         <p class="article-excerpt">
-             Graph Visualization
- Load Packages
+            Load Packages
 1234import numpy as npimport matplotlib.pyplot as plt%matplotlib inline
- Basic Attributes
-123456789101112131415alpha : 투명도king : 그래프 종류 'line', 'bar', 'barh', 'kde'
+Basic Attributes
+123456789101112131415alpha : 투명도king : 그래프 종류 'line', 'bar', 'barh', 'kde'logy : Y축에 대해 Log scali
         </p>
     </div>
 </article>
@@ -717,13 +715,13 @@ Dynamic Graph &amp; Define by Run
 
         <p class="article-excerpt">
             Numpy 기초에 대해 다뤄보겠습니다.
- Numpy Basic
+Load Package
 1import numpy as np
- data type
+data type
 배열의 dtype을 본다.
 12345arr = np.array([[1, 2, 3], [1, 2, 3]])arr.dtype# Outdtype('int32')
 .astype()으로 datatype을 변환 가능하다.
-123456arr = arr.
+123456arr = arr.a
         </p>
     </div>
 </article>
@@ -786,7 +784,7 @@ Dynamic Graph &amp; Define by Run
                             <a href="/2020/07/31/java-dev-4/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/thumbnail/java.png)" alt="[JAVA] 농업기상정보 서비스 사용" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/thumbnail/java.png)" alt="[JAVA] 농업기상정보 서비스 API" class="thumbnail-image"></span>
     
     
 </a>
@@ -795,7 +793,7 @@ Dynamic Graph &amp; Define by Run
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Java/">Java</a></p>
-                            <p class="item-title"><a href="/2020/07/31/java-dev-4/" class="title">[JAVA] 농업기상정보 서비스 사용</a></p>
+                            <p class="item-title"><a href="/2020/07/31/java-dev-4/" class="title">[JAVA] 농업기상정보 서비스 API</a></p>
                             <p class="item-date"><time datetime="2020-07-31T06:07:15.000Z" itemprop="datePublished">2020-07-31</time></p>
                         </div>
                     </li>
@@ -806,7 +804,7 @@ Dynamic Graph &amp; Define by Run
                             <a href="/2020/07/31/java-dev-3/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/thumbnail/java.png)" alt="[JAVA] OpenWeather API 사용" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/thumbnail/java.png)" alt="[JAVA] OpenWeather API" class="thumbnail-image"></span>
     
     
 </a>
@@ -815,7 +813,7 @@ Dynamic Graph &amp; Define by Run
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Java/">Java</a></p>
-                            <p class="item-title"><a href="/2020/07/31/java-dev-3/" class="title">[JAVA] OpenWeather API 사용</a></p>
+                            <p class="item-title"><a href="/2020/07/31/java-dev-3/" class="title">[JAVA] OpenWeather API</a></p>
                             <p class="item-date"><time datetime="2020-07-31T05:12:22.000Z" itemprop="datePublished">2020-07-31</time></p>
                         </div>
                     </li>
