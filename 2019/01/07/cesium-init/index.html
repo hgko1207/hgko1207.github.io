@@ -250,10 +250,10 @@ ga('send', 'pageview');
 </ul>
 </li>
 </ul>
-<p>Cesium을 시작할 때 초기 설정이 복잡하다. 아래 두 개의 링크를 따라가서 따라하면 쉽게 할 수 있습니다. 하지만 웹에서 커스터마이징을 하기 위해 아래 코드 처럼 Cesium에서 지원하는 기본적인 기능들을 끄고 지도만 보이도록 하였습니다.<br />
+<p>Cesium을 시작할 때 초기 설정이 복잡하다. 아래 두 개의 링크를 따라가서 따라하면 쉽게 할 수 있습니다. 하지만 웹에서 커스터마이징을 하기 위해 아래 코드 처럼 Cesium에서 지원하는 기본적인 기능들을 끄고 지도만 보이도록 하였습니다.<br>
 API들은 문서나 인터넷 검색으로 찾아봅시다.</p>
-<p><a href="https://cesiumjs.org/tutorials/cesium-up-and-running/" target="_blank" rel="noopener"><img src="/images/cesium-up-and-running.png" alt="" /></a></p>
-<p><a href="https://cesiumjs.org/demos/" target="_blank" rel="noopener"><img src="/images/cesium-demos.png" alt="" /></a></p>
+<p><a href="https://cesiumjs.org/tutorials/cesium-up-and-running/" target="_blank" rel="noopener"><img src="/images/cesium-up-and-running.png" alt=""></a></p>
+<p><a href="https://cesiumjs.org/demos/" target="_blank" rel="noopener"><img src="/images/cesium-demos.png" alt=""></a></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> viewer = <span class="keyword">new</span> Cesium.Viewer(<span class="string">'cesiumContainer'</span>, &#123;</span><br><span class="line">  imageryProvider: <span class="keyword">new</span> Cesium.WebMapServiceImageryProvider(&#123;</span><br><span class="line">    url: <span class="string">'http://localhost:8080/geoserver/gwc/service/wms'</span>,</span><br><span class="line">    layers: <span class="string">'osm:osm'</span>,</span><br><span class="line">    parameters: &#123;</span><br><span class="line">      service: <span class="string">'WMS'</span>,</span><br><span class="line">      version: <span class="string">'1.1.1'</span>,</span><br><span class="line">      request: <span class="string">'GetMap'</span>,</span><br><span class="line">      layers: <span class="string">'osm:osm'</span>,</span><br><span class="line">      srs: <span class="string">'EPSG:3857'</span>,</span><br><span class="line">      crs: <span class="string">'EPSG:3857'</span>,</span><br><span class="line">      format: <span class="string">'image/png'</span>,</span><br><span class="line">      tranparent: <span class="literal">true</span>,</span><br><span class="line">      tiled: <span class="literal">true</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    tilingScheme: <span class="keyword">new</span> Cesium.WebMercatorTilingScheme(),</span><br><span class="line">  &#125;),</span><br><span class="line">  animation: <span class="literal">false</span>,</span><br><span class="line">  baseLayerPicker: <span class="literal">false</span>,</span><br><span class="line">  fullscreenButton: <span class="literal">false</span>,</span><br><span class="line">  vrButton: <span class="literal">false</span>,</span><br><span class="line">  geocoder: <span class="literal">false</span>,</span><br><span class="line">  homeButton: <span class="literal">false</span>,</span><br><span class="line">  infoBox: <span class="literal">false</span>,</span><br><span class="line">  sceneModePicker: <span class="literal">false</span>,</span><br><span class="line">  selectionIndicator: <span class="literal">false</span>,</span><br><span class="line">  timeline: <span class="literal">false</span>,</span><br><span class="line">  navigationHelpButton: <span class="literal">false</span>,</span><br><span class="line">  projectionPicker: <span class="literal">false</span>,</span><br><span class="line">  selectedEntity: <span class="literal">false</span>,</span><br><span class="line">  trackedEntity: <span class="literal">false</span>,</span><br><span class="line">  clockTrackedDataSource: <span class="literal">false</span>,</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> scene = viewer.scene;</span><br><span class="line"><span class="keyword">var</span> camera = viewer.camera;</span><br><span class="line"><span class="keyword">var</span> handler = <span class="keyword">new</span> Cesium.ScreenSpaceEventHandler(viewer.canvas);</span><br><span class="line"><span class="keyword">var</span> ellipsoid = scene.globe.ellipsoid;</span><br></pre></td></tr></table></figure>
 
         </div>
@@ -267,7 +267,7 @@ API들은 문서나 인터넷 검색으로 찾아봅시다.</p>
 
 
 
-    <a data-url="http://hgko1207.github.io/2019/01/07/cesium-init/" data-id="ckdjphbtq000bz8uqa3id67ry" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://hgko1207.github.io/2019/01/07/cesium-init/" data-id="ckdjpm6qw0009qsuq4qvgfddi" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -353,7 +353,7 @@ Cesium 이란?
 WebGL 기반
 다양한 배경 영상/지도 기본 제공
 3D / 2.5D / 2D 모드 지원 -&gt; O",
-        "wordCount": 366
+        "wordCount": 363
     }
 </script>
 
