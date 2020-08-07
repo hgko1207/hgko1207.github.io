@@ -12,12 +12,12 @@
     
     <meta name="keywords" content="Git,GitHub,Repository,gitignore" />
     
-    <meta name="description" content="설정 확인 1git config --list  계정 확인 12git config user.namegit config user.email  계정 변경 12git config --global user.name &quot;user name&quot;git config --global user.email &quot;user email&quot;  Git Create 1234567git initgi">
+    <meta name="description" content="설정 확인 1git config --list 계정 확인 12git config user.namegit config user.email 계정 변경 12git config --global user.name &quot;user name&quot;git config --global user.email &quot;user email&quot; Git Create 1234567git initgit ad">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Git] 커맨드 명령어">
 <meta property="og:url" content="http://hgko1207.github.io/2020/03/24/git-use/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="설정 확인 1git config --list  계정 확인 12git config user.namegit config user.email  계정 변경 12git config --global user.name &quot;user name&quot;git config --global user.email &quot;user email&quot;  Git Create 1234567git initgi">
+<meta property="og:description" content="설정 확인 1git config --list 계정 확인 12git config user.namegit config user.email 계정 변경 12git config --global user.name &quot;user name&quot;git config --global user.email &quot;user email&quot; Git Create 1234567git initgit ad">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/git.png">
 <meta property="article:published_time" content="2020-03-24T01:45:42.000Z">
@@ -237,27 +237,27 @@ ga('send', 'pageview');
 
             
 
-            <h2 id="설정-확인"><a class="markdownIt-Anchor" href="#설정-확인"></a> 설정 확인</h2>
+            <h2 id="설정-확인">설정 확인</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --list</span><br></pre></td></tr></table></figure>
-<h2 id="계정-확인"><a class="markdownIt-Anchor" href="#계정-확인"></a> 계정 확인</h2>
+<h2 id="계정-확인">계정 확인</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure>
-<h2 id="계정-변경"><a class="markdownIt-Anchor" href="#계정-변경"></a> 계정 변경</h2>
+<h2 id="계정-변경">계정 변경</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"user name"</span></span><br><span class="line">git config --global user.email <span class="string">"user email"</span></span><br></pre></td></tr></table></figure>
-<h2 id="git-create"><a class="markdownIt-Anchor" href="#git-create"></a> Git Create</h2>
+<h2 id="Git-Create">Git Create</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m <span class="string">"first commit"</span></span><br><span class="line">git remote add origin https://github.com/username/repositoryName</span><br><span class="line">git push -u origin master</span><br><span class="line">or</span><br><span class="line">git push --<span class="built_in">set</span>-upstream origin master</span><br></pre></td></tr></table></figure>
-<h2 id="git-update"><a class="markdownIt-Anchor" href="#git-update"></a> Git Update</h2>
+<h2 id="Git-Update">Git Update</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">"update"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># commit 확인</span></span><br><span class="line">git status</span><br><span class="line"></span><br><span class="line"><span class="comment"># 원격 저장소에 반영</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
-<h2 id="git-pull"><a class="markdownIt-Anchor" href="#git-pull"></a> Git Pull</h2>
+<h2 id="Git-Pull">Git Pull</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://github.com/username/repositoryName</span><br><span class="line">git pull origin master</span><br><span class="line"></span><br><span class="line"><span class="comment"># --allow-unrelated-histories 옵션은 독립적인 두 프로젝트를 병합하기 위해 사용</span></span><br><span class="line">git pull origin master --allow-unrelated-histories</span><br></pre></td></tr></table></figure>
-<h2 id="git-repository-download"><a class="markdownIt-Anchor" href="#git-repository-download"></a> Git Repository Download</h2>
+<h2 id="Git-Repository-Download">Git Repository Download</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/username/repositoryName</span><br><span class="line"></span><br><span class="line"><span class="comment"># 서브 모듈 포함에서 받기</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/username/repositoryName</span><br><span class="line">git submodule init</span><br><span class="line">or</span><br><span class="line">git <span class="built_in">clone</span> --recurse-submodules https://github.com/username/repositoryName</span><br></pre></td></tr></table></figure>
-<h2 id="git-ignore"><a class="markdownIt-Anchor" href="#git-ignore"></a> Git Ignore</h2>
+<h2 id="Git-Ignore">Git Ignore</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># .gitignore 파일을 생성한다.</span></span><br><span class="line">touch .gitignore</span><br></pre></td></tr></table></figure>
-<h2 id="git에-이미-올라가-있는-파일을-삭제하고-gitignore-적용"><a class="markdownIt-Anchor" href="#git에-이미-올라가-있는-파일을-삭제하고-gitignore-적용"></a> Git에 이미 올라가 있는 파일을 삭제하고 .gitignore 적용</h2>
+<h2 id="Git에-이미-올라가-있는-파일을-삭제하고-gitignore-적용">Git에 이미 올라가 있는 파일을 삭제하고 .gitignore 적용</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 현재 Repository의 cache를 모두 삭제한다.</span></span><br><span class="line">git rm -r --cached .</span><br><span class="line"></span><br><span class="line"><span class="comment"># [File Name]에 해당하는 파일을 원격 저장소에서 삭제한다.(로컬 저장소에 있는 파일은 삭제하지 않는다.)</span></span><br><span class="line">git rm -r --cached [File Name]</span><br></pre></td></tr></table></figure>
-<h2 id="git-branch"><a class="markdownIt-Anchor" href="#git-branch"></a> Git branch</h2>
+<h2 id="Git-branch">Git branch</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># branch 만들기</span></span><br><span class="line">git branch [branch name]</span><br><span class="line"><span class="comment"># branch 목록 보기</span></span><br><span class="line">git branch</span><br><span class="line"><span class="comment"># 지정한 branch 삭제</span></span><br><span class="line">git branch -d [branch name]</span><br><span class="line"><span class="comment"># branch 선택하기</span></span><br><span class="line">git checkout [branch name]</span><br></pre></td></tr></table></figure>
-<h2 id="git-remote"><a class="markdownIt-Anchor" href="#git-remote"></a> Git Remote</h2>
+<h2 id="Git-Remote">Git Remote</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 원격 저장소의 이름 목록</span></span><br><span class="line">git remote</span><br><span class="line"><span class="comment"># 원격 저장소에 대한 자세한 목록보기</span></span><br><span class="line">git remote -v</span><br><span class="line"><span class="comment"># 원격 저장소 추사</span></span><br><span class="line">git remote add [name] [url]</span><br><span class="line"><span class="comment"># 원격 저장소를 삭제</span></span><br><span class="line">git remote rm [name]</span><br></pre></td></tr></table></figure>
 
         </div>
@@ -271,7 +271,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="http://hgko1207.github.io/2020/03/24/git-use/" data-id="ckdjmers7001mcsuqeft023fz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://hgko1207.github.io/2020/03/24/git-use/" data-id="ckdjp5hcr001ff0uqay019j7o" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -349,15 +349,15 @@ ga('send', 'pageview');
         "dateCreated": "2020-03-24",
         "dateModified": "2020-07-30",
         "url": "http://hgko1207.github.io/2020/03/24/git-use/",
-        "description": " 설정 확인
+        "description": "설정 확인
 1git config --list
- 계정 확인
+계정 확인
 12git config user.namegit config user.email
- 계정 변경
+계정 변경
 12git config --global user.name "user name"git config --global user.email "user email"
- Git Create
-1234567git initgi",
-        "wordCount": 395
+Git Create
+1234567git initgit ad",
+        "wordCount": 362
     }
 </script>
 
