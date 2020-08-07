@@ -12,12 +12,12 @@
     
     <meta name="keywords" content="AI,DeepLearning,PyTorch" />
     
-    <meta name="description" content="Load Packages 12import numpy as npimport torch Basic PyTorch 기초 사용법 1234nums &#x3D; torch.arange(9)nums.shapenums.numpy()nums.reshape(3, 3) 1234randoms &#x3D; torch.rand((3, 3))zeros &#x3D; torch.zeros((3, 3))ones &#x3D;">
+    <meta name="description" content="Load Packages 12import numpy as npimport torch  Basic PyTorch 기초 사용법 1234nums &#x3D; torch.arange(9)nums.shapenums.numpy()nums.reshape(3, 3) 1234randoms &#x3D; torch.rand((3, 3))zeros &#x3D; torch.zeros((3, 3))ones">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[PyTorch] 기초 사용법">
 <meta property="og:url" content="http://hgko1207.github.io/2020/07/30/ai-pytorch-1/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="Load Packages 12import numpy as npimport torch Basic PyTorch 기초 사용법 1234nums &#x3D; torch.arange(9)nums.shapenums.numpy()nums.reshape(3, 3) 1234randoms &#x3D; torch.rand((3, 3))zeros &#x3D; torch.zeros((3, 3))ones &#x3D;">
+<meta property="og:description" content="Load Packages 12import numpy as npimport torch  Basic PyTorch 기초 사용법 1234nums &#x3D; torch.arange(9)nums.shapenums.numpy()nums.reshape(3, 3) 1234randoms &#x3D; torch.rand((3, 3))zeros &#x3D; torch.zeros((3, 3))ones">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/pytorch.png">
 <meta property="article:published_time" content="2020-07-30T06:04:07.000Z">
@@ -236,24 +236,24 @@ ga('send', 'pageview');
 
             
 
-            <h2 id="Load-Packages">Load Packages</h2>
+            <h2 id="load-packages"><a class="markdownIt-Anchor" href="#load-packages"></a> Load Packages</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> torch</span><br></pre></td></tr></table></figure>
-<h2 id="Basic">Basic</h2>
+<h2 id="basic"><a class="markdownIt-Anchor" href="#basic"></a> Basic</h2>
 <p>PyTorch 기초 사용법</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nums = torch.arange(<span class="number">9</span>)</span><br><span class="line">nums.shape</span><br><span class="line">nums.numpy()</span><br><span class="line">nums.reshape(<span class="number">3</span>, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">randoms = torch.rand((<span class="number">3</span>, <span class="number">3</span>))</span><br><span class="line">zeros = torch.zeros((<span class="number">3</span>, <span class="number">3</span>))</span><br><span class="line">ones = torch.ones((<span class="number">3</span>, <span class="number">3</span>))</span><br><span class="line">torch.zeros_like(ones)</span><br></pre></td></tr></table></figure>
-<h2 id="Operations">Operations</h2>
+<h2 id="operations"><a class="markdownIt-Anchor" href="#operations"></a> Operations</h2>
 <p>PyTorch로 수학연산 하기</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">nums * <span class="number">3</span></span><br><span class="line">nums = nums.reshape((<span class="number">3</span>, <span class="number">3</span>))</span><br><span class="line">nums + nums</span><br><span class="line"></span><br><span class="line">result = torch.add(nums, <span class="number">10</span>)</span><br><span class="line">result.numpy()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">array([[<span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>],</span><br><span class="line">       [<span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>],</span><br><span class="line">       [<span class="number">16</span>, <span class="number">17</span>, <span class="number">18</span>]], dtype=int64)</span><br></pre></td></tr></table></figure>
-<h2 id="View">View</h2>
+<h2 id="view"><a class="markdownIt-Anchor" href="#view"></a> View</h2>
 <p>reshape와 같다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">range_nums = torch.arange(<span class="number">9</span>).reshape(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">range_nums.view(<span class="number">-1</span>)</span><br><span class="line">range_nums.view(<span class="number">1</span>, <span class="number">9</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">tensor([[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]])</span><br></pre></td></tr></table></figure>
-<h2 id="Compile">Compile</h2>
+<h2 id="compile"><a class="markdownIt-Anchor" href="#compile"></a> Compile</h2>
 <p>numpy를 torch tensor로 불러오기</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arr = np.array([<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>])</span><br><span class="line">arr_torch = torch.from_numpy(arr)</span><br><span class="line">arr_torch.float()</span><br><span class="line"></span><br><span class="line"><span class="comment"># tensor([1., 1., 1.])</span></span><br></pre></td></tr></table></figure>
 <p>Device 설정</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">device = <span class="string">'cuda'</span> <span class="keyword">if</span> torch.cuda.is_available() <span class="keyword">else</span> <span class="string">'cpu'</span></span><br><span class="line">arr_torch.to(device)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out - GPU 사용 가능</span></span><br><span class="line">tensor([<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>], device=<span class="string">'cuda:0'</span>, dtype=torch.int32)</span><br></pre></td></tr></table></figure>
-<h2 id="AutoGrad">AutoGrad</h2>
+<h2 id="autograd"><a class="markdownIt-Anchor" href="#autograd"></a> AutoGrad</h2>
 <p>기울기 구하기</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x = torch.ones(<span class="number">2</span>, <span class="number">2</span>, requires_grad=<span class="literal">True</span>)</span><br><span class="line">y = x + <span class="number">2</span></span><br><span class="line">print(x.grad_fn)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">&lt;AddBackward0 object at <span class="number">0x000001FFE2A04148</span>&gt;</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">z = y * y * <span class="number">3</span></span><br><span class="line">out = z.mean()</span><br><span class="line">print(z, out)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">tensor([[<span class="number">27.</span>, <span class="number">27.</span>],</span><br><span class="line">        [<span class="number">27.</span>, <span class="number">27.</span>]], grad_fn=&lt;MulBackward0&gt;) tensor(<span class="number">27.</span>, grad_fn=&lt;MeanBackward0&gt;)</span><br></pre></td></tr></table></figure>
@@ -270,7 +270,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="http://hgko1207.github.io/2020/07/30/ai-pytorch-1/" data-id="ckd8ecs7f00002cuq5obcc7mq" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://hgko1207.github.io/2020/07/30/ai-pytorch-1/" data-id="ckdjmertn005rcsuqbk1pgou8" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -348,13 +348,13 @@ ga('send', 'pageview');
         "dateCreated": "2020-07-30",
         "dateModified": "2020-07-30",
         "url": "http://hgko1207.github.io/2020/07/30/ai-pytorch-1/",
-        "description": "Load Packages
+        "description": " Load Packages
 12import numpy as npimport torch
-Basic
+ Basic
 PyTorch 기초 사용법
 1234nums = torch.arange(9)nums.shapenums.numpy()nums.reshape(3, 3)
-1234randoms = torch.rand((3, 3))zeros = torch.zeros((3, 3))ones =",
-        "wordCount": 374
+1234randoms = torch.rand((3, 3))zeros = torch.zeros((3, 3))ones",
+        "wordCount": 392
     }
 </script>
 
