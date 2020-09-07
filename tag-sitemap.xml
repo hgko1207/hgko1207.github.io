@@ -3,15 +3,29 @@
 
 
     <url>
+        <loc>http://hgko1207.github.io/tags/WPF/</loc>
+        <lastmod>2020-09-07T02:02:32.258Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/tags/C/</loc>
+        <lastmod>2020-09-07T02:02:32.258Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://hgko1207.github.io/tags/%25EB%25A6%25AC%25EB%2588%2585%25EC%258A%25A4/</loc>
-        <lastmod>2020-09-06T13:19:29.856Z</lastmod>
+        <lastmod>2020-09-06T13:43:00.864Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://hgko1207.github.io/tags/Docker/</loc>
-        <lastmod>2020-09-06T13:19:29.856Z</lastmod>
+        <lastmod>2020-09-06T13:43:00.864Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -514,13 +528,6 @@
     </url>
 
     <url>
-        <loc>http://hgko1207.github.io/tags/C/</loc>
-        <lastmod>2020-07-31T01:56:03.436Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hgko1207.github.io/tags/%25EB%25A6%25AC%25EC%2595%25A1%25ED%258A%25B8/</loc>
         <lastmod>2020-07-31T01:55:53.957Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -761,13 +768,6 @@
     <url>
         <loc>http://hgko1207.github.io/tags/Geocoder/</loc>
         <lastmod>2020-07-31T01:44:59.902Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/WPF/</loc>
-        <lastmod>2020-07-31T01:44:47.303Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
