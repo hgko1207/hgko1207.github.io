@@ -9,7 +9,7 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Information related to IT and satellite</description>
-    <pubDate>Mon, 14 Sep 2020 02:09:40 GMT</pubDate>
+    <pubDate>Mon, 14 Sep 2020 02:19:01 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -21,14 +21,14 @@
       
         
         
-          &lt;h2 id=&quot;기본-명령어&quot;&gt;기본 명령어&lt;/h2&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;li
+          &lt;h2 id=&quot;기본-명령어&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#기본-명령어&quot;&gt;&lt;/a&gt; 기본 명령어&lt;/h2&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;p
         
       
       </description>
       
       
-      <content:encoded><![CDATA[<h2 id="기본-명령어">기본 명령어</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># PostgreSQL 접속</span></span><br><span class="line">psql -U postgres</span><br></pre></td></tr></table></figure><table><thead><tr><th>명령어</th><th>설명</th></tr></thead><tbody><tr><td>\list or \l</td><td>데이터베이스 목록 조회</td></tr><tr><td>\list+ or \l+</td><td>데이터베이스 목록 상세조회</td></tr></tbody></table><h2 id="백업-및-복원">백업 및 복원</h2><table><thead><tr><th>명령어</th><th>설명</th></tr></thead><tbody><tr><td>pg_dump &gt; [백업파일명]</td><td>전체 백업</td></tr><tr><td>pg_dump [DB명] &gt; [백업파일명]</td><td>데이터베이스만 백업</td></tr><tr><td>psql -U postgres [DB명] &gt; [백업파일명]</td><td>데이터베이스만 백업</td></tr></tbody></table>]]></content:encoded>
+      <content:encoded><![CDATA[<h2 id="기본-명령어"><a class="markdownIt-Anchor" href="#기본-명령어"></a> 기본 명령어</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># PostgreSQL 접속</span></span><br><span class="line">psql -U postgres</span><br></pre></td></tr></table></figure><table><thead><tr><th>명령어</th><th>설명</th></tr></thead><tbody><tr><td>\list or \l</td><td>데이터베이스 목록 조회</td></tr><tr><td>\list+ or \l+</td><td>데이터베이스 목록 상세조회</td></tr><tr><td>\c [DB Name]</td><td>다른 DB에 접속</td></tr><tr><td>\d</td><td>테이블 목록 보기</td></tr><tr><td>\dt [Table Name]</td><td>지정된 테이블 컬럼 목록 보기</td></tr><tr><td>\dS</td><td>시스템 테이블 목록 보기</td></tr><tr><td>\dv</td><td>뷰 목록 보기</td></tr><tr><td>\ds</td><td>시퀀스 목록 보기</td></tr><tr><td>\du</td><td>롤 목록 보기</td></tr><tr><td>\dn</td><td>스키마 목록 보기</td></tr><tr><td>\q</td><td>psql 종료(Ctrl + d)</td></tr></tbody></table><h2 id="백업-및-복원"><a class="markdownIt-Anchor" href="#백업-및-복원"></a> 백업 및 복원</h2><table><thead><tr><th>명령어</th><th>설명</th></tr></thead><tbody><tr><td>pg_dump &gt; [백업파일명]</td><td>전체 백업</td></tr><tr><td>pg_dump [DB명] &gt; [백업파일명]</br>예) pg_dump mydb &gt; db.sql</td><td>데이터베이스만 백업</td></tr><tr><td>psql -U postgres [DB명] &gt; [백업파일명]</td><td>데이터베이스만 백업</td></tr><tr><td>psql -f [백업파일명] [복원할 DB명]</br>예) psql -f db.sql mydb</td><td>DB 만 복원</br>단, DB가 없는 경우에는 생성을 먼저 해줘야 한다.</td></tr><tr><td>psql [복원할 DB명] &lt; [백업파일명]</br>예) psql mydb &lt; db.sql</td><td>DB 만 복원</br>단, DB가 없는 경우에는 생성을 먼저 해줘야 한다.</td></tr></tbody></table>]]></content:encoded>
       
       <comments>http://hgko1207.github.io/2020/09/14/postgresql-3/#disqus_thread</comments>
     </item>
