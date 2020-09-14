@@ -9,8 +9,34 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Information related to IT and satellite</description>
-    <pubDate>Mon, 14 Sep 2020 02:19:01 GMT</pubDate>
+    <pubDate>Mon, 14 Sep 2020 02:27:54 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[CentOS] 기본 명령어</title>
+      <link>http://hgko1207.github.io/2020/09/14/linux-1/</link>
+      <guid>http://hgko1207.github.io/2020/09/14/linux-1/</guid>
+      <pubDate>Mon, 14 Sep 2020 02:21:19 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;h2 id=&quot;기본-명령어&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#기본-명령어&quot;&gt;&lt;/a&gt; 기본 명령어&lt;/h2&gt;
+&lt;p&gt;CentOS 7 버전&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;명령어&lt;/th&gt;
+&lt;th&gt;설명&lt;/th
+        
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<h2 id="기본-명령어"><a class="markdownIt-Anchor" href="#기본-명령어"></a> 기본 명령어</h2><p>CentOS 7 버전</p><table><thead><tr><th>명령어</th><th>설명</th></tr></thead><tbody><tr><td>systemctl start [서비스명]</td><td>서비스 시작</td></tr><tr><td>systemctl stop [서비스명]</td><td>서비스 중지</td></tr><tr><td>systemctl restart [서비스명]</td><td>서비스 재시작</td></tr></tbody></table>]]></content:encoded>
+      
+      <comments>http://hgko1207.github.io/2020/09/14/linux-1/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>[PostgreSQL] Command 명령어</title>
