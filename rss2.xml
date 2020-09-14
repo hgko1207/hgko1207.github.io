@@ -9,7 +9,7 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Information related to IT and satellite</description>
-    <pubDate>Mon, 14 Sep 2020 02:29:57 GMT</pubDate>
+    <pubDate>Mon, 14 Sep 2020 02:57:16 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -21,7 +21,7 @@
       
         
         
-          &lt;h2 id=&quot;기본-명령어&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#기본-명령어&quot;&gt;&lt;/a&gt; 기본 명령어&lt;/h2&gt;
+          &lt;h2 id=&quot;기본-명령어&quot;&gt;기본 명령어&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -29,13 +29,17 @@
 &lt;th&gt;설명&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
-&lt;t
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ll&lt;/td&gt;
+&lt;td&gt;해당 디렉토리 파일 목록 보기&lt;/td&gt;
+
         
       
       </description>
       
       
-      <content:encoded><![CDATA[<h2 id="기본-명령어"><a class="markdownIt-Anchor" href="#기본-명령어"></a> 기본 명령어</h2><table><thead><tr><th>명령어</th><th>설명</th></tr></thead><tbody><tr><td>systemctl start [서비스명]</td><td>서비스 시작</td></tr><tr><td>systemctl stop [서비스명]</td><td>서비스 중지</td></tr><tr><td>systemctl restart [서비스명]</td><td>서비스 재시작</td></tr></tbody></table>]]></content:encoded>
+      <content:encoded><![CDATA[<h2 id="기본-명령어">기본 명령어</h2><table><thead><tr><th>명령어</th><th>설명</th></tr></thead><tbody><tr><td>ll</td><td>해당 디렉토리 파일 목록 보기</td></tr><tr><td>ls -al</td><td>숨김 파일까지 보기</td></tr><tr><td>ls -lt</td><td>시간순으로 보기</td></tr><tr><td>hostname</td><td>호스트명 보기</td></tr><tr><td>cat [파일명]</br>예) cat /etc/hosts</td><td>파일 내용 출력</td></tr><tr><td>vi [파일명]</br>예) vi /etc/hosts</td><td>파일 내용 편집</td></tr><tr><td>mkdir [폴더 or 파일명]</td><td>폴더 또는 파일 생성</td></tr><tr><td>rm [파일명]</td><td>파일 삭제</td></tr><tr><td>rm -f [파일명]</td><td>묻지 않고 삭제</td></tr><tr><td>rm -rf [폴더명]</td><td>폴더 삭제</td></tr><tr><td>cp [복사대상] [붙여넣을파일명]</td><td>파일 복사</td></tr><tr><td>cp -r [복사대상] [붙여넣을폴더명]</td><td>폴더 복사</td></tr><tr><td>mv [파일] [변경할파일]</td><td>파일 또는 폴더 이동</td></tr></tbody></table><h2 id="서비스">서비스</h2><table><thead><tr><th>명령어</th><th>설명</th></tr></thead><tbody><tr><td>systemctl enable [서비스명]</td><td>서비스 등록</td></tr><tr><td>systemctl start [서비스명]</td><td>서비스 시작</td></tr><tr><td>systemctl stop [서비스명]</td><td>서비스 중지</td></tr><tr><td>systemctl restart [서비스명]</td><td>서비스 재시작</td></tr><tr><td>systemctl status [서비스명]</td><td>서비스 상태확인</td></tr><tr><td>systemctl list-unit-files | grep [서비스명]</td><td>서비스 검색</td></tr></tbody></table><h2 id="계정">계정</h2><table><thead><tr><th>명령어</th><th>설명</th></tr></thead><tbody><tr><td>su [계정명]</td><td>접속 계정 변경</td></tr><tr><td>su - </br>예) su - root</td><td>다시 로그인</td></tr><tr><td>whoami</td><td>접속 사용자 확인</td></tr></tbody></table><h2 id="주요-명령어">주요 명령어</h2><table><thead><tr><th>명령어</th><th>설명</th></tr></thead><tbody><tr><td>ssh 계정@IP주소</br>예) ssh <a href="mailto:root@192.168.20.25">root@192.168.20.25</a></td><td>SSH 접속</td></tr><tr><td>scp 파일명 계정@IP주소:폴더위치 </br>예) scp mydb.sql <a href="mailto:root@192.168.20.24">root@192.168.20.24</a>:/home/sql</td><td>파일 이동</td></tr></tbody></table>]]></content:encoded>
       
       <comments>http://hgko1207.github.io/2020/09/14/linux-1/#disqus_thread</comments>
     </item>
