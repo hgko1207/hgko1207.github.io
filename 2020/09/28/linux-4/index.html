@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>[CentOS 7] Apache Zookeeper 설치 및 설정 | 규니의 블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="CentOS,Linux,Zookeeper" />
+    
+    <meta name="description" content="아파치 주키퍼(Apache ZooKeeper)는 아파치 소프트웨어 재단 프로젝트중의 한 소프트웨어 프로젝트로서 공개 분산형 구성 서비스, 동기 서비스 및 대용량 분산 시스템을 위한 네이밍 레지스트리를 제공한다. 주키퍼는 하둡의 한 하위 프로젝트이었으나 지금은 독립적인 상위 프로젝트이다. 출처 : 위키백과  위의 설명처럼 동기 서비스 및 대용량 분산 시스템">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[CentOS 7] Apache Zookeeper 설치 및 설정">
+<meta property="og:url" content="http://hgko1207.github.io/2020/09/28/linux-4/index.html">
+<meta property="og:site_name" content="규니의 블로그">
+<meta property="og:description" content="아파치 주키퍼(Apache ZooKeeper)는 아파치 소프트웨어 재단 프로젝트중의 한 소프트웨어 프로젝트로서 공개 분산형 구성 서비스, 동기 서비스 및 대용량 분산 시스템을 위한 네이밍 레지스트리를 제공한다. 주키퍼는 하둡의 한 하위 프로젝트이었으나 지금은 독립적인 상위 프로젝트이다. 출처 : 위키백과  위의 설명처럼 동기 서비스 및 대용량 분산 시스템">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/centos.png">
+<meta property="article:published_time" content="2020-09-28T01:36:53.000Z">
+<meta property="article:modified_time" content="2020-09-28T02:24:24.150Z">
+<meta property="article:author" content="Hyeong Gyun Ko">
+<meta property="article:tag" content="CentOS">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Zookeeper">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/centos.png">
+    
+
+    
+        <link rel="alternate" href="/" title="규니의 블로그" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-166318275-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+
+    <script
+  data-ad-client="ca-pub-7581566810202853"
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+></script>
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">hgko&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/">IT</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Docker/">Docker</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Infomation/">Infomation</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Linux/">Linux</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/C/">C++</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/RCP/">RCP</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Spring-Framework/">Spring Framework</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/WPF/">WPF</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Satellite/">Satellite</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web/">Web</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web/Angular/">Angular</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web/Cesium/">Cesium</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web/Design/">Design</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web/JavaScript/">JavaScript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web/Openlayers/">Openlayers</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web/React/">React</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about">About</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/profile">Profile</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/IT/">IT</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/IT/Linux/">Linux</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  new PartnersCoupang.G({ id: 286251 });
+</script>
+
+                            <article id="post-linux-4" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [CentOS 7] Apache Zookeeper 설치 및 설정
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2020/09/28/linux-4/" class="article-date">
+         <time datetime="2020-09-28T01:36:53.000Z" itemprop="datePublished">2020-09-28</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/CentOS/" rel="tag">CentOS</a>, <a class="tag-link" href="/tags/Linux/" rel="tag">Linux</a>, <a class="tag-link" href="/tags/Zookeeper/" rel="tag">Zookeeper</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <blockquote>
+<p>아파치 주키퍼(Apache ZooKeeper)는 아파치 소프트웨어 재단 프로젝트중의 한 소프트웨어 프로젝트로서 공개 분산형 구성 서비스, 동기 서비스 및 대용량 분산 시스템을 위한 네이밍 레지스트리를 제공한다. 주키퍼는 하둡의 한 하위 프로젝트이었으나 지금은 독립적인 상위 프로젝트이다.<br />
+출처 : <a href="https://ko.wikipedia.org/wiki/%EC%95%84%ED%8C%8C%EC%B9%98_%EC%A3%BC%ED%82%A4%ED%8D%BC" target="_blank" rel="noopener">위키백과</a></p>
+</blockquote>
+<p>위의 설명처럼 동기 서비스 및 대용량 분산 시스템을 구축하기 위해 <code>Apache ZooKeeper</code>를 사용하게 되었습니다.</p>
+<h2 id="운영체제"><a class="markdownIt-Anchor" href="#운영체제"></a> 운영체제</h2>
+<p>CentOS 7.6</p>
+<h2 id="java-jdk-설치"><a class="markdownIt-Anchor" href="#java-jdk-설치"></a> Java jdk 설치</h2>
+<p>먼저 java jdk를 필수로 설치합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[user@localhost ~]$ sudo yum install java-1.8.0-openjdk.x86_64</span><br></pre></td></tr></table></figure>
+<p>root 계정으로 전환 후 profile 정보를 변경합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[user@localhost ~]$ su -</span><br><span class="line">[root@localhost ~]$ vim /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># profile 파일 안에 아래의 내용을 추가</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/lib/jvm/jre-1.8.0-openjdk</span><br></pre></td></tr></table></figure>
+<p>source 명령어를 이용해서 변경된 내용 적용합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]$ <span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
+<h2 id="zookeeper-설치"><a class="markdownIt-Anchor" href="#zookeeper-설치"></a> Zookeeper 설치</h2>
+<h3 id="1-계정-생성"><a class="markdownIt-Anchor" href="#1-계정-생성"></a> 1. 계정 생성</h3>
+<p>먼저 계정을 생성합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]$ useradd zookeeper</span><br><span class="line">[root@localhost ~]$ passwd zookeeper</span><br></pre></td></tr></table></figure>
+<p>계정을 변경합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]$ su - zookeeper</span><br></pre></td></tr></table></figure>
+<h3 id="2-다운로드-및-설치"><a class="markdownIt-Anchor" href="#2-다운로드-및-설치"></a> 2. 다운로드 및 설치</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[zookeeper@localhost ~]$ <span class="built_in">cd</span> /home/<span class="built_in">test</span></span><br><span class="line">[zookeeper@localhost zookeeper]$ wget http://apache.mirror.cdnetworks.com/zookeeper/zookeeper-3.4.14/zookeeper-3.4.14.tar.gz</span><br><span class="line">[zookeeper@localhost zookeeper]$ tar xvfzp zookeeper-3.4.14.tar.gz</span><br><span class="line">[zookeeper@localhost zookeeper]$ ln -s zookeeper-3.4.14 zookeeper</span><br></pre></td></tr></table></figure>
+<h3 id="3-설정-파일-변경"><a class="markdownIt-Anchor" href="#3-설정-파일-변경"></a> 3. 설정 파일 변경</h3>
+<p>Data 디렉터리 경로와 서버 설정을 합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[zookeeper@localhost ~]$ <span class="built_in">cd</span> zookeeper/conf</span><br><span class="line">[zookeeper@localhost conf]$ cp zoo_sample.cfg zoo.cfg</span><br><span class="line">[zookeeper@localhost conf]$ vim zoo.cfg</span><br><span class="line"></span><br><span class="line">dataDir=/home/<span class="built_in">test</span>/zookeeper/data <span class="comment">#zookeeper 데이터 위치, 원하는 경로에 저장입력</span></span><br><span class="line">server.1=zoo-1:2888:3888 <span class="comment">#멀티 서버 설정 (주키퍼 서버가 한곳이 아닐때)</span></span><br><span class="line"><span class="comment"># server.2=server_host_1:2888:3888</span></span><br><span class="line"><span class="comment"># server.3=server_host_2:2888:3888</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-myid-생성"><a class="markdownIt-Anchor" href="#4-myid-생성"></a> 4. myid 생성</h3>
+<p>반드시 myid 파일을 dataDir 속성에 넣었던 경로에 만들어야 합니다. 호스트마다 아이디를 부여해야 합니다. 위의 설정에서 server.1에만 설정하였기 때문에 <code>{dataDir}/myid</code> 내부에 1이라는 값이 있어야 합니다. 그리고 이 값은 유일해야 하고 1~255 사이로 설정해야 합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[zookeeper@localhost zookeeper]$ <span class="built_in">cd</span> data</span><br><span class="line">[zookeeper@localhost data]$ touch myid</span><br><span class="line">[zookeeper@localhost data]$ <span class="built_in">echo</span> 1 &gt; myid</span><br></pre></td></tr></table></figure>
+<h3 id="5-zookeeper-서버-실행"><a class="markdownIt-Anchor" href="#5-zookeeper-서버-실행"></a> 5. Zookeeper 서버 실행</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[zookeeper@localhost ~]$ <span class="built_in">cd</span> /home/<span class="built_in">test</span>/zookeeper/bin</span><br><span class="line">[zookeeper@localhost bin]$ ./zkServer.sh start</span><br></pre></td></tr></table></figure>
+<p>위의 명령어를 입력하면 이상없이 서버가 실행됩니다.</p>
+<h3 id="실행-확인"><a class="markdownIt-Anchor" href="#실행-확인"></a> 실행 확인</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[zookeeper@localhost bin]$ ./zkCli.sh -server zoo-1:2181</span><br><span class="line">[zookeeper@localhost bin]$ ls /</span><br></pre></td></tr></table></figure>
+<h3 id="zookeeper-서버-중지"><a class="markdownIt-Anchor" href="#zookeeper-서버-중지"></a> Zookeeper 서버 중지</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[zookeeper@localhost bin]$ ./zkServer.sh stop</span><br></pre></td></tr></table></figure>
+<h2 id="추가-설정"><a class="markdownIt-Anchor" href="#추가-설정"></a> 추가 설정</h2>
+<p>추가적으로 프로세스 저장 경로와 로그 저장 경로 변경 및 환경변수 등록을 위한 절차입니다. 변경하지 않아도 됩니다.</p>
+<h3 id="폴더-권한-변경"><a class="markdownIt-Anchor" href="#폴더-권한-변경"></a> 폴더 권한 변경</h3>
+<p>Zookeeper 프로세스 아이디 저장 폴더와 로그 저장 폴더를 생성하고 권한을 변경합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># root 계정으로 전환</span></span><br><span class="line">[zookeeper@localhost ~]$ su -</span><br><span class="line">[root@localhost ~]$ <span class="built_in">cd</span> /var/run</span><br><span class="line">[root@localhost run]$ mkdir zookeeper</span><br><span class="line">[root@localhost run]$ chown zookeeper:zookeeper /var/run/zookeeper</span><br><span class="line">[root@localhost run]$ <span class="built_in">cd</span> ../<span class="built_in">log</span></span><br><span class="line">[root@localhost <span class="built_in">log</span>]$ mkdir zookeeper</span><br><span class="line">[root@localhost <span class="built_in">log</span>]$ chown zookeeper:zookeeper /var/<span class="built_in">log</span>/zookeeper</span><br><span class="line"></span><br><span class="line"><span class="comment"># zookeeper 계정으로 다시 돌아가기</span></span><br><span class="line">[root@localhost <span class="built_in">log</span>]$ <span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+<p>추가로 위 두개의 폴더에 링크를 생성합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[zookeeper@localhost <span class="built_in">log</span>]$ <span class="built_in">cd</span> /home/<span class="built_in">test</span>/zookeeper</span><br><span class="line">[zookeeper@localhost zookeeper]$ ln -s /var/run/zookeeper/ pids</span><br><span class="line">[zookeeper@localhost zookeeper]$ ln -s /var/<span class="built_in">log</span>/zookeeper/ logs</span><br></pre></td></tr></table></figure>
+<h3 id="환경변수-변경"><a class="markdownIt-Anchor" href="#환경변수-변경"></a> 환경변수 변경</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/lib/jvm/jre-1.8.0-openjdk</span><br><span class="line"><span class="built_in">export</span> ZOOKEEPER_HOME=/home/<span class="built_in">test</span>/zookeeper</span><br><span class="line"><span class="built_in">export</span> ZOOKEEPER_CONF_DIR=<span class="variable">$ZOOKEEPER_HOME</span>/conf</span><br><span class="line"><span class="built_in">export</span> ZOOKEEPER_LOG_DIR=/var/<span class="built_in">log</span>/zookeeper</span><br><span class="line"><span class="built_in">export</span> ZOO_LOG_DIR=<span class="variable">$ZOOKEEPER_LOG_DIR</span></span><br><span class="line"><span class="built_in">export</span> ZOOKEEPER_PID_DIR=/var/run/zookeeper</span><br><span class="line"><span class="built_in">export</span> ZOOPIDFILE=<span class="variable">$ZOOKEEPER_PID_DIR</span>/zookeeper_server.pid</span><br><span class="line"><span class="built_in">export</span> SERVER_JVMFLAGS=-Xmx1024m</span><br><span class="line"><span class="built_in">export</span> JAVA=<span class="variable">$JAVA_HOME</span>/bin/java</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=<span class="variable">$ZOOKEEPER_CONF_DIR</span>:/usr/share/java/jline.jar:/usr/share/java/log4j-1.2.jar:/usr/share/java/xercesImpl.jar:/usr/share/java/xmlParserAPIs.jar:/usr/share/java/netty.jar:/usr/share/java/slf4j-api.jar:/usr/share/java/slf4j-log4j12.jar:/usr/share/java/zookeeper.jar</span><br></pre></td></tr></table></figure>
+<h3 id="서버-재시작"><a class="markdownIt-Anchor" href="#서버-재시작"></a> 서버 재시작</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[zookeeper@localhost bin]$ ./zkServer.sh stop</span><br><span class="line">[zookeeper@localhost bin]$ ./zkServer.sh start</span><br></pre></td></tr></table></figure>
+
+        </div>
+        <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  new PartnersCoupang.G({ id: 286226 });
+</script>
+
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://hgko1207.github.io/2020/09/28/linux-4/" data-id="ckflwszji000034uqhqon7eu3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Hyeong Gyun Ko"
+        },
+        "headline": "[CentOS 7] Apache Zookeeper 설치 및 설정",
+        "image": "http://hgko1207.github.io/images/thumbnail/centos.png",
+        "keywords": "CentOS Linux Zookeeper",
+        "genre": "IT Linux",
+        "datePublished": "2020-09-28",
+        "dateCreated": "2020-09-28",
+        "dateModified": "2020-09-28",
+        "url": "http://hgko1207.github.io/2020/09/28/linux-4/",
+        "description": "
+아파치 주키퍼(Apache ZooKeeper)는 아파치 소프트웨어 재단 프로젝트중의 한 소프트웨어 프로젝트로서 공개 분산형 구성 서비스, 동기 서비스 및 대용량 분산 시스템을 위한 네이밍 레지스트리를 제공한다. 주키퍼는 하둡의 한 하위 프로젝트이었으나 지금은 독립적인 상위 프로젝트이다.
+출처 : 위키백과
+
+위의 설명처럼 동기 서비스 및 대용량 분산 시스템",
+        "wordCount": 600
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/profile.php?id=100003526102847" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/hgko1207" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2020/09/28/linux-3/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">[Linux] Proxy 서버를 사용한 내부망 yum 사용</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/09/28/linux-4/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/centos.png)" alt="[CentOS 7] Apache Zookeeper 설치 및 설정" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/IT/">IT</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/IT/Linux/">Linux</a></p>
+                            <p class="item-title"><a href="/2020/09/28/linux-4/" class="title">[CentOS 7] Apache Zookeeper 설치 및 설정</a></p>
+                            <p class="item-date"><time datetime="2020-09-28T01:36:53.000Z" itemprop="datePublished">2020-09-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/09/28/linux-3/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/linux.png)" alt="[Linux] Proxy 서버를 사용한 내부망 yum 사용" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/IT/">IT</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/IT/Linux/">Linux</a></p>
+                            <p class="item-title"><a href="/2020/09/28/linux-3/" class="title">[Linux] Proxy 서버를 사용한 내부망 yum 사용</a></p>
+                            <p class="item-date"><time datetime="2020-09-28T00:49:32.000Z" itemprop="datePublished">2020-09-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/09/19/linux-2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/centos.png)" alt="[CentOS 7] VNC 설치 및 사용(오프라인 환경)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/IT/">IT</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/IT/Linux/">Linux</a></p>
+                            <p class="item-title"><a href="/2020/09/19/linux-2/" class="title">[CentOS 7] VNC 설치 및 사용(오프라인 환경)</a></p>
+                            <p class="item-date"><time datetime="2020-09-19T12:18:14.000Z" itemprop="datePublished">2020-09-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/09/15/nodejs-1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/nodejs.png)" alt="[Node.js] 시작 및 구성" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Web/">Web</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Web/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2020/09/15/nodejs-1/" class="title">[Node.js] 시작 및 구성</a></p>
+                            <p class="item-date"><time datetime="2020-09-15T09:11:31.000Z" itemprop="datePublished">2020-09-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/09/14/linux-1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/centos.png)" alt="[CentOS 7] 기본 명령어" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/IT/">IT</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/IT/Linux/">Linux</a></p>
+                            <p class="item-title"><a href="/2020/09/14/linux-1/" class="title">[CentOS 7] 기본 명령어</a></p>
+                            <p class="item-date"><time datetime="2020-09-14T02:21:19.000Z" itemprop="datePublished">2020-09-14</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">13</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Docker/">Docker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Infomation/">Infomation</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Linux/">Linux</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">47</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/C/">C++</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Database/">Database</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/RCP/">RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Spring-Framework/">Spring Framework</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/WPF/">WPF</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Satellite/">Satellite</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web/Angular/">Angular</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/Cesium/">Cesium</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/Design/">Design</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/JavaScript/">JavaScript</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/Openlayers/">Openlayers</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/React/">React</a><span class="category-list-count">7</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">21</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">19</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/3D/" style="font-size: 10.91px;">3D</a> <a href="/tags/AI/" style="font-size: 20px;">AI</a> <a href="/tags/AOP/" style="font-size: 10px;">AOP</a> <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Accuracy/" style="font-size: 10px;">Accuracy</a> <a href="/tags/Address/" style="font-size: 10px;">Address</a> <a href="/tags/Android/" style="font-size: 14.55px;">Android</a> <a href="/tags/Android-Studio/" style="font-size: 10.91px;">Android Studio</a> <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Angular-%EA%B0%95%EC%A2%8C/" style="font-size: 10px;">Angular 강좌</a> <a href="/tags/AngularJS/" style="font-size: 10px;">AngularJS</a> <a href="/tags/Annotation/" style="font-size: 10px;">Annotation</a> <a href="/tags/BLOB/" style="font-size: 10px;">BLOB</a> <a href="/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/tags/C/" style="font-size: 12.73px;">C#</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/CSM/" style="font-size: 10px;">CSM</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Canvas/" style="font-size: 10px;">Canvas</a> <a href="/tags/CentOS/" style="font-size: 13.64px;">CentOS</a> <a href="/tags/Cesium/" style="font-size: 10px;">Cesium</a> <a href="/tags/CesiumJS/" style="font-size: 10.91px;">CesiumJS</a> <a href="/tags/Chart/" style="font-size: 10px;">Chart</a> <a href="/tags/Clean-Code/" style="font-size: 10px;">Clean Code</a> <a href="/tags/Clone/" style="font-size: 10px;">Clone</a> <a href="/tags/Coordinate-System/" style="font-size: 10.91px;">Coordinate System</a> <a href="/tags/DB/" style="font-size: 10px;">DB</a> <a href="/tags/DEM/" style="font-size: 10px;">DEM</a> <a href="/tags/DNS/" style="font-size: 10px;">DNS</a> <a href="/tags/DPPDB/" style="font-size: 10px;">DPPDB</a> <a href="/tags/Dashboard-Template/" style="font-size: 10px;">Dashboard Template</a> <a href="/tags/DataTables/" style="font-size: 10px;">DataTables</a> <a href="/tags/Database/" style="font-size: 11.82px;">Database</a> <a href="/tags/Daum/" style="font-size: 10px;">Daum</a> <a href="/tags/DeepLearning/" style="font-size: 17.27px;">DeepLearning</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/Developer/" style="font-size: 10px;">Developer</a> <a href="/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/tags/Download/" style="font-size: 10px;">Download</a> <a href="/tags/EGit/" style="font-size: 10px;">EGit</a> <a href="/tags/EPSG/" style="font-size: 10px;">EPSG</a> <a href="/tags/ES6/" style="font-size: 10.91px;">ES6</a> <a href="/tags/Eclipse/" style="font-size: 10.91px;">Eclipse</a> <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/Expo/" style="font-size: 10px;">Expo</a> <a href="/tags/Expo-Cli/" style="font-size: 10px;">Expo Cli</a> <a href="/tags/Gdal/" style="font-size: 10px;">Gdal</a> <a href="/tags/Geocoder/" style="font-size: 10px;">Geocoder</a> <a href="/tags/Geometry/" style="font-size: 10px;">Geometry</a> <a href="/tags/Git/" style="font-size: 11.82px;">Git</a> <a href="/tags/GitHub/" style="font-size: 11.82px;">GitHub</a> <a href="/tags/Graph/" style="font-size: 10px;">Graph</a> <a href="/tags/Growth/" style="font-size: 10px;">Growth</a> <a href="/tags/HTML/" style="font-size: 10.91px;">HTML</a> <a href="/tags/Hexo/" style="font-size: 10.91px;">Hexo</a> <a href="/tags/Hibernate/" style="font-size: 10px;">Hibernate</a> <a href="/tags/Hypen/" style="font-size: 10px;">Hypen</a> <a href="/tags/Hyperspectral/" style="font-size: 10px;">Hyperspectral</a> <a href="/tags/IR/" style="font-size: 10px;">IR</a> <a href="/tags/IT/" style="font-size: 10px;">IT</a> <a href="/tags/Infrared/" style="font-size: 10px;">Infrared</a> <a href="/tags/JPA/" style="font-size: 10px;">JPA</a> <a href="/tags/JQuery/" style="font-size: 10px;">JQuery</a> <a href="/tags/Java/" style="font-size: 18.18px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 19.09px;">JavaScript</a> <a href="/tags/Jpa/" style="font-size: 10px;">Jpa</a> <a href="/tags/Library/" style="font-size: 10px;">Library</a> <a href="/tags/Linux/" style="font-size: 12.73px;">Linux</a> <a href="/tags/Live-Reload/" style="font-size: 10px;">Live Reload</a> <a href="/tags/MSSQL/" style="font-size: 10px;">MSSQL</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/Map/" style="font-size: 11.82px;">Map</a> <a href="/tags/Metronic/" style="font-size: 10px;">Metronic</a> <a href="/tags/Microwave/" style="font-size: 10px;">Microwave</a> <a href="/tags/MySQL/" style="font-size: 10.91px;">MySQL</a> <a href="/tags/NITF/" style="font-size: 10px;">NITF</a> <a href="/tags/Node-js/" style="font-size: 12.73px;">Node.js</a> <a href="/tags/Numpy/" style="font-size: 13.64px;">Numpy</a> <a href="/tags/Open-API/" style="font-size: 10.91px;">Open API</a> <a href="/tags/Openlayers/" style="font-size: 10px;">Openlayers</a> <a href="/tags/PROJ-4/" style="font-size: 10px;">PROJ.4</a> <a href="/tags/Plugin/" style="font-size: 10px;">Plugin</a> <a href="/tags/Position-Accuracy/" style="font-size: 10px;">Position Accuracy</a> <a href="/tags/Postcode/" style="font-size: 10px;">Postcode</a> <a href="/tags/PostgreSQL/" style="font-size: 11.82px;">PostgreSQL</a> <a href="/tags/Prism/" style="font-size: 10px;">Prism</a> <a href="/tags/Program/" style="font-size: 10px;">Program</a> <a href="/tags/Proxy/" style="font-size: 10px;">Proxy</a> <a href="/tags/PyTorch/" style="font-size: 15.45px;">PyTorch</a> <a href="/tags/Python/" style="font-size: 14.55px;">Python</a> <a href="/tags/Query/" style="font-size: 10px;">Query</a> <a href="/tags/RCP/" style="font-size: 12.73px;">RCP</a> <a href="/tags/React/" style="font-size: 16.36px;">React</a> <a href="/tags/React-Native/" style="font-size: 10.91px;">React Native</a> <a href="/tags/React-UI/" style="font-size: 10px;">React UI</a> <a href="/tags/Refactoring/" style="font-size: 10px;">Refactoring</a> <a href="/tags/Repository/" style="font-size: 10.91px;">Repository</a> <a href="/tags/SAR/" style="font-size: 10px;">SAR</a> <a href="/tags/SAR-%EC%9C%84%EC%84%B1/" style="font-size: 10px;">SAR 위성</a> <a href="/tags/Satellite/" style="font-size: 17.27px;">Satellite</a> <a href="/tags/Sensor/" style="font-size: 10.91px;">Sensor</a> <a href="/tags/SensorModel/" style="font-size: 10px;">SensorModel</a> <a href="/tags/Server/" style="font-size: 10.91px;">Server</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/Spring-Framework/" style="font-size: 10.91px;">Spring Framework</a> <a href="/tags/Study/" style="font-size: 10.91px;">Study</a> <a href="/tags/Template/" style="font-size: 10px;">Template</a> <a href="/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/tags/Tensorflow/" style="font-size: 16.36px;">Tensorflow</a> <a href="/tags/UI-Library/" style="font-size: 10px;">UI Library</a> <a href="/tags/VNC/" style="font-size: 10px;">VNC</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/WFP/" style="font-size: 10px;">WFP</a> <a href="/tags/WPF/" style="font-size: 10.91px;">WPF</a> <a href="/tags/Weather/" style="font-size: 11.82px;">Weather</a> <a href="/tags/Web/" style="font-size: 16.36px;">Web</a> <a href="/tags/Web-Design/" style="font-size: 10.91px;">Web Design</a> <a href="/tags/Yum/" style="font-size: 10px;">Yum</a> <a href="/tags/Zookeeper/" style="font-size: 10px;">Zookeeper</a> <a href="/tags/co-kr/" style="font-size: 10px;">co.kr</a> <a href="/tags/com/" style="font-size: 10px;">com</a> <a href="/tags/domain/" style="font-size: 10px;">domain</a> <a href="/tags/gitignore/" style="font-size: 10px;">gitignore</a> <a href="/tags/input/" style="font-size: 10px;">input</a> <a href="/tags/kakao/" style="font-size: 10px;">kakao</a> <a href="/tags/lombok/" style="font-size: 10px;">lombok</a> <a href="/tags/matplotlib/" style="font-size: 10.91px;">matplotlib</a> <a href="/tags/net/" style="font-size: 10px;">net</a> <a href="/tags/proj4/" style="font-size: 10px;">proj4</a> <a href="/tags/%EA%B4%91%ED%95%99-%EC%9C%84%EC%84%B1/" style="font-size: 10px;">광학 위성</a> <a href="/tags/%EB%94%A5%EB%9F%AC%EB%8B%9D/" style="font-size: 10.91px;">딥러닝</a> <a href="/tags/%EB%A6%AC%EB%88%85%EC%8A%A4/" style="font-size: 10px;">리눅스</a> <a href="/tags/%EB%A6%AC%EC%95%A1%ED%8A%B8/" style="font-size: 11.82px;">리액트</a> <a href="/tags/%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81/" style="font-size: 10px;">리팩토링</a> <a href="/tags/%EB%AA%85%EB%A0%B9%EC%96%B4/" style="font-size: 10.91px;">명령어</a> <a href="/tags/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C/" style="font-size: 10.91px;">안드로이드</a> <a href="/tags/%EC%9A%B0%ED%8E%B8%EB%B2%88%ED%98%B8-%EC%84%9C%EB%B9%84%EC%8A%A4/" style="font-size: 10px;">우편번호 서비스</a> <a href="/tags/%EC%A0%81%EC%99%B8%EC%84%A0-%EC%84%BC%EC%84%9C/" style="font-size: 10px;">적외선 센서</a> <a href="/tags/%EC%A7%84-%EC%A0%95%EC%82%AC%EC%98%81%EC%83%81/" style="font-size: 10px;">진 정사영상</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+                <div class="widget-wrap widget-float">
+
+    <h3 class="widget-title">Sponsored</h3>
+    <div class="widget">
+        <a href="https://marcofranssen.nl?adsense_widget" target="_blank" rel="noopener">This widget is sponsored by, Marco Franssen, main contributor to this theme.</a>
+    </div>
+
+</div>
+
+            
+        
+    </div>
+    <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  new PartnersCoupang.G({ id: 286226 });
+</script>
+
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Hyeong Gyun Ko</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://hgko1207.github.io/2020/09/28/linux-4/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
