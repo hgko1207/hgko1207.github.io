@@ -9,8 +9,30 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Information related to IT and satellite</description>
-    <pubDate>Mon, 28 Sep 2020 02:35:27 GMT</pubDate>
+    <pubDate>Thu, 01 Oct 2020 13:28:16 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[CentOS 7] Apache Kafka 설치</title>
+      <link>http://hgko1207.github.io/2020/10/01/linux-5/</link>
+      <guid>http://hgko1207.github.io/2020/10/01/linux-5/</guid>
+      <pubDate>Thu, 01 Oct 2020 13:16:06 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;아파치 카프카(Apache Kafka)는 아파치 소프트웨어 재단이 스칼라로 개발한 오픈 소스 메시지 브로커 프로젝트이다.&lt;br /&gt;
+출처 : &lt;a href=&quot;https://ko.wikipedia.org/wiki/%EC%95
+        
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<blockquote><p>아파치 카프카(Apache Kafka)는 아파치 소프트웨어 재단이 스칼라로 개발한 오픈 소스 메시지 브로커 프로젝트이다.<br />출처 : <a href="https://ko.wikipedia.org/wiki/%EC%95%84%ED%8C%8C%EC%B9%98_%EC%B9%B4%ED%94%84%EC%B9%B4" target="_blank" rel="noopener">위키백과</a></p></blockquote><p>메시지 큐를 사용하여 동기화 서비스 및 대용량 분산 시스템을 구축하기 위해 Zookeeper와 함께 <code>Apache Kafka</code>를 사용하게 되었습니다.</p><h2 id="운영체제"><a class="markdownIt-Anchor" href="#운영체제"></a> 운영체제</h2><p>CentOS 7.6</p><h2 id="1-다운로드-및-설치"><a class="markdownIt-Anchor" href="#1-다운로드-및-설치"></a> 1. 다운로드 및 설치</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]$ <span class="built_in">cd</span> /home/kafka</span><br><span class="line">[root@localhost kafka]$ wget http://apache.mirror.cdnetworks.com/kafka/2.1.0/kafka_2.11-2.1.0.tgz</span><br></pre></td></tr></table></figure><h2 id="2-serverproperties-수정"><a class="markdownIt-Anchor" href="#2-serverproperties-수정"></a> 2. server.properties 수정</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost kafka]$ vim /opt/kafka_2.11-2.3.0/config/server.properties</span><br><span class="line"></span><br><span class="line">broker.id=0 <span class="comment">#kafka 서버 2개 운영시 하나는 0 하나는 1</span></span><br><span class="line">log.dirs=/data/kafka/kafka-logs (<span class="comment">#Broker가 받은 데이터를 관리위한 저장공간)</span></span><br><span class="line">listeners=PLAINTEXT://0.0.0.0:9002 (<span class="comment">#Broker가 사용하는 호스트와 포트를 지정)</span></span><br><span class="line">advertised.listeners=PLAINTEXT://192.168.24.10:9092 (<span class="comment">#Producer와 Consumer가 접근할 호스트와 포트를 지정, 기본값은 listeners를 사용.)</span></span><br><span class="line">zookeeper.connect=192.168.24.7:2181 <span class="comment"># 주키퍼의 접속 정보</span></span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      <comments>http://hgko1207.github.io/2020/10/01/linux-5/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>[CentOS 7] Apache Zookeeper 설치</title>
