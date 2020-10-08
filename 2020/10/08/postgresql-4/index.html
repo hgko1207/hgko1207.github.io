@@ -12,19 +12,21 @@
     
     <meta name="keywords" content="PostgreSQL,명령어" />
     
-    <meta name="description" content="TimescaleDB는 빠른 수집, 복잡한 쿼리를 편리하게 사용하기 위해 설계된 오픈 소스 시계열 데이터베이스 입니다. PostgreSQL을 기반으로 하며 자동 파티셔닝과 SQL 지원을 제공합니다. PostgreSQL 보다 10 ~ 100배 빠른 쿼리를 수행하고 시계열에 대해 최적화가 되어 있습니다. 5 ~ 10분 단위로 많은 양의 데이터를 넣고 빠르게 조">
+    <meta name="description" content="TimescaleDB는 빠른 수집, 복잡한 쿼리를 편리하게 사용하기 위해 설계된 오픈 소스 시계열 데이터베이스 입니다. PostgreSQL을 기반으로 하며 자동 파티셔닝과 SQL 지원을 제공합니다. PostgreSQL 보다 10 ~ 100배 빠른 쿼리를 수행하고 시계열에 대해 최적화가 되어 있습니다. 5 ~ 10분 단위로 수집되는 많은 양의 데이터를 데이터">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[PostgreSQL] TimescaleDB 설치">
 <meta property="og:url" content="http://hgko1207.github.io/2020/10/08/postgresql-4/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="TimescaleDB는 빠른 수집, 복잡한 쿼리를 편리하게 사용하기 위해 설계된 오픈 소스 시계열 데이터베이스 입니다. PostgreSQL을 기반으로 하며 자동 파티셔닝과 SQL 지원을 제공합니다. PostgreSQL 보다 10 ~ 100배 빠른 쿼리를 수행하고 시계열에 대해 최적화가 되어 있습니다. 5 ~ 10분 단위로 많은 양의 데이터를 넣고 빠르게 조">
+<meta property="og:description" content="TimescaleDB는 빠른 수집, 복잡한 쿼리를 편리하게 사용하기 위해 설계된 오픈 소스 시계열 데이터베이스 입니다. PostgreSQL을 기반으로 하며 자동 파티셔닝과 SQL 지원을 제공합니다. PostgreSQL 보다 10 ~ 100배 빠른 쿼리를 수행하고 시계열에 대해 최적화가 되어 있습니다. 5 ~ 10분 단위로 수집되는 많은 양의 데이터를 데이터">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/postgresql.png">
 <meta property="article:published_time" content="2020-10-08T04:12:58.000Z">
-<meta property="article:modified_time" content="2020-10-08T09:05:18.809Z">
+<meta property="article:modified_time" content="2020-10-08T09:13:44.812Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="PostgreSQL">
 <meta property="article:tag" content="명령어">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/postgresql.png">
     
 
     
@@ -235,16 +237,31 @@ ga('send', 'pageview');
 
             <p>TimescaleDB는 빠른 수집, 복잡한 쿼리를 편리하게 사용하기 위해 설계된 오픈 소스 시계열 데이터베이스 입니다.</p>
 <p>PostgreSQL을 기반으로 하며 자동 파티셔닝과 SQL 지원을 제공합니다. PostgreSQL 보다 10 ~ 100배 빠른 쿼리를 수행하고 시계열에 대해 최적화가 되어 있습니다.</p>
-<p>5 ~ 10분 단위로 많은 양의 데이터를 넣고 빠르게 조회하기 위해 TimescaleDB를 사용하였습니다.</p>
+<p>5 ~ 10분 단위로 수집되는 많은 양의 데이터를 데이터베이스에 추가하고 시계열로 관리하며 빠르게 조회하기 위해 TimescaleDB를 사용하였습니다.</p>
 <h2 id="운영환경"><a class="markdownIt-Anchor" href="#운영환경"></a> 운영환경</h2>
 <ul>
 <li>CentOS 7.6</li>
 <li>PostgreSQL-11</li>
 </ul>
 <h2 id="설치"><a class="markdownIt-Anchor" href="#설치"></a> 설치</h2>
-<p>PostgreSQL이 설치 되어있어야 합니다.</p>
+<p>PostgreSQL이 설치 되어있어야 합니다. 미설치 시 <a href="https://hgko1207.github.io/2020/09/10/postgresql-1/">[PostgreSQL] CentOS 7에서 PostgreSQL 설치 및 시작</a>을 참고해서 설치합니다.</p>
 <h3 id="1-postgresql-설치-확인"><a class="markdownIt-Anchor" href="#1-postgresql-설치-확인"></a> 1. PostgreSQL 설치 확인</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep postgresql</span><br></pre></td></tr></table></figure>
+<h3 id="2-계정-확인"><a class="markdownIt-Anchor" href="#2-계정-확인"></a> 2. 계정 확인</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/passwd | grep postgres</span><br></pre></td></tr></table></figure>
+<p>postgres 계정이 없으면 생성합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo useradd postgres</span><br><span class="line">sudo passwd postgres</span><br></pre></td></tr></table></figure>
+<h3 id="3-설정-변경"><a class="markdownIt-Anchor" href="#3-설정-변경"></a> 3. 설정 변경</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vi /var/lib/pgsql/11/data/postgresql.conf</span><br><span class="line"></span><br><span class="line"><span class="comment">#listen_addresses = 'localhost'  -&gt;  listen_addresses = '*'</span></span><br><span class="line"><span class="comment">#password_encryption = md5  -&gt;  password_encryption = md5</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-timescaledb-다운로드"><a class="markdownIt-Anchor" href="#4-timescaledb-다운로드"></a> 4. TimescaleDB 다운로드</h3>
+<p>아래 명령어를 복사해서 붙여넣습니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sudo cat &gt; /etc/yum.repos.d/timescale_timescaledb.repo &lt;&lt;EOL</span><br><span class="line">[timescale_timescaledb]</span><br><span class="line">name=timescale_timescaledb</span><br><span class="line">baseurl=https://packagecloud.io/timescale/timescaledb/el/7/\<span class="variable">$basearch</span></span><br><span class="line">repo_gpgcheck=1</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1</span><br><span class="line">gpgkey=https://packagecloud.io/timescale/timescaledb/gpgkey</span><br><span class="line">sslverify=1</span><br><span class="line">sslcacert=/etc/pki/tls/certs/ca-bundle.crt</span><br><span class="line">metadata_expire=300</span><br><span class="line">EOL</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum update -y</span><br><span class="line">yum install -y timescaledb-postgresql-11</span><br></pre></td></tr></table></figure>
+<h3 id="5-데이터베이스-설정"><a class="markdownIt-Anchor" href="#5-데이터베이스-설정"></a> 5. 데이터베이스 설정</h3>
+<p>계속 y를 눌러줍니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo timescaledb-tune --pg-config=/usr/pgsql-11/bin/pg_config</span><br></pre></td></tr></table></figure>
+<h3 id="6-postgresql-재시작"><a class="markdownIt-Anchor" href="#6-postgresql-재시작"></a> 6. PostgreSQL 재시작</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart postgresql-11</span><br></pre></td></tr></table></figure>
 
         </div>
         <script src="https://ads-partners.coupang.com/g.js"></script>
@@ -328,7 +345,7 @@ ga('send', 'pageview');
             "name": "Hyeong Gyun Ko"
         },
         "headline": "[PostgreSQL] TimescaleDB 설치",
-        "image": "http://hgko1207.github.io",
+        "image": "http://hgko1207.github.io/images/thumbnail/postgresql.png",
         "keywords": "PostgreSQL 명령어",
         "genre": "Programming Database",
         "datePublished": "2020-10-08",
@@ -337,8 +354,8 @@ ga('send', 'pageview');
         "url": "http://hgko1207.github.io/2020/10/08/postgresql-4/",
         "description": "TimescaleDB는 빠른 수집, 복잡한 쿼리를 편리하게 사용하기 위해 설계된 오픈 소스 시계열 데이터베이스 입니다.
 PostgreSQL을 기반으로 하며 자동 파티셔닝과 SQL 지원을 제공합니다. PostgreSQL 보다 10 ~ 100배 빠른 쿼리를 수행하고 시계열에 대해 최적화가 되어 있습니다.
-5 ~ 10분 단위로 많은 양의 데이터를 넣고 빠르게 조",
-        "wordCount": 75
+5 ~ 10분 단위로 수집되는 많은 양의 데이터를 데이터",
+        "wordCount": 245
     }
 </script>
 
@@ -423,7 +440,7 @@ PostgreSQL을 기반으로 하며 자동 파티셔닝과 SQL 지원을 제공합
                             <a href="/2020/10/08/postgresql-4/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(/images/thumbnail/postgresql.png)" alt="[PostgreSQL] TimescaleDB 설치" class="thumbnail-image"></span>
     
     
 </a>
