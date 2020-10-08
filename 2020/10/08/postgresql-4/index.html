@@ -6,21 +6,24 @@
     
 
     
-    <title>Tag: IT | 규니의 블로그</title>
+    <title>[PostgreSQL] TimescaleDB 설치 | 규니의 블로그</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="description" content="Information related to IT and satellite">
-<meta property="og:type" content="website">
-<meta property="og:title" content="규니의 블로그">
-<meta property="og:url" content="http://hgko1207.github.io/tags/IT/index.html">
+    <meta name="keywords" content="PostgreSQL,명령어" />
+    
+    <meta name="description" content="TimescaleDB는 빠른 수집, 복잡한 쿼리를 편리하게 사용하기 위해 설계된 오픈 소스 시계열 데이터베이스 입니다. PostgreSQL을 기반으로 하며 자동 파티셔닝과 SQL 지원을 제공합니다. PostgreSQL 보다 10 ~ 100배 빠른 쿼리를 수행하고 시계열에 대해 최적화가 되어 있습니다. 5 ~ 10분 단위로 많은 양의 데이터를 넣고 빠르게 조">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[PostgreSQL] TimescaleDB 설치">
+<meta property="og:url" content="http://hgko1207.github.io/2020/10/08/postgresql-4/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="Information related to IT and satellite">
+<meta property="og:description" content="TimescaleDB는 빠른 수집, 복잡한 쿼리를 편리하게 사용하기 위해 설계된 오픈 소스 시계열 데이터베이스 입니다. PostgreSQL을 기반으로 하며 자동 파티셔닝과 SQL 지원을 제공합니다. PostgreSQL 보다 10 ~ 100배 빠른 쿼리를 수행하고 시계열에 대해 최적화가 되어 있습니다. 5 ~ 10분 단위로 많은 양의 데이터를 넣고 빠르게 조">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-10-08T04:12:58.000Z">
+<meta property="article:modified_time" content="2020-10-08T09:05:18.809Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
-<meta property="article:tag" content="IT">
-<meta property="article:tag" content=" Satellite">
-<meta property="article:tag" content=" Web">
+<meta property="article:tag" content="PostgreSQL">
+<meta property="article:tag" content="명령어">
 <meta name="twitter:card" content="summary">
     
 
@@ -174,7 +177,7 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-tag"></i>Tag: <em>IT</em>
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Database/">Database</a>
     </h1>
 </div>
 
@@ -184,70 +187,173 @@ ga('send', 'pageview');
   new PartnersCoupang.G({ id: 286251 });
 </script>
 
-                            
-
-    
-    
+                            <article id="post-postgresql-4" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2019" class="archive-year"><i class="icon fa fa-calendar-o"></i>2019</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2019/01/07/it-domain/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/information.png)" alt="도메인이란" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2019/01/07/it-domain/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/IT/">IT</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/IT/Infomation/">Infomation</a>
-            </div>
-            <div class="date"><time datetime="2019-01-07T08:16:14.000Z" itemprop="datePublished">2019-01-07</time></div>
-        </div>
-        
+            <header class="article-header">
+                
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2019/01/07/it-domain/">도메인이란</a>
+        [PostgreSQL] TimescaleDB 설치
         </h1>
     
 
-        <p class="article-excerpt">
-            도메인 이름은 '인터넷에 연결된 컴퓨터들에 부여되는 교유의 문자 주소’정도라고 보시면 됩니다. 영어로는 DNS(Domain Name System) 라고 합니다.
-인터넷에 연결되어 있는 컴퓨터에 접속하려면 IP주소(Internet Protocol Address)를 알아야 합니다. 그런데 IP주소는 기억하기가 힘듭니다. 매우 불편하죠.
-그래서 쉽게 사이트의 주
-        </p>
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2020/10/08/postgresql-4/" class="article-date">
+         <time datetime="2020-10-08T04:12:58.000Z" itemprop="datePublished">2020-10-08</time>
+      </a>
     </div>
-</article>
-    
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/PostgreSQL/" rel="tag">PostgreSQL</a>, <a class="tag-link" href="/tags/%EB%AA%85%EB%A0%B9%EC%96%B4/" rel="tag">명령어</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>TimescaleDB는 빠른 수집, 복잡한 쿼리를 편리하게 사용하기 위해 설계된 오픈 소스 시계열 데이터베이스 입니다.</p>
+<p>PostgreSQL을 기반으로 하며 자동 파티셔닝과 SQL 지원을 제공합니다. PostgreSQL 보다 10 ~ 100배 빠른 쿼리를 수행하고 시계열에 대해 최적화가 되어 있습니다.</p>
+<p>5 ~ 10분 단위로 많은 양의 데이터를 넣고 빠르게 조회하기 위해 TimescaleDB를 사용하였습니다.</p>
+<h2 id="운영환경"><a class="markdownIt-Anchor" href="#운영환경"></a> 운영환경</h2>
+<ul>
+<li>CentOS 7.6</li>
+<li>PostgreSQL-11</li>
+</ul>
+<h2 id="설치"><a class="markdownIt-Anchor" href="#설치"></a> 설치</h2>
+<p>PostgreSQL이 설치 되어있어야 합니다.</p>
+<h3 id="1-postgresql-설치-확인"><a class="markdownIt-Anchor" href="#1-postgresql-설치-확인"></a> 1. PostgreSQL 설치 확인</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep postgresql</span><br></pre></td></tr></table></figure>
+
         </div>
+        <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  new PartnersCoupang.G({ id: 286226 });
+</script>
+
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://hgko1207.github.io/2020/10/08/postgresql-4/" data-id="ckg0lid390000q4uq80ob5603" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Hyeong Gyun Ko"
+        },
+        "headline": "[PostgreSQL] TimescaleDB 설치",
+        "image": "http://hgko1207.github.io",
+        "keywords": "PostgreSQL 명령어",
+        "genre": "Programming Database",
+        "datePublished": "2020-10-08",
+        "dateCreated": "2020-10-08",
+        "dateModified": "2020-10-08",
+        "url": "http://hgko1207.github.io/2020/10/08/postgresql-4/",
+        "description": "TimescaleDB는 빠른 수집, 복잡한 쿼리를 편리하게 사용하기 위해 설계된 오픈 소스 시계열 데이터베이스 입니다.
+PostgreSQL을 기반으로 하며 자동 파티셔닝과 SQL 지원을 제공합니다. PostgreSQL 보다 10 ~ 100배 빠른 쿼리를 수행하고 시계열에 대해 최적화가 되어 있습니다.
+5 ~ 10분 단위로 많은 양의 데이터를 넣고 빠르게 조",
+        "wordCount": 75
+    }
+</script>
+
+</article>
+
+    <section id="comments">
     
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
 
 
-    </div></section>
+    
+    </section>
 
 
 
@@ -285,6 +391,19 @@ ga('send', 'pageview');
             
         </ul>
     </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2020/10/01/linux-5/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">[CentOS 7] Apache Kafka 설치</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
     
     <div class="widgets-container">
         
@@ -501,11 +620,13 @@ ga('send', 'pageview');
     var disqus_shortname = 'hexo-theme-hueman';
     
     
+    var disqus_url = 'http://hgko1207.github.io/2020/10/08/postgresql-4/';
+    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>

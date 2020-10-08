@@ -9,8 +9,29 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Information related to IT and satellite</description>
-    <pubDate>Fri, 02 Oct 2020 13:32:16 GMT</pubDate>
+    <pubDate>Thu, 08 Oct 2020 09:05:18 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[PostgreSQL] TimescaleDB 설치</title>
+      <link>http://hgko1207.github.io/2020/10/08/postgresql-4/</link>
+      <guid>http://hgko1207.github.io/2020/10/08/postgresql-4/</guid>
+      <pubDate>Thu, 08 Oct 2020 04:12:58 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;TimescaleDB는 빠른 수집, 복잡한 쿼리를 편리하게 사용하기 위해 설계된 오픈 소스 시계열 데이터베이스 입니다.&lt;/p&gt;
+&lt;p&gt;PostgreSQL을 기반으로 하며 자동 파티셔닝과 SQL 지원을 제공합니다. PostgreSQL 보다 10 ~ 
+        
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<p>TimescaleDB는 빠른 수집, 복잡한 쿼리를 편리하게 사용하기 위해 설계된 오픈 소스 시계열 데이터베이스 입니다.</p><p>PostgreSQL을 기반으로 하며 자동 파티셔닝과 SQL 지원을 제공합니다. PostgreSQL 보다 10 ~ 100배 빠른 쿼리를 수행하고 시계열에 대해 최적화가 되어 있습니다.</p><p>5 ~ 10분 단위로 많은 양의 데이터를 넣고 빠르게 조회하기 위해 TimescaleDB를 사용하였습니다.</p><h2 id="운영환경"><a class="markdownIt-Anchor" href="#운영환경"></a> 운영환경</h2><ul><li>CentOS 7.6</li><li>PostgreSQL-11</li></ul><h2 id="설치"><a class="markdownIt-Anchor" href="#설치"></a> 설치</h2><p>PostgreSQL이 설치 되어있어야 합니다.</p><h3 id="1-postgresql-설치-확인"><a class="markdownIt-Anchor" href="#1-postgresql-설치-확인"></a> 1. PostgreSQL 설치 확인</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep postgresql</span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      <comments>http://hgko1207.github.io/2020/10/08/postgresql-4/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>[CentOS 7] Apache Kafka 설치</title>
