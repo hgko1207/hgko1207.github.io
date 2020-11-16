@@ -236,7 +236,11 @@ ga('send', 'pageview');
     
 
         <p class="article-excerpt">
-            
+             1. Nginx 저장소 추가
+yum 저장소에는 nginx 라이브러리가 없기 때문에 저장소를 추가합니다.
+1[hgko@localhost ~]$ sudo vi /etc/yum.repos.d/nginx.repo
+/etc/yum.repos.d 경로에 nginx.repo 파일을 추가하고 아래와 같이 작성합니다.
+12345[nginx]name=nginx repoba
         </p>
     </div>
 </article>

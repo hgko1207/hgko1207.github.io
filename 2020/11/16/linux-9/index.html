@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="Linux,Nginx,Frontend" />
     
-    <meta name="description" content="Information related to IT and satellite">
+    <meta name="description" content="1. Nginx 저장소 추가 yum 저장소에는 nginx 라이브러리가 없기 때문에 저장소를 추가합니다. 1[hgko@localhost ~]$ sudo vi &#x2F;etc&#x2F;yum.repos.d&#x2F;nginx.repo &#x2F;etc&#x2F;yum.repos.d 경로에 nginx.repo 파일을 추가하고 아래와 같이 작성합니다. 12345[nginx]name&#x3D;nginx repoba">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[CentOS 7] Nginx 설치 및 사용">
 <meta property="og:url" content="http://hgko1207.github.io/2020/11/16/linux-9/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="Information related to IT and satellite">
+<meta property="og:description" content="1. Nginx 저장소 추가 yum 저장소에는 nginx 라이브러리가 없기 때문에 저장소를 추가합니다. 1[hgko@localhost ~]$ sudo vi &#x2F;etc&#x2F;yum.repos.d&#x2F;nginx.repo &#x2F;etc&#x2F;yum.repos.d 경로에 nginx.repo 파일을 추가하고 아래와 같이 작성합니다. 12345[nginx]name&#x3D;nginx repoba">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/centos.png">
 <meta property="article:published_time" content="2020-11-16T02:35:35.000Z">
-<meta property="article:modified_time" content="2020-11-16T02:36:14.739Z">
+<meta property="article:modified_time" content="2020-11-16T02:55:54.104Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Nginx">
@@ -236,7 +236,32 @@ ga('send', 'pageview');
 
             
 
-            
+            <h2 id="1-nginx-저장소-추가"><a class="markdownIt-Anchor" href="#1-nginx-저장소-추가"></a> 1. Nginx 저장소 추가</h2>
+<p>yum 저장소에는 nginx 라이브러리가 없기 때문에 저장소를 추가합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[hgko@localhost ~]$ sudo vi /etc/yum.repos.d/nginx.repo</span><br></pre></td></tr></table></figure>
+<p><strong>/etc/yum.repos.d</strong> 경로에 nginx.repo 파일을 추가하고 아래와 같이 작성합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[nginx]</span><br><span class="line">name=nginx repo</span><br><span class="line">baseurl=http://nginx.org/packages/centos/7/<span class="variable">$basearch</span>/</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1</span><br></pre></td></tr></table></figure>
+<h2 id="2-설치"><a class="markdownIt-Anchor" href="#2-설치"></a> 2. 설치</h2>
+<p>저장소를 추가하였다면 설치를 합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[hgko@localhost ~]$ sudo yum install -y nginx</span><br></pre></td></tr></table></figure>
+<h2 id="3-방화벽-포트-개방"><a class="markdownIt-Anchor" href="#3-방화벽-포트-개방"></a> 3. 방화벽 포트 개방</h2>
+<p>웹서버의 8080 포트를 사용할 계획이므로, 8080 포트를 개방합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 포트 개방</span></span><br><span class="line">[hgko@localhost ~]$ sudo firewall-cmd --permanent --zone=public --add-port=8080/tcp</span><br><span class="line"><span class="comment"># 방화벽 재시작</span></span><br><span class="line">[hgko@localhost ~]$ sudo firewall-cmd --reload</span><br><span class="line"><span class="comment"># 개방된 포트 목록 확인</span></span><br><span class="line">[hgko@localhost ~]$ sudo firewall-cmd --list-ports</span><br></pre></td></tr></table></figure>
+<h2 id="4-서비스-시작"><a class="markdownIt-Anchor" href="#4-서비스-시작"></a> 4. 서비스 시작</h2>
+<p>서비스를 등록하고 시작합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[hgko@localhost ~]$ sudo systemctl <span class="built_in">enable</span> nginx</span><br><span class="line">[hgko@localhost ~]$ sudo systemctl start nginx</span><br></pre></td></tr></table></figure>
+<h2 id="5-웹-서버-배포"><a class="markdownIt-Anchor" href="#5-웹-서버-배포"></a> 5. 웹 서버 배포</h2>
+<p>서비스가 시작되었으면 개발된 웹 서버 배포 작업을 진행합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[hgko@localhost ~]$ sudo su</span><br><span class="line">[root@localhost ~]$ vi /etc/nginx/conf.d/default.conf</span><br></pre></td></tr></table></figure>
+<p>기존의 설정파일을 엽니다. 포트를 변경하고, 필요한 proxy 정보를 입력합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       8080;</span><br><span class="line">    server_name  localhost;</span><br><span class="line"></span><br><span class="line">    root /usr/share/nginx/frontend; <span class="comment"># 배포된 프로젝트 경로</span></span><br><span class="line">    index index.html index.htm;</span><br><span class="line"></span><br><span class="line">    client_max_body_size 100M;</span><br><span class="line">    location ^~ /api &#123;</span><br><span class="line">        proxy_set_header  X-Real-IP  <span class="variable">$remote_addr</span>;</span><br><span class="line">        proxy_set_header  Host       <span class="variable">$http_host</span>;</span><br><span class="line">        proxy_pass        http://127.0.0.1:3100;  <span class="comment"># backend url</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location ^~ /stream &#123;</span><br><span class="line">        proxy_set_header  X-Real-IP  <span class="variable">$remote_addr</span>;</span><br><span class="line">        proxy_set_header  Host       <span class="variable">$http_host</span>;</span><br><span class="line">        proxy_http_version 1.1;</span><br><span class="line">        proxy_set_header Upgrade <span class="variable">$http_upgrade</span>;</span><br><span class="line">        proxy_set_header Connection <span class="string">"upgrade"</span>;</span><br><span class="line">        proxy_pass        http://127.0.0.1:3100;  <span class="comment"># backend url</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>빌드된 프로젝트는 <strong>/usr/share/nginx</strong> 경로에 복사를 합니다.</p>
+<h2 id="6-서비스-재시작"><a class="markdownIt-Anchor" href="#6-서비스-재시작"></a> 6. 서비스 재시작</h2>
+<p>설정이 완료되면 서비스를 재시작 합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[hgko@localhost ~]$ sudo systemctl restart nginx</span><br></pre></td></tr></table></figure>
+<h2 id="7-확인"><a class="markdownIt-Anchor" href="#7-확인"></a> 7. 확인</h2>
+<p>http://localhost:8080을 접속하여 웹 서버가 잘 실행되고 있는지 확인합니다.</p>
+
         </div>
         <script src="https://ads-partners.coupang.com/g.js"></script>
 <script>
@@ -326,8 +351,12 @@ ga('send', 'pageview');
         "dateCreated": "2020-11-16",
         "dateModified": "2020-11-16",
         "url": "http://hgko1207.github.io/2020/11/16/linux-9/",
-        "description": "",
-        "wordCount": 1
+        "description": " 1. Nginx 저장소 추가
+yum 저장소에는 nginx 라이브러리가 없기 때문에 저장소를 추가합니다.
+1[hgko@localhost ~]$ sudo vi /etc/yum.repos.d/nginx.repo
+/etc/yum.repos.d 경로에 nginx.repo 파일을 추가하고 아래와 같이 작성합니다.
+12345[nginx]name=nginx repoba",
+        "wordCount": 501
     }
 </script>
 
