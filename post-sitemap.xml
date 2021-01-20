@@ -89,7 +89,7 @@
 
     <url>
         <loc>http://hgko1207.github.io/2020/10/08/postgresql-4/</loc>
-        <lastmod>2020-10-08T09:16:26.929Z</lastmod>
+        <lastmod>2020-10-12T00:29:05.482Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -194,6 +194,22 @@
     <url>
         <loc>http://hgko1207.github.io/2020/08/13/ai-dev-8/</loc>
         <lastmod>2020-08-13T08:19:50.915Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/2020/07/29/ai-dev-7/</loc>
+        <lastmod>2020-08-13T07:42:47.116Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/2020/07/30/ai-pytorch-1/</loc>
+        <lastmod>2020-08-13T07:38:33.443Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -362,14 +378,6 @@
     <url>
         <loc>http://hgko1207.github.io/2020/07/28/ai-dev-6/</loc>
         <lastmod>2020-07-31T08:15:18.016Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/2020/07/29/ai-dev-7/</loc>
-        <lastmod>2020-07-31T08:15:13.698Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -616,14 +624,6 @@
     </url>
 
     <url>
-        <loc>http://hgko1207.github.io/2020/04/14/satellite-dppdb/</loc>
-        <lastmod>2020-07-31T01:45:28.734Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://hgko1207.github.io/2020/04/13/satellite-csm/</loc>
         <lastmod>2020-07-31T01:45:25.893Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -706,14 +706,6 @@
     <url>
         <loc>http://hgko1207.github.io/2020/07/31/rcp-dev-4/</loc>
         <lastmod>2020-07-31T01:04:15.794Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/2020/07/30/ai-pytorch-1/</loc>
-        <lastmod>2020-07-30T08:39:09.293Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
