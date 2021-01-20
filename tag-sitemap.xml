@@ -752,13 +752,6 @@
     </url>
 
     <url>
-        <loc>http://hgko1207.github.io/tags/DEM/</loc>
-        <lastmod>2020-07-31T01:45:51.903Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hgko1207.github.io/tags/Growth/</loc>
         <lastmod>2020-07-31T01:45:41.057Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -780,14 +773,14 @@
     </url>
 
     <url>
-        <loc>http://hgko1207.github.io/tags/Coordinate-System/</loc>
+        <loc>http://hgko1207.github.io/tags/PROJ-4/</loc>
         <lastmod>2020-07-31T01:45:21.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://hgko1207.github.io/tags/PROJ-4/</loc>
+        <loc>http://hgko1207.github.io/tags/Coordinate-System/</loc>
         <lastmod>2020-07-31T01:45:21.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -845,27 +838,6 @@
     <url>
         <loc>http://hgko1207.github.io/tags/Prism/</loc>
         <lastmod>2020-07-31T01:44:47.303Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/Error/</loc>
-        <lastmod>2020-07-31T01:44:27.370Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/Accuracy/</loc>
-        <lastmod>2020-07-31T01:44:27.370Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/Position-Accuracy/</loc>
-        <lastmod>2020-07-31T01:44:27.370Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
