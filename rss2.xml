@@ -9,28 +9,8 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Information related to IT and satellite</description>
-    <pubDate>Mon, 23 Nov 2020 01:31:53 GMT</pubDate>
+    <pubDate>Mon, 16 Nov 2020 04:22:48 GMT</pubDate>
     <generator>http://hexo.io/</generator>
-    
-    <item>
-      <title>CE, LE 계산</title>
-      <link>http://hgko1207.github.io/2020/11/23/satellite-ce-le/</link>
-      <guid>http://hgko1207.github.io/2020/11/23/satellite-ce-le/</guid>
-      <pubDate>Mon, 23 Nov 2020 00:37:47 GMT</pubDate>
-      <description>
-      
-        
-        
-          &lt;p&gt;관측값 즉, 지상기준점과 측정점의 차이에 대해 CE 및 LE 결과를 내기 위해 구현을 하게 되었고 참고자료를 바탕으로 정리하였습니다. 소스 코드는 &lt;a href=&quot;https://hgko1207.github.io/2020/11/23/satellit
-        
-      
-      </description>
-      
-      
-      <content:encoded><![CDATA[<p>관측값 즉, 지상기준점과 측정점의 차이에 대해 CE 및 LE 결과를 내기 위해 구현을 하게 되었고 참고자료를 바탕으로 정리하였습니다. 소스 코드는 <a href="https://hgko1207.github.io/2020/11/23/satellite-ce-le/">CE, LE 계산</a> 사이트에 있습니다.</p><h2 id="cecircular-error"><a class="markdownIt-Anchor" href="#cecircular-error"></a> CE(Circular Error)</h2><ul><li>X, Y 축의 값에 대한 2차원 오차를 측정합니다.</li><li>원형오차라고 부르며, CE 50, CE 90, CE 95 등의 형식으로 표현합니다.</li><li>예) CE90 5m는 오차들이 실제 값에서 5m 반경 안에 90% 있음을 나타냄.</li></ul><h3 id="ce-90-계산"><a class="markdownIt-Anchor" href="#ce-90-계산"></a> CE 90 계산</h3><h4 id="1-관측값-평균이-0일-경우"><a class="markdownIt-Anchor" href="#1-관측값-평균이-0일-경우"></a> 1) 관측값 평균이 0일 경우</h4><ul><li>CE_XX = R * 𝜎𝑚𝑎𝑥</li></ul><ol><li>2x2 공분산 행렬을 계산하고, 공분산 행렬에 대해 고유값(Eigenvalue) 계산</li><li>최소, 최대 고유값에 대해 제곱근으로 𝜎𝑚𝑖𝑛, 𝜎𝑚𝑎𝑥 값을 구함<ul><li>예) MATLAB은 eig(A) 함수를 사용</li></ul></li><li>r = 𝜎𝑚𝑖𝑛/𝜎𝑚𝑎𝑥, p=90/100 두 개의 값과 아래 표의 값을 통해 선형 보간하여 확률 계수 R을 구함<ul><li>예) r = 0.509, p = 0.9 일 때, R = 0.041/0.05 * 1.7371 + 0.009/0.05 * 1.7621 = 1.7416</li></ul></li><li>확률 계수와 𝜎𝑚𝑎𝑥를 곱함</li></ol><p><img src="/images/satellite/cele/ce.png" alt="" /></p><h4 id="2-관측값-평균이-0이-아닐-경우"><a class="markdownIt-Anchor" href="#2-관측값-평균이-0이-아닐-경우"></a> 2) 관측값 평균이 0이 아닐 경우</h4><p><img src="/images/satellite/cele/size.png" alt="" /></p><ol><li>X, Y 축에 대해 각각 공분산 값을 구하고 2x2 공분산 행렬을 계산</li><li>i 수만큼 위의 수식으로 2x1(X, Y)의 Si 를 계산</li><li>Si 의 크기를 가장 작은 것부터 가장 큰 것 순으로 정렬(크기는 아래 수식과 같음)</li></ol><p><img src="/images/satellite/cele/si.png" alt="" /></p><ol start="4"><li>RExx는 xx% 가장 큰 크기, RE*xx는 다음으로 큰 크기를 지정.</li><li>CE_XX 계산은 아래 수식으로 계산.</li></ol><p><img src="/images/satellite/cele/ce_xx.png" alt="" /></p><h2 id="lelinear-error"><a class="markdownIt-Anchor" href="#lelinear-error"></a> LE(Linear Error)</h2><ul><li>Z축(고도)에 대한 오차를 측정합니다.</li><li>지형의 수직 정확도를 측정합니다.(TIN, DEM, DSM 등)</li><li>선형오차라고 부르며, LE 50, LE 90, LE 95 등의 형식으로 표현합니다.</li></ul><h3 id="le-90-계산"><a class="markdownIt-Anchor" href="#le-90-계산"></a> LE 90 계산</h3><h4 id="1-관측값-평균이-0일-경우-2"><a class="markdownIt-Anchor" href="#1-관측값-평균이-0일-경우-2"></a> 1) 관측값 평균이 0일 경우</h4><ul><li>LE_XX = P(확률계수) * 𝜎𝑧 (표준편차)</li></ul><ol><li>관측값에 대한 표준편차를 구함</li><li>아래의 표에서 p=90/100(0.90) 에 대한 확률 계수인 1.6449를 구함</li><li>표준편차와 확률 계수를 곱함</li></ol><ul><li>LE_90 = 1.6449 * (표준편차)</li></ul><p><img src="/images/satellite/cele/le.png" alt="" /></p><h4 id="2-관측값-평균이-0이-아닐-경우-2"><a class="markdownIt-Anchor" href="#2-관측값-평균이-0이-아닐-경우-2"></a> 2) 관측값 평균이 0이 아닐 경우</h4><p><img src="/images/satellite/cele/le_1.png" alt="" /></p><ol><li>기준점과 측정점을 통해 표준편차와 평균을 구함</li><li>위의 식(누적분포함수)에서 p 값을 계산</li><li>p 값에 대해 오차 역함수(Inverse Error Function)을 구함</li><li>아래의 식을 통해 LE를 계산</li></ol><p><img src="/images/satellite/cele/le_2.png" alt="" /></p><h2 id="참고내용"><a class="markdownIt-Anchor" href="#참고내용"></a> 참고내용</h2><h3 id="1-분산variance"><a class="markdownIt-Anchor" href="#1-분산variance"></a> 1) 분산(Variance)</h3><ul><li>관측값에 대한 분산</li></ul><p><img src="/images/satellite/cele/variance.png" alt="" /></p><h3 id="2-공분산covariance"><a class="markdownIt-Anchor" href="#2-공분산covariance"></a> 2) 공분산(Covariance)</h3><ul><li>관측값에 대한 공분산</li></ul><p><img src="/images/satellite/cele/cov.png" alt="" /></p><h3 id="3-공분산-행렬"><a class="markdownIt-Anchor" href="#3-공분산-행렬"></a> 3) 공분산 행렬</h3><ul><li>두 개의 확률 변수의 공분산 행렬은 각 변수 쌍에 대해 계산된 공분산 값으로 구성된 행렬</li></ul><p><img src="/images/satellite/cele/cov_matrix.png" alt="" /></p><h3 id="4-표준편차standard-deviation"><a class="markdownIt-Anchor" href="#4-표준편차standard-deviation"></a> 4) 표준편차(Standard Deviation)</h3><ul><li>관측값에 대한 표준편차</li></ul><p><img src="/images/satellite/cele/stdev.png" alt="" /></p><h2 id="참고자료"><a class="markdownIt-Anchor" href="#참고자료"></a> 참고자료</h2><ul><li>Computation of scalar accuracy metrics LE, CE, and SE as both predictive and samplebased statistics (NGA)</li><li>Geopositional Statistical Methods (NASA)</li></ul>]]></content:encoded>
-      
-      <comments>http://hgko1207.github.io/2020/11/23/satellite-ce-le/#disqus_thread</comments>
-    </item>
     
     <item>
       <title>[CentOS 7] Nginx 설치 및 사용</title>
@@ -1170,27 +1150,6 @@
     </item>
     
     <item>
-      <title>진 정사영상</title>
-      <link>http://hgko1207.github.io/2020/06/29/satellite-trueorthoimage/</link>
-      <guid>http://hgko1207.github.io/2020/06/29/satellite-trueorthoimage/</guid>
-      <pubDate>Mon, 29 Jun 2020 05:50:50 GMT</pubDate>
-      <description>
-      
-        
-        
-          &lt;h2 id=&quot;정사영상&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#정사영상&quot;&gt;&lt;/a&gt; 정사영상&lt;/h2&gt;
-&lt;p&gt;높이 차이나 경사 등 지형으로 인해 생긴 기하학적인 왜곡을 제거하여 &lt;span style=&quot;color:#5B9BD5&quot;&gt;
-        
-      
-      </description>
-      
-      
-      <content:encoded><![CDATA[<h2 id="정사영상"><a class="markdownIt-Anchor" href="#정사영상"></a> 정사영상</h2><p>높이 차이나 경사 등 지형으로 인해 생긴 기하학적인 왜곡을 제거하여 <span style="color:#5B9BD5"><strong>모든 지형지물을 수직으로 내려다 보았을 때의 모습으로 변환한 영상</strong></span>으로 정사투영영상이라고도 한다.</p><p><img src="/images/ortho/1.png" alt="" /></p><h2 id="진-정사영상"><a class="markdownIt-Anchor" href="#진-정사영상"></a> 진 정사영상</h2><p>정사영상에 비해 지형모델인 <span style="color:#5B9BD5"><strong>수치표면모델(Digital Surface Model,  DSM)을 통해 편위수정을 수행하고 폐색영역 보정 등 방사적 특성을 개선한 정사영상</strong></span>으로 3차원 도시 모델에 적합하다.</p><p><img src="/images/ortho/2.png" alt="" /></p><h2 id="진-정사영상-생성"><a class="markdownIt-Anchor" href="#진-정사영상-생성"></a> 진 정사영상 생성</h2><p><img src="/images/ortho/3.png" alt="" /></p><h2 id="기복-변위relief-displacement"><a class="markdownIt-Anchor" href="#기복-변위relief-displacement"></a> 기복 변위(Relief displacement)</h2><ul><li>렌즈 중심(정확하게는 연직점)으로부터 벗어난 물체는 높이 차이에 따라 왜곡된다.</li><li>대상물(또는 지표면)에 기복이 있을 경우, 연직으로 촬영하여도 축적은 동일하지 않으며, 사진면에서 연직점을 중심으로 방사상의 변위가 생기는데 이를 기복변위라고 한다.</li><li>기복이 있는 지표면을 항공기나 인공위성에서 연직 방향으로 촬영하여도 촬영된 사진에서 연직점 중심으로 방사상으로 생기는 변위이다.</li></ul><p><img src="/images/ortho/4.png" alt="" /></p><p>고층건물들을 눈 여겨 보면, 사진 중심으로부터 사선으로 빗나가는 모양으로 보인다. 건물 꼭대기의 한 점과 그에 대응하는 바닥의 점 사이의 사진상 길이가 기복변위이다.</p><h2 id="미분-편위수정법differential-rectification"><a class="markdownIt-Anchor" href="#미분-편위수정법differential-rectification"></a> 미분 편위수정법(Differential rectification)</h2><ul><li><p>정사 편위수정법의 미소부분만을 투영거리를 수정하면서 차례 차례로 투영해 나가는 방법이다.</p></li><li><p>정사영상을 제작하기 위해, 지면의 고도 차이에 의해서 영상에 나타나는 편위를 수정하는 방법이다.</p></li><li><p><strong>편위 수정(Rectification)</strong></p><ul><li>촬영 당시 생기는 피사체의 변위나 왜곡을 제거하는 과정으로 지상의 모든 점을 지면에 수직으로 투영하는 정사 투영으로 맞추는 과정이며, 미분편위 수정 과정에서 격자위치에 해당되는 수치영상의 위치는 화소 중심에 정확히 일치하지 않으므로 주변 화소의 밝기 값을 이용하여 재배열하여야 한다.</li><li><span style="color:#5B9BD5"><strong>항공사진을 지도와 같은 평면 영상으로 변환하는 기하 보정 과정</strong></span></li></ul></li></ul>]]></content:encoded>
-      
-      <comments>http://hgko1207.github.io/2020/06/29/satellite-trueorthoimage/#disqus_thread</comments>
-    </item>
-    
-    <item>
       <title>[Git] 이클립스에서 Git Repository 내려받기</title>
       <link>http://hgko1207.github.io/2020/05/18/eclipse-git-clone/</link>
       <guid>http://hgko1207.github.io/2020/05/18/eclipse-git-clone/</guid>
@@ -1548,27 +1507,6 @@
       <content:encoded><![CDATA[<h1 id="회사에서-성장하기"><a class="markdownIt-Anchor" href="#회사에서-성장하기"></a> 회사에서 성장하기</h1><h2 id="1-업무를-소비하지-말자"><a class="markdownIt-Anchor" href="#1-업무를-소비하지-말자"></a> 1. 업무를 소비하지 말자</h2><ul><li>그냥 시키는 것을</li><li>그냥 하던대로</li><li>그냥 빨리 해치워 버려야한다는 생각으로</li><li>그냥 일단 돌아가면 되도록</li><li>그냥 개발을 하는 것</li><li>그냥 아무생각 없이</li><li>누군지는 해주겠지(위험)</li></ul><p>이렇게 업무를 개발을 하지 말자 책임감을 가지고 하자</p><h2 id="2-질문을-잘하자"><a class="markdownIt-Anchor" href="#2-질문을-잘하자"></a> 2. 질문을 잘하자</h2><ul><li><p>충분한 구글링을 먼저 하자</p></li><li><p>사전준비(질문 정리)</p><ol><li>현재 발생한 상황 정리</li><li>자신의 시도들을 정리</li><li>최종적으로 Yes / No로 대답할 수 있도록 정리</li><li>그럴 수 없다면 자신의 결론에 대한 의견을 답할 수 있도록 정리</li></ol></li><li><p><strong>자신의 수준을 아는 사람에게 질문하자(중요)</strong></p></li></ul><h2 id="3-문서화를-잘하자"><a class="markdownIt-Anchor" href="#3-문서화를-잘하자"></a> 3. 문서화를 잘하자</h2><ul><li><p>트러블 슈팅</p><ol><li>나는 어쩌다 이 버그를 마주했는가</li><li>그 원인은 무엇이 있는가</li><li>그래서 어떤 시도를 해보았나</li><li>그래서 최종적으로 어떻게 해결을 했나</li></ol></li><li><p>개발에 대한 팁 또는 유틸을 정리</p></li></ul><h2 id="4-변화-무쌍한-스펙-변경에-맞서는-경험"><a class="markdownIt-Anchor" href="#4-변화-무쌍한-스펙-변경에-맞서는-경험"></a> 4. 변화 무쌍한 스펙 변경에 맞서는 경험</h2><ul><li>초기에 결정된 스펙은 무조건 변경된다.</li><li>나는 이에 어떻게 대응할 것인가</li><li>변경될 수 있는 요소들을 어떻게 제어할 것인가</li></ul>]]></content:encoded>
       
       <comments>http://hgko1207.github.io/2020/04/14/info-developer/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>CSM</title>
-      <link>http://hgko1207.github.io/2020/04/13/satellite-csm/</link>
-      <guid>http://hgko1207.github.io/2020/04/13/satellite-csm/</guid>
-      <pubDate>Mon, 13 Apr 2020 00:54:47 GMT</pubDate>
-      <description>
-      
-        
-        
-          &lt;h1 id=&quot;community-sensor-modelcsm&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#community-sensor-modelcsm&quot;&gt;&lt;/a&gt; Community Sensor Model(CSM)&lt;/h1&gt;
-&lt;p&gt;N
-        
-      
-      </description>
-      
-      
-      <content:encoded><![CDATA[<h1 id="community-sensor-modelcsm"><a class="markdownIt-Anchor" href="#community-sensor-modelcsm"></a> Community Sensor Model(CSM)</h1><p>NGA(국가지리정보국, National Geospatial Intelligence Agency)에서는 센서 모델을 동일한 방법으로 접근할 필요성에 따라 CSM(Community Sensor Model)을 개발하여 통일된 인터페이스를 제공하였습니다.</p><p>CSM은 현재 운용되고 있거나 추후 운용이 예상되는 <span style="color:#2e75b6"><strong>위성 센서의 모델, 알고리즘, 소프트웨어에 대한 개발, 시험, 평가를 지원하는 플러그인 소프트웨어 라이브러리</strong></span>입니다.</p><p>CSM은 WGS84 타원체의 ECEF(Earth Centered Earth Fixed) 좌표계를 사용하고 있습니다. 따라서 모든 함수에서 지상 좌표의 입력과 출력 값은 ECEF 좌표로 구성해야 합니다.</p><p><strong>CSM 사용 소프트웨어</strong></p><ul><li>ENVI, ERDAS, SOCET GXP 등</li></ul><h2 id="csm-장단점"><a class="markdownIt-Anchor" href="#csm-장단점"></a> CSM 장단점</h2><h3 id="장점"><a class="markdownIt-Anchor" href="#장점"></a> 장점</h3><ul><li>센서모델링을 수행하기 위한 소프트웨어 개발 시 모델링에 사용되는 행렬과 반복 알고리즘만 구현하면 되므로 <span style="color:#2e75b6"><strong>소프트웨어의 개발비용 절감효과가 큽니다</strong>.</span></li><li>새로운 센서나 모델들이 개발되면, 센서모델에 대한 플러그인만 개발하여 배포하고 응용 소프트웨어에서 호출하여 모델링을 수행하므로 <span style="color:#2e75b6"><strong>센서모델의 확장성이 뛰어납니다</strong>.</span></li></ul><h3 id="단점"><a class="markdownIt-Anchor" href="#단점"></a> 단점</h3><ul><li>ECEF 좌표계 사용을 위해 경우에 따라 중복된 좌표 변환 작업을 수행하게 되어 효율성이 다소 저하됩니다.</li></ul><h2 id="csm-context-diagram"><a class="markdownIt-Anchor" href="#csm-context-diagram"></a> CSM Context Diagram</h2><img width="80%" src="/images/satellite/csm.png" alt="" title="" ><h2 id="csm-api"><a class="markdownIt-Anchor" href="#csm-api"></a> CSM API</h2><p>CSM은 CSMPlugin 클래스와 CSMSensorModel 클래스로 구분됩니다.</p><h3 id="csmplugin-클래스"><a class="markdownIt-Anchor" href="#csmplugin-클래스"></a> CSMPlugin 클래스</h3><ul><li>플러그인 제조사, 배포 일자와 같은 기본적인 정보를 제공합니다.</li><li>센서 모델 선택, Image Support Data(ISD) 처리, 센서 모델 생성과 같은 기능을 하는 함수들로 구성됩니다.</li></ul><h3 id="smsensormodel-클래스"><a class="markdownIt-Anchor" href="#smsensormodel-클래스"></a> SMSensorModel 클래스</h3><ul><li>영상좌표에서 지상좌표의 상호간 변환, 편미분, 공분산, 파라미터 설정 등 사진 측량에 필요한 함수들로 구성됩니다.</li></ul><h2 id="sensor-model"><a class="markdownIt-Anchor" href="#sensor-model"></a> Sensor Model</h2><img width="95%" src="/images/satellite/sensorModel.png" alt="" title="" ><h2 id="download"><a class="markdownIt-Anchor" href="#download"></a> Download</h2><p>Github Page - Community Sensor Model API</p><p><a href="https://github.com/USGS-Astrogeology/csm/" target="_blank" rel="noopener"><img src="/images/satellite/usgs-csm.png" alt="" /></a></p><h2 id="build"><a class="markdownIt-Anchor" href="#build"></a> Build</h2><ol><li>다운로드가 완료되면 압축을 풀어줍니다.</li><li>빌드에 필요한 <a href="https://cmake.org/download/" target="_blank" rel="noopener">CMake</a>를 설치합니다.</li><li>설치가 완료되면 CMake gui를 실행합니다.</li><li>빌드를 하기 전 CSM 폴더 안에 build 폴더를 생성합니다.</li><li>CMake gui에서 Source 및 Build(생성한 build 폴더 경로) 경로를 입력하고 <strong>Configure</strong> 버튼을 클릭합니다.</li><li>오류 없이 설정이 완료되면 <strong>Generate</strong> 버튼을 클릭합니다.</li><li>CMake Build가 완료되면 아래와 같이 프로젝트가 생성됩니다.</li></ol><img width="75%" src="/images/satellite/csm-build.png" alt="" title="" ><ol start="8"><li>프로젝트를 실행하여 빌드를 실행하면 csmapi.dll, csmapi.lib 파일이 생성됩니다.</li></ol><p>CSM은 공통 인터페이스를 제공하기 때문에 csmapi.dll, csmapi.lib, 헤더 파일을 참조 및 로드하여 위성에 대한 센서 모델을 구현합니다. 기본적으로 Plugin, RasterGM을 상속받아 구현합니다.</p>]]></content:encoded>
-      
-      <comments>http://hgko1207.github.io/2020/04/13/satellite-csm/#disqus_thread</comments>
     </item>
     
     <item>

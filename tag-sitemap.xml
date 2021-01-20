@@ -3,34 +3,6 @@
 
 
     <url>
-        <loc>http://hgko1207.github.io/tags/Linear-Error/</loc>
-        <lastmod>2020-11-23T01:31:53.966Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/Circular-Error/</loc>
-        <lastmod>2020-11-23T01:31:53.966Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/LE/</loc>
-        <lastmod>2020-11-23T01:31:53.966Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/CE/</loc>
-        <lastmod>2020-11-23T01:31:53.966Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hgko1207.github.io/tags/Frontend/</loc>
         <lastmod>2020-11-16T04:22:48.184Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -703,20 +675,6 @@
     </url>
 
     <url>
-        <loc>http://hgko1207.github.io/tags/%25EC%25A7%2584-%25EC%25A0%2595%25EC%2582%25AC%25EC%2598%2581%25EC%2583%2581/</loc>
-        <lastmod>2020-07-31T01:47:46.071Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/Satellite/</loc>
-        <lastmod>2020-07-31T01:47:46.071Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hgko1207.github.io/tags/Hyperspectral/</loc>
         <lastmod>2020-07-31T01:47:17.019Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -725,6 +683,13 @@
 
     <url>
         <loc>http://hgko1207.github.io/tags/Sensor/</loc>
+        <lastmod>2020-07-31T01:47:17.019Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/tags/Satellite/</loc>
         <lastmod>2020-07-31T01:47:17.019Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -803,20 +768,6 @@
     <url>
         <loc>http://hgko1207.github.io/tags/Developer/</loc>
         <lastmod>2020-07-31T01:45:41.057Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/SensorModel/</loc>
-        <lastmod>2020-07-31T01:45:25.893Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/CSM/</loc>
-        <lastmod>2020-07-31T01:45:25.893Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

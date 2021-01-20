@@ -8,13 +8,6 @@
     </url>
 
     <url>
-        <loc>http://hgko1207.github.io/categories/Satellite/</loc>
-        <lastmod>2020-11-23T01:31:53.966Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hgko1207.github.io/categories/IT/Linux/</loc>
         <lastmod>2020-11-16T04:22:48.184Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -164,6 +157,13 @@
     <url>
         <loc>http://hgko1207.github.io/categories/Programming/Android/</loc>
         <lastmod>2020-07-31T01:55:18.342Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/categories/Satellite/</loc>
+        <lastmod>2020-07-31T01:47:17.019Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
