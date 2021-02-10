@@ -9,7 +9,7 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Information related to IT and satellite</description>
-    <pubDate>Tue, 26 Jan 2021 09:15:43 GMT</pubDate>
+    <pubDate>Wed, 10 Feb 2021 04:25:55 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -21,18 +21,14 @@
       
         
         
-          &lt;h2 id=&quot;컨테이너-관련-명령어들&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#컨테이너-관련-명령어들&quot;&gt;&lt;/a&gt; 컨테이너 관련 명령어들&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;명령어&lt;/th&gt;
-&lt;th&gt;설명&lt;/th&gt;
+          &lt;h2 id=&quot;컨테이너-관련-명령어들&quot;&gt;컨테이너 관련 명령어들&lt;/h2&gt;
+
         
       
       </description>
       
       
-      <content:encoded><![CDATA[<h2 id="컨테이너-관련-명령어들"><a class="markdownIt-Anchor" href="#컨테이너-관련-명령어들"></a> 컨테이너 관련 명령어들</h2><table><thead><tr><th>명령어</th><th>설명</th></tr></thead><tbody><tr><td>docker ps</td><td>실행되고 있는 컨테이너 목록</td></tr><tr><td>docker ps -a</td><td>전체 컨테이너 목록</td></tr><tr><td>docker logs [컨테이너명 or ID]</td><td>로그 확인</td></tr><tr><td>docker exec -i -t [컨테이너명 or ID] /bin/bash</td><td>컨테이너 내부 셸 접속</td></tr><tr><td>docker rm [컨테이너명 or ID]</td><td>컨테이너 삭제</td></tr><tr><td>docker rm -f [컨테이너명 or ID]</td><td>컨테이너 강제 삭제</td></tr></tbody></table><h2 id="이미지-관련-명령어들"><a class="markdownIt-Anchor" href="#이미지-관련-명령어들"></a> 이미지 관련 명령어들</h2><table><thead><tr><th>명령어</th><th>설명</th></tr></thead><tbody><tr><td>docker images</td><td>이미지 목록</td></tr><tr><td>docker build [옵션] [이미지명] [Dockerfile 경로]</td><td>이미지 생성</td></tr><tr><td>docker rmi [이미지명 or ID]</td><td>이미지 삭제</td></tr><tr><td>docker tag [이미지명] [저장소 주소]/[이미지명]</td><td>이미지에 태그 설정</td></tr><tr><td>docker push [저장소 주소]/[이미지명]</td><td>도커 허브 저장소에 이미지 올리기</td></tr></tbody></table>]]></content:encoded>
+      <content:encoded><![CDATA[<h2 id="컨테이너-관련-명령어들">컨테이너 관련 명령어들</h2>]]></content:encoded>
       
       <comments>http://hgko1207.github.io/2021/01/26/docker-2/#disqus_thread</comments>
     </item>
