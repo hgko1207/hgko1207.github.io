@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="Spring Boot,Maven" />
     
-    <meta name="description" content="Maven 빌드 이클립스 또는 STS(Spring Tool Suite) 툴에서 빌드 방법  메뉴 -&gt; Run -&gt; Run Configurations -&gt; Maven Build(우클릭) -&gt; New Configuration 클릭 [Name] 입력 란에 작성 [Base directory] 에서 Workspace 버튼 클릭 빌드하려는 프로">
+    <meta name="description" content="이클립스 또는 STS(Spring Tool Suite) 툴에서 빌드 방법  Menu -&gt; Run -&gt; Run Configurations -&gt; Maven Build(우클릭) -&gt; New Configuration 클릭 [Name] 입력 란에 작성 [Base directory] 에서 Workspace 버튼 클릭 빌드하려는 프로젝트 선택 [">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Spring Boot] Maven 빌드">
 <meta property="og:url" content="http://hgko1207.github.io/2021/03/09/springboot-1/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="Maven 빌드 이클립스 또는 STS(Spring Tool Suite) 툴에서 빌드 방법  메뉴 -&gt; Run -&gt; Run Configurations -&gt; Maven Build(우클릭) -&gt; New Configuration 클릭 [Name] 입력 란에 작성 [Base directory] 에서 Workspace 버튼 클릭 빌드하려는 프로">
+<meta property="og:description" content="이클립스 또는 STS(Spring Tool Suite) 툴에서 빌드 방법  Menu -&gt; Run -&gt; Run Configurations -&gt; Maven Build(우클릭) -&gt; New Configuration 클릭 [Name] 입력 란에 작성 [Base directory] 에서 Workspace 버튼 클릭 빌드하려는 프로젝트 선택 [">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/spring.png">
 <meta property="article:published_time" content="2021-03-09T04:52:07.000Z">
-<meta property="article:modified_time" content="2021-03-09T05:11:18.807Z">
+<meta property="article:modified_time" content="2021-03-09T05:19:55.069Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="Spring Boot">
 <meta property="article:tag" content="Maven">
@@ -235,19 +235,21 @@ ga('send', 'pageview');
 
             
 
-            <h2 id="maven-빌드"><a class="markdownIt-Anchor" href="#maven-빌드"></a> Maven 빌드</h2>
-<p>이클립스 또는 STS(Spring Tool Suite) 툴에서 빌드 방법</p>
+            <h3 id="이클립스-또는-stsspring-tool-suite-툴에서-빌드-방법"><a class="markdownIt-Anchor" href="#이클립스-또는-stsspring-tool-suite-툴에서-빌드-방법"></a> 이클립스 또는 STS(Spring Tool Suite) 툴에서 빌드 방법</h3>
 <ol>
-<li>메뉴 -&gt; Run -&gt; Run Configurations -&gt; Maven Build(우클릭) -&gt; New Configuration 클릭</li>
+<li>Menu -&gt; Run -&gt; Run Configurations -&gt; Maven Build(우클릭) -&gt; New Configuration 클릭</li>
 <li><strong>[Name]</strong> 입력 란에 작성</li>
 <li><strong>[Base directory]</strong> 에서 <strong>Workspace</strong> 버튼 클릭</li>
 <li>빌드하려는 프로젝트 선택</li>
-<li><strong>[Goals]</strong> 입력 란에 <strong><em>clean install</em></strong> 작성</li>
+<li><strong>[Goals]</strong> 입력 란에 <code>clean install</code> 작성</li>
 <li>저장 후 빌드</li>
 </ol>
+<p>아래 이미지는 설정 한 내용입니다.</p>
 <p><img src="/images/springboot/maven_build.png" alt="" /></p>
 <h3 id="maven-빌드-중에-데이터베이스-연결을-제외하는-방법"><a class="markdownIt-Anchor" href="#maven-빌드-중에-데이터베이스-연결을-제외하는-방법"></a> Maven 빌드 중에 데이터베이스 연결을 제외하는 방법</h3>
-<p><strong>[Goals]</strong> 입력 란에 <strong><em>clean install -DskipTests</em></strong> 작성</p>
+<ul>
+<li><strong>[Goals]</strong> 입력 란에 <code>clean install -DskipTests</code> 작성</li>
+</ul>
 
         </div>
         <script src="https://ads-partners.coupang.com/g.js"></script>
@@ -338,14 +340,14 @@ ga('send', 'pageview');
         "dateCreated": "2021-03-09",
         "dateModified": "2021-03-09",
         "url": "http://hgko1207.github.io/2021/03/09/springboot-1/",
-        "description": " Maven 빌드
-이클립스 또는 STS(Spring Tool Suite) 툴에서 빌드 방법
+        "description": " 이클립스 또는 STS(Spring Tool Suite) 툴에서 빌드 방법
 
-메뉴 -&gt; Run -&gt; Run Configurations -&gt; Maven Build(우클릭) -&gt; New Configuration 클릭
+Menu -&gt; Run -&gt; Run Configurations -&gt; Maven Build(우클릭) -&gt; New Configuration 클릭
 [Name] 입력 란에 작성
 [Base directory] 에서 Workspace 버튼 클릭
-빌드하려는 프로",
-        "wordCount": 61
+빌드하려는 프로젝트 선택
+[",
+        "wordCount": 64
     }
 </script>
 
