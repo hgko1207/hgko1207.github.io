@@ -9,8 +9,31 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Information related to IT and satellite</description>
-    <pubDate>Thu, 04 Mar 2021 08:01:28 GMT</pubDate>
+    <pubDate>Tue, 09 Mar 2021 05:11:18 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[Spring Boot] Maven 빌드</title>
+      <link>http://hgko1207.github.io/2021/03/09/springboot-1/</link>
+      <guid>http://hgko1207.github.io/2021/03/09/springboot-1/</guid>
+      <pubDate>Tue, 09 Mar 2021 04:52:07 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;h2 id=&quot;maven-빌드&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#maven-빌드&quot;&gt;&lt;/a&gt; Maven 빌드&lt;/h2&gt;
+&lt;p&gt;이클립스 또는 STS(Spring Tool Suite) 툴에서 빌드 방법&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+        
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<h2 id="maven-빌드"><a class="markdownIt-Anchor" href="#maven-빌드"></a> Maven 빌드</h2><p>이클립스 또는 STS(Spring Tool Suite) 툴에서 빌드 방법</p><ol><li>메뉴 -&gt; Run -&gt; Run Configurations -&gt; Maven Build(우클릭) -&gt; New Configuration 클릭</li><li><strong>[Name]</strong> 입력 란에 작성</li><li><strong>[Base directory]</strong> 에서 <strong>Workspace</strong> 버튼 클릭</li><li>빌드하려는 프로젝트 선택</li><li><strong>[Goals]</strong> 입력 란에 <strong><em>clean install</em></strong> 작성</li><li>저장 후 빌드</li></ol><p><img src="/images/springboot/maven_build.png" alt="" /></p><h3 id="maven-빌드-중에-데이터베이스-연결을-제외하는-방법"><a class="markdownIt-Anchor" href="#maven-빌드-중에-데이터베이스-연결을-제외하는-방법"></a> Maven 빌드 중에 데이터베이스 연결을 제외하는 방법</h3><p><strong>[Goals]</strong> 입력 란에 <strong><em>clean install -DskipTests</em></strong> 작성</p>]]></content:encoded>
+      
+      <comments>http://hgko1207.github.io/2021/03/09/springboot-1/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>[Kubernetes] 명령어들</title>
