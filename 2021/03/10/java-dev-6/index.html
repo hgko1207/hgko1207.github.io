@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="Java,Bytes" />
     
-    <meta name="description" content="String length 구하기 12345String test &#x3D; &quot;테스트&quot;;System.out.println(&quot;length : &quot; + test.length());결과) length : 3 Bytes length 구하기 123456String test &#x3D; &quot;테스트&quot;;int length &#x3D; test.getBytes().length;System.out.prin">
+    <meta name="description" content="String 길이 구하기 12345String test &#x3D; &quot;테스트&quot;;System.out.println(&quot;length : &quot; + test.length());결과) length : 3 바이트 길이 구하기 123456String test &#x3D; &quot;테스트&quot;;int length &#x3D; test.getBytes().length;System.out.println(&quot;lengt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[JAVA] String형 Bytes length 구하기">
 <meta property="og:url" content="http://hgko1207.github.io/2021/03/10/java-dev-6/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="String length 구하기 12345String test &#x3D; &quot;테스트&quot;;System.out.println(&quot;length : &quot; + test.length());결과) length : 3 Bytes length 구하기 123456String test &#x3D; &quot;테스트&quot;;int length &#x3D; test.getBytes().length;System.out.prin">
+<meta property="og:description" content="String 길이 구하기 12345String test &#x3D; &quot;테스트&quot;;System.out.println(&quot;length : &quot; + test.length());결과) length : 3 바이트 길이 구하기 123456String test &#x3D; &quot;테스트&quot;;int length &#x3D; test.getBytes().length;System.out.println(&quot;lengt">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/java.png">
 <meta property="article:published_time" content="2021-03-10T00:32:48.000Z">
-<meta property="article:modified_time" content="2021-03-10T00:46:38.193Z">
+<meta property="article:modified_time" content="2021-03-10T01:01:38.612Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="Bytes">
@@ -235,14 +235,14 @@ ga('send', 'pageview');
 
             
 
-            <h3 id="String-length-구하기">String length 구하기</h3>
+            <h3 id="String-길이-구하기">String 길이 구하기</h3>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String test = <span class="string">"테스트"</span>;</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"length : "</span> + test.length());</span><br><span class="line"></span><br><span class="line">결과) length : <span class="number">3</span></span><br></pre></td></tr></table></figure>
-<h3 id="Bytes-length-구하기">Bytes length 구하기</h3>
+<h3 id="바이트-길이-구하기">바이트 길이 구하기</h3>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">String test = <span class="string">"테스트"</span>;</span><br><span class="line"><span class="keyword">int</span> length = test.getBytes().length;</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"length : "</span> + length + <span class="string">" Bytes"</span>);</span><br><span class="line"></span><br><span class="line">결과) length : <span class="number">9</span> Bytes</span><br></pre></td></tr></table></figure>
 <p>기본 인코딩이 UTF-8 설정 되어있을 경우 한글은 한글자당 3바이트씩 계산된다. 한글 한글자당 2바이트씩 나오게 하려면 아래와 같이 인코딩을 설정하면 된다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">String charset = <span class="string">"euc-kr"</span>;</span><br><span class="line"></span><br><span class="line">String test = <span class="string">"테스트"</span>;</span><br><span class="line"><span class="keyword">int</span> length = test.getBytes(charset).length;</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"length : "</span> + length + <span class="string">" Bytes"</span>);</span><br><span class="line"></span><br><span class="line">결과) length : <span class="number">6</span> Bytes</span><br></pre></td></tr></table></figure>
 <h3 id="인코딩-문자셋에-따라-바이트-길이-구하기">인코딩 문자셋에 따라 바이트 길이 구하기</h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getByteLength</span><span class="params">(String str, String charset)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> str.getBytes(charset).length;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 문자열의 바이크 길이 구하기</span></span><br><span class="line"><span class="comment"> * 인코딩 문자셋에 따라 바이크 길이 달라짐.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> str 문자열</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> charset 인코딩 문자셋</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getByteLength</span><span class="params">(String str, String charset)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> str.getBytes(charset).length;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
         </div>
         <script src="https://ads-partners.coupang.com/g.js"></script>
@@ -333,11 +333,11 @@ ga('send', 'pageview');
         "dateCreated": "2021-03-10",
         "dateModified": "2021-03-10",
         "url": "http://hgko1207.github.io/2021/03/10/java-dev-6/",
-        "description": "String length 구하기
+        "description": "String 길이 구하기
 12345String test = "테스트";System.out.println("length : " + test.length());결과) length : 3
-Bytes length 구하기
-123456String test = "테스트";int length = test.getBytes().length;System.out.prin",
-        "wordCount": 202
+바이트 길이 구하기
+123456String test = "테스트";int length = test.getBytes().length;System.out.println("lengt",
+        "wordCount": 254
     }
 </script>
 
@@ -394,6 +394,16 @@ Bytes length 구하기
         
 <nav id="article-nav">
     
+        <a href="/2021/03/10/js-dev-2/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            [JavaScript] String형 Bytes length 구하기
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
     
         <a href="/2021/03/09/springboot-1/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
@@ -415,6 +425,26 @@ Bytes length 구하기
         <h3 class="widget-title">recents</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/03/10/js-dev-2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/javascript.png)" alt="[JavaScript] String형 Bytes length 구하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Web/">Web</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Web/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2021/03/10/js-dev-2/" class="title">[JavaScript] String형 Bytes length 구하기</a></p>
+                            <p class="item-date"><time datetime="2021-03-10T00:52:06.000Z" itemprop="datePublished">2021-03-10</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -496,26 +526,6 @@ Bytes length 구하기
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2021/01/25/linux-11/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/centos.png)" alt="[CentOS 7] Cmake 설치 및 사용" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/IT/">IT</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/IT/Linux/">Linux</a></p>
-                            <p class="item-title"><a href="/2021/01/25/linux-11/" class="title">[CentOS 7] Cmake 설치 및 사용</a></p>
-                            <p class="item-date"><time datetime="2021-01-25T07:36:18.000Z" itemprop="datePublished">2021-01-25</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -525,7 +535,7 @@ Bytes length 구하기
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">22</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Infomation/">Infomation</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Linux/">Linux</a><span class="category-list-count">11</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">50</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/C/">C++</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Database/">Database</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/RCP/">RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Spring-Framework/">Spring Framework</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/WPF/">WPF</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Satellite/">Satellite</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web/Angular/">Angular</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/Cesium/">Cesium</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/Design/">Design</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/JavaScript/">JavaScript</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/Openlayers/">Openlayers</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/React/">React</a><span class="category-list-count">7</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">22</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Infomation/">Infomation</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Linux/">Linux</a><span class="category-list-count">11</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">50</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/C/">C++</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Database/">Database</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Java/">Java</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/RCP/">RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Spring-Framework/">Spring Framework</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/WPF/">WPF</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Satellite/">Satellite</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a><span class="category-list-count">21</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web/Angular/">Angular</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/Cesium/">Cesium</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/Design/">Design</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/JavaScript/">JavaScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/Openlayers/">Openlayers</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/React/">React</a><span class="category-list-count">7</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -535,7 +545,7 @@ Bytes length 구하기
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">21</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">19</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">21</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">19</span></li></ul>
         </div>
     </div>
 
