@@ -3,6 +3,27 @@
 
 
     <url>
+        <loc>http://hgko1207.github.io/tags/Properties/</loc>
+        <lastmod>2021-03-11T04:58:13.183Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/tags/Spring-Boot/</loc>
+        <lastmod>2021-03-11T04:58:13.183Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/tags/Maven/</loc>
+        <lastmod>2021-03-11T04:36:20.121Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://hgko1207.github.io/tags/Linux/</loc>
         <lastmod>2021-03-10T02:28:58.236Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -12,20 +33,6 @@
     <url>
         <loc>http://hgko1207.github.io/tags/JavaScript/</loc>
         <lastmod>2021-03-10T02:27:22.828Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/Maven/</loc>
-        <lastmod>2021-03-10T02:12:05.600Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/Spring-Boot/</loc>
-        <lastmod>2021-03-10T02:12:05.600Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
