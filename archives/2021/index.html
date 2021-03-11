@@ -236,9 +236,9 @@ ga('send', 'pageview');
     
 
         <p class="article-excerpt">
-            UTF-8 인코딩 방식 바이트 길이 구하기
+             UTF-8 인코딩 방식 바이트 길이 구하기
 한글 한글자당 3 바이트씩 계산된다.
-12345678910const test = '테스트';const getByteLengthOfString = function(s,b,i,c)&#123;    for(b=i=0;c=s.charCodeAt(i++);b+=c&gt;&gt;11?3:c&gt;&gt;7?2:1);    r
+123456789101112// Functionconst getByteLengthOfString = function(s,b,i,c)&#123;    for(b=i=0;c=s.charCodeAt(i++);b+=c&gt;&gt;11?3:c&gt;&gt;7?2:1);    retu
         </p>
     </div>
 </article>
@@ -595,15 +595,12 @@ pwd
 현재 경로 확인
 
 
-chmod -R 755 test
+chmod -R 755 [폴더 or 파일]
 사용 권한 변경
 
 
-chown -R root:root test
-소유자와 그룹 변경
-
-
-
+chown -R root:root [폴더 or 파일]
+소
         </p>
     </div>
 </article>
