@@ -3,6 +3,41 @@
 
 
     <url>
+        <loc>http://hgko1207.github.io/tags/Oracle/</loc>
+        <lastmod>2021-03-16T05:47:55.099Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/tags/Geometry/</loc>
+        <lastmod>2021-03-16T05:47:55.099Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/tags/Database/</loc>
+        <lastmod>2021-03-16T05:47:55.099Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/tags/%25EB%25AA%2585%25EB%25A0%25B9%25EC%2596%25B4/</loc>
+        <lastmod>2021-03-16T01:24:08.193Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/tags/PostgreSQL/</loc>
+        <lastmod>2021-03-16T01:24:08.193Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://hgko1207.github.io/tags/Properties/</loc>
         <lastmod>2021-03-11T05:27:33.111Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -136,13 +171,6 @@
     </url>
 
     <url>
-        <loc>http://hgko1207.github.io/tags/PostgreSQL/</loc>
-        <lastmod>2020-10-12T00:47:50.579Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hgko1207.github.io/tags/VNC/</loc>
         <lastmod>2020-10-12T00:47:21.902Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -159,13 +187,6 @@
     <url>
         <loc>http://hgko1207.github.io/tags/Kafka/</loc>
         <lastmod>2020-10-12T00:47:15.812Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/%25EB%25AA%2585%25EB%25A0%25B9%25EC%2596%25B4/</loc>
-        <lastmod>2020-10-12T00:29:05.482Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -220,21 +241,7 @@
     </url>
 
     <url>
-        <loc>http://hgko1207.github.io/tags/Geometry/</loc>
-        <lastmod>2020-09-01T09:02:12.518Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hgko1207.github.io/tags/MSSQL/</loc>
-        <lastmod>2020-09-01T09:02:12.518Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/Database/</loc>
         <lastmod>2020-09-01T09:02:12.518Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
