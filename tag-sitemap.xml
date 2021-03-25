@@ -3,6 +3,13 @@
 
 
     <url>
+        <loc>http://hgko1207.github.io/tags/Linux/</loc>
+        <lastmod>2021-03-23T08:16:46.716Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://hgko1207.github.io/tags/Oracle/</loc>
         <lastmod>2021-03-18T04:18:02.574Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -54,13 +61,6 @@
     <url>
         <loc>http://hgko1207.github.io/tags/Maven/</loc>
         <lastmod>2021-03-11T05:24:57.998Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/Linux/</loc>
-        <lastmod>2021-03-10T02:28:58.236Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
