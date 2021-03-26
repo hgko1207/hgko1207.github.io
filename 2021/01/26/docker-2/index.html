@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/docker.png">
 <meta property="article:published_time" content="2021-01-26T06:18:26.000Z">
-<meta property="article:modified_time" content="2021-02-16T01:37:52.109Z">
+<meta property="article:modified_time" content="2021-03-26T01:26:00.479Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="Docker">
 <meta property="article:tag" content="리눅스">
@@ -297,8 +297,12 @@ ga('send', 'pageview');
 <td>이미지 삭제</td>
 </tr>
 <tr>
-<td>docker tag [이미지명] [저장소 주소]/[이미지명]</td>
-<td>이미지에 태그 설정</td>
+<td>docker tag [기존 이미지명] [새로운 이미지명]</td>
+<td>이미지 태그명 변경</td>
+</tr>
+<tr>
+<td>docker tag [기존 이미지명]:[기존 태그명] [새로운 이미지명]:[새로운 태그명]</td>
+<td>이미지 태그명 변경</td>
 </tr>
 <tr>
 <td>docker pull [저장소 주소]/[이미지명]</td>
@@ -310,7 +314,7 @@ ga('send', 'pageview');
 </tr>
 </tbody>
 </table>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 이미지 압축</span></span><br><span class="line">docker save [옵션] [파일명] &lt;이미지명 또는 이미지ID&gt;</span><br><span class="line">docker save -o baseimage.tar baseimage</span><br><span class="line"></span><br><span class="line"><span class="comment"># gzip을 이용한 이미지 압축</span></span><br><span class="line">docker save [이미지명] | gzip &gt; [파일명]</span><br><span class="line">docker save baseimage | gzip &gt; baseimage.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 이미지 로드</span></span><br><span class="line">docker load [옵션] [파일명]</span><br><span class="line">docker load -i baseimage.tar</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 이미지 압축</span></span><br><span class="line">docker save [옵션] [파일명] &lt;이미지명 또는 이미지ID&gt;</span><br><span class="line">docker save -o baseimage.tar baseimage</span><br><span class="line"></span><br><span class="line"><span class="comment"># 모든 이미지 압축</span></span><br><span class="line">docker save -o images.tar $(docker image ls -q)</span><br><span class="line"></span><br><span class="line"><span class="comment"># gzip을 이용한 이미지 압축</span></span><br><span class="line">docker save [이미지명] | gzip &gt; [파일명]</span><br><span class="line">docker save baseimage | gzip &gt; baseimage.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 이미지 로드</span></span><br><span class="line">docker load [옵션] [파일명]</span><br><span class="line">docker load -i baseimage.tar</span><br></pre></td></tr></table></figure>
 <h2 id="기타-명령어"><a class="markdownIt-Anchor" href="#기타-명령어"></a> 기타 명령어</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 컨테이너 정보 일부 표시</span></span><br><span class="line">docker ps --format <span class="string">"table &#123;&#123;.image&#125;&#125;\t&#123;&#123;.command&#125;&#125;"</span></span><br></pre></td></tr></table></figure>
 
@@ -401,7 +405,7 @@ ga('send', 'pageview');
         "genre": "IT Docker",
         "datePublished": "2021-01-26",
         "dateCreated": "2021-01-26",
-        "dateModified": "2021-02-16",
+        "dateModified": "2021-03-26",
         "url": "http://hgko1207.github.io/2021/01/26/docker-2/",
         "description": " 컨테이너 관련 명령어들
 
@@ -431,7 +435,7 @@ docker logs [컨테이너명 or ID]
 
 docker exec -i -t [컨테이너명 or ID] /bin/bash
 컨테이너 ",
-        "wordCount": 225
+        "wordCount": 252
     }
 </script>
 
