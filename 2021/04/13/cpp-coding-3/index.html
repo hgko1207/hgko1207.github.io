@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="C++" />
     
-    <meta name="description" content="point-in-polygon (PIP) 점이 다각형(Polygon) 내부에 있는지 확인하는 코드입니다. 123456789101112131415161718192021struct Point&amp;#123;  int x;  int y;&amp;#125;;bool InsidePolygon(int nvert, Point polygon[], int pointx, int poin">
+    <meta name="description" content="point-in-polygon (PIP)  “In computational geometry, the point-in-polygon (PIP) problem asks whether a given point in the plane lies inside, outside, or on the boundary of a polygon.” Wikipedia.  점이 다각">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[C++] Is the Point Inside the Polygon?">
 <meta property="og:url" content="http://hgko1207.github.io/2021/04/13/cpp-coding-3/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="point-in-polygon (PIP) 점이 다각형(Polygon) 내부에 있는지 확인하는 코드입니다. 123456789101112131415161718192021struct Point&amp;#123;  int x;  int y;&amp;#125;;bool InsidePolygon(int nvert, Point polygon[], int pointx, int poin">
+<meta property="og:description" content="point-in-polygon (PIP)  “In computational geometry, the point-in-polygon (PIP) problem asks whether a given point in the plane lies inside, outside, or on the boundary of a polygon.” Wikipedia.  점이 다각">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/cpp.png">
 <meta property="article:published_time" content="2021-04-13T04:58:06.000Z">
-<meta property="article:modified_time" content="2021-04-13T05:22:45.507Z">
+<meta property="article:modified_time" content="2021-04-13T05:24:55.807Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
@@ -185,9 +185,9 @@ ga('send', 'pageview');
                         <div class="main-body-content">
                             <script src="https://ads-partners.coupang.com/g.js"></script>
 <script>
-  //new PartnersCoupang.G({ id: 286251 });
+  //new PartnersCoupang.G({ id: 286226 });
   new PartnersCoupang.G({
-    id: 286251,
+    id: 286226,
     trackingCode: 'AF1935979',
     subId: null,
     template: 'carousel',
@@ -243,6 +243,9 @@ ga('send', 'pageview');
             
 
             <h2 id="point-in-polygon-PIP">point-in-polygon (PIP)</h2>
+<blockquote>
+<p>“In computational geometry, the point-in-polygon (PIP) problem asks whether a given point in the plane lies inside, outside, or on the boundary of a polygon.” Wikipedia.</p>
+</blockquote>
 <p>점이 다각형(Polygon) 내부에 있는지 확인하는 코드입니다.</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="keyword">int</span> x;</span><br><span class="line">  <span class="keyword">int</span> y;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">InsidePolygon</span><span class="params">(<span class="keyword">int</span> nvert, Point polygon[], <span class="keyword">int</span> pointx, <span class="keyword">int</span> pointy)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">bool</span> inside = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>, j = nvert - <span class="number">1</span>; i &lt; nvert; j = i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (((polygon[i].y &gt; pointy) != (polygon[j].y &gt; pointy)) &amp;&amp;</span><br><span class="line">          (pointx &lt; (polygon[j].x - polygon[i].x) * (pointy - polygon[i].y) / (polygon[j].y - polygon[i].y) + polygon[i].x)) &#123;</span><br><span class="line">            inside = !inside;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> inside;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="인수">인수</h3>
@@ -353,9 +356,11 @@ ga('send', 'pageview');
         "dateModified": "2021-04-13",
         "url": "http://hgko1207.github.io/2021/04/13/cpp-coding-3/",
         "description": "point-in-polygon (PIP)
-점이 다각형(Polygon) 내부에 있는지 확인하는 코드입니다.
-123456789101112131415161718192021struct Point&#123;  int x;  int y;&#125;;bool InsidePolygon(int nvert, Point polygon[], int pointx, int poin",
-        "wordCount": 358
+
+“In computational geometry, the point-in-polygon (PIP) problem asks whether a given point in the plane lies inside, outside, or on the boundary of a polygon.” Wikipedia.
+
+점이 다각",
+        "wordCount": 383
     }
 </script>
 
