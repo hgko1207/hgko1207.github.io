@@ -3,6 +3,20 @@
 
 
     <url>
+        <loc>http://hgko1207.github.io/tags/Growth/</loc>
+        <lastmod>2021-04-23T01:05:12.056Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/tags/Developer/</loc>
+        <lastmod>2021-04-23T01:05:12.056Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://hgko1207.github.io/tags/C/</loc>
         <lastmod>2021-04-13T05:24:55.807Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -803,20 +817,6 @@
     <url>
         <loc>http://hgko1207.github.io/tags/Openlayers/</loc>
         <lastmod>2020-07-31T01:46:01.764Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/Growth/</loc>
-        <lastmod>2020-07-31T01:45:41.057Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/Developer/</loc>
-        <lastmod>2020-07-31T01:45:41.057Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
