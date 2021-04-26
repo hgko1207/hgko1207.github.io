@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/nodejs.png">
 <meta property="article:published_time" content="2020-09-15T09:11:31.000Z">
-<meta property="article:modified_time" content="2020-09-15T10:35:01.839Z">
+<meta property="article:modified_time" content="2021-04-26T01:34:53.882Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="Node.js">
@@ -267,7 +267,7 @@ ga('send', 'pageview');
 <p><strong>app.js</strong> 파일을 생성합니다.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Windows 기준</span></span><br><span class="line">D:\node_test&gt; copy /Y /b NUL app.js</span><br></pre></td></tr></table></figure>
 <p>간단하게 <a href="https://nodejs.org/ko/docs/guides/getting-started-guide/" target="_blank" rel="noopener">Node.js 시작 가이드</a>에 있는 코드를 복사해서 붙여넣습니다.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.js</span></span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> hostname = <span class="string">'127.0.0.1'</span>;</span><br><span class="line"><span class="keyword">const</span> port = <span class="number">3000</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> server = http.createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    res.statusCode = <span class="number">200</span>;</span><br><span class="line">    res.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'text/plain'</span>);</span><br><span class="line">    res.end(<span class="string">'Hello World'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.listen(port, hostname, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`Server running at http://<span class="subst">$&#123;hostname&#125;</span>:<span class="subst">$&#123;port&#125;</span>/`</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.js</span></span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> hostname = <span class="string">'127.0.0.1'</span>;</span><br><span class="line"><span class="keyword">const</span> port = <span class="number">3000</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> server = http.createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.statusCode = <span class="number">200</span>;</span><br><span class="line">  res.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'text/plain'</span>);</span><br><span class="line">  res.end(<span class="string">'Hello World'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.listen(port, hostname, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Server running at http://<span class="subst">$&#123;hostname&#125;</span>:<span class="subst">$&#123;port&#125;</span>/`</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <h3 id="5-실행">5. 실행</h3>
 <p><code>node app.js</code> 명령어를 사용해서 실행합니다.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">D:\node_test&gt; node app.js</span><br><span class="line">Server running at http://127.0.0.1:3000/</span><br></pre></td></tr></table></figure>
@@ -369,13 +369,13 @@ ga('send', 'pageview');
         "genre": "Web JavaScript",
         "datePublished": "2020-09-15",
         "dateCreated": "2020-09-15",
-        "dateModified": "2020-09-15",
+        "dateModified": "2021-04-26",
         "url": "http://hgko1207.github.io/2020/09/15/nodejs-1/",
         "description": "다운로드 및 설치
 
 위의 페이지에 접속 한 후 플랫폼에 맞게 선택을 하여 다운로드 합니다.
 Windows 환경에서 개발하기 위해 Windows Installer (.msi) 64-bit를 다운로드 합니다. 현재 최신 LTS 버전은 v12.18.3 버전입니다. 다운 받은 인스톨러 파일을 실행해서 설치를 진행합니다. 설치가 완료 되면 아래 명령어를 입력해서 확",
-        "wordCount": 542
+        "wordCount": 534
     }
 </script>
 
