@@ -200,12 +200,12 @@ ga('send', 'pageview');
   });
 </script>
  -->
-                            <script
+                            <!-- <script
   data-ad-client="ca-pub-7581566810202853"
   async
   src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
 ></script>
-
+ -->
                             <article id="post-ai-pytorch-5" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -262,7 +262,7 @@ ga('send', 'pageview');
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">model.eval()</span><br><span class="line"></span><br><span class="line">test_loss = <span class="number">0</span></span><br><span class="line">correct = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> torch.no_grad():</span><br><span class="line">    <span class="keyword">for</span> data, target <span class="keyword">in</span> test_loader:</span><br><span class="line">        data, target = data.to(device), target.to(device)</span><br><span class="line">        output = model(data)</span><br><span class="line">        test_loss += F.nll_loss(output, target, reduction=<span class="string">'sum'</span>).item()</span><br><span class="line">        pred = output.argmax(dim=<span class="number">1</span>, keepdim=<span class="literal">True</span>)</span><br><span class="line">        correct += pred.eq(target.view_as(pred)).sum().item()</span><br><span class="line"></span><br><span class="line">test0_loss /= len(test_loader.dataset)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'\nTest set: Average Loss: &#123;:.4f&#125;, Accuracy: &#123;&#125;/&#123;&#125; (&#123;:.0f&#125;%)\n'</span>.format(</span><br><span class="line">    test_loss, correct, len(test_loader.dataset), <span class="number">100.</span> * correct / len(test_loader.dataset)))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">Test set: Average Loss: <span class="number">0.4799</span>, Accuracy: <span class="number">8660</span>/<span class="number">10000</span> (<span class="number">87</span>%)</span><br></pre></td></tr></table></figure>
 
         </div>
-        <script src="https://ads-partners.coupang.com/g.js"></script>
+        <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
 <script>
   //new PartnersCoupang.G({ id: 286226 });
   new PartnersCoupang.G({
@@ -274,7 +274,7 @@ ga('send', 'pageview');
     height: '140',
   });
 </script>
-
+ -->
         <footer class="article-footer">
             
 
@@ -614,7 +614,7 @@ model.train() 모드로 변한 것 처럼 평가할 때는 model.eval()로 설�
             
         
     </div>
-    <script src="https://ads-partners.coupang.com/g.js"></script>
+    <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
 <script>
   //new PartnersCoupang.G({ id: 286226 });
   new PartnersCoupang.G({
@@ -626,7 +626,7 @@ model.train() 모드로 변한 것 처럼 평가할 때는 model.eval()로 설�
     height: '140',
   });
 </script>
-
+ -->
 </aside>
 
                 </div>

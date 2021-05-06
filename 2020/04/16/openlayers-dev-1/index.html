@@ -201,12 +201,12 @@ ga('send', 'pageview');
   });
 </script>
  -->
-                            <script
+                            <!-- <script
   data-ad-client="ca-pub-7581566810202853"
   async
   src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
 ></script>
-
+ -->
                             <article id="post-openlayers-dev-1" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -262,7 +262,7 @@ ga('send', 'pageview');
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> url = wmsLayer</span><br><span class="line">  .getSource()</span><br><span class="line">  .getGetFeatureInfoUrl([longitude, latitude], view.getResolution(), view.getProjection(), &#123;</span><br><span class="line">    INFO_FORMAT: <span class="string">'application/json'</span>,</span><br><span class="line">    FEATURE_COUNT: <span class="number">10</span>,</span><br><span class="line">    QUERY_LAYERS: imageLayers,</span><br><span class="line">    LAYERS: imageLayers,</span><br><span class="line">  &#125;);</span><br><span class="line"><span class="keyword">if</span> (url) &#123;</span><br><span class="line">  <span class="keyword">var</span> parser = <span class="keyword">new</span> ol.format.GeoJSON();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">  xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (xhr.readyState === xhr.DONE) &#123;</span><br><span class="line">      <span class="comment">// 요청이 완료되면</span></span><br><span class="line">      <span class="keyword">if</span> (xhr.status === <span class="number">200</span> || xhr.status === <span class="number">201</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> result = parser.readFeatures(xhr.responseText);</span><br><span class="line">        <span class="keyword">if</span> (result.length) &#123;</span><br><span class="line">          <span class="keyword">var</span> info = result[<span class="number">0</span>].get(<span class="string">'GRAY_INDEX'</span>);</span><br><span class="line">          $(<span class="string">'#measurement_text'</span>).text(</span><br><span class="line">            <span class="string">'Val: '</span> + info + <span class="string">', Lon: '</span> + longitude.toFixed(<span class="number">3</span>) + <span class="string">', Lat: '</span> + latitude.toFixed(<span class="number">3</span>)</span><br><span class="line">          );</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  xhr.open(<span class="string">'GET'</span>, url);</span><br><span class="line">  xhr.send();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
         </div>
-        <script src="https://ads-partners.coupang.com/g.js"></script>
+        <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
 <script>
   //new PartnersCoupang.G({ id: 286226 });
   new PartnersCoupang.G({
@@ -274,7 +274,7 @@ ga('send', 'pageview');
     height: '140',
   });
 </script>
-
+ -->
         <footer class="article-footer">
             
 
@@ -614,7 +614,7 @@ feature의 정보 중에 GRAY_INDEX라는 컬럼의 정보를 가져와야 합�
             
         
     </div>
-    <script src="https://ads-partners.coupang.com/g.js"></script>
+    <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
 <script>
   //new PartnersCoupang.G({ id: 286226 });
   new PartnersCoupang.G({
@@ -626,7 +626,7 @@ feature의 정보 중에 GRAY_INDEX라는 컬럼의 정보를 가져와야 합�
     height: '140',
   });
 </script>
-
+ -->
 </aside>
 
                 </div>

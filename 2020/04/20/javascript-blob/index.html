@@ -201,12 +201,12 @@ ga('send', 'pageview');
   });
 </script>
  -->
-                            <script
+                            <!-- <script
   data-ad-client="ca-pub-7581566810202853"
   async
   src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
 ></script>
-
+ -->
                             <article id="post-javascript-blob" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -259,7 +259,7 @@ ga('send', 'pageview');
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">downloadURI</span>(<span class="params">blob, name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">window</span>.navigator &amp;&amp; <span class="built_in">window</span>.navigator.msSaveOrOpenBlob) &#123;</span><br><span class="line">    <span class="comment">// IE에서 동작</span></span><br><span class="line">    <span class="built_in">window</span>.navigator.msSaveBlob(blob, name);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 크롬에서 동작</span></span><br><span class="line">    <span class="keyword">var</span> link = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>);</span><br><span class="line">    link.download = name;</span><br><span class="line">    link.href = URL.createObjectURL(blob);</span><br><span class="line">    link.click();</span><br><span class="line">    <span class="keyword">delete</span> link;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
         </div>
-        <script src="https://ads-partners.coupang.com/g.js"></script>
+        <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
 <script>
   //new PartnersCoupang.G({ id: 286226 });
   new PartnersCoupang.G({
@@ -271,7 +271,7 @@ ga('send', 'pageview');
     height: '140',
   });
 </script>
-
+ -->
         <footer class="article-footer">
             
 
@@ -611,7 +611,7 @@ ga('send', 'pageview');
             
         
     </div>
-    <script src="https://ads-partners.coupang.com/g.js"></script>
+    <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
 <script>
   //new PartnersCoupang.G({ id: 286226 });
   new PartnersCoupang.G({
@@ -623,7 +623,7 @@ ga('send', 'pageview');
     height: '140',
   });
 </script>
-
+ -->
 </aside>
 
                 </div>

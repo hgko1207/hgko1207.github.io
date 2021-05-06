@@ -201,12 +201,12 @@ ga('send', 'pageview');
   });
 </script>
  -->
-                            <script
+                            <!-- <script
   data-ad-client="ca-pub-7581566810202853"
   async
   src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
 ></script>
-
+ -->
                             <article id="post-ai-dev-4" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -309,7 +309,7 @@ ga('send', 'pageview');
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Out</span></span><br><span class="line">Model: <span class="string">"Basic-CNN"</span></span><br><span class="line">_________________________________________________________________</span><br><span class="line">Layer (type)                 Output Shape              Param <span class="comment">#</span></span><br><span class="line">=================================================================</span><br><span class="line">input_1 (InputLayer)         [(<span class="literal">None</span>, <span class="number">28</span>, <span class="number">28</span>, <span class="number">1</span>)]       <span class="number">0</span></span><br><span class="line">_________________________________________________________________</span><br><span class="line">conv2d_25 (Conv2D)           (<span class="literal">None</span>, <span class="number">28</span>, <span class="number">28</span>, <span class="number">32</span>)        <span class="number">320</span></span><br><span class="line">_________________________________________________________________</span><br><span class="line">activation_8 (Activation)    (<span class="literal">None</span>, <span class="number">28</span>, <span class="number">28</span>, <span class="number">32</span>)        <span class="number">0</span></span><br><span class="line">_________________________________________________________________</span><br><span class="line">conv2d_26 (Conv2D)           (<span class="literal">None</span>, <span class="number">28</span>, <span class="number">28</span>, <span class="number">32</span>)        <span class="number">9248</span></span><br><span class="line">_________________________________________________________________</span><br><span class="line">activation_9 (Activation)    (<span class="literal">None</span>, <span class="number">28</span>, <span class="number">28</span>, <span class="number">32</span>)        <span class="number">0</span></span><br><span class="line">_________________________________________________________________</span><br><span class="line">max_pooling2d_8 (MaxPooling2 (<span class="literal">None</span>, <span class="number">14</span>, <span class="number">14</span>, <span class="number">32</span>)        <span class="number">0</span></span><br><span class="line">_________________________________________________________________</span><br><span class="line">dropout_5 (Dropout)          (<span class="literal">None</span>, <span class="number">14</span>, <span class="number">14</span>, <span class="number">32</span>)        <span class="number">0</span></span><br><span class="line">_________________________________________________________________</span><br><span class="line">conv2d_27 (Conv2D)           (<span class="literal">None</span>, <span class="number">14</span>, <span class="number">14</span>, <span class="number">64</span>)        <span class="number">18496</span></span><br><span class="line">_________________________________________________________________</span><br><span class="line">activation_10 (Activation)   (<span class="literal">None</span>, <span class="number">14</span>, <span class="number">14</span>, <span class="number">64</span>)        <span class="number">0</span></span><br><span class="line">_________________________________________________________________</span><br><span class="line">conv2d_28 (Conv2D)           (<span class="literal">None</span>, <span class="number">14</span>, <span class="number">14</span>, <span class="number">64</span>)        <span class="number">36928</span></span><br><span class="line">_________________________________________________________________</span><br><span class="line">activation_11 (Activation)   (<span class="literal">None</span>, <span class="number">14</span>, <span class="number">14</span>, <span class="number">64</span>)        <span class="number">0</span></span><br><span class="line">_________________________________________________________________</span><br><span class="line">max_pooling2d_9 (MaxPooling2 (<span class="literal">None</span>, <span class="number">7</span>, <span class="number">7</span>, <span class="number">64</span>)          <span class="number">0</span></span><br><span class="line">_________________________________________________________________</span><br><span class="line">dropout_6 (Dropout)          (<span class="literal">None</span>, <span class="number">7</span>, <span class="number">7</span>, <span class="number">64</span>)          <span class="number">0</span></span><br><span class="line">_________________________________________________________________</span><br><span class="line">flatten_4 (Flatten)          (<span class="literal">None</span>, <span class="number">3136</span>)              <span class="number">0</span></span><br><span class="line">_________________________________________________________________</span><br><span class="line">dense_3 (Dense)              (<span class="literal">None</span>, <span class="number">512</span>)               <span class="number">1606144</span></span><br><span class="line">_________________________________________________________________</span><br><span class="line">activation_12 (Activation)   (<span class="literal">None</span>, <span class="number">512</span>)               <span class="number">0</span></span><br><span class="line">_________________________________________________________________</span><br><span class="line">dropout_7 (Dropout)          (<span class="literal">None</span>, <span class="number">512</span>)               <span class="number">0</span></span><br><span class="line">_________________________________________________________________</span><br><span class="line">dense_4 (Dense)              (<span class="literal">None</span>, <span class="number">10</span>)                <span class="number">5130</span></span><br><span class="line">_________________________________________________________________</span><br><span class="line">activation_13 (Activation)   (<span class="literal">None</span>, <span class="number">10</span>)                <span class="number">0</span></span><br><span class="line">=================================================================</span><br><span class="line">Total params: <span class="number">1</span>,<span class="number">676</span>,<span class="number">266</span></span><br><span class="line">Trainable params: <span class="number">1</span>,<span class="number">676</span>,<span class="number">266</span></span><br><span class="line">Non-trainable params: <span class="number">0</span></span><br><span class="line">_________________________________________________________________</span><br></pre></td></tr></table></figure>
 
         </div>
-        <script src="https://ads-partners.coupang.com/g.js"></script>
+        <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
 <script>
   //new PartnersCoupang.G({ id: 286226 });
   new PartnersCoupang.G({
@@ -321,7 +321,7 @@ ga('send', 'pageview');
     height: '140',
   });
 </script>
-
+ -->
         <footer class="article-footer">
             
 
@@ -661,7 +661,7 @@ Input Image
             
         
     </div>
-    <script src="https://ads-partners.coupang.com/g.js"></script>
+    <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
 <script>
   //new PartnersCoupang.G({ id: 286226 });
   new PartnersCoupang.G({
@@ -673,7 +673,7 @@ Input Image
     height: '140',
   });
 </script>
-
+ -->
 </aside>
 
                 </div>
