@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="Android,안드로이드" />
     
-    <meta name="description" content="FragmentStatePagerAdapter의 getItem() 이 두 번 호출될 때 Viewpager를 사용하여 Tab을 구성하였을 때 FragmentStatePagerAdapter를 사용하였습니다. 탭에 추가한 Fragment 와는 상관없이 getItem()이 두 번 호출이 되어서 Fragment를 두번 로드하게 되는 현상때문에 문제가 생겨 꼬이게 됩">
+    <meta name="description" content="FragmentStatePagerAdapter의 getItem() 이 두 번 호출될 때 Viewpager 를 사용하여 Tab을 구성하였을 때 FragmentStatePagerAdapter 를 사용하였다. 탭에 추가한 Fragment 와는 상관없이 getItem()이 두 번 호출이 되어서 Fragment 를 두 번 로드하게 되는 현상 때문에 문제가 생겨 꼬이">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Android] Tab 구성 시 주의사항">
 <meta property="og:url" content="http://hgko1207.github.io/2019/01/07/android-tab/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="FragmentStatePagerAdapter의 getItem() 이 두 번 호출될 때 Viewpager를 사용하여 Tab을 구성하였을 때 FragmentStatePagerAdapter를 사용하였습니다. 탭에 추가한 Fragment 와는 상관없이 getItem()이 두 번 호출이 되어서 Fragment를 두번 로드하게 되는 현상때문에 문제가 생겨 꼬이게 됩">
+<meta property="og:description" content="FragmentStatePagerAdapter의 getItem() 이 두 번 호출될 때 Viewpager 를 사용하여 Tab을 구성하였을 때 FragmentStatePagerAdapter 를 사용하였다. 탭에 추가한 Fragment 와는 상관없이 getItem()이 두 번 호출이 되어서 Fragment 를 두 번 로드하게 되는 현상 때문에 문제가 생겨 꼬이">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/android.png">
 <meta property="article:published_time" content="2019-01-07T04:42:09.000Z">
-<meta property="article:modified_time" content="2021-05-06T05:00:28.290Z">
+<meta property="article:modified_time" content="2021-05-10T15:43:03.919Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="Android">
 <meta property="article:tag" content="안드로이드">
@@ -260,10 +260,10 @@ ga('send', 'pageview');
 
             
 
-            <h3 id="FragmentStatePagerAdapter의-getItem-이-두-번-호출될-때">FragmentStatePagerAdapter의 getItem() 이 두 번 호출될 때</h3>
-<p><strong>Viewpager</strong>를 사용하여 Tab을 구성하였을 때 <code>FragmentStatePagerAdapter</code>를 사용하였습니다. 탭에 추가한 <strong>Fragment</strong> 와는 상관없이 <code>getItem()</code>이 두 번 호출이 되어서 <strong>Fragment</strong>를 두번 로드하게 되는 현상때문에 문제가 생겨 꼬이게 됩니다. 이럴경우 <strong>Fragment</strong> 화면이 보일 때와 보이지 않을 때 <code>setUSerVisiblaHint()</code> 함수를 사용하여 처리하는데 탭에 추가한 <strong>Fragment</strong>가 전부 로드되지 않고 어중간하게 두개의 화면만 로드되었기 때문에 다른 탭을 누르거나 다시 돌아왔을 때 <code>setUSerVisiblaHint()</code>와 <code>onCreateView()</code> 함수가 비정상적으로 호출되는 바람에 코딩을 하는데 애먹었습니다.</p>
-<p>그래서 찾은 방법은 아래 코드 처럼 <strong>viewPagerAdapter</strong>에 <strong>Fragment</strong>를 3개 추가 하였을 때 <code>setOffscreenPageLimit()</code> 함수에 숫자 3을 지정하여 3개의 화면이 미리 로드되게 하면 <code>getItem()</code>은 3번 호출되지만 앞에서 문제되는 것을 해결할 수 있었습니다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setupViewPager</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ViewPagerAdapter viewPagerAdapter = <span class="keyword">new</span> ViewPagerAdapter(getSupportFragmentManager());</span><br><span class="line">    viewPagerAdapter.addFragment(<span class="keyword">new</span> MobileFragment());</span><br><span class="line">    viewPagerAdapter.addFragment(<span class="keyword">new</span> LteFragment());</span><br><span class="line">    viewPagerAdapter.addFragment(<span class="keyword">new</span> WifiFragment());</span><br><span class="line">    viewPager.setOffscreenPageLimit(<span class="number">3</span>);</span><br><span class="line">    viewPager.setAdapter(viewPagerAdapter);</span><br><span class="line">    tabLayout.setupWithViewPager(viewPager);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h2 id="FragmentStatePagerAdapter의-getItem-이-두-번-호출될-때">FragmentStatePagerAdapter의 getItem() 이 두 번 호출될 때</h2>
+<p><strong>Viewpager</strong> 를 사용하여 Tab을 구성하였을 때 <strong>FragmentStatePagerAdapter</strong> 를 사용하였다. 탭에 추가한 <strong>Fragment</strong> 와는 상관없이 <code>getItem()</code>이 두 번 호출이 되어서 <strong>Fragment</strong> 를 두 번 로드하게 되는 현상 때문에 문제가 생겨 꼬이게 되었다. 이럴경우 <strong>Fragment</strong> 화면이 보일 때와 보이지 않을 때 <code>setUSerVisiblaHint()</code> 함수를 사용하여 처리하는데 탭에 추가한 <strong>Fragment</strong> 가 전부 로드되지 않고 어중간하게 두 개의 화면만 로드되었기 때문에 다른 탭을 누르거나 다시 돌아왔을 때 <code>setUSerVisiblaHint()</code> 와 <code>onCreateView()</code> 함수가 비정상적으로 호출되는 바람에 코딩을 하는데 애먹었다.</p>
+<p>그래서 찾은 방법은 아래 코드 처럼 <strong>ViewPagerAdapter</strong> 에 <strong>Fragment</strong> 를 3개 추가 하였을 때 <code>setOffscreenPageLimit()</code> 함수에 viewPager 에 추가한 Fragement 의 수를 지정하여 화면이 미리 로드되게 하면 <code>getItem()</code> 은 Fragement 수 만큼(예: 3번) 호출되지만 앞에서 문제되는 것을 해결할 수 있었다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@BindView</span>(R.id.tabs)</span><br><span class="line">    TabLayout tabLayout;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        ButterKnife.bind(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">        setupViewPager();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setupViewPager</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        ViewPagerAdapter viewPagerAdapter = <span class="keyword">new</span> ViewPagerAdapter(getSupportFragmentManager());</span><br><span class="line">        viewPagerAdapter.addFragment(<span class="keyword">new</span> MobileFragment());</span><br><span class="line">        viewPagerAdapter.addFragment(<span class="keyword">new</span> LteFragment());</span><br><span class="line">        viewPagerAdapter.addFragment(<span class="keyword">new</span> WifiFragment());</span><br><span class="line">        viewPager.setOffscreenPageLimit(viewPagerAdapter.getCount());</span><br><span class="line">        viewPager.setAdapter(viewPagerAdapter);</span><br><span class="line">        tabLayout.setupWithViewPager(viewPager);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
         </div>
         <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
@@ -373,11 +373,11 @@ ga('send', 'pageview');
         "genre": "Programming Android",
         "datePublished": "2019-01-07",
         "dateCreated": "2019-01-07",
-        "dateModified": "2021-05-06",
+        "dateModified": "2021-05-11",
         "url": "http://hgko1207.github.io/2019/01/07/android-tab/",
         "description": "FragmentStatePagerAdapter의 getItem() 이 두 번 호출될 때
-Viewpager를 사용하여 Tab을 구성하였을 때 FragmentStatePagerAdapter를 사용하였습니다. 탭에 추가한 Fragment 와는 상관없이 getItem()이 두 번 호출이 되어서 Fragment를 두번 로드하게 되는 현상때문에 문제가 생겨 꼬이게 됩",
-        "wordCount": 171
+Viewpager 를 사용하여 Tab을 구성하였을 때 FragmentStatePagerAdapter 를 사용하였다. 탭에 추가한 Fragment 와는 상관없이 getItem()이 두 번 호출이 되어서 Fragment 를 두 번 로드하게 되는 현상 때문에 문제가 생겨 꼬이",
+        "wordCount": 330
     }
 </script>
 
