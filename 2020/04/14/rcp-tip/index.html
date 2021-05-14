@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="RCP,Java,Eclipse" />
     
-    <meta name="description" content="1) RCP 배포시 필수사항 build.properties 에 javacDefaultEncoding…&#x3D;UTF-8 추가하기 추가하지 않을 시 한글이 깨지거나 다른 클래스를 참조할 수 없는 문제로 인해 배포된 프로그램이 실행이 되지 않을 수 있습니다.  2) Spring Bean 사용 방법   RCP에서 Spring 빈 생성 방법   서비스 인터페이스 설정">
+    <meta name="description" content="1) RCP 배포시 필수사항 build.properties 에 javacDefaultEncoding…&#x3D;UTF-8 추가하기 추가하지 않을 시 한글이 깨지거나 다른 클래스를 참조할 수 없는 문제로 인해 배포된 프로그램이 실행이 되지 않을 수 있습니다. 2) Spring Bean 사용 방법   RCP에서 Spring 빈 생성 방법   서비스 인터페이스 설정 파일">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[RCP] 개발 팁">
 <meta property="og:url" content="http://hgko1207.github.io/2020/04/14/rcp-tip/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="1) RCP 배포시 필수사항 build.properties 에 javacDefaultEncoding…&#x3D;UTF-8 추가하기 추가하지 않을 시 한글이 깨지거나 다른 클래스를 참조할 수 없는 문제로 인해 배포된 프로그램이 실행이 되지 않을 수 있습니다.  2) Spring Bean 사용 방법   RCP에서 Spring 빈 생성 방법   서비스 인터페이스 설정">
+<meta property="og:description" content="1) RCP 배포시 필수사항 build.properties 에 javacDefaultEncoding…&#x3D;UTF-8 추가하기 추가하지 않을 시 한글이 깨지거나 다른 클래스를 참조할 수 없는 문제로 인해 배포된 프로그램이 실행이 되지 않을 수 있습니다. 2) Spring Bean 사용 방법   RCP에서 Spring 빈 생성 방법   서비스 인터페이스 설정 파일">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/rcp.png">
 <meta property="article:published_time" content="2020-04-14T04:14:58.000Z">
-<meta property="article:modified_time" content="2021-05-12T06:25:14.768Z">
+<meta property="article:modified_time" content="2021-05-14T02:17:44.564Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="RCP">
 <meta property="article:tag" content="Java">
@@ -261,10 +261,10 @@ ga('send', 'pageview');
 
             
 
-            <h2 id="1-rcp-배포시-필수사항"><a class="markdownIt-Anchor" href="#1-rcp-배포시-필수사항"></a> 1) RCP 배포시 필수사항</h2>
+            <h2 id="1-RCP-배포시-필수사항">1) RCP 배포시 필수사항</h2>
 <p>build.properties 에 <strong>javacDefaultEncoding…=UTF-8</strong> 추가하기</p>
 <p>추가하지 않을 시 한글이 깨지거나 다른 클래스를 참조할 수 없는 문제로 인해 배포된 프로그램이 실행이 되지 않을 수 있습니다.</p>
-<h2 id="2-spring-bean-사용-방법"><a class="markdownIt-Anchor" href="#2-spring-bean-사용-방법"></a> 2) Spring Bean 사용 방법</h2>
+<h2 id="2-Spring-Bean-사용-방법">2) Spring Bean 사용 방법</h2>
 <ol>
 <li>
 <p>RCP에서 Spring 빈 생성 방법</p>
@@ -307,17 +307,31 @@ ga('send', 'pageview');
 </ol>
 </li>
 </ol>
-<h2 id="3-rcp-카페"><a class="markdownIt-Anchor" href="#3-rcp-카페"></a> 3) RCP 카페</h2>
+<h2 id="3-RCP-카페">3) RCP 카페</h2>
 <ul>
 <li><a href="https://cafe.naver.com/eclipseplugin" target="_blank" rel="noopener">https://cafe.naver.com/eclipseplugin</a></li>
 </ul>
-<h2 id="4-rcp-tutorial"><a class="markdownIt-Anchor" href="#4-rcp-tutorial"></a> 4) RCP Tutorial</h2>
+<h2 id="4-RCP-Tutorial">4) RCP Tutorial</h2>
+<ul>
+<li>
 <p>SWT : <a href="http://www.java2s.com/Tutorial/Java/0280__SWT/Catalog0280__SWT.htm" target="_blank" rel="noopener">http://www.java2s.com/Tutorial/Java/0280__SWT/Catalog0280__SWT.htm</a></p>
+</li>
+<li>
 <p>SWT JFace Eclipse : <a href="http://java2s.com/Code/Java/SWT-JFace-Eclipse/CatalogSWT-JFace-Eclipse.htm" target="_blank" rel="noopener">http://java2s.com/Code/Java/SWT-JFace-Eclipse/CatalogSWT-JFace-Eclipse.htm</a></p>
+</li>
+<li>
 <p>Eclipse JFace Table : <a href="http://www.vogella.com/articles/EclipseJFaceTable/article.html" target="_blank" rel="noopener">http://www.vogella.com/articles/EclipseJFaceTable/article.html</a></p>
+</li>
+<li>
 <p>Eclipse 4 RCP : <a href="http://www.vogella.com/articles/EclipseRCP/article.html" target="_blank" rel="noopener">http://www.vogella.com/articles/EclipseRCP/article.html</a></p>
+</li>
+<li>
 <p>Eclipse Commands : <a href="http://www.vogella.com/articles/EclipseCommands/article.html" target="_blank" rel="noopener">http://www.vogella.com/articles/EclipseCommands/article.html</a></p>
+</li>
+<li>
 <p>Eclipse RCP : <a href="http://www.vogella.com/articles/Eclipse3RCP/article.html#tips_loadimages" target="_blank" rel="noopener">http://www.vogella.com/articles/Eclipse3RCP/article.html#tips_loadimages</a></p>
+</li>
+</ul>
 
         </div>
         <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
@@ -427,19 +441,19 @@ ga('send', 'pageview');
         "genre": "Programming Eclipse RCP",
         "datePublished": "2020-04-14",
         "dateCreated": "2020-04-14",
-        "dateModified": "2021-05-12",
+        "dateModified": "2021-05-14",
         "url": "http://hgko1207.github.io/2020/04/14/rcp-tip/",
-        "description": " 1) RCP 배포시 필수사항
+        "description": "1) RCP 배포시 필수사항
 build.properties 에 javacDefaultEncoding…=UTF-8 추가하기
 추가하지 않을 시 한글이 깨지거나 다른 클래스를 참조할 수 없는 문제로 인해 배포된 프로그램이 실행이 되지 않을 수 있습니다.
- 2) Spring Bean 사용 방법
+2) Spring Bean 사용 방법
 
 
 RCP에서 Spring 빈 생성 방법
 
 
-서비스 인터페이스 설정 ",
-        "wordCount": 176
+서비스 인터페이스 설정 파일",
+        "wordCount": 164
     }
 </script>
 
