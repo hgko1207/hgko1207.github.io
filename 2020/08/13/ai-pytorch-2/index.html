@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="AI,PyTorch" />
     
-    <meta name="description" content="PyTorch Data Preprocess 12import torchfrom torchvision import datasets, transforms Import Error 1ImportError: cannot import name &#39;PILLOW_VERSION&#39; from &#39;PIL&#39; pillow 버전이 7.0.0 이상 일경우 Import 에러 나는 경우가 있다">
+    <meta name="description" content="PyTorch Data Preprocess 12import torchfrom torchvision import datasets, transforms  Import Error 1ImportError: cannot import name &#39;PILLOW_VERSION&#39; from &#39;PIL&#39; pillow 버전이 7.0.0 이상 일경우 Import 에러 나는 경우가">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[PyTorch] 데이터 불러오기">
 <meta property="og:url" content="http://hgko1207.github.io/2020/08/13/ai-pytorch-2/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="PyTorch Data Preprocess 12import torchfrom torchvision import datasets, transforms Import Error 1ImportError: cannot import name &#39;PILLOW_VERSION&#39; from &#39;PIL&#39; pillow 버전이 7.0.0 이상 일경우 Import 에러 나는 경우가 있다">
+<meta property="og:description" content="PyTorch Data Preprocess 12import torchfrom torchvision import datasets, transforms  Import Error 1ImportError: cannot import name &#39;PILLOW_VERSION&#39; from &#39;PIL&#39; pillow 버전이 7.0.0 이상 일경우 Import 에러 나는 경우가">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/pytorch.png">
 <meta property="article:published_time" content="2020-08-13T01:14:45.000Z">
-<meta property="article:modified_time" content="2020-08-13T04:26:16.121Z">
+<meta property="article:modified_time" content="2021-05-17T01:15:31.897Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="PyTorch">
@@ -260,25 +260,25 @@ ga('send', 'pageview');
 
             
 
-            <h2 id="PyTorch-Data-Preprocess">PyTorch Data Preprocess</h2>
+            <h2 id="pytorch-data-preprocess"><a class="markdownIt-Anchor" href="#pytorch-data-preprocess"></a> PyTorch Data Preprocess</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torchvision <span class="keyword">import</span> datasets, transforms</span><br></pre></td></tr></table></figure>
-<h3 id="Import-Error">Import Error</h3>
+<h3 id="import-error"><a class="markdownIt-Anchor" href="#import-error"></a> Import Error</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ImportError: cannot <span class="keyword">import</span> name <span class="string">'PILLOW_VERSION'</span> <span class="keyword">from</span> <span class="string">'PIL'</span></span><br></pre></td></tr></table></figure>
-<p>pillow 버전이 7.0.0 이상 일경우 Import 에러 나는 경우가 있다.<br>
-아래 처럼 pillow 버전을 내려주면 해결이 된다.</p>
+<p>pillow 버전이 7.0.0 이상 일경우 Import 에러 나는 경우가 있습니다.<br />
+아래 처럼 pillow 버전을 내려주면 해결이 됩니다.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pillow==6.2.2</span><br></pre></td></tr></table></figure>
-<h3 id="Data-Loader-부르기">Data Loader 부르기</h3>
-<p>Pytorch는 DataLoader를 불러 model에 넣는다.</p>
+<h3 id="data-loader-부르기"><a class="markdownIt-Anchor" href="#data-loader-부르기"></a> Data Loader 부르기</h3>
+<p>Pytorch는 DataLoader를 불러 model에 넣습니다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">batch_size = <span class="number">32</span></span><br><span class="line"></span><br><span class="line">train_loader = torch.utils.data.DataLoader(</span><br><span class="line">    datasets.MNIST(<span class="string">'dataset/'</span>, train=<span class="literal">True</span>, download=<span class="literal">True</span>,</span><br><span class="line">                transform=transforms.Compose([</span><br><span class="line">                  transforms.ToTensor(),</span><br><span class="line">                  transforms.Normalize(mean=(<span class="number">0.5</span>,), std=(<span class="number">0.5</span>,))</span><br><span class="line">                ])),</span><br><span class="line">                batch_size=batch_size,</span><br><span class="line">                shuffle=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">test_batch_size = <span class="number">32</span></span><br><span class="line"></span><br><span class="line">test_loader = torch.utils.data.DataLoader(</span><br><span class="line">    datasets.MNIST(<span class="string">'dataset'</span>, train=<span class="literal">False</span>,</span><br><span class="line">                transform=transforms.Compose([</span><br><span class="line">                  transforms.ToTensor(),</span><br><span class="line">                  transforms.Normalize((<span class="number">0.5</span>,), (<span class="number">0.5</span>))</span><br><span class="line">                ])),</span><br><span class="line">                batch_size=test_batch_size,</span><br><span class="line">                shuffle=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="첫번째-iteration에서-나오는-데이터-확인">첫번째 iteration에서 나오는 데이터 확인</h3>
+<h3 id="첫번째-iteration에서-나오는-데이터-확인"><a class="markdownIt-Anchor" href="#첫번째-iteration에서-나오는-데이터-확인"></a> 첫번째 iteration에서 나오는 데이터 확인</h3>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">images, labels = next(iter(train_loader))</span><br><span class="line">image.shape, label.shape</span><br><span class="line"></span><br><span class="line">=&gt; torch.Size([32, 1, 28, 28]),  torch.Size([32])</span><br></pre></td></tr></table></figure>
-<h3 id="데이터-시각화">데이터 시각화</h3>
+<h3 id="데이터-시각화"><a class="markdownIt-Anchor" href="#데이터-시각화"></a> 데이터 시각화</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># squeeze() 함수는 차원의 원소가 1인 차원을 없애준다.</span></span><br><span class="line">torch_image = torch.squeeze(images[<span class="number">0</span>])</span><br><span class="line">torch_image.shape</span><br><span class="line"></span><br><span class="line">=&gt; torch.Size([28, 28])</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># squeeze() 함수는 차원의 원소가 1인 차원을 없애줍니다.</span></span><br><span class="line">torch_image = torch.squeeze(images[<span class="number">0</span>])</span><br><span class="line">torch_image.shape</span><br><span class="line"></span><br><span class="line">=&gt; torch.Size([28, 28])</span><br></pre></td></tr></table></figure>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">image = torch_image.numpy()</span><br><span class="line">image.shape</span><br><span class="line"></span><br><span class="line">=&gt; (28, 28)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plt.title(label)</span><br><span class="line">plt.imshow(image, <span class="string">'gray'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><img src="/images/ai/pytorch/1.png" alt=""></p>
+<p><img src="/images/ai/pytorch/1.png" alt="" /></p>
 
         </div>
         <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
@@ -388,14 +388,14 @@ ga('send', 'pageview');
         "genre": "Programming AI",
         "datePublished": "2020-08-13",
         "dateCreated": "2020-08-13",
-        "dateModified": "2020-08-13",
+        "dateModified": "2021-05-17",
         "url": "http://hgko1207.github.io/2020/08/13/ai-pytorch-2/",
-        "description": "PyTorch Data Preprocess
+        "description": " PyTorch Data Preprocess
 12import torchfrom torchvision import datasets, transforms
-Import Error
+ Import Error
 1ImportError: cannot import name 'PILLOW_VERSION' from 'PIL'
-pillow 버전이 7.0.0 이상 일경우 Import 에러 나는 경우가 있다",
-        "wordCount": 454
+pillow 버전이 7.0.0 이상 일경우 Import 에러 나는 경우가 ",
+        "wordCount": 471
     }
 </script>
 
