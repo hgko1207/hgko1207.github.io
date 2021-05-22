@@ -3,6 +3,34 @@
 
 
     <url>
+        <loc>http://hgko1207.github.io/tags/Download/</loc>
+        <lastmod>2021-05-21T04:59:31.779Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/tags/BLOB/</loc>
+        <lastmod>2021-05-21T04:59:31.779Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/tags/JavaScript/</loc>
+        <lastmod>2021-05-21T04:59:31.779Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/tags/Select/</loc>
+        <lastmod>2021-05-21T04:54:41.601Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://hgko1207.github.io/tags/Weather/</loc>
         <lastmod>2021-05-20T00:39:02.794Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -26,13 +54,6 @@
     <url>
         <loc>http://hgko1207.github.io/tags/MATLAB/</loc>
         <lastmod>2021-05-20T00:38:14.733Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/JavaScript/</loc>
-        <lastmod>2021-05-20T00:36:21.326Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -677,20 +698,6 @@
     <url>
         <loc>http://hgko1207.github.io/tags/DataTables/</loc>
         <lastmod>2020-08-12T05:12:30.778Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/Download/</loc>
-        <lastmod>2020-08-12T05:00:50.153Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/BLOB/</loc>
-        <lastmod>2020-08-12T05:00:50.153Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
