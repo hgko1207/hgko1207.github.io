@@ -3,6 +3,20 @@
 
 
     <url>
+        <loc>http://hgko1207.github.io/tags/%25EB%25A6%25AC%25EB%2588%2585%25EC%258A%25A4/</loc>
+        <lastmod>2021-05-26T00:40:21.916Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/tags/Docker/</loc>
+        <lastmod>2021-05-26T00:40:21.916Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://hgko1207.github.io/tags/Download/</loc>
         <lastmod>2021-05-21T04:59:31.779Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -117,20 +131,6 @@
     <url>
         <loc>http://hgko1207.github.io/tags/PostgreSQL/</loc>
         <lastmod>2021-05-20T00:32:05.135Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/%25EB%25A6%25AC%25EB%2588%2585%25EC%258A%25A4/</loc>
-        <lastmod>2021-05-19T13:39:34.624Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/Docker/</loc>
-        <lastmod>2021-05-19T13:39:34.624Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

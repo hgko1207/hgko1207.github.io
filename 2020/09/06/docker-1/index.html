@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/docker.png">
 <meta property="article:published_time" content="2020-09-06T12:57:13.000Z">
-<meta property="article:modified_time" content="2021-05-19T13:39:34.624Z">
+<meta property="article:modified_time" content="2021-05-26T00:40:21.916Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="Docker">
 <meta property="article:tag" content="리눅스">
@@ -264,7 +264,8 @@ ga('send', 'pageview');
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 리눅스 용</span></span><br><span class="line">yum install docker</span><br><span class="line"></span><br><span class="line"><span class="comment"># 버전 확인</span></span><br><span class="line">docker -v</span><br></pre></td></tr></table></figure>
 <h2 id="컨테이너-생성-및-실행"><a class="markdownIt-Anchor" href="#컨테이너-생성-및-실행"></a> 컨테이너 생성 및 실행</h2>
 <p><code>docker run</code> 명령어는 컨테이너를 생성 및 실행과 동시에 컨테이너 내부로 들어갑니다.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 기본 포맷</span></span><br><span class="line">docker run (&lt;옵션&gt;) &lt;이미지 식별자&gt; (&lt;명령어&gt;) (&lt;인자&gt;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 예</span></span><br><span class="line"><span class="comment"># 가동성을 위해 \(역슬래시)를 이용해 각 설정 옵션을 구분합니다.</span></span><br><span class="line">docker run -d \</span><br><span class="line">  --name hgko.default.local \</span><br><span class="line">  --privileged \</span><br><span class="line">  -h hgko --network insnet \</span><br><span class="line">  -v /data:/data \</span><br><span class="line">  -p 5914:5901 \</span><br><span class="line">  hgko</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 기본 포맷</span></span><br><span class="line">docker run (&lt;옵션&gt;) &lt;이미지 식별자&gt; (&lt;명령어&gt;) (&lt;인자&gt;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 예</span></span><br><span class="line"><span class="comment"># 가독성을 위해 \(역슬래시)를 이용해 각 설정 옵션을 구분합니다.</span></span><br><span class="line">docker run -d \</span><br><span class="line">  --name hgko.default.local \</span><br><span class="line">  --privileged \</span><br><span class="line">  -h hgko --network insnet \</span><br><span class="line">  -v /data:/data \</span><br><span class="line">  -p 5914:5901 \</span><br><span class="line">  hgko</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 예</span></span><br><span class="line">docker run -d -i -t <span class="built_in">test</span> /bin/bash</span><br></pre></td></tr></table></figure>
 <h3 id="run-옵션-목록"><a class="markdownIt-Anchor" href="#run-옵션-목록"></a> Run 옵션 목록</h3>
 <ul>
 <li><code>-d</code> : 컨테이너를 백그라운드로 실행해야 할 때 사용</li>
@@ -273,6 +274,7 @@ ga('send', 'pageview');
 <li><code>-v</code> : 볼륨 마운트 (컨테이너 외부 &lt;-&gt; 컨테이너 내부 디렉토리 마운트)</li>
 <li><code>-p</code> : 포트 연결 (컨테이너 외부 &lt;-&gt; 컨테이너 내부 포트간의 연결)</li>
 <li><code>--link</code> : 내부 IP를 알 필요 없이 항상 컨테이너에 별명으로 접근하도록 설정</li>
+<li><code>--privileged</code> : 시스템 내 장치 등 주요 자원에 접근하며 커널의 기능을 대부분 사용할 수 있도록 설정</li>
 </ul>
 <h3 id="컨테이너-생성"><a class="markdownIt-Anchor" href="#컨테이너-생성"></a> 컨테이너 생성</h3>
 <p><code>docker create</code> 명령어는 컨테이너를 생성만 할 뿐 컨테이너 내부로 들어가지 않습니다.</p>
@@ -406,14 +408,14 @@ ga('send', 'pageview');
         "genre": "IT Docker",
         "datePublished": "2020-09-06",
         "dateCreated": "2020-09-06",
-        "dateModified": "2021-05-19",
+        "dateModified": "2021-05-26",
         "url": "http://hgko1207.github.io/2020/09/06/docker-1/",
         "description": " 설치
 12345# 리눅스 용yum install docker# 버전 확인docker -v
  컨테이너 생성 및 실행
 docker run 명령어는 컨테이너를 생성 및 실행과 동시에 컨테이너 내부로 들어갑니다.
 123456789101112# 기본 포맷docker run (&lt;옵션&gt;) &lt;이미지 식별자&gt; (&lt;명령어&gt;) (&lt;인자&",
-        "wordCount": 501
+        "wordCount": 533
     }
 </script>
 
