@@ -3,6 +3,27 @@
 
 
     <url>
+        <loc>http://hgko1207.github.io/tags/Oracle/</loc>
+        <lastmod>2021-05-31T08:46:08.782Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/tags/Geometry/</loc>
+        <lastmod>2021-05-31T08:46:08.782Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hgko1207.github.io/tags/Database/</loc>
+        <lastmod>2021-05-31T08:46:08.782Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://hgko1207.github.io/tags/WPF/</loc>
         <lastmod>2021-05-27T09:37:31.554Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -479,13 +500,6 @@
     </url>
 
     <url>
-        <loc>http://hgko1207.github.io/tags/Database/</loc>
-        <lastmod>2021-05-13T05:27:23.220Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hgko1207.github.io/tags/Annotation/</loc>
         <lastmod>2021-05-13T05:27:23.220Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -656,20 +670,6 @@
     <url>
         <loc>http://hgko1207.github.io/tags/gitignore/</loc>
         <lastmod>2021-04-09T01:40:19.171Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/Oracle/</loc>
-        <lastmod>2021-03-18T04:18:02.574Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hgko1207.github.io/tags/Geometry/</loc>
-        <lastmod>2021-03-18T04:18:02.574Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
