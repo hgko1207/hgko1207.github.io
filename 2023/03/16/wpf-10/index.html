@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="C#,WPF,FormattedText,TextBlock,문자열" />
     
-    <meta name="description" content="WPF 에서 글꼴 크기(FontSize)와 폰트(FontFamily)를 통해 문자열의 크기를 계산하는 방법에 대해 알아보겠습니다. FormattedText 를 사용하여 텍스트의 서식을 지정한 후 크기를 계산할 수 있습니다.  소스코드 TextBlock 컨트롤을 사용할 경우 아래와 같이 작성하여 문자열의 크기를 구합니다. 12345678910111213141">
+    <meta name="description" content="WPF 에서 글꼴 크기(FontSize)와 폰트(FontFamily)를 통해 문자열의 크기를 계산하는 방법에 대해 알아보겠습니다. FormattedText 를 사용하여 텍스트의 서식을 지정한 후 크기를 계산할 수 있습니다. 소스코드 TextBlock 컨트롤을 사용할 경우 아래와 같이 작성하여 문자열의 크기를 구합니다. 123456789101112131415">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[WPF] 문자열(string)의 가로 세로 길이 계산">
 <meta property="og:url" content="http://hgko1207.github.io/2023/03/16/wpf-10/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="WPF 에서 글꼴 크기(FontSize)와 폰트(FontFamily)를 통해 문자열의 크기를 계산하는 방법에 대해 알아보겠습니다. FormattedText 를 사용하여 텍스트의 서식을 지정한 후 크기를 계산할 수 있습니다.  소스코드 TextBlock 컨트롤을 사용할 경우 아래와 같이 작성하여 문자열의 크기를 구합니다. 12345678910111213141">
+<meta property="og:description" content="WPF 에서 글꼴 크기(FontSize)와 폰트(FontFamily)를 통해 문자열의 크기를 계산하는 방법에 대해 알아보겠습니다. FormattedText 를 사용하여 텍스트의 서식을 지정한 후 크기를 계산할 수 있습니다. 소스코드 TextBlock 컨트롤을 사용할 경우 아래와 같이 작성하여 문자열의 크기를 구합니다. 123456789101112131415">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/wpf.png">
 <meta property="article:published_time" content="2023-03-16T01:53:23.000Z">
-<meta property="article:modified_time" content="2023-04-17T08:04:28.533Z">
+<meta property="article:modified_time" content="2023-04-20T15:17:54.565Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="C#">
 <meta property="article:tag" content="WPF">
@@ -264,12 +264,12 @@ ga('send', 'pageview');
 
             <p>WPF 에서 글꼴 크기(FontSize)와 폰트(FontFamily)를 통해 문자열의 크기를 계산하는 방법에 대해 알아보겠습니다.</p>
 <p><code>FormattedText</code> 를 사용하여 텍스트의 서식을 지정한 후 크기를 계산할 수 있습니다.</p>
-<h2 id="소스코드"><a class="markdownIt-Anchor" href="#소스코드"></a> 소스코드</h2>
+<h2 id="소스코드">소스코드</h2>
 <p><code>TextBlock</code> 컨트롤을 사용할 경우 아래와 같이 작성하여 문자열의 크기를 구합니다.</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 글자 가로 세로 길이 계산</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="textBlock"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">private</span> Size <span class="title">MeasureString</span>(<span class="params">TextBlock textBlock</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FormattedText formattedText = <span class="keyword">new</span> FormattedText</span><br><span class="line">    (</span><br><span class="line">        textBlock.Text,</span><br><span class="line">        CultureInfo.CurrentUICulture,</span><br><span class="line">        FlowDirection.LeftToRight,</span><br><span class="line">        <span class="keyword">new</span> Typeface</span><br><span class="line">        (</span><br><span class="line">          textBlock.FontFamily,</span><br><span class="line">          textBlock.FontStyle,</span><br><span class="line">          textBlock.FontWeight,</span><br><span class="line">          textBlock.FontStretch</span><br><span class="line">        ),</span><br><span class="line">        textBlock.FontSize,</span><br><span class="line">        textBlock.Foreground,</span><br><span class="line">        VisualTreeHelper.GetDpi(textBlock).PixelsPerDip</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Size(formattedText.Width, formattedText.Height);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>TextBlock</code> 컨트롤을 사용하지 않고 string 문자열과 글꼴 크기, 폰트를 입력하여 길이를 구할 수 있습니다.</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 글자 가로 세로 길이 계산</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="text"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="fontSize"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="fontFamily"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">private</span> Size <span class="title">MeasureString</span>(<span class="params"><span class="keyword">string</span> text, <span class="keyword">int</span> fontSize, FontFamily fontFamily</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FormattedText formattedText = <span class="keyword">new</span> FormattedText</span><br><span class="line">    (</span><br><span class="line">        text,</span><br><span class="line">        CultureInfo.CurrentUICulture,</span><br><span class="line">        FlowDirection.LeftToRight,</span><br><span class="line">        <span class="keyword">new</span> Typeface</span><br><span class="line">        (</span><br><span class="line">            fontFamily,</span><br><span class="line">            FontStyles.Normal,</span><br><span class="line">            FontWeights.Bold,</span><br><span class="line">            FontStretches.Normal</span><br><span class="line">        ),</span><br><span class="line">        fontSize,</span><br><span class="line">        Brushes.Black,</span><br><span class="line">        VisualTreeHelper.GetDpi(<span class="keyword">this</span>).PixelsPerDip</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Size(formattedText.Width, formattedText.Height);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="사용-방법"><a class="markdownIt-Anchor" href="#사용-방법"></a> 사용 방법</h2>
+<h2 id="사용-방법">사용 방법</h2>
 <ol>
 <li><code>TextBlock</code> 컨트롤을 사용 할 경우 사용 방법입니다.</li>
 </ol>
@@ -278,9 +278,9 @@ ga('send', 'pageview');
 <li><code>TextBlock</code> 컨트롤을 사용하지 않을 경우 사용 방법입니다.</li>
 </ol>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">string</span> text = <span class="string">"hello eden"</span>;</span><br><span class="line"><span class="keyword">int</span> fontSize = <span class="number">32</span>;</span><br><span class="line">FontFamily fontFamily = <span class="keyword">new</span> FontFamily(<span class="string">"Arial"</span>);</span><br><span class="line"></span><br><span class="line">Size textSize = MeasureString(text, fontSize, fontFamily);</span><br><span class="line"></span><br><span class="line">Console.Write(<span class="string">"Width =&gt; "</span> + textSize.Width);</span><br><span class="line">Console.Write(<span class="string">"Height =&gt; "</span> + textSize.Height);</span><br></pre></td></tr></table></figure>
-<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
+<h2 id="참고">참고</h2>
 <ul>
-<li>hhttps://learn.microsoft.com/ko-kr/dotnet/api/system.windows.media.formattedtext?view=netframework-4.7.2</li>
+<li><a href="https://learn.microsoft.com/ko-kr/dotnet/api/system.windows.media.formattedtext?view=netframework-4.7.2" target="_blank" rel="noopener">https://learn.microsoft.com/ko-kr/dotnet/api/system.windows.media.formattedtext?view=netframework-4.7.2</a></li>
 </ul>
 
         </div>
@@ -391,14 +391,14 @@ ga('send', 'pageview');
         "genre": "Programming Frontend WPF",
         "datePublished": "2023-03-16",
         "dateCreated": "2023-03-16",
-        "dateModified": "2023-04-17",
+        "dateModified": "2023-04-21",
         "url": "http://hgko1207.github.io/2023/03/16/wpf-10/",
         "description": "WPF 에서 글꼴 크기(FontSize)와 폰트(FontFamily)를 통해 문자열의 크기를 계산하는 방법에 대해 알아보겠습니다.
 FormattedText 를 사용하여 텍스트의 서식을 지정한 후 크기를 계산할 수 있습니다.
- 소스코드
+소스코드
 TextBlock 컨트롤을 사용할 경우 아래와 같이 작성하여 문자열의 크기를 구합니다.
-12345678910111213141",
-        "wordCount": 680
+123456789101112131415",
+        "wordCount": 674
     }
 </script>
 
@@ -512,7 +512,7 @@ TextBlock 컨트롤을 사용할 경우 아래와 같이 작성하여 문자열�
                             <a href="/2023/04/18/dart-6/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/thumbnail/dart.png)" alt="[Dart] 클래스(Class) 사용 방법(1)" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/thumbnail/dart.png)" alt="[Dart] 클래스(Class) 사용 방법" class="thumbnail-image"></span>
     
     
 </a>
@@ -521,7 +521,7 @@ TextBlock 컨트롤을 사용할 경우 아래와 같이 작성하여 문자열�
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
-                            <p class="item-title"><a href="/2023/04/18/dart-6/" class="title">[Dart] 클래스(Class) 사용 방법(1)</a></p>
+                            <p class="item-title"><a href="/2023/04/18/dart-6/" class="title">[Dart] 클래스(Class) 사용 방법</a></p>
                             <p class="item-date"><time datetime="2023-04-18T04:55:52.000Z" itemprop="datePublished">2023-04-18</time></p>
                         </div>
                     </li>
