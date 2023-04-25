@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/dart.png">
 <meta property="article:published_time" content="2023-04-17T05:07:53.000Z">
-<meta property="article:modified_time" content="2023-04-18T04:38:39.041Z">
+<meta property="article:modified_time" content="2023-04-24T12:23:00.667Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="Dart">
 <meta property="article:tag" content="변수">
@@ -285,10 +285,10 @@ ga('send', 'pageview');
 <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 첫 번째</span></span><br><span class="line"><span class="keyword">var</span> gifts = &#123;</span><br><span class="line">  <span class="comment">// Key: Value</span></span><br><span class="line">  <span class="string">'first'</span>: <span class="string">'smartphone'</span>,</span><br><span class="line">  <span class="string">'second'</span>: <span class="string">'laptop'</span>,</span><br><span class="line">  <span class="string">'third'</span>: <span class="string">'bicycle'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 두 번째</span></span><br><span class="line"><span class="built_in">Map</span> players = &#123;</span><br><span class="line">  <span class="number">1</span> : <span class="keyword">true</span>,</span><br><span class="line">  <span class="number">2</span> : <span class="keyword">false</span>,</span><br><span class="line">  <span class="number">3</span> : <span class="keyword">true</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Map 생성자를 사용하여 동일한 객체를 만들 수 있습니다.</span></span><br><span class="line"><span class="keyword">var</span> gifts = <span class="built_in">Map</span>();</span><br><span class="line">gifts[<span class="string">'first'</span>] = <span class="string">'smartphone'</span>;</span><br><span class="line">gifts[<span class="string">'second'</span>] = <span class="string">'laptop'</span>;</span><br><span class="line">gifts[<span class="string">'third'</span>] = <span class="string">'bicycle'</span>;</span><br></pre></td></tr></table></figure>
 <h2 id="sets"><a class="markdownIt-Anchor" href="#sets"></a> Sets</h2>
-<p><strong>Set</strong> 에 속한 모든 아이템들이 유니크해야될 때 사용합니다. 유니크할 필요가 없다면 List 를 사용하면 됩니다.</p>
-<p>Set 도 두 가지 방법으로 정의할 수 있습니다.</p>
+<p><strong>Set</strong> 에 속한 모든 아이템들이 유니크해야될 때 사용합니다. 유니크할 필요가 없다면 <code>List</code> 를 사용하면 됩니다.</p>
+<p><code>Set</code> 도 두 가지 방법으로 정의할 수 있습니다.</p>
 <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  <span class="keyword">var</span> numbers1 = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line">  <span class="built_in">Set</span> numbers2 = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">Set</span>&lt;<span class="built_in">int</span>&gt; numbers3 = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line">  numbers3.add(<span class="number">1</span>);</span><br><span class="line">  numbers3.add(<span class="number">2</span>);</span><br><span class="line">  numbers3.add(<span class="number">4</span>);</span><br><span class="line">  <span class="built_in">print</span>(numbers3) <span class="comment">// &#123;1, 2, 3, 4&#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>List 는 대괄호를 쓰며 Set 은 중괄호를 쓴다는 점이 다릅니다. List 는 같은 요소가 여러개 반복될 수 있지만, Set 은 중복이 허용되지 않습니다.</p>
+<p><code>List</code> 는 대괄호를 쓰며 <code>Set</code> 은 중괄호를 쓴다는 점이 다릅니다. <code>List</code> 는 같은 요소가 여러개 반복될 수 있지만, <code>Set</code> 은 중복이 허용되지 않습니다.</p>
 <h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <ul>
 <li><a href="https://dart.dev/guides/language/language-tour#collection-operators" target="_blank" rel="noopener">https://dart.dev/guides/language/language-tour#collection-operators</a></li>
@@ -404,7 +404,7 @@ ga('send', 'pageview');
         "genre": "Programming Language Dart",
         "datePublished": "2023-04-17",
         "dateCreated": "2023-04-17",
-        "dateModified": "2023-04-18",
+        "dateModified": "2023-04-24",
         "url": "http://hgko1207.github.io/2023/04/17/dart-4/",
         "description": "Dart 에서 데이터 타입 사용 방법에 대해 알아보겠습니다.
  기본 데이터 타입
