@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/java.png">
 <meta property="article:published_time" content="2021-03-10T00:32:48.000Z">
-<meta property="article:modified_time" content="2023-03-14T02:22:15.949Z">
+<meta property="article:modified_time" content="2023-05-18T02:33:32.212Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="자바">
@@ -262,13 +262,13 @@ ga('send', 'pageview');
 
             <h2 id="string-길이-구하기"><a class="markdownIt-Anchor" href="#string-길이-구하기"></a> String 길이 구하기</h2>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String test = <span class="string">"테스트"</span>;</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"length : "</span> + test.length());</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 결과</span></span><br><span class="line">length : 3</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 결과</span></span><br><span class="line">length : 3</span><br></pre></td></tr></table></figure>
 <h2 id="바이트-길이-구하기"><a class="markdownIt-Anchor" href="#바이트-길이-구하기"></a> 바이트 길이 구하기</h2>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String test = <span class="string">"테스트"</span>;</span><br><span class="line"><span class="keyword">int</span> length = test.getBytes().length;</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"length : "</span> + length + <span class="string">" Bytes"</span>);</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 결과</span></span><br><span class="line">length : 9 Bytes</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 결과</span></span><br><span class="line">length : 9 Bytes</span><br></pre></td></tr></table></figure>
 <p>기본 인코딩이 UTF-8 설정 되어있을 경우 한글은 한글자당 3바이트씩 계산됩니다. 한글 한글자당 2바이트씩 나오게 하려면 아래와 같이 인코딩을 설정하면 됩니다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">String charset = <span class="string">"euc-kr"</span>;</span><br><span class="line"></span><br><span class="line">String test = <span class="string">"테스트"</span>;</span><br><span class="line"><span class="keyword">int</span> length = test.getBytes(charset).length;</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"length : "</span> + length + <span class="string">" Bytes"</span>);</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 결과</span></span><br><span class="line">length : 6 Bytes</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String charset = <span class="string">"euc-kr"</span>;</span><br><span class="line">String test = <span class="string">"테스트"</span>;</span><br><span class="line"><span class="keyword">int</span> length = test.getBytes(charset).length;</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"length : "</span> + length + <span class="string">" Bytes"</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 결과</span></span><br><span class="line">length : 6 Bytes</span><br></pre></td></tr></table></figure>
 <h2 id="인코딩-문자셋에-따라-바이트-길이-구하기"><a class="markdownIt-Anchor" href="#인코딩-문자셋에-따라-바이트-길이-구하기"></a> 인코딩 문자셋에 따라 바이트 길이 구하기</h2>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 문자열의 바이크 길이 구하기</span></span><br><span class="line"><span class="comment"> * 인코딩 문자셋에 따라 바이크 길이 달라짐.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> str 문자열</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> charset 인코딩 문자셋</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getByteLength</span><span class="params">(String str, String charset)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> str.getBytes(charset).length;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -380,14 +380,14 @@ ga('send', 'pageview');
         "genre": "Programming Language Java",
         "datePublished": "2021-03-10",
         "dateCreated": "2021-03-10",
-        "dateModified": "2023-03-14",
+        "dateModified": "2023-05-18",
         "url": "http://hgko1207.github.io/2021/03/10/java-dev-6/",
         "description": " String 길이 구하기
 123String test = "테스트";System.out.println("length : " + test.length());
 12# 결과length : 3
  바이트 길이 구하기
 1234String test = "테스트";int length = test.getBytes().length;System.out.println("leng",
-        "wordCount": 275
+        "wordCount": 276
     }
 </script>
 
