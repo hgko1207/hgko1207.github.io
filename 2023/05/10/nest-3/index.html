@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="NestJS,Module,Param,Decorators" />
     
-    <meta name="description" content="Param decorators Nest 는 HTTP 라우트 핸들러와 함께 사용할 수 있는 유용한 매개변수 데코레이터 세트를 제공합니다. 다음은 제공된 데코레이터와 이들이 나타내는 일반 Express(또는 Fastify) 객체의 목록과 사용 예시입니다.  @Param Param은 Path Variable을 받아올 때 사용합니다. (예, &#x2F;users&#x2F;123)">
+    <meta name="description" content="Param decorators Nest 는 HTTP 라우트 핸들러와 함께 사용할 수 있는 유용한 매개변수 데코레이터 세트를 제공합니다. 다음은 제공된 데코레이터와 이들이 나타내는 일반 Express(또는 Fastify) 객체의 목록과 사용 예시입니다. @Param Param 은 Path Variable 을 받아올 때 사용합니다. (예, &#x2F;users&#x2F;123)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[NestJS] Param decorators">
 <meta property="og:url" content="http://hgko1207.github.io/2023/05/10/nest-3/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="Param decorators Nest 는 HTTP 라우트 핸들러와 함께 사용할 수 있는 유용한 매개변수 데코레이터 세트를 제공합니다. 다음은 제공된 데코레이터와 이들이 나타내는 일반 Express(또는 Fastify) 객체의 목록과 사용 예시입니다.  @Param Param은 Path Variable을 받아올 때 사용합니다. (예, &#x2F;users&#x2F;123)">
+<meta property="og:description" content="Param decorators Nest 는 HTTP 라우트 핸들러와 함께 사용할 수 있는 유용한 매개변수 데코레이터 세트를 제공합니다. 다음은 제공된 데코레이터와 이들이 나타내는 일반 Express(또는 Fastify) 객체의 목록과 사용 예시입니다. @Param Param 은 Path Variable 을 받아올 때 사용합니다. (예, &#x2F;users&#x2F;123)">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/nestjs.png">
 <meta property="article:published_time" content="2023-05-10T03:05:36.000Z">
-<meta property="article:modified_time" content="2023-05-15T06:14:56.774Z">
+<meta property="article:modified_time" content="2023-05-21T14:43:21.800Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="NestJS">
 <meta property="article:tag" content="Module">
@@ -261,22 +261,22 @@ ga('send', 'pageview');
 
             
 
-            <h2 id="param-decorators"><a class="markdownIt-Anchor" href="#param-decorators"></a> Param decorators</h2>
-<p>Nest 는 HTTP 라우트 핸들러와 함께 사용할 수 있는 유용한 매개변수 데코레이터 세트를 제공합니다.<br />
+            <h2 id="Param-decorators">Param decorators</h2>
+<p><strong>Nest</strong> 는 HTTP 라우트 핸들러와 함께 사용할 수 있는 유용한 매개변수 데코레이터 세트를 제공합니다.<br>
 다음은 제공된 데코레이터와 이들이 나타내는 일반 Express(또는 Fastify) 객체의 목록과 사용 예시입니다.</p>
-<h3 id="param"><a class="markdownIt-Anchor" href="#param"></a> @Param</h3>
-<p>Param은 Path Variable을 받아올 때 사용합니다. (예, /users/123)</p>
+<h3 id="Param">@Param</h3>
+<p>Param 은 Path Variable 을 받아올 때 사용합니다. (예, /users/123)</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// NestJS</span></span><br><span class="line"><span class="meta">@Param</span>(param?: <span class="built_in">string</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// ExpressJS</span></span><br><span class="line">req.params / req.params[param]</span><br></pre></td></tr></table></figure>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Controller, Get, Param &#125; <span class="keyword">from</span> <span class="string">'@nestjs/common'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span>(<span class="string">'users'</span>)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> UserController &#123;</span><br><span class="line">  <span class="meta">@Get</span>(<span class="string">'/:id'</span>)</span><br><span class="line">  getOne(<span class="meta">@Param</span>(<span class="string">'id'</span>) userId: <span class="built_in">string</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`This will return one user with the id: <span class="subst">$&#123;userId&#125;</span>`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="body"><a class="markdownIt-Anchor" href="#body"></a> @Body</h3>
-<p>Body는 JSON 형식으로 받아올 때 사용합니다.</p>
+<h3 id="Body">@Body</h3>
+<p>Body 는 JSON 형식으로 받아올 때 사용합니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// NestJS</span></span><br><span class="line"><span class="meta">@Body</span>(param?: <span class="built_in">string</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// ExpressJS</span></span><br><span class="line">req.body / req.body[param]</span><br></pre></td></tr></table></figure>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Body, Controller, Param, Patch, Post &#125; <span class="keyword">from</span> <span class="string">'@nestjs/common'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span>(<span class="string">'users'</span>)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> UserController &#123;</span><br><span class="line">  <span class="meta">@Post</span>()</span><br><span class="line">  create(<span class="meta">@Body</span>() userData) &#123;</span><br><span class="line">    <span class="keyword">return</span> userData;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Patch</span>(<span class="string">'/:id'</span>)</span><br><span class="line">  update(<span class="meta">@Param</span>(<span class="string">'id'</span>) userId: <span class="built_in">string</span>, <span class="meta">@Body</span>() updateData) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      updateData: userId,</span><br><span class="line">      ...updateData,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="query"><a class="markdownIt-Anchor" href="#query"></a> @Query</h3>
-<p>Query는 Query Parameter를 받아올 때 사용합니다. (예, /users?id=123)</p>
+<h3 id="Query">@Query</h3>
+<p>Query 는 Query Parameter 를 받아올 때 사용합니다. (예, /users?id=123)</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// NestJS</span></span><br><span class="line"><span class="meta">@Query</span>(param?: <span class="built_in">string</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// ExpressJS</span></span><br><span class="line">req.query / req.query[param]</span><br></pre></td></tr></table></figure>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Controller, Get, Query &#125; <span class="keyword">from</span> <span class="string">'@nestjs/common'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span>(<span class="string">'users'</span>)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> UserController &#123;</span><br><span class="line">  <span class="meta">@Get</span>(<span class="string">'search'</span>)</span><br><span class="line">  search(<span class="meta">@Query</span>(<span class="string">'id'</span>) userId: <span class="built_in">string</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`We are searching for a user made after: <span class="subst">$&#123;userId&#125;</span>`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
+<h2 id="참고">참고</h2>
 <ul>
 <li><a href="https://docs.nestjs.com/custom-decorators#param-decorators" target="_blank" rel="noopener">https://docs.nestjs.com/custom-decorators#param-decorators</a></li>
 </ul>
@@ -389,14 +389,14 @@ ga('send', 'pageview');
         "genre": "Programming Backend NestJS",
         "datePublished": "2023-05-10",
         "dateCreated": "2023-05-10",
-        "dateModified": "2023-05-15",
+        "dateModified": "2023-05-21",
         "url": "http://hgko1207.github.io/2023/05/10/nest-3/",
-        "description": " Param decorators
+        "description": "Param decorators
 Nest 는 HTTP 라우트 핸들러와 함께 사용할 수 있는 유용한 매개변수 데코레이터 세트를 제공합니다.
 다음은 제공된 데코레이터와 이들이 나타내는 일반 Express(또는 Fastify) 객체의 목록과 사용 예시입니다.
- @Param
-Param은 Path Variable을 받아올 때 사용합니다. (예, /users/123)",
-        "wordCount": 389
+@Param
+Param 은 Path Variable 을 받아올 때 사용합니다. (예, /users/123)",
+        "wordCount": 378
     }
 </script>
 
