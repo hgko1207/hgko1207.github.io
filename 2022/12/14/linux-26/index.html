@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="리눅스,CentOS,Linux,netstat,Port" />
     
-    <meta name="description" content="리눅스 환경에서 netstat 명령어를 사용하여 네트워크 정보를 확인하는 방법에 대해 알아보겠습니다.  netstat 란  netstat는 전송 제어 프로토콜, 라우팅 테이블, 수많은 네트워크 인터페이스, 네트워크 프로토콜 통계를 위한 네트워크 연결을 보여주는 명령 줄 도구이다. 위키백과  netstat 는 네트워크 관련한 정보를 보는 유틸리티로 오래전부터">
+    <meta name="description" content="리눅스 환경에서 netstat 명령어를 사용하여 네트워크 정보를 확인하는 방법에 대해 알아보겠습니다. netstat 란  netstat는 전송 제어 프로토콜, 라우팅 테이블, 수많은 네트워크 인터페이스, 네트워크 프로토콜 통계를 위한 네트워크 연결을 보여주는 명령 줄 도구이다. 위키백과  netstat 는 네트워크 관련한 정보를 보는 유틸리티로 오래전부터">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[CentOS] netstat 사용 포트 확인">
 <meta property="og:url" content="http://hgko1207.github.io/2022/12/14/linux-26/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="리눅스 환경에서 netstat 명령어를 사용하여 네트워크 정보를 확인하는 방법에 대해 알아보겠습니다.  netstat 란  netstat는 전송 제어 프로토콜, 라우팅 테이블, 수많은 네트워크 인터페이스, 네트워크 프로토콜 통계를 위한 네트워크 연결을 보여주는 명령 줄 도구이다. 위키백과  netstat 는 네트워크 관련한 정보를 보는 유틸리티로 오래전부터">
+<meta property="og:description" content="리눅스 환경에서 netstat 명령어를 사용하여 네트워크 정보를 확인하는 방법에 대해 알아보겠습니다. netstat 란  netstat는 전송 제어 프로토콜, 라우팅 테이블, 수많은 네트워크 인터페이스, 네트워크 프로토콜 통계를 위한 네트워크 연결을 보여주는 명령 줄 도구이다. 위키백과  netstat 는 네트워크 관련한 정보를 보는 유틸리티로 오래전부터">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/centos.png">
 <meta property="article:published_time" content="2022-12-14T01:35:12.000Z">
-<meta property="article:modified_time" content="2023-03-14T02:26:35.698Z">
+<meta property="article:modified_time" content="2023-06-15T01:28:09.286Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="리눅스">
 <meta property="article:tag" content="CentOS">
@@ -263,19 +263,19 @@ ga('send', 'pageview');
             
 
             <p>리눅스 환경에서 <strong>netstat</strong> 명령어를 사용하여 네트워크 정보를 확인하는 방법에 대해 알아보겠습니다.</p>
-<h2 id="netstat-란"><a class="markdownIt-Anchor" href="#netstat-란"></a> netstat 란</h2>
+<h2 id="netstat-란">netstat 란</h2>
 <blockquote>
-<p>netstat는 전송 제어 프로토콜, 라우팅 테이블, 수많은 네트워크 인터페이스, 네트워크 프로토콜 통계를 위한 네트워크 연결을 보여주는 명령 줄 도구이다.<br />
+<p>netstat는 전송 제어 프로토콜, 라우팅 테이블, 수많은 네트워크 인터페이스, 네트워크 프로토콜 통계를 위한 네트워크 연결을 보여주는 명령 줄 도구이다.<br>
 <a href="https://ko.wikipedia.org/wiki/Netstat" target="_blank" rel="noopener">위키백과</a></p>
 </blockquote>
 <p><strong>netstat</strong> 는 네트워크 관련한 정보를 보는 유틸리티로 오래전부터 Unix 계열의 운영체제에서 사용되어 왔으며 현재 LISTEN 중인 포트, 모든 내외부/연결 정보등을 확인할 수 있습니다.</p>
-<h2 id="자주-사용하는-netstat-옵션"><a class="markdownIt-Anchor" href="#자주-사용하는-netstat-옵션"></a> 자주 사용하는 netstat 옵션</h2>
+<h2 id="자주-사용하는-netstat-옵션">자주 사용하는 netstat 옵션</h2>
 <ul>
 <li><strong>-a</strong> : 모든 소켓보기, 이 옵션이 없으면 상태가 ESTABLISHED 인 것만 나옵니다. --all 옵션과 동일합니다.</li>
 <li><strong>-n</strong> : 도메인 주소를 읽어들이지 않고 숫자로 출력합니다.</li>
 <li><strong>-p</strong> : PID(프로세스 ID) 와 사용 중인 프로그램명이 출력됩니다.</li>
 </ul>
-<h2 id="netstat-옵션"><a class="markdownIt-Anchor" href="#netstat-옵션"></a> netstat 옵션</h2>
+<h2 id="netstat-옵션">netstat 옵션</h2>
 <ul>
 <li><strong>-c</strong> : 현재 실행 명령을 매 초마다 실행</li>
 <li><strong>-l</strong> : listen 하고 있는 포트만 보여줌</li>
@@ -285,7 +285,7 @@ ga('send', 'pageview');
 <li><strong>-r</strong> : 라우팅 테이블을 출력</li>
 <li><strong>-s</strong> : 프로토콜별 통계 정보</li>
 </ul>
-<h2 id="netstat-state"><a class="markdownIt-Anchor" href="#netstat-state"></a> netstat State</h2>
+<h2 id="netstat-State">netstat State</h2>
 <ul>
 <li><strong>LISTEN</strong> : 서버에 프로세스가 실행되어있으며 클라이언트의 접속 요청을 기다리는 상태</li>
 <li><strong>ESTABLISED</strong> : 서버와 클라이언트간에 세션 연결이 성립되어 통신이 이루어지는 상태</li>
@@ -293,12 +293,12 @@ ga('send', 'pageview');
 <li><strong>TIME_WAIT</strong> : 연결은 종료 되었지만 특정시간동안 소켓을 열어놓은 상태</li>
 <li><strong>CLOSE</strong> : 연결이 종료된 상태</li>
 </ul>
-<h2 id="모든-소켓-확인"><a class="markdownIt-Anchor" href="#모든-소켓-확인"></a> 모든 소켓 확인</h2>
+<h2 id="모든-소켓-확인">모든 소켓 확인</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> netstat -a</span></span><br><span class="line"></span><br><span class="line">Active Internet connections (servers and established)</span><br><span class="line">Proto Recv-Q Send-Q Local Address           Foreign Address         State</span><br><span class="line">tcp        0      0 0.0.0.0:sunrpc          0.0.0.0:*               LISTEN</span><br><span class="line">tcp        0      0 0.0.0.0:wap-wsp         0.0.0.0:*               LISTEN</span><br><span class="line">tcp        0      0 0.0.0.0:vrace           0.0.0.0:*               LISTEN</span><br><span class="line">tcp        0      0 localhost.locald:domain 0.0.0.0:*               LISTEN</span><br><span class="line">...</span><br><span class="line">Active UNIX domain sockets (servers and established)</span><br><span class="line">Proto RefCnt Flags       Type       State         I-Node   Path</span><br><span class="line">unix  2      [ ]         DGRAM                    41808    @000f7</span><br><span class="line">unix  2      [ ACC ]     STREAM     LISTENING     46336    @/tmp/.ICE-unix/2446</span><br><span class="line">unix  2      [ ACC ]     STREAM     LISTENING     40451    /var/run/docker/metrics.sock</span><br><span class="line">unix  2      [ ACC ]     STREAM     LISTENING     42868    @/tmp/dbus-i51dyYJlx0</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<h2 id="tcp-포트-목록"><a class="markdownIt-Anchor" href="#tcp-포트-목록"></a> TCP 포트 목록</h2>
-<p>특정 문자열이 포함된 포트를 확인할 수 있습니다. 아래 예시는 <code>0 0.0.0.0</code> 또는 <code>0 :::</code> 문자열이 포함된 TCP 포트 목록을 출력하는 명령어입니다.</p>
+<h2 id="TCP-포트-목록">TCP 포트 목록</h2>
+<p>특정 문자열이 포함된 포트를 확인할 수 있습니다. 다음의 예시는 <code>0 0.0.0.0</code> 또는 <code>0 :::</code> 문자열이 포함된 TCP 포트 목록을 출력하는 명령어입니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> netstat -nlpt | egrep <span class="string">"0 (0.0.0.0|:::)"</span></span></span><br><span class="line">or</span><br><span class="line"><span class="meta">$</span><span class="bash"> netstat -anp | grep ^tcp | egrep <span class="string">"0 (0.0.0.0|:::)"</span></span></span><br><span class="line"></span><br><span class="line">tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      951/sshd</span><br><span class="line">tcp        0      0 :::22                   :::*                    LISTEN      951/sshd</span><br><span class="line">tcp6       0      0 :::8080                 :::*                    LISTEN      6959/java</span><br><span class="line">tcp6       0      0 :::8009                 :::*                    LISTEN      6959/java</span><br><span class="line">tcp6       0      0 :::3306                 :::*                    LISTEN      2025/mariadbd</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<h2 id="포트-프로세스-목록"><a class="markdownIt-Anchor" href="#포트-프로세스-목록"></a> 포트 &amp; 프로세스 목록</h2>
+<h2 id="포트-프로세스-목록">포트 &amp; 프로세스 목록</h2>
 <p>LISTEN 중인 포트 및 프로세스명만 확인하려면 다음과 같은 명령을 사용합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> netstat -anp | grep <span class="string">"LISTEN "</span> | grep -v 127.0.0.1 | sed <span class="string">'s/:::/0 /g'</span> | sed <span class="string">'s/[:\/]/ /g'</span> | awk <span class="string">'&#123;print $5"\t"$10&#125;'</span> | sort -ug</span></span><br><span class="line"></span><br><span class="line">22      sshd</span><br><span class="line">8009    java</span><br><span class="line">8080    java</span><br><span class="line">3306    mysqld</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 
@@ -410,16 +410,16 @@ ga('send', 'pageview');
         "genre": "Programming DevOps Linux",
         "datePublished": "2022-12-14",
         "dateCreated": "2022-12-14",
-        "dateModified": "2023-03-14",
+        "dateModified": "2023-06-15",
         "url": "http://hgko1207.github.io/2022/12/14/linux-26/",
         "description": "리눅스 환경에서 netstat 명령어를 사용하여 네트워크 정보를 확인하는 방법에 대해 알아보겠습니다.
- netstat 란
+netstat 란
 
 netstat는 전송 제어 프로토콜, 라우팅 테이블, 수많은 네트워크 인터페이스, 네트워크 프로토콜 통계를 위한 네트워크 연결을 보여주는 명령 줄 도구이다.
 위키백과
 
-netstat 는 네트워크 관련한 정보를 보는 유틸리티로 오래전부터",
-        "wordCount": 1007
+netstat 는 네트워크 관련한 정보를 보는 유틸리티로 오래전부터 ",
+        "wordCount": 985
     }
 </script>
 

@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="리눅스,CentOS,Linux,alias,별칭" />
     
-    <meta name="description" content="alias 란  alias는 별칭이라는 뜻으로 리눅스에서 alias는 사용자가 명령어를 다른 이름으로 바꿔서 사용할 수 있는 쉘 내부 명령어를 말합니다. 이 alias 를 통해서 일일이 입력하기 번거로운. 길이가 긴 명령어를 간단한 이름으로 바꿔서 등록하여 업무 효율을 높일 수 있습니다.   alias 확인 현재 등록된 alias 리스트를 확인할 수 있습">
+    <meta name="description" content="alias 란  alias는 별칭이라는 뜻으로 리눅스에서 alias는 사용자가 명령어를 다른 이름으로 바꿔서 사용할 수 있는 쉘 내부 명령어를 말합니다. 이 alias 를 통해서 일일이 입력하기 번거로운. 길이가 긴 명령어를 간단한 이름으로 바꿔서 등록하여 업무 효율을 높일 수 있습니다.  alias 확인 현재 등록된 alias 리스트를 확인할 수 있습니다">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[CentOS] alias 등록">
 <meta property="og:url" content="http://hgko1207.github.io/2022/08/23/linux-19/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="alias 란  alias는 별칭이라는 뜻으로 리눅스에서 alias는 사용자가 명령어를 다른 이름으로 바꿔서 사용할 수 있는 쉘 내부 명령어를 말합니다. 이 alias 를 통해서 일일이 입력하기 번거로운. 길이가 긴 명령어를 간단한 이름으로 바꿔서 등록하여 업무 효율을 높일 수 있습니다.   alias 확인 현재 등록된 alias 리스트를 확인할 수 있습">
+<meta property="og:description" content="alias 란  alias는 별칭이라는 뜻으로 리눅스에서 alias는 사용자가 명령어를 다른 이름으로 바꿔서 사용할 수 있는 쉘 내부 명령어를 말합니다. 이 alias 를 통해서 일일이 입력하기 번거로운. 길이가 긴 명령어를 간단한 이름으로 바꿔서 등록하여 업무 효율을 높일 수 있습니다.  alias 확인 현재 등록된 alias 리스트를 확인할 수 있습니다">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/centos.png">
 <meta property="article:published_time" content="2022-08-23T04:40:33.000Z">
-<meta property="article:modified_time" content="2023-05-30T14:06:49.460Z">
+<meta property="article:modified_time" content="2023-06-15T01:30:21.694Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="리눅스">
 <meta property="article:tag" content="CentOS">
@@ -262,20 +262,20 @@ ga('send', 'pageview');
 
             
 
-            <h2 id="alias-란"><a class="markdownIt-Anchor" href="#alias-란"></a> alias 란</h2>
+            <h2 id="alias-란">alias 란</h2>
 <blockquote>
 <p>alias는 별칭이라는 뜻으로 리눅스에서 alias는 사용자가 명령어를 다른 이름으로 바꿔서 사용할 수 있는 쉘 내부 명령어를 말합니다. 이 alias 를 통해서 일일이 입력하기 번거로운. 길이가 긴 명령어를 간단한 이름으로 바꿔서 등록하여 업무 효율을 높일 수 있습니다.</p>
 </blockquote>
-<h2 id="alias-확인"><a class="markdownIt-Anchor" href="#alias-확인"></a> alias 확인</h2>
+<h2 id="alias-확인">alias 확인</h2>
 <p>현재 등록된 alias 리스트를 확인할 수 있습니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">alias</span></span></span><br><span class="line">alias cp='cp -i'</span><br><span class="line">alias egrep='egrep --color=auto'</span><br><span class="line">alias fgrep='fgrep --color=auto'</span><br><span class="line">alias grep='grep --color=auto'</span><br><span class="line">alias l.='ls -d .* --color=auto'</span><br><span class="line">alias ll='ls -l --color=auto'</span><br><span class="line">alias ls='ls --color=auto'</span><br><span class="line">alias mv='mv -i'</span><br><span class="line">alias rm='rm -i'</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<h2 id="alias-등록"><a class="markdownIt-Anchor" href="#alias-등록"></a> alias 등록</h2>
-<p>명령어 별칭은 <code>alias 명령어별칭='명령어'</code>의 형식으로 등록합니다. 아래의 예제처럼 등록하면 <code>run_tomcat</code> 라는 명령어를 실행할 경우 tomcat 이 실행됩니다.</p>
+<h2 id="alias-등록">alias 등록</h2>
+<p>명령어 별칭은 <code>alias 명령어별칭='명령어'</code>의 형식으로 등록합니다. 다음의 예제처럼 등록하면 <code>run_tomcat</code> 라는 명령어를 실행할 경우 tomcat 이 실행됩니다.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># alias 명령어별칭 = '명령어'</span></span><br><span class="line">$ <span class="built_in">alias</span> run_tomcat=<span class="string">'/usr/local/tomcat8/bin/catalina.sh start'</span></span><br></pre></td></tr></table></figure>
-<h2 id="alias-해제"><a class="markdownIt-Anchor" href="#alias-해제"></a> alias 해제</h2>
+<h2 id="alias-해제">alias 해제</h2>
 <p>unalias 명령어를 사용하여 등록된 alias 를 삭제할 수 있습니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">unalias</span> run_tomcat</span></span><br></pre></td></tr></table></figure>
-<h2 id="alias-영구-등록"><a class="markdownIt-Anchor" href="#alias-영구-등록"></a> alias 영구 등록</h2>
+<h2 id="alias-영구-등록">alias 영구 등록</h2>
 <p>위에서 등록된 alias 들은 시스템을 재부팅하고 나면 다시 초기화가 되어 매번 재 설정해줘야 한다는 불편함이 있습니다. 이러한 문제를 방지하려면 alias 를 <code>./bashrc</code> 이나 <code>.bash_aliases</code> 파일에 등록해서 사용해야 합니다. 재부팅이 되더라도 등록해둔 alias 가 영구 지속됩니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> vi ~/.bashrc</span></span><br></pre></td></tr></table></figure>
 <p>./bashrc 파일을 열고 alias 를 추가합니다.</p>
@@ -392,15 +392,15 @@ ga('send', 'pageview');
         "genre": "Programming DevOps Linux",
         "datePublished": "2022-08-23",
         "dateCreated": "2022-08-23",
-        "dateModified": "2023-05-30",
+        "dateModified": "2023-06-15",
         "url": "http://hgko1207.github.io/2022/08/23/linux-19/",
-        "description": " alias 란
+        "description": "alias 란
 
 alias는 별칭이라는 뜻으로 리눅스에서 alias는 사용자가 명령어를 다른 이름으로 바꿔서 사용할 수 있는 쉘 내부 명령어를 말합니다. 이 alias 를 통해서 일일이 입력하기 번거로운. 길이가 긴 명령어를 간단한 이름으로 바꿔서 등록하여 업무 효율을 높일 수 있습니다.
 
- alias 확인
-현재 등록된 alias 리스트를 확인할 수 있습",
-        "wordCount": 274
+alias 확인
+현재 등록된 alias 리스트를 확인할 수 있습니다",
+        "wordCount": 259
     }
 </script>
 

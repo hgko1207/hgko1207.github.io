@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="React,리액트,Routing,Next.js,라우트" />
     
-    <meta name="description" content="Next.js 에서 Rouing 하는 방법에 대해 알아보겠습니다.  &lt;a&gt; 사용 &lt;a&gt; 태그를 사용해서 페이지 이동을 할 수 있습니다. 하지만 페이지 이동 시 전체 페이지 새고로침이 되는 문제가 발생했습니다. 12345678export default function NavBar() &amp;#123;  return (    &lt;nav&amp;gt">
+    <meta name="description" content="Next.js 에서 Rouing 하는 방법에 대해 알아보겠습니다. &lt;a&gt; 사용 &lt;a&gt; 태그를 사용해서 페이지 이동을 할 수 있습니다. 하지만 페이지 이동 시 전체 페이지 새고로침이 되는 문제가 발생했습니다. 12345678export default function NavBar() &amp;#123;  return (    &lt;nav&gt;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Next.js] Routing 사용 방법">
 <meta property="og:url" content="http://hgko1207.github.io/2023/02/03/nextjs-2/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="Next.js 에서 Rouing 하는 방법에 대해 알아보겠습니다.  &lt;a&gt; 사용 &lt;a&gt; 태그를 사용해서 페이지 이동을 할 수 있습니다. 하지만 페이지 이동 시 전체 페이지 새고로침이 되는 문제가 발생했습니다. 12345678export default function NavBar() &amp;#123;  return (    &lt;nav&amp;gt">
+<meta property="og:description" content="Next.js 에서 Rouing 하는 방법에 대해 알아보겠습니다. &lt;a&gt; 사용 &lt;a&gt; 태그를 사용해서 페이지 이동을 할 수 있습니다. 하지만 페이지 이동 시 전체 페이지 새고로침이 되는 문제가 발생했습니다. 12345678export default function NavBar() &amp;#123;  return (    &lt;nav&gt;">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/nextjs.png">
 <meta property="article:published_time" content="2023-02-03T07:36:02.000Z">
-<meta property="article:modified_time" content="2023-04-04T04:29:48.763Z">
+<meta property="article:modified_time" content="2023-06-15T01:28:49.785Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="React">
 <meta property="article:tag" content="리액트">
@@ -263,18 +263,18 @@ ga('send', 'pageview');
             
 
             <p><strong>Next.js</strong> 에서 <strong>Rouing</strong> 하는 방법에 대해 알아보겠습니다.</p>
-<h2 id="a-사용"><a class="markdownIt-Anchor" href="#a-사용"></a> <code>&lt;a&gt;</code> 사용</h2>
+<h2 id="a-사용"><code>&lt;a&gt;</code> 사용</h2>
 <p><code>&lt;a&gt;</code> 태그를 사용해서 페이지 이동을 할 수 있습니다. 하지만 페이지 이동 시 전체 페이지 새고로침이 되는 문제가 발생했습니다.</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">NavBar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;nav&gt;</span><br><span class="line">      &lt;a href=<span class="string">"/"</span>&gt;Home&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">      &lt;a href="/</span>about<span class="string">"&gt;About Us&lt;/a&gt;</span></span><br><span class="line"><span class="string">    &lt;/nav&gt;</span></span><br><span class="line"><span class="string">  );</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
-<h2 id="link-사용"><a class="markdownIt-Anchor" href="#link-사용"></a> Link 사용</h2>
+<h2 id="Link-사용">Link 사용</h2>
 <p>single-page app 환경의 페이지 전환을 하려면 <code>Link</code> 컴포넌트를 사용해야 합니다.</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Link <span class="keyword">from</span> <span class="string">'next/link'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">NavBar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;nav&gt;</span><br><span class="line">      &lt;Link href=<span class="string">"/"</span>&gt;Home&lt;<span class="regexp">/Link&gt;</span></span><br><span class="line"><span class="regexp">      &lt;Link href="/</span>about<span class="string">"&gt;About Us&lt;/Link&gt;</span></span><br><span class="line"><span class="string">    &lt;/nav&gt;</span></span><br><span class="line"><span class="string">  );</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
-<h2 id="userouter"><a class="markdownIt-Anchor" href="#userouter"></a> useRouter()</h2>
-<p>컴포넌트에서 router 객체 내부에 접근하려면 <code>userRouter()</code> hook 을 사용할 수 있습니다.<br />
+<h2 id="useRouter">useRouter()</h2>
+<p>컴포넌트에서 router 객체 내부에 접근하려면 <code>userRouter()</code> hook 을 사용할 수 있습니다.<br>
 useRouter 는 React Hook 입니다. 즉, 클래스와 함께 사용할 수 없습니다. withRouter 를 사용하거나 클래스를 함수 컴포넌트로 래핑할 수 있습니다.</p>
-<p>아래 내용은 <code>useRouter()</code> hook 을 사용해서 메뉴의 색상을 변경하는 예제입니다.</p>
+<p>다음 내용은 <code>useRouter()</code> hook 을 사용해서 메뉴의 색상을 변경하는 예제입니다.</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Link <span class="keyword">from</span> <span class="string">'next/link'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useRouter &#125; <span class="keyword">from</span> <span class="string">'next/router'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">NavBar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> router = useRouter();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;nav&gt;</span><br><span class="line">      &lt;Link href=<span class="string">"/"</span>&gt;</span><br><span class="line">        &lt;span style=&#123;&#123; <span class="attr">color</span>: router.pathname === <span class="string">'/'</span> ? <span class="string">'red'</span> : <span class="string">'blue'</span> &#125;&#125;&gt;Home&lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>Link&gt;</span><br><span class="line">      &lt;Link href=<span class="string">"/about"</span>&gt;</span><br><span class="line">        &lt;span style=&#123;&#123; <span class="attr">color</span>: router.pathname === <span class="string">'/about'</span> ? <span class="string">'red'</span> : <span class="string">'blue'</span> &#125;&#125;&gt;About Us&lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>Link&gt;</span><br><span class="line">    &lt;<span class="regexp">/nav&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
-<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
+<h2 id="참고">참고</h2>
 <ul>
 <li><a href="https://nextjs.org/docs/messages/no-html-link-for-pages" target="_blank" rel="noopener">https://nextjs.org/docs/messages/no-html-link-for-pages</a></li>
 <li><a href="https://nextjs.org/docs/api-reference/next/router#userouter" target="_blank" rel="noopener">https://nextjs.org/docs/api-reference/next/router#userouter</a></li>
@@ -388,13 +388,13 @@ useRouter 는 React Hook 입니다. 즉, 클래스와 함께 사용할 수 없�
         "genre": "Programming Frontend Next.js",
         "datePublished": "2023-02-03",
         "dateCreated": "2023-02-03",
-        "dateModified": "2023-04-04",
+        "dateModified": "2023-06-15",
         "url": "http://hgko1207.github.io/2023/02/03/nextjs-2/",
         "description": "Next.js 에서 Rouing 하는 방법에 대해 알아보겠습니다.
- &lt;a&gt; 사용
+&lt;a&gt; 사용
 &lt;a&gt; 태그를 사용해서 페이지 이동을 할 수 있습니다. 하지만 페이지 이동 시 전체 페이지 새고로침이 되는 문제가 발생했습니다.
-12345678export default function NavBar() &#123;  return (    &lt;nav&gt",
-        "wordCount": 400
+12345678export default function NavBar() &#123;  return (    &lt;nav&gt;",
+        "wordCount": 387
     }
 </script>
 
