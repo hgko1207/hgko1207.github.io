@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="CE,LE,Circular Error,Linear Error" />
     
-    <meta name="description" content="관측값 즉, 지상기준점과 측정점의 차이에 대해 CE 및 LE 결과를 내기 위해 구현을 하게 되었고 참고자료를 바탕으로 정리하였습니다. 소스 코드는 CE, LE 계산 사이트에 있습니다.  CE(Circular Error)  X, Y 축의 값에 대한 2차원 오차를 측정합니다. 원형오차라고 부르며, CE 50, CE 90, CE 95 등의 형식으로 표현합니다.">
+    <meta name="description" content="관측값 즉, 지상기준점과 측정점의 차이에 대해 CE 및 LE 결과를 내기 위해 구현을 하게 되었고 참고자료를 바탕으로 정리하였습니다. 소스 코드는 CE, LE 계산 사이트에 있습니다. CE(Circular Error)  X, Y 축의 값에 대한 2차원 오차를 측정합니다. 원형오차라고 부르며, CE 50, CE 90, CE 95 등의 형식으로 표현합니다. 예">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CE, LE 계산">
 <meta property="og:url" content="http://hgko1207.github.io/2022/06/17/satellite-ce-le/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="관측값 즉, 지상기준점과 측정점의 차이에 대해 CE 및 LE 결과를 내기 위해 구현을 하게 되었고 참고자료를 바탕으로 정리하였습니다. 소스 코드는 CE, LE 계산 사이트에 있습니다.  CE(Circular Error)  X, Y 축의 값에 대한 2차원 오차를 측정합니다. 원형오차라고 부르며, CE 50, CE 90, CE 95 등의 형식으로 표현합니다.">
+<meta property="og:description" content="관측값 즉, 지상기준점과 측정점의 차이에 대해 CE 및 LE 결과를 내기 위해 구현을 하게 되었고 참고자료를 바탕으로 정리하였습니다. 소스 코드는 CE, LE 계산 사이트에 있습니다. CE(Circular Error)  X, Y 축의 값에 대한 2차원 오차를 측정합니다. 원형오차라고 부르며, CE 50, CE 90, CE 95 등의 형식으로 표현합니다. 예">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/satellite.png">
 <meta property="article:published_time" content="2022-06-17T12:56:43.000Z">
-<meta property="article:modified_time" content="2023-01-02T14:45:13.978Z">
+<meta property="article:modified_time" content="2023-06-19T12:29:20.509Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="CE">
 <meta property="article:tag" content="LE">
@@ -263,14 +263,14 @@ ga('send', 'pageview');
 
             <p>관측값 즉, 지상기준점과 측정점의 차이에 대해 CE 및 LE 결과를 내기 위해 구현을 하게 되었고 참고자료를 바탕으로 정리하였습니다.</p>
 <p>소스 코드는 <a href="https://hgko1207.github.io/2020/11/23/satellite-ce-le/">CE, LE 계산</a> 사이트에 있습니다.</p>
-<h2 id="cecircular-error"><a class="markdownIt-Anchor" href="#cecircular-error"></a> CE(Circular Error)</h2>
+<h2 id="CE-Circular-Error">CE(Circular Error)</h2>
 <ul>
 <li>X, Y 축의 값에 대한 2차원 오차를 측정합니다.</li>
 <li>원형오차라고 부르며, CE 50, CE 90, CE 95 등의 형식으로 표현합니다.</li>
 <li>예) CE90 5m는 오차들이 실제 값에서 5m 반경 안에 90% 있음을 나타냄.</li>
 </ul>
-<h3 id="ce-90-계산"><a class="markdownIt-Anchor" href="#ce-90-계산"></a> CE 90 계산</h3>
-<h4 id="1-관측값-평균이-0일-경우"><a class="markdownIt-Anchor" href="#1-관측값-평균이-0일-경우"></a> 1) 관측값 평균이 0일 경우</h4>
+<h3 id="CE-90-계산">CE 90 계산</h3>
+<h4 id="1-관측값-평균이-0일-경우">1) 관측값 평균이 0일 경우</h4>
 <ul>
 <li>CE_XX = R * 𝜎𝑚𝑎𝑥</li>
 </ul>
@@ -288,71 +288,71 @@ ga('send', 'pageview');
 </li>
 <li>확률 계수와 𝜎𝑚𝑎𝑥를 곱함</li>
 </ol>
-<p><img src="/images/satellite/cele/ce.png" alt="" /></p>
-<h4 id="2-관측값-평균이-0이-아닐-경우"><a class="markdownIt-Anchor" href="#2-관측값-평균이-0이-아닐-경우"></a> 2) 관측값 평균이 0이 아닐 경우</h4>
-<p><img src="/images/satellite/cele/size.png" alt="" /></p>
+<p><img src="/images/satellite/cele/ce.png" alt=""></p>
+<h4 id="2-관측값-평균이-0이-아닐-경우">2) 관측값 평균이 0이 아닐 경우</h4>
+<p><img src="/images/satellite/cele/size.png" alt=""></p>
 <ol>
 <li>X, Y 축에 대해 각각 공분산 값을 구하고 2x2 공분산 행렬을 계산</li>
 <li>i 수만큼 위의 수식으로 2x1(X, Y)의 Si 를 계산</li>
 <li>Si 의 크기를 가장 작은 것부터 가장 큰 것 순으로 정렬(크기는 아래 수식과 같음)</li>
 </ol>
-<p><img src="/images/satellite/cele/si.png" alt="" /></p>
+<p><img src="/images/satellite/cele/si.png" alt=""></p>
 <ol start="4">
 <li>RExx는 xx% 가장 큰 크기, RE*xx는 다음으로 큰 크기를 지정.</li>
 <li>CE_XX 계산은 아래 수식으로 계산.</li>
 </ol>
-<p><img src="/images/satellite/cele/ce_xx.png" alt="" /></p>
-<h2 id="lelinear-error"><a class="markdownIt-Anchor" href="#lelinear-error"></a> LE(Linear Error)</h2>
+<p><img src="/images/satellite/cele/ce_xx.png" alt=""></p>
+<h2 id="LE-Linear-Error">LE(Linear Error)</h2>
 <ul>
 <li>Z축(고도)에 대한 오차를 측정합니다.</li>
 <li>지형의 수직 정확도를 측정합니다.(TIN, DEM, DSM 등)</li>
 <li>선형오차라고 부르며, LE 50, LE 90, LE 95 등의 형식으로 표현합니다.</li>
 </ul>
-<h3 id="le-90-계산"><a class="markdownIt-Anchor" href="#le-90-계산"></a> LE 90 계산</h3>
-<h4 id="1-관측값-평균이-0일-경우-2"><a class="markdownIt-Anchor" href="#1-관측값-평균이-0일-경우-2"></a> 1) 관측값 평균이 0일 경우</h4>
+<h3 id="LE-90-계산">LE 90 계산</h3>
+<h4 id="1-관측값-평균이-0일-경우-2">1) 관측값 평균이 0일 경우</h4>
 <ul>
 <li>LE_XX = P(확률계수) * 𝜎𝑧 (표준편차)</li>
 </ul>
 <ol>
 <li>관측값에 대한 표준편차를 구함</li>
-<li>아래의 표에서 p=90/100(0.90) 에 대한 확률 계수인 1.6449를 구함</li>
+<li>다음의 표에서 p=90/100(0.90) 에 대한 확률 계수인 1.6449를 구함</li>
 <li>표준편차와 확률 계수를 곱함</li>
 </ol>
 <ul>
 <li>LE_90 = 1.6449 * (표준편차)</li>
 </ul>
-<p><img src="/images/satellite/cele/le.png" alt="" /></p>
-<h4 id="2-관측값-평균이-0이-아닐-경우-2"><a class="markdownIt-Anchor" href="#2-관측값-평균이-0이-아닐-경우-2"></a> 2) 관측값 평균이 0이 아닐 경우</h4>
-<p><img src="/images/satellite/cele/le_1.png" alt="" /></p>
+<p><img src="/images/satellite/cele/le.png" alt=""></p>
+<h4 id="2-관측값-평균이-0이-아닐-경우-2">2) 관측값 평균이 0이 아닐 경우</h4>
+<p><img src="/images/satellite/cele/le_1.png" alt=""></p>
 <ol>
 <li>기준점과 측정점을 통해 표준편차와 평균을 구함</li>
 <li>위의 식(누적분포함수)에서 p 값을 계산</li>
 <li>p 값에 대해 오차 역함수(Inverse Error Function)을 구함</li>
-<li>아래의 식을 통해 LE를 계산</li>
+<li>다음의 식을 통해 LE를 계산</li>
 </ol>
-<p><img src="/images/satellite/cele/le_2.png" alt="" /></p>
-<h2 id="참고내용"><a class="markdownIt-Anchor" href="#참고내용"></a> 참고내용</h2>
-<h3 id="1-분산variance"><a class="markdownIt-Anchor" href="#1-분산variance"></a> 1) 분산(Variance)</h3>
+<p><img src="/images/satellite/cele/le_2.png" alt=""></p>
+<h2 id="참고내용">참고내용</h2>
+<h3 id="1-분산-Variance">1) 분산(Variance)</h3>
 <ul>
 <li>관측값에 대한 분산</li>
 </ul>
-<p><img src="/images/satellite/cele/variance.png" alt="" /></p>
-<h3 id="2-공분산covariance"><a class="markdownIt-Anchor" href="#2-공분산covariance"></a> 2) 공분산(Covariance)</h3>
+<p><img src="/images/satellite/cele/variance.png" alt=""></p>
+<h3 id="2-공분산-Covariance">2) 공분산(Covariance)</h3>
 <ul>
 <li>관측값에 대한 공분산</li>
 </ul>
-<p><img src="/images/satellite/cele/cov.png" alt="" /></p>
-<h3 id="3-공분산-행렬"><a class="markdownIt-Anchor" href="#3-공분산-행렬"></a> 3) 공분산 행렬</h3>
+<p><img src="/images/satellite/cele/cov.png" alt=""></p>
+<h3 id="3-공분산-행렬">3) 공분산 행렬</h3>
 <ul>
 <li>두 개의 확률 변수의 공분산 행렬은 각 변수 쌍에 대해 계산된 공분산 값으로 구성된 행렬</li>
 </ul>
-<p><img src="/images/satellite/cele/cov_matrix.png" alt="" /></p>
-<h3 id="4-표준편차standard-deviation"><a class="markdownIt-Anchor" href="#4-표준편차standard-deviation"></a> 4) 표준편차(Standard Deviation)</h3>
+<p><img src="/images/satellite/cele/cov_matrix.png" alt=""></p>
+<h3 id="4-표준편차-Standard-Deviation">4) 표준편차(Standard Deviation)</h3>
 <ul>
 <li>관측값에 대한 표준편차</li>
 </ul>
-<p><img src="/images/satellite/cele/stdev.png" alt="" /></p>
-<h2 id="참고자료"><a class="markdownIt-Anchor" href="#참고자료"></a> 참고자료</h2>
+<p><img src="/images/satellite/cele/stdev.png" alt=""></p>
+<h2 id="참고자료">참고자료</h2>
 <ul>
 <li>Computation of scalar accuracy metrics LE, CE, and SE as both predictive and samplebased statistics (NGA)</li>
 <li>Geopositional Statistical Methods (NASA)</li>
@@ -466,16 +466,16 @@ ga('send', 'pageview');
         "genre": "IT Satellite",
         "datePublished": "2022-06-17",
         "dateCreated": "2022-06-17",
-        "dateModified": "2023-01-02",
+        "dateModified": "2023-06-19",
         "url": "http://hgko1207.github.io/2022/06/17/satellite-ce-le/",
         "description": "관측값 즉, 지상기준점과 측정점의 차이에 대해 CE 및 LE 결과를 내기 위해 구현을 하게 되었고 참고자료를 바탕으로 정리하였습니다.
 소스 코드는 CE, LE 계산 사이트에 있습니다.
- CE(Circular Error)
+CE(Circular Error)
 
 X, Y 축의 값에 대한 2차원 오차를 측정합니다.
 원형오차라고 부르며, CE 50, CE 90, CE 95 등의 형식으로 표현합니다.
-",
-        "wordCount": 380
+예",
+        "wordCount": 327
     }
 </script>
 
