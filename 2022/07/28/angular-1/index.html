@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="Angular,Angular Cli" />
     
-    <meta name="description" content="Angular는 Angular CLI를 이용해 프로젝트 관리의 복잡도를 낮추고 Angular 개발에만 집중할 수 있게 합니다.  설치 Angular CLI를 설치하려면 다음과 같은 npm 명령어를 실행합니다. 1$ npm install -g @angular&#x2F;cli 설치가 완료되면 ng 명령어를 사용할 수 있습니다. ng 명령어는 Angular CLI에서 제">
+    <meta name="description" content="Angular 는 Angular CLI 를 이용해 프로젝트 관리의 복잡도를 낮추고 Angular 개발에만 집중할 수 있게 합니다.  설치 Angular CLI 를 설치하려면 다음과 같은 npm 명령어를 실행합니다. 1$ npm install -g @angular&#x2F;cli 설치가 완료되면 ng 명령어를 사용할 수 있습니다. ng 명령어는 Angular CLI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Angular] Angular Cli 설치 및 사용 방법">
 <meta property="og:url" content="http://hgko1207.github.io/2022/07/28/angular-1/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="Angular는 Angular CLI를 이용해 프로젝트 관리의 복잡도를 낮추고 Angular 개발에만 집중할 수 있게 합니다.  설치 Angular CLI를 설치하려면 다음과 같은 npm 명령어를 실행합니다. 1$ npm install -g @angular&#x2F;cli 설치가 완료되면 ng 명령어를 사용할 수 있습니다. ng 명령어는 Angular CLI에서 제">
+<meta property="og:description" content="Angular 는 Angular CLI 를 이용해 프로젝트 관리의 복잡도를 낮추고 Angular 개발에만 집중할 수 있게 합니다.  설치 Angular CLI 를 설치하려면 다음과 같은 npm 명령어를 실행합니다. 1$ npm install -g @angular&#x2F;cli 설치가 완료되면 ng 명령어를 사용할 수 있습니다. ng 명령어는 Angular CLI">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/angular.png">
 <meta property="article:published_time" content="2022-07-28T11:31:14.000Z">
-<meta property="article:modified_time" content="2023-03-14T02:23:56.521Z">
+<meta property="article:modified_time" content="2023-06-22T08:17:26.748Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="Angular">
 <meta property="article:tag" content="Angular Cli">
@@ -259,30 +259,38 @@ ga('send', 'pageview');
 
             
 
-            <p>Angular는 <strong>Angular CLI</strong>를 이용해 프로젝트 관리의 복잡도를 낮추고 Angular 개발에만 집중할 수 있게 합니다.</p>
+            <p>Angular 는 <strong>Angular CLI</strong> 를 이용해 프로젝트 관리의 복잡도를 낮추고 Angular 개발에만 집중할 수 있게 합니다.</p>
 <h2 id="설치"><a class="markdownIt-Anchor" href="#설치"></a> 설치</h2>
-<p><strong>Angular CLI</strong>를 설치하려면 다음과 같은 npm 명령어를 실행합니다.</p>
+<p><strong>Angular CLI</strong> 를 설치하려면 다음과 같은 npm 명령어를 실행합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install -g @angular/cli</span></span><br></pre></td></tr></table></figure>
-<p>설치가 완료되면 <code>ng</code> 명령어를 사용할 수 있습니다. <code>ng</code> 명령어는 Angular CLI에서 제공하는 기능들을 실행하는 역할을 담당합니다.<br />
+<p>설치가 완료되면 <code>ng</code> 명령어를 사용할 수 있습니다. <code>ng</code> 명령어는 Angular CLI 에서 제공하는 기능들을 실행하는 역할을 담당합니다.<br />
 Angular CLI 도움말 옵션을 사용해 확인해봅니다.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ng --<span class="built_in">help</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ng --<span class="built_in">help</span></span></span><br><span class="line">ng &lt;command&gt;</span><br><span class="line"></span><br><span class="line">Commands:</span><br><span class="line">  ng add &lt;collection&gt;            Adds support for an external library to your project.</span><br><span class="line">  ng analytics                   Configures the gathering of Angular CLI usage metrics.</span><br><span class="line">  ng build [project]             Compiles an Angular application or library into an output directory named dist/ at the</span><br><span class="line">                                 given output path.                                                         [aliases: b]</span><br><span class="line">  ng cache                       Configure persistent disk cache and retrieve cache statistics.</span><br><span class="line">  ng completion                  Set up Angular CLI autocompletion for your terminal.</span><br><span class="line">  ng config [json-path] [value]  Retrieves or sets Angular configuration values in the angular.json file for the</span><br><span class="line">                                 workspace.</span><br><span class="line">  ng deploy [project]            Invokes the deploy builder for a specified project or for the default project in the</span><br><span class="line">                                 workspace.</span><br><span class="line">  ng doc &lt;keyword&gt;               Opens the official Angular documentation (angular.io) in a browser, and searches for a</span><br><span class="line">                                 given keyword.                                                             [aliases: d]</span><br><span class="line">  ng e2e [project]               Builds and serves an Angular application, then runs end-to-end tests.      [aliases: e]</span><br><span class="line">  ng extract-i18n [project]      Extracts i18n messages from source code.</span><br><span class="line">  ng generate                    Generates and/or modifies files based on a schematic.                      [aliases: g]</span><br><span class="line">  ng lint [project]              Runs linting tools on Angular application code in a given project folder.</span><br><span class="line">  ng new [name]                  Creates a new Angular workspace.                                           [aliases: n]</span><br><span class="line">  ng run &lt;target&gt;                Runs an Architect target with an optional custom builder configuration defined in your</span><br><span class="line">                                 project.</span><br><span class="line">  ng serve [project]             Builds and serves your application, rebuilding on file changes.            [aliases: s]</span><br><span class="line">  ng test [project]              Runs unit tests in a project.                                              [aliases: t]</span><br><span class="line">  ng update [packages..]         Updates your workspace and its dependencies. See https://update.angular.io/.</span><br><span class="line">  ng version                     Outputs Angular CLI version.                                               [aliases: v]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  --help  Shows a help message for this command in the console.                                                [boolean]</span><br><span class="line"></span><br><span class="line">For more information, see https://angular.io/cli/.</span><br></pre></td></tr></table></figure>
 <h2 id="프로젝트-생성"><a class="markdownIt-Anchor" href="#프로젝트-생성"></a> 프로젝트 생성</h2>
+<p>Angular 프로젝트를 생성하려면 <code>ng new</code> 명령어를 사용합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ng new [프로젝트명]</span></span><br></pre></td></tr></table></figure>
+<p><code>ng new</code> 명령어 다음에 프로젝트 이름을 지정하면 프로젝트 이름과 일치하는 새로운 프로젝트 폴더가 생성되고 스캐폴딩(프로젝트 기본 골격)이 작성됩니다.</p>
+<p>프로젝트 이름을 my-app 로 지정하여 프로젝트를 생성합니다.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> $ ng new my-app</span></span><br></pre></td></tr></table></figure>
+<p>프로젝트가 생성되면 아래와 같은 파일 구조의 스캐폴딩이 생성됩니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">my-app&#x2F;</span><br><span class="line">├── .git&#x2F;</span><br><span class="line">├── node_modules&#x2F;</span><br><span class="line">├── src&#x2F;</span><br><span class="line">├── .editorconfig</span><br><span class="line">├── .gitignore</span><br><span class="line">├── angular.json</span><br><span class="line">├── package-lock.json</span><br><span class="line">├── package.json</span><br><span class="line">├── README.md</span><br><span class="line">├── tsconfig.app.json</span><br><span class="line">├── tsconfig.json</span><br><span class="line">└── tsconfig.spec.json</span><br></pre></td></tr></table></figure>
 <h2 id="시작"><a class="markdownIt-Anchor" href="#시작"></a> 시작</h2>
 <p>프로젝트 폴더로 이동한 후 실행합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm start</span></span><br></pre></td></tr></table></figure>
-<p>또는 ng를 사용한다면 이 명령어를 사용하면 됩니다.</p>
+<p>또는 <code>ng serve</code> 명령어를 사용합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ng serve</span></span><br></pre></td></tr></table></figure>
+<p>이미 포트 4200번을 사용하고 있다면 Angular CLI 내장 서버를 실행할 수 없습니다. 포트번호를 변경해 실행하려면 다음과 같이 <code>--port</code>(축약형 -p) 옵션을 추가한다.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ng serve --port 4201</span></span><br></pre></td></tr></table></figure>
 <h2 id="build"><a class="markdownIt-Anchor" href="#build"></a> Build</h2>
 <p>빌드 결과는 기본적으로 <code>dist/</code> 폴더에 저장됩니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ng build</span></span><br></pre></td></tr></table></figure>
-<h2 id="component-생성"><a class="markdownIt-Anchor" href="#component-생성"></a> component 생성</h2>
+<h2 id="컴포넌트-생성"><a class="markdownIt-Anchor" href="#컴포넌트-생성"></a> 컴포넌트 생성</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ng generate component [component-name]</span></span><br></pre></td></tr></table></figure>
 <p>간략하게 명령어를 사용할 수 있습니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ng g c [component-name]</span></span><br></pre></td></tr></table></figure>
 <p>사용 예시입니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ng g c section</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ng g m section</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ng g c section/card</span></span><br></pre></td></tr></table></figure>
-<p><code>ng generate directive|pipe|service|class|guard|interface|enum|module</code> 명령어를 통해 component 외에 다른 파일들을 생성할 수 있습니다.</p>
+<p><code>ng generate directive|pipe|service|class|guard|interface|enum|module</code> 명령어를 통해 컴포넌트 외에 다른 파일들을 생성할 수 있습니다.</p>
 <h2 id="running-unit-tests"><a class="markdownIt-Anchor" href="#running-unit-tests"></a> Running unit tests</h2>
 <p><a href="https://karma-runner.github.io" target="_blank" rel="noopener">Karma</a> 를 통해 단위 테스트를 할 수 있습니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ng <span class="built_in">test</span></span></span><br></pre></td></tr></table></figure>
@@ -413,14 +421,14 @@ Angular CLI 도움말 옵션을 사용해 확인해봅니다.</p>
         "genre": "Programming Frontend Angular",
         "datePublished": "2022-07-28",
         "dateCreated": "2022-07-28",
-        "dateModified": "2023-03-14",
+        "dateModified": "2023-06-22",
         "url": "http://hgko1207.github.io/2022/07/28/angular-1/",
-        "description": "Angular는 Angular CLI를 이용해 프로젝트 관리의 복잡도를 낮추고 Angular 개발에만 집중할 수 있게 합니다.
+        "description": "Angular 는 Angular CLI 를 이용해 프로젝트 관리의 복잡도를 낮추고 Angular 개발에만 집중할 수 있게 합니다.
  설치
-Angular CLI를 설치하려면 다음과 같은 npm 명령어를 실행합니다.
+Angular CLI 를 설치하려면 다음과 같은 npm 명령어를 실행합니다.
 1$ npm install -g @angular/cli
-설치가 완료되면 ng 명령어를 사용할 수 있습니다. ng 명령어는 Angular CLI에서 제",
-        "wordCount": 311
+설치가 완료되면 ng 명령어를 사용할 수 있습니다. ng 명령어는 Angular CLI ",
+        "wordCount": 1511
     }
 </script>
 
