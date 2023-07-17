@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="Satellite,PROJ.4,Coordinate System,EPSG" />
     
-    <meta name="description" content="​다양한 좌표계 변환을 제공하는 라이브러리 자유롭게 인자를 지정하여 표준이 아닌 좌표계 간도 변환 가능 USGS의 Gerald Evenden에 의해 만들어진 오픈소스 라이브러리 현재 OSGeo 프로젝트 중 하나이며 MIT 라이센스 GeoServer, OpenLayers, PostGIS, QGIS, GDAL, OGR, GeoTools 등 엄청나게 많은 프로">
+    <meta name="description" content="PROJ.4 란?  ​다양한 좌표계 변환을 제공하는 라이브러리 자유롭게 인자를 지정하여 표준이 아닌 좌표계 간도 변환 가능 USGS의 Gerald Evenden에 의해 만들어진 오픈소스 라이브러리 현재 OSGeo 프로젝트 중 하나이며 MIT 라이센스 GeoServer, OpenLayers, PostGIS, QGIS, GDAL, OGR, GeoTools 등">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PROJ.4 란?">
 <meta property="og:url" content="http://hgko1207.github.io/2020/03/27/satellite-proj4/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="​다양한 좌표계 변환을 제공하는 라이브러리 자유롭게 인자를 지정하여 표준이 아닌 좌표계 간도 변환 가능 USGS의 Gerald Evenden에 의해 만들어진 오픈소스 라이브러리 현재 OSGeo 프로젝트 중 하나이며 MIT 라이센스 GeoServer, OpenLayers, PostGIS, QGIS, GDAL, OGR, GeoTools 등 엄청나게 많은 프로">
+<meta property="og:description" content="PROJ.4 란?  ​다양한 좌표계 변환을 제공하는 라이브러리 자유롭게 인자를 지정하여 표준이 아닌 좌표계 간도 변환 가능 USGS의 Gerald Evenden에 의해 만들어진 오픈소스 라이브러리 현재 OSGeo 프로젝트 중 하나이며 MIT 라이센스 GeoServer, OpenLayers, PostGIS, QGIS, GDAL, OGR, GeoTools 등">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/satellite.png">
 <meta property="article:published_time" content="2020-03-27T00:38:26.000Z">
-<meta property="article:modified_time" content="2022-09-02T14:49:52.077Z">
+<meta property="article:modified_time" content="2023-07-13T03:20:19.305Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="Satellite">
 <meta property="article:tag" content="PROJ.4">
@@ -261,7 +261,8 @@ ga('send', 'pageview');
 
             
 
-            <ul>
+            <h2 id="PROJ-4-란">PROJ.4 란?</h2>
+<ul>
 <li>​다양한 좌표계 변환을 제공하는 라이브러리</li>
 <li>자유롭게 인자를 지정하여 표준이 아닌 좌표계 간도 변환 가능</li>
 <li>USGS의 Gerald Evenden에 의해 만들어진 오픈소스 라이브러리</li>
@@ -269,25 +270,25 @@ ga('send', 'pageview');
 <li>GeoServer, OpenLayers, PostGIS, QGIS, GDAL, OGR, GeoTools 등 엄청나게 많은 프로그램에서 사용 중</li>
 <li>C, C++, JAVA, Javascript 등 다양한 언어로 포팅 되어 있음​</li>
 </ul>
-<h2 id="경위도-좌표계wgs84"><a class="markdownIt-Anchor" href="#경위도-좌표계wgs84"></a> 경위도 좌표계(WGS84)</h2>
+<h2 id="경위도-좌표계-WGS84">경위도 좌표계(WGS84)</h2>
 <ul>
 <li>GPS가 사용하는 좌표계</li>
 <li>EPSG:4326</li>
 <li>+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs</li>
 <li><a href="https://epsg.io/4326" target="_blank" rel="noopener">https://epsg.io/4326</a></li>
 </ul>
-<h2 id="구글-좌표계mercator"><a class="markdownIt-Anchor" href="#구글-좌표계mercator"></a> 구글 좌표계(Mercator)</h2>
+<h2 id="구글-좌표계-Mercator">구글 좌표계(Mercator)</h2>
 <ul>
 <li>EPSG:3857, EPSG:900913</li>
 <li>+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs</li>
 <li><a href="https://epsg.io/3857" target="_blank" rel="noopener">https://epsg.io/3857</a></li>
 </ul>
-<h2 id="tmtransverse-mercator"><a class="markdownIt-Anchor" href="#tmtransverse-mercator"></a> TM(Transverse Mercator)</h2>
+<h2 id="TM-Transverse-Mercator">TM(Transverse Mercator)</h2>
 <ul>
 <li>국토지리정보원 기준 좌표계</li>
 <li>+proj=tmerc +lat_0=38 +lon_0=127 +k=1 +x_0=200000 +y_0=600000 +ellps=GRS80 +units=m +no_defs</li>
 </ul>
-<h2 id="utmuniversal-transverse-mercator"><a class="markdownIt-Anchor" href="#utmuniversal-transverse-mercator"></a> UTM(Universal Transverse Mercator)</h2>
+<h2 id="UTM-Universal-Transverse-Mercator">UTM(Universal Transverse Mercator)</h2>
 <ul>
 <li>전세계를 6도 단위로 나누는 표준적인 TM으로 군사지도에서 많이 사용</li>
 </ul>
@@ -309,13 +310,13 @@ ga('send', 'pageview');
 </ul>
 </li>
 </ol>
-<h2 id="polar-stereographic"><a class="markdownIt-Anchor" href="#polar-stereographic"></a> Polar Stereographic</h2>
+<h2 id="Polar-Stereographic">Polar Stereographic</h2>
 <ul>
 <li>기상청 북반구 표현에 사용</li>
 <li>+proj=stere +lat_0=90 +lat_ts=90 +lon_0=0 +k=0.994 +x_0=2000000 +y_0=2000000 +ellps=WGS84 +datum=WGS84 +units=m +no_defs</li>
 <li><a href="https://spatialreference.org/ref/epsg/wgs-84-ups-north/" target="_blank" rel="noopener">https://spatialreference.org/ref/epsg/wgs-84-ups-north/</a></li>
 </ul>
-<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
+<h2 id="참고">참고</h2>
 <ul>
 <li><a href="http://epsg.io/" target="_blank" rel="noopener">epsg.io</a></li>
 <li><a href="https://www.osgeo.kr/17" target="_blank" rel="noopener">한국 주요 좌표계 EPSG코드 및 proj4 인자 정리</a></li>
@@ -429,15 +430,16 @@ ga('send', 'pageview');
         "genre": "IT Satellite",
         "datePublished": "2020-03-27",
         "dateCreated": "2020-03-27",
-        "dateModified": "2022-09-02",
+        "dateModified": "2023-07-13",
         "url": "http://hgko1207.github.io/2020/03/27/satellite-proj4/",
-        "description": "
+        "description": "PROJ.4 란?
+
 ​다양한 좌표계 변환을 제공하는 라이브러리
 자유롭게 인자를 지정하여 표준이 아닌 좌표계 간도 변환 가능
 USGS의 Gerald Evenden에 의해 만들어진 오픈소스 라이브러리
 현재 OSGeo 프로젝트 중 하나이며 MIT 라이센스
-GeoServer, OpenLayers, PostGIS, QGIS, GDAL, OGR, GeoTools 등 엄청나게 많은 프로",
-        "wordCount": 173
+GeoServer, OpenLayers, PostGIS, QGIS, GDAL, OGR, GeoTools 등 ",
+        "wordCount": 157
     }
 </script>
 

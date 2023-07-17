@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="JavaScript,Openlayers,Map" />
     
-    <meta name="description" content="Geoserver 에서 필요한 정보를 가져오기 위해 OpenLayers 의 getGetFeatureInfoUrl 함수를 사용하였습니다. feature 의 정보 중에 GRAY_INDEX 라는 컬럼의 정보를 가져와야 합니다. 아래 방식으로 image 형태인 layer 를 구성하였습니다. 1234567891011var wmsLayer &#x3D; new ol.layer.">
+    <meta name="description" content="Geoserver 에서 필요한 정보를 가져오기 위해 OpenLayers 의 getGetFeatureInfoUrl 함수를 사용하였다. feature 의 정보 중에 GRAY_INDEX 라는 컬럼의 정보를 가져와야 한다. 아래 방식으로 image 형태인 layer 를 구성하였다. 1234567891011var wmsLayer &#x3D; new ol.layer.Image">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Openlayers] getGetFeatureInfoUrl 함수 사용">
 <meta property="og:url" content="http://hgko1207.github.io/2020/04/16/openlayers-dev-1/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="Geoserver 에서 필요한 정보를 가져오기 위해 OpenLayers 의 getGetFeatureInfoUrl 함수를 사용하였습니다. feature 의 정보 중에 GRAY_INDEX 라는 컬럼의 정보를 가져와야 합니다. 아래 방식으로 image 형태인 layer 를 구성하였습니다. 1234567891011var wmsLayer &#x3D; new ol.layer.">
+<meta property="og:description" content="Geoserver 에서 필요한 정보를 가져오기 위해 OpenLayers 의 getGetFeatureInfoUrl 함수를 사용하였다. feature 의 정보 중에 GRAY_INDEX 라는 컬럼의 정보를 가져와야 한다. 아래 방식으로 image 형태인 layer 를 구성하였다. 1234567891011var wmsLayer &#x3D; new ol.layer.Image">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/openLayers.png">
 <meta property="article:published_time" content="2020-04-16T01:02:45.000Z">
-<meta property="article:modified_time" content="2023-06-05T00:46:21.347Z">
+<meta property="article:modified_time" content="2023-07-13T03:23:06.155Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="Openlayers">
@@ -260,12 +260,12 @@ ga('send', 'pageview');
 
             
 
-            <p>Geoserver 에서 필요한 정보를 가져오기 위해 <strong>OpenLayers</strong> 의 <code>getGetFeatureInfoUrl</code> 함수를 사용하였습니다.</p>
-<p>feature 의 정보 중에 GRAY_INDEX 라는 컬럼의 정보를 가져와야 합니다.<br />
-아래 방식으로 image 형태인 layer 를 구성하였습니다.</p>
+            <p>Geoserver 에서 필요한 정보를 가져오기 위해 <strong>OpenLayers</strong> 의 <code>getGetFeatureInfoUrl</code> 함수를 사용하였다.</p>
+<p>feature 의 정보 중에 GRAY_INDEX 라는 컬럼의 정보를 가져와야 한다.<br>
+아래 방식으로 image 형태인 layer 를 구성하였다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> wmsLayer = <span class="keyword">new</span> ol.layer.Image(&#123;</span><br><span class="line">  source: <span class="keyword">new</span> ol.source.ImageWMS(&#123;</span><br><span class="line">    ratio: <span class="number">1</span>,</span><br><span class="line">    url: <span class="string">'http://localhost:8080/geoserver/img/wms'</span>,</span><br><span class="line">    params: &#123;</span><br><span class="line">      FORMAT: <span class="string">'image/png'</span>,</span><br><span class="line">      VERSION: <span class="string">'1.1.1'</span>,</span><br><span class="line">      STYLES: <span class="string">''</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;),</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p><code>getGetFeatureInfoUrl</code> 함수를 사용하여 feature 정보를 불러와 표출하였습니다.<br />
-url 에 요청할 때 Cross-Origin Read Blocking(CORN) 문제가 있어 ajax 대신 XMLHttpRequest 를 사용하였습니다.</p>
+<p><code>getGetFeatureInfoUrl</code> 함수를 사용하여 feature 정보를 불러와 표출하였다.<br>
+url 에 요청할 때 Cross-Origin Read Blocking(CORN) 문제가 있어 ajax 대신 XMLHttpRequest 를 사용하였다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> url = wmsLayer.getSource().getGetFeatureInfoUrl([longitude, latitude], view.getResolution(), view.getProjection(), &#123;</span><br><span class="line">  INFO_FORMAT: <span class="string">'application/json'</span>,</span><br><span class="line">  FEATURE_COUNT: <span class="number">10</span>,</span><br><span class="line">  QUERY_LAYERS: imageLayers,</span><br><span class="line">  LAYERS: imageLayers,</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">if</span> (url) &#123;</span><br><span class="line">  <span class="keyword">var</span> parser = <span class="keyword">new</span> ol.format.GeoJSON();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">  xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (xhr.readyState === xhr.DONE) &#123;</span><br><span class="line">      <span class="comment">// 요청이 완료되면</span></span><br><span class="line">      <span class="keyword">if</span> (xhr.status === <span class="number">200</span> || xhr.status === <span class="number">201</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> result = parser.readFeatures(xhr.responseText);</span><br><span class="line">        <span class="keyword">if</span> (result.length) &#123;</span><br><span class="line">          <span class="keyword">var</span> info = result[<span class="number">0</span>].get(<span class="string">'GRAY_INDEX'</span>);</span><br><span class="line">          $(<span class="string">'#measurement_text'</span>).text(</span><br><span class="line">            <span class="string">'Val: '</span> + info + <span class="string">', Lon: '</span> + longitude.toFixed(<span class="number">3</span>) + <span class="string">', Lat: '</span> + latitude.toFixed(<span class="number">3</span>)</span><br><span class="line">          );</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  xhr.open(<span class="string">'GET'</span>, url);</span><br><span class="line">  xhr.send();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
         </div>
@@ -376,13 +376,13 @@ url 에 요청할 때 Cross-Origin Read Blocking(CORN) 문제가 있어 ajax 대
         "genre": "Programming Language JavaScript",
         "datePublished": "2020-04-16",
         "dateCreated": "2020-04-16",
-        "dateModified": "2023-06-05",
+        "dateModified": "2023-07-13",
         "url": "http://hgko1207.github.io/2020/04/16/openlayers-dev-1/",
-        "description": "Geoserver 에서 필요한 정보를 가져오기 위해 OpenLayers 의 getGetFeatureInfoUrl 함수를 사용하였습니다.
-feature 의 정보 중에 GRAY_INDEX 라는 컬럼의 정보를 가져와야 합니다.
-아래 방식으로 image 형태인 layer 를 구성하였습니다.
-1234567891011var wmsLayer = new ol.layer.",
-        "wordCount": 392
+        "description": "Geoserver 에서 필요한 정보를 가져오기 위해 OpenLayers 의 getGetFeatureInfoUrl 함수를 사용하였다.
+feature 의 정보 중에 GRAY_INDEX 라는 컬럼의 정보를 가져와야 한다.
+아래 방식으로 image 형태인 layer 를 구성하였다.
+1234567891011var wmsLayer = new ol.layer.Image",
+        "wordCount": 390
     }
 </script>
 

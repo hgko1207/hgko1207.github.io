@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="AI,Python,Numpy" />
     
-    <meta name="description" content="Numpy 기초에 대해 다뤄보겠습니다.  Load Package 1import numpy as np  data type 배열의 dtype 을 봅니다. 12345arr &#x3D; np.array([[1, 2, 3], [1, 2, 3]])arr.dtype# Outdtype(&#39;int32&#39;) .astype() 으로 datatype 을 변환 가능합니다. 123456arr">
+    <meta name="description" content="Numpy 기초에 대해 다뤄보겠다. Load Package 1import numpy as np data type 배열의 dtype 을 봅니다. 12345arr &#x3D; np.array([[1, 2, 3], [1, 2, 3]])arr.dtype# Outdtype(&#39;int32&#39;) .astype() 으로 datatype 을 변환 가능하다. 123456arr &#x3D; arr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Python] Numpy 기초(2)">
 <meta property="og:url" content="http://hgko1207.github.io/2020/07/02/ai-development-3/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="Numpy 기초에 대해 다뤄보겠습니다.  Load Package 1import numpy as np  data type 배열의 dtype 을 봅니다. 12345arr &#x3D; np.array([[1, 2, 3], [1, 2, 3]])arr.dtype# Outdtype(&#39;int32&#39;) .astype() 으로 datatype 을 변환 가능합니다. 123456arr">
+<meta property="og:description" content="Numpy 기초에 대해 다뤄보겠다. Load Package 1import numpy as np data type 배열의 dtype 을 봅니다. 12345arr &#x3D; np.array([[1, 2, 3], [1, 2, 3]])arr.dtype# Outdtype(&#39;int32&#39;) .astype() 으로 datatype 을 변환 가능하다. 123456arr &#x3D; arr">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/numpy.png">
 <meta property="article:published_time" content="2020-07-02T01:36:18.000Z">
-<meta property="article:modified_time" content="2023-05-30T14:28:15.685Z">
+<meta property="article:modified_time" content="2023-07-17T12:51:30.649Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="Python">
@@ -260,28 +260,28 @@ ga('send', 'pageview');
 
             
 
-            <p><strong>Numpy</strong> 기초에 대해 다뤄보겠습니다.</p>
-<h2 id="load-package"><a class="markdownIt-Anchor" href="#load-package"></a> Load Package</h2>
+            <p><strong>Numpy</strong> 기초에 대해 다뤄보겠다.</p>
+<h2 id="Load-Package">Load Package</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
-<h2 id="data-type"><a class="markdownIt-Anchor" href="#data-type"></a> data type</h2>
+<h2 id="data-type">data type</h2>
 <p>배열의 dtype 을 봅니다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arr = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]])</span><br><span class="line">arr.dtype</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">dtype(<span class="string">'int32'</span>)</span><br></pre></td></tr></table></figure>
-<p>.astype() 으로 datatype 을 변환 가능합니다.</p>
+<p><code>.astype()</code> 으로 datatype 을 변환 가능하다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">arr = arr.astype(<span class="string">'float32'</span>)</span><br><span class="line">arr = arr.astype(np.float32)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">array([[<span class="number">1.</span>, <span class="number">2.</span>, <span class="number">3.</span>],</span><br><span class="line">       [<span class="number">1.</span>, <span class="number">2.</span>, <span class="number">3.</span>]], dtype=float32)</span><br></pre></td></tr></table></figure>
-<p>len(arr.shape) 를 통해서 차원이 갯수를 확인할 수 있지만, 다음과 같이 ndim 을 통해 차원 수를 확인합니다.</p>
+<p>len(arr.shape) 를 통해서 차원이 갯수를 확인할 수 있지만, 다음과 같이 ndim 을 통해 차원 수를 확인하다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">len(arr.shape)</span><br><span class="line">arr.ndim</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure>
-<h2 id="reshape"><a class="markdownIt-Anchor" href="#reshape"></a> Reshape</h2>
-<p>차원을 바꿉니다.</p>
+<h2 id="Reshape">Reshape</h2>
+<p>차원을 바꾼다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arr = arr.reshape([<span class="number">1</span>, <span class="number">6</span>])</span><br><span class="line">arr.shape</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">(<span class="number">1</span>, <span class="number">6</span>)</span><br></pre></td></tr></table></figure>
-<p>차원을 몇 개로 나눠야할지 모를 경우 -1 을 활용합니다.</p>
+<p>차원을 몇 개로 나눠야할지 모를 경우 -1 을 활용하다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arr = arr.reshape(<span class="number">-1</span>)</span><br><span class="line">arr.shape</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">(<span class="number">6</span>,)</span><br></pre></td></tr></table></figure>
-<p>3차원으로 늘리는 방법입니다.</p>
+<p>3차원으로 늘리는 방법이다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">arr = np.random.randn(<span class="number">8</span>, <span class="number">8</span>) <span class="comment"># (8, 8)</span></span><br><span class="line">arr = arr.reshape([<span class="number">32</span>, <span class="number">2</span>]) <span class="comment"># (32, 2)</span></span><br><span class="line">arr = arr.reshape([<span class="number">-1</span>, <span class="number">2</span>, <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">(<span class="number">32</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="ravel"><a class="markdownIt-Anchor" href="#ravel"></a> Ravel</h2>
-<p>배열을 1차원으로 바꿔줍니다. 나중에 배열 layer를 flatten 할 때 같은 기능이라 생각하면 됩니다.</p>
+<h2 id="Ravel">Ravel</h2>
+<p>배열을 1차원으로 바꿔준다. 나중에 배열 layer를 flatten 할 때 같은 기능이라 생각하면 된다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arr = arr.ravel()</span><br><span class="line">arr.shape</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">(<span class="number">64</span>,)</span><br></pre></td></tr></table></figure>
-<h2 id="npexpand_dims"><a class="markdownIt-Anchor" href="#npexpand_dims"></a> np.expand_dims()</h2>
-<p>안의 값은 유지하되 차원 수를 늘리고 싶을 때 사용합니다.</p>
+<h2 id="np-expand-dims">np.expand_dims()</h2>
+<p>안의 값은 유지하되 차원 수를 늘리고 싶을 때 사용한다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arr = np.expand_dims(arr, <span class="number">0</span>)</span><br><span class="line">arr.shape</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">(<span class="number">1</span>, <span class="number">64</span>)</span><br></pre></td></tr></table></figure>
 
         </div>
@@ -392,17 +392,17 @@ ga('send', 'pageview');
         "genre": "Programming Language Python",
         "datePublished": "2020-07-02",
         "dateCreated": "2020-07-02",
-        "dateModified": "2023-05-30",
+        "dateModified": "2023-07-17",
         "url": "http://hgko1207.github.io/2020/07/02/ai-development-3/",
-        "description": "Numpy 기초에 대해 다뤄보겠습니다.
- Load Package
+        "description": "Numpy 기초에 대해 다뤄보겠다.
+Load Package
 1import numpy as np
- data type
+data type
 배열의 dtype 을 봅니다.
 12345arr = np.array([[1, 2, 3], [1, 2, 3]])arr.dtype# Outdtype('int32')
-.astype() 으로 datatype 을 변환 가능합니다.
-123456arr ",
-        "wordCount": 313
+.astype() 으로 datatype 을 변환 가능하다.
+123456arr = arr",
+        "wordCount": 298
     }
 </script>
 

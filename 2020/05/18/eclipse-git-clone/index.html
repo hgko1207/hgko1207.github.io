@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="Eclipse,Git,GitHub,Clone" />
     
-    <meta name="description" content="이클립스와 Git 원격저장소 연동하는 방법과 프로젝트를 내려받는 방법에 대해 알아보도록 하겠습니다.  1. 원격저장소 주소 복사 먼저 github 사이트에서 생성한 저장소의 주소를 복사합니다.   2. 이클립스 실행 이클립스를 실행하고 오른쪽 위에 퍼스펙티브 버튼을 클릭하면 창이 보입니다.  Git을 선택하고 [OK] 버튼을 눌러 활성화 시킵니다. Git">
+    <meta name="description" content="이클립스와 Git 원격저장소 연동하는 방법과 프로젝트를 내려받는 방법에 대해 알아보도록 하겠다. 1. 원격저장소 주소 복사 먼저 github 사이트에서 생성한 저장소의 주소를 복사한다.  2. 이클립스 실행 이클립스를 실행하고 오른쪽 위에 퍼스펙티브 버튼을 클릭하면 창이 보인다.  Git을 선택하고 [OK] 버튼을 눌러 활성화 시킨다. Git 퍼스펙티브가">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Git] 이클립스에서 Git Repository 연동">
 <meta property="og:url" content="http://hgko1207.github.io/2020/05/18/eclipse-git-clone/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="이클립스와 Git 원격저장소 연동하는 방법과 프로젝트를 내려받는 방법에 대해 알아보도록 하겠습니다.  1. 원격저장소 주소 복사 먼저 github 사이트에서 생성한 저장소의 주소를 복사합니다.   2. 이클립스 실행 이클립스를 실행하고 오른쪽 위에 퍼스펙티브 버튼을 클릭하면 창이 보입니다.  Git을 선택하고 [OK] 버튼을 눌러 활성화 시킵니다. Git">
+<meta property="og:description" content="이클립스와 Git 원격저장소 연동하는 방법과 프로젝트를 내려받는 방법에 대해 알아보도록 하겠다. 1. 원격저장소 주소 복사 먼저 github 사이트에서 생성한 저장소의 주소를 복사한다.  2. 이클립스 실행 이클립스를 실행하고 오른쪽 위에 퍼스펙티브 버튼을 클릭하면 창이 보인다.  Git을 선택하고 [OK] 버튼을 눌러 활성화 시킨다. Git 퍼스펙티브가">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/git.png">
 <meta property="article:published_time" content="2020-05-18T01:48:33.000Z">
-<meta property="article:modified_time" content="2022-09-13T07:21:53.686Z">
+<meta property="article:modified_time" content="2023-07-13T03:28:59.293Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="Eclipse">
 <meta property="article:tag" content="Git">
@@ -261,32 +261,32 @@ ga('send', 'pageview');
 
             
 
-            <p>이클립스와 Git 원격저장소 연동하는 방법과 프로젝트를 내려받는 방법에 대해 알아보도록 하겠습니다.</p>
-<h2 id="1-원격저장소-주소-복사"><a class="markdownIt-Anchor" href="#1-원격저장소-주소-복사"></a> 1. 원격저장소 주소 복사</h2>
-<p>먼저 github 사이트에서 생성한 저장소의 주소를 복사합니다.</p>
+            <p>이클립스와 Git 원격저장소 연동하는 방법과 프로젝트를 내려받는 방법에 대해 알아보도록 하겠다.</p>
+<h2 id="1-원격저장소-주소-복사">1. 원격저장소 주소 복사</h2>
+<p>먼저 github 사이트에서 생성한 저장소의 주소를 복사한다.</p>
 <img width="100%" src="/images/git/clone/1.png" alt="" title="" >
-<h2 id="2-이클립스-실행"><a class="markdownIt-Anchor" href="#2-이클립스-실행"></a> 2. 이클립스 실행</h2>
-<p>이클립스를 실행하고 오른쪽 위에 퍼스펙티브 버튼을 클릭하면 창이 보입니다.</p>
+<h2 id="2-이클립스-실행">2. 이클립스 실행</h2>
+<p>이클립스를 실행하고 오른쪽 위에 퍼스펙티브 버튼을 클릭하면 창이 보인다.</p>
 <img width="100%" src="/images/git/clone/2.png" alt="" title="" >
-<p>Git을 선택하고 <strong>[OK]</strong> 버튼을 눌러 활성화 시킵니다. Git 퍼스펙티브가 추가된 것을 볼 수 있으며 아이콘을 클릭하면 아래 그림처럼 기본화면이 변경됩니다.</p>
+<p>Git을 선택하고 <strong>[OK]</strong> 버튼을 눌러 활성화 시킨다. Git 퍼스펙티브가 추가된 것을 볼 수 있으며 아이콘을 클릭하면 아래 그림처럼 기본화면이 변경된다.</p>
 <img width="100%" src="/images/git/clone/3.png" alt="" title="" >
-<h2 id="3-원격저장소-연동"><a class="markdownIt-Anchor" href="#3-원격저장소-연동"></a> 3. 원격저장소 연동</h2>
-<p>Git 퍼스펙티브 화면에서 <strong>[Clone a Git repository]</strong> 를 클릭합니다.</p>
+<h2 id="3-원격저장소-연동">3. 원격저장소 연동</h2>
+<p>Git 퍼스펙티브 화면에서 <strong>[Clone a Git repository]</strong> 를 클릭한다.</p>
 <img width="100%" src="/images/git/clone/4.png" alt="" title="" >
-<p>Clone Git Repository 창의 첫 번째 빨간 박스에 앞에서 복사해둔 Git 원격 저장소 주소를 URI 칸에 복사하면 Host, Repository path 칸에 자동으로 입력됩니다. 그 밑의 빨간 박스에는 깃허브 아이디와 패스워드를 입력하고 <strong>[Next]</strong> 버튼을 클릭합니다.</p>
+<p>Clone Git Repository 창의 첫 번째 빨간 박스에 앞에서 복사해둔 Git 원격 저장소 주소를 URI 칸에 복사하면 Host, Repository path 칸에 자동으로 입력된다. 그 밑의 빨간 박스에는 깃허브 아이디와 패스워드를 입력하고 <strong>[Next]</strong> 버튼을 클릭한다.</p>
 <img width="75%" src="/images/git/clone/5.png" alt="" title="" >
-<p>Branch를 선택하는 화면이 보이는데 Branch를 만들지 않았으므로 그냥 <strong>[Next]</strong> 버튼을 클릭합니다.</p>
+<p>Branch 를 선택하는 화면이 보이는데 Branch를 만들지 않았으므로 그냥 <strong>[Next]</strong> 버튼을 클릭한다.</p>
 <img width="75%" src="/images/git/clone/6.png" alt="" title="" >
-<p>원격 저장소와 연결할 로컬 저장소를 설정한 뒤 <strong>[Finish]</strong> 버튼을 클릭합니다.</p>
+<p>원격 저장소와 연결할 로컬 저장소를 설정한 뒤 <strong>[Finish]</strong> 버튼을 클릭한다.</p>
 <img width="75%" src="/images/git/clone/7.png" alt="" title="" >
-<p>원격저장소가 연동되면 아래 그림과 같이 프로젝트를 확인할 수 있습니다.</p>
+<p>원격저장소가 연동되면 아래 그림과 같이 프로젝트를 확인할 수 있다.</p>
 <img width="100%" src="/images/git/clone/8.png" alt="" title="" >
-<h2 id="4-프로젝트-내려받기"><a class="markdownIt-Anchor" href="#4-프로젝트-내려받기"></a> 4. 프로젝트 내려받기</h2>
-<p>연동된 원격저장소에서 <strong>Working Tree -&gt; 프로젝트 선택 -&gt; 우클릭 -&gt; Import Projects 선택</strong>을 합니다.</p>
+<h2 id="4-프로젝트-내려받기">4. 프로젝트 내려받기</h2>
+<p>연동된 원격저장소에서 <strong>Working Tree -&gt; 프로젝트 선택 -&gt; 우클릭 -&gt; Import Projects 선택</strong>을 한다.</p>
 <img width="100%" src="/images/git/clone/9.png" alt="" title="" >
-<p>Import Projects 창에서 내려받아지는 경로를 확인 후 <strong>[Finish]</strong> 버튼을 클릭합니다.</p>
+<p>Import Projects 창에서 내려받아지는 경로를 확인 후 <strong>[Finish]</strong> 버튼을 클릭한다.</p>
 <img width="100%" src="/images/git/clone/10.png" alt="" title="" >
-<p>내려받기가 완료되면 프로젝트가 생성됩니다.</p>
+<p>내려받기가 완료되면 프로젝트가 생성된다.</p>
 <img width="100%" src="/images/git/clone/11.png" alt="" title="" >
 
         </div>
@@ -397,17 +397,17 @@ ga('send', 'pageview');
         "genre": "IT Git",
         "datePublished": "2020-05-18",
         "dateCreated": "2020-05-18",
-        "dateModified": "2022-09-13",
+        "dateModified": "2023-07-13",
         "url": "http://hgko1207.github.io/2020/05/18/eclipse-git-clone/",
-        "description": "이클립스와 Git 원격저장소 연동하는 방법과 프로젝트를 내려받는 방법에 대해 알아보도록 하겠습니다.
- 1. 원격저장소 주소 복사
-먼저 github 사이트에서 생성한 저장소의 주소를 복사합니다.
+        "description": "이클립스와 Git 원격저장소 연동하는 방법과 프로젝트를 내려받는 방법에 대해 알아보도록 하겠다.
+1. 원격저장소 주소 복사
+먼저 github 사이트에서 생성한 저장소의 주소를 복사한다.
 
- 2. 이클립스 실행
-이클립스를 실행하고 오른쪽 위에 퍼스펙티브 버튼을 클릭하면 창이 보입니다.
+2. 이클립스 실행
+이클립스를 실행하고 오른쪽 위에 퍼스펙티브 버튼을 클릭하면 창이 보인다.
 
-Git을 선택하고 [OK] 버튼을 눌러 활성화 시킵니다. Git ",
-        "wordCount": 217
+Git을 선택하고 [OK] 버튼을 눌러 활성화 시킨다. Git 퍼스펙티브가 ",
+        "wordCount": 206
     }
 </script>
 

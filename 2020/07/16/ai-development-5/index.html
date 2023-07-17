@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="AI,Python,Numpy,Graph,matplotlib" />
     
-    <meta name="description" content="Python 에서 matplotlib 를 사용하여 시각화하는 방법에 대해 알아보겠습니다.  Load Packages 1234import numpy as npimport matplotlib.pyplot as plt%matplotlib inline  Basic Attributes 123456789101112131415alpha : 투명도king : 그래프 종류">
+    <meta name="description" content="Python 에서 matplotlib 를 사용하여 시각화하는 방법에 대해 알아보겠다. Load Packages 1234import numpy as npimport matplotlib.pyplot as plt%matplotlib inline Basic Attributes 123456789101112131415alpha : 투명도king : 그래프 종류 &#39;li">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Python] 시각화 기초(그래프)">
 <meta property="og:url" content="http://hgko1207.github.io/2020/07/16/ai-development-5/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="Python 에서 matplotlib 를 사용하여 시각화하는 방법에 대해 알아보겠습니다.  Load Packages 1234import numpy as npimport matplotlib.pyplot as plt%matplotlib inline  Basic Attributes 123456789101112131415alpha : 투명도king : 그래프 종류">
+<meta property="og:description" content="Python 에서 matplotlib 를 사용하여 시각화하는 방법에 대해 알아보겠다. Load Packages 1234import numpy as npimport matplotlib.pyplot as plt%matplotlib inline Basic Attributes 123456789101112131415alpha : 투명도king : 그래프 종류 &#39;li">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/matplotlib.png">
 <meta property="article:published_time" content="2020-07-16T09:08:35.000Z">
-<meta property="article:modified_time" content="2023-03-14T02:18:21.160Z">
+<meta property="article:modified_time" content="2023-07-17T12:52:51.906Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="Python">
@@ -262,47 +262,47 @@ ga('send', 'pageview');
 
             
 
-            <p>Python 에서 <strong>matplotlib</strong> 를 사용하여 시각화하는 방법에 대해 알아보겠습니다.</p>
-<h2 id="load-packages"><a class="markdownIt-Anchor" href="#load-packages"></a> Load Packages</h2>
+            <p>Python 에서 <strong>matplotlib</strong> 를 사용하여 시각화하는 방법에 대해 알아보겠다.</p>
+<h2 id="Load-Packages">Load Packages</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
-<h2 id="basic-attributes"><a class="markdownIt-Anchor" href="#basic-attributes"></a> Basic Attributes</h2>
+<h2 id="Basic-Attributes">Basic Attributes</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">alpha : 투명도</span><br><span class="line">king : 그래프 종류 <span class="string">'line'</span>, <span class="string">'bar'</span>, <span class="string">'barh'</span>, <span class="string">'kde'</span></span><br><span class="line">logy : Y축에 대해 Log scaling</span><br><span class="line">use_index : 객체의 색인을 눈금 이름으로 사용할지 여부</span><br><span class="line">rot : 눈금 이름 돌리기 (rotating) <span class="number">0</span> ~ <span class="number">360</span></span><br><span class="line">xticks, yticks : X, Y축으로 사용할 값</span><br><span class="line">xlim, ylim : X, Y축의 한계</span><br><span class="line">grid : 축의 그리드를 표현할지 여부</span><br><span class="line"></span><br><span class="line">subplots : 각 column에 독립된 subplot 그리기</span><br><span class="line">sharex, sharey : subplots=<span class="literal">True</span> 이면 같은 X, Y축을 공유하고 눈금과 한계를 연결</span><br><span class="line">figsize : 생성될 그래프의 크기를 tuple로 지정</span><br><span class="line">title : 그래프의 제목 지정</span><br><span class="line">legend : subplot의 범례 지정</span><br><span class="line">sort_columns : column을 알파벳 순서로 그린다.</span><br></pre></td></tr></table></figure>
-<h2 id="matplotlib-사용하기"><a class="markdownIt-Anchor" href="#matplotlib-사용하기"></a> Matplotlib 사용하기</h2>
-<h3 id="점선-그래프-그리기"><a class="markdownIt-Anchor" href="#점선-그래프-그리기"></a> 점선 그래프 그리기</h3>
+<h2 id="Matplotlib-사용하기">Matplotlib 사용하기</h2>
+<h3 id="점선-그래프-그리기">점선 그래프 그리기</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data = np.random.randn(<span class="number">50</span>).cumsum()</span><br><span class="line">plt.plot(data)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><img src="/images/ai/graph/1.png" alt="" /></p>
-<h3 id="여러-그래프-그릴-준비-하기"><a class="markdownIt-Anchor" href="#여러-그래프-그릴-준비-하기"></a> 여러 그래프 그릴 준비 하기</h3>
+<p><img src="/images/ai/graph/1.png" alt=""></p>
+<h3 id="여러-그래프-그릴-준비-하기">여러 그래프 그릴 준비 하기</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plt.subplot(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">plt.subplot(<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><img src="/images/ai/graph/2.png" alt="" /></p>
-<h3 id="multi-graph-그리기"><a class="markdownIt-Anchor" href="#multi-graph-그리기"></a> Multi Graph 그리기</h3>
+<p><img src="/images/ai/graph/2.png" alt=""></p>
+<h3 id="Multi-Graph-그리기">Multi Graph 그리기</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">hist_data = np.random.randn(<span class="number">100</span>)</span><br><span class="line">scat_data = np.arange(<span class="number">30</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">plt.plot(data)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">plt.hist(hist_data, bins=<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">plt.scatter(scat_data, np.arange(<span class="number">30</span>) + <span class="number">3</span> * np.random.randn(<span class="number">30</span>))</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><img src="/images/ai/graph/3.png" alt="" /></p>
-<h3 id="그래프-옵션"><a class="markdownIt-Anchor" href="#그래프-옵션"></a> 그래프 옵션</h3>
-<p>그래프를 그릴 때 표시 되는 색이나 마커 패턴을 바꾸는 것을 확인합니다.</p>
+<p><img src="/images/ai/graph/3.png" alt=""></p>
+<h3 id="그래프-옵션">그래프 옵션</h3>
+<p>그래프를 그릴 때 표시 되는 색이나 마커 패턴을 바꾸는 것을 확인한다.</p>
 <ul>
 <li>색상: r(빨간색), g(초록색), b(파란색), C(청록색), y(노란색), k(검은색), w(흰색)</li>
 <li>마커: o(원), v(역삼각형), ^(삼각형), s(네모), +(플러스), .(점)</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(data, <span class="string">'go'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><img src="/images/ai/graph/4.png" alt="" /></p>
-<h3 id="그래프-사이즈-조절"><a class="markdownIt-Anchor" href="#그래프-사이즈-조절"></a> 그래프 사이즈 조절</h3>
-<p>plt.figure 안에 figsize를 이용하여 가로, 세로 길이 조절 가능 합니다. (inch 단위)</p>
+<p><img src="/images/ai/graph/4.png" alt=""></p>
+<h3 id="그래프-사이즈-조절">그래프 사이즈 조절</h3>
+<p>plt.figure 안에 figsize를 이용하여 가로, 세로 길이 조절 가능하다. (inch 단위)</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plt.figure(figsize=(<span class="number">10</span>, <span class="number">10</span>))</span><br><span class="line">plt.plot(data, <span class="string">'k+'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><img src="/images/ai/graph/5.png" alt="" /></p>
-<p>여러 그래프 그리고 그에 대한 크기 조절을 합니다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 맨 위에 있어야 합니다.</span></span><br><span class="line">plt.figure(figsize=(<span class="number">10</span>, <span class="number">5</span>))</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">plt.plot(data)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">plt.hist(hist_data, bins=<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">plt.scatter(scat_data, np.arange(<span class="number">30</span>) + <span class="number">3</span> * np.random.randn(<span class="number">30</span>))</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><img src="/images/ai/graph/6.png" alt="" /></p>
-<h3 id="그래프-겹치기와-legend-표시"><a class="markdownIt-Anchor" href="#그래프-겹치기와-legend-표시"></a> 그래프 겹치기와 legend 표시</h3>
+<p><img src="/images/ai/graph/5.png" alt=""></p>
+<p>여러 그래프 그리고 그에 대한 크기 조절을 한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 맨 위에 있어야 한다.</span></span><br><span class="line">plt.figure(figsize=(<span class="number">10</span>, <span class="number">5</span>))</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">plt.plot(data)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">plt.hist(hist_data, bins=<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">plt.scatter(scat_data, np.arange(<span class="number">30</span>) + <span class="number">3</span> * np.random.randn(<span class="number">30</span>))</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="/images/ai/graph/6.png" alt=""></p>
+<h3 id="그래프-겹치기와-legend-표시">그래프 겹치기와 legend 표시</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">data = np.random.randn(<span class="number">30</span>).cumsum()</span><br><span class="line"></span><br><span class="line">plt.plot(data, <span class="string">'k--'</span>, label=<span class="string">'Default'</span>)</span><br><span class="line">plt.plot(data, <span class="string">'k-'</span>, drawstyle=<span class="string">'steps-post'</span>, label=<span class="string">'steps-post'</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><img src="/images/ai/graph/7.png" alt="" /></p>
-<h3 id="이름-달기"><a class="markdownIt-Anchor" href="#이름-달기"></a> 이름 달기</h3>
+<p><img src="/images/ai/graph/7.png" alt=""></p>
+<h3 id="이름-달기">이름 달기</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(np.random.randn(<span class="number">1000</span>).cumsum())</span><br><span class="line">plt.title(<span class="string">'Random Graph'</span>)</span><br><span class="line">plt.xlabel(<span class="string">'Stages'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'Values'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><img src="/images/ai/graph/8.png" alt="" /></p>
-<h3 id="종합"><a class="markdownIt-Anchor" href="#종합"></a> 종합</h3>
+<p><img src="/images/ai/graph/8.png" alt=""></p>
+<h3 id="종합">종합</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">plt.title(<span class="string">'Graph'</span>)</span><br><span class="line">plt.plot(np.random.randn(<span class="number">500</span>).cumsum(), <span class="string">'k^'</span>, label=<span class="string">'one'</span>)</span><br><span class="line">plt.plot(np.random.randn(<span class="number">500</span>).cumsum(), <span class="string">'b.'</span>, label=<span class="string">'two'</span>)</span><br><span class="line">plt.plot(np.random.randn(<span class="number">500</span>).cumsum(), <span class="string">'r'</span>, label=<span class="string">'three'</span>)</span><br><span class="line"></span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><img src="/images/ai/graph/9.png" alt="" /></p>
-<h3 id="그래프-저장하기"><a class="markdownIt-Anchor" href="#그래프-저장하기"></a> 그래프 저장하기</h3>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 현재 작업 위치로 저장합니다.</span></span><br><span class="line">plt.savefig(<span class="string">'saved_graph.svg'</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/images/ai/graph/9.png" alt=""></p>
+<h3 id="그래프-저장하기">그래프 저장하기</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 현재 작업 위치로 저장한다.</span></span><br><span class="line">plt.savefig(<span class="string">'saved_graph.svg'</span>)</span><br></pre></td></tr></table></figure>
 
         </div>
         <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
@@ -412,14 +412,14 @@ ga('send', 'pageview');
         "genre": "Programming Language Python",
         "datePublished": "2020-07-16",
         "dateCreated": "2020-07-16",
-        "dateModified": "2023-03-14",
+        "dateModified": "2023-07-17",
         "url": "http://hgko1207.github.io/2020/07/16/ai-development-5/",
-        "description": "Python 에서 matplotlib 를 사용하여 시각화하는 방법에 대해 알아보겠습니다.
- Load Packages
+        "description": "Python 에서 matplotlib 를 사용하여 시각화하는 방법에 대해 알아보겠다.
+Load Packages
 1234import numpy as npimport matplotlib.pyplot as plt%matplotlib inline
- Basic Attributes
-123456789101112131415alpha : 투명도king : 그래프 종류",
-        "wordCount": 567
+Basic Attributes
+123456789101112131415alpha : 투명도king : 그래프 종류 'li",
+        "wordCount": 521
     }
 </script>
 

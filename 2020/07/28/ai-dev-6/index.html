@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="AI,DeepLearning,Tensorflow" />
     
-    <meta name="description" content="TensorFlow 공식 홈페이지에서 설명하는 Expert 버전을 사용해봅니다.  Load Packages 1234import tensorflow as tffrom tensorflow.keras import layersfrom tensorflow.keras import datasets  학습 과정 돌아보기   Build Model  1234567891011">
+    <meta name="description" content="TensorFlow 공식 홈페이지에서 설명하는 Expert 버전을 사용해본다. Load Packages 1234import tensorflow as tffrom tensorflow.keras import layersfrom tensorflow.keras import datasets 학습 과정 돌아보기  Build Model  12345678910111213">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[TensorFlow 2.0] Optimizer 및 Training (Expert)">
 <meta property="og:url" content="http://hgko1207.github.io/2020/07/28/ai-dev-6/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="TensorFlow 공식 홈페이지에서 설명하는 Expert 버전을 사용해봅니다.  Load Packages 1234import tensorflow as tffrom tensorflow.keras import layersfrom tensorflow.keras import datasets  학습 과정 돌아보기   Build Model  1234567891011">
+<meta property="og:description" content="TensorFlow 공식 홈페이지에서 설명하는 Expert 버전을 사용해본다. Load Packages 1234import tensorflow as tffrom tensorflow.keras import layersfrom tensorflow.keras import datasets 학습 과정 돌아보기  Build Model  12345678910111213">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/tensorflow.png">
 <meta property="article:published_time" content="2020-07-28T08:38:22.000Z">
-<meta property="article:modified_time" content="2023-03-14T02:18:38.900Z">
+<meta property="article:modified_time" content="2023-07-17T12:55:57.031Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="DeepLearning">
@@ -260,45 +260,45 @@ ga('send', 'pageview');
 
             
 
-            <p><a href="https://www.tensorflow.org/" target="_blank" rel="noopener">TensorFlow</a> 공식 홈페이지에서 설명하는 Expert 버전을 사용해봅니다.</p>
-<h2 id="load-packages"><a class="markdownIt-Anchor" href="#load-packages"></a> Load Packages</h2>
+            <p><a href="https://www.tensorflow.org/" target="_blank" rel="noopener">TensorFlow</a> 공식 홈페이지에서 설명하는 Expert 버전을 사용해본다.</p>
+<h2 id="Load-Packages">Load Packages</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras <span class="keyword">import</span> layers</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> tensorflow.keras <span class="keyword">import</span> datasets</span><br></pre></td></tr></table></figure>
-<h2 id="학습-과정-돌아보기"><a class="markdownIt-Anchor" href="#학습-과정-돌아보기"></a> 학습 과정 돌아보기</h2>
-<p><img src="/images/ai/dev/18.png" alt="" /></p>
-<h2 id="build-model"><a class="markdownIt-Anchor" href="#build-model"></a> Build Model</h2>
-<p><img src="/images/ai/dev/17.png" alt="" /></p>
+<h2 id="학습-과정-돌아보기">학습 과정 돌아보기</h2>
+<p><img src="/images/ai/dev/18.png" alt=""></p>
+<h2 id="Build-Model">Build Model</h2>
+<p><img src="/images/ai/dev/17.png" alt=""></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">input_shape = (<span class="number">28</span>, <span class="number">28</span>, <span class="number">1</span>)</span><br><span class="line">num_classes = <span class="number">10</span></span><br><span class="line"></span><br><span class="line">inputs = layers.Input(input_shape, dtype=tf.float64)</span><br><span class="line">net = layers.Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">'SAME'</span>)(inputs)</span><br><span class="line">net = layers.Activation(<span class="string">'relu'</span>)(net)</span><br><span class="line">net = layers.Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">'SAME'</span>)(net)</span><br><span class="line">net = layers.Activation(<span class="string">'relu'</span>)(net)</span><br><span class="line">net = layers.MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(net)</span><br><span class="line">net = layers.Dropout(<span class="number">0.5</span>)(net)</span><br><span class="line"></span><br><span class="line">net = layers.Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">'SAME'</span>)(net)</span><br><span class="line">net = layers.Activation(<span class="string">'relu'</span>)(net)</span><br><span class="line">net = layers.Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">'SAME'</span>)(net)</span><br><span class="line">net = layers.Activation(<span class="string">'relu'</span>)(net)</span><br><span class="line">net = layers.MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(net)</span><br><span class="line">net = layers.Dropout(<span class="number">0.5</span>)(net)</span><br><span class="line"></span><br><span class="line">net = layers.Flatten()(net)</span><br><span class="line">net = layers.Dense(<span class="number">512</span>)(net)</span><br><span class="line">net = layers.Activation(<span class="string">'relu'</span>)(net)</span><br><span class="line">net = layers.Dropout(<span class="number">0.5</span>)(net)</span><br><span class="line">net = layers.Dense(num_classes)(net)</span><br><span class="line">net = layers.Activation(<span class="string">'softmax'</span>)(net)</span><br><span class="line"></span><br><span class="line">model = tf.keras.Model(inputs=inputs, outputs=net, name=<span class="string">'Basic_CNN'</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="preprocess"><a class="markdownIt-Anchor" href="#preprocess"></a> Preprocess</h2>
-<p>TensorFlow 공식 홈페이지에서 말한 expert 방법을 사용합니다.</p>
+<h2 id="Preprocess">Preprocess</h2>
+<p>TensorFlow 공식 홈페이지에서 말한 expert 방법을 사용한다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mnist = tf.keras.datasets.mnist</span><br><span class="line"></span><br><span class="line"><span class="comment"># Load Data from MNIST</span></span><br><span class="line">(x_train, y_train), (x_test, y_test) = mnist.load_data()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Channel 차원 추가</span></span><br><span class="line">x_train = x_train[..., tf.newaxis]</span><br><span class="line">x_test = x_test[..., tf.newaxis]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Data Normailzation</span></span><br><span class="line">x_train, x_test = x_train / <span class="number">255.0</span>, x_test / <span class="number">255.0</span></span><br></pre></td></tr></table></figure>
-<h3 id="tfdata-사용"><a class="markdownIt-Anchor" href="#tfdata-사용"></a> tf.data 사용</h3>
+<h3 id="tf-data-사용">tf.data 사용</h3>
 <ul>
 <li>from_tensor_slices()</li>
 <li>shuffle()</li>
 <li>batch()</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">train_ds = tf.data.Dataset.from_tensor_slices((x_train, y_train))</span><br><span class="line">train_ds = train_ds.shuffle(<span class="number">1000</span>)</span><br><span class="line">train_ds = train_ds.batch(<span class="number">32</span>)</span><br><span class="line"></span><br><span class="line">test_ds = tf.data.Dataset.from_tensor_slices((x_test, y_test))</span><br><span class="line">test_ds = test_ds.batch(<span class="number">32</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="visualize-data"><a class="markdownIt-Anchor" href="#visualize-data"></a> Visualize Data</h2>
-<p>matplotlib 불러와서 데이터를 시각화합니다.</p>
+<h2 id="Visualize-Data">Visualize Data</h2>
+<p>matplotlib 불러와서 데이터를 시각화한다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> image, label <span class="keyword">in</span> train_ds.take(<span class="number">2</span>):</span><br><span class="line">    plt.title(label[<span class="number">0</span>].shape)</span><br><span class="line">    plt.imshow(image[<span class="number">0</span>, :, :, <span class="number">0</span>], <span class="string">'gray'</span>)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
-<p><img src="/images/ai/dev/19.png" alt="" /></p>
-<p><img src="/images/ai/dev/20.png" alt="" /></p>
-<h2 id="training-keras"><a class="markdownIt-Anchor" href="#training-keras"></a> Training (Keras)</h2>
-<p>Keras로 학습 할 때는 기존과 같지만, train_ds는 generator라서 그래도 넣을 수 있습니다.</p>
+<p><img src="/images/ai/dev/19.png" alt=""></p>
+<p><img src="/images/ai/dev/20.png" alt=""></p>
+<h2 id="Training-Keras">Training (Keras)</h2>
+<p>Keras로 학습 할 때는 기존과 같지만, train_ds는 generator라서 그래도 넣을 수 있다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">model.compile(optimizer=<span class="string">'adam'</span>, loss=<span class="string">'sparse_categorical_crossentropy'</span>)</span><br><span class="line">model.fit(train_ds, epochs=<span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="optimization"><a class="markdownIt-Anchor" href="#optimization"></a> Optimization</h2>
+<h2 id="Optimization">Optimization</h2>
 <ul>
 <li>Loss Function</li>
 <li>Optimizer</li>
 <li>Metrics</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">loss_object = tf.keras.losses.SparseCategoricalCrossentropy()</span><br><span class="line">optimizer = tf.keras.optimizers.Adam()</span><br><span class="line"></span><br><span class="line">train_loss = tf.keras.metrics.Mean(name=<span class="string">'train_loss'</span>)</span><br><span class="line">train_accuracy = tf.keras.metrics.SparseCategoricalAccuracy(name=<span class="string">'train_accuracy'</span>)</span><br><span class="line"></span><br><span class="line">test_loss = tf.keras.metrics.Mean(name=<span class="string">'test_loss'</span>)</span><br><span class="line">test_accuracy = tf.keras.metrics.SparseCategoricalAccuracy(name=<span class="string">'test_accuracy'</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="training"><a class="markdownIt-Anchor" href="#training"></a> Training</h2>
-<p>@tf.function : 기존 session 열었던 것 처럼 바로 작동 안 하고, 그래프만 만들고 학습이 시작되면 돌아가도록 합니다.</p>
+<h2 id="Training">Training</h2>
+<p>@tf.function : 기존 session 열었던 것 처럼 바로 작동 안 하고, 그래프만 만들고 학습이 시작되면 돌아가도록 한다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@tf.function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">train_step</span><span class="params">(images, labels)</span>:</span></span><br><span class="line">    <span class="keyword">with</span> tf.GradientTape() <span class="keyword">as</span> tape:</span><br><span class="line">        predictions = model(images)</span><br><span class="line">        loss = loss_object(labels, predictions)</span><br><span class="line">    gradients = tape.gradient(loss, model.trainable_variables)</span><br><span class="line">    optimizer.apply_gradients(zip(gradients, model.trainable_variables))</span><br><span class="line"></span><br><span class="line">    train_loss(loss)</span><br><span class="line">    train_accuracy(labels, predictions)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@tf.function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_step</span><span class="params">(images, lebels)</span>:</span></span><br><span class="line">    predictions = model(images)</span><br><span class="line">    t_loss = loss_object(labels, predictions)</span><br><span class="line"></span><br><span class="line">    test_loss(t_loss)</span><br><span class="line">    test_accuracy(labels, predictions)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> range(<span class="number">2</span>):</span><br><span class="line">    <span class="keyword">for</span> images, labels <span class="keyword">in</span> train_ds:</span><br><span class="line">        train_step(images, labels)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> test_images, test_labels <span class="keyword">in</span> test_ds:</span><br><span class="line">        test_step(test_images, test_labels)</span><br><span class="line"></span><br><span class="line">    template = <span class="string">'Epoch &#123;&#125;, Loss: &#123;&#125;, Accuracy: &#123;&#125;, Test Loss &#123;&#125;, Test Accuracy: &#123;&#125;'</span></span><br><span class="line">    print(template.format(epoch+<span class="number">1</span>,</span><br><span class="line">                          train_loss.result(),</span><br><span class="line">                          train_accuracy.result() * <span class="number">100</span>,</span><br><span class="line">                          test_loss.result(),</span><br><span class="line">                          test_accuracy.result() * <span class="number">100</span>))</span><br></pre></td></tr></table></figure>
-<h3 id="결과"><a class="markdownIt-Anchor" href="#결과"></a> 결과</h3>
+<h3 id="결과">결과</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Start Training</span><br><span class="line">Epoch <span class="number">1</span>, Loss: <span class="number">0.04196552559733391</span>, Accuracy: <span class="number">98.74666595458984</span>, Test Loss <span class="number">0.043360475450754166</span>, Test Accuracy: <span class="number">98.72000122070312</span></span><br><span class="line">Start Training</span><br><span class="line">Epoch <span class="number">2</span>, Loss: <span class="number">0.033374134451150894</span>, Accuracy: <span class="number">99.0050048828125</span>, Test Loss <span class="number">0.03336939960718155</span>, Test Accuracy: <span class="number">98.95500183105469</span></span><br></pre></td></tr></table></figure>
 
         </div>
@@ -409,17 +409,17 @@ ga('send', 'pageview');
         "genre": "Programming AI",
         "datePublished": "2020-07-28",
         "dateCreated": "2020-07-28",
-        "dateModified": "2023-03-14",
+        "dateModified": "2023-07-17",
         "url": "http://hgko1207.github.io/2020/07/28/ai-dev-6/",
-        "description": "TensorFlow 공식 홈페이지에서 설명하는 Expert 버전을 사용해봅니다.
- Load Packages
+        "description": "TensorFlow 공식 홈페이지에서 설명하는 Expert 버전을 사용해본다.
+Load Packages
 1234import tensorflow as tffrom tensorflow.keras import layersfrom tensorflow.keras import datasets
- 학습 과정 돌아보기
+학습 과정 돌아보기
 
- Build Model
+Build Model
 
-1234567891011",
-        "wordCount": 861
+12345678910111213",
+        "wordCount": 827
     }
 </script>
 

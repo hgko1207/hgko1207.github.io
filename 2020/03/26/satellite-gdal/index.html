@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="Satellite,Coordinate System,Gdal,Library" />
     
-    <meta name="description" content="GDAL 은 래스터 및 벡터 지리 공간 데이터를 조작 할 수 있는 오픈 소스 라이브러리입니다.  라이브러리로서 지원되는 모든 형식의 호출 응용 프로그램에 단일 추상 데이터 모델을 제공합니다. 데이터 변환 및 처리를 위한 다양한 명령 행 인터페이스 유틸리티가 제공됩니다. Windows, Linux 및 MacOS 에서 사용가능합니다.  1. gdalinfo (">
+    <meta name="description" content="GDAL 은 래스터 및 벡터 지리 공간 데이터를 조작 할 수 있는 오픈 소스 라이브러리다.  라이브러리로서 지원되는 모든 형식의 호출 응용 프로그램에 단일 추상 데이터 모델을 제공한다. 데이터 변환 및 처리를 위한 다양한 명령 행 인터페이스 유틸리티가 제공된다. Windows, Linux 및 MacOS 에서 사용 가능하다.  1. gdalinfo (http">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Gdal 사용법">
 <meta property="og:url" content="http://hgko1207.github.io/2020/03/26/satellite-gdal/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="GDAL 은 래스터 및 벡터 지리 공간 데이터를 조작 할 수 있는 오픈 소스 라이브러리입니다.  라이브러리로서 지원되는 모든 형식의 호출 응용 프로그램에 단일 추상 데이터 모델을 제공합니다. 데이터 변환 및 처리를 위한 다양한 명령 행 인터페이스 유틸리티가 제공됩니다. Windows, Linux 및 MacOS 에서 사용가능합니다.  1. gdalinfo (">
+<meta property="og:description" content="GDAL 은 래스터 및 벡터 지리 공간 데이터를 조작 할 수 있는 오픈 소스 라이브러리다.  라이브러리로서 지원되는 모든 형식의 호출 응용 프로그램에 단일 추상 데이터 모델을 제공한다. 데이터 변환 및 처리를 위한 다양한 명령 행 인터페이스 유틸리티가 제공된다. Windows, Linux 및 MacOS 에서 사용 가능하다.  1. gdalinfo (http">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/satellite.png">
 <meta property="article:published_time" content="2020-03-26T02:07:02.000Z">
-<meta property="article:modified_time" content="2023-06-04T15:09:06.762Z">
+<meta property="article:modified_time" content="2023-07-13T03:19:49.291Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="Satellite">
 <meta property="article:tag" content="Coordinate System">
@@ -261,20 +261,20 @@ ga('send', 'pageview');
 
             
 
-            <p><strong>GDAL</strong> 은 래스터 및 벡터 지리 공간 데이터를 조작 할 수 있는 오픈 소스 라이브러리입니다.</p>
+            <p><strong>GDAL</strong> 은 래스터 및 벡터 지리 공간 데이터를 조작 할 수 있는 오픈 소스 라이브러리다.</p>
 <ul>
-<li>라이브러리로서 지원되는 모든 형식의 호출 응용 프로그램에 단일 추상 데이터 모델을 제공합니다.</li>
-<li>데이터 변환 및 처리를 위한 다양한 명령 행 인터페이스 유틸리티가 제공됩니다.</li>
-<li>Windows, Linux 및 MacOS 에서 사용가능합니다.</li>
+<li>라이브러리로서 지원되는 모든 형식의 호출 응용 프로그램에 단일 추상 데이터 모델을 제공한다.</li>
+<li>데이터 변환 및 처리를 위한 다양한 명령 행 인터페이스 유틸리티가 제공된다.</li>
+<li>Windows, Linux 및 MacOS 에서 사용 가능하다.</li>
 </ul>
 <h2 id="1-gdalinfo-http-www-gdal-org-gdalinfo-html">1. gdalinfo (<a href="http://www.gdal.org/gdalinfo.html" target="_blank" rel="noopener">http://www.gdal.org/gdalinfo.html</a>)</h2>
 <ul>
-<li>GDAL 이 지원하는 영상 정보를 확인합니다.</li>
+<li>GDAL 이 지원하는 영상 정보를 확인한다.</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdalinfo test.tif</span><br></pre></td></tr></table></figure>
 <h2 id="2-gdal-translate-http-www-gdal-org-gdal-translate-html">2. gdal_translate (<a href="http://www.gdal.org/gdal_translate.html" target="_blank" rel="noopener">http://www.gdal.org/gdal_translate.html</a>)</h2>
 <ul>
-<li>다른 형식으로 래스터 데이터를 변환합니다.</li>
+<li>다른 형식으로 래스터 데이터를 변환</li>
 <li>영상 resize 및 포멧 변경</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdal_translate -of GTiff -outsize 50% 50% src_dataset dst_dataset</span><br></pre></td></tr></table></figure>
@@ -286,9 +286,9 @@ ga('send', 'pageview');
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdalwarp -t_srs EPSG:4326 input.tif output.tif</span><br></pre></td></tr></table></figure>
 <h2 id="4-gdal-merge-https-gdal-org-programs-gdal-merge-html">4. gdal_merge (<a href="https://gdal.org/programs/gdal_merge.html" target="_blank" rel="noopener">https://gdal.org/programs/gdal_merge.html</a>)</h2>
 <ul>
-<li>일련의 이미지를 자동으로 모자이크합니다.</li>
-<li>모든 이미지는 동일한 좌표계에 밴드 수가 일치해야 합니다.</li>
-<li>겹치는 영역에서는 마지막 이미지가 이전 이미지에 복사됩니다.</li>
+<li>일련의 이미지를 자동으로 모자이크한다.</li>
+<li>모든 이미지는 동일한 좌표계에 밴드 수가 일치해야 한다.</li>
+<li>겹치는 영역에서는 마지막 이미지가 이전 이미지에 복사된다.</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdal_merge.py -init 255 -o out.tif in1.tif in2.tif</span><br></pre></td></tr></table></figure>
 <h2 id="5-gdalmanage-http-www-gdal-org-gdalmanage-html">5. gdalmanage (<a href="http://www.gdal.org/gdalmanage.html" target="_blank" rel="noopener">http://www.gdal.org/gdalmanage.html</a>)</h2>
@@ -302,7 +302,7 @@ ga('send', 'pageview');
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 파일일 때</span></span><br><span class="line">gdalmanage identify test.tif</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 폴더일 때</span></span><br><span class="line">gdalmanage identify –r test/</span><br></pre></td></tr></table></figure>
 <h2 id="6-gdal-contour-http-www-gdal-org-gdal-contour-html">6. gdal_contour (<a href="http://www.gdal.org/gdal_contour.html" target="_blank" rel="noopener">http://www.gdal.org/gdal_contour.html</a>)</h2>
 <ul>
-<li>입력 래스터 표고 모델(DEM)로부터 벡터 등고선 파일을 생성합니다.</li>
+<li>입력 래스터 표고 모델(DEM)로부터 벡터 등고선 파일을 생성한다.</li>
 </ul>
 <h2 id="7-gdal-polygonize-py-http-www-gdal-org-gdal-polygonize-html">7. gdal_polygonize.py (<a href="http://www.gdal.org/gdal_polygonize.html" target="_blank" rel="noopener">http://www.gdal.org/gdal_polygonize.html</a>)</h2>
 <ul>
@@ -319,7 +319,7 @@ ga('send', 'pageview');
 <li><a href="http://www.mercatorgeosystems.com/blog-articles/2008/05/30/using-ogr2ogr-to-re-project-a-shape-file/" target="_blank" rel="noopener">http://www.mercatorgeosystems.com/blog-articles/2008/05/30/using-ogr2ogr-to-re-project-a-shape-file/</a></li>
 </ol>
 <h2 id="9-gdaldem-https-gdal-org-programs-gdaldem-html">9. gdaldem (<a href="https://gdal.org/programs/gdaldem.html" target="_blank" rel="noopener">https://gdal.org/programs/gdaldem.html</a>)</h2>
-<p>ERS -&gt; GTiff 파일로 변환합니다.</p>
+<p>ERS -&gt; GTiff 파일로 변환한다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdaldem color-relief -of GTiff -co "TILED=YES" K220100502_22131215_ref_med_union.ers color_file.txt color.tif</span><br></pre></td></tr></table></figure>
 <p><strong>※ GDAL 에서 .py 파일은 .exe로 만들어서 붙입니다.</strong></p>
 
@@ -431,16 +431,16 @@ ga('send', 'pageview');
         "genre": "IT Satellite",
         "datePublished": "2020-03-26",
         "dateCreated": "2020-03-26",
-        "dateModified": "2023-06-05",
+        "dateModified": "2023-07-13",
         "url": "http://hgko1207.github.io/2020/03/26/satellite-gdal/",
-        "description": "GDAL 은 래스터 및 벡터 지리 공간 데이터를 조작 할 수 있는 오픈 소스 라이브러리입니다.
+        "description": "GDAL 은 래스터 및 벡터 지리 공간 데이터를 조작 할 수 있는 오픈 소스 라이브러리다.
 
-라이브러리로서 지원되는 모든 형식의 호출 응용 프로그램에 단일 추상 데이터 모델을 제공합니다.
-데이터 변환 및 처리를 위한 다양한 명령 행 인터페이스 유틸리티가 제공됩니다.
-Windows, Linux 및 MacOS 에서 사용가능합니다.
+라이브러리로서 지원되는 모든 형식의 호출 응용 프로그램에 단일 추상 데이터 모델을 제공한다.
+데이터 변환 및 처리를 위한 다양한 명령 행 인터페이스 유틸리티가 제공된다.
+Windows, Linux 및 MacOS 에서 사용 가능하다.
 
-1. gdalinfo (",
-        "wordCount": 317
+1. gdalinfo (http",
+        "wordCount": 318
     }
 </script>
 

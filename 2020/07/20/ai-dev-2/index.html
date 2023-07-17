@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="AI,DeepLearning,Tensorflow" />
     
-    <meta name="description" content="Load Packages 12import numpy as npimport tensorflow as tf  Tensor 생성 list -&gt; Tensor 1234tf.constant([1, 2, 3])# Out&lt;tf.Tensor: shape&#x3D;(3,), dtype&#x3D;int32, numpy&#x3D;array([1, 2, 3])&gt; tuple -&gt; Te">
+    <meta name="description" content="Load Packages 12import numpy as npimport tensorflow as tf Tensor 생성 list -&gt; Tensor 1234tf.constant([1, 2, 3])# Out&lt;tf.Tensor: shape&#x3D;(3,), dtype&#x3D;int32, numpy&#x3D;array([1, 2, 3])&gt; tuple -&gt; Tens">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Tensorflow 2.0] 기초 사용법">
 <meta property="og:url" content="http://hgko1207.github.io/2020/07/20/ai-dev-2/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="Load Packages 12import numpy as npimport tensorflow as tf  Tensor 생성 list -&gt; Tensor 1234tf.constant([1, 2, 3])# Out&lt;tf.Tensor: shape&#x3D;(3,), dtype&#x3D;int32, numpy&#x3D;array([1, 2, 3])&gt; tuple -&gt; Te">
+<meta property="og:description" content="Load Packages 12import numpy as npimport tensorflow as tf Tensor 생성 list -&gt; Tensor 1234tf.constant([1, 2, 3])# Out&lt;tf.Tensor: shape&#x3D;(3,), dtype&#x3D;int32, numpy&#x3D;array([1, 2, 3])&gt; tuple -&gt; Tens">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/tensorflow.png">
 <meta property="article:published_time" content="2020-07-20T02:30:15.000Z">
-<meta property="article:modified_time" content="2023-03-14T02:18:30.830Z">
+<meta property="article:modified_time" content="2023-07-17T12:53:41.945Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="DeepLearning">
@@ -260,22 +260,22 @@ ga('send', 'pageview');
 
             
 
-            <h2 id="load-packages"><a class="markdownIt-Anchor" href="#load-packages"></a> Load Packages</h2>
+            <h2 id="Load-Packages">Load Packages</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br></pre></td></tr></table></figure>
-<h2 id="tensor-생성"><a class="markdownIt-Anchor" href="#tensor-생성"></a> Tensor 생성</h2>
+<h2 id="Tensor-생성">Tensor 생성</h2>
 <p>list -&gt; Tensor</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tf.constant([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">&lt;tf.Tensor: shape=(<span class="number">3</span>,), dtype=int32, numpy=array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])&gt;</span><br></pre></td></tr></table></figure>
 <p>tuple -&gt; Tensor</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tf.constant(((<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>), (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">&lt;tf.Tensor: shape=(<span class="number">2</span>, <span class="number">3</span>), dtype=int32, numpy=</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">       [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]])&gt;</span><br></pre></td></tr></table></figure>
 <p>Array -&gt; Tensor</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arr = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">tf.constant(arr)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">&lt;tf.Tensor: shape=(<span class="number">3</span>,), dtype=int32, numpy=array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="tensor에-담긴-정보-확인"><a class="markdownIt-Anchor" href="#tensor에-담긴-정보-확인"></a> Tensor에 담긴 정보 확인</h2>
+<h2 id="Tensor에-담긴-정보-확인">Tensor에 담긴 정보 확인</h2>
 <p>shape 확인</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tensor = tf.constant(arr)</span><br><span class="line">tensor.shape</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">TensorShape([<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
 <p>Data Type 확인</p>
 <ul>
-<li>주의: Tensor를 생성 할 때 Data Type을 정해주지 않기 때문에 혼동이 올 수 있습니다.</li>
-<li>Data Type에 따라 모델의 무게나 성능 차이에 영향을 줄 수 있습니다.</li>
+<li>주의: Tensor를 생성 할 때 Data Type을 정해주지 않기 때문에 혼동이 올 수 있다.</li>
+<li>Data Type에 따라 모델의 무게나 성능 차이에 영향을 줄 수 있다.</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tensor.dtype</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">tf.int32</span><br></pre></td></tr></table></figure>
 <p>Data Type 정의</p>
@@ -286,8 +286,8 @@ ga('send', 'pageview');
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tensor.numpy()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br></pre></td></tr></table></figure>
 <p>Numpy로 변환된 것 확인</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">type(tensor.numpy())</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">numpy.ndarray</span><br></pre></td></tr></table></figure>
-<h2 id="난수-생성"><a class="markdownIt-Anchor" href="#난수-생성"></a> 난수 생성</h2>
-<p>Numpy에서는 난수 생성 시 기본적으로 Normal Distribution을 생성합니다.</p>
+<h2 id="난수-생성">난수 생성</h2>
+<p>Numpy에서는 난수 생성 시 기본적으로 Normal Distribution을 생성한다.</p>
 <ul>
 <li>Normal Distribution은 중심 극한 이론에 의한 연속적인 모양</li>
 <li>Uniform Distribution은 중심 극한 이론과는 무관하며 불연속적이며 일정한 분포</li>
@@ -406,15 +406,15 @@ ga('send', 'pageview');
         "genre": "Programming AI",
         "datePublished": "2020-07-20",
         "dateCreated": "2020-07-20",
-        "dateModified": "2023-03-14",
+        "dateModified": "2023-07-17",
         "url": "http://hgko1207.github.io/2020/07/20/ai-dev-2/",
-        "description": " Load Packages
+        "description": "Load Packages
 12import numpy as npimport tensorflow as tf
- Tensor 생성
+Tensor 생성
 list -&gt; Tensor
 1234tf.constant([1, 2, 3])# Out&lt;tf.Tensor: shape=(3,), dtype=int32, numpy=array([1, 2, 3])&gt;
-tuple -&gt; Te",
-        "wordCount": 517
+tuple -&gt; Tens",
+        "wordCount": 505
     }
 </script>
 

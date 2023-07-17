@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="JavaScript,CesiumJS,3D" />
     
-    <meta name="description" content="영상 레이어 추가 Geoserver에 추가된 영상 레이어를 Cesium 지도에 표출 하는 코드입니다. layers 에는 Geoserver에 있는 레이어의 이름을 넣으면 됩니다. 123456789101112131415var imageryLayer &#x3D; viewer.imageryLayers.addImageryProvider(  new Cesium.WebMapS">
+    <meta name="description" content="영상 레이어 추가 Geoserver 에 추가된 영상 레이어를 Cesium 지도에 표출 하는 코드다. layers 에는 Geoserver 에 있는 레이어의 이름을 넣으면 된다. 123456789101112131415var imageryLayer &#x3D; viewer.imageryLayers.addImageryProvider(  new Cesium.WebMapSer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Cesium] 개발 팁">
 <meta property="og:url" content="http://hgko1207.github.io/2020/04/15/cesium-tip/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="영상 레이어 추가 Geoserver에 추가된 영상 레이어를 Cesium 지도에 표출 하는 코드입니다. layers 에는 Geoserver에 있는 레이어의 이름을 넣으면 됩니다. 123456789101112131415var imageryLayer &#x3D; viewer.imageryLayers.addImageryProvider(  new Cesium.WebMapS">
+<meta property="og:description" content="영상 레이어 추가 Geoserver 에 추가된 영상 레이어를 Cesium 지도에 표출 하는 코드다. layers 에는 Geoserver 에 있는 레이어의 이름을 넣으면 된다. 123456789101112131415var imageryLayer &#x3D; viewer.imageryLayers.addImageryProvider(  new Cesium.WebMapSer">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/cesium.png">
 <meta property="article:published_time" content="2020-04-15T13:04:56.000Z">
-<meta property="article:modified_time" content="2023-03-14T02:17:38.391Z">
+<meta property="article:modified_time" content="2023-07-13T03:22:26.142Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="CesiumJS">
@@ -260,16 +260,16 @@ ga('send', 'pageview');
 
             
 
-            <h2 id="영상-레이어-추가"><a class="markdownIt-Anchor" href="#영상-레이어-추가"></a> 영상 레이어 추가</h2>
-<p>Geoserver에 추가된 영상 레이어를 Cesium 지도에 표출 하는 코드입니다.<br />
-layers 에는 Geoserver에 있는 레이어의 이름을 넣으면 됩니다.</p>
+            <h2 id="영상-레이어-추가">영상 레이어 추가</h2>
+<p>Geoserver 에 추가된 영상 레이어를 Cesium 지도에 표출 하는 코드다.<br>
+layers 에는 Geoserver 에 있는 레이어의 이름을 넣으면 된다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> imageryLayer = viewer.imageryLayers.addImageryProvider(</span><br><span class="line">  <span class="keyword">new</span> Cesium.WebMapServiceImageryProvider(&#123;</span><br><span class="line">    url: <span class="string">'http://localhost:8080/geoserver/img/wms'</span>,</span><br><span class="line">    layers: <span class="string">'img:GCOMW1_L2_SMC_20120703'</span>,</span><br><span class="line">    parameters: &#123;</span><br><span class="line">      service: <span class="string">'WMS'</span>,</span><br><span class="line">      version: <span class="string">'1.1.0'</span>,</span><br><span class="line">      request: <span class="string">'GetMap'</span>,</span><br><span class="line">      styles: <span class="string">''</span>,</span><br><span class="line">      srs: <span class="string">'EPSG:4326'</span>,</span><br><span class="line">      format: <span class="string">'image/png'</span>,</span><br><span class="line">      transparent: <span class="string">'true'</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<h2 id="cesiumjs-포인트-그리기"><a class="markdownIt-Anchor" href="#cesiumjs-포인트-그리기"></a> CesiumJS 포인트 그리기</h2>
+<h2 id="CesiumJS-포인트-그리기">CesiumJS 포인트 그리기</h2>
 <p>마우스 왼쪽 버튼을 누를 때 포인트 그리기</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ellipsoid = viewer.scene.globe.ellipsoid;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> handler = <span class="keyword">new</span> Cesium.ScreenSpaceEventHandler(viewer.canvas);</span><br><span class="line"></span><br><span class="line">handler.setInputAction(<span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (event.position != <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> cartesian = scene.camera.pickEllipsoid(event.position, ellipsoid);</span><br><span class="line">    <span class="keyword">if</span> (cartesian) &#123;</span><br><span class="line">      <span class="keyword">var</span> cartographic = Cesium.Cartographic.fromCartesian(cartesian);</span><br><span class="line">      <span class="keyword">var</span> longitude = Cesium.Math.toDegrees(cartographic.longitude);</span><br><span class="line">      <span class="keyword">var</span> latitude = Cesium.Math.toDegrees(cartographic.latitude);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> point = scene.primitives.add(<span class="keyword">new</span> Cesium.PointPrimitiveCollection());</span><br><span class="line">      point.add(&#123;</span><br><span class="line">        position: Cesium.Cartesian3.fromDegrees(longitude, latitude),</span><br><span class="line">        color: Cesium.Color.RED, <span class="comment">// default: WHITE</span></span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, Cesium.ScreenSpaceEventType.LEFT_CLICK);</span><br></pre></td></tr></table></figure>
-<h2 id="영상-레이어-추가-시-스타일-지정"><a class="markdownIt-Anchor" href="#영상-레이어-추가-시-스타일-지정"></a> 영상 레이어 추가 시 스타일 지정</h2>
-<p>영상 레이어 추가와 거의 같지만 styles와 COLORSCALERANGE 파라미터가 추가되었습니다.<br />
-styles 에는 Geoserver에 추가된 스타일 이름을 지정하고, COLORSCALERANGE 에는 min, max 값을 지정한다. (COLORSCALERANGE 파라미터는 없어도 됩니다.)</p>
+<h2 id="영상-레이어-추가-시-스타일-지정">영상 레이어 추가 시 스타일 지정</h2>
+<p>영상 레이어 추가와 거의 같지만 styles와 COLORSCALERANGE 파라미터가 추가되었다.<br>
+styles 에는 Geoserver 에 추가된 스타일 이름을 지정하고, COLORSCALERANGE 에는 min, max 값을 지정한다. (COLORSCALERANGE 파라미터는 없어도 된다.)</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> imageryLayer = viewer.imageryLayers.addImageryProvider(</span><br><span class="line">  <span class="keyword">new</span> Cesium.WebMapServiceImageryProvider(&#123;</span><br><span class="line">    url: <span class="string">'http://localhost:8080/geoserver/img/wms'</span>,</span><br><span class="line">    layers: <span class="string">'img:GCOMW1_L2_SMC_20120703'</span>,</span><br><span class="line">    parameters: &#123;</span><br><span class="line">      service: <span class="string">'WMS'</span>,</span><br><span class="line">      version: <span class="string">'1.1.0'</span>,</span><br><span class="line">      request: <span class="string">'GetMap'</span>,</span><br><span class="line">      styles: <span class="string">'lut_redblue'</span>,</span><br><span class="line">      srs: <span class="string">'EPSG:4326'</span>,</span><br><span class="line">      format: <span class="string">'image/png'</span>,</span><br><span class="line">      transparent: <span class="string">'true'</span>,</span><br><span class="line">      COLORSCALERANGE: <span class="string">'0,100'</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
         </div>
@@ -380,13 +380,13 @@ styles 에는 Geoserver에 추가된 스타일 이름을 지정하고, COLORSCAL
         "genre": "Programming Language JavaScript",
         "datePublished": "2020-04-15",
         "dateCreated": "2020-04-15",
-        "dateModified": "2023-03-14",
+        "dateModified": "2023-07-13",
         "url": "http://hgko1207.github.io/2020/04/15/cesium-tip/",
-        "description": " 영상 레이어 추가
-Geoserver에 추가된 영상 레이어를 Cesium 지도에 표출 하는 코드입니다.
-layers 에는 Geoserver에 있는 레이어의 이름을 넣으면 됩니다.
-123456789101112131415var imageryLayer = viewer.imageryLayers.addImageryProvider(  new Cesium.WebMapS",
-        "wordCount": 488
+        "description": "영상 레이어 추가
+Geoserver 에 추가된 영상 레이어를 Cesium 지도에 표출 하는 코드다.
+layers 에는 Geoserver 에 있는 레이어의 이름을 넣으면 된다.
+123456789101112131415var imageryLayer = viewer.imageryLayers.addImageryProvider(  new Cesium.WebMapSer",
+        "wordCount": 480
     }
 </script>
 

@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="Java,자바,proj4,좌표변환" />
     
-    <meta name="description" content="투형변환 TM(미국좌표) 좌표와 WGS84(한국좌표) 좌표를 서로 변환합니다. 다운로드 Java Map Projection Library 사이트에 접속하여 다음의 Download 에서 소스 및 jar 파일을 다운받습니다. 다운받은 jar 파일은 프로젝트의 classpath 경로에 추가합니다. 샘플 123456789101112131415161718192021">
+    <meta name="description" content="투형변환 TM(미국좌표) 좌표와 WGS84(한국좌표) 좌표를 서로 변환한다. 다운로드 Java Map Projection Library 사이트에 접속하여 다음의 Download 에서 소스 및 jar 파일을 다운받는다. 다운받은 jar 파일은 프로젝트의 classpath 경로에 추가한다. 샘플 123456789101112131415161718192021222">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[JAVA] proj4 투형변환">
 <meta property="og:url" content="http://hgko1207.github.io/2020/07/31/java-dev-2/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="투형변환 TM(미국좌표) 좌표와 WGS84(한국좌표) 좌표를 서로 변환합니다. 다운로드 Java Map Projection Library 사이트에 접속하여 다음의 Download 에서 소스 및 jar 파일을 다운받습니다. 다운받은 jar 파일은 프로젝트의 classpath 경로에 추가합니다. 샘플 123456789101112131415161718192021">
+<meta property="og:description" content="투형변환 TM(미국좌표) 좌표와 WGS84(한국좌표) 좌표를 서로 변환한다. 다운로드 Java Map Projection Library 사이트에 접속하여 다음의 Download 에서 소스 및 jar 파일을 다운받는다. 다운받은 jar 파일은 프로젝트의 classpath 경로에 추가한다. 샘플 123456789101112131415161718192021222">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/java.png">
 <meta property="article:published_time" content="2020-07-31T01:04:39.000Z">
-<meta property="article:modified_time" content="2023-06-19T12:29:39.792Z">
+<meta property="article:modified_time" content="2023-07-17T13:00:00.779Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="자바">
@@ -262,12 +262,12 @@ ga('send', 'pageview');
             
 
             <h2 id="투형변환">투형변환</h2>
-<p>TM(미국좌표) 좌표와 WGS84(한국좌표) 좌표를 서로 변환합니다.</p>
-<h3 id="다운로드">다운로드</h3>
-<p><a href="http://www.jhlabs.com/java/maps/proj/" target="_blank" rel="noopener">Java Map Projection Library</a> 사이트에 접속하여 다음의 Download 에서 소스 및 jar 파일을 다운받습니다. 다운받은 jar 파일은 프로젝트의 classpath 경로에 추가합니다.</p>
-<h3 id="샘플">샘플</h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 투형 정보 입력(중부원점 직각좌표 투형정보)</span></span><br><span class="line">String[] proj4 = <span class="keyword">new</span> String[] &#123;</span><br><span class="line">        <span class="string">"+proj=tmerc"</span>,</span><br><span class="line">        <span class="string">"+lat_0=38N"</span>,</span><br><span class="line">        <span class="string">"+lon_0=127.00289027777777777776E"</span>,</span><br><span class="line">        <span class="string">"+ellps=bessel"</span>,</span><br><span class="line">        <span class="string">"+units=m"</span>,</span><br><span class="line">        <span class="string">"+x_0=200000"</span>,</span><br><span class="line">        <span class="string">"+y_0=500000"</span>,</span><br><span class="line">        <span class="string">"+k=1.0"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Projection proj = ProjectionFactory.fromPROJ4Specification(proj4);</span><br><span class="line"></span><br><span class="line">Point2D.Double srcProjec = <span class="keyword">new</span> Point2D.Double(<span class="number">132</span>, <span class="number">37</span>);</span><br><span class="line">Point2D.Double dstProject = proj.transform(srcProjec, <span class="keyword">new</span> Point2D.Double());</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"TM : +dstProjec"</span>);</span><br><span class="line"></span><br><span class="line">srcProjec = <span class="keyword">new</span> Point2D.Double(<span class="number">644904.399587292</span>, <span class="number">400717.8948938238</span>);</span><br><span class="line">dstProject = proj.inverseTransForm(srcProjec, <span class="keyword">new</span> Point2D.Double());</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"WGS84 : +dstProjec"</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="결과">결과</h3>
+<p>TM(미국좌표) 좌표와 WGS84(한국좌표) 좌표를 서로 변환한다.</p>
+<h2 id="다운로드">다운로드</h2>
+<p><a href="http://www.jhlabs.com/java/maps/proj/" target="_blank" rel="noopener">Java Map Projection Library</a> 사이트에 접속하여 다음의 Download 에서 소스 및 jar 파일을 다운받는다. 다운받은 jar 파일은 프로젝트의 classpath 경로에 추가한다.</p>
+<h2 id="샘플">샘플</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 투형 정보 입력(중부원점 직각좌표 투형정보)</span></span><br><span class="line">String[] proj4 = <span class="keyword">new</span> String[] &#123;</span><br><span class="line">        <span class="string">"+proj=tmerc"</span>,</span><br><span class="line">        <span class="string">"+lat_0=38N"</span>,</span><br><span class="line">        <span class="string">"+lon_0=127.00289027777777777776E"</span>,</span><br><span class="line">        <span class="string">"+ellps=bessel"</span>,</span><br><span class="line">        <span class="string">"+units=m"</span>,</span><br><span class="line">        <span class="string">"+x_0=200000"</span>,</span><br><span class="line">        <span class="string">"+y_0=500000"</span>,</span><br><span class="line">        <span class="string">"+k=1.0"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Projection proj = ProjectionFactory.fromPROJ4Specification(proj4);</span><br><span class="line"></span><br><span class="line">Point2D.Double srcProject = <span class="keyword">new</span> Point2D.Double(<span class="number">132</span>, <span class="number">37</span>);</span><br><span class="line">Point2D.Double dstProject = proj.transform(srcProject, <span class="keyword">new</span> Point2D.Double());</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"TM : "</span> + dstProject);</span><br><span class="line"></span><br><span class="line">srcProject = <span class="keyword">new</span> Point2D.Double(<span class="number">644904.399587292</span>, <span class="number">400717.8948938238</span>);</span><br><span class="line">dstProject = proj.inverseTransForm(srcProject, <span class="keyword">new</span> Point2D.Double());</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"WGS84 : "</span> + dstProjec);</span><br></pre></td></tr></table></figure>
+<h2 id="결과">결과</h2>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TM : Point2D.Double[<span class="number">644904.399587292</span>, <span class="number">400717.8948938238</span>]</span><br><span class="line">WGS84 : Point2D.Double[<span class="number">132.00000000065793</span>, <span class="number">36.999999999128526</span>]</span><br></pre></td></tr></table></figure>
 
         </div>
@@ -378,15 +378,15 @@ ga('send', 'pageview');
         "genre": "Programming Language Java",
         "datePublished": "2020-07-31",
         "dateCreated": "2020-07-31",
-        "dateModified": "2023-06-19",
+        "dateModified": "2023-07-17",
         "url": "http://hgko1207.github.io/2020/07/31/java-dev-2/",
         "description": "투형변환
-TM(미국좌표) 좌표와 WGS84(한국좌표) 좌표를 서로 변환합니다.
+TM(미국좌표) 좌표와 WGS84(한국좌표) 좌표를 서로 변환한다.
 다운로드
-Java Map Projection Library 사이트에 접속하여 다음의 Download 에서 소스 및 jar 파일을 다운받습니다. 다운받은 jar 파일은 프로젝트의 classpath 경로에 추가합니다.
+Java Map Projection Library 사이트에 접속하여 다음의 Download 에서 소스 및 jar 파일을 다운받는다. 다운받은 jar 파일은 프로젝트의 classpath 경로에 추가한다.
 샘플
-123456789101112131415161718192021",
-        "wordCount": 220
+123456789101112131415161718192021222",
+        "wordCount": 224
     }
 </script>
 

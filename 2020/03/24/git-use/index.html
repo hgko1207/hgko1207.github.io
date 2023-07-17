@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="Git,GitHub,Repository,gitignore" />
     
-    <meta name="description" content="설정 확인 1$ git config --list  계정 확인 12$ git config user.name$ git config user.email  계정 변경 12$ git config --global user.name &quot;user name&quot;$ git config --global user.email &quot;user email&quot;  Git Create 12345$">
+    <meta name="description" content="설정 확인 1$ git config --list 계정 확인 12$ git config user.name$ git config user.email 계정 변경 12$ git config --global user.name &quot;user name&quot;$ git config --global user.email &quot;user email&quot; Git Create 12345$ git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Git] 커맨드 명령어">
 <meta property="og:url" content="http://hgko1207.github.io/2020/03/24/git-use/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="설정 확인 1$ git config --list  계정 확인 12$ git config user.name$ git config user.email  계정 변경 12$ git config --global user.name &quot;user name&quot;$ git config --global user.email &quot;user email&quot;  Git Create 12345$">
+<meta property="og:description" content="설정 확인 1$ git config --list 계정 확인 12$ git config user.name$ git config user.email 계정 변경 12$ git config --global user.name &quot;user name&quot;$ git config --global user.email &quot;user email&quot; Git Create 12345$ git">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/git.png">
 <meta property="article:published_time" content="2020-03-24T01:45:42.000Z">
-<meta property="article:modified_time" content="2023-05-30T14:15:12.053Z">
+<meta property="article:modified_time" content="2023-07-13T03:13:21.726Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="Git">
 <meta property="article:tag" content="GitHub">
@@ -261,47 +261,47 @@ ga('send', 'pageview');
 
             
 
-            <h2 id="설정-확인"><a class="markdownIt-Anchor" href="#설정-확인"></a> 설정 확인</h2>
+            <h2 id="설정-확인">설정 확인</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git config --list</span></span><br></pre></td></tr></table></figure>
-<h2 id="계정-확인"><a class="markdownIt-Anchor" href="#계정-확인"></a> 계정 확인</h2>
+<h2 id="계정-확인">계정 확인</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git config user.name</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git config user.email</span></span><br></pre></td></tr></table></figure>
-<h2 id="계정-변경"><a class="markdownIt-Anchor" href="#계정-변경"></a> 계정 변경</h2>
+<h2 id="계정-변경">계정 변경</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git config --global user.name <span class="string">"user name"</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git config --global user.email <span class="string">"user email"</span></span></span><br></pre></td></tr></table></figure>
-<h2 id="git-create"><a class="markdownIt-Anchor" href="#git-create"></a> Git Create</h2>
+<h2 id="Git-Create">Git Create</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git init</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git add README.md</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git commit -m <span class="string">"first commit"</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git remote add origin https://github.com/username/repositoryName</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git push -u origin master</span></span><br></pre></td></tr></table></figure>
-<p>현재 master 브랜치를 push 할 때 origin의 master 브랜치로 푸쉬하는 명령어입니다. 처음 push 할 때 사용합니다.</p>
+<p>현재 master 브랜치를 push 할 때 origin의 master 브랜치로 푸쉬하는 명령어다. 처음 push 할 때 사용한다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git push --<span class="built_in">set</span>-upstream origin master</span></span><br></pre></td></tr></table></figure>
-<h2 id="git-update"><a class="markdownIt-Anchor" href="#git-update"></a> Git Update</h2>
+<h2 id="Git-Update">Git Update</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git add .</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git commit -m <span class="string">"update"</span></span></span><br></pre></td></tr></table></figure>
-<p>commit 내용을 확인합니다.</p>
+<p>commit 내용을 확인한다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git status</span></span><br></pre></td></tr></table></figure>
-<p>원격 저장소에 반영합니다.</p>
+<p>원격 저장소에 반영한다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git push</span></span><br></pre></td></tr></table></figure>
-<h2 id="git-pull"><a class="markdownIt-Anchor" href="#git-pull"></a> Git Pull</h2>
+<h2 id="Git-Pull">Git Pull</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git remote add origin https://github.com/username/repositoryName</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git pull origin master</span></span><br></pre></td></tr></table></figure>
-<p>독립적인 두 프로젝트를 병합할 경우 <code>--allow-unrelated-histories</code> 옵션을 사용합니다.</p>
+<p>독립적인 두 프로젝트를 병합할 경우 <code>--allow-unrelated-histories</code> 옵션을 사용한다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git pull origin master --allow-unrelated-histories</span></span><br></pre></td></tr></table></figure>
-<h2 id="git-repository-download"><a class="markdownIt-Anchor" href="#git-repository-download"></a> Git Repository Download</h2>
+<h2 id="Git-Repository-Download">Git Repository Download</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> https://github.com/username/repositoryName</span></span><br></pre></td></tr></table></figure>
-<p>서브 모듈 포함에서 받을 경우 다음 명령어를 참고합니다.</p>
+<p>서브 모듈 포함에서 받을 경우 다음 명령어를 참고한다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> https://github.com/username/repositoryName</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git submodule init</span></span><br><span class="line">or</span><br><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> --recurse-submodules https://github.com/username/repositoryName</span></span><br></pre></td></tr></table></figure>
-<h2 id="git-ignore"><a class="markdownIt-Anchor" href="#git-ignore"></a> Git Ignore</h2>
-<p>.gitignore 파일을 생성합니다.</p>
+<h2 id="Git-Ignore">Git Ignore</h2>
+<p>.gitignore 파일을 생성한다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> touch .gitignore</span></span><br></pre></td></tr></table></figure>
-<h2 id="git에-이미-올라가-있는-파일을-삭제하고-gitignore-적용"><a class="markdownIt-Anchor" href="#git에-이미-올라가-있는-파일을-삭제하고-gitignore-적용"></a> Git에 이미 올라가 있는 파일을 삭제하고 .gitignore 적용</h2>
+<h2 id="Git에-이미-올라가-있는-파일을-삭제하고-gitignore-적용">Git에 이미 올라가 있는 파일을 삭제하고 .gitignore 적용</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 원격 저장소와 로컬 저장소에 있는 파일을 삭제한다.</span></span><br><span class="line">git rm [File Name]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 원격 저장소에 있는 파일을 삭제한다.(로컬 저장소에 있는 파일은 삭제하지 않는다.)</span></span><br><span class="line">git rm --cached [File Name]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 폴더 하위의 모든 파일을 삭제한다.</span></span><br><span class="line">git rm -r --cached [Directory]</span><br><span class="line">git rm -r --cached example/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 원격 저장소의 파일을 모두 삭제한다.</span></span><br><span class="line">git rm -r --cached .</span><br></pre></td></tr></table></figure>
-<h2 id="git-branch"><a class="markdownIt-Anchor" href="#git-branch"></a> Git branch</h2>
-<p>branch를 만들고 관리하는 명령어입니다.</p>
+<h2 id="Git-branch">Git branch</h2>
+<p>branch 를 만들고 관리하는 명령어다.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># branch 만들기</span></span><br><span class="line">git branch [branch name]</span><br><span class="line"></span><br><span class="line"><span class="comment"># branch 목록 보기</span></span><br><span class="line">git branch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 지정한 branch 삭제</span></span><br><span class="line">git branch -d [branch name]</span><br><span class="line"></span><br><span class="line"><span class="comment"># branch 선택하기</span></span><br><span class="line">git checkout [branch name]</span><br></pre></td></tr></table></figure>
-<h2 id="git-remote"><a class="markdownIt-Anchor" href="#git-remote"></a> Git Remote</h2>
-<p>원격 저장소를 관리할 수 있는 명령어입니다.</p>
+<h2 id="Git-Remote">Git Remote</h2>
+<p>원격 저장소를 관리할 수 있는 명령어다.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 원격 저장소의 이름 목록</span></span><br><span class="line">git remote</span><br><span class="line"></span><br><span class="line"><span class="comment"># 원격 저장소에 대한 자세한 목록보기</span></span><br><span class="line">git remote -v</span><br><span class="line"></span><br><span class="line"><span class="comment"># 원격 저장소 추가</span></span><br><span class="line">git remote add [name] [url]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 원격 저장소를 삭제</span></span><br><span class="line">git remote rm [name]</span><br></pre></td></tr></table></figure>
-<h2 id="git-clean"><a class="markdownIt-Anchor" href="#git-clean"></a> Git Clean</h2>
-<p>작업 디렉토리에서 추적되지 않는 파일을 삭제하는 명령어입니다.</p>
+<h2 id="Git-Clean">Git Clean</h2>
+<p>작업 디렉토리에서 추적되지 않는 파일을 삭제하는 명령어다.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># untracked 파일 모두 삭제</span></span><br><span class="line">git clean -f</span><br><span class="line"></span><br><span class="line"><span class="comment"># 디렉토리까지 삭제</span></span><br><span class="line">git clean -fd</span><br><span class="line"></span><br><span class="line"><span class="comment"># .gitignore로 무시되는 파일 삭제</span></span><br><span class="line">git clean -d -x</span><br></pre></td></tr></table></figure>
-<h2 id="git-stash"><a class="markdownIt-Anchor" href="#git-stash"></a> Git Stash</h2>
+<h2 id="Git-Stash">Git Stash</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 트래킹 된 파일을 stash 영역에 임시 저장하고 수정 내용은 제거</span></span><br><span class="line">git stash</span><br><span class="line"></span><br><span class="line"><span class="comment"># stash 한 기록을 리스트 형태로 확인</span></span><br><span class="line">git stash list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 가장 최근에 저장한 stash 복원</span></span><br><span class="line">git stash apply</span><br><span class="line"></span><br><span class="line"><span class="comment"># 가장 최근에 저장한 stash 삭제</span></span><br><span class="line">git stash drop</span><br><span class="line"></span><br><span class="line"><span class="comment"># stash 기록 모두 삭제</span></span><br><span class="line">git stash clear</span><br><span class="line"></span><br><span class="line"><span class="comment"># stash를 복원하고 삭제</span></span><br><span class="line">git stash pop</span><br></pre></td></tr></table></figure>
-<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
+<h2 id="참고">참고</h2>
 <ul>
 <li><a href="http://www.devkuma.com/books/pages/422" target="_blank" rel="noopener">Git 개요</a></li>
 </ul>
@@ -414,17 +414,17 @@ ga('send', 'pageview');
         "genre": "IT Git",
         "datePublished": "2020-03-24",
         "dateCreated": "2020-03-24",
-        "dateModified": "2023-05-30",
+        "dateModified": "2023-07-13",
         "url": "http://hgko1207.github.io/2020/03/24/git-use/",
-        "description": " 설정 확인
+        "description": "설정 확인
 1$ git config --list
- 계정 확인
+계정 확인
 12$ git config user.name$ git config user.email
- 계정 변경
+계정 변경
 12$ git config --global user.name "user name"$ git config --global user.email "user email"
- Git Create
-12345$ ",
-        "wordCount": 682
+Git Create
+12345$ git ",
+        "wordCount": 641
     }
 </script>
 

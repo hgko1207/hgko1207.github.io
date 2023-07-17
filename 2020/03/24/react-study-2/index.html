@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="React,리액트,JavaScript,Study,ES6" />
     
-    <meta name="description" content="React 세미나😊(2) 2. Project Setup 2.1. Requirements 먼저 Node.js 가 설치되어 있어야 합니다. Node.js 공식 다운로드 페이지(https:&#x2F;&#x2F;nodejs.org&#x2F;ko&#x2F;download&#x2F;)에서 Window Installer 를 다운로드하고 설치합니다. 12$ node -v$ npm -v 에디터로는 MS에서 제공하는">
+    <meta name="description" content="React 세미나😊(2) 2. Project Setup 2.1. Requirements 먼저 Node.js 가 설치되어 있어야 한다. Node.js 공식 다운로드 페이지(https:&#x2F;&#x2F;nodejs.org&#x2F;ko&#x2F;download&#x2F;)에서 Window Installer 를 다운로드하고 설치한다. 12$ node -v$ npm -v 에디터로는 MS에서 제공하는 V">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React Study(2)">
 <meta property="og:url" content="http://hgko1207.github.io/2020/03/24/react-study-2/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="React 세미나😊(2) 2. Project Setup 2.1. Requirements 먼저 Node.js 가 설치되어 있어야 합니다. Node.js 공식 다운로드 페이지(https:&#x2F;&#x2F;nodejs.org&#x2F;ko&#x2F;download&#x2F;)에서 Window Installer 를 다운로드하고 설치합니다. 12$ node -v$ npm -v 에디터로는 MS에서 제공하는">
+<meta property="og:description" content="React 세미나😊(2) 2. Project Setup 2.1. Requirements 먼저 Node.js 가 설치되어 있어야 한다. Node.js 공식 다운로드 페이지(https:&#x2F;&#x2F;nodejs.org&#x2F;ko&#x2F;download&#x2F;)에서 Window Installer 를 다운로드하고 설치한다. 12$ node -v$ npm -v 에디터로는 MS에서 제공하는 V">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/react.png">
 <meta property="article:published_time" content="2020-03-24T01:41:09.000Z">
-<meta property="article:modified_time" content="2023-06-04T14:59:43.926Z">
+<meta property="article:modified_time" content="2023-07-13T03:17:42.633Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="React">
 <meta property="article:tag" content="리액트">
@@ -265,58 +265,57 @@ ga('send', 'pageview');
             <h1>React 세미나😊(2)</h1>
 <h3 id="2-Project-Setup">2. Project Setup</h3>
 <h4 id="2-1-Requirements">2.1. Requirements</h4>
-<p>먼저 Node.js 가 설치되어 있어야 합니다.<br>
-Node.js 공식 다운로드 페이지(<a href="https://nodejs.org/ko/download/" target="_blank" rel="noopener">https://nodejs.org/ko/download/</a>)에서 Window Installer 를 다운로드하고 설치합니다.</p>
+<p>먼저 Node.js 가 설치되어 있어야 한다.<br>
+Node.js 공식 다운로드 페이지(<a href="https://nodejs.org/ko/download/" target="_blank" rel="noopener">https://nodejs.org/ko/download/</a>)에서 Window Installer 를 다운로드하고 설치한다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> node -v</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm -v</span></span><br></pre></td></tr></table></figure>
-<p>에디터로는 MS에서 제공하는 Visual Studio Code(VS Code)를 사용합니다. vscode 는 크로스 플랫폼 에디터로 다양한 언어를 서포트 하며, IntelliSense 와 Git 기능, 그리고 Extension 을 이용한 확장 기능을 제공하고 있습니다.<br>
-설치방법은 <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">https://code.visualstudio.com/</a> 에 접속하여 다운로드 후 설치하면 됩니다.</p>
+<p>에디터로는 MS에서 제공하는 Visual Studio Code(VS Code)를 사용한다. vscode 는 크로스 플랫폼 에디터로 다양한 언어를 서포트 하며, IntelliSense 와 Git 기능, 그리고 Extension 을 이용한 확장 기능을 제공하고 있다.<br>
+설치 방법은 <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">https://code.visualstudio.com/</a> 에 접속하여 다운로드 후 설치하면 된다.</p>
 <blockquote>
 <p>React 개발에 좋은 Extension는 <strong>ESLint</strong>, <strong>Prettier</strong>, <strong>vscode-styled-components</strong>, <strong>Auto Close Tag</strong>, <strong>React-Native/React/Redux snippets for es6/es7</strong> 등 다양하게 있어 설치하고 사용하면 됩니다.</p>
 </blockquote>
 <h4 id="2-2-Creating-React-App">2.2. Creating React App</h4>
-<p>기존에는 Webpack, Babel 등 필요한 모듈들을 직접 설치하고 설정하느라 상당한 시간이 소요가 되었습니다. 2016년에 React 작업 환경을 명령어 하나로 설정 할 수 있는 공식 도구가 나오면서 개발자들과 입문자들에게 많은 도움이 되었습니다.</p>
-<p>먼저 프로젝트 생성을 합니다.</p>
-<p>주의사항은 npm 5.2.0 이상 버전을 설치해야 합니다. 최신 npm 버전에는 npx 가 설치되어 있습니다.</p>
+<p>기존에는 Webpack, Babel 등 필요한 모듈들을 직접 설치하고 설정하느라 상당한 시간이 소요가 되었다. 2016년에 React 작업 환경을 명령어 하나로 설정 할 수 있는 공식 도구가 나오면서 개발자들과 입문자들에게 많은 도움이 되었다.</p>
+<p>먼저 프로젝트 생성을 한다.</p>
+<p>주의사항은 npm 5.2.0 이상 버전을 설치해야 합니다. 최신 npm 버전에는 npx 가 설치되어 있다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install npx -global</span></span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> npx create-react-app <span class="built_in">test</span>-project</span></span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> <span class="built_in">test</span>-project</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> code .</span></span><br></pre></td></tr></table></figure>
-<p>설치가 완료되면 Visual Studio Code 편집기로 프로젝트를 엽니다.<br>
+<p>설치가 완료되면 Visual Studio Code 편집기로 프로젝트를 연다.<br>
 <img src="https://hgko1207.github.io/images/react/react-open.png" alt="프로젝트 구조" title="프로젝트 구조"><br>
-처음 프로젝트가 설치되면 여러가지 파일이 생성되는데 초기 세팅을 위해 불필요한 파일을 제거하는 것이 좋습니다. <code>src</code> 폴더에서 App.js, index.js 파일을 제외한 파일을 제거하고 import 된 코드를 제거합니다.</p>
+처음 프로젝트가 설치되면 여러가지 파일이 생성되는데 초기 세팅을 위해 불필요한 파일을 제거하는 것이 좋다. <code>src</code> 폴더에서 App.js, index.js 파일을 제외한 파일을 제거하고 import 된 코드를 제거한다.</p>
 <h3 id="3-React-개발">3. React 개발</h3>
 <h4 id="3-1-JSX">3.1. JSX</h4>
 <p>JSX (JavaScript eXtension) 는 자바스크립트 언어 문법의 확장입니다. 자바스크립트 안에서 HTML 문법을 사용해서 화면을 구성할 수 있게 도와주는 문법으로, React 개발에 엄청난 도움을 줍니다.</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloMessage</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="comment">// JSX 문법</span></span><br><span class="line">      &lt;div&gt;Hello &#123;<span class="keyword">this</span>.props.name&#125;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default HelloMessage;</span></span><br></pre></td></tr></table></figure>
-<p>아래는 스타일링의 여러가지 방법입니다.</p>
+<p>아래는 스타일링의 여러가지 방법이다.</p>
 <ol>
-<li>class 대신 className 을 사용합니다.</li>
-<li>스타일 속성은 중괄호 ({}) 안에 객체 형태로 표시하며 단어 사이의 '-'를 없애는 대신 카멜케이스(Camel Case)를 사용해 CSS 프로퍼티는 나타냅니다.</li>
-<li><code>styled-components</code>는 리액트 CSS-in-JS 관련 라이브러리 중에서 가장 잘나가는 라이브러리로써 자바스크립트 파일 안에 CSS 를 작성하는 형태입니다.</li>
+<li>class 대신 className 을 사용한다.</li>
+<li>스타일 속성은 중괄호 ({}) 안에 객체 형태로 표시하며 단어 사이의 '-'를 없애는 대신 카멜케이스(Camel Case)를 사용해 CSS 프로퍼티는 나타낸다.</li>
+<li><code>styled-components</code>는 리액트 CSS-in-JS 관련 라이브러리 중에서 가장 잘나가는 라이브러리로써 자바스크립트 파일 안에 CSS 를 작성하는 형태다.</li>
 </ol>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// App.js</span></span><br><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> styled <span class="keyword">from</span> <span class="string">'styled-components'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'./App.css'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Content = styled.div<span class="string">`</span></span><br><span class="line"><span class="string">  background-color: 'blue';</span></span><br><span class="line"><span class="string">  font-size: 16px;</span></span><br><span class="line"><span class="string">`</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;div className=<span class="string">"App"</span>&gt;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">      &lt;div style=&#123;&#123; backgroundColor: 'black', fontSize: '12px', color: 'white' &#125;&#125;&gt;&lt;/</span>div&gt;</span><br><span class="line">      &lt;Content /&gt;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// App.css</span><br><span class="line"><span class="selector-class">.App</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: white;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">16px</span>;</span><br><span class="line">  <span class="attribute">color</span>: black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>JSX 는 꼭 지켜야 할 몇몇 제한이 있습니다.</p>
+<p>JSX 는 꼭 지켜야 할 몇몇 제한이 있다.</p>
 <ol>
-<li>JSX 를 사용하는 스크립트 파일은 상단에 React 라이브러리를 꼭 불러와야 합니다.<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br></pre></td></tr></table></figure>
+<li>JSX 를 사용하는 스크립트 파일은 상단에 React 라이브러리를 꼭 불러와야 한다.<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br></pre></td></tr></table></figure>
 </li>
-<li>열어 놓은 태그는 꼭 닫아야 합니다.<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 에러</span><br><span class="line">&lt;hello&gt;</span><br><span class="line"># 정상 동작</span><br><span class="line">&lt;hello&gt;&lt;<span class="regexp">/hello&gt; or &lt;hello /</span>&gt;</span><br></pre></td></tr></table></figure>
+<li>열어 놓은 태그는 꼭 닫아야 한다.<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 에러</span><br><span class="line">&lt;hello&gt;</span><br><span class="line"># 정상 동작</span><br><span class="line">&lt;hello&gt;&lt;<span class="regexp">/hello&gt; or &lt;hello /</span>&gt;</span><br></pre></td></tr></table></figure>
 </li>
-<li>최상위 태그는 꼭 1개여야 합니다.<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;Fragment&gt;</span><br><span class="line">  &lt;header&gt;</span><br><span class="line">    &lt;h1&gt;header&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>header&gt;</span><br><span class="line">  &lt;main&gt;</span><br><span class="line">    &lt;h1&gt;main&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/m</span>ain&gt;</span><br><span class="line">&lt;<span class="regexp">/Fragment&gt;</span></span><br></pre></td></tr></table></figure>
+<li>최상위 태그는 꼭 1개여야 한다.<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;Fragment&gt;</span><br><span class="line">  &lt;header&gt;</span><br><span class="line">    &lt;h1&gt;header&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>header&gt;</span><br><span class="line">  &lt;main&gt;</span><br><span class="line">    &lt;h1&gt;main&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/m</span>ain&gt;</span><br><span class="line">&lt;<span class="regexp">/Fragment&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h4 id="3-2-Component-기반-구조">3.2. Component 기반 구조</h4>
-<p>React 는 Component 기반 라이브러리입니다. 하나의 코드로 작성하는 것이 아니라 여러 부분을 분할해서 만들기 때문에 코드의 재사용성과 유지보수성이 증가 됩니다.</p>
+<p>React 는 Component 기반 라이브러리다. 하나의 코드로 작성하는 것이 아니라 여러 부분을 분할해서 만들기 때문에 코드의 재사용성과 유지보수성이 증가 된다.</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>홈페이지<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 헤더 내용 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content-list"</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 콘텐츠 리스트 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">footer</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 푸터 내용 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>위와 같은 html 코드가 있다고 해봅시다. 이를 React 로 만들게 되면 다음과 같습니다.</p>
+<p>위와 같은 html 코드가 있다고 해보자. 이를 React 로 만들게 되면 다음과 같다.</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> Header <span class="keyword">from</span> <span class="string">'./component/Header'</span>;</span><br><span class="line"><span class="keyword">import</span> Footer <span class="keyword">from</span> <span class="string">'./component/Footer'</span>;</span><br><span class="line"><span class="keyword">import</span> ContentList <span class="keyword">from</span> <span class="string">'./component/ContentList'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;Header /&gt;</span><br><span class="line">        &lt;ContentList /&gt;</span><br><span class="line">        &lt;Footer /&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default App;</span></span><br></pre></td></tr></table></figure>
-<p>Header 나 Footer, ContentList 등은 컴포넌트로 만들고, 이를 조립해서 루트 컴포넌트를 만드는 방식입니다. 컴포넌트의 종류로는 <code>클래스형(stateful)</code>과 <code>함수형(stateless)</code>으로 나누어집니다.</p>
+<p>Header 나 Footer, ContentList 등은 컴포넌트로 만들고, 이를 조립해서 루트 컴포넌트를 만드는 방식이다. 컴포넌트의 종류로는 <code>클래스형(stateful)</code>과 <code>함수형(stateless)</code>으로 나누어진다.</p>
 <h4 id="3-3-Props">3.3. Props</h4>
-<p><code>props</code>란 부모 컴포넌트에서 자식 컴포넌트로 전달해 주는 데이터를 말합니다.<br>
-<code>props</code>는 읽기 전용 데이터라고 생각하면 됩니다. 자식 컴포넌트에서 전달 받은 <code>props</code>를 변경이 불가능하고 <code>props</code>를 전달해준 최상위 부모 컴포넌트만 <code>props</code>를 변경할 수 있습니다.</p>
+<p><code>props</code>란 부모 컴포넌트에서 자식 컴포넌트로 전달해 주는 데이터를 말한다.<br>
+<code>props</code>는 읽기 전용 데이터라고 생각하면 된다. 자식 컴포넌트에서 전달 받은 <code>props</code>를 변경이 불가능하고 <code>props</code>를 전달해준 최상위 부모 컴포넌트만 <code>props</code>를 변경할 수 있다.</p>
 <h4 id="3-4-State">3.4. State</h4>
-<p><code>state</code>는 동적인 데이터를 다룰 때 사용합니다. 사용자와의 상호작용을 통해 데이터를 동적으로 변경을 해야 할 때 사용합니다.<br>
-<code>state</code>는 <code>클래스형 컴포넌트</code>에서만 사용할 수 있는데 각각의 <code>state</code>는 독립적이라<br>
-다른 컴포넌트의 직접적인 접근은 불가능하다.</p>
+<p><code>state</code>는 동적인 데이터를 다룰 때 사용한다. 사용자와의 상호작용을 통해 데이터를 동적으로 변경을 해야 할 때 사용한다.<br>
+<code>state</code>는 <code>클래스형 컴포넌트</code>에서만 사용할 수 있는데 각각의 <code>state</code>는 독립적이라 다른 컴포넌트의 직접적인 접근은 불가능하다.</p>
 <h4 id="3-5-LifeCycle-API">3.5 LifeCycle API</h4>
-<p>LifeCycle API는 컴포넌트가 DOM 위에 생성되기 전 후 및 데이터가 변경되어 상태를 업데이트하기 전 후로 실행되는 메소드들 입니다. 자원낭비를 줄이기 위하여 코드를 최적화 할 때 사용됩니다. 많이 사용하는 LifeCycle 메소드들은 <code>constructor</code>, <code>componentDidMount</code>, <code>render</code>, <code>shouldComponentUpdate</code> 입니다.</p>
+<p>LifeCycle API는 컴포넌트가 DOM 위에 생성되기 전 후 및 데이터가 변경되어 상태를 업데이트하기 전 후로 실행되는 메소드들이다. 자원낭비를 줄이기 위하여 코드를 최적화 할 때 사용된다. 많이 사용하는 LifeCycle 메소드들은 <code>constructor</code>, <code>componentDidMount</code>, <code>render</code>, <code>shouldComponentUpdate</code> 이다.</p>
 <h2 id="참고">참고</h2>
 <ul>
 <li><a href="https://gomcine.tistory.com/entry/VS-Code-%EA%B8%B0%EB%B3%B8-%EC%84%B8%ED%8C%85?category=624630" target="_blank" rel="noopener">VS Code 기본 세팅</a></li>
@@ -442,16 +441,16 @@ Node.js 공식 다운로드 페이지(<a href="https://nodejs.org/ko/download/" 
         "genre": "Programming Frontend React",
         "datePublished": "2020-03-24",
         "dateCreated": "2020-03-24",
-        "dateModified": "2023-06-04",
+        "dateModified": "2023-07-13",
         "url": "http://hgko1207.github.io/2020/03/24/react-study-2/",
         "description": "React 세미나😊(2)
 2. Project Setup
 2.1. Requirements
-먼저 Node.js 가 설치되어 있어야 합니다.
-Node.js 공식 다운로드 페이지(https://nodejs.org/ko/download/)에서 Window Installer 를 다운로드하고 설치합니다.
+먼저 Node.js 가 설치되어 있어야 한다.
+Node.js 공식 다운로드 페이지(https://nodejs.org/ko/download/)에서 Window Installer 를 다운로드하고 설치한다.
 12$ node -v$ npm -v
-에디터로는 MS에서 제공하는",
-        "wordCount": 1109
+에디터로는 MS에서 제공하는 V",
+        "wordCount": 1110
     }
 </script>
 

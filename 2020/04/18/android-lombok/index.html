@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="Android,안드로이드,Java,Android Studio,lombok" />
     
-    <meta name="description" content="자바에서 코드를 작성 시 모델을 만들다 보면 constructor 와 기본 getter&#x2F;setter 그리고 상황에 따라서 builder를 만들어 사용해야 합니다. 그런데 이런 일들을 모두 타이핑 하다 보니 보일러플레이트 같은 코드들이 많이도 써야 합니다. lombok 를 사용하면 모델 객체들의 불필요한 보일러플레이트 코드들을 줄일 수 있습니다. annota">
+    <meta name="description" content="자바에서 코드를 작성 시 모델을 만들다 보면 constructor 와 기본 getter&#x2F;setter 그리고 상황에 따라서 builder를 만들어 사용해야 한다. 그런데 이런 일들을 모두 타이핑 하다 보니 보일러플레이트 같은 코드들이 많이도 써야한다. lombok 를 사용하면 모델 객체들의 불필요한 보일러플레이트 코드들을 줄일 수 있다. annotation">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Android Studio] lombok 사용 방법">
 <meta property="og:url" content="http://hgko1207.github.io/2020/04/18/android-lombok/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="자바에서 코드를 작성 시 모델을 만들다 보면 constructor 와 기본 getter&#x2F;setter 그리고 상황에 따라서 builder를 만들어 사용해야 합니다. 그런데 이런 일들을 모두 타이핑 하다 보니 보일러플레이트 같은 코드들이 많이도 써야 합니다. lombok 를 사용하면 모델 객체들의 불필요한 보일러플레이트 코드들을 줄일 수 있습니다. annota">
+<meta property="og:description" content="자바에서 코드를 작성 시 모델을 만들다 보면 constructor 와 기본 getter&#x2F;setter 그리고 상황에 따라서 builder를 만들어 사용해야 한다. 그런데 이런 일들을 모두 타이핑 하다 보니 보일러플레이트 같은 코드들이 많이도 써야한다. lombok 를 사용하면 모델 객체들의 불필요한 보일러플레이트 코드들을 줄일 수 있다. annotation">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/androidstudio.png">
 <meta property="article:published_time" content="2020-04-18T11:14:23.000Z">
-<meta property="article:modified_time" content="2023-06-04T14:48:13.795Z">
+<meta property="article:modified_time" content="2023-07-13T03:24:41.511Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="Android">
 <meta property="article:tag" content="안드로이드">
@@ -262,48 +262,48 @@ ga('send', 'pageview');
 
             
 
-            <p>자바에서 코드를 작성 시 모델을 만들다 보면 constructor 와 기본 getter/setter 그리고 상황에 따라서 builder를 만들어 사용해야 합니다.<br>
-그런데 이런 일들을 모두 타이핑 하다 보니 보일러플레이트 같은 코드들이 많이도 써야 합니다.<br>
-lombok 를 사용하면 모델 객체들의 불필요한 보일러플레이트 코드들을 줄일 수 있습니다.<br>
-annotation 방법으로 사용하기 때문에 사용 방법도 간단합니다.</p>
+            <p>자바에서 코드를 작성 시 모델을 만들다 보면 constructor 와 기본 getter/setter 그리고 상황에 따라서 builder를 만들어 사용해야 한다.<br>
+그런데 이런 일들을 모두 타이핑 하다 보니 보일러플레이트 같은 코드들이 많이도 써야한다.<br>
+lombok 를 사용하면 모델 객체들의 불필요한 보일러플레이트 코드들을 줄일 수 있다.<br>
+annotation 방법으로 사용하기 때문에 사용 방법도 간단하다.</p>
 <h4 id="lombok-annotation">lombok annotation</h4>
 <ol>
 <li><strong>@Getter / @Setter</strong><br>
-기본적으로 멤버 필드들에 대한 getter/setter 메소드들을 만들어 줍니다.<br>
+기본적으로 멤버 필드들에 대한 getter/setter 메소드들을 만들어 준다.<br>
 <br/></li>
 <li><strong>@AllArgsConstructor / @NoArgsConstructor</strong><br>
-멤버필드들이 모두 파라미터로 지정된 생성자와 빈 생성자를 만들어 줍니다.<br>
+멤버필드들이 모두 파라미터로 지정된 생성자와 빈 생성자를 만들어 준다.<br>
 <br/></li>
 <li><strong>@Builder</strong><br>
-모델을 빌더 패턴으로 만들어 줍니다.<br>
+모델을 빌더 패턴으로 만들어 준다.<br>
 <br/></li>
 <li><strong>@ToString</strong><br>
-toString의 override된 메소드를 만들어 줍니다.<br>
+toString의 override된 메소드를 만들어 준다.<br>
 <br/></li>
 <li><strong>@Data</strong><br>
-@ToString, @EqualsAndHashCode, @Getter, @Setter, @RequiredArgsConstructor를 합쳐 둔 어노테이션입니다.<br>
+@ToString, @EqualsAndHashCode, @Getter, @Setter, @RequiredArgsConstructor를 합쳐 둔 어노테이션이다.<br>
 <br/></li>
 <li><strong>@EqualsAndHashCode</strong><br>
-해당 객체의 equals()와 hashCode() 메소드를 생성합니다.</li>
+해당 객체의 equals()와 hashCode() 메소드를 생성한다.</li>
 </ol>
-<p>그 외에도 여러가지가 있습니다.</p>
-<p>그럼 AndroidStudio 에 적용하는 방법을 알아봅니다.</p>
+<p>그 외에도 여러가지가 있다.</p>
+<p>그럼 AndroidStudio 에 적용하는 방법을 알아보자.</p>
 <h4 id="적용-방법">적용 방법</h4>
 <ol>
 <li>
 <p>우선 lombok plugin을 설치해야 합니다.</p>
-<p><code>File -&gt; Settings -&gt; Plugins -&gt; Browse repositories lombok</code>을 검색하여 Lombok Plugin을 설치합니다.</p>
+<p><code>File -&gt; Settings -&gt; Plugins -&gt; Browse repositories lombok</code>을 검색하여 Lombok Plugin을 설치한다.</p>
 </li>
 </ol>
 <img width="100%" src="/images/lombok/lombok1.png" alt="" title="" >
 <ol start="2">
 <li>gradle에 lombok 적용하기<br>
-Gradle Scripts -&gt; build.gradle 파일을 엽니다.<br>
+Gradle Scripts -&gt; build.gradle 파일을 연다.<br>
 <br/></li>
-<li>dependencies 아래에 추가해줍니다.</li>
+<li>dependencies 아래에 추가해 준다.</li>
 </ol>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">compileOnly <span class="string">'org.projectlombok:lombok:1.18.12'</span></span><br><span class="line">annotationProcessor <span class="string">'org.projectlombok:lombok:1.18.12'</span></span><br></pre></td></tr></table></figure>
-<p>이와같은 과정 후에 다음과 같은 결과를 볼 수 있습니다.</p>
+<p>이와 같은 과정 후에 다음과 같은 결과를 볼 수 있다.</p>
 <h3 id="결과">결과</h3>
 <img width="100%" src="/images/lombok/lombok2.png" alt="" title="" >
 
@@ -415,13 +415,13 @@ Gradle Scripts -&gt; build.gradle 파일을 엽니다.<br>
         "genre": "Programming Mobile Android",
         "datePublished": "2020-04-18",
         "dateCreated": "2020-04-18",
-        "dateModified": "2023-06-04",
+        "dateModified": "2023-07-13",
         "url": "http://hgko1207.github.io/2020/04/18/android-lombok/",
-        "description": "자바에서 코드를 작성 시 모델을 만들다 보면 constructor 와 기본 getter/setter 그리고 상황에 따라서 builder를 만들어 사용해야 합니다.
-그런데 이런 일들을 모두 타이핑 하다 보니 보일러플레이트 같은 코드들이 많이도 써야 합니다.
-lombok 를 사용하면 모델 객체들의 불필요한 보일러플레이트 코드들을 줄일 수 있습니다.
-annota",
-        "wordCount": 154
+        "description": "자바에서 코드를 작성 시 모델을 만들다 보면 constructor 와 기본 getter/setter 그리고 상황에 따라서 builder를 만들어 사용해야 한다.
+그런데 이런 일들을 모두 타이핑 하다 보니 보일러플레이트 같은 코드들이 많이도 써야한다.
+lombok 를 사용하면 모델 객체들의 불필요한 보일러플레이트 코드들을 줄일 수 있다.
+annotation ",
+        "wordCount": 155
     }
 </script>
 

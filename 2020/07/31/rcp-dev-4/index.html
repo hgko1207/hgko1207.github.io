@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="Eclipse,RCP,Java,자바" />
     
-    <meta name="description" content="SWT의 DirectoryDialog를 이용하여 폴더를 읽고 폴더의 파일들을 읽어서 원하는 List의 형식으로 만듭니다. 123456789101112131415161718192021Shell shell &#x3D; GUIUtil.getShell();shell.getDisplay().asyncExec(() -&gt; &amp;#123;    DirectoryDialog di">
+    <meta name="description" content="SWT 의 DirectoryDialog 를 이용하여 폴더를 읽고 폴더의 파일들을 읽어서 원하는 List 의 형식으로 만든다. 123456789101112131415161718192021Shell shell &#x3D; GUIUtil.getShell();shell.getDisplay().asyncExec(() -&gt; &amp;#123;    DirectoryDialog">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Eclipse RCP] 폴더안의 파일 리스트 읽기">
 <meta property="og:url" content="http://hgko1207.github.io/2020/07/31/rcp-dev-4/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="SWT의 DirectoryDialog를 이용하여 폴더를 읽고 폴더의 파일들을 읽어서 원하는 List의 형식으로 만듭니다. 123456789101112131415161718192021Shell shell &#x3D; GUIUtil.getShell();shell.getDisplay().asyncExec(() -&gt; &amp;#123;    DirectoryDialog di">
+<meta property="og:description" content="SWT 의 DirectoryDialog 를 이용하여 폴더를 읽고 폴더의 파일들을 읽어서 원하는 List 의 형식으로 만든다. 123456789101112131415161718192021Shell shell &#x3D; GUIUtil.getShell();shell.getDisplay().asyncExec(() -&gt; &amp;#123;    DirectoryDialog">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/rcp.png">
 <meta property="article:published_time" content="2020-07-31T00:53:37.000Z">
-<meta property="article:modified_time" content="2023-03-14T02:19:08.095Z">
+<meta property="article:modified_time" content="2023-07-17T13:04:41.398Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="Eclipse">
 <meta property="article:tag" content="RCP">
@@ -261,7 +261,7 @@ ga('send', 'pageview');
 
             
 
-            <p>SWT의 DirectoryDialog를 이용하여 폴더를 읽고 폴더의 파일들을 읽어서 원하는 List의 형식으로 만듭니다.</p>
+            <p>SWT 의 DirectoryDialog 를 이용하여 폴더를 읽고 폴더의 파일들을 읽어서 원하는 List 의 형식으로 만든다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Shell shell = GUIUtil.getShell();</span><br><span class="line">shell.getDisplay().asyncExec(() -&gt; &#123;</span><br><span class="line">    DirectoryDialog dialog = <span class="keyword">new</span> DirectoryDialog(shell);</span><br><span class="line">    dialog.setMessage(<span class="string">"Please select a directory and click OK"</span>);</span><br><span class="line">    String dir = dialog.open();</span><br><span class="line">    <span class="keyword">if</span> (dir != <span class="keyword">null</span>) &#123;</span><br><span class="line">      List&lt;MapImage&gt; mapImages = <span class="keyword">null</span>;</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">          mapImages = Files.list(<span class="keyword">new</span> File(dir).toPath())</span><br><span class="line">                  .filter(file -&gt; file.toFile().isFile())</span><br><span class="line">                  .filter(file -&gt; !file.toFile().getName().endsWith(<span class="string">".txt"</span>))</span><br><span class="line">                  .map(file -&gt; &#123;</span><br><span class="line">                      <span class="keyword">return</span> <span class="keyword">new</span> MapImage(shell, file.toFile());</span><br><span class="line">                  &#125;).collect(Collectors.toList());</span><br><span class="line">      &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">          e.printStackTrace();</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      System.err.println(mapImages);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
         </div>
@@ -372,11 +372,11 @@ ga('send', 'pageview');
         "genre": "Programming Frontend Eclipse RCP",
         "datePublished": "2020-07-31",
         "dateCreated": "2020-07-31",
-        "dateModified": "2023-03-14",
+        "dateModified": "2023-07-17",
         "url": "http://hgko1207.github.io/2020/07/31/rcp-dev-4/",
-        "description": "SWT의 DirectoryDialog를 이용하여 폴더를 읽고 폴더의 파일들을 읽어서 원하는 List의 형식으로 만듭니다.
-123456789101112131415161718192021Shell shell = GUIUtil.getShell();shell.getDisplay().asyncExec(() -&gt; &#123;    DirectoryDialog di",
-        "wordCount": 275
+        "description": "SWT 의 DirectoryDialog 를 이용하여 폴더를 읽고 폴더의 파일들을 읽어서 원하는 List 의 형식으로 만든다.
+123456789101112131415161718192021Shell shell = GUIUtil.getShell();shell.getDisplay().asyncExec(() -&gt; &#123;    DirectoryDialog ",
+        "wordCount": 278
     }
 </script>
 
