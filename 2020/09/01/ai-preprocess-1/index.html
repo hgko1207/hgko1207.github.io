@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="DeepLearning,딥러닝" />
     
-    <meta name="description" content="로컬 데이터를 불러와 전처리시 필요한 내용입니다.  Load Packages 12345678910import osfrom glob import globimport numpy as npimport tensorflow as tffrom PIL import Imageimport matplotlib.pyplot as plt%matplotlib inline 1234">
+    <meta name="description" content="로컬 데이터를 불러와 전처리시 필요한 내용이다.  Load Packages 12345678910import osfrom glob import globimport numpy as npimport tensorflow as tffrom PIL import Imageimport matplotlib.pyplot as plt%matplotlib inline 12345">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[딥러닝] Preprocess 준비">
 <meta property="og:url" content="http://hgko1207.github.io/2020/09/01/ai-preprocess-1/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="로컬 데이터를 불러와 전처리시 필요한 내용입니다.  Load Packages 12345678910import osfrom glob import globimport numpy as npimport tensorflow as tffrom PIL import Imageimport matplotlib.pyplot as plt%matplotlib inline 1234">
+<meta property="og:description" content="로컬 데이터를 불러와 전처리시 필요한 내용이다.  Load Packages 12345678910import osfrom glob import globimport numpy as npimport tensorflow as tffrom PIL import Imageimport matplotlib.pyplot as plt%matplotlib inline 12345">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/ai.png">
 <meta property="article:published_time" content="2020-09-01T14:10:35.000Z">
-<meta property="article:modified_time" content="2023-03-14T02:19:38.017Z">
+<meta property="article:modified_time" content="2023-07-18T04:14:09.880Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="DeepLearning">
 <meta property="article:tag" content="딥러닝">
@@ -259,10 +259,10 @@ ga('send', 'pageview');
 
             
 
-            <p>로컬 데이터를 불러와 전처리시 필요한 내용입니다.</p>
+            <p>로컬 데이터를 불러와 전처리시 필요한 내용이다.</p>
 <h2 id="load-packages"><a class="markdownIt-Anchor" href="#load-packages"></a> Load Packages</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> glob <span class="keyword">import</span> glob</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 현재 경로를 알려줍니다.</span></span><br><span class="line">os.getcwd()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 경로를 넣으면 경로의 파일명만 목록 형식으로 보여줍니다.</span></span><br><span class="line">os.listdir()</span><br><span class="line">os.listdir(<span class="string">'dataset/mnist_png/training/'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 경로가 포함된 모든 파일들을 목록 형식으로 보여줍니다.</span></span><br><span class="line"><span class="comment"># 원하는 포맷의 파일만을 가져올 수 있습니다.(png, txt 등)</span></span><br><span class="line">glob(<span class="string">'dataset/mnist_png/training/*.png'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 현재 경로를 알려준다.</span></span><br><span class="line">os.getcwd()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 경로를 넣으면 경로의 파일명만 목록 형식으로 보여준다.</span></span><br><span class="line">os.listdir()</span><br><span class="line">os.listdir(<span class="string">'dataset/mnist_png/training/'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 경로가 포함된 모든 파일들을 목록 형식으로 보여준다.</span></span><br><span class="line"><span class="comment"># 원하는 포맷의 파일만을 가져올 수 있습니다.(png, txt 등)</span></span><br><span class="line">glob(<span class="string">'dataset/mnist_png/training/*.png'</span>)</span><br></pre></td></tr></table></figure>
 <h2 id="데이터-분석"><a class="markdownIt-Anchor" href="#데이터-분석"></a> 데이터 분석</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">label_nums = os.listdir(<span class="string">'dataset/mnist_png/training/'</span>)</span><br><span class="line">&gt; [<span class="string">'0'</span>, <span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>, <span class="string">'4'</span>, <span class="string">'5'</span>, <span class="string">'6'</span>, <span class="string">'7'</span>, <span class="string">'8'</span>, <span class="string">'9'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Label 데이터 갯수 확인</span></span><br><span class="line">len(label_nums)</span><br><span class="line">&gt; <span class="number">10</span></span><br></pre></td></tr></table></figure>
 <p>데이터 별 갯수 비교</p>
@@ -380,12 +380,12 @@ ga('send', 'pageview');
         "genre": "Programming AI",
         "datePublished": "2020-09-01",
         "dateCreated": "2020-09-01",
-        "dateModified": "2023-03-14",
+        "dateModified": "2023-07-18",
         "url": "http://hgko1207.github.io/2020/09/01/ai-preprocess-1/",
-        "description": "로컬 데이터를 불러와 전처리시 필요한 내용입니다.
+        "description": "로컬 데이터를 불러와 전처리시 필요한 내용이다.
  Load Packages
 12345678910import osfrom glob import globimport numpy as npimport tensorflow as tffrom PIL import Imageimport matplotlib.pyplot as plt%matplotlib inline
-1234",
+12345",
         "wordCount": 323
     }
 </script>
