@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/angular.png">
 <meta property="article:published_time" content="2023-07-18T05:05:29.000Z">
-<meta property="article:modified_time" content="2023-07-19T05:10:32.332Z">
+<meta property="article:modified_time" content="2023-07-21T12:28:44.984Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="Angular">
 <meta property="article:tag" content="Http">
@@ -268,18 +268,18 @@ ga('send', 'pageview');
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Angular CLI: 16.1.0</span><br><span class="line">Node: 18.15.0</span><br><span class="line">Package Manager: npm 9.5.0</span><br><span class="line">OS: win32 x64</span><br></pre></td></tr></table></figure>
 <p>먼저 Angular를 처음 사용하는 경우 로컬 환경을 설정해야 합니다. <a href="https://nodejs.org/en/about" target="_blank" rel="noopener">Node.js</a> 와 <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm" target="_blank" rel="noopener">npm</a>이 필요합니다.</p>
 <p>설치된 버전을 확인하려면 다음 명령을 실행하십시오.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">node</span> <span class="string">-v</span></span><br><span class="line"><span class="attr">npm</span> <span class="string">-v</span></span><br></pre></td></tr></table></figure>
 <p>자, 새 프로젝트를 만들어 봅시다.</p>
 <p>command line interface(터미널, 명령 프롬프트)를 열고 새 Angular 프로젝트에 사용하려는 디렉토리로 이동합니다. Angular CLI를 설치하려면 다음을 실행합니다.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @angular/cli</span><br></pre></td></tr></table></figure>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">npm</span> <span class="string">install -g @angular/cli</span></span><br></pre></td></tr></table></figure>
 <p>이제 작업 공간을 만듭니다.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ng new openlayers-demo</span><br></pre></td></tr></table></figure>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ng</span> <span class="string">new openlayers-demo</span></span><br></pre></td></tr></table></figure>
 <p>그리고 앱을 실행할 수 있는지 확인하십시오.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd openlayers-demo</span><br><span class="line">ng serve — open</span><br></pre></td></tr></table></figure>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cd</span> <span class="string">openlayers-demo</span></span><br><span class="line"><span class="attr">ng</span> <span class="string">serve — open</span></span><br></pre></td></tr></table></figure>
 <p>잘하셨습니다. 이제 OpenLayers 설정을 시작할 준비가 되었습니다.</p>
 <h2 id="angular-프로젝트에-openlayers-추가"><a class="markdownIt-Anchor" href="#angular-프로젝트에-openlayers-추가"></a> Angular 프로젝트에 OpenLayers 추가</h2>
 <p>최신 버전의 OpenLayers를 설치합니다.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save ol</span><br></pre></td></tr></table></figure>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">npm</span> <span class="string">install --save ol</span></span><br></pre></td></tr></table></figure>
 <p>이 시점에서 앱을 제공하려고 하면 앱이 컴파일되지 않는 것을 알 수 있습니다. 이 문제는 Openlayers 6.6 이상 버전에 존재하므로 위의 명령에 @6.5를 추가하여 Openlayers 6.5 버전을 사용하도록 결정할 수도 있습니다.</p>
 <p>그러나 이후 버전에 존재하는 문제를 해결하는 방법을 살펴보겠습니다. 아래와 같이 ol 라이브러리와 관련된 오류가 표시됩니다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Error: node_modules&#x2F;ol&#x2F;source&#x2F;Cluster.d.ts:136:31 - error TS2314: Generic type &#39;Feature&lt;Geometry&gt;&#39; requires 1 type argument(s).</span><br><span class="line">136     protected features: Array&lt;Feature&gt;;</span><br><span class="line">Error: node_modules&#x2F;ol&#x2F;source&#x2F;Cluster.d.ts:152:23 - error TS2314: Generic type &#39;VectorSource&lt;Geometry&gt;&#39; requires 1 type argument(s).</span><br><span class="line">152     protected source: VectorSource;</span><br></pre></td></tr></table></figure>
@@ -411,11 +411,11 @@ ga('send', 'pageview');
         "genre": "Programming Frontend Angular",
         "datePublished": "2023-07-18",
         "dateCreated": "2023-07-18",
-        "dateModified": "2023-07-19",
+        "dateModified": "2023-07-21",
         "url": "http://hgko1207.github.io/2023/07/18/angular-12/",
         "description": "OpenLayers 는 개인 또는 상업 프로젝트에 지도를 추가해야 하는 경우 광범위한 사용 사례에 적합한 오픈 소스 라이브러리입니다. 아래 단계를 따라하면 몇 분 안에 빠르게 실행할 수 있습니다.
 Angular 프로젝트를 한 번도 해본 적이 없는 경우 새 프로젝트를 만드는 방법을 보여 드리겠습니다. 하지만 해당 부분을 건너뛰고 OpenLayers를 기존 프",
-        "wordCount": 1245
+        "wordCount": 1259
     }
 </script>
 
