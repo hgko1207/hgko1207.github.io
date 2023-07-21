@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>React Study(1) | 규니의 블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="React,리액트,JavaScript,Study,ES6" />
+    
+    <meta name="description" content="React 세미나😊(1) 최근 React를 다시 공부하게 되면서 올해 초에 회사에서 세미나를 하게 되었다. 물론 기초이지만 React 에 관심을 다시 가지게 되는 계기가 되었다.  React란? React는 페이스북에서 제공해주는 프론트엔드 라이브러리다. 사용자 인터페이스(User Interface)에 집중하며, Virtual DOM을 통해 속도와 편의">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Study(1)">
+<meta property="og:url" content="http://hgko1207.github.io/2020/03/24/react-study-1/index.html">
+<meta property="og:site_name" content="규니의 블로그">
+<meta property="og:description" content="React 세미나😊(1) 최근 React를 다시 공부하게 되면서 올해 초에 회사에서 세미나를 하게 되었다. 물론 기초이지만 React 에 관심을 다시 가지게 되는 계기가 되었다.  React란? React는 페이스북에서 제공해주는 프론트엔드 라이브러리다. 사용자 인터페이스(User Interface)에 집중하며, Virtual DOM을 통해 속도와 편의">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/react.png">
+<meta property="article:published_time" content="2020-03-24T01:39:16.000Z">
+<meta property="article:modified_time" content="2023-07-13T03:15:03.997Z">
+<meta property="article:author" content="Hyeong Gyun Ko">
+<meta property="article:tag" content="React">
+<meta property="article:tag" content="리액트">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="Study">
+<meta property="article:tag" content="ES6">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/react.png">
+    
+
+    
+        <link rel="alternate" href="/" title="규니의 블로그" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-166318275-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+
+    <!-- <script
+  data-ad-client="ca-pub-7581566810202853"
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+></script>
+ -->
+
+    <!-- 구글 애드센스 -->
+    <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">hgko&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/">IT</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/BlockChain/">BlockChain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Information/">Information</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Satellite/">Satellite</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Backend/">Backend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DB/">DB</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Frontend/">Frontend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Language/">Language</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Mobile/">Mobile</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about">About</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/profile">Profile</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Frontend/">Frontend</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Frontend/React/">React</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+                            <!-- 상단 광고 -->
+<ins
+  class="adsbygoogle"
+  style="display: block"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="1131844921"
+  data-ad-format="auto"
+  data-full-width-responsive="true"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                            <article id="post-react-study-1" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        React Study(1)
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2020/03/24/react-study-1/" class="article-date">
+         <time datetime="2020-03-24T01:39:16.000Z" itemprop="datePublished">2020-03-24</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/ES6/" rel="tag">ES6</a>, <a class="tag-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>, <a class="tag-link" href="/tags/React/" rel="tag">React</a>, <a class="tag-link" href="/tags/Study/" rel="tag">Study</a>, <a class="tag-link" href="/tags/%EB%A6%AC%EC%95%A1%ED%8A%B8/" rel="tag">리액트</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h1 id="react-세미나1"><a class="markdownIt-Anchor" href="#react-세미나1"></a> React 세미나😊(1)</h1>
+<p>최근 React를 다시 공부하게 되면서 올해 초에 회사에서 세미나를 하게 되었다. 물론 기초이지만 React 에 관심을 다시 가지게 되는 계기가 되었다.</p>
+<h2 id="react란"><a class="markdownIt-Anchor" href="#react란"></a> React란?</h2>
+<p><a href="https://ko.reactjs.org/" target="_blank" rel="noopener">React</a>는 페이스북에서 제공해주는 프론트엔드 라이브러리다. 사용자 인터페이스(User Interface)에 집중하며, Virtual DOM을 통해 속도와 편의를 높이고, 단방향 데이터 플로우를 지원하여 <a href="http://web-front-end.tistory.com/27" target="_blank" rel="noopener">보일러플레이트 코드</a>를 감소 시켜준다. React 는 싱글 페이지 애플리케이션(SPA)이나 모바일 애플리케이션을 개발할 때 사용할 수 있다.</p>
+<h4 id="특징"><a class="markdownIt-Anchor" href="#특징"></a> 특징</h4>
+<ul>
+<li>컴포넌트 기반 아키텍처
+<ul>
+<li>템플릿 언어가 아닌 자바스크립트로 컴포넌트 작성</li>
+<li>특정 관심사에 집중된 기능 블록 (관심사의 분리)</li>
+</ul>
+</li>
+<li>One Way Data flow(단방향 데이터 흐름 지향)</li>
+<li>React 는 데이터의 흐름이 한 방향으로만 흐흔다.</li>
+<li>데이터가 내려가기만 하고 밑에서 데이터를 올릴 수 없다.</li>
+<li>그래서 부모의 데이터를 바꿔주기 위해서는 <code>state</code>를 이용해야 한다.</li>
+<li>Virtual DOM - React는 가상의 DOM을 만들어서 진짜 DOM 과 비교하여 변경 사항이 있을 경우 전체를 새롭게 만드는 것이 아니라 변경된 부분만 진짜 DOM 에 반영하는 방식으로 작업을 수행한다. 그럼으로써 애플리케이션의 효율성과 속도를 높일 수 있게 된다.</li>
+<li>JSX 문법</li>
+</ul>
+<h4 id="리액트-js를-하기-위해-알아야-할-것"><a class="markdownIt-Anchor" href="#리액트-js를-하기-위해-알아야-할-것"></a> 리액트 JS를 하기 위해 알아야 할 것</h4>
+<ul>
+<li>Javascript(ES6)</li>
+<li>HTML</li>
+<li>CSS</li>
+</ul>
+<h3 id="1-fundamentals기초"><a class="markdownIt-Anchor" href="#1-fundamentals기초"></a> 1. Fundamentals(기초)</h3>
+<p><strong>React</strong>에서 많이 사용되는 자바스크립트 ES6 문법 기초를 먼저 알아보자.</p>
+<ul>
+<li>기존에 우리가 웹 개발에서 많이 보던 자바스크립트는 2009년 12월에 나온 <strong>ECMAScript5(ES5)</strong> 버전이다. 최근 Node.js, react에서는 2015년 6월에 업데이트 된 <strong>ECMAScript6(ES6)</strong> 문법의 자바스크립트를 사용하고 있다.</li>
+<li>ES6 문법을 사용하면서 처음에는 익숙해지기 어려웠지만 사용할 수록 코드가 간결해지고 깔끔해지면서 가독성이 좋아졌고, 모듈 별로 개발하면서 코드 관리가 쉬워졌다.</li>
+<li>현재는 ES8까지 업데이트 되었지만 몇 가지 걸림돌이 있어 넘어가지 않고 있다.</li>
+</ul>
+<p>아래에는 바뀐 ES6 문법과 많이 사용되는 기능들이다.</p>
+<h4 id="11-var-let-const"><a class="markdownIt-Anchor" href="#11-var-let-const"></a> 1.1. var -&gt; let &amp; const</h4>
+<p><em>const</em> 는 블록 범위이며 값이 지정되면 나중에 바꿀 수 없다. 또한, 재 선언 될 수도 없다.<br />
+<em>let</em> 은 블록 범위이며 값이 지정되어도 값을 바꿀 수 있다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">'eden'</span>;</span><br><span class="line"><span class="keyword">let</span> tel = <span class="string">'010-0000-0000'</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="12-arrow-functions"><a class="markdownIt-Anchor" href="#12-arrow-functions"></a> 1.2. Arrow Functions</h4>
+<p>함수는 간결해지고 코드는 짧아졌다.<br />
+Argument가 하나 일 때는 괄호가 필요 없다.(유일한 규칙)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">	reutn <span class="string">"Hello "</span> + name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ES6</span></span><br><span class="line"><span class="keyword">const</span> sayHello = <span class="function"><span class="params">name</span> =&gt;</span> <span class="string">"Hello "</span> + name;</span><br><span class="line"><span class="keyword">const</span> sayHello = <span class="function">(<span class="params">name, something</span>) =&gt;</span> <span class="string">"Hello "</span> + name + something;</span><br></pre></td></tr></table></figure>
+<h4 id="13-template-literals"><a class="markdownIt-Anchor" href="#13-template-literals"></a> 1.3. <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Template_literals" target="_blank" rel="noopener">Template Literals</a></h4>
+<p>``(backticks) 사용</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">'eden'</span>;</span><br><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'Hello '</span> + name);</span><br><span class="line"><span class="comment">// ES6</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`Hello <span class="subst">$&#123;name&#125;</span>`</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="14-object-destructuring-비구조화"><a class="markdownIt-Anchor" href="#14-object-destructuring-비구조화"></a> 1.4. Object Destructuring (비구조화)</h4>
+<p>적은 코드를 사용해서 더 깔끔하게 보이도록 한다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> human = &#123;</span><br><span class="line">  name: <span class="string">'Ko'</span>,</span><br><span class="line">  lastName: <span class="string">'HyeongGyun'</span>,</span><br><span class="line">  nationality: <span class="string">'Korea'</span>,</span><br><span class="line">  favFood: &#123;</span><br><span class="line">    dinner: <span class="string">'Samgyupsal'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="keyword">const</span> name = human.name;</span><br><span class="line"><span class="keyword">const</span> lastName = human.lastName;</span><br><span class="line"><span class="keyword">const</span> difName = human.nationality;</span><br><span class="line"><span class="keyword">const</span> dinner = human.favFood.dinner;</span><br><span class="line"><span class="comment">// ES6</span></span><br><span class="line"><span class="keyword">const</span> &#123;</span><br><span class="line">  name,</span><br><span class="line">  lastName,</span><br><span class="line">  nationality: difName,</span><br><span class="line">  favFood: &#123; dinner &#125;,</span><br><span class="line">&#125; = human;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(name, lastName, difName, dinner);</span><br></pre></td></tr></table></figure>
+<h4 id="15-spread-operator"><a class="markdownIt-Anchor" href="#15-spread-operator"></a> 1.5. Spread Operator</h4>
+<p>Iterable Object(열거 가능한 오브젝트)를 하나씩 전개한다.<br />
+표현방식 […iterable], 변수 앞에 ‘…’ 찍어서 선언한다.<br />
+변수 뿐만 아니라 Argument, Function에서도 쓰인다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> days = [<span class="string">'Mon'</span>, <span class="string">'Tues'</span>, <span class="string">'Wed'</span>];</span><br><span class="line"><span class="keyword">const</span> otherDays = [<span class="string">'Thu'</span>, <span class="string">'Fri'</span>, <span class="string">'Sat'</span>];</span><br><span class="line"><span class="keyword">const</span> allDays = [...days, ...otherDays, <span class="string">'Sun'</span>];</span><br><span class="line"><span class="built_in">console</span>.log(allDays);</span><br><span class="line"></span><br><span class="line">결과: [<span class="string">'Mon'</span>, <span class="string">'Tues'</span>, <span class="string">'Wed'</span>, <span class="string">'Thu'</span>, <span class="string">'Fri'</span>, <span class="string">'Sat'</span>, <span class="string">'Sun'</span>];</span><br></pre></td></tr></table></figure>
+<h4 id="16-classes"><a class="markdownIt-Anchor" href="#16-classes"></a> 1.6. Classes</h4>
+<p>constructor 메소드도 사용할 수 있고 extends를 통해서 클래스 상속도 가능하다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Human</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(name, lastName) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.lastName = lastName;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Baby</span> <span class="keyword">extends</span> <span class="title">Human</span> </span>&#123;</span><br><span class="line">  cry() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'cry'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  sayName() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`My name is <span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> myBaby = <span class="keyword">new</span> Baby(<span class="string">'mini'</span>, <span class="string">'me'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(myBaby.cry(), myBaby.sayName());</span><br></pre></td></tr></table></figure>
+<h4 id="17-arraymap"><a class="markdownIt-Anchor" href="#17-arraymap"></a> 1.7. <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/map" target="_blank" rel="noopener">Array.map</a></h4>
+<p>요소를 일괄적으로 변경한다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> days = [<span class="string">'Mon'</span>, <span class="string">'Tues'</span>, <span class="string">'Wed'</span>, <span class="string">'Thu'</span>, <span class="string">'Fri'</span>];</span><br><span class="line"><span class="keyword">const</span> smilingDays = days.map(<span class="function">(<span class="params">day</span>) =&gt;</span> <span class="string">`😂 <span class="subst">$&#123;day&#125;</span>`</span>);</span><br><span class="line"><span class="built_in">console</span>.log(smilingDays);</span><br><span class="line"></span><br><span class="line">결과: [<span class="string">'😂 Mon'</span>, <span class="string">'😂 Tues'</span>, <span class="string">'😂 Wed'</span>, <span class="string">'😂 Thu'</span>, <span class="string">'😂 Fri'</span>];</span><br></pre></td></tr></table></figure>
+<h4 id="18-arrayfilter"><a class="markdownIt-Anchor" href="#18-arrayfilter"></a> 1.8. <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/filter" target="_blank" rel="noopener">Array.filter</a></h4>
+<p>요소를 걸러내어 배열로 true/false 반환, 없으면 빈 배열을 반환한다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">123</span>, <span class="number">5</span>, <span class="number">15</span>, <span class="number">67</span>, <span class="number">241</span>, <span class="number">54</span>, <span class="number">1</span>, <span class="number">6</span>, <span class="number">23</span>, <span class="number">90</span>];</span><br><span class="line"><span class="keyword">const</span> otherNumbers = numbers.filter(<span class="function">(<span class="params">number</span>) =&gt;</span> number &gt; <span class="number">15</span>);</span><br><span class="line"><span class="built_in">console</span>.log(otherNumbers);</span><br></pre></td></tr></table></figure>
+<h4 id="19-foreach-includes-push"><a class="markdownIt-Anchor" href="#19-foreach-includes-push"></a> 1.9. forEach, includes, push</h4>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> posts = [<span class="string">'Hi'</span>, <span class="string">'Hello'</span>, <span class="string">'Bye'</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!posts.includes(<span class="string">'new'</span>)) &#123;</span><br><span class="line">  posts.push(<span class="string">'new'</span>);</span><br><span class="line">&#125;</span><br><span class="line">posts.forEach(<span class="function">(<span class="params">post</span>) =&gt;</span> <span class="built_in">console</span>.log(post));</span><br></pre></td></tr></table></figure>
+<h2 id="codesandbox"><a class="markdownIt-Anchor" href="#codesandbox"></a> CodeSandbox</h2>
+<ul>
+<li>웹 기반 자바스크립트 에디터 서비스를 제공하는 사이트</li>
+<li>간단한 소스 코드 테스트를 할 때 사용하면 편리하다.</li>
+<li><a href="https://codesandbox.io/s/es6-fundamentals-d4i70" target="_blank" rel="noopener">codesandbox.io</a></li>
+</ul>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
+<ul>
+<li><a href="https://velog.io/@stampid/React%EB%9E%80" target="_blank" rel="noopener">https://velog.io/@stampid/React란</a></li>
+<li><a href="https://velog.io/@kyusung/react-summary" target="_blank" rel="noopener">https://velog.io/@kyusung/react-summary</a></li>
+<li><a href="https://hgko1207.github.io/2019/01/09/react-start/">https://hgko1207.github.io/2019/01/09/react-start/</a></li>
+<li><a href="https://sanghaklee.tistory.com/54" target="_blank" rel="noopener">https://sanghaklee.tistory.com/54</a></li>
+<li><a href="http://woowabros.github.io/experience/2017/12/01/es6-experience.html" target="_blank" rel="noopener">http://woowabros.github.io/experience/2017/12/01/es6-experience.html</a></li>
+<li><a href="https://blog.asamaru.net/2017/08/14/top-10-es6-features/" target="_blank" rel="noopener">https://blog.asamaru.net/2017/08/14/top-10-es6-features/</a></li>
+<li><a href="https://velog.io/@decody/map-%EC%A0%95%EB%A6%AC" target="_blank" rel="noopener">https://velog.io/@decody/map-정리</a></li>
+</ul>
+
+        </div>
+        <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+        <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://hgko1207.github.io/2020/03/24/react-study-1/" data-id="clkcobcv1001hr4cxh72wbvcw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Hyeong Gyun Ko"
+        },
+        "headline": "React Study(1)",
+        "image": "http://hgko1207.github.io/images/thumbnail/react.png",
+        "keywords": "React 리액트 JavaScript Study ES6",
+        "genre": "Programming Frontend React",
+        "datePublished": "2020-03-24",
+        "dateCreated": "2020-03-24",
+        "dateModified": "2023-07-13",
+        "url": "http://hgko1207.github.io/2020/03/24/react-study-1/",
+        "description": " React 세미나😊(1)
+최근 React를 다시 공부하게 되면서 올해 초에 회사에서 세미나를 하게 되었다. 물론 기초이지만 React 에 관심을 다시 가지게 되는 계기가 되었다.
+ React란?
+React는 페이스북에서 제공해주는 프론트엔드 라이브러리다. 사용자 인터페이스(User Interface)에 집중하며, Virtual DOM을 통해 속도와 편의",
+        "wordCount": 950
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                            <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>follow:</p>
+    <ul class="social-links">
+       
+      <li>
+        <a
+          class="social-tooltip"
+          title="github"
+          href="https://github.com/hgko1207"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-github"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="facebook"
+          href="https://www.facebook.com/profile.php?id=100003526102847"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-facebook"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="rss"
+          href="/"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-rss"></i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+   
+<nav id="article-nav">
+    
+        <a href="/2020/03/24/react-study-2/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            React Study(2)
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2019/06/19/book-nodejs/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Node.js 교과서</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+ 
+  <div class="widgets-container">
+      
+  
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/07/21/angular-13/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/angular.png)" alt="[Angular] DI 수명(lifetime)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a></p>
+                            <p class="item-title"><a href="/2023/07/21/angular-13/" class="title">[Angular] DI 수명(lifetime)</a></p>
+                            <p class="item-date"><time datetime="2023-07-21T12:07:55.000Z" itemprop="datePublished">2023-07-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/07/18/angular-12/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/angular.png)" alt="[Angular] OpenLayers로 지도 생성" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a></p>
+                            <p class="item-title"><a href="/2023/07/18/angular-12/" class="title">[Angular] OpenLayers로 지도 생성</a></p>
+                            <p class="item-date"><time datetime="2023-07-18T05:05:29.000Z" itemprop="datePublished">2023-07-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/07/18/csharp-1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/csharp.png)" alt="[C#] FileSystemWatcher 파일 감시 모니터링" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2023/07/18/csharp-1/" class="title">[C#] FileSystemWatcher 파일 감시 모니터링</a></p>
+                            <p class="item-date"><time datetime="2023-07-18T04:49:39.000Z" itemprop="datePublished">2023-07-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/07/11/angular-11/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/angular.png)" alt="[Angular] cross-fetch 사용 방법" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a></p>
+                            <p class="item-title"><a href="/2023/07/11/angular-11/" class="title">[Angular] cross-fetch 사용 방법</a></p>
+                            <p class="item-date"><time datetime="2023-07-11T02:48:34.000Z" itemprop="datePublished">2023-07-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/07/11/angular-10/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/angular.png)" alt="[Angular] HttpClient 사용 방법" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a></p>
+                            <p class="item-title"><a href="/2023/07/11/angular-10/" class="title">[Angular] HttpClient 사용 방법</a></p>
+                            <p class="item-date"><time datetime="2023-07-11T02:13:24.000Z" itemprop="datePublished">2023-07-11</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">29</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">226</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">28</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">28</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">63</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">11</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">54</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">7</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li></ul></li></ul>
+        </div>
+    </div>
+
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a><span class="archive-list-count">25</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">19</span></li></ul>
+        </div>
+    </div>
+
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+  <div class="widget-wrap widget-float">
+
+    <h3 class="widget-title">Sponsored</h3>
+    <div class="widget">
+        <a href="https://marcofranssen.nl?adsense_widget" target="_blank" rel="noopener">This widget is sponsored by, Marco Franssen, main contributor to this theme.</a>
+    </div>
+
+</div>
+  
+  </div>
+  <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+
+  <!-- hits 방문자수 -->
+  <a href="https://hits.seeyoufarm.com" target="_blank" rel="noopener">
+    <style>
+      .hits {
+        width: auto;
+        height: auto;
+        max-width: 99px;
+        max-height: 20px;
+      }
+    </style>
+    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhgko1207.github.io&count_bg=%23E6ADD5&title_bg=%23BF98D2&icon=&icon_color=%23E7E7E7&title=%EB%B0%A9%EB%AC%B8%EC%9E%90%EC%88%98&edge_flat=false"/>
+  </a>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2023 Hyeong Gyun Ko</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://hgko1207.github.io/2020/03/24/react-study-1/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

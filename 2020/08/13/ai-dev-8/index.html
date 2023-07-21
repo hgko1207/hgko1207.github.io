@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>TensorFlow 2.0과 PyTorch 비교 | 규니의 블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="AI,DeepLearning,Tensorflow,PyTorch" />
+    
+    <meta name="description" content="TensorFlow 2.0 123import tensorflow as tffrom tensorflow.keras import layersfrom tensorflow.keras import datasets  Hyperparameter 1234567batch_size &#x3D; 64learning_rate &#x3D; 0.001dropout_rate &#x3D; 0.7input_sh">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TensorFlow 2.0과 PyTorch 비교">
+<meta property="og:url" content="http://hgko1207.github.io/2020/08/13/ai-dev-8/index.html">
+<meta property="og:site_name" content="규니의 블로그">
+<meta property="og:description" content="TensorFlow 2.0 123import tensorflow as tffrom tensorflow.keras import layersfrom tensorflow.keras import datasets  Hyperparameter 1234567batch_size &#x3D; 64learning_rate &#x3D; 0.001dropout_rate &#x3D; 0.7input_sh">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/tensorflow-pytorch.png">
+<meta property="article:published_time" content="2020-08-13T07:36:58.000Z">
+<meta property="article:modified_time" content="2023-03-14T02:19:19.731Z">
+<meta property="article:author" content="Hyeong Gyun Ko">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="DeepLearning">
+<meta property="article:tag" content="Tensorflow">
+<meta property="article:tag" content="PyTorch">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/tensorflow-pytorch.png">
+    
+
+    
+        <link rel="alternate" href="/" title="규니의 블로그" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-166318275-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+
+    <!-- <script
+  data-ad-client="ca-pub-7581566810202853"
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+></script>
+ -->
+
+    <!-- 구글 애드센스 -->
+    <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">hgko&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/">IT</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/BlockChain/">BlockChain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Information/">Information</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Satellite/">Satellite</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Backend/">Backend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DB/">DB</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Frontend/">Frontend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Language/">Language</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Mobile/">Mobile</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about">About</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/profile">Profile</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/AI/">AI</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+                            <!-- 상단 광고 -->
+<ins
+  class="adsbygoogle"
+  style="display: block"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="1131844921"
+  data-ad-format="auto"
+  data-full-width-responsive="true"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                            <article id="post-ai-dev-8" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        TensorFlow 2.0과 PyTorch 비교
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2020/08/13/ai-dev-8/" class="article-date">
+         <time datetime="2020-08-13T07:36:58.000Z" itemprop="datePublished">2020-08-13</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/AI/" rel="tag">AI</a>, <a class="tag-link" href="/tags/DeepLearning/" rel="tag">DeepLearning</a>, <a class="tag-link" href="/tags/PyTorch/" rel="tag">PyTorch</a>, <a class="tag-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h2 id="tensorflow-20"><a class="markdownIt-Anchor" href="#tensorflow-20"></a> TensorFlow 2.0</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras <span class="keyword">import</span> layers</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras <span class="keyword">import</span> datasets</span><br></pre></td></tr></table></figure>
+<h3 id="hyperparameter"><a class="markdownIt-Anchor" href="#hyperparameter"></a> Hyperparameter</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">batch_size = <span class="number">64</span></span><br><span class="line"></span><br><span class="line">learning_rate = <span class="number">0.001</span></span><br><span class="line">dropout_rate = <span class="number">0.7</span></span><br><span class="line"></span><br><span class="line">input_shape = (<span class="number">28</span>, <span class="number">28</span>, <span class="number">1</span>)</span><br><span class="line">num_classes = <span class="number">10</span></span><br></pre></td></tr></table></figure>
+<h3 id="preprocess"><a class="markdownIt-Anchor" href="#preprocess"></a> Preprocess</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(train_x, train_y), (test_x, test_y) = datasets.mnist.load_data()</span><br><span class="line"></span><br><span class="line">train_x = train_x[..., tf.newaxis]</span><br><span class="line">test_x = test_x[..., tf.newaxis]</span><br><span class="line"></span><br><span class="line">train_x = train_x / <span class="number">255.</span></span><br><span class="line">test_x = test_x / <span class="number">255.</span></span><br></pre></td></tr></table></figure>
+<h3 id="build-model"><a class="markdownIt-Anchor" href="#build-model"></a> Build Model</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">inputs = layers.Input(input_shape)</span><br><span class="line">net = layers.Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">'SAME'</span>)(inputs)</span><br><span class="line">net = layers.Activation(<span class="string">'relu'</span>)(net)</span><br><span class="line">net = layers.Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">'SAME'</span>)(net)</span><br><span class="line">net = layers.Activation(<span class="string">'relu'</span>)(net)</span><br><span class="line">net = layers.MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(net)</span><br><span class="line">net = layers.Dropout(dropout_rate)(net)</span><br><span class="line"></span><br><span class="line">net = layers.Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">'SAME'</span>)(net)</span><br><span class="line">net = layers.Activation(<span class="string">'relu'</span>)(net)</span><br><span class="line">net = layers.Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">'SAME'</span>)(net)</span><br><span class="line">net = layers.Activation(<span class="string">'relu'</span>)(net)</span><br><span class="line">net = layers.MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>))(net)</span><br><span class="line">net = layers.Dropout(dropout_rate)(net)</span><br><span class="line"></span><br><span class="line">net = layers.Flatten()(net)</span><br><span class="line">net = layers.Dense(<span class="number">512</span>)(net)</span><br><span class="line">net = layers.Activation(<span class="string">'relu'</span>)(net)</span><br><span class="line">net = layers.Dropout(dropout_rate)(net)</span><br><span class="line">net = layers.Dense(num_classes)(net)</span><br><span class="line">net = layers.Activation(<span class="string">'softmax'</span>)(net)</span><br><span class="line"></span><br><span class="line">model = tf.keras.Model(inputs=inputs, outputs=net, name=<span class="string">'Basic_CNN'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Model is the full model w/o custom layers</span></span><br><span class="line">model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate),  <span class="comment"># Optimization</span></span><br><span class="line">              loss=<span class="string">'sparse_categorical_crossentropy'</span>,  <span class="comment"># Loss Function</span></span><br><span class="line">              metrics=[<span class="string">'accuracy'</span>])  <span class="comment"># Metrics / Accuracy</span></span><br></pre></td></tr></table></figure>
+<h3 id="training"><a class="markdownIt-Anchor" href="#training"></a> Training</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">model.fit(train_x, train_y,</span><br><span class="line">             batch_size=batch_size,</span><br><span class="line">             shuffle=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out</span></span><br><span class="line">Train on <span class="number">60000</span> samples</span><br><span class="line"><span class="number">60000</span>/<span class="number">60000</span> [==============================] - <span class="number">6</span>s <span class="number">103</span>us/sample - loss: <span class="number">0.3794</span> - accuracy: <span class="number">0.8767</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">model.evaluate(test_x, test_y, batch_size=batch_size)</span><br><span class="line">=&gt; [0.06760077927671373, 0.9776]</span><br></pre></td></tr></table></figure>
+<h2 id="pytorch"><a class="markdownIt-Anchor" href="#pytorch"></a> PyTorch</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"></span><br><span class="line"><span class="comment"># 이미지 데이터를 관리하기 위한 라이브러리</span></span><br><span class="line"><span class="keyword">from</span> torchvision <span class="keyword">import</span> datasets, transforms</span><br></pre></td></tr></table></figure>
+<h3 id="hyperparameter-2"><a class="markdownIt-Anchor" href="#hyperparameter-2"></a> Hyperparameter</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 랜덤 값을 고정시키기 위해</span></span><br><span class="line">seed = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">lr = <span class="number">0.001</span></span><br><span class="line">momentum = <span class="number">0.5</span></span><br><span class="line"></span><br><span class="line">batch_size = <span class="number">64</span></span><br><span class="line">test_batch_size = <span class="number">64</span></span><br><span class="line"></span><br><span class="line">epochs = <span class="number">5</span></span><br><span class="line"></span><br><span class="line">no_cuda = <span class="literal">False</span></span><br><span class="line">log_interval = <span class="number">100</span></span><br></pre></td></tr></table></figure>
+<h3 id="model"><a class="markdownIt-Anchor" href="#model"></a> Model</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Net</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        super(Net, self).__init__()</span><br><span class="line">        self.conv1 = nn.Conv2d(<span class="number">1</span>, <span class="number">20</span>, <span class="number">5</span>, <span class="number">1</span>)</span><br><span class="line">        self.conv2 = nn.Conv2d(<span class="number">20</span>, <span class="number">50</span>, <span class="number">5</span>, <span class="number">1</span>)</span><br><span class="line">        self.fc1 = nn.Linear(<span class="number">4</span> * <span class="number">4</span> * <span class="number">50</span>, <span class="number">500</span>)</span><br><span class="line">        self.fc2 = nn.Linear(<span class="number">500</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        x = F.relu(self.conv1(x))</span><br><span class="line">        x = F.max_pool2d(x, <span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">        x = F.relu(self.conv2(x))</span><br><span class="line">        x = F.max_pool2d(x, <span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">        x = x.view(<span class="number">-1</span>, <span class="number">4</span> * <span class="number">4</span> * <span class="number">50</span>)</span><br><span class="line">        x = F.relu(self.fc1(x))</span><br><span class="line">        x = self.fc2(x)</span><br><span class="line">        <span class="keyword">return</span> F.log_softmax(x, dim=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="preprocess-2"><a class="markdownIt-Anchor" href="#preprocess-2"></a> Preprocess</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">torch.manual_seed(seed)</span><br><span class="line"></span><br><span class="line">use_cuda = <span class="keyword">not</span> no_cuda <span class="keyword">and</span> torch.cuda.is_available()</span><br><span class="line">device = torch.device(<span class="string">"cuda"</span> <span class="keyword">if</span> use_cuda <span class="keyword">else</span> <span class="string">"cpu"</span>)</span><br><span class="line"></span><br><span class="line">kwargs = &#123;<span class="string">'num_workers'</span>: <span class="number">1</span>, <span class="string">'pin_memory'</span>: <span class="literal">True</span>&#125; <span class="keyword">if</span> use_cuda <span class="keyword">else</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line">train_loader = torch.utils.data.DataLoader(</span><br><span class="line">    datasets.MNIST(<span class="string">'../data'</span>, train=<span class="literal">True</span>, download=<span class="literal">True</span>,</span><br><span class="line">                transform=transforms.Compose([</span><br><span class="line">                  transforms.ToTensor(),</span><br><span class="line">                  transforms.Normalize((<span class="number">0.1307</span>,), (<span class="number">0.3081</span>,))</span><br><span class="line">                ])),</span><br><span class="line">                batch_size=batch_size, shuffle=<span class="literal">True</span>, **kwargs)</span><br><span class="line"></span><br><span class="line">test_loader = torch.utils.data.DataLoader(</span><br><span class="line">    datasets.MNIST(<span class="string">'../data'</span>, train=<span class="literal">False</span>,</span><br><span class="line">                transform=transforms.Compose([</span><br><span class="line">                  transforms.ToTensor(),</span><br><span class="line">                  transforms.Normalize((<span class="number">0.1307</span>,), (<span class="number">0.3081</span>,))</span><br><span class="line">                ])),</span><br><span class="line">                batch_size=test_batch_size, shuffle=<span class="literal">True</span>, **kwargs)</span><br></pre></td></tr></table></figure>
+<h3 id="optimization"><a class="markdownIt-Anchor" href="#optimization"></a> Optimization</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">model = Net().to(device)</span><br><span class="line">optimizer = optim.SGD(model.parameters(), lr=lr, momentum=momentum)</span><br></pre></td></tr></table></figure>
+<h3 id="training-2"><a class="markdownIt-Anchor" href="#training-2"></a> Training</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> range(<span class="number">1</span>, epochs + <span class="number">1</span>):</span><br><span class="line">    <span class="comment"># Train Mode</span></span><br><span class="line">    model.train()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> batch_idx, (data, target) <span class="keyword">in</span> enumerate(train_loader):</span><br><span class="line">        data, target = data.to(device), target.to(device)</span><br><span class="line">        optimizer.zero_grad()  <span class="comment"># backpropagation 계산하기 전에 0으로 기울기 계산</span></span><br><span class="line">        output = model(data)</span><br><span class="line">        loss = F.nll_loss(output, target)  <span class="comment"># https://pytorch.org/docs/stable/nn.html#nll-loss</span></span><br><span class="line">        loss.backward()  <span class="comment"># 계산한 기울기를</span></span><br><span class="line">        optimizer.step()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> batch_idx % log_interval == <span class="number">0</span>:</span><br><span class="line">            print(<span class="string">'Train Epoch: &#123;&#125; [&#123;&#125;/&#123;&#125; (&#123;:.0f&#125;%)]\tLoss: &#123;:.6f&#125;'</span>.format(</span><br><span class="line">                epoch, batch_idx * len(data), len(train_loader.dataset),</span><br><span class="line">                <span class="number">100.</span> * batch_idx / len(train_loader), loss.item()))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Test mode</span></span><br><span class="line">    model.eval()  <span class="comment"># batch norm이나 dropout 등을 train mode 변환</span></span><br><span class="line">    test_loss = <span class="number">0</span></span><br><span class="line">    correct = <span class="number">0</span></span><br><span class="line">    <span class="keyword">with</span> torch.no_grad():  <span class="comment"># autograd engine, 즉 backpropagatin이나 gradient 계산 등을 꺼서 memory usage를 줄이고 속도를 높임</span></span><br><span class="line">        <span class="keyword">for</span> data, target <span class="keyword">in</span> test_loader:</span><br><span class="line">            data, target = data.to(device), target.to(device)</span><br><span class="line">            output = model(data)</span><br><span class="line">            test_loss += F.nll_loss(output, target, reduction=<span class="string">'sum'</span>).item() <span class="comment"># sum up batch loss</span></span><br><span class="line">            pred = output.argmax(dim=<span class="number">1</span>, keepdim=<span class="literal">True</span>) <span class="comment"># get the index of the max log-probability</span></span><br><span class="line">            correct += pred.eq(target.view_as(pred)).sum().item()  <span class="comment"># pred와 target과 같은지 확인</span></span><br><span class="line"></span><br><span class="line">    test_loss /= len(test_loader.dataset)</span><br><span class="line"></span><br><span class="line">    print(<span class="string">'\nTest set: Average loss: &#123;:.4f&#125;, Accuracy: &#123;&#125;/&#123;&#125; (&#123;:.0f&#125;%)\n'</span>.format(</span><br><span class="line">        test_loss, correct, len(test_loader.dataset),</span><br><span class="line">        <span class="number">100.</span> * correct / len(test_loader.dataset)))</span><br></pre></td></tr></table></figure>
+<p>결과</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">Train Epoch: <span class="number">1</span> [<span class="number">0</span>/<span class="number">60000</span> (<span class="number">0</span>%)] Loss: <span class="number">2.300039</span></span><br><span class="line">Train Epoch: <span class="number">1</span> [<span class="number">6400</span>/<span class="number">60000</span> (<span class="number">11</span>%)] Loss: <span class="number">2.239658</span></span><br><span class="line">Train Epoch: <span class="number">1</span> [<span class="number">12800</span>/<span class="number">60000</span> (<span class="number">21</span>%)]  Loss: <span class="number">2.133953</span></span><br><span class="line">Train Epoch: <span class="number">1</span> [<span class="number">19200</span>/<span class="number">60000</span> (<span class="number">32</span>%)]  Loss: <span class="number">2.007281</span></span><br><span class="line">Train Epoch: <span class="number">1</span> [<span class="number">25600</span>/<span class="number">60000</span> (<span class="number">43</span>%)]  Loss: <span class="number">1.656340</span></span><br><span class="line">Train Epoch: <span class="number">1</span> [<span class="number">32000</span>/<span class="number">60000</span> (<span class="number">53</span>%)]  Loss: <span class="number">1.400340</span></span><br><span class="line">Train Epoch: <span class="number">1</span> [<span class="number">38400</span>/<span class="number">60000</span> (<span class="number">64</span>%)]  Loss: <span class="number">0.864186</span></span><br><span class="line">Train Epoch: <span class="number">1</span> [<span class="number">44800</span>/<span class="number">60000</span> (<span class="number">75</span>%)]  Loss: <span class="number">0.613089</span></span><br><span class="line">Train Epoch: <span class="number">1</span> [<span class="number">51200</span>/<span class="number">60000</span> (<span class="number">85</span>%)]  Loss: <span class="number">0.615066</span></span><br><span class="line">Train Epoch: <span class="number">1</span> [<span class="number">57600</span>/<span class="number">60000</span> (<span class="number">96</span>%)]  Loss: <span class="number">0.427881</span></span><br><span class="line"></span><br><span class="line">Test set: Average loss: <span class="number">0.4822</span>, Accuracy: <span class="number">8651</span>/<span class="number">10000</span> (<span class="number">87</span>%)</span><br><span class="line"></span><br><span class="line">Train Epoch: <span class="number">2</span> [<span class="number">0</span>/<span class="number">60000</span> (<span class="number">0</span>%)] Loss: <span class="number">0.635855</span></span><br><span class="line">Train Epoch: <span class="number">2</span> [<span class="number">6400</span>/<span class="number">60000</span> (<span class="number">11</span>%)] Loss: <span class="number">0.361398</span></span><br><span class="line">Train Epoch: <span class="number">2</span> [<span class="number">12800</span>/<span class="number">60000</span> (<span class="number">21</span>%)]  Loss: <span class="number">0.457372</span></span><br><span class="line">Train Epoch: <span class="number">2</span> [<span class="number">19200</span>/<span class="number">60000</span> (<span class="number">32</span>%)]  Loss: <span class="number">0.393982</span></span><br><span class="line">Train Epoch: <span class="number">2</span> [<span class="number">25600</span>/<span class="number">60000</span> (<span class="number">43</span>%)]  Loss: <span class="number">0.536390</span></span><br><span class="line">Train Epoch: <span class="number">2</span> [<span class="number">32000</span>/<span class="number">60000</span> (<span class="number">53</span>%)]  Loss: <span class="number">0.258121</span></span><br><span class="line">Train Epoch: <span class="number">2</span> [<span class="number">38400</span>/<span class="number">60000</span> (<span class="number">64</span>%)]  Loss: <span class="number">0.413061</span></span><br><span class="line">Train Epoch: <span class="number">2</span> [<span class="number">44800</span>/<span class="number">60000</span> (<span class="number">75</span>%)]  Loss: <span class="number">0.174248</span></span><br><span class="line">Train Epoch: <span class="number">2</span> [<span class="number">51200</span>/<span class="number">60000</span> (<span class="number">85</span>%)]  Loss: <span class="number">0.222638</span></span><br><span class="line">Train Epoch: <span class="number">2</span> [<span class="number">57600</span>/<span class="number">60000</span> (<span class="number">96</span>%)]  Loss: <span class="number">0.401988</span></span><br><span class="line"></span><br><span class="line">Test set: Average loss: <span class="number">0.2956</span>, Accuracy: <span class="number">9128</span>/<span class="number">10000</span> (<span class="number">91</span>%)</span><br><span class="line"></span><br><span class="line">Train Epoch: <span class="number">3</span> [<span class="number">0</span>/<span class="number">60000</span> (<span class="number">0</span>%)] Loss: <span class="number">0.425370</span></span><br><span class="line">Train Epoch: <span class="number">3</span> [<span class="number">6400</span>/<span class="number">60000</span> (<span class="number">11</span>%)] Loss: <span class="number">0.242881</span></span><br><span class="line">Train Epoch: <span class="number">3</span> [<span class="number">12800</span>/<span class="number">60000</span> (<span class="number">21</span>%)]  Loss: <span class="number">0.266271</span></span><br><span class="line">Train Epoch: <span class="number">3</span> [<span class="number">19200</span>/<span class="number">60000</span> (<span class="number">32</span>%)]  Loss: <span class="number">0.344442</span></span><br><span class="line">Train Epoch: <span class="number">3</span> [<span class="number">25600</span>/<span class="number">60000</span> (<span class="number">43</span>%)]  Loss: <span class="number">0.271553</span></span><br><span class="line">Train Epoch: <span class="number">3</span> [<span class="number">32000</span>/<span class="number">60000</span> (<span class="number">53</span>%)]  Loss: <span class="number">0.233463</span></span><br><span class="line">Train Epoch: <span class="number">3</span> [<span class="number">38400</span>/<span class="number">60000</span> (<span class="number">64</span>%)]  Loss: <span class="number">0.206387</span></span><br><span class="line">Train Epoch: <span class="number">3</span> [<span class="number">44800</span>/<span class="number">60000</span> (<span class="number">75</span>%)]  Loss: <span class="number">0.289864</span></span><br><span class="line">Train Epoch: <span class="number">3</span> [<span class="number">51200</span>/<span class="number">60000</span> (<span class="number">85</span>%)]  Loss: <span class="number">0.227708</span></span><br><span class="line">Train Epoch: <span class="number">3</span> [<span class="number">57600</span>/<span class="number">60000</span> (<span class="number">96</span>%)]  Loss: <span class="number">0.266247</span></span><br><span class="line"></span><br><span class="line">Test set: Average loss: <span class="number">0.2279</span>, Accuracy: <span class="number">9320</span>/<span class="number">10000</span> (<span class="number">93</span>%)</span><br><span class="line"></span><br><span class="line">Train Epoch: <span class="number">4</span> [<span class="number">0</span>/<span class="number">60000</span> (<span class="number">0</span>%)] Loss: <span class="number">0.197864</span></span><br><span class="line">Train Epoch: <span class="number">4</span> [<span class="number">6400</span>/<span class="number">60000</span> (<span class="number">11</span>%)] Loss: <span class="number">0.334545</span></span><br><span class="line">Train Epoch: <span class="number">4</span> [<span class="number">12800</span>/<span class="number">60000</span> (<span class="number">21</span>%)]  Loss: <span class="number">0.171417</span></span><br><span class="line">Train Epoch: <span class="number">4</span> [<span class="number">19200</span>/<span class="number">60000</span> (<span class="number">32</span>%)]  Loss: <span class="number">0.261458</span></span><br><span class="line">Train Epoch: <span class="number">4</span> [<span class="number">25600</span>/<span class="number">60000</span> (<span class="number">43</span>%)]  Loss: <span class="number">0.129152</span></span><br><span class="line">Train Epoch: <span class="number">4</span> [<span class="number">32000</span>/<span class="number">60000</span> (<span class="number">53</span>%)]  Loss: <span class="number">0.129057</span></span><br><span class="line">Train Epoch: <span class="number">4</span> [<span class="number">38400</span>/<span class="number">60000</span> (<span class="number">64</span>%)]  Loss: <span class="number">0.203361</span></span><br><span class="line">Train Epoch: <span class="number">4</span> [<span class="number">44800</span>/<span class="number">60000</span> (<span class="number">75</span>%)]  Loss: <span class="number">0.304724</span></span><br><span class="line">Train Epoch: <span class="number">4</span> [<span class="number">51200</span>/<span class="number">60000</span> (<span class="number">85</span>%)]  Loss: <span class="number">0.136878</span></span><br><span class="line">Train Epoch: <span class="number">4</span> [<span class="number">57600</span>/<span class="number">60000</span> (<span class="number">96</span>%)]  Loss: <span class="number">0.171525</span></span><br><span class="line"></span><br><span class="line">Test set: Average loss: <span class="number">0.1808</span>, Accuracy: <span class="number">9482</span>/<span class="number">10000</span> (<span class="number">95</span>%)</span><br><span class="line"></span><br><span class="line">Train Epoch: <span class="number">5</span> [<span class="number">0</span>/<span class="number">60000</span> (<span class="number">0</span>%)] Loss: <span class="number">0.199721</span></span><br><span class="line">Train Epoch: <span class="number">5</span> [<span class="number">6400</span>/<span class="number">60000</span> (<span class="number">11</span>%)] Loss: <span class="number">0.246554</span></span><br><span class="line">Train Epoch: <span class="number">5</span> [<span class="number">12800</span>/<span class="number">60000</span> (<span class="number">21</span>%)]  Loss: <span class="number">0.217517</span></span><br><span class="line">Train Epoch: <span class="number">5</span> [<span class="number">19200</span>/<span class="number">60000</span> (<span class="number">32</span>%)]  Loss: <span class="number">0.255912</span></span><br><span class="line">Train Epoch: <span class="number">5</span> [<span class="number">25600</span>/<span class="number">60000</span> (<span class="number">43</span>%)]  Loss: <span class="number">0.182075</span></span><br><span class="line">Train Epoch: <span class="number">5</span> [<span class="number">32000</span>/<span class="number">60000</span> (<span class="number">53</span>%)]  Loss: <span class="number">0.296272</span></span><br><span class="line">Train Epoch: <span class="number">5</span> [<span class="number">38400</span>/<span class="number">60000</span> (<span class="number">64</span>%)]  Loss: <span class="number">0.283726</span></span><br><span class="line">Train Epoch: <span class="number">5</span> [<span class="number">44800</span>/<span class="number">60000</span> (<span class="number">75</span>%)]  Loss: <span class="number">0.239351</span></span><br><span class="line">Train Epoch: <span class="number">5</span> [<span class="number">51200</span>/<span class="number">60000</span> (<span class="number">85</span>%)]  Loss: <span class="number">0.293096</span></span><br><span class="line">Train Epoch: <span class="number">5</span> [<span class="number">57600</span>/<span class="number">60000</span> (<span class="number">96</span>%)]  Loss: <span class="number">0.157650</span></span><br><span class="line"></span><br><span class="line">Test set: Average loss: <span class="number">0.1533</span>, Accuracy: <span class="number">9581</span>/<span class="number">10000</span> (<span class="number">96</span>%)</span><br></pre></td></tr></table></figure>
+
+        </div>
+        <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+        <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://hgko1207.github.io/2020/08/13/ai-dev-8/" data-id="clkcobcwk005tr4cxacyxhxjj" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Hyeong Gyun Ko"
+        },
+        "headline": "TensorFlow 2.0과 PyTorch 비교",
+        "image": "http://hgko1207.github.io/images/thumbnail/tensorflow-pytorch.png",
+        "keywords": "AI DeepLearning Tensorflow PyTorch",
+        "genre": "Programming AI",
+        "datePublished": "2020-08-13",
+        "dateCreated": "2020-08-13",
+        "dateModified": "2023-03-14",
+        "url": "http://hgko1207.github.io/2020/08/13/ai-dev-8/",
+        "description": " TensorFlow 2.0
+123import tensorflow as tffrom tensorflow.keras import layersfrom tensorflow.keras import datasets
+ Hyperparameter
+1234567batch_size = 64learning_rate = 0.001dropout_rate = 0.7input_sh",
+        "wordCount": 2308
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                            <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>follow:</p>
+    <ul class="social-links">
+       
+      <li>
+        <a
+          class="social-tooltip"
+          title="github"
+          href="https://github.com/hgko1207"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-github"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="facebook"
+          href="https://www.facebook.com/profile.php?id=100003526102847"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-facebook"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="rss"
+          href="/"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-rss"></i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+   
+<nav id="article-nav">
+    
+        <a href="/2020/08/21/web-design-1/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            [Web Design] Canvas
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2020/08/13/ai-pytorch-5/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">[PyTorch] Evaluating 및 Predicting</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+ 
+  <div class="widgets-container">
+      
+  
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/07/21/angular-13/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/angular.png)" alt="[Angular] DI 수명(lifetime)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a></p>
+                            <p class="item-title"><a href="/2023/07/21/angular-13/" class="title">[Angular] DI 수명(lifetime)</a></p>
+                            <p class="item-date"><time datetime="2023-07-21T12:07:55.000Z" itemprop="datePublished">2023-07-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/07/18/angular-12/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/angular.png)" alt="[Angular] OpenLayers로 지도 생성" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a></p>
+                            <p class="item-title"><a href="/2023/07/18/angular-12/" class="title">[Angular] OpenLayers로 지도 생성</a></p>
+                            <p class="item-date"><time datetime="2023-07-18T05:05:29.000Z" itemprop="datePublished">2023-07-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/07/18/csharp-1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/csharp.png)" alt="[C#] FileSystemWatcher 파일 감시 모니터링" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2023/07/18/csharp-1/" class="title">[C#] FileSystemWatcher 파일 감시 모니터링</a></p>
+                            <p class="item-date"><time datetime="2023-07-18T04:49:39.000Z" itemprop="datePublished">2023-07-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/07/11/angular-11/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/angular.png)" alt="[Angular] cross-fetch 사용 방법" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a></p>
+                            <p class="item-title"><a href="/2023/07/11/angular-11/" class="title">[Angular] cross-fetch 사용 방법</a></p>
+                            <p class="item-date"><time datetime="2023-07-11T02:48:34.000Z" itemprop="datePublished">2023-07-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/07/11/angular-10/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/angular.png)" alt="[Angular] HttpClient 사용 방법" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a></p>
+                            <p class="item-title"><a href="/2023/07/11/angular-10/" class="title">[Angular] HttpClient 사용 방법</a></p>
+                            <p class="item-date"><time datetime="2023-07-11T02:13:24.000Z" itemprop="datePublished">2023-07-11</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">29</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">226</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">28</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">28</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">63</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">11</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">54</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">7</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li></ul></li></ul>
+        </div>
+    </div>
+
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a><span class="archive-list-count">25</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">19</span></li></ul>
+        </div>
+    </div>
+
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+  <div class="widget-wrap widget-float">
+
+    <h3 class="widget-title">Sponsored</h3>
+    <div class="widget">
+        <a href="https://marcofranssen.nl?adsense_widget" target="_blank" rel="noopener">This widget is sponsored by, Marco Franssen, main contributor to this theme.</a>
+    </div>
+
+</div>
+  
+  </div>
+  <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+
+  <!-- hits 방문자수 -->
+  <a href="https://hits.seeyoufarm.com" target="_blank" rel="noopener">
+    <style>
+      .hits {
+        width: auto;
+        height: auto;
+        max-width: 99px;
+        max-height: 20px;
+      }
+    </style>
+    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhgko1207.github.io&count_bg=%23E6ADD5&title_bg=%23BF98D2&icon=&icon_color=%23E7E7E7&title=%EB%B0%A9%EB%AC%B8%EC%9E%90%EC%88%98&edge_flat=false"/>
+  </a>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2023 Hyeong Gyun Ko</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://hgko1207.github.io/2020/08/13/ai-dev-8/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

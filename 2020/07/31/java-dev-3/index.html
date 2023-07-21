@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>[JAVA] OpenWeather API | 규니의 블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Java,자바,Weather,API,날씨" />
+    
+    <meta name="description" content="OpenWeather API  200,000 개가 넘는 도시를 포함하여 지구상의 모든 위치에 대한 현재 날씨 데이터에 액세스 할 수 있습니다. 현재 날씨는 글로벌 모델과 4 만 개가 넘는 기상 관측소의 데이터를 기반으로 자주 업데이트됩니다. 데이터는 JSON, XML 또는 HTML 형식으로 제공됩니다. 출처 : OpenWeather  OpenWeather">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[JAVA] OpenWeather API">
+<meta property="og:url" content="http://hgko1207.github.io/2020/07/31/java-dev-3/index.html">
+<meta property="og:site_name" content="규니의 블로그">
+<meta property="og:description" content="OpenWeather API  200,000 개가 넘는 도시를 포함하여 지구상의 모든 위치에 대한 현재 날씨 데이터에 액세스 할 수 있습니다. 현재 날씨는 글로벌 모델과 4 만 개가 넘는 기상 관측소의 데이터를 기반으로 자주 업데이트됩니다. 데이터는 JSON, XML 또는 HTML 형식으로 제공됩니다. 출처 : OpenWeather  OpenWeather">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/java.png">
+<meta property="article:published_time" content="2020-07-31T05:12:22.000Z">
+<meta property="article:modified_time" content="2023-07-17T13:01:13.076Z">
+<meta property="article:author" content="Hyeong Gyun Ko">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="자바">
+<meta property="article:tag" content="Weather">
+<meta property="article:tag" content="API">
+<meta property="article:tag" content="날씨">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/java.png">
+    
+
+    
+        <link rel="alternate" href="/" title="규니의 블로그" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-166318275-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+
+    <!-- <script
+  data-ad-client="ca-pub-7581566810202853"
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+></script>
+ -->
+
+    <!-- 구글 애드센스 -->
+    <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">hgko&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/">IT</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/BlockChain/">BlockChain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Information/">Information</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Satellite/">Satellite</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Backend/">Backend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DB/">DB</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Frontend/">Frontend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Language/">Language</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Mobile/">Mobile</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about">About</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/profile">Profile</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Language/Java/">Java</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+                            <!-- 상단 광고 -->
+<ins
+  class="adsbygoogle"
+  style="display: block"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="1131844921"
+  data-ad-format="auto"
+  data-full-width-responsive="true"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                            <article id="post-java-dev-3" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [JAVA] OpenWeather API
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2020/07/31/java-dev-3/" class="article-date">
+         <time datetime="2020-07-31T05:12:22.000Z" itemprop="datePublished">2020-07-31</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/API/" rel="tag">API</a>, <a class="tag-link" href="/tags/Java/" rel="tag">Java</a>, <a class="tag-link" href="/tags/Weather/" rel="tag">Weather</a>, <a class="tag-link" href="/tags/%EB%82%A0%EC%94%A8/" rel="tag">날씨</a>, <a class="tag-link" href="/tags/%EC%9E%90%EB%B0%94/" rel="tag">자바</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h1 id="openweather-api"><a class="markdownIt-Anchor" href="#openweather-api"></a> OpenWeather API</h1>
+<blockquote>
+<p>200,000 개가 넘는 도시를 포함하여 지구상의 모든 위치에 대한 현재 날씨 데이터에 액세스 할 수 있습니다. 현재 날씨는 글로벌 모델과 4 만 개가 넘는 기상 관측소의 데이터를 기반으로 자주 업데이트됩니다. 데이터는 JSON, XML 또는 HTML 형식으로 제공됩니다.<br />
+출처 : OpenWeather</p>
+</blockquote>
+<p>OpenWeather API를 사용하여 현재 날씨 데이터를 조회하였다.</p>
+<h2 id="현재-날씨-데이터-조회"><a class="markdownIt-Anchor" href="#현재-날씨-데이터-조회"></a> 현재 날씨 데이터 조회</h2>
+<ul>
+<li><a href="https://openweathermap.org/" target="_blank" rel="noopener">OpenWeather</a> 사이트에 접속해서 API Key를 발급받는다.</li>
+<li>메인에서 <a href="https://openweathermap.org/current" target="_blank" rel="noopener">Current Weather Data</a>를 선택받는다.</li>
+<li>조회 조건 및 결과 정보와 다른 기능들에 대해 잘 설명되어 있다.</li>
+<li>우리나라 전체에 대한 날씨 데이터를 조회할 것이기 때문에 조회 조건은 다음과 같다.</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://api.openweathermap.org/data/2.5/weather?q=Koesan&amp;appid=&#123;발급받은 API Key&#125;&amp;lang=kr&amp;units=metric</span><br></pre></td></tr></table></figure>
+<h3 id="결과-데이터json-형식"><a class="markdownIt-Anchor" href="#결과-데이터json-형식"></a> 결과 데이터(JSON 형식)</h3>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"coord"</span>: &#123;</span><br><span class="line">    <span class="attr">"lon"</span>: <span class="number">127.79</span>,</span><br><span class="line">    <span class="attr">"lat"</span>: <span class="number">36.81</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"weather"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"id"</span>: <span class="number">803</span>,</span><br><span class="line">      <span class="attr">"main"</span>: <span class="string">"Clouds"</span>,</span><br><span class="line">      <span class="attr">"description"</span>: <span class="string">"튼구름"</span>,</span><br><span class="line">      <span class="attr">"icon"</span>: <span class="string">"04d"</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"base"</span>: <span class="string">"stations"</span>,</span><br><span class="line">  <span class="attr">"main"</span>: &#123;</span><br><span class="line">    <span class="attr">"temp"</span>: <span class="number">28</span>,</span><br><span class="line">    <span class="attr">"feels_like"</span>: <span class="number">32.65</span>,</span><br><span class="line">    <span class="attr">"temp_min"</span>: <span class="number">28</span>,</span><br><span class="line">    <span class="attr">"temp_max"</span>: <span class="number">28</span>,</span><br><span class="line">    <span class="attr">"pressure"</span>: <span class="number">1014</span>,</span><br><span class="line">    <span class="attr">"humidity"</span>: <span class="number">78</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"visibility"</span>: <span class="number">10000</span>,</span><br><span class="line">  <span class="attr">"wind"</span>: &#123;</span><br><span class="line">    <span class="attr">"speed"</span>: <span class="number">1.5</span>,</span><br><span class="line">    <span class="attr">"deg"</span>: <span class="number">270</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"clouds"</span>: &#123;</span><br><span class="line">    <span class="attr">"all"</span>: <span class="number">75</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"dt"</span>: <span class="number">1596171614</span>,</span><br><span class="line">  <span class="attr">"sys"</span>: &#123;</span><br><span class="line">    <span class="attr">"type"</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">"id"</span>: <span class="number">8131</span>,</span><br><span class="line">    <span class="attr">"country"</span>: <span class="string">"KR"</span>,</span><br><span class="line">    <span class="attr">"sunrise"</span>: <span class="number">1596141211</span>,</span><br><span class="line">    <span class="attr">"sunset"</span>: <span class="number">1596191806</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"timezone"</span>: <span class="number">32400</span>,</span><br><span class="line">  <span class="attr">"id"</span>: <span class="number">1842800</span>,</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"Koesan"</span>,</span><br><span class="line">  <span class="attr">"cod"</span>: <span class="number">200</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1-respone-domain-생성"><a class="markdownIt-Anchor" href="#1-respone-domain-생성"></a> 1) Respone Domain 생성</h3>
+<p>기본적으로 결과가 JSON 형식이므로 그에 맞게 도메인을 생성하였다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.annotation.JsonProperty;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * OpenWeath API - 현재 날씨 데이터</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> hgko</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OpenWeather</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> List&lt;Weather&gt; weather;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/** 내부 매개 변수 */</span></span><br><span class="line">  <span class="keyword">private</span> String base;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> Main main;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> Wind wind;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> Clouds clouds;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> Rain rain;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> Snow snow;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/** 가시성 */</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> visibility;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/** 데이터 계산 시간, 유닉스, UTC */</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">long</span> dt;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/** UTC에서 초 단위로 이동 */</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> timezone;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/** 도시 ID */</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">long</span> id;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/** 도시 이름 */</span></span><br><span class="line">  <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/** 내부 매개 변수 */</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> cod;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Data</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Weather</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 기상 조건 ID */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 날씨 매개 변수 그룹 (비, 눈, 극한 등) */</span></span><br><span class="line">    <span class="keyword">private</span> String main;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 그룹 내 날씨 조건 */</span></span><br><span class="line">    <span class="keyword">private</span> String description;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 날씨 아이콘 ID */</span></span><br><span class="line">    <span class="keyword">private</span> String icon;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Data</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 온도. 단위 기본값 : 켈빈, 미터법 : 섭씨, 임페리얼 : 화씨 */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> temp;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 온도. 단위 기본값 : 켈빈, 미터법 : 섭씨, 임페리얼 : 화씨 */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> feels_like;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 현재 최저 온도.(대규모 대도시 및 도시 지역 내) */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> temp_min;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 현재 최대 온도.(대규모 대도시 및 도시 지역 내)*/</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> temp_max;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 대기압 (해수면, 해수면 또는 grnd_level 데이터가 없는 경우), hPa */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> pressure;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 습도, % */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> humidity;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 해수면의 대기압, hPa */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> sea_level;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 지면에서의 대기압, hPa */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> grnd_level;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Data</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Wind</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 바람의 속도. 단위 기본값 : meter/sec, 미터법 : meter/sec, 임페리얼 : miles/hour */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> speed;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 풍향,도 (기상) */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> deg;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**  바람 돌풍. 단위 기본값 : meter/sec, 미터법 : meter/sec, 임페리얼 : miles/hour */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> gust;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Data</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Clouds</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 흐림, % */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> all;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Data</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Rain</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 지난 1 시간 동안의 강우량, mm */</span></span><br><span class="line">    <span class="meta">@JsonProperty</span>(<span class="string">"1h"</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> rain1h;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 지난 3 시간 동안의 강우량, mm */</span></span><br><span class="line">    <span class="meta">@JsonProperty</span>(<span class="string">"3h"</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> rain3h;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Data</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Snow</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 지난 1 시간 동안의 눈량, mm */</span></span><br><span class="line">    <span class="meta">@JsonProperty</span>(<span class="string">"1h"</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> snow1h;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 지난 3 시간 동안의 눈량, mm */</span></span><br><span class="line">    <span class="meta">@JsonProperty</span>(<span class="string">"3h"</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> snow3h;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Data</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Sys</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> type;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 국가 코드 (GB, JP 등) */</span></span><br><span class="line">    <span class="keyword">private</span> String country;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 일출 시간, 유닉스, UTC */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">long</span> sunrise;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 일몰 시간, 유닉스, UTC */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">long</span> sunset;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-데이터-조회"><a class="markdownIt-Anchor" href="#2-데이터-조회"></a> 2) 데이터 조회</h3>
+<p>SpringFramework에서 지원하는 RestTemplate를 사용하여 조회하였다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> String BASE_URL = <span class="string">"http://api.openweathermap.org/data/2.5/weather"</span>;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> String apiKey = <span class="string">""</span>; <span class="comment">// 발급받은 API key</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getWeatherData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  StringBuilder urlBuilder = <span class="keyword">new</span> StringBuilder(BASE_URL);</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    urlBuilder.append(<span class="string">"?"</span> + URLEncoder.encode(<span class="string">"q"</span>, <span class="string">"UTF-8"</span>) + <span class="string">"=Koesan"</span>);</span><br><span class="line">    urlBuilder.append(<span class="string">"&amp;"</span> + URLEncoder.encode(<span class="string">"appid"</span>, <span class="string">"UTF-8"</span>) + <span class="string">"="</span> + apiKey);</span><br><span class="line">    urlBuilder.append(<span class="string">"&amp;"</span> + URLEncoder.encode(<span class="string">"lang"</span>, <span class="string">"UTF-8"</span>) + <span class="string">"=kr"</span>);</span><br><span class="line">    urlBuilder.append(<span class="string">"&amp;"</span> + URLEncoder.encode(<span class="string">"units"</span>, <span class="string">"UTF-8"</span>) + <span class="string">"=metric"</span>);</span><br><span class="line"></span><br><span class="line">    RestTemplate restTemplate = <span class="keyword">new</span> RestTemplate();</span><br><span class="line">    OpenWeather response = restTemplate.getForObject(urlBuilder.toString(), OpenWeather<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line"></span><br><span class="line">    System.out.println(response);</span><br><span class="line">  &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-결과-확인"><a class="markdownIt-Anchor" href="#3-결과-확인"></a> 3) 결과 확인</h3>
+<p>정상적으로 결과가 출력되었는지 확인하고 정상이면 날씨 데이터들을 가공해서 사용하도록 한다.</p>
+<h2 id="추가-내용"><a class="markdownIt-Anchor" href="#추가-내용"></a> 추가 내용</h2>
+<h3 id="풍향-데이터-변환"><a class="markdownIt-Anchor" href="#풍향-데이터-변환"></a> 풍향 데이터 변환</h3>
+<p>날씨 API에서 풍향 데이터는 대부분이 degree(integer) 형식으로 되어 있기 때문에 방향을 나타내는 String 형식으로 나타낼 필요가 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"># Enum 정의</span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> WindType &#123;</span><br><span class="line">  N0(<span class="number">0</span>, <span class="string">"북"</span>),</span><br><span class="line">  NNE(<span class="number">1</span>, <span class="string">"북북동"</span>),</span><br><span class="line">  NE(<span class="number">2</span>, <span class="string">"북동"</span>),</span><br><span class="line">  ENE(<span class="number">3</span>, <span class="string">"동북동"</span>),</span><br><span class="line">  E(<span class="number">4</span>, <span class="string">"동"</span>),</span><br><span class="line">  ESE(<span class="number">5</span>, <span class="string">"동남동"</span>),</span><br><span class="line">  SE(<span class="number">6</span>, <span class="string">"남동"</span>),</span><br><span class="line">  SSE(<span class="number">7</span>, <span class="string">"남남동"</span>),</span><br><span class="line">  S(<span class="number">8</span>, <span class="string">"남"</span>),</span><br><span class="line">  SSW(<span class="number">9</span>, <span class="string">"남남서"</span>),</span><br><span class="line">  SW(<span class="number">10</span>, <span class="string">"남서"</span>),</span><br><span class="line">  WSW(<span class="number">11</span>, <span class="string">"서남서"</span>),</span><br><span class="line">  W(<span class="number">12</span>, <span class="string">"서"</span>),</span><br><span class="line">  WNW(<span class="number">13</span>, <span class="string">"서북서"</span>),</span><br><span class="line">  NW(<span class="number">14</span>, <span class="string">"북서"</span>),</span><br><span class="line">  NNW(<span class="number">15</span>, <span class="string">"북북서"</span>),</span><br><span class="line">  N16(<span class="number">16</span>, <span class="string">"북"</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> code;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="title">WindType</span><span class="params">(<span class="keyword">int</span> code, String name)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.code = code;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> WindType <span class="title">value</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (WindType type : WindType.values()) &#123;</span><br><span class="line">      <span class="keyword">if</span> (type.getCode() == value) &#123;</span><br><span class="line">        <span class="keyword">return</span> type;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Enum 을 사용하여 편리하게 변환한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> String <span class="title">getWindDirection</span><span class="params">(<span class="keyword">int</span> degree)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> result = (<span class="keyword">int</span>)((degree + <span class="number">22.5</span> * <span class="number">0.5</span>) / <span class="number">22.5</span>);</span><br><span class="line">  WindType windType = WindType.value(result);</span><br><span class="line">  <span class="keyword">return</span> windType.getName();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">  String wd = getWindDirection(<span class="number">270</span>);</span><br><span class="line">  System.out.println(<span class="string">"풍향 : "</span> : wd);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="결과"><a class="markdownIt-Anchor" href="#결과"></a> 결과</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">풍향 : 서</span><br></pre></td></tr></table></figure>
+<h3 id="날씨-정보-변환"><a class="markdownIt-Anchor" href="#날씨-정보-변환"></a> 날씨 정보 변환</h3>
+<ul>
+<li>OpenWeatherMap API의 다국어에 한국어 지원을 위한 협업용 정보</li>
+<li><a href="https://gist.github.com/choipd/e73201a4653a5e56e830#file-openweathermap_api_translation_ko" target="_blank" rel="noopener">openweathermap_api_translation_ko</a></li>
+</ul>
+
+        </div>
+        <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+        <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://hgko1207.github.io/2020/07/31/java-dev-3/" data-id="clkcobcwb004ur4cxhlc78e0r" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Hyeong Gyun Ko"
+        },
+        "headline": "[JAVA] OpenWeather API",
+        "image": "http://hgko1207.github.io/images/thumbnail/java.png",
+        "keywords": "Java 자바 Weather API 날씨",
+        "genre": "Programming Language Java",
+        "datePublished": "2020-07-31",
+        "dateCreated": "2020-07-31",
+        "dateModified": "2023-07-17",
+        "url": "http://hgko1207.github.io/2020/07/31/java-dev-3/",
+        "description": " OpenWeather API
+
+200,000 개가 넘는 도시를 포함하여 지구상의 모든 위치에 대한 현재 날씨 데이터에 액세스 할 수 있습니다. 현재 날씨는 글로벌 모델과 4 만 개가 넘는 기상 관측소의 데이터를 기반으로 자주 업데이트됩니다. 데이터는 JSON, XML 또는 HTML 형식으로 제공됩니다.
+출처 : OpenWeather
+
+OpenWeather",
+        "wordCount": 2113
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                            <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>follow:</p>
+    <ul class="social-links">
+       
+      <li>
+        <a
+          class="social-tooltip"
+          title="github"
+          href="https://github.com/hgko1207"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-github"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="facebook"
+          href="https://www.facebook.com/profile.php?id=100003526102847"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-facebook"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="rss"
+          href="/"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-rss"></i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+   
+<nav id="article-nav">
+    
+        <a href="/2020/07/31/java-dev-4/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            [JAVA] 농업기상정보 서비스 API
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2020/07/31/css-dev-1/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">[CSS] 그라데이션 효과</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+ 
+  <div class="widgets-container">
+      
+  
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/07/21/angular-13/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/angular.png)" alt="[Angular] DI 수명(lifetime)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a></p>
+                            <p class="item-title"><a href="/2023/07/21/angular-13/" class="title">[Angular] DI 수명(lifetime)</a></p>
+                            <p class="item-date"><time datetime="2023-07-21T12:07:55.000Z" itemprop="datePublished">2023-07-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/07/18/angular-12/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/angular.png)" alt="[Angular] OpenLayers로 지도 생성" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a></p>
+                            <p class="item-title"><a href="/2023/07/18/angular-12/" class="title">[Angular] OpenLayers로 지도 생성</a></p>
+                            <p class="item-date"><time datetime="2023-07-18T05:05:29.000Z" itemprop="datePublished">2023-07-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/07/18/csharp-1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/csharp.png)" alt="[C#] FileSystemWatcher 파일 감시 모니터링" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2023/07/18/csharp-1/" class="title">[C#] FileSystemWatcher 파일 감시 모니터링</a></p>
+                            <p class="item-date"><time datetime="2023-07-18T04:49:39.000Z" itemprop="datePublished">2023-07-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/07/11/angular-11/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/angular.png)" alt="[Angular] cross-fetch 사용 방법" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a></p>
+                            <p class="item-title"><a href="/2023/07/11/angular-11/" class="title">[Angular] cross-fetch 사용 방법</a></p>
+                            <p class="item-date"><time datetime="2023-07-11T02:48:34.000Z" itemprop="datePublished">2023-07-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/07/11/angular-10/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/angular.png)" alt="[Angular] HttpClient 사용 방법" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a></p>
+                            <p class="item-title"><a href="/2023/07/11/angular-10/" class="title">[Angular] HttpClient 사용 방법</a></p>
+                            <p class="item-date"><time datetime="2023-07-11T02:13:24.000Z" itemprop="datePublished">2023-07-11</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">29</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">226</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">28</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">28</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">63</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">11</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">54</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">7</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li></ul></li></ul>
+        </div>
+    </div>
+
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a><span class="archive-list-count">25</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">19</span></li></ul>
+        </div>
+    </div>
+
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+  <div class="widget-wrap widget-float">
+
+    <h3 class="widget-title">Sponsored</h3>
+    <div class="widget">
+        <a href="https://marcofranssen.nl?adsense_widget" target="_blank" rel="noopener">This widget is sponsored by, Marco Franssen, main contributor to this theme.</a>
+    </div>
+
+</div>
+  
+  </div>
+  <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+
+  <!-- hits 방문자수 -->
+  <a href="https://hits.seeyoufarm.com" target="_blank" rel="noopener">
+    <style>
+      .hits {
+        width: auto;
+        height: auto;
+        max-width: 99px;
+        max-height: 20px;
+      }
+    </style>
+    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhgko1207.github.io&count_bg=%23E6ADD5&title_bg=%23BF98D2&icon=&icon_color=%23E7E7E7&title=%EB%B0%A9%EB%AC%B8%EC%9E%90%EC%88%98&edge_flat=false"/>
+  </a>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2023 Hyeong Gyun Ko</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://hgko1207.github.io/2020/07/31/java-dev-3/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
