@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="Chocolatey,설치,Flutter,플러터" />
     
-    <meta name="description" content="윈도우 환경에서 Chocolatey 를 이용해서 Flutter 를 설치하고 안드로이드 기기와 연결하는 방법에 대해 알아보겠습니다. 1. Chocolatey 설치 이전 글 Chocolatey 설치 를 참고해서 Chocolatey 를 먼저 설치를 합니다. 2. Flutter 설치 관리자 권한으로 PowerShell 을 열고 다음 명령어를 실행하여 설치를 합니다">
+    <meta name="description" content="윈도우 환경에서 Chocolatey 를 이용해서 Flutter 를 설치하고 안드로이드 기기와 연결하는 방법에 대해 알아보겠습니다. ¶1. Chocolatey 설치 이전 글 Chocolatey 설치 를 참고해서 Chocolatey 를 먼저 설치를 합니다. ¶2. Flutter 설치 관리자 권한으로 PowerShell 을 열고 다음 명령어를 실행하여 설치를 합">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Chocolatey를 이용한 Flutter 설치 방법">
 <meta property="og:url" content="http://hgko1207.github.io/2023/04/25/flutter-1/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="윈도우 환경에서 Chocolatey 를 이용해서 Flutter 를 설치하고 안드로이드 기기와 연결하는 방법에 대해 알아보겠습니다. 1. Chocolatey 설치 이전 글 Chocolatey 설치 를 참고해서 Chocolatey 를 먼저 설치를 합니다. 2. Flutter 설치 관리자 권한으로 PowerShell 을 열고 다음 명령어를 실행하여 설치를 합니다">
+<meta property="og:description" content="윈도우 환경에서 Chocolatey 를 이용해서 Flutter 를 설치하고 안드로이드 기기와 연결하는 방법에 대해 알아보겠습니다. ¶1. Chocolatey 설치 이전 글 Chocolatey 설치 를 참고해서 Chocolatey 를 먼저 설치를 합니다. ¶2. Flutter 설치 관리자 권한으로 PowerShell 을 열고 다음 명령어를 실행하여 설치를 합">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/flutter.png">
 <meta property="article:published_time" content="2023-04-25T01:58:13.000Z">
-<meta property="article:modified_time" content="2023-06-15T01:29:40.530Z">
+<meta property="article:modified_time" content="2023-07-21T13:15:18.120Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="Chocolatey">
 <meta property="article:tag" content="설치">
@@ -262,23 +262,23 @@ ga('send', 'pageview');
             
 
             <p>윈도우 환경에서 <strong>Chocolatey</strong> 를 이용해서 <strong>Flutter</strong> 를 설치하고 안드로이드 기기와 연결하는 방법에 대해 알아보겠습니다.</p>
-<h2 id="1-Chocolatey-설치">1. Chocolatey 설치</h2>
+<h2 id="1-Chocolatey-설치"><a class="header-anchor" href="#1-Chocolatey-설치">¶</a>1. Chocolatey 설치</h2>
 <p>이전 글 <strong><a href="https://hgko1207.github.io/2021/07/21/chocolatey/">Chocolatey 설치</a></strong> 를 참고해서 Chocolatey 를 먼저 설치를 합니다.</p>
-<h2 id="2-Flutter-설치">2. Flutter 설치</h2>
+<h2 id="2-Flutter-설치"><a class="header-anchor" href="#2-Flutter-설치">¶</a>2. Flutter 설치</h2>
 <p>관리자 권한으로 PowerShell 을 열고 다음 명령어를 실행하여 설치를 합니다.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">choco install flutter</span><br></pre></td></tr></table></figure>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">choco</span> <span class="string">install flutter</span></span><br></pre></td></tr></table></figure>
 <p>설치가 완료되면 <code>flutter</code> 명령어를 실행하였을 때 다음과 같이 메시지가 나옵니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">C:\Windows\system32&gt; flutter</span><br><span class="line">Common commands:</span><br><span class="line"></span><br><span class="line">  flutter create &lt;output directory&gt;</span><br><span class="line">    Create a new Flutter project in the specified directory.</span><br><span class="line"></span><br><span class="line">  flutter run [options]</span><br><span class="line">    Run your Flutter application on an attached device or in an emulator.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">Run "flutter help &lt;command&gt;" for more information about a command.</span><br><span class="line">Run "flutter help -v" for verbose help output, including less commonly used options.</span><br></pre></td></tr></table></figure>
-<h2 id="3-안드로이드-연결">3. 안드로이드 연결</h2>
+<h2 id="3-안드로이드-연결"><a class="header-anchor" href="#3-안드로이드-연결">¶</a>3. 안드로이드 연결</h2>
 <p>안드로이드 앱을 개발하려고 한다면 <a href="https://docs.flutter.dev/get-started/install/windows#android-setup" target="_blank" rel="noopener">Android setup</a> 사이트에 접속해서 가이드대로 Android 에뮬레이터를 설치하고 연결하면 됩니다.</p>
 <p>설치 방법은 아래 기술하였습니다.</p>
-<h3 id="1-Android-Studio-설치">1) Android Studio 설치</h3>
+<h3 id="1-Android-Studio-설치"><a class="header-anchor" href="#1-Android-Studio-설치">¶</a>1) Android Studio 설치</h3>
 <p><a href="https://developer.android.com/studio" target="_blank" rel="noopener">https://developer.android.com/studio</a> 사이트에 접속해서 Android Studio 를 다운로드 합니다. 다운로드가 완료되면 설치를 진행합니다.</p>
-<h3 id="2-Android-SDK-빌드-도구-설치">2) Android SDK 빌드 도구 설치</h3>
+<h3 id="2-Android-SDK-빌드-도구-설치"><a class="header-anchor" href="#2-Android-SDK-빌드-도구-설치">¶</a>2) Android SDK 빌드 도구 설치</h3>
 <p>Android Studio 를 시작하고 <strong>‘Android Studio Setup Wizard’</strong> 를 진행합니다. 이렇게 하면 Android 용으로 개발할 때 Flutter 에 필요한 최신 <strong>Android SDK, Android SDK Command-line Tools</strong> 및 <strong>Android SDK Build-Tools</strong> 가 설치됩니다.</p>
 <p>PowerShell 에서 <code>flutter doctor</code> 명령어를 실행해서 Flutter 가 설치된 Android Studio 를 찾았는지 확인합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">C:\WINDOWS\system32&gt; flutter doctor</span><br><span class="line">Doctor summary (to see all details, run flutter doctor -v):</span><br><span class="line">[√] Flutter (Channel master, 3.10.0-4.0.pre, on Microsoft Windows [Version 10.0.22621.1555], locale ko-KR)</span><br><span class="line">[√] Windows Version (Installed version of Windows is version 10 or higher)</span><br><span class="line">[!] Android toolchain - develop for Android devices (Android SDK version 33.0.2)</span><br><span class="line">    X cmdline-tools component is missing</span><br><span class="line">      Run `path/to/sdkmanager --install "cmdline-tools;latest"`</span><br><span class="line">      See https://developer.android.com/studio/command-line for more details.</span><br><span class="line">    X Android license status unknown.</span><br><span class="line">      Run `flutter doctor --android-licenses` to accept the SDK licenses.</span><br><span class="line">      See https://flutter.dev/docs/get-started/install/windows#android-setup for more details.</span><br><span class="line">[√] Chrome - develop for the web</span><br><span class="line">[√] Visual Studio - develop for Windows (Visual Studio Professional 2019 16.11.25)</span><br><span class="line">[√] Android Studio (version 2022.2)</span><br><span class="line">[√] VS Code (version 1.77.1)</span><br><span class="line">[√] Connected device (3 available)</span><br><span class="line">[√] Network resources</span><br></pre></td></tr></table></figure>
-<h3 id="3-Android-에뮬레이터-설정">3) Android 에뮬레이터 설정</h3>
+<h3 id="3-Android-에뮬레이터-설정"><a class="header-anchor" href="#3-Android-에뮬레이터-설정">¶</a>3) Android 에뮬레이터 설정</h3>
 <p>Android 에뮬레이터에서 Flutter 앱을 실행하고 테스트할 준비를 하려면 다음 단계를 진행합니다.</p>
 <ol>
 <li>Machine 에서 <a href="https://developer.android.com/studio/run/emulator-acceleration?hl=ko#accel-vm" target="_blank" rel="noopener">VM acceleration</a> 를 활성화합니다.</li>
@@ -295,14 +295,14 @@ ga('send', 'pageview');
 <li>Android Virtual Device Manager 의 도구 모음에서 실행(▶)을 클릭합니다. 에뮬레이터가 시작되고 선택한 OS 버전 및 장치에 대한 기본 캔버스를 표시합니다.</li>
 </ol>
 <img width="100%" src="/images/flutter/flutter_1.png" alt="">
-<h3 id="4-Android-라이선스에-동의">4) Android 라이선스에 동의</h3>
+<h3 id="4-Android-라이선스에-동의"><a class="header-anchor" href="#4-Android-라이선스에-동의">¶</a>4) Android 라이선스에 동의</h3>
 <p>Flutter 를 사용하려면 먼저 Android SDK 플랫폼의 라이선스에 동의해야 합니다. 이 단계는 위에 나열된 도구를 설치한 후에 수행해야 합니다.</p>
 <ul>
 <li>자바 8 버전 이상이 설치되어 있고 JDK 의 폴더가 환경 변수 설정되어 있는지 확인합니다.</li>
 </ul>
 <p>PowerShell 또는 명령 프롬프트에서 다음 명령어를 실행하여 라이언스 서명을 시작합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter doctor --android-licenses</span><br></pre></td></tr></table></figure>
-<h4 id="에러-발생-해결-방법">에러 발생 해결 방법</h4>
+<h4 id="에러-발생-해결-방법"><a class="header-anchor" href="#에러-발생-해결-방법">¶</a>에러 발생 해결 방법</h4>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">C:\WINDOWS\system32&gt; flutter doctor --android-licenses</span><br><span class="line">Android sdkmanager not found. Update to the latest Android SDK and ensure that the cmdline-tools are installed to</span><br><span class="line">resolve this.</span><br></pre></td></tr></table></figure>
 <p>만약 cmdline-tools 가 없으므로 설치하라는 빨간 메시지가 출력된다면 다음의 절차를 진행합니다.</p>
 <ol>
@@ -313,16 +313,16 @@ ga('send', 'pageview');
 <li><strong>All SDK package licenses accepted</strong> 메시지가 출력 되면 라이센스 동의가 끝났습니다.</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">C:\WINDOWS\system32&gt; flutter doctor --android-licenses</span><br><span class="line">...</span><br><span class="line">Accept? (y/N): y</span><br><span class="line">All SDK package licenses accepted</span><br></pre></td></tr></table></figure>
-<h3 id="5-확인">5) 확인</h3>
+<h3 id="5-확인"><a class="header-anchor" href="#5-확인">¶</a>5) 확인</h3>
 <p>라이선스 동의가 완료되면 <code>flutter doctor</code> 명령어를 다시 입력하여 Flutter 를 사용할 준비가 되었는지 확인합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">C:\WINDOWS\system32&gt; flutter doctor</span><br><span class="line">Doctor summary (to see all details, run flutter doctor -v):</span><br><span class="line">[√] Flutter (Channel master, 3.10.0-4.0.pre, on Microsoft Windows [Version 10.0.22621.1555], locale ko-KR)</span><br><span class="line">[√] Windows Version (Installed version of Windows is version 10 or higher)</span><br><span class="line">[√] Android toolchain - develop for Android devices (Android SDK version 33.0.2)</span><br><span class="line">[√] Chrome - develop for the web</span><br><span class="line">[√] Visual Studio - develop for Windows (Visual Studio Professional 2019 16.11.25)</span><br><span class="line">[√] Android Studio (version 2022.2)</span><br><span class="line">[√] VS Code (version 1.77.1)</span><br><span class="line">[√] Connected device (4 available)</span><br><span class="line">[√] Network resources</span><br></pre></td></tr></table></figure>
-<h4 id="에러-발생-해결-방법-2">에러 발생 해결 방법</h4>
+<h4 id="에러-발생-해결-방법-v2"><a class="header-anchor" href="#에러-발생-해결-방법-v2">¶</a>에러 발생 해결 방법</h4>
 <p><code>flutter doctor</code> 명령어를 실행하였을 때 Windows 10 SDK 이 없다고 하는 메시지가 출력될 경우 해결 방법입니다.</p>
 <ol>
 <li><a href="https://visualstudio.microsoft.com/ko/downloads/" target="_blank" rel="noopener">https://visualstudio.microsoft.com/ko/downloads/</a> 사이트에서 Visual Studio 2022 버전의 <strong>무료 다운로드</strong>를 클릭하여 다운로드하고 설치해줍니다.</li>
 <li>Visual Studio Installer 창이 열리면 데스크톱 및 모바일에서 <strong>C++를 이용한 데스크톱 개발</strong>을 선택 후 설치합니다.</li>
 </ol>
-<h2 id="결론">결론</h2>
+<h2 id="결론"><a class="header-anchor" href="#결론">¶</a>결론</h2>
 <p>Chocolatey 를 사용해서 Flutter 를 설치하면 zip 파일을 다운받고, 열어서 설치하고, path 설정하고, 여러가지 설정하는 것보다 훨씬 쉬운 방법입니다.</p>
 
         </div>
@@ -433,14 +433,14 @@ ga('send', 'pageview');
         "genre": "Programming Frontend Flutter",
         "datePublished": "2023-04-25",
         "dateCreated": "2023-04-25",
-        "dateModified": "2023-06-15",
+        "dateModified": "2023-07-21",
         "url": "http://hgko1207.github.io/2023/04/25/flutter-1/",
         "description": "윈도우 환경에서 Chocolatey 를 이용해서 Flutter 를 설치하고 안드로이드 기기와 연결하는 방법에 대해 알아보겠습니다.
-1. Chocolatey 설치
+¶1. Chocolatey 설치
 이전 글 Chocolatey 설치 를 참고해서 Chocolatey 를 먼저 설치를 합니다.
-2. Flutter 설치
-관리자 권한으로 PowerShell 을 열고 다음 명령어를 실행하여 설치를 합니다",
-        "wordCount": 930
+¶2. Flutter 설치
+관리자 권한으로 PowerShell 을 열고 다음 명령어를 실행하여 설치를 합",
+        "wordCount": 954
     }
 </script>
 
