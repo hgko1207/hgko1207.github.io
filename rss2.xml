@@ -9,8 +9,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Information related to IT</description>
-    <pubDate>Fri, 01 Sep 2023 02:40:22 GMT</pubDate>
+    <pubDate>Sat, 02 Sep 2023 05:31:55 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Angular 패키지 생성 및 NPM에 게시</title>
+      <link>http://hgko1207.github.io/2023/09/02/angular-20/</link>
+      <guid>http://hgko1207.github.io/2023/09/02/angular-20/</guid>
+      <pubDate>Sat, 02 Sep 2023 05:13:46 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;Angular 패키지를 만드는 것은 여러 프로젝트에서 코드를 재사용하는 효율적인 방법이므로 시간과 노력을 절약할 수 있습니다. 이 기사에서는 Angular 패키지를 생성하고 이를 NPM 레지스트리에 게시하는 방법에 대해 설명합니다. 새 패키지를 
+        
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<p>Angular 패키지를 만드는 것은 여러 프로젝트에서 코드를 재사용하는 효율적인 방법이므로 시간과 노력을 절약할 수 있습니다. 이 기사에서는 Angular 패키지를 생성하고 이를 NPM 레지스트리에 게시하는 방법에 대해 설명합니다. 새 패키지를 만들고, 새 모듈을 만들고, 패키지에 코드를 추가하는 데 필요한 단계를 진행하겠습니다.</p><h2 id="1단계-프로젝트-설정"><a class="markdownIt-Anchor" href="#1단계-프로젝트-설정"></a> 1단계: 프로젝트 설정</h2><p>첫 번째 단계는 프로젝트를 설정하는 것입니다. Angular CLI를 사용하여 새 프로젝트를 생성하겠습니다. 터미널을 열고 다음 명령을 실행하십시오.</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ng new my-package --create-application=<span class="literal">false</span></span><br></pre></td></tr></table></figure><p>그러면 애플리케이션 없이 새로운 Angular 프로젝트가 생성됩니다. 이제 다음 명령을 사용하여 프로젝트 폴더로 이동할 수 있습니다.</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> my-package</span><br></pre></td></tr></table></figure><h2 id="2단계-새-모듈-만들기"><a class="markdownIt-Anchor" href="#2단계-새-모듈-만들기"></a> 2단계: 새 모듈 만들기</h2><p>다음 단계는 패키지에 대한 새 모듈을 만드는 것입니다. 다음 명령을 실행하여 새 모듈을 만듭니다.</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ng g module my-module</span><br></pre></td></tr></table></figure><p>그러면 프로젝트에 새 모듈이 생성됩니다. 이제 모듈에 코드를 추가할 수 있습니다.</p><h2 id="3단계-모듈에-코드-추가"><a class="markdownIt-Anchor" href="#3단계-모듈에-코드-추가"></a> 3단계: 모듈에 코드 추가</h2><p>이제 모듈에 코드를 추가할 수 있습니다. 다음 명령을 사용하여 새 구성 요소를 만듭니다.</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ng g component my-component</span><br></pre></td></tr></table></figure><p>그러면 모듈에 새 구성 요소가 생성됩니다. 이제 구성 요소에 코드를 추가할 수 있습니다.</p><h2 id="4단계-패키지-빌드build"><a class="markdownIt-Anchor" href="#4단계-패키지-빌드build"></a> 4단계: 패키지 빌드(Build)</h2><p>다음 단계는 패키지를 빌드하는 것입니다. 다음 명령을 실행하여 패키지를 빌드합니다.</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ng build my-package</span><br></pre></td></tr></table></figure><p>그러면 프로젝트 디렉터리에 <code>dist</code> 라는 새 폴더가 생성됩니다.</p><h2 id="5단계-패키지-게시publish"><a class="markdownIt-Anchor" href="#5단계-패키지-게시publish"></a> 5단계: 패키지 게시(Publish)</h2><p>마지막 단계는 NPM에 패키지를 게시하는 것입니다. NPM 계정이 없다면 무료로 만들 수 있습니다. 다음 명령을 실행하여 NPM 계정에 로그인하세요.</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm login</span><br></pre></td></tr></table></figure><p>NPM 사용자 이름, 비밀번호, 이메일 주소를 입력하세요. 로그인한 후 다음 명령을 실행하여 패키지를 게시합니다.</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm publish dist/my-package-0.0.1.tgz</span><br></pre></td></tr></table></figure><p>그러면 NPM 레지스트리에 패키지가 게시됩니다.</p><h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2><p>이 글에서는 Angular 패키지를 생성하고 이를 NPM 레지스트리에 게시하는 방법에 대해 설명했습니다. 새 패키지를 만들고, 새 모듈을 만들고, 패키지에 코드를 추가하는 데 필요한 단계를 거쳤습니다. NPM에 패키지를 게시한 후에는 여러 프로젝트에서 코드를 재사용하여 시간과 노력을 절약할 수 있습니다.</p>]]></content:encoded>
+      
+      <comments>http://hgko1207.github.io/2023/09/02/angular-20/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>사용자 정의 스크립트로 Angular 워크플로우(Workflow) 자동화</title>
