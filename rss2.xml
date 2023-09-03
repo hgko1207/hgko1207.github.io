@@ -9,8 +9,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Information related to IT</description>
-    <pubDate>Sat, 02 Sep 2023 05:31:55 GMT</pubDate>
+    <pubDate>Sun, 03 Sep 2023 13:48:54 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[HTTP] POST와 GET 차이점 및 사용 시기</title>
+      <link>http://hgko1207.github.io/2023/09/03/info-2/</link>
+      <guid>http://hgko1207.github.io/2023/09/03/info-2/</guid>
+      <pubDate>Sun, 03 Sep 2023 13:37:45 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;**HTTP(Hypertext Transfer Protocol)**는 인터넷을 통해 데이터를 전송하는 데 사용되는 프로토콜입니다. 다양한 HTTP 방법이 있지만 가장 일반적으로 사용되는 두 가지 방법은 HTTP POST와 HTTP GET입니다. 
+        
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<p>**HTTP(Hypertext Transfer Protocol)**는 인터넷을 통해 데이터를 전송하는 데 사용되는 프로토콜입니다. 다양한 HTTP 방법이 있지만 가장 일반적으로 사용되는 두 가지 방법은 HTTP POST와 HTTP GET입니다. 이러한 방법에는 서로 다른 목적이 있으므로 효과적인 웹 애플리케이션을 개발하려면 각 방법을 언제 사용해야 하는지 아는 것이 필수적입니다.</p><p>이 글에서는 HTTP POST와 HTTP GET의 차이점을 살펴보고 각 방법을 사용하는 경우의 예를 제공합니다. 또한 웹 애플리케이션에서 이러한 방법을 사용하는 몇 가지 모범 사례에 대해서도 알아보겠습니다.</p><h2 id="http-post와-get이란-무엇입니까"><a class="markdownIt-Anchor" href="#http-post와-get이란-무엇입니까"></a> HTTP POST와 GET이란 무엇입니까?</h2><p>HTTP POST 및 HTTP GET은 웹 서버에 데이터를 보내는 데 사용되는 두 가지 방법입니다. 두 방법의 주요 차이점은 데이터가 전송되는 방식입니다.</p><p>HTTP GET은 URL의 일부로 데이터를 보내는 반면, HTTP POST는 HTTP 요청 본문의 일부로 데이터를 보냅니다. 다음은 HTTP GET 요청의 예입니다.</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://example.com?param1=value1&amp;param2=value2</span><br></pre></td></tr></table></figure><p>다음은 HTTP POST 요청의 예입니다.</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">POST</span> <span class="string">/submit-form</span> HTTP/1.1</span><br><span class="line"><span class="attribute">Host</span>: example.com</span><br><span class="line"><span class="attribute">Content-Type</span>: application/x-www-form-urlencoded</span><br><span class="line"><span class="attribute">Content-Length</span>: 33</span><br><span class="line"></span><br><span class="line">param1=value1&amp;param2=value2&amp;param3=value3</span><br></pre></td></tr></table></figure><p>HTTP GET 요청에서 데이터는 URL의 일부로 전송됩니다. HTTP POST 요청에서 데이터는 요청 본문에 key-value 쌍 집합으로 전송됩니다.</p><h2 id="http-get을-사용하는-경우"><a class="markdownIt-Anchor" href="#http-get을-사용하는-경우"></a> HTTP GET을 사용하는 경우</h2><p>HTTP GET은 일반적으로 서버가 데이터 검색만 예상하고 서버에 데이터를 보낼 필요가 없을 때 사용됩니다. 요청된 데이터가 민감하지 않거나 비공개인 경우에도 유용합니다. 다음은 HTTP GET을 사용하는 경우에 대한 몇 가지 예입니다.</p><ul><li>서버에서 데이터 검색</li><li>데이터 필터링</li><li>데이터 페이지 매기기</li><li>데이터 검색 중</li><li>정적 리소스 가져오기(예: 이미지, CSS)</li></ul><h2 id="http-post를-사용하는-경우"><a class="markdownIt-Anchor" href="#http-post를-사용하는-경우"></a> HTTP POST를 사용하는 경우</h2><p>HTTP POST는 일반적으로 서버가 데이터를 생성, 업데이트 또는 삭제해야 할 때 사용됩니다. URL에 표시되어서는 안 되는 대량의 데이터나 민감한 정보를 보낼 때도 유용합니다. 다음은 HTTP POST를 사용하는 경우에 대한 몇 가지 예입니다.</p><ul><li>서버에 새 리소스 생성</li><li>서버의 기존 리소스 업데이트</li><li>서버에서 리소스 삭제</li><li>많은 양의 데이터가 포함된 양식 제출</li><li>파일 업로드</li></ul><h2 id="모범-사례"><a class="markdownIt-Anchor" href="#모범-사례"></a> 모범 사례</h2><p>HTTP GET 또는 HTTP POST를 사용할 때 웹 애플리케이션이 안전하고 효율적인지 확인하기 위해 몇 가지 모범 사례를 따르는 것이 중요합니다. 따라야 할 몇 가지 모범 사례는 다음과 같습니다.</p><ul><li>안전한 멱등성 작업을 위해 HTTP GET을 사용하세요.</li><li>서버의 데이터를 수정하는 안전하지 않은 작업에는 HTTP POST를 사용합니다.</li><li>HTTPS를 사용하여 인터넷을 통해 전송되는 데이터를 암호화합니다.</li><li>단일 요청으로 전송되는 데이터의 양을 제한합니다.</li><li>주입 공격을 방지하기 위해 모든 사용자 입력을 검증합니다.</li><li>SQL 삽입 공격을 방지하려면 매개변수화된 쿼리를 사용하세요.</li></ul><blockquote><p>멱등법칙 또는 멱등성은 수학이나 전산학에서 연산의 한 성질을 나타내는 것으로, 연산을 여러 번 적용하더라도 결과가 달라지지 않는 성질을 의미한다.<br /><a href="https://ko.wikipedia.org/wiki/%EB%A9%B1%EB%93%B1%EB%B2%95%EC%B9%99" target="_blank" rel="noopener">위키백과</a></p></blockquote><h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2><p>HTTP POST 및 HTTP GET은 웹 애플리케이션에서 사용되는 두 가지 중요한 HTTP 방법입니다. 안전하고 효율적인 웹 애플리케이션을 개발하려면 각 방법을 언제 사용해야 하는지 아는 것이 중요합니다. 모범 사례를 따르고 이러한 방법을 적절하게 사용하면 안정적이고 확장 가능하며 안전한 웹 애플리케이션을 만들 수 있습니다.</p>]]></content:encoded>
+      
+      <comments>http://hgko1207.github.io/2023/09/03/info-2/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Angular 패키지 생성 및 NPM에 게시</title>
