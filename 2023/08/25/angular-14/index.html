@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="Angular,성능 최적화,Performance" />
     
-    <meta name="description" content="Angular 는 개발자가 고성능 웹 애플리케이션을 구축하는 데 도움을 줄 수 있는 강력한 프론트 엔드 프레임워크입니다. 그러나 애플리케이션이 복잡해짐에 따라 원하는 수준의 성능을 유지하는 것이 더욱 어려워질 수 있습니다. 이 글에서는 Angular 성능을 최적화하는 몇 가지 기술을 살펴보겠습니다. ¶1. 지연 로딩 모듈(Lazy Loading Module">
+    <meta name="description" content="Angular는 개발자가 고성능 웹 애플리케이션을 구축하는 데 도움을 줄 수 있는 강력한 프론트 엔드 프레임워크입니다. 그러나 애플리케이션이 복잡해짐에 따라 원하는 수준의 성능을 유지하는 것이 더욱 어려워질 수 있습니다. 이 글에서는 Angular 성능을 최적화하는 몇 가지 기술을 살펴보겠습니다.  1. 지연 로딩 모듈(Lazy Loading Modules">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Angular] 성능 최적화(Performance optimization)">
 <meta property="og:url" content="http://hgko1207.github.io/2023/08/25/angular-14/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="Angular 는 개발자가 고성능 웹 애플리케이션을 구축하는 데 도움을 줄 수 있는 강력한 프론트 엔드 프레임워크입니다. 그러나 애플리케이션이 복잡해짐에 따라 원하는 수준의 성능을 유지하는 것이 더욱 어려워질 수 있습니다. 이 글에서는 Angular 성능을 최적화하는 몇 가지 기술을 살펴보겠습니다. ¶1. 지연 로딩 모듈(Lazy Loading Module">
+<meta property="og:description" content="Angular는 개발자가 고성능 웹 애플리케이션을 구축하는 데 도움을 줄 수 있는 강력한 프론트 엔드 프레임워크입니다. 그러나 애플리케이션이 복잡해짐에 따라 원하는 수준의 성능을 유지하는 것이 더욱 어려워질 수 있습니다. 이 글에서는 Angular 성능을 최적화하는 몇 가지 기술을 살펴보겠습니다.  1. 지연 로딩 모듈(Lazy Loading Modules">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/angular.png">
 <meta property="article:published_time" content="2023-08-25T05:31:23.000Z">
-<meta property="article:modified_time" content="2023-08-26T06:33:43.326Z">
+<meta property="article:modified_time" content="2023-09-06T14:38:26.546Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="Angular">
 <meta property="article:tag" content="성능 최적화">
@@ -260,33 +260,33 @@ ga('send', 'pageview');
 
             
 
-            <p><strong>Angular</strong> 는 개발자가 고성능 웹 애플리케이션을 구축하는 데 도움을 줄 수 있는 강력한 프론트 엔드 프레임워크입니다. 그러나 애플리케이션이 복잡해짐에 따라 원하는 수준의 성능을 유지하는 것이 더욱 어려워질 수 있습니다. 이 글에서는 Angular 성능을 최적화하는 몇 가지 기술을 살펴보겠습니다.</p>
-<h2 id="1-지연-로딩-모듈-Lazy-Loading-Modules"><a class="header-anchor" href="#1-지연-로딩-모듈-Lazy-Loading-Modules">¶</a>1. 지연 로딩 모듈(Lazy Loading Modules)</h2>
+            <p><strong>Angular</strong>는 개발자가 고성능 웹 애플리케이션을 구축하는 데 도움을 줄 수 있는 강력한 프론트 엔드 프레임워크입니다. 그러나 애플리케이션이 복잡해짐에 따라 원하는 수준의 성능을 유지하는 것이 더욱 어려워질 수 있습니다. 이 글에서는 Angular 성능을 최적화하는 몇 가지 기술을 살펴보겠습니다.</p>
+<h2 id="1-지연-로딩-모듈lazy-loading-modules"><a class="markdownIt-Anchor" href="#1-지연-로딩-모듈lazy-loading-modules"></a> 1. 지연 로딩 모듈(Lazy Loading Modules)</h2>
 <p>애플리케이션 성능이 저하되는 주요 이유 중 하나는 애플리케이션을 로드하는 데 걸리는 시간입니다. 이 문제를 해결하는 한 가지 방법은 지연 로딩을 사용하는 것입니다. 지연 로딩은 특정 경로에 필요한 모듈만 로드하는 기술입니다. 즉, 초기 로드 시간이 줄어들고 애플리케이션의 응답 속도가 빨라집니다.</p>
 <p>다음은 Angular 애플리케이션에서 지연 로딩을 구현하는 방법에 대한 예입니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> routes: Routes = [</span><br><span class="line">  &#123;</span><br><span class="line">    path: <span class="string">'admin'</span>,</span><br><span class="line">    loadChildren: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'./admin/admin.module'</span>).then(<span class="function">(<span class="params">m</span>) =&gt;</span> m.AdminModule),</span><br><span class="line">  &#125;,</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
 <p>이 예에서는 <code>admin</code> 경로에 액세스할 때 <code>AdminModule</code> 모듈을 지연 로딩합니다. 이 모듈은 필요할 때만 로드되므로 애플리케이션의 초기 로드 시간을 줄이는 데 도움이 됩니다.</p>
-<h2 id="2-변화-감지-전략-Change-Detection-Strategies"><a class="header-anchor" href="#2-변화-감지-전략-Change-Detection-Strategies">¶</a>2. 변화 감지 전략(Change Detection Strategies)</h2>
+<h2 id="2-변화-감지-전략change-detection-strategies"><a class="markdownIt-Anchor" href="#2-변화-감지-전략change-detection-strategies"></a> 2. 변화 감지 전략(Change Detection Strategies)</h2>
 <p>Angular는 변경 감지를 사용하여 데이터 변경 사항을 추적하고 그에 따라 뷰를 업데이트합니다. 기본적으로 Angular는 모든 변경 감지 주기에서 모든 구성 요소를 확인하는 <code>Default</code> 라는 전략을 사용합니다. 특히 구성 요소가 많은 대규모 애플리케이션의 경우 비용이 매우 많이 들 수 있습니다.</p>
 <p>이 문제를 해결하기 위해 Angular는 몇 가지 변경 감지 전략을 제공합니다. 가장 일반적으로 사용되는 전략은 <code>OnPush</code> 입니다. 이 전략을 사용하면 구성 요소의 입력 속성이 변경되거나 이벤트가 트리거될 때만 변경 감지가 실행됩니다. 이를 통해 불필요한 변경 감지 주기 수를 크게 줄일 수 있습니다.</p>
 <p>다음은 <code>OnPush</code> 변경 감지 전략을 사용하는 방법에 대한 예입니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">'app-my-component'</span>,</span><br><span class="line">  templateUrl: <span class="string">'./my-component.component.html'</span>,</span><br><span class="line">  changeDetection: ChangeDetectionStrategy.OnPush,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> MyComponentComponent <span class="keyword">implements</span> OnInit &#123;</span><br><span class="line">  <span class="meta">@Input</span>() myData: <span class="built_in">any</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line">  ngOnInit(): <span class="built_in">void</span> &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>이 예에서는 <code>MyComponentComponent</code> 에 대한 <code>OnPush</code> 변경 감지 전략을 사용하고 있습니다. 즉, 변경 감지는 <code>myData</code> 입력 속성이 변경되거나 이벤트가 트리거될 때만 실행됩니다.</p>
-<h2 id="3-변경-감지-최적화-Change-Detection-Optimization"><a class="header-anchor" href="#3-변경-감지-최적화-Change-Detection-Optimization">¶</a>3. 변경 감지 최적화(Change Detection Optimization)</h2>
+<h2 id="3-변경-감지-최적화change-detection-optimization"><a class="markdownIt-Anchor" href="#3-변경-감지-최적화change-detection-optimization"></a> 3. 변경 감지 최적화(Change Detection Optimization)</h2>
 <p><code>OnPush</code> 변경 감지 전략을 사용하더라도 불필요한 변경 감지 주기로 인해 성능 문제가 발생할 수 있습니다. 이 문제를 해결하기 위해 여러 가지 최적화 기술을 사용할 수 있습니다.</p>
-<h3 id="a-Immutable-Objects"><a class="header-anchor" href="#a-Immutable-Objects">¶</a>a. Immutable Objects</h3>
+<h3 id="a-immutable-objects"><a class="markdownIt-Anchor" href="#a-immutable-objects"></a> a. Immutable Objects</h3>
 <p>불변 객체(Immutable Objects)는 생성된 후에는 변경할 수 없는 객체입니다. 애플리케이션에서 불변 객체를 사용함으로써 불필요한 변경 감지 주기 수를 줄일 수 있습니다. 변경 감지는 기존 객체가 업데이트될 때가 아니라 새 객체가 생성될 때만 실행되어야 하기 때문입니다.</p>
 <p>다음은 Angular 애플리케이션에서 불변 객체를 사용하는 방법에 대한 예입니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">interface</span> User &#123;</span><br><span class="line">  readonly id: <span class="built_in">number</span>;</span><br><span class="line">  readonly name: <span class="built_in">string</span>;</span><br><span class="line">  readonly email: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>이 예에서는 <code>readonly</code> 키워드를 사용하여 <code>User</code> 인터페이스의 속성을 변경할 수 없게 만듭니다.</p>
-<h3 id="b-TrackBy-Function"><a class="header-anchor" href="#b-TrackBy-Function">¶</a>b. TrackBy Function</h3>
+<h3 id="b-trackby-function"><a class="markdownIt-Anchor" href="#b-trackby-function"></a> b. TrackBy Function</h3>
 <p><code>trackBy</code> 함수는 Angular에 내장된 최적화 기술입니다. 항목 목록의 변경 사항을 추적하는 방법을 Angular에 알려주는 데 사용됩니다. 기본적으로 Angular는 목록에 있는 각 항목의 ID를 비교하여 변경 사항을 추적합니다. 그러나 이는 특히 큰 목록의 경우 비용이 매우 많이 들 수 있습니다.</p>
 <p>다음은 Angular 애플리케이션에서 <code>trackBy</code> 함수를 사용하는 방법에 대한 예입니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">  &lt;li *ngFor=<span class="string">"let user of users; trackBy: trackByUserId"</span>&gt;</span><br><span class="line">    &#123;&#123; user.name &#125;&#125;</span><br><span class="line">  &lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">&lt;/u</span>l&gt;</span><br></pre></td></tr></table></figure>
 <p>이 예에서는 <code>trackBy</code> 함수를 사용하여 Angular 에 <code>id</code> 속성으로 <code>users</code> 목록의 변경 사항을 추적하도록 지시합니다. 이는 목록에 있는 항목의 <code>id</code> 속성이 변경될 때만 변경 감지가 실행되어야 함을 의미합니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">trackByUserId(index: <span class="built_in">number</span>, user: User): <span class="built_in">number</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> user.id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>이 예제에서는 인덱스와 사용자 개체를 가져와 사용자 개체의 <code>id</code> 속성을 반환하는 <code>trackByUserId</code> 함수를 구현합니다.</p>
-<h2 id="4-NgZone"><a class="header-anchor" href="#4-NgZone">¶</a>4. NgZone</h2>
+<h2 id="4-ngzone"><a class="markdownIt-Anchor" href="#4-ngzone"></a> 4. NgZone</h2>
 <p><strong>NgZone</strong> 은 Angular 영역 외부에서 코드를 실행하는 방법을 제공하는 Angular 에 내장된 서비스입니다. Angular 영역은 변경 감지 및 기타 Angular 관련 작업을 담당하는 실행 컨텍스트입니다. Angular 영역 외부에서 코드를 실행하면 애플리케이션 성능을 향상시킬 수 있습니다.</p>
 <p>다음은 Angular 애플리케이션에서 NgZone을 사용하는 방법에 대한 예입니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Component, NgZone &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">'app-my-component'</span>,</span><br><span class="line">  templateUrl: <span class="string">'./my-component.component.html'</span>,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> MyComponentComponent &#123;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"><span class="keyword">private</span> ngZone: NgZone</span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line">  runOutsideAngular(): <span class="built_in">void</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.ngZone.runOutsideAngular(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// Code to run outside of the Angular zone</span></span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -298,7 +298,7 @@ ga('send', 'pageview');
 <p>또한 API 호출 중에 발생할 수 있는 모든 오류를 콘솔에 기록하여 처리하고 있습니다.</p>
 <p>템플릿에서 이 구성 요소를 사용하려면 다음과 같이 할 수 있습니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;button (click)=<span class="string">"fetchData()"</span>&gt;Fetch Data&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;div *ngIf="data"&gt;</span></span><br><span class="line"><span class="regexp">  &lt;ul&gt;</span></span><br><span class="line"><span class="regexp">    &lt;li *ngFor="let item of data"&gt;</span></span><br><span class="line"><span class="regexp">      &#123;&#123; item.name &#125;&#125;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>li&gt;</span><br><span class="line">  &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="결론"><a class="header-anchor" href="#결론">¶</a>결론</h2>
+<h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2>
 <p>Angular 성능을 최적화하기 위한 몇 가지 기술을 살펴보았습니다. 지연 로딩, 변경 감지 전략, 변경 감지 최적화 기술 및 NgZone을 사용하여 애플리케이션 성능을 향상하고 더 나은 사용자 경험을 제공할 수 있습니다. 성능 최적화는 지속적인 프로세스라는 점을 명심하는 것이 중요하며 잠재적인 개선 영역이 있는지 애플리케이션을 지속적으로 평가해야 합니다.</p>
 
         </div>
@@ -409,11 +409,11 @@ ga('send', 'pageview');
         "genre": "Programming Frontend Angular",
         "datePublished": "2023-08-25",
         "dateCreated": "2023-08-25",
-        "dateModified": "2023-08-26",
+        "dateModified": "2023-09-06",
         "url": "http://hgko1207.github.io/2023/08/25/angular-14/",
-        "description": "Angular 는 개발자가 고성능 웹 애플리케이션을 구축하는 데 도움을 줄 수 있는 강력한 프론트 엔드 프레임워크입니다. 그러나 애플리케이션이 복잡해짐에 따라 원하는 수준의 성능을 유지하는 것이 더욱 어려워질 수 있습니다. 이 글에서는 Angular 성능을 최적화하는 몇 가지 기술을 살펴보겠습니다.
-¶1. 지연 로딩 모듈(Lazy Loading Module",
-        "wordCount": 1272
+        "description": "Angular는 개발자가 고성능 웹 애플리케이션을 구축하는 데 도움을 줄 수 있는 강력한 프론트 엔드 프레임워크입니다. 그러나 애플리케이션이 복잡해짐에 따라 원하는 수준의 성능을 유지하는 것이 더욱 어려워질 수 있습니다. 이 글에서는 Angular 성능을 최적화하는 몇 가지 기술을 살펴보겠습니다.
+ 1. 지연 로딩 모듈(Lazy Loading Modules",
+        "wordCount": 1278
     }
 </script>
 
