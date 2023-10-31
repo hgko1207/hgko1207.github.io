@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>[Angular] 데코레이터(Decorator) 알아보기(1) | 규니의 블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Angular,Decorator,데코레이터" />
+    
+    <meta name="description" content="Angular Decorator는 Angular 애플리케이션 구축의 기본 측면입니다. 이는 Angular에 처리 및 사용 방법을 알려주는 메타데이터를 제공하여 클래스, 속성, 메서드 및 매개 변수의 동작을 향상시키는 데 사용됩니다. 이 글에서는 Angular의 다양한 데코레이터 유형을 살펴보고 이를 효과적으로 사용하는 시기와 방법을 알아봅니다. ¶@Comp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Angular] 데코레이터(Decorator) 알아보기(1)">
+<meta property="og:url" content="http://hgko1207.github.io/2023/10/30/angular-26/index.html">
+<meta property="og:site_name" content="규니의 블로그">
+<meta property="og:description" content="Angular Decorator는 Angular 애플리케이션 구축의 기본 측면입니다. 이는 Angular에 처리 및 사용 방법을 알려주는 메타데이터를 제공하여 클래스, 속성, 메서드 및 매개 변수의 동작을 향상시키는 데 사용됩니다. 이 글에서는 Angular의 다양한 데코레이터 유형을 살펴보고 이를 효과적으로 사용하는 시기와 방법을 알아봅니다. ¶@Comp">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/angular.png">
+<meta property="article:published_time" content="2023-10-30T03:24:03.000Z">
+<meta property="article:modified_time" content="2023-10-31T02:46:00.727Z">
+<meta property="article:author" content="Hyeong Gyun Ko">
+<meta property="article:tag" content="Angular">
+<meta property="article:tag" content="Decorator">
+<meta property="article:tag" content="데코레이터">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/angular.png">
+    
+
+    
+        <link rel="alternate" href="/" title="규니의 블로그" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-166318275-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+
+    <!-- <script
+  data-ad-client="ca-pub-7581566810202853"
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+></script>
+ -->
+
+    <!-- 구글 애드센스 -->
+    <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">hgko&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/">IT</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/BlockChain/">BlockChain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Information/">Information</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Satellite/">Satellite</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Backend/">Backend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DB/">DB</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Frontend/">Frontend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Language/">Language</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Mobile/">Mobile</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about">About</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/profile">Profile</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Frontend/">Frontend</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Frontend/Angular/">Angular</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+                            <!-- 상단 광고 -->
+<ins
+  class="adsbygoogle"
+  style="display: block"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="1131844921"
+  data-ad-format="auto"
+  data-full-width-responsive="true"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                            <article id="post-angular-26" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [Angular] 데코레이터(Decorator) 알아보기(1)
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2023/10/30/angular-26/" class="article-date">
+         <time datetime="2023-10-30T03:24:03.000Z" itemprop="datePublished">2023-10-30</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Angular/" rel="tag">Angular</a>, <a class="tag-link" href="/tags/Decorator/" rel="tag">Decorator</a>, <a class="tag-link" href="/tags/%EB%8D%B0%EC%BD%94%EB%A0%88%EC%9D%B4%ED%84%B0/" rel="tag">데코레이터</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><strong>Angular Decorator</strong>는 Angular 애플리케이션 구축의 기본 측면입니다. 이는 Angular에 처리 및 사용 방법을 알려주는 메타데이터를 제공하여 클래스, 속성, 메서드 및 매개 변수의 동작을 향상시키는 데 사용됩니다. 이 글에서는 Angular의 다양한 데코레이터 유형을 살펴보고 이를 효과적으로 사용하는 시기와 방법을 알아봅니다.</p>
+<h2 id="Component"><a class="header-anchor" href="#Component">¶</a>@Component</h2>
+<p><code>@Component</code> 데코레이터는 Angular에서 새 컴포넌트(Component)를 정의하는 데 사용됩니다. selector, template, styles 등과 같은 컴포넌트에 대한 메타데이터를 제공하는 데 사용됩니다. 구성 개체를 매개 변수로 사용하는 클래스 데코레이터입니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">'app-my-component'</span>,</span><br><span class="line">  template: <span class="string">'&lt;h1&gt;Hello World!&lt;/h1&gt;'</span>,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> MyComponent &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Directive"><a class="header-anchor" href="#Directive">¶</a>@Directive</h2>
+<p><code>@Directive</code> 데코레이터는 Angular에서 새로운 디렉티브(Directive)을 만드는 데 사용됩니다. selector, inputs, outputs 등과 같은 지시어에 대한 메타데이터를 제공하는 데 사용됩니다. 구성 개체를 매개 변수로 사용하는 클래스 데코레이터입니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Directive</span>(&#123;</span><br><span class="line">  selector: <span class="string">'[appMyDirective]'</span>,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> MyDirective &#123;</span><br><span class="line">  <span class="meta">@Input</span>() appMyDirective: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Injectable"><a class="header-anchor" href="#Injectable">¶</a>@Injectable</h2>
+<p><code>@Injectable</code> 데코레이터는 Angular에서 새로운 서비스를 정의하는 데 사용됩니다. dependencies, scope 등과 같은 서비스에 대한 메타데이터를 제공하는 데 사용됩니다. 구성 개체를 매개 변수로 사용하는 클래스 데코레이터입니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Injectable</span>(&#123;</span><br><span class="line">  providedIn: <span class="string">'root'</span>,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> MyService &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Pipe"><a class="header-anchor" href="#Pipe">¶</a>@Pipe</h2>
+<p><code>@Pipe</code> 데코레이터는 Angular에서 새 파이프를 만드는 데 사용됩니다. name, pureness 등과 같은 파이프에 대한 메타데이터를 제공하는 데 사용됩니다. 구성 개체를 매개 변수로 사용하는 클래스 데코레이터입니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Pipe</span>(&#123;</span><br><span class="line">  name: <span class="string">'myPipe'</span>,</span><br><span class="line">  pure: <span class="literal">true</span>,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> MyPipe <span class="keyword">implements</span> PipeTransform &#123;</span><br><span class="line">  transform(value: <span class="built_in">any</span>): <span class="built_in">any</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> value.toUpperCase();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Input"><a class="header-anchor" href="#Input">¶</a>@Input</h2>
+<p><code>@Input</code> 데코레이터는 컴포넌트나 디렉티브에서 입력 속성을 정의하는 데 사용됩니다. name, type 등 입력에 대한 메타데이터를 제공하는 데 사용됩니다. 입력 속성의 이름을 지정하는 선택적 매개 변수를 사용하는 속성 데코레이터입니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">'app-my-component'</span>,</span><br><span class="line">  template: <span class="string">'&lt;h1&gt;&#123;&#123;myInput&#125;&#125;&lt;/h1&gt;'</span>,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> MyComponent &#123;</span><br><span class="line">  <span class="meta">@Input</span>() myInput: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Output"><a class="header-anchor" href="#Output">¶</a>@Output</h2>
+<p><code>@Output</code> 데코레이터는 컴포넌트나 디렉티브에서 출력 속성을 정의하는 데 사용됩니다. name, type 등 출력에 대한 메타데이터를 제공하는 데 사용됩니다. 출력 속성의 이름을 지정하는 선택적 매개 변수를 사용하는 속성 데코레이터입니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">'app-my-component'</span>,</span><br><span class="line">  template: <span class="string">'&lt;button (click)="onClick()"&gt;Click Me&lt;/button&gt;'</span>,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> MyComponent &#123;</span><br><span class="line">  <span class="meta">@Output</span>() myOutput: EventEmitter&lt;<span class="built_in">any</span>&gt; = <span class="keyword">new</span> EventEmitter();</span><br><span class="line"></span><br><span class="line">  onClick() &#123;</span><br><span class="line">    <span class="keyword">this</span>.myOutput.emit();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="HostBinding"><a class="header-anchor" href="#HostBinding">¶</a>@HostBinding</h2>
+<p><code>@HostBinding</code> 데코레이터는 디렉티브이나 컴포넌트의 host element 속성을 디렉티브이나 컴포넌트 클래스의 속성에 바인딩하는 데 사용됩니다. 바인딩할 host 속성의 이름을 지정하는 매개변수를 받는 속성 데코레이터입니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Directive</span>(&#123;</span><br><span class="line">  selector: <span class="string">'[appHighlight]'</span>,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> HighlightDirective &#123;</span><br><span class="line">  <span class="meta">@Input</span>(<span class="string">'appHighlight'</span>) isHighlighted: <span class="built_in">boolean</span>;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@HostBinding</span>(<span class="string">'style.backgroundColor'</span>) backgroundColor: <span class="built_in">string</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line">  ngOnChanges() &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.isHighlighted) &#123;</span><br><span class="line">      <span class="keyword">this</span>.backgroundColor = <span class="string">'blue'</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.backgroundColor = <span class="string">'transparent'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이 예에서 @HostBinding 데코레이터는 디렉티브의 <code>backgroundColor</code> 속성을 호스트 요소의 <code>style.BackgroundColor</code> 속성에 바인딩하는 데 사용됩니다. 이는 <code>isHighlighted</code> 입력이 변경되면 그에 따라 <code>backgroundColor</code> 속성이 업데이트된다는 의미입니다.</p>
+<p>@HostBinding 데코레이터를 사용하여 클래스 이름과 같은 호스트 요소의 다른 속성을 바인딩할 수도 있습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Directive</span>(&#123;</span><br><span class="line">  selector: <span class="string">'[appButton]'</span>,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> ButtonDirective &#123;</span><br><span class="line">  <span class="meta">@HostBinding</span>(<span class="string">'class.btn'</span>) isButton = <span class="literal">true</span>;</span><br><span class="line">  <span class="meta">@HostBinding</span>(<span class="string">'class.btn-primary'</span>) isPrimary = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이 예에서 @HostBinding 데코레이터는 <code>isButton</code> 속성을 호스트 요소의 <code>btn</code> 클래스에 바인딩하고 <code>isPrimary</code> 속성을 호스트 요소의 <code>btn-primary</code> 클래스에 바인딩하는 데 사용됩니다. 이 지시어는 모든 요소에 사용되어 부트스트랩 스타일 버튼 모양을 제공할 수 있습니다.</p>
+<p>@HostBinding을 다른 지시어 및 서비스와 함께 사용하면 Angular 애플리케이션에서 복잡하고 동적인 UI 요소를 쉽게 생성할 수 있습니다.</p>
+<h2 id="Attribute"><a class="header-anchor" href="#Attribute">¶</a>@Attribute</h2>
+<p><code>@Attribute</code> 데코레이터는 호스트 요소의 속성 값을 디렉티브에 삽입하는 데 사용됩니다. 이 데코레이터는 HTML 요소에서 값을 가져와 디렉티브에 사용해야 할 때 사용됩니다.</p>
+<p><code>@Attribute</code>를 사용하는 방법의 예는 다음과 같습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Directive, Input, Attribute &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Directive</span>(&#123;</span><br><span class="line">  selector: <span class="string">'[myDirective]'</span>,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> MyDirective &#123;</span><br><span class="line">  <span class="meta">@Input</span>() myInput: <span class="built_in">string</span>;</span><br><span class="line">  myAttribute: <span class="built_in">string</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"><span class="meta">@Attribute</span>(<span class="string">'my-attribute'</span>) myAttribute: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.myAttribute = myAttribute;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이 예에서 @Attribute 데코레이터는 호스트 요소의 <code>my-attribute</code> 속성 값을 디렉티브의 myAttribute 속성에 삽입하는 데 사용됩니다.</p>
+<p>속성 값은 문자열로 삽입되므로 다른 형식의 값이 필요한 경우 추가 구문 분석이나 유형 변환을 수행해야 할 수도 있습니다.</p>
+<p>@Attribute 데코레이터는 HTML 요소에서 값을 가져와 디렉티브 로직에 사용해야 할 때 유용할 수 있습니다. 그러나 이 접근 방식은 앱의 HTML 구조가 변경되면 취약한 코드로 이어질 수 있다는 점을 명심하는 것이 중요합니다.</p>
+<h2 id="ContentChild"><a class="header-anchor" href="#ContentChild">¶</a>@ContentChild</h2>
+<p><code>@ContentChild</code> 데코레이터를 사용하면 컴포넌트가 해당 콘텐츠에 투영되는 디렉티브 또는 컴포넌트의 단일 인스턴스를 쿼리할 수 있습니다.</p>
+<h3 id="사용"><a class="header-anchor" href="#사용">¶</a>사용</h3>
+<p><code>@ContentChild</code> 데코레이터는 두 가지 방법으로 사용할 수 있습니다.</p>
+<ol>
+<li>유형별로 디렉티브나 컴포넌트를 쿼리합니다.</li>
+</ol>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ContentChild</span>(MyDirective) myDirective!: MyDirective;</span><br><span class="line"><span class="meta">@ContentChild</span>(MyComponent) myComponent!: MyComponent;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>템플릿 참조 변수로 디렉티브나 컴포넌트를 쿼리합니다.</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-component</span> #<span class="attr">myComponentRef</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ContentChild</span>(<span class="string">'myComponentRef'</span>, &#123; <span class="keyword">static</span>: <span class="literal">true</span> &#125;) myComponent!: MyComponent;</span><br></pre></td></tr></table></figure>
+<h3 id="Options"><a class="header-anchor" href="#Options">¶</a>Options</h3>
+<p><code>@ContentChild</code> 데코레이터는 다음 속성을 가진 옵션 개체를 사용할 수 있습니다.</p>
+<ul>
+<li><code>static</code> (boolean): 변경 감지가 실행되기 전에 쿼리를 해결할지 여부(기본값은 <code>false</code>).</li>
+</ul>
+<h3 id="Example"><a class="header-anchor" href="#Example">¶</a>Example</h3>
+<p>다음은 <code>@ContentChild</code> 데코레이터를 사용하여 투영된 컴포넌트를 쿼리하는 예입니다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-component</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">my-child-component</span>&gt;</span><span class="tag">&lt;/<span class="name">my-child-component</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">'my-component'</span>,</span><br><span class="line">  template: <span class="string">` &lt;ng-content&gt;&lt;/ng-content&gt; `</span>,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> MyComponent &#123;</span><br><span class="line">  <span class="meta">@ContentChild</span>(MyChildComponent) myChildComponent!: MyChildComponent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이 예에서 <code>MyComponent</code> 컴포넌트는 해당 콘텐츠에 투영되는 <code>MyChildComponent</code> 인스턴스를 쿼리합니다.</p>
+<h3 id="사용-시기"><a class="header-anchor" href="#사용-시기">¶</a>사용 시기</h3>
+<p>컴포넌트의 콘텐츠에 프로젝션되는 디렉티브나 컴포넌트의 단일 인스턴스를 쿼리해야 하는 경우 <code>@ContentChild</code> 데코레이터를 사용하세요.</p>
+<h3 id="Notes"><a class="header-anchor" href="#Notes">¶</a>Notes</h3>
+<ul>
+<li>쿼리된 디렉티브 또는 컴포넌트의 여러 인스턴스가 콘텐츠에 프로젝션되는 경우 발견된 첫 번째 인스턴스가 반환됩니다.</li>
+<li>쿼리된 디렉티브나 컴포넌트의 인스턴스가 콘텐츠에 프로젝션되지 않으면 쿼리는 <code>undefined</code>를 반환합니다.</li>
+<li>정적 옵션이 <code>true</code>로 설정된 경우 변경 감지가 실행되기 전에 쿼리가 해결됩니다. 이는 <code>ngOnInit()</code> 또는 <code>ngAfterViewInit()</code>에서 쿼리된 인스턴스에 액세스해야 하는 경우 유용할 수 있습니다.</li>
+</ul>
+<h2 id="ContentChildren"><a class="header-anchor" href="#ContentChildren">¶</a>@ContentChildren</h2>
+<p><code>@ContentChildren</code> 데코레이터는 컴포넌트 또는 디렉티브의 하위 콘텐츠를 쿼리하고 액세스하는 데 사용됩니다. 이를 통해 컴포넌트는 콘텐츠 영역에 프로젝션된 하위 컴포넌트 및 디렉티브에 액세스할 수 있습니다.</p>
+<p>데코레이터는 두 가지 인수를 사용합니다.</p>
+<ul>
+<li>삽입할 디렉티브를 식별하는 selector 문자열입니다.</li>
+<li>injection 에 대한 추가 옵션을 지정하는 선택적 구성 개체입니다.</li>
+</ul>
+<p>다음은 <code>@ContentChildren</code> 데코레이터를 사용하여 투영된 하위 컴포넌트를 쿼리하고 액세스하는 예입니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Component, ContentChildren, QueryList &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; TabComponent &#125; <span class="keyword">from</span> <span class="string">'./tab.component'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">'app-tabs'</span>,</span><br><span class="line">  template: <span class="string">` &lt;ng-content&gt;&lt;/ng-content&gt; `</span>,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> TabsComponent &#123;</span><br><span class="line">  <span class="meta">@ContentChildren</span>(TabComponent) tabs: QueryList&lt;TabComponent&gt;;</span><br><span class="line"></span><br><span class="line">  ngAfterContentInit() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.tabs);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이 예에서 <code>TabsComponent</code>는 <code>@ContentChildren</code> 데코레이터를 사용하여 예상되는 모든 <code>TabComponent</code> 하위 항목을 쿼리합니다. 결과 <code>QueryList</code>는 컴포넌트의 <code>tabs</code> 속성에서 사용할 수 있습니다.</p>
+<p><code>ngAfterContentInit</code> 생명주기 훅 메소드는 프로젝션된 콘텐츠가 초기화된 후 <code>tabs</code> 속성에 액세스하는 데 사용됩니다.</p>
+<p>기본적으로 <code>@ContentChildren</code> 데코레이터는 요청된 하위 컴포넌트 또는 디렉티브가 처음으로 나타나는 경우만 반환합니다. 모든 항목을 얻으려면 <code>read</code> 옵션을 사용할 수 있습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ContentChildren</span>(TabComponent, &#123; read: ElementRef &#125;) tabs: QueryList&lt;ElementRef&gt;;</span><br></pre></td></tr></table></figure>
+<p>이 예제에서는 <code>ElementRef</code>가 읽기 토큰으로 지정되어 <code>@ContentChildren</code> 데코레이터가 <code>TabComponent</code> 대신 <code>ElementRef</code>를 반환하게 됩니다.</p>
+<p>전반적으로 <code>@ContentChildren</code> 데코레이터는 Angular 컴포넌트 및 디렉티브의 하위 콘텐츠에 액세스하고 상호 작용하기 위한 강력한 도구입니다.</p>
+<h2 id="Host"><a class="header-anchor" href="#Host">¶</a>@Host</h2>
+<p><code>@Host</code> 데코레이터는 주어진 토큰과 일치하는 가장 가까운 호스트 요소의 종속성을 주입하는 데 사용됩니다. 이는 하위 요소에 디렉티브를 적용했지만 상위 요소의 속성이나 서비스에 액세스하려는 경우에 특히 유용합니다.</p>
+<p><code>@Host</code> 데코레이터의 사용 예는 다음과 같습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Directive, Host, Optional &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; ParentDirective &#125; <span class="keyword">from</span> <span class="string">'./parent.directive'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Directive</span>(&#123;</span><br><span class="line">  selector: <span class="string">'[child]'</span>,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> ChildDirective &#123;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"><span class="meta">@Host</span>() <span class="meta">@Optional</span>() <span class="keyword">private</span> parentDirective?: ParentDirective</span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line">  ngOnInit() &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.parentDirective) &#123;</span><br><span class="line">      <span class="keyword">this</span>.parentDirective.doSomething();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위의 예에는 <code>ParentDirective</code>가 적용된 요소의 하위 요소에 적용되는 child 디렉티브가 있습니다. <code>@Host</code> 데코레이터는 <code>ParentDirective</code>가 적용된 가장 가까운 호스트 요소에서 <code>ParentDirective</code> 인스턴스를 주입하는 데 사용됩니다. <code>@Optional</code> 데코레이터는 <code>ParentDirective</code>가 포함된 호스트 요소가 없는 경우 생성자가 오류를 발생시키지 않도록 하는 데 사용됩니다.</p>
+<h2 id="HostListener"><a class="header-anchor" href="#HostListener">¶</a>@HostListener</h2>
+<p><code>@HostListener</code> 데코레이터는 디렉티브의 호스트 요소에 이벤트 리스너를 등록하는 데 사용됩니다. 이 데코레이터는 <code>@Directive</code> 데코레이터의 <code>host</code> 속성과 함께 사용됩니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Directive, HostListener &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Directive</span>(&#123;</span><br><span class="line">  selector: <span class="string">'[appMyDirective]'</span>,</span><br><span class="line">  host: &#123;</span><br><span class="line">    <span class="string">'(click)'</span>: <span class="string">'onClick($event)'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> MyDirective &#123;</span><br><span class="line">  onClick(event: MouseEvent) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Clicked!'</span>, event);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이 예에서는 <code>@HostListener</code> 데코레이터가 명시적으로 사용되지 않지만 <code>host</code> 속성에 암시되어 있습니다. <code>'click'</code> 이벤트는 <code>(click)</code> 구문을 사용하여 <code>onClick()</code> 메서드에 등록됩니다.</p>
+<p><code>@HostListener</code> 데코레이터를 명시적으로 사용할 수도 있습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Directive, HostListener &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Directive</span>(&#123;</span><br><span class="line">  selector: <span class="string">'[appMyDirective]'</span>,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> MyDirective &#123;</span><br><span class="line">  <span class="meta">@HostListener</span>(<span class="string">'click'</span>, [<span class="string">'$event'</span>])</span><br><span class="line">  onClick(event: MouseEvent) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Clicked!'</span>, event);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이 예제에서는 <code>@HostListener</code> 데코레이터를 명시적으로 사용하여 <code>onClick()</code> 메서드에 <code>'click'</code> 이벤트를 등록합니다. <code>'$event'</code> 인수는 이벤트 객체를 메소드에 전달하는 데 사용됩니다.</p>
+<p><code>@HostListener</code> 데코레이터는 클릭 이벤트뿐만 아니라 모든 호스트 요소 이벤트와 함께 사용할 수 있습니다.</p>
+<h2 id="Inject"><a class="header-anchor" href="#Inject">¶</a>@Inject</h2>
+<p><code>@Inject</code> 데코레이터를 사용하면 클래스의 종속성을 해결하는 데 사용할 토큰을 지정할 수 있습니다.<code> @Injectable</code> 및 <code>@InjectableProvider</code>와 함께 사용하여 종속성에 대한 custom provider를 제공할 수 있습니다.</p>
+<p>예는 다음과 같습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Injectable, Inject &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; ConfigService &#125; <span class="keyword">from</span> <span class="string">'./config.service'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; AppConfig &#125; <span class="keyword">from</span> <span class="string">'./app.config'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Injectable</span>()</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> MyService &#123;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"><span class="meta">@Inject</span>(ConfigService) <span class="keyword">private</span> config: AppConfig</span>) &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이 예에서는 <code>ConfigService</code> 토큰과 함께 <code>@Inject</code> 데코레이터를 사용하여 <code>ConfigService</code> 인스턴스를 <code>MyService</code>에 주입합니다. 이는 Angular가 <code>ConfigService</code> 공급자를 사용하여 종속성을 해결하도록 지시합니다.</p>
+<p>다음과 같이 문자열 토큰과 함께 <code>@Inject</code> 데코레이터를 사용할 수도 있습니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Injectable, Inject &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Injectable</span>()</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> MyService &#123;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"><span class="meta">@Inject</span>(<span class="string">'MY_CONFIG'</span>) <span class="keyword">private</span> config: <span class="built_in">any</span></span>) &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이 예에서는 <code>'MY_CONFIG'</code> 토큰과 함께 값을 주입합니다. 원하는 문자열 토큰을 사용할 수 있지만 오타를 방지하려면 상수 값을 사용하는 것이 가장 좋습니다.</p>
+<p>전반적으로 <code>@Inject</code> 데코레이터는 애플리케이션의 종속성 주입 동작을 사용자 정의(customize)할 수 있는 강력한 도구입니다.</p>
+
+        </div>
+        <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+        <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://hgko1207.github.io/2023/10/30/angular-26/" data-id="clodvdosh0000uocx99fq2e64" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Hyeong Gyun Ko"
+        },
+        "headline": "[Angular] 데코레이터(Decorator) 알아보기(1)",
+        "image": "http://hgko1207.github.io/images/thumbnail/angular.png",
+        "keywords": "Angular Decorator 데코레이터",
+        "genre": "Programming Frontend Angular",
+        "datePublished": "2023-10-30",
+        "dateCreated": "2023-10-30",
+        "dateModified": "2023-10-31",
+        "url": "http://hgko1207.github.io/2023/10/30/angular-26/",
+        "description": "Angular Decorator는 Angular 애플리케이션 구축의 기본 측면입니다. 이는 Angular에 처리 및 사용 방법을 알려주는 메타데이터를 제공하여 클래스, 속성, 메서드 및 매개 변수의 동작을 향상시키는 데 사용됩니다. 이 글에서는 Angular의 다양한 데코레이터 유형을 살펴보고 이를 효과적으로 사용하는 시기와 방법을 알아봅니다.
+¶@Comp",
+        "wordCount": 1912
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                            <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>follow:</p>
+    <ul class="social-links">
+       
+      <li>
+        <a
+          class="social-tooltip"
+          title="github"
+          href="https://github.com/hgko1207"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-github"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="facebook"
+          href="https://www.facebook.com/profile.php?id=100003526102847"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-facebook"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="rss"
+          href="/"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-rss"></i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+   
+<nav id="article-nav">
+    
+        <a href="/2023/10/31/angular-27/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            [Angular] 데코레이터(Decorator) 알아보기(2)
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2023/10/26/angular-25/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">[Angular] ViewRef: 뷰(View) 변경 감지 및 업데이트 알아보기</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+ 
+  <div class="widgets-container">
+      
+  
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/10/31/angular-27/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/angular.png)" alt="[Angular] 데코레이터(Decorator) 알아보기(2)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a></p>
+                            <p class="item-title"><a href="/2023/10/31/angular-27/" class="title">[Angular] 데코레이터(Decorator) 알아보기(2)</a></p>
+                            <p class="item-date"><time datetime="2023-10-31T02:32:38.000Z" itemprop="datePublished">2023-10-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/10/30/angular-26/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/angular.png)" alt="[Angular] 데코레이터(Decorator) 알아보기(1)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a></p>
+                            <p class="item-title"><a href="/2023/10/30/angular-26/" class="title">[Angular] 데코레이터(Decorator) 알아보기(1)</a></p>
+                            <p class="item-date"><time datetime="2023-10-30T03:24:03.000Z" itemprop="datePublished">2023-10-30</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/10/26/angular-25/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/angular.png)" alt="[Angular] ViewRef: 뷰(View) 변경 감지 및 업데이트 알아보기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a></p>
+                            <p class="item-title"><a href="/2023/10/26/angular-25/" class="title">[Angular] ViewRef: 뷰(View) 변경 감지 및 업데이트 알아보기</a></p>
+                            <p class="item-date"><time datetime="2023-10-26T02:43:28.000Z" itemprop="datePublished">2023-10-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/10/25/angular-24/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/angular.png)" alt="[Angular] ViewEncapsulation: 다양한 모드 및 사용 시기 알아보기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a></p>
+                            <p class="item-title"><a href="/2023/10/25/angular-24/" class="title">[Angular] ViewEncapsulation: 다양한 모드 및 사용 시기 알아보기</a></p>
+                            <p class="item-date"><time datetime="2023-10-25T05:35:34.000Z" itemprop="datePublished">2023-10-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/10/24/angular-23/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/angular.png)" alt="[Angular] 생명주기(Lifecycle) 와 훅(Hook) 메소드 이해" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a></p>
+                            <p class="item-title"><a href="/2023/10/24/angular-23/" class="title">[Angular] 생명주기(Lifecycle) 와 훅(Hook) 메소드 이해</a></p>
+                            <p class="item-date"><time datetime="2023-10-24T02:00:01.000Z" itemprop="datePublished">2023-10-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">33</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">251</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">28</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">78</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">11</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">61</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">7</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li></ul></li></ul>
+        </div>
+    </div>
+
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a><span class="archive-list-count">25</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">19</span></li></ul>
+        </div>
+    </div>
+
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+  <div class="widget-wrap widget-float">
+
+    <h3 class="widget-title">Sponsored</h3>
+    <div class="widget">
+        <a href="https://marcofranssen.nl?adsense_widget" target="_blank" rel="noopener">This widget is sponsored by, Marco Franssen, main contributor to this theme.</a>
+    </div>
+
+</div>
+  
+  </div>
+  <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+
+  <!-- hits 방문자수 -->
+  <a href="https://hits.seeyoufarm.com" target="_blank" rel="noopener">
+    <style>
+      .hits {
+        width: auto;
+        height: auto;
+        max-width: 99px;
+        max-height: 20px;
+      }
+    </style>
+    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhgko1207.github.io&count_bg=%23E6ADD5&title_bg=%23BF98D2&icon=&icon_color=%23E7E7E7&title=%EB%B0%A9%EB%AC%B8%EC%9E%90%EC%88%98&edge_flat=false"/>
+  </a>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2023 Hyeong Gyun Ko</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://hgko1207.github.io/2023/10/30/angular-26/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
