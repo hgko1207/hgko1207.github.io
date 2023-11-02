@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/angular.png">
 <meta property="article:published_time" content="2023-11-01T06:33:00.000Z">
-<meta property="article:modified_time" content="2023-11-01T07:10:37.351Z">
+<meta property="article:modified_time" content="2023-11-01T07:18:29.777Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="Angular">
 <meta property="article:tag" content="Pipe">
@@ -260,45 +260,46 @@ ga('send', 'pageview');
 
             
 
-            <p>Angular 파이프(Pipe)는 Angular 애플리케이션의 필수 부분으로, 데이터를 변환하고 형식을 지정하는 간단한 방법을 제공합니다. 파이프를 사용하면 필요에 맞게 데이터를 쉽게 조작하고 이해하기 쉬운 형식으로 표시할 수 있습니다. 이 글에서는 AsyncPipe, CurrentPipe, DatePipe, DecimalPipe, I18nPluralPipe, I18nSelectPipe, JsonPipe, KeyValuePipe, LowerCasePipe, PercentPipe, SlicePipe, TitleCasePipe 및 UpperCasePipe를 포함한 다양한 유형의 Angular 파이프를 살펴보겠습니다. 또한 Angular 파이프를 효과적으로 사용하기 위한 모범 사례에 대해서도 알아보겠습니다.</p>
-<h2 id="asyncpipe"><a class="markdownIt-Anchor" href="#asyncpipe"></a> AsyncPipe</h2>
+            <p><strong>Angular 파이프</strong>(Pipe)는 Angular 애플리케이션의 필수 부분으로, 데이터를 변환하고 형식을 지정하는 간단한 방법을 제공합니다. 파이프를 사용하면 필요에 맞게 데이터를 쉽게 조작하고 이해하기 쉬운 형식으로 표시할 수 있습니다.</p>
+<p>이 글에서는 AsyncPipe, CurrentPipe, DatePipe, DecimalPipe, I18nPluralPipe, I18nSelectPipe, JsonPipe, KeyValuePipe, LowerCasePipe, PercentPipe, SlicePipe, TitleCasePipe 및 UpperCasePipe를 포함한 다양한 유형의 Angular 파이프를 살펴보겠습니다. 또한 Angular 파이프를 효과적으로 사용하기 위한 모범 사례에 대해서도 알아보겠습니다.</p>
+<h2 id="AsyncPipe"><a class="header-anchor" href="#AsyncPipe">¶</a>AsyncPipe</h2>
 <p>AsyncPipe는 Angular에서 비동기 데이터를 처리하는 데 사용됩니다. 이를 통해 HTTP 요청 또는 Promise와 같은 비동기 작업에서 반환된 데이터를 표시할 수 있습니다. AsyncPipe는 Observable 또는 Promise를 구독(subscribe)하고 데이터가 변경되면 자동으로 뷰를 업데이트합니다. 다음은 AsyncPipe를 사용하여 비동기 데이터를 처리하는 예입니다.</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; (data$ | async)?.name &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="currencypipe"><a class="markdownIt-Anchor" href="#currencypipe"></a> CurrencyPipe</h2>
+<h2 id="CurrencyPipe"><a class="header-anchor" href="#CurrencyPipe">¶</a>CurrencyPipe</h2>
 <p>CurrencyPipe는 Angular에서 통화(currency) 값의 형식을 지정하는 데 사용됩니다. 통화 기호, 천 단위 및 소수 구분 기호를 사용하여 특정 통화 형식으로 숫자를 표시할 수 있습니다. 다음은 통화 값 형식을 지정하기 위해 CurrencyPipe를 사용하는 예입니다.</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; 10000 | currency:'USD':'symbol':'1.2-2' &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Output: '$10,000.00' --&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="datepipe"><a class="markdownIt-Anchor" href="#datepipe"></a> DatePipe</h2>
+<h2 id="DatePipe"><a class="header-anchor" href="#DatePipe">¶</a>DatePipe</h2>
 <p>DatePipe는 Angular에서 날짜 형식을 지정하는 데 사용됩니다. ‘short’, ‘medium’, ‘long’ 등 특정 형식으로 날짜를 표시할 수 있습니다. 사용자 정의 날짜 형식을 지정할 수도 있습니다. 다음은 DatePipe를 사용하여 날짜 형식을 지정하는 예입니다.</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; today | date:'shortDate' &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Output: '11/1/23' --&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="decimalpipe"><a class="markdownIt-Anchor" href="#decimalpipe"></a> DecimalPipe</h2>
+<h2 id="DecimalPipe"><a class="header-anchor" href="#DecimalPipe">¶</a>DecimalPipe</h2>
 <p>DecimalPipe는 Angular에서 십진수 값의 형식을 지정하는 데 사용됩니다. 소수 구분 기호와 천 단위 구분 기호를 사용하여 특정 소수 형식으로 숫자를 표시할 수 있습니다. 다음은 DecimalPipe를 사용하여 10진수 값의 형식을 지정하는 예입니다.</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; 1000.5 | number:'1.2-2' &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Output: '1,000.50' --&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="i18npluralpipe"><a class="markdownIt-Anchor" href="#i18npluralpipe"></a> I18nPluralPipe</h2>
+<h2 id="I18nPluralPipe"><a class="header-anchor" href="#I18nPluralPipe">¶</a>I18nPluralPipe</h2>
 <p>I18nPluralPipe는 Angular에서 복수형을 처리하는 데 사용됩니다. 항목 수에 따라 다른 텍스트를 표시할 수 있습니다. 다음은 I18nPluralPipe를 사용하여 복수화를 처리하는 예입니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">items = [<span class="string">'Message 1'</span>];</span><br></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; items.length &#125;&#125; / &#123;&#123; items.length | i18nPlural : &#123; '=0': 'No items', '=1': '1 item', other: '# items' &#125; &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Output: '1 / 1 item' --&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="i18nselectpipe"><a class="markdownIt-Anchor" href="#i18nselectpipe"></a> I18nSelectPipe</h2>
+<h2 id="I18nSelectPipe"><a class="header-anchor" href="#I18nSelectPipe">¶</a>I18nSelectPipe</h2>
 <p>I18nSelectPipe는 Angular에서 select 문을 처리하는 데 사용됩니다. 조건에 따라 다른 텍스트를 표시할 수 있습니다. 다음은 I18nSelectPipe를 사용하여 select 문을 처리하는 예입니다.</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; gender | select: &#123; 'male': 'He', 'female': 'She', 'other': 'They' &#125; &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="jsonpipe"><a class="markdownIt-Anchor" href="#jsonpipe"></a> JsonPipe</h2>
+<h2 id="JsonPipe"><a class="header-anchor" href="#JsonPipe">¶</a>JsonPipe</h2>
 <p>JsonPipe는 Angular에서 JSON 데이터를 표시하는 데 사용됩니다. JSON 데이터를 읽을 수 있는 형식으로 표시할 수 있습니다. 다음은 JsonPipe를 사용하여 JSON 데이터를 표시하는 예입니다.</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; data | json &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="lowercasepipe"><a class="markdownIt-Anchor" href="#lowercasepipe"></a> LowerCasePipe</h2>
+<h2 id="LowerCasePipe"><a class="header-anchor" href="#LowerCasePipe">¶</a>LowerCasePipe</h2>
 <p>LowerCasePipe는 문자열을 소문자로 변환하는 데 사용됩니다.</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 'HELLO WORLD' | lowercase &#125;&#125;</span><br><span class="line"><span class="comment">&lt;!-- Output: hello world --&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="percentpipe"><a class="markdownIt-Anchor" href="#percentpipe"></a> PercentPipe</h2>
+<h2 id="PercentPipe"><a class="header-anchor" href="#PercentPipe">¶</a>PercentPipe</h2>
 <p>PercentPipe는 숫자를 백분율로 형식화하는 데 사용됩니다.</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 0.25 | percent &#125;&#125;</span><br><span class="line"><span class="comment">&lt;!-- Output: 25% --&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="slicepipe"><a class="markdownIt-Anchor" href="#slicepipe"></a> SlicePipe</h2>
+<h2 id="SlicePipe"><a class="header-anchor" href="#SlicePipe">¶</a>SlicePipe</h2>
 <p>SlicePipe는 배열 또는 문자열의 조각을 추출하는 데 사용됩니다.</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 'abcdefghijk' | slice:0:5 &#125;&#125;</span><br><span class="line"><span class="comment">&lt;!-- Output: abcde --&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="titlecasepipe"><a class="markdownIt-Anchor" href="#titlecasepipe"></a> TitleCasePipe</h2>
+<h2 id="TitleCasePipe"><a class="header-anchor" href="#TitleCasePipe">¶</a>TitleCasePipe</h2>
 <p>TitleCasePipe는 문자열을 title 케이스로 변환하는 데 사용됩니다(각 단어의 첫 글자를 대문자로 표시).</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 'hello world' | titlecase &#125;&#125;</span><br><span class="line"><span class="comment">&lt;!-- Output: Hello World --&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="uppercasepipe"><a class="markdownIt-Anchor" href="#uppercasepipe"></a> UpperCasePipe</h2>
+<h2 id="UpperCasePipe"><a class="header-anchor" href="#UpperCasePipe">¶</a>UpperCasePipe</h2>
 <p>UpperCasePipe는 문자열을 대문자로 변환하는 데 사용됩니다.</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 'hello world' | uppercase &#125;&#125;</span><br><span class="line"><span class="comment">&lt;!-- Output: HELLO WORLD --&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2>
+<h2 id="결론"><a class="header-anchor" href="#결론">¶</a>결론</h2>
 <p>이 글에서는 다양한 Angular 파이프와 그 기능을 살펴보았습니다. 파이프는 애플리케이션에서 데이터를 쉽게 변환하고 형식을 지정할 수 있게 해주는 Angular의 중요한 기능입니다.</p>
 <p>이러한 파이프를 이해하고 활용함으로써 Angular 애플리케이션을 보다 효율적이고 동적이고 사용자 친화적으로 만들 수 있습니다.</p>
 <p>특정 사용 사례에 적합한 파이프를 사용하고 파이프를 철저히 테스트하는 것을 잊지 마세요.</p>
@@ -414,8 +415,9 @@ ga('send', 'pageview');
         "dateCreated": "2023-11-01",
         "dateModified": "2023-11-01",
         "url": "http://hgko1207.github.io/2023/11/01/angular-28/",
-        "description": "Angular 파이프(Pipe)는 Angular 애플리케이션의 필수 부분으로, 데이터를 변환하고 형식을 지정하는 간단한 방법을 제공합니다. 파이프를 사용하면 필요에 맞게 데이터를 쉽게 조작하고 이해하기 쉬운 형식으로 표시할 수 있습니다. 이 글에서는 AsyncPipe, CurrentPipe, DatePipe, DecimalPipe, I18nPluralPip",
-        "wordCount": 640
+        "description": "Angular 파이프(Pipe)는 Angular 애플리케이션의 필수 부분으로, 데이터를 변환하고 형식을 지정하는 간단한 방법을 제공합니다. 파이프를 사용하면 필요에 맞게 데이터를 쉽게 조작하고 이해하기 쉬운 형식으로 표시할 수 있습니다.
+이 글에서는 AsyncPipe, CurrentPipe, DatePipe, DecimalPipe, I18nPluralPip",
+        "wordCount": 626
     }
 </script>
 
