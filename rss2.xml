@@ -9,8 +9,29 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Information related to IT</description>
-    <pubDate>Fri, 15 Dec 2023 02:28:55 GMT</pubDate>
+    <pubDate>Sat, 16 Dec 2023 06:07:46 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[ChatGPT] 코딩에서 활용하기 위한 5가지 팁</title>
+      <link>http://hgko1207.github.io/2023/12/16/chatgpt-3/</link>
+      <guid>http://hgko1207.github.io/2023/12/16/chatgpt-3/</guid>
+      <pubDate>Sat, 16 Dec 2023 05:49:03 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;/images/header/chatgpt-3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ChatGPT&lt;/strong&gt;는 개발자의 손에 매우 빠르게 필수적인 도구가 되었습니다. if 조건 등을 사용하여 루프를 생성하거나
+        
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<p><img src="/images/header/chatgpt-3.png" alt="" /></p><p><strong>ChatGPT</strong>는 개발자의 손에 매우 빠르게 필수적인 도구가 되었습니다. if 조건 등을 사용하여 루프를 생성하거나 작은 알고리즘을 생성하는 등 코딩 시 사소한 작업을 해결하는 방법이 있다는 것을 우리 모두 알고 있습니다.</p><p>또한 최근 또는 새로운 주요 변경 사항이 있는 라이브러리에 대한 코드를 생성하거나 적절하게 설명되지 않은 복잡한 대규모 작업의 경우 약점이 있다는 것을 알 수 있습니다.</p><h2 id="팁"><a class="markdownIt-Anchor" href="#팁"></a> 팁</h2><p>코딩에서 ChatGPT를 더 잘 사용하기 위한 5가지 팁에 대해 알아보겠습니다.</p><ol><li><strong>질문을 작은 작업으로 나누고 한 번에 한 단계씩 점진적으로 추가하여 코드를 생성하도록 요청하세요.</strong> 이 접근 방식은 복잡한 코드 블록과 관련하여 더 나은 코딩 결과를 제공하고 오류를 줄이는 것으로 나타났습니다. 이는 외부 라이브러리 등과 관련된 복잡한 작업을 위한 것입니다.<br /><br/></li><li><strong>가능한 특정 용어와 기술 용어를 사용하여 프롬프트를 명확하고 자세하게 작성하세요.</strong> 지식이 풍부한 웹 개발자와 대화하는 것처럼 ChatGPT와 대화하고 아이디어를 전달하는 데 사용할 모든 용어를 사용하세요. 프롬프트를 단순화하기 위해 기술 용어를 사용하는 것을 주저하지 마십시오.<br /><br/></li><li><strong>외부 라이브러리의 경우 ChatGPT에 의해 생성되는 오래된 구문에 주의하세요.</strong> ChatGPT에 의해 생성된 외부 라이브러리 사용 코드에 이상한 오류가 표시되면 항상 이를 의심해 보세요. 그런 경우에는 라이브러리의 문서를 확인하는 것이 좋습니다.<br /><br/></li><li><strong>대규모 작업을 구현하기 위한 계획을 찾을 때는 ChatGPT에 코딩 문제와 프로젝트에 대한 개요를 제공하고 다양한 방법과 제안을 요청하는 것이 좋습니다.</strong> 이것은 당신이 놓쳤을 수도 있는 아이디어를 도출 할 수 있습니다.<br /><br/></li><li><strong>생성된 코드에 대한 설명을 ChatGPT에 묻는 것을 게을리하지 마십시오.</strong> Chatgpt는 생성된 코드를 매우 잘 설명 할 수 있으며 코드가 무엇을하고 있는지 명확하게 알려줌으로써 생성된 코드의 버그를 더 빨리 해결하는 데 도움이 됩니다.</li></ol><h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2><p>ChatGPT가 개발자를 그렇게 빨리 대체할 수 있다고 믿지 않습니다. 그러나 프로그래밍의 하위 수준 작업을 자동화하여 개발자가 단조롭고 지루한 부분을 맡길 수 있습니다. ChatGPT를 사용하면 개발자의 성능을 최소 2배 향상시킬 수 있습니다.</p>]]></content:encoded>
+      
+      <comments>http://hgko1207.github.io/2023/12/16/chatgpt-3/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>생성형 AI(Generative AI)의 미래</title>
