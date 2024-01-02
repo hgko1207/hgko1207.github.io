@@ -9,8 +9,29 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Information related to IT</description>
-    <pubDate>Fri, 29 Dec 2023 15:32:41 GMT</pubDate>
+    <pubDate>Tue, 02 Jan 2024 05:18:22 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>블록체인, 영향력 있는 새로운 트렌드</title>
+      <link>http://hgko1207.github.io/2024/01/02/blockchain-3/</link>
+      <guid>http://hgko1207.github.io/2024/01/02/blockchain-3/</guid>
+      <pubDate>Tue, 02 Jan 2024 01:52:51 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;/images/header/blockchain-3.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;블록체인 기술은 전 세계적으로 다양한 산업에 혁명을 일으키고 있는 획기적인 혁신으로 등장했습니다. 처음에는 비트코인과 같은 암호화폐와의 연관성
+        
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<p><img src="/images/header/blockchain-3.png" alt=""></p><p>블록체인 기술은 전 세계적으로 다양한 산업에 혁명을 일으키고 있는 획기적인 혁신으로 등장했습니다. 처음에는 비트코인과 같은 암호화폐와의 연관성으로 알려졌던 블록체인은 이제 소프트웨어 개발에 광범위한 영향을 미치는 파괴적인 힘으로 인식되고 있습니다. 이 글에서는 블록체인이 어떻게 소프트웨어 개발에 영향력 있는 트렌드가 되어 다양한 애플리케이션 전반에 걸쳐 보안, 투명성 및 효율성을 향상시키는지 살펴봅니다.</p><h2 id="보안-강화">보안 강화</h2><p>블록체인 기술의 가장 중요한 장점 중 하나는 강력한 보안 기능입니다. 기존 소프트웨어 시스템은 중앙화된 기관이나 서버에 의존하는 경우가 많아 해킹과 데이터 침해에 취약합니다. 반면 블록체인은 데이터가 여러 노드에 분산되고 저장되는 탈중앙화 네트워크를 사용합니다. 이러한 고유한 탈중앙화와 암호화 알고리즘이 결합되어 블록체인에 저장된 데이터는 안전하고 위변조가 불가능합니다. 그 결과, 안전한 애플리케이션을 구축하고 민감한 정보를 보호하며, 사용자 신뢰를 높이기 위해 소프트웨어 개발에 블록체인 기술이 점점 더 많이 채택되고 있습니다.</p><h2 id="투명성과-책임성">투명성과 책임성</h2><p>블록체인의 투명성과 불변성은 신뢰와 책임이 필요한 산업을 변화시키고 있습니다. 블록체인을 사용하면 모든 거래나 데이터 입력이 투명하고 영구적인 방식으로 기록되어 네트워크의 모든 참가자가 볼 수 있습니다. 이러한 투명성 덕분에 관련된 모든 당사자가 거래를 독립적으로 검증하고 감사할 수 있으므로 중개자가 필요하지 않습니다. 소프트웨어 개발에서 블록체인 기반 솔루션을 활용하여 감사 가능한 시스템을 만들고, 공급망을 간소화하며, 투표 시스템, 부동산 거래 및 지적 재산 관리의 투명성을 보장합니다.</p><h2 id="분산형-애플리케이션-Decentralized-Applications-DApps">분산형 애플리케이션(Decentralized Applications, DApps)</h2><p>블록체인이 소프트웨어 개발에 미치는 영향은 보안과 투명성 그 이상입니다. 이는 탈중앙화 애플리케이션(DApps) 개발의 길을 열었습니다. DApps는 블록체인의 탈중앙화 아키텍처, 스마트 계약 및 분산 합의 메커니즘을 활용하여 단일 개체에 의해 제어되지 않고 자율적으로 운영되는 애플리케이션을 만듭니다. DApps는 중개자가 필요 없기 때문에 사용자가 자신의 데이터와 상호 작용을 더 잘 제어할 수 있는 P2P 생태계를 만듭니다. 소프트웨어 개발자들은 금융, 게임, 공급망 관리, 신원 확인과 같은 분야에서 DApps의 잠재력을 점점 더 많이 탐색하고 있습니다.</p><h2 id="스마트-컨트랙트">스마트 컨트랙트</h2><p>스마트 컨트랙트는 특정 조건이 충족되면 미리 정의된 작업을 자동으로 실행하는 코드로 작성된 자체 실행 계약입니다. 블록체인의 스마트 컨트랙트 기능은 소프트웨어 개발자에게 새로운 길을 열어주었습니다. 개발자는 스마트 컨트랙트를 활용하여 복잡한 비즈니스 프로세스를 자동화하고, 중개자의 필요성을 줄이며, 투명하고 감사 가능한 계약의 실행을 보장할 수 있습니다. 이 기술은 신뢰, 투명성, 효율성이 가장 중요한 보험금 청구, 공급망 관리, 금융 거래와 같은 분야에서 특히 유용합니다.</p><h2 id="토큰화-및-디지털-자산">토큰화 및 디지털 자산</h2><p>블록체인 기술은 자산의 토큰화를 가능하게 하여 블록체인 상에서 실물 또는 디지털 아이템을 디지털 토큰으로 표현합니다. 이러한 토큰화는 안전하게 거래, 저장 및 검증할 수 있는 디지털 자산을 생성함으로써 소프트웨어 개발에 새로운 가능성을 열어줍니다. 예를 들어, 예술품, 수집품, 가상 부동산과 같은 고유한 디지털 자산을 소유하고 검증할 수 있는 대체 불가능한 토큰(NFT)이 큰 주목을 받고 있습니다. 소프트웨어 개발자들은 디지털 신원 확인, 디지털 투표, 탈중앙화 금융(DeFi)과 같은 분야에서 혁신적인 애플리케이션을 개발하기 위해 토큰화를 모색하고 있습니다.</p><h2 id="상호운용성-및-확장성">상호운용성 및 확장성</h2><p>블록체인 기술이 계속 발전함에 따라 블록체인 고유의 문제인 확장성과 상호운용성을 해결하기 위한 노력도 계속되고 있습니다. 다양한 프로젝트에서 서로 다른 블록체인이 원활하게 통신할 수 있도록 지원하여 협업과 데이터 교환을 향상시키는 솔루션을 개발하고 있습니다. 상호운용성을 통해 소프트웨어 개발자는 여러 블록체인 플랫폼의 강점을 활용하고 다양한 사용 사례에 맞는 애플리케이션을 구축할 수 있습니다. 블록체인의 트랜잭션 처리 기능의 한계를 극복하기 위해 레이어 2 프로토콜 및 샤딩과 같은 확장성 솔루션도 개발되고 있습니다.</p><h2 id="결론">결론</h2><p>블록체인 기술은 소프트웨어 개발의 강력한 힘으로 부상하여 다양한 애플리케이션에 향상된 보안, 투명성 및 효율성을 제공합니다. 스마트 컨트랙트, 토큰화, 상호운용성과 같은 기능과 함께 탈중앙화된 특성은 산업을 재편하고 혁신적인 솔루션을 위한 길을 열어주고 있습니다. 소프트웨어 개발자들이 블록체인의 잠재력을 수용함에 따라 기존 비즈니스 프로세스를 재정의하고 사용자가 데이터와 디지털 자산을 더 잘 제어할 수 있도록 지원하는 파괴적인 애플리케이션이 등장할 것으로 예상됩니다. 소프트웨어 개발의 미래는 의심할 여지 없이 블록체인 기술의 영향력 있는 트렌드와 얽혀 있습니다.</p>]]></content:encoded>
+      
+      <comments>http://hgko1207.github.io/2024/01/02/blockchain-3/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>HTML과 CSS 기술을 향상시킬 수 있는 10가지 소규모 프로젝트 아이디어</title>
@@ -2434,13 +2455,15 @@ npm 이 설
         
         
           &lt;p&gt;&lt;strong&gt;메타마스크&lt;/strong&gt; 설치 및 사용 방법에 대해 알아보겠습니다.&lt;/p&gt;
-&lt;h1 id=&quot;메타마스크metamask-란&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#메타마스크metamask-란&quot;&gt;&lt;/a&gt; 메타마
+&lt;h1&gt;메타마스크(MetaMask) 란&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Ethereum 블록 체인과 상호 작용하는 데 사용되는 소프트웨어 암호 화폐 
         
       
       </description>
       
       
-      <content:encoded><![CDATA[<p><strong>메타마스크</strong> 설치 및 사용 방법에 대해 알아보겠습니다.</p><h1 id="메타마스크metamask-란"><a class="markdownIt-Anchor" href="#메타마스크metamask-란"></a> 메타마스크(MetaMask) 란</h1><blockquote><p>Ethereum 블록 체인과 상호 작용하는 데 사용되는 소프트웨어 암호 화폐 지갑입니다. 이를 통해 사용자는 브라우저 확장 프로그램이나 모바일 앱을 통해 이더리움 지갑에 액세스할 수 있으며, 이를 통해 분산 애플리케이션과 상호 작용할 수 있습니다. <a href="https://en.wikipedia.org/wiki/MetaMask" target="_blank" rel="noopener">위키백과</a></p></blockquote><p>이더리움 지갑 중 메타마스크는 커뮤니티에서 사용죄는 가장 인기 있는 지갑 중 하나입니다.</p><h1 id="설치-및-사용-방법"><a class="markdownIt-Anchor" href="#설치-및-사용-방법"></a> 설치 및 사용 방법</h1><h2 id="설치"><a class="markdownIt-Anchor" href="#설치"></a> 설치</h2><p><a href="https://metamask.io/" target="_blank" rel="noopener">메타마스크 웹사이트</a>에서 크롬 플러그인으로 설치 할 수 있습니다. 사이트로 접속하여 Download 버튼을 클릭합니다.</p><p><img src="/images/blockchain/metamask/1.png" alt="" /></p><p>크롬 웹 스토어 창이 열리게 되고 “Chrome에 추가” 버튼을 클릭합니다. 크롬 확장프로그램에 MetaMask가 추가됩니다.</p><p><img src="/images/blockchain/metamask/2.png" alt="" /></p><h2 id="mnemonic-복구"><a class="markdownIt-Anchor" href="#mnemonic-복구"></a> Mnemonic 복구</h2><p>크롬 확장프로그램에서 MetaMask를 선택하고 “시작하기” 버튼을 클릭합니다.</p><p><img src="/images/blockchain/metamask/3.png" alt="" /></p><p>처음 사용하는 사용자라면 비밀 복구 구문을 사용하여 기존 지갑 가져오기와 새 지갑과 비밀 복구 구문 생성을 선택하는 화면이 보입니다.</p><p>지갑 생성을 해서 MetaMask를 사용할 수 있지만 이전 글 <a href="https://hgko1207.github.io/2022/12/07/blockchain-1/">[Ethereum] ganache-cli 설치 및 실행</a>에서 생성된 Mnemonic을 사용하여 지갑을 가져오도록 하겠습니다.</p><p><img src="/images/blockchain/metamask/4.png" alt="" /></p><p>&quot;지갑 가져오기&quot;를 클릭하면 비밀 복구 구문으로 계정 가져오기 화면이 보입니다. 생성된 Mnemonic과 비밀번호를 입력하고 “가져오기” 버튼을 클릭합니다.</p><p><img src="/images/blockchain/metamask/5.png" alt="" /></p><p><img src="/images/blockchain/metamask/6.png" alt="" /></p><p>메타마스크 접속 시 화면입니다.</p><p><img src="/images/blockchain/metamask/7.png" alt="" /></p><h2 id="네트워크-추가"><a class="markdownIt-Anchor" href="#네트워크-추가"></a> 네트워크 추가</h2><p>ganache로 실행한 네트워크를 연결하기 위해 메타마스크에서 네트워크 추가를 합니다.</p><p>메타마스크 화면에서 우측 네트워크를 클릭하고 “네트워크 추가” 버튼을 클릭합니다.</p><p><img src="/images/blockchain/metamask/8.png" alt="" /></p><p>설정화면에서 &quot;네트워크 수동 추가&quot;를 클릭합니다.</p><p><img src="/images/blockchain/metamask/9.png" alt="" /></p><p>네트워크 이름, 새 RPC URL(ip 주소와 포트), 체인 ID(url을 입력하면 자동으로 찾아줌), 통화 기호를 입력하고 “저장” 버튼을 클릭합니다.</p><p><img src="/images/blockchain/metamask/10.png" alt="" /></p><p>추가된 네트워크가 보이며 선택 시 계정 정보가 보입니다.</p><p><img src="/images/blockchain/metamask/11.png" alt="" /></p><h1 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h1><p>메타마스크 설치와 사용 방법에 대해 알아보았습니다. 이더리움 지갑에 쉽게 액세스할 수 있어 블록체인 기반 웹이나 앱개발 시 도움이 많이 됩니다.</p>]]></content:encoded>
+      <content:encoded><![CDATA[<p><strong>메타마스크</strong> 설치 및 사용 방법에 대해 알아보겠습니다.</p><h1>메타마스크(MetaMask) 란</h1><blockquote><p>Ethereum 블록 체인과 상호 작용하는 데 사용되는 소프트웨어 암호 화폐 지갑입니다. 이를 통해 사용자는 브라우저 확장 프로그램이나 모바일 앱을 통해 이더리움 지갑에 액세스할 수 있으며, 이를 통해 분산 애플리케이션과 상호 작용할 수 있습니다. <a href="https://en.wikipedia.org/wiki/MetaMask" target="_blank" rel="noopener">위키백과</a></p></blockquote><p>이더리움 지갑 중 메타마스크는 커뮤니티에서 사용죄는 가장 인기 있는 지갑 중 하나입니다.</p><h1>설치 및 사용 방법</h1><h2 id="설치">설치</h2><p><a href="https://metamask.io/" target="_blank" rel="noopener">메타마스크 웹사이트</a>에서 크롬 플러그인으로 설치 할 수 있습니다. 사이트로 접속하여 Download 버튼을 클릭합니다.</p><p><img src="/images/blockchain/metamask/1.png" alt=""></p><p>크롬 웹 스토어 창이 열리게 되고 “Chrome에 추가” 버튼을 클릭합니다. 크롬 확장프로그램에 MetaMask가 추가됩니다.</p><p><img src="/images/blockchain/metamask/2.png" alt=""></p><h2 id="Mnemonic-복구">Mnemonic 복구</h2><p>크롬 확장프로그램에서 MetaMask를 선택하고 “시작하기” 버튼을 클릭합니다.</p><p><img src="/images/blockchain/metamask/3.png" alt=""></p><p>처음 사용하는 사용자라면 비밀 복구 구문을 사용하여 기존 지갑 가져오기와 새 지갑과 비밀 복구 구문 생성을 선택하는 화면이 보입니다.</p><p>지갑 생성을 해서 MetaMask를 사용할 수 있지만 이전 글 <a href="https://hgko1207.github.io/2022/12/07/blockchain-1/">[Ethereum] ganache-cli 설치 및 실행</a>에서 생성된 Mnemonic을 사용하여 지갑을 가져오도록 하겠습니다.</p><p><img src="/images/blockchain/metamask/4.png" alt=""></p><p>&quot;지갑 가져오기&quot;를 클릭하면 비밀 복구 구문으로 계정 가져오기 화면이 보입니다. 생성된 Mnemonic과 비밀번호를 입력하고 “가져오기” 버튼을 클릭합니다.</p><p><img src="/images/blockchain/metamask/5.png" alt=""></p><p><img src="/images/blockchain/metamask/6.png" alt=""></p><p>메타마스크 접속 시 화면입니다.</p><p><img src="/images/blockchain/metamask/7.png" alt=""></p><h2 id="네트워크-추가">네트워크 추가</h2><p>ganache로 실행한 네트워크를 연결하기 위해 메타마스크에서 네트워크 추가를 합니다.</p><p>메타마스크 화면에서 우측 네트워크를 클릭하고 “네트워크 추가” 버튼을 클릭합니다.</p><p><img src="/images/blockchain/metamask/8.png" alt=""></p><p>설정화면에서 &quot;네트워크 수동 추가&quot;를 클릭합니다.</p><p><img src="/images/blockchain/metamask/9.png" alt=""></p><p>네트워크 이름, 새 RPC URL(ip 주소와 포트), 체인 ID(url을 입력하면 자동으로 찾아줌), 통화 기호를 입력하고 “저장” 버튼을 클릭합니다.</p><p><img src="/images/blockchain/metamask/10.png" alt=""></p><p>추가된 네트워크가 보이며 선택 시 계정 정보가 보입니다.</p><p><img src="/images/blockchain/metamask/11.png" alt=""></p><h1>결론</h1><p>메타마스크 설치와 사용 방법에 대해 알아보았습니다. 이더리움 지갑에 쉽게 액세스할 수 있어 블록체인 기반 웹이나 앱개발 시 도움이 많이 됩니다.</p>]]></content:encoded>
       
       <comments>http://hgko1207.github.io/2022/12/09/blockchain-2/#disqus_thread</comments>
     </item>
