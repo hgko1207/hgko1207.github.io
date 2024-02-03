@@ -219,9 +219,334 @@ ga('send', 'pageview');
         
         <section class="archives-wrap">
             <div class="archive-year-wrap">
+                <a href="/archives/2022" class="archive-year"><i class="icon fa fa-calendar-o"></i>2022</a>
+            </div>
+            <div class="archives">
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2022/05/29/linux-17/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/centos.png)" alt="[CentOS] nohup 사용 방법" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2022/05/29/linux-17/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/DevOps/">DevOps</a>
+            </div>
+            <div class="date"><time datetime="2022-05-29T13:11:12.000Z" itemprop="datePublished">2022-05-29</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2022/05/29/linux-17/">[CentOS] nohup 사용 방법</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            리눅스 환경에서 nohup 사용 방법에 대해 알아보겠습니다.
+nohup
+
+nohup 은 No Hang Ups의 약자로 백그라운드로 지속적으로 실행하는 프로세스를 의미합니다.
+nohup 은 실행을 현재 사용자 세션이 아닌 운영체제가 제공하는 백그라운드 공간에서 실행을 한다.
+&amp; 는 사용자 세션에서 실행되며, 화면 출력만 백그라운드로 전환한 상태입니다.
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2022/05/28/linux-16/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/centos.png)" alt="[CentOS] Hostname 변경 방법" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2022/05/28/linux-16/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/DevOps/">DevOps</a>
+            </div>
+            <div class="date"><time datetime="2022-05-28T01:32:02.000Z" itemprop="datePublished">2022-05-28</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2022/05/28/linux-16/">[CentOS] Hostname 변경 방법</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            HOSTNAME 등록
+각 서버가 어느 서비스 인지 표현하기 위해 HOSTNAME을 변경합니다. 다음 명령어로 편집 파일을 엽니다.
+1$ sudo vim /etc/sysconfig/network
+편집 화면에서 HOSTNAME 항목을 본인이 원하는 서비스명으로 추가합니다.
+123NETWORKING=yesHOSTNAME=hgko-webserviceNOZEROCO
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2022/05/27/linux-15/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/centos.png)" alt="[CentOS] 타임존 변경" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2022/05/27/linux-15/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/DevOps/">DevOps</a>
+            </div>
+            <div class="date"><time datetime="2022-05-26T23:14:00.000Z" itemprop="datePublished">2022-05-27</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2022/05/27/linux-15/">[CentOS] 타임존 변경</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            타임존 변경
+리눅스 서버 타임존이 UTC인 경우가 있습니다. 이는 세계 표준 시간으로 한국의 시간대가 아닙니다. 한국의 시간과는 9시간 차이가 발생하므로 서버에서 수행되는 애플리케이션에서 생성되는 시간도 모두 9시간씩 차이가 나기 때문에 수정이 필요합니다. 서버의 타임존을 한국 시간(KST)으로 변경하겠습니다.
+12$ sudo rm /etc/localtim
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2022/05/26/linux-14/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/centos.png)" alt="[CentOS] Java 8 설치 및 환경변수 설정 방법" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2022/05/26/linux-14/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/DevOps/">DevOps</a>
+            </div>
+            <div class="date"><time datetime="2022-05-26T13:06:50.000Z" itemprop="datePublished">2022-05-26</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2022/05/26/linux-14/">[CentOS] Java 8 설치 및 환경변수 설정 방법</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            리눅스 환경에서 Java 8 버전 설치 및 환경변수 설정 방법에 대해 알아보겠습니다.
+JAVA 설치
+yum을 이용해서 설치를 합니다.
+1[root@localhost ~]# sudo yum install -y java-1.8.0-openjdk-devel.x86_64
+버전 변경
+설치가 완료되었으면 Java 버전을 8로 변경합니다. 다음 명령어를 실행하면 선택 
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+        
+            </div></section>
+        
+        
+        <section class="archives-wrap">
+            <div class="archive-year-wrap">
                 <a href="/archives/2021" class="archive-year"><i class="icon fa fa-calendar-o"></i>2021</a>
             </div>
             <div class="archives">
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2021/09/17/mybatis-2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/mybatis.png)" alt="[MyBatis] 동적 쿼리" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2021/09/17/mybatis-2/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Backend/">Backend</a>
+            </div>
+            <div class="date"><time datetime="2021-09-17T12:49:15.000Z" itemprop="datePublished">2021-09-17</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2021/09/17/mybatis-2/">[MyBatis] 동적 쿼리</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            검색 조건에 따라 비교하면서 동적 쿼리를 사용하는 방법에 대해 알아보겠습니다.
+MyBatis와 데이터베이스는 Oracle을 사용하였습니다.
+조건문
+조건문에는 단일(if), 다중(choose, when, otherwise) 조건문이 있습니다.
+1. 단일 조건문
+123456789&lt;select id="findBySearch" resultType="Sampl
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2021/09/17/mybatis-1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/mybatis.png)" alt="[MyBatis] 페이징 처리" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2021/09/17/mybatis-1/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Backend/">Backend</a>
+            </div>
+            <div class="date"><time datetime="2021-09-17T12:44:53.000Z" itemprop="datePublished">2021-09-17</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2021/09/17/mybatis-1/">[MyBatis] 페이징 처리</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            웹 개발 시 페이징 처리는 필수입니다. MyBatis를 사용하여 페이징 처리하는 방법에 대해 알아보겠습니다.
+데이터베이스는 Oracle을 사용하였습니다.
+1. 기본 페이징
+공지사항 조회 시 페이징을 예제로 만들었습니다.
+Class 생성
+공지사항 관련 Class와 페이징을 위한 Class를 생성하였습니다.
+12345678910111213141516171819
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
     
     
     
@@ -441,321 +766,6 @@ yum-downloadonly 패키지를 설치합니다.
         </div>
     
 
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2021/06/19/spring-jpa-1/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/spring.png)" alt="[JPA] Select Query 사용 방법" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2021/06/19/spring-jpa-1/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Backend/">Backend</a>
-            </div>
-            <div class="date"><time datetime="2021-06-19T13:27:35.000Z" itemprop="datePublished">2021-06-19</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2021/06/19/spring-jpa-1/">[JPA] Select Query 사용 방법</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            SpringData JPA를 사용하여 웹 프로젝트를 진행하면서 Select Query를 작성 시 잊어버리게 되어 검색을 하게 되는데 자주 사용하는 내용들을 정리하였습니다. JpaRepository를 상속받아 사용하는 기본 Query와 @Query 주석을 사용하여 JPQL 및 네이티브 SQL 쿼리를 실행하는 방법에 대해 알아보겠습니다.
-Entity
-먼저 데이
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2021/06/16/js-dev-4/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/javascript.png)" alt="[JavaScript] 모달에서 이미지 및 동영상 출력" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2021/06/16/js-dev-4/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a>
-            </div>
-            <div class="date"><time datetime="2021-06-16T13:25:20.000Z" itemprop="datePublished">2021-06-16</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2021/06/16/js-dev-4/">[JavaScript] 모달에서 이미지 및 동영상 출력</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            서론
-[사진 보기], [동영상 보기] 버튼을 클릭 시 모달창이 띄워지면서 사진 또는 동영상이 출력되도록 하는 예제입니다. 사진과 동영상 파일을 images 경로에 저장하여 출력하였고, 실제 구동되는 프로젝트에서는 웹 서버가 실행되는 곳의 특정 경로에 저장하여 URL을 불러와서 출력합니다.
-html
-123456789101112131415161718192021
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2021/06/04/wpf-3/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/wpf.png)" alt="[WPF] Slider Custom Style" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2021/06/04/wpf-3/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a>
-            </div>
-            <div class="date"><time datetime="2021-06-04T13:50:55.000Z" itemprop="datePublished">2021-06-04</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2021/06/04/wpf-3/">[WPF] Slider Custom Style</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            WPF 기본 Slider Stlye에서 Thumb을 드래그할 때마다 박스 안에 숫자가 표시되도록 Style 을 하였습니다.
-Slider 모양
-
-Style 추가
-App.xaml 에 추가하거나 Resource.xaml 파일을 생성하여 Style 을 추가합니다.
-12345678910111213141516171819202122232425262728293031323
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2021/05/27/wpf-2/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/wpf.png)" alt="[WPF] Prism ViewModelBase 정의" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2021/05/27/wpf-2/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a>
-            </div>
-            <div class="date"><time datetime="2021-05-27T05:50:42.000Z" itemprop="datePublished">2021-05-27</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2021/05/27/wpf-2/">[WPF] Prism ViewModelBase 정의</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            WPF에서 Prism을 사용하여 ViewModel을 구현할 때 필요에 따라 Container, EventAggregator, RegionManager, Logger 등의 서비스를 사용합니다.
-서비스를 각각 ViewModel 에 정의해서 사용하는 것이 아닌 공통으로 작성하여 편리하게 사용할 수 있는 추상 클래스를 작성하였습니다.
-ViewModelBase Cl
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2021/05/21/js-dev-3/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/javascript.png)" alt="[JQuery] Select Box 제어" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2021/05/21/js-dev-3/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a>
-            </div>
-            <div class="date"><time datetime="2021-05-21T02:47:06.000Z" itemprop="datePublished">2021-05-21</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2021/05/21/js-dev-3/">[JQuery] Select Box 제어</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            JQuery를 이용해서 select를 제어하는 방법에 대해 알아보겠습니다.
-1&lt;select class="form-control" name="name" id="nameSelect"&gt;&lt;/select&gt;
-선택된 옵션 값 읽기
-12$('#nameSelect option:selected').val();$('select[name=name]').va
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2021/05/12/android-dev-1/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/android.png)" alt="[Android] Yahoo Weather API를 이용하여 날씨정보 조회" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2021/05/12/android-dev-1/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Mobile/">Mobile</a>
-            </div>
-            <div class="date"><time datetime="2021-05-12T07:58:49.000Z" itemprop="datePublished">2021-05-12</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2021/05/12/android-dev-1/">[Android] Yahoo Weather API를 이용하여 날씨정보 조회</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            Yahoo Weather API를 이용하여 현재 위치의 날씨 정보를 조회하는 방법에 대해 알아보겠습니다.
-개발 환경
-
-Android Studio
-Java
-
-설정
-
-build.gradle -&gt; dependencies 추가
-
-1implementation 'zh.wang.android:yweathergetter4a:1.3.0'
-
-manifest -&gt; 
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
 
     </div></section>
 
@@ -838,30 +848,10 @@ manifest -&gt;
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2024/01/23/ai-10/" class="thumbnail">
+                            <a href="/2024/01/31/chatgpt-7/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/thumbnail/ai.png)" alt="2024년 AI 트렌드와 전망" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
-                            <p class="item-title"><a href="/2024/01/23/ai-10/" class="title">2024년 AI 트렌드와 전망</a></p>
-                            <p class="item-date"><time datetime="2024-01-23T02:38:34.000Z" itemprop="datePublished">2024-01-23</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/01/22/ai-9/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/ai.png)" alt="생성형 AI(Generative AI)의 힘과 가능성 소개" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/thumbnail/chatgpt.png)" alt="초보자를 위한 ChatGPT-4 프롬프트 사용 방법" class="thumbnail-image"></span>
     
     
 </a>
@@ -870,18 +860,78 @@ manifest -&gt;
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
-                            <p class="item-title"><a href="/2024/01/22/ai-9/" class="title">생성형 AI(Generative AI)의 힘과 가능성 소개</a></p>
-                            <p class="item-date"><time datetime="2024-01-22T06:43:44.000Z" itemprop="datePublished">2024-01-22</time></p>
+                            <p class="item-title"><a href="/2024/01/31/chatgpt-7/" class="title">초보자를 위한 ChatGPT-4 프롬프트 사용 방법</a></p>
+                            <p class="item-date"><time datetime="2024-01-31T05:30:22.000Z" itemprop="datePublished">2024-01-31</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2024/01/22/js-dev-13/" class="thumbnail">
+                            <a href="/2024/01/30/ai-13/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/thumbnail/javascript.png)" alt="JavaScript 이벤트 처리: 기본부터 고급 기법까지" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/thumbnail/ai.png)" alt="2024년에 꼭 알아야 할 최고의 AI 디자인 도구" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2024/01/30/ai-13/" class="title">2024년에 꼭 알아야 할 최고의 AI 디자인 도구</a></p>
+                            <p class="item-date"><time datetime="2024-01-30T04:46:32.000Z" itemprop="datePublished">2024-01-30</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/01/29/ai-12/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/ai.png)" alt="시간 낭비 그만! 더 빠르게 성과를 달성하는 데 도움이 되는 28가지 AI 도구" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2024/01/29/ai-12/" class="title">시간 낭비 그만! 더 빠르게 성과를 달성하는 데 도움이 되는 28가지 AI 도구</a></p>
+                            <p class="item-date"><time datetime="2024-01-29T05:51:21.000Z" itemprop="datePublished">2024-01-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/01/29/ai-11/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/header/ai-11_1.png)" alt="AI 디코딩: 인공 지능이 웹 개발에 미치는 영향에 대한 심층 분석" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2024/01/29/ai-11/" class="title">AI 디코딩: 인공 지능이 웹 개발에 미치는 영향에 대한 심층 분석</a></p>
+                            <p class="item-date"><time datetime="2024-01-29T05:36:35.000Z" itemprop="datePublished">2024-01-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/01/26/python-5/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/python.png)" alt="초보자를 위한 Pandas 소개" class="thumbnail-image"></span>
     
     
 </a>
@@ -890,48 +940,8 @@ manifest -&gt;
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
-                            <p class="item-title"><a href="/2024/01/22/js-dev-13/" class="title">JavaScript 이벤트 처리: 기본부터 고급 기법까지</a></p>
-                            <p class="item-date"><time datetime="2024-01-21T15:05:37.000Z" itemprop="datePublished">2024-01-22</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/01/19/ai-8/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/ai.png)" alt="무료라고는 믿기지 않을 10가지 AI 도구" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
-                            <p class="item-title"><a href="/2024/01/19/ai-8/" class="title">무료라고는 믿기지 않을 10가지 AI 도구</a></p>
-                            <p class="item-date"><time datetime="2024-01-19T01:01:28.000Z" itemprop="datePublished">2024-01-19</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/01/18/ai-7/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/ai.png)" alt="2024년 사회를 변화시킬 AI 트렌드" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
-                            <p class="item-title"><a href="/2024/01/18/ai-7/" class="title">2024년 사회를 변화시킬 AI 트렌드</a></p>
-                            <p class="item-date"><time datetime="2024-01-18T01:53:19.000Z" itemprop="datePublished">2024-01-18</time></p>
+                            <p class="item-title"><a href="/2024/01/26/python-5/" class="title">초보자를 위한 Pandas 소개</a></p>
+                            <p class="item-date"><time datetime="2024-01-26T14:45:16.000Z" itemprop="datePublished">2024-01-26</time></p>
                         </div>
                     </li>
                 
@@ -942,7 +952,7 @@ manifest -&gt;
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">39</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">291</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">28</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">92</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">67</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">7</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">4</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">39</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">297</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">37</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">28</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">92</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">69</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">7</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">4</span></li></ul></li></ul>
         </div>
     </div>
 

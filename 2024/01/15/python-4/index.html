@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="Python,Programming,파이썬,Pandas" />
     
-    <meta name="description" content="Pandas 여정을 진행하면서 기본을 넘어 데이터 조작 기술에 정교함을 더하는 몇 가지 강력한 기술을 살펴보겠습니다. 1. DataFrame 병합 및 연결 여러 소스의 데이터를 결합하는 기술을 자세히 살펴보세요. DataFrame 병합과 연결의 차이점을 이해하고 다양한 유형의 조인을 처리하는 방법을 알아보세요. 12# Concatenate DataFram">
+    <meta name="description" content="Pandas 여정을 진행하면서 기본을 넘어 데이터 조작 기술에 정교함을 더하는 몇 가지 강력한 기술을 살펴보겠습니다.  1. DataFrame 병합 및 연결 여러 소스의 데이터를 결합하는 기술을 자세히 살펴보세요. DataFrame 병합과 연결의 차이점을 이해하고 다양한 유형의 조인을 처리하는 방법을 알아보세요. 12# Concatenate DataFra">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Pandas 마스터하기: 데이터 조작을 위한 고급 기술">
 <meta property="og:url" content="http://hgko1207.github.io/2024/01/15/python-4/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="Pandas 여정을 진행하면서 기본을 넘어 데이터 조작 기술에 정교함을 더하는 몇 가지 강력한 기술을 살펴보겠습니다. 1. DataFrame 병합 및 연결 여러 소스의 데이터를 결합하는 기술을 자세히 살펴보세요. DataFrame 병합과 연결의 차이점을 이해하고 다양한 유형의 조인을 처리하는 방법을 알아보세요. 12# Concatenate DataFram">
+<meta property="og:description" content="Pandas 여정을 진행하면서 기본을 넘어 데이터 조작 기술에 정교함을 더하는 몇 가지 강력한 기술을 살펴보겠습니다.  1. DataFrame 병합 및 연결 여러 소스의 데이터를 결합하는 기술을 자세히 살펴보세요. DataFrame 병합과 연결의 차이점을 이해하고 다양한 유형의 조인을 처리하는 방법을 알아보세요. 12# Concatenate DataFra">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/python.png">
 <meta property="article:published_time" content="2024-01-15T05:10:27.000Z">
-<meta property="article:modified_time" content="2024-01-21T15:06:17.266Z">
+<meta property="article:modified_time" content="2024-01-26T15:09:14.365Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="Programming">
@@ -264,9 +264,9 @@ ga('send', 'pageview');
 
             
 
-            <p><img src="/images/header/python-4.png" alt=""></p>
-<p>Pandas 여정을 진행하면서 기본을 넘어 데이터 조작 기술에 정교함을 더하는 몇 가지 강력한 기술을 살펴보겠습니다.</p>
-<h2 id="1-DataFrame-병합-및-연결">1. DataFrame 병합 및 연결</h2>
+            <p><img src="/images/header/python-4.png" alt="" /></p>
+<p><strong>Pandas</strong> 여정을 진행하면서 기본을 넘어 데이터 조작 기술에 정교함을 더하는 몇 가지 강력한 기술을 살펴보겠습니다.</p>
+<h2 id="1-dataframe-병합-및-연결"><a class="markdownIt-Anchor" href="#1-dataframe-병합-및-연결"></a> 1. DataFrame 병합 및 연결</h2>
 <p>여러 소스의 데이터를 결합하는 기술을 자세히 살펴보세요. DataFrame 병합과 연결의 차이점을 이해하고 다양한 유형의 조인을 처리하는 방법을 알아보세요.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Concatenate DataFrames vertically</span></span><br><span class="line">result = pd.concat([df1, df2])</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Merge DataFrames based on a common column</span></span><br><span class="line">merged_df = pd.merge(left_df, right_df, on=<span class="string">'common_column'</span>, how=<span class="string">'inner'</span>)</span><br></pre></td></tr></table></figure>
@@ -284,7 +284,7 @@ ga('send', 'pageview');
 </ul>
 </li>
 </ul>
-<h2 id="2-피벗-Pivot-테이블로-데이터-재구성">2. 피벗(Pivot) 테이블로 데이터 재구성</h2>
+<h2 id="2-피벗pivot-테이블로-데이터-재구성"><a class="markdownIt-Anchor" href="#2-피벗pivot-테이블로-데이터-재구성"></a> 2. 피벗(Pivot) 테이블로 데이터 재구성</h2>
 <p>피벗 테이블을 사용하여 더 나은 분석을 위해 데이터 재구성하는 데 능숙해집니다. DataFrame을 피벗 형태로 변환하여 정보를 요약하여 더 나은 인사이트를 얻을 수 있습니다:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Create a pivot table</span></span><br><span class="line">pivot_table = df.pivot_table(index=<span class="string">'Category'</span>, columns=<span class="string">'Month'</span>, values=<span class="string">'Value'</span>, aggfunc=<span class="string">'sum'</span>)</span><br></pre></td></tr></table></figure>
 <ul>
@@ -300,7 +300,7 @@ ga('send', 'pageview');
 </ul>
 </li>
 </ul>
-<h2 id="3-범주형-데이터-처리">3. 범주형 데이터 처리</h2>
+<h2 id="3-범주형-데이터-처리"><a class="markdownIt-Anchor" href="#3-범주형-데이터-처리"></a> 3. 범주형 데이터 처리</h2>
 <p>범주형 데이터를 효율적으로 관리하여 분석을 향상합니다. 원-핫(one-hot) 인코딩 및 범주형 데이터 유형 변환과 같은 기술을 배워보세요.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Convert a column to categorical type</span></span><br><span class="line">df[<span class="string">'Category'</span>] = pd.Categorical(df[<span class="string">'Category'</span>])</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Perform one-hot encoding</span></span><br><span class="line">df_encoded = pd.get_dummies(df, columns=[<span class="string">'Category'</span>])</span><br></pre></td></tr></table></figure>
@@ -317,7 +317,7 @@ ga('send', 'pageview');
 </ul>
 </li>
 </ul>
-<h2 id="4-시간-효율적인-문자열-작업">4. 시간 효율적인 문자열 작업</h2>
+<h2 id="4-시간-효율적인-문자열-작업"><a class="markdownIt-Anchor" href="#4-시간-효율적인-문자열-작업"></a> 4. 시간 효율적인 문자열 작업</h2>
 <p>문자열 조작을 위한 Pandas의 다양한 기능을 살펴보세요. 문자열 작업을 효율적으로 적용하여 텍스트 데이터를 정리하고 변환하는 방법을 배워보세요.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Convert text to lowercase</span></span><br><span class="line">df[<span class="string">'Text_Column'</span>] = df[<span class="string">'Text_Column'</span>].str.lower()</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Extract information using regular expressions</span></span><br><span class="line">df[<span class="string">'Extracted_Info'</span>] = df[<span class="string">'Text_Column'</span>].str.extract(<span class="string">r'(\d+)'</span>)</span><br></pre></td></tr></table></figure>
@@ -335,7 +335,7 @@ ga('send', 'pageview');
 </ul>
 </li>
 </ul>
-<h2 id="5-날짜-시간-데이터-처리">5. 날짜/시간 데이터 처리</h2>
+<h2 id="5-날짜시간-데이터-처리"><a class="markdownIt-Anchor" href="#5-날짜시간-데이터-처리"></a> 5. 날짜/시간 데이터 처리</h2>
 <p>기본적인 날짜/시간 작업을 넘어 고급 기술을 살펴보세요. 특정 구성 요소를 추출하고, 시차를 계산하고, 표준 시간대로 작업하는 방법을 배워보세요.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Extract month and year from a datetime column</span></span><br><span class="line">df[<span class="string">'Month'</span>] = df[<span class="string">'Date'</span>].dt.month</span><br><span class="line">df[<span class="string">'Year'</span>] = df[<span class="string">'Date'</span>].dt.year</span><br></pre></td></tr></table></figure>
 <ul>
@@ -352,7 +352,7 @@ ga('send', 'pageview');
 </ul>
 </li>
 </ul>
-<h2 id="6-메모리-최적화">6. 메모리 최적화</h2>
+<h2 id="6-메모리-최적화"><a class="markdownIt-Anchor" href="#6-메모리-최적화"></a> 6. 메모리 최적화</h2>
 <p>DataFrame의 메모리 사용량을 최적화하여 보다 효율적으로 처리하세요. 데이터 무결성을 손상시키지 않고 메모리 사용량을 줄이는 방법을 알아보세요.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 숫자 열을 더 작은 데이터 유형으로 다운캐스트(Downcast)하기</span></span><br><span class="line">df = df.apply(pd.to_numeric, downcast=<span class="string">'integer'</span>)</span><br></pre></td></tr></table></figure>
 <ul>
@@ -368,7 +368,7 @@ ga('send', 'pageview');
 </ul>
 </li>
 </ul>
-<h2 id="결론">결론</h2>
+<h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2>
 <p>이러한 고급 Pandas 기술은 데이터 조작 기술을 향상시켜 복잡한 시나리오에 대한 솔루션을 제공합니다. 주요 내용은 다음과 같습니다.</p>
 <ul>
 <li>포괄적인 데이터 통합을 위해 DataFrame을 병합하고 연결합니다.</li>
@@ -487,14 +487,14 @@ ga('send', 'pageview');
         "genre": "Programming Language Python",
         "datePublished": "2024-01-15",
         "dateCreated": "2024-01-15",
-        "dateModified": "2024-01-22",
+        "dateModified": "2024-01-27",
         "url": "http://hgko1207.github.io/2024/01/15/python-4/",
         "description": "
 Pandas 여정을 진행하면서 기본을 넘어 데이터 조작 기술에 정교함을 더하는 몇 가지 강력한 기술을 살펴보겠습니다.
-1. DataFrame 병합 및 연결
+ 1. DataFrame 병합 및 연결
 여러 소스의 데이터를 결합하는 기술을 자세히 살펴보세요. DataFrame 병합과 연결의 차이점을 이해하고 다양한 유형의 조인을 처리하는 방법을 알아보세요.
-12# Concatenate DataFram",
-        "wordCount": 602
+12# Concatenate DataFra",
+        "wordCount": 624
     }
 </script>
 
@@ -605,30 +605,10 @@ Pandas 여정을 진행하면서 기본을 넘어 데이터 조작 기술에 정
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2024/01/23/ai-10/" class="thumbnail">
+                            <a href="/2024/01/31/chatgpt-7/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/thumbnail/ai.png)" alt="2024년 AI 트렌드와 전망" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
-                            <p class="item-title"><a href="/2024/01/23/ai-10/" class="title">2024년 AI 트렌드와 전망</a></p>
-                            <p class="item-date"><time datetime="2024-01-23T02:38:34.000Z" itemprop="datePublished">2024-01-23</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/01/22/ai-9/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/ai.png)" alt="생성형 AI(Generative AI)의 힘과 가능성 소개" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/thumbnail/chatgpt.png)" alt="초보자를 위한 ChatGPT-4 프롬프트 사용 방법" class="thumbnail-image"></span>
     
     
 </a>
@@ -637,18 +617,78 @@ Pandas 여정을 진행하면서 기본을 넘어 데이터 조작 기술에 정
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
-                            <p class="item-title"><a href="/2024/01/22/ai-9/" class="title">생성형 AI(Generative AI)의 힘과 가능성 소개</a></p>
-                            <p class="item-date"><time datetime="2024-01-22T06:43:44.000Z" itemprop="datePublished">2024-01-22</time></p>
+                            <p class="item-title"><a href="/2024/01/31/chatgpt-7/" class="title">초보자를 위한 ChatGPT-4 프롬프트 사용 방법</a></p>
+                            <p class="item-date"><time datetime="2024-01-31T05:30:22.000Z" itemprop="datePublished">2024-01-31</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2024/01/22/js-dev-13/" class="thumbnail">
+                            <a href="/2024/01/30/ai-13/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/thumbnail/javascript.png)" alt="JavaScript 이벤트 처리: 기본부터 고급 기법까지" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/thumbnail/ai.png)" alt="2024년에 꼭 알아야 할 최고의 AI 디자인 도구" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2024/01/30/ai-13/" class="title">2024년에 꼭 알아야 할 최고의 AI 디자인 도구</a></p>
+                            <p class="item-date"><time datetime="2024-01-30T04:46:32.000Z" itemprop="datePublished">2024-01-30</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/01/29/ai-12/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/ai.png)" alt="시간 낭비 그만! 더 빠르게 성과를 달성하는 데 도움이 되는 28가지 AI 도구" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2024/01/29/ai-12/" class="title">시간 낭비 그만! 더 빠르게 성과를 달성하는 데 도움이 되는 28가지 AI 도구</a></p>
+                            <p class="item-date"><time datetime="2024-01-29T05:51:21.000Z" itemprop="datePublished">2024-01-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/01/29/ai-11/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/header/ai-11_1.png)" alt="AI 디코딩: 인공 지능이 웹 개발에 미치는 영향에 대한 심층 분석" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2024/01/29/ai-11/" class="title">AI 디코딩: 인공 지능이 웹 개발에 미치는 영향에 대한 심층 분석</a></p>
+                            <p class="item-date"><time datetime="2024-01-29T05:36:35.000Z" itemprop="datePublished">2024-01-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/01/26/python-5/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/python.png)" alt="초보자를 위한 Pandas 소개" class="thumbnail-image"></span>
     
     
 </a>
@@ -657,48 +697,8 @@ Pandas 여정을 진행하면서 기본을 넘어 데이터 조작 기술에 정
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
-                            <p class="item-title"><a href="/2024/01/22/js-dev-13/" class="title">JavaScript 이벤트 처리: 기본부터 고급 기법까지</a></p>
-                            <p class="item-date"><time datetime="2024-01-21T15:05:37.000Z" itemprop="datePublished">2024-01-22</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/01/19/ai-8/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/ai.png)" alt="무료라고는 믿기지 않을 10가지 AI 도구" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
-                            <p class="item-title"><a href="/2024/01/19/ai-8/" class="title">무료라고는 믿기지 않을 10가지 AI 도구</a></p>
-                            <p class="item-date"><time datetime="2024-01-19T01:01:28.000Z" itemprop="datePublished">2024-01-19</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/01/18/ai-7/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/ai.png)" alt="2024년 사회를 변화시킬 AI 트렌드" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
-                            <p class="item-title"><a href="/2024/01/18/ai-7/" class="title">2024년 사회를 변화시킬 AI 트렌드</a></p>
-                            <p class="item-date"><time datetime="2024-01-18T01:53:19.000Z" itemprop="datePublished">2024-01-18</time></p>
+                            <p class="item-title"><a href="/2024/01/26/python-5/" class="title">초보자를 위한 Pandas 소개</a></p>
+                            <p class="item-date"><time datetime="2024-01-26T14:45:16.000Z" itemprop="datePublished">2024-01-26</time></p>
                         </div>
                     </li>
                 
@@ -709,7 +709,7 @@ Pandas 여정을 진행하면서 기본을 넘어 데이터 조작 기술에 정
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">39</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">291</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">28</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">92</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">67</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">7</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">4</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">39</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">297</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">37</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">28</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">92</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">69</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">7</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">4</span></li></ul></li></ul>
         </div>
     </div>
 
