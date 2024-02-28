@@ -230,6 +230,440 @@ ga('send', 'pageview');
         <article class="article article-summary">
     <div class="article-summary-inner">
         
+        <a href="/2020/09/14/linux-1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/centos.png)" alt="[CentOS] 기본 명령어" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2020/09/14/linux-1/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/DevOps/">DevOps</a>
+            </div>
+            <div class="date"><time datetime="2020-09-14T02:21:19.000Z" itemprop="datePublished">2020-09-14</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/09/14/linux-1/">[CentOS] 기본 명령어</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+             기본 명령어
+
+
+
+명령어
+설명
+
+
+
+
+ll
+해당 디렉토리 파일 목록 보기
+
+
+ls -al
+숨김 파일까지 보기
+
+
+ls -lt
+시간순으로 보기
+
+
+hostname
+호스트명 보기
+
+
+cat [파일명]예) cat /etc/hosts
+파일 내용 출력
+
+
+vi [파일명]예) vi /etc/hosts
+파일 내용 편집
+
+
+mkdir [폴더명]
+폴더 생성
+
+
+touch
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/09/14/postgresql-3/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/postgresql.png)" alt="[PostgreSQL] Command 명령어" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2020/09/14/postgresql-3/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/DB/">DB</a>
+            </div>
+            <div class="date"><time datetime="2020-09-14T01:40:09.000Z" itemprop="datePublished">2020-09-14</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/09/14/postgresql-3/">[PostgreSQL] Command 명령어</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+             명령어
+PostgreSQL에 접속합니다.
+1$ psql -U postgres
+다음은 데이터베이스와 테이블 관련 명령어입니다.
+
+
+
+명령어
+설명
+
+
+
+
+\list or \l
+데이터베이스 목록 조회
+
+
+\list+ or \l+
+데이터베이스 목록 상세조회
+
+
+\c [DB Name]
+다른 DB에 접속
+
+
+\d
+테이블 목록 보기
+
+
+\dt [Table Name]
+
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/09/11/postgresql-2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/postgresql.png)" alt="[PostgreSQL] 외부 접속 허용 설정" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2020/09/11/postgresql-2/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/DB/">DB</a>
+            </div>
+            <div class="date"><time datetime="2020-09-11T01:20:47.000Z" itemprop="datePublished">2020-09-11</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/09/11/postgresql-2/">[PostgreSQL] 외부 접속 허용 설정</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            외부 접속 허용 설정
+1. 사용자 비밀번호 설정
+외부에서 접속하기 위해선 우선 postgres 비밀번호를 설정해야 합니다.
+postgres 계정으로 접속합니다.
+1$ su - postgres psql
+12345# 비밀번호 설정\password postgres# 종료\q
+2. 방화벽 개방
+방화벽에서 5432 포트를 개방합니다.
+12$ firewall-cmd 
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/09/10/postgresql-1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/postgresql.png)" alt="[PostgreSQL] CentOS 7에서 PostgreSQL 설치 및 시작 방법" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2020/09/10/postgresql-1/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/DB/">DB</a>
+            </div>
+            <div class="date"><time datetime="2020-09-10T09:22:53.000Z" itemprop="datePublished">2020-09-10</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/09/10/postgresql-1/">[PostgreSQL] CentOS 7에서 PostgreSQL 설치 및 시작 방법</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            리눅스 환경에서 PostgreSQL 설치 및 시작 방법에 대해 알아보겠습니다.
+운영환경
+
+CentOS 7.6
+PostgreSQL 11.9
+
+인터넷이 되는 환경
+12345# Install the repository RPM:$ sudo yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/09/07/wpf-1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/wpf.png)" alt="[WPF] Event Notifier 사용 방법" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2020/09/07/wpf-1/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a>
+            </div>
+            <div class="date"><time datetime="2020-09-07T01:40:55.000Z" itemprop="datePublished">2020-09-07</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/09/07/wpf-1/">[WPF] Event Notifier 사용 방법</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            컴포넌트 간의 데이터를 주고받을 경우 Prism의 EventAggregator를 사용하면 편리하지만 WPF 만을 사용할 경우 아래 코드와 같이 구성하여 사용하였습니다.
+Event Manager
+EventManager.cs
+1234567891011121314151617181920212223242526272829303132333435363738394041424
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/09/06/docker-1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/docker.png)" alt="[Docker] 주요 명령어 및 기본 사용법" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2020/09/06/docker-1/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/DevOps/">DevOps</a>
+            </div>
+            <div class="date"><time datetime="2020-09-06T12:57:13.000Z" itemprop="datePublished">2020-09-06</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/09/06/docker-1/">[Docker] 주요 명령어 및 기본 사용법</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            리눅스 환경에서 Docker 명령어와 기본 사용 방법에 대해 알아보겠습니다.
+운영환경
+
+CentOS 7.6
+
+설치
+1$ yum install docker
+설치가 완료되면 버전을 조회하여 설치 확인을 합니다.
+1$ docker -v
+컨테이너 생성 및 실행
+docker run 명령어는 컨테이너를 생성 및 실행과 동시에 컨테이너 내부로 들어갑니다.
+기본 포맷입니
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/09/01/ai-preprocess-1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/ai.png)" alt="[딥러닝] Preprocess 준비" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2020/09/01/ai-preprocess-1/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a>
+            </div>
+            <div class="date"><time datetime="2020-09-01T14:10:35.000Z" itemprop="datePublished">2020-09-01</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/09/01/ai-preprocess-1/">[딥러닝] Preprocess 준비</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            로컬 데이터를 불러와 전처리시 필요한 내용이다.
+ Load Packages
+12345678910import osfrom glob import globimport numpy as npimport tensorflow as tffrom PIL import Imageimport matplotlib.pyplot as plt%matplotlib inline
+12345
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
         <a href="/2020/09/01/cpp-coding-2/" class="thumbnail">
     
     
@@ -271,10 +705,14 @@ ga('send', 'pageview');
     </div>
 </article>
     
+        </div>
+    
 
     
     
     
+    
+        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -323,14 +761,10 @@ geometry 인스턴스에 다른 geometry 인스턴스가 완전히 포함되어 
     </div>
 </article>
     
-        </div>
-    
 
     
     
     
-    
-        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -379,368 +813,6 @@ geometry 인스턴스에 다른 geometry 인스턴스가 완전히 포함되어 
 
 파이썬 입문 - https://programmers.co.kr/learn/courses/2
 딥러닝 입문(Tensorflow) - http
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2020/08/21/web-design-1/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/dashboard.png)" alt="[Web Design] Canvas" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2020/08/21/web-design-1/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a>
-            </div>
-            <div class="date"><time datetime="2020-08-21T07:59:04.000Z" itemprop="datePublished">2020-08-21</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2020/08/21/web-design-1/">[Web Design] Canvas</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-             HTML 템플릿
-회사 홈페이지 및 블로그 형태의 사이트 제작 요청이 있어 디자인 템플릿을 찾아보던 중 심플하기도 하고 이쁜 HTML 템플릿을 찾게 되었다.
- Canvas
-The Multi-Purpose HTML5 Template
-
-Canvas는 Mulit-Page 및 One-Page 사이트를 제공하고 반응형을 지원하는 다목적 HTML5 템플릿이다. 비즈니
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2020/08/13/ai-dev-8/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/tensorflow-pytorch.png)" alt="TensorFlow 2.0과 PyTorch 비교" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2020/08/13/ai-dev-8/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a>
-            </div>
-            <div class="date"><time datetime="2020-08-13T07:36:58.000Z" itemprop="datePublished">2020-08-13</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2020/08/13/ai-dev-8/">TensorFlow 2.0과 PyTorch 비교</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-             TensorFlow 2.0
-123import tensorflow as tffrom tensorflow.keras import layersfrom tensorflow.keras import datasets
- Hyperparameter
-1234567batch_size = 64learning_rate = 0.001dropout_rate = 0.7input_sh
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2020/08/13/ai-pytorch-5/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/pytorch.png)" alt="[PyTorch] Evaluating 및 Predicting" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2020/08/13/ai-pytorch-5/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a>
-            </div>
-            <div class="date"><time datetime="2020-08-13T07:11:54.000Z" itemprop="datePublished">2020-08-13</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2020/08/13/ai-pytorch-5/">[PyTorch] Evaluating 및 Predicting</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            이전 블로그를 이어서 진행해본다.
- Evaluation
-model.train() 모드로 변한 것 처럼 평가할 때는 model.eval() 으로 설정한다.
-1234567891011# Test mode# batch norm이나 dropout 등을 train mode 변환model.eval()# OutNet(  (conv1): Conv2d(1, 20, kerne
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2020/08/13/ai-pytorch-4/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/pytorch.png)" alt="[PyTorch] Optimizer 및 Training" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2020/08/13/ai-pytorch-4/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a>
-            </div>
-            <div class="date"><time datetime="2020-08-13T04:48:37.000Z" itemprop="datePublished">2020-08-13</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2020/08/13/ai-pytorch-4/">[PyTorch] Optimizer 및 Training</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-             Optimization &amp; Training
-https://github.com/pytorch/examples/tree/master/mnist
- Load Packages
-1234567import torchimport torch.nn as nnimport torch.nn.functional as Fimport torch.optim as optimfrom
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2020/08/13/ai-pytorch-3/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/pytorch.png)" alt="[PyTorch] 각 Layer별 역할 및 파라미터" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2020/08/13/ai-pytorch-3/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a>
-            </div>
-            <div class="date"><time datetime="2020-08-13T02:31:56.000Z" itemprop="datePublished">2020-08-13</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2020/08/13/ai-pytorch-3/">[PyTorch] 각 Layer별 역할 및 파라미터</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-             PyTorch Layer 이해하기
- Load Packages
-123456import torchfrom torchvision import datasets, transformsimport numpy as npimport matplotlib.pyplot as plt%matplotlib inline
- 예제 불러오기
-1234567891011train_loader 
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2020/08/13/ai-pytorch-2/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/pytorch.png)" alt="[PyTorch] 데이터 불러오기" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2020/08/13/ai-pytorch-2/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a>
-            </div>
-            <div class="date"><time datetime="2020-08-13T01:14:45.000Z" itemprop="datePublished">2020-08-13</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2020/08/13/ai-pytorch-2/">[PyTorch] 데이터 불러오기</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-             PyTorch Data Preprocess
-12import torchfrom torchvision import datasets, transforms
- Import Error
-1ImportError: cannot import name 'PILLOW_VERSION' from 'PIL'
-pillow 버전이 7.0.0 이상 일경우 Import 에러 나는 경우가 
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2020/08/12/js-dev-1/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/javascript.png)" alt="[JavaScript] DataTables 사용 방법" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2020/08/12/js-dev-1/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a>
-            </div>
-            <div class="date"><time datetime="2020-08-12T04:24:43.000Z" itemprop="datePublished">2020-08-12</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2020/08/12/js-dev-1/">[JavaScript] DataTables 사용 방법</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            JQuery 용 테이블 라이브러리인 DataTables 플러그인을 사용하여 개발했을 경우 편리하게 사용하기 위해 구조를 설계하였습니다.
-
-DataTables는 데이터를 테이블로 쉽게 구현할 수 있도록 도와주는 라이브러리입니다.
-
-설치와 사용법은 DataTables 공식 사이트에 잘 설명되어 있기 때문에 생략하겠습니다.
-초기 설정
-여러 곳에서 DataTabl
         </p>
     </div>
 </article>
@@ -829,30 +901,10 @@ DataTables는 데이터를 테이블로 쉽게 구현할 수 있도록 도와주
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2024/02/23/chatgpt-14/" class="thumbnail">
+                            <a href="/2024/02/27/ai-21/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/thumbnail/chatgpt.png)" alt="처음부터 끝까지 더 빠르고 최적화된 블로그 작성을 위한 50가지 영리한 ChatGPT 프롬프트" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
-                            <p class="item-title"><a href="/2024/02/23/chatgpt-14/" class="title">처음부터 끝까지 더 빠르고 최적화된 블로그 작성을 위한 50가지 영리한 ChatGPT 프롬프트</a></p>
-                            <p class="item-date"><time datetime="2024-02-23T14:17:28.000Z" itemprop="datePublished">2024-02-23</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/02/23/chatgpt-13/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/chatgpt.png)" alt="2024년 최고의 ChatGPT 프롬프트 가이드" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/thumbnail/ai.png)" alt="Google의 Gemini AI: 혁신적인 차세대 AI" class="thumbnail-image"></span>
     
     
 </a>
@@ -861,18 +913,18 @@ DataTables는 데이터를 테이블로 쉽게 구현할 수 있도록 도와주
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
-                            <p class="item-title"><a href="/2024/02/23/chatgpt-13/" class="title">2024년 최고의 ChatGPT 프롬프트 가이드</a></p>
-                            <p class="item-date"><time datetime="2024-02-23T02:06:33.000Z" itemprop="datePublished">2024-02-23</time></p>
+                            <p class="item-title"><a href="/2024/02/27/ai-21/" class="title">Google의 Gemini AI: 혁신적인 차세대 AI</a></p>
+                            <p class="item-date"><time datetime="2024-02-27T13:23:16.000Z" itemprop="datePublished">2024-02-27</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2024/02/20/info-9/" class="thumbnail">
+                            <a href="/2024/02/27/devops-1/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/header/info-9.png)" alt="유럽에서 공개된 Google의 최신 검색 기능 살펴보기" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/header/devops-1.png)" alt="컨테이너화 VS 가상화" class="thumbnail-image"></span>
     
     
 </a>
@@ -880,39 +932,19 @@ DataTables는 데이터를 테이블로 쉽게 구현할 수 있도록 도와주
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/IT/">IT</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/IT/Information/">Information</a></p>
-                            <p class="item-title"><a href="/2024/02/20/info-9/" class="title">유럽에서 공개된 Google의 최신 검색 기능 살펴보기</a></p>
-                            <p class="item-date"><time datetime="2024-02-20T02:06:56.000Z" itemprop="datePublished">2024-02-20</time></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/DevOps/">DevOps</a></p>
+                            <p class="item-title"><a href="/2024/02/27/devops-1/" class="title">컨테이너화 VS 가상화</a></p>
+                            <p class="item-date"><time datetime="2024-02-27T12:54:26.000Z" itemprop="datePublished">2024-02-27</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2024/02/20/ai-18/" class="thumbnail">
+                            <a href="/2024/02/27/chatgpt-17/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/thumbnail/ai.png)" alt="Sora - 텍스트로 동영상 만들기" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
-                            <p class="item-title"><a href="/2024/02/20/ai-18/" class="title">Sora - 텍스트로 동영상 만들기</a></p>
-                            <p class="item-date"><time datetime="2024-02-20T01:51:47.000Z" itemprop="datePublished">2024-02-20</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/02/18/chatgpt-12/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/chatgpt.png)" alt="골프 선수를 위한 ChatGPT 프롬프트" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/thumbnail/chatgpt.png)" alt="글쓰기 향상을 위한 ChatGPT 프롬프트 가이드" class="thumbnail-image"></span>
     
     
 </a>
@@ -921,8 +953,48 @@ DataTables는 데이터를 테이블로 쉽게 구현할 수 있도록 도와주
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
-                            <p class="item-title"><a href="/2024/02/18/chatgpt-12/" class="title">골프 선수를 위한 ChatGPT 프롬프트</a></p>
-                            <p class="item-date"><time datetime="2024-02-18T13:59:25.000Z" itemprop="datePublished">2024-02-18</time></p>
+                            <p class="item-title"><a href="/2024/02/27/chatgpt-17/" class="title">글쓰기 향상을 위한 ChatGPT 프롬프트 가이드</a></p>
+                            <p class="item-date"><time datetime="2024-02-27T06:39:42.000Z" itemprop="datePublished">2024-02-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/02/27/chatgpt-16/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/chatgpt.png)" alt="코딩을 위한 ChatGPT 프롬프트 가이드" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2024/02/27/chatgpt-16/" class="title">코딩을 위한 ChatGPT 프롬프트 가이드</a></p>
+                            <p class="item-date"><time datetime="2024-02-27T06:18:53.000Z" itemprop="datePublished">2024-02-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/02/27/ai-20/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/ai.png)" alt="AI 지배를 위한 경쟁: 컴퓨팅 비용 급증을 선도하는 Google과 Microsoft" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2024/02/27/ai-20/" class="title">AI 지배를 위한 경쟁: 컴퓨팅 비용 급증을 선도하는 Google과 Microsoft</a></p>
+                            <p class="item-date"><time datetime="2024-02-27T05:56:41.000Z" itemprop="datePublished">2024-02-27</time></p>
                         </div>
                     </li>
                 
@@ -933,7 +1005,7 @@ DataTables는 데이터를 테이블로 쉽게 구현할 수 있도록 도와주
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">40</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">311</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">49</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">28</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">92</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">71</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">7</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">4</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">40</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">318</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">55</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">32</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">28</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">92</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">71</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">7</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">4</span></li></ul></li></ul>
         </div>
     </div>
 
