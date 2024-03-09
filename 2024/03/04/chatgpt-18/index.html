@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>운동 계획을 위한 ChatGPT 프롬프트 가이드 | 규니의 블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="AI,ChatGPT,Artificial Intelligence,프롬프트,ChatGPT 프롬프트,운동,운동 계획" />
+    
+    <meta name="description" content="빠르게 변화하는 오늘날의 세상에서 건강을 유지하는 것이 그 어느 때보다 중요해졌습니다. 손끝에 있는 기술을 통해 운동 루틴을 향상시킬 수 있는 새롭고 흥미로운 방법, 바로 ChatGPT가 있습니다! 이 강력한 도구는 피트니스 목표에 맞는 개인 맞춤형의 효과적인 운동 계획을 세우는 데 도움을 줍니다. 이 블로그에서는 ChatGPT가 어떻게 즐겁고 유익한 운동">
+<meta property="og:type" content="article">
+<meta property="og:title" content="운동 계획을 위한 ChatGPT 프롬프트 가이드">
+<meta property="og:url" content="http://hgko1207.github.io/2024/03/04/chatgpt-18/index.html">
+<meta property="og:site_name" content="규니의 블로그">
+<meta property="og:description" content="빠르게 변화하는 오늘날의 세상에서 건강을 유지하는 것이 그 어느 때보다 중요해졌습니다. 손끝에 있는 기술을 통해 운동 루틴을 향상시킬 수 있는 새롭고 흥미로운 방법, 바로 ChatGPT가 있습니다! 이 강력한 도구는 피트니스 목표에 맞는 개인 맞춤형의 효과적인 운동 계획을 세우는 데 도움을 줍니다. 이 블로그에서는 ChatGPT가 어떻게 즐겁고 유익한 운동">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/chatgpt.png">
+<meta property="article:published_time" content="2024-03-04T03:05:53.000Z">
+<meta property="article:modified_time" content="2024-03-04T04:15:42.586Z">
+<meta property="article:author" content="Hyeong Gyun Ko">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="ChatGPT">
+<meta property="article:tag" content="Artificial Intelligence">
+<meta property="article:tag" content="프롬프트">
+<meta property="article:tag" content="ChatGPT 프롬프트">
+<meta property="article:tag" content="운동">
+<meta property="article:tag" content="운동 계획">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/chatgpt.png">
+    
+
+    
+        <link rel="alternate" href="/" title="규니의 블로그" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-166318275-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+
+    <!-- <script
+  data-ad-client="ca-pub-7581566810202853"
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+></script>
+ -->
+
+    <!-- 구글 애드센스 -->
+    <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!-- 네이버 -->
+    <meta name="naver-site-verification" content="a6e2912bbd1e42226e10ee12d3498a246c51ec1f" />
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h2 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h2>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">hgko&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ETC/">ETC</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/">IT</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/BlockChain/">BlockChain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Blockchain/">Blockchain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Information/">Information</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Satellite/">Satellite</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Backend/">Backend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DB/">DB</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Frontend/">Frontend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Language/">Language</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Mobile/">Mobile</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Web/">Web</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about">About</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/profile">Profile</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h2 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/AI/">AI</a>
+    </h2>
+</div>
+
+                        <div class="main-body-content">
+                            <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+                            <!-- 상단 광고 -->
+<ins
+  class="adsbygoogle"
+  style="display: block"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="1131844921"
+  data-ad-format="auto"
+  data-full-width-responsive="true"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                            <article id="post-chatgpt-18" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        운동 계획을 위한 ChatGPT 프롬프트 가이드
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2024/03/04/chatgpt-18/" class="article-date">
+         <time datetime="2024-03-04T03:05:53.000Z" itemprop="datePublished">2024-03-04</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/AI/" rel="tag">AI</a>, <a class="tag-link" href="/tags/Artificial-Intelligence/" rel="tag">Artificial Intelligence</a>, <a class="tag-link" href="/tags/ChatGPT/" rel="tag">ChatGPT</a>, <a class="tag-link" href="/tags/ChatGPT-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8/" rel="tag">ChatGPT 프롬프트</a>, <a class="tag-link" href="/tags/%EC%9A%B4%EB%8F%99/" rel="tag">운동</a>, <a class="tag-link" href="/tags/%EC%9A%B4%EB%8F%99-%EA%B3%84%ED%9A%8D/" rel="tag">운동 계획</a>, <a class="tag-link" href="/tags/%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8/" rel="tag">프롬프트</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>빠르게 변화하는 오늘날의 세상에서 건강을 유지하는 것이 그 어느 때보다 중요해졌습니다. 손끝에 있는 기술을 통해 운동 루틴을 향상시킬 수 있는 새롭고 흥미로운 방법, 바로 ChatGPT가 있습니다! 이 강력한 도구는 피트니스 목표에 맞는 개인 맞춤형의 효과적인 운동 계획을 세우는 데 도움을 줍니다. 이 블로그에서는 ChatGPT가 어떻게 즐겁고 유익한 운동 계획을 세우는 데 도움이 되는지 살펴볼게요.</p>
+<h2 id="chatgpt를-사용하여-원하는-운동-계획을-세우는-방법"><a class="markdownIt-Anchor" href="#chatgpt를-사용하여-원하는-운동-계획을-세우는-방법"></a> ChatGPT를 사용하여 원하는 운동 계획을 세우는 방법</h2>
+<h3 id="개인화가-핵심"><a class="markdownIt-Anchor" href="#개인화가-핵심"></a> 개인화가 핵심</h3>
+<p>ChatGPT의 뛰어난 기능 중 하나는 운동 계획을 개인화할 수 있는 기능입니다. 사용자의 체력 수준, 목표, 선호하는 운동을 입력하면 ChatGPT는 사용자의 필요에 맞는 계획을 맞춤 설정합니다. 이러한 개인 맞춤화는 운동의 효과뿐만 아니라 즐거움도 보장합니다.</p>
+<h3 id="균형-잡힌-운동"><a class="markdownIt-Anchor" href="#균형-잡힌-운동"></a> 균형 잡힌 운동</h3>
+<p>ChatGPT는 균형 잡힌 운동 루틴을 만드는 데 탁월합니다. 심혈관 운동, 근력 운동, 유연성 운동을 혼합하여 피트니스에 대한 전체적인 접근 방식을 보장합니다. 이러한 균형은 지루함을 방지하고 최적의 결과를 위해 신체가 계속 도전하도록 도와줍니다.</p>
+<h3 id="일정에-대한-적응성"><a class="markdownIt-Anchor" href="#일정에-대한-적응성"></a> 일정에 대한 적응성</h3>
+<p>삶은 바쁠 수 있지만, 그것이 피트니스 여정에 장애물이 되어서는 안 됩니다. ChatGPT는 사용자의 일정에 완벽하게 맞는 운동 계획을 설계할 수 있습니다. 20분이든 1시간이든, ChatGPT는 사용 가능한 시간을 최대한 활용할 수 있는 운동을 제안할 수 있습니다.</p>
+<h2 id="운동-계획에-chatgpt를-사용하기-위한-실용적인-팁"><a class="markdownIt-Anchor" href="#운동-계획에-chatgpt를-사용하기-위한-실용적인-팁"></a> 운동 계획에 ChatGPT를 사용하기 위한 실용적인 팁</h2>
+<p>이제 기본 사항을 알았으니, 운동 여정에 ChatGPT를 최대한 활용할 수 있는 몇 가지 실용적인 팁을 알아보세요.</p>
+<h3 id="명확한-목표-설정"><a class="markdownIt-Anchor" href="#명확한-목표-설정"></a> 명확한 목표 설정</h3>
+<p>피트니스 목표를 명확하게 정의하는 것부터 시작하세요. 체중 감량, 근육 강화, 전반적인 건강 개선 등, 목표를 명시하면 ChatGPT가 여러분의 열망에 맞는 계획을 세우는 데 도움이 됩니다.</p>
+<h3 id="정직한-체력-수준-평가"><a class="markdownIt-Anchor" href="#정직한-체력-수준-평가"></a> 정직한 체력 수준 평가</h3>
+<p>현재 체력 수준에 대한 정확한 정보를 제공하세요. 이를 통해 ChatGPT는 사용자의 능력에 맞는 운동을 추천하여 불필요한 부담이나 좌절을 방지할 수 있습니다.</p>
+<h3 id="다양성은-운동의-묘미"><a class="markdownIt-Anchor" href="#다양성은-운동의-묘미"></a> 다양성은 운동의 묘미</h3>
+<p>다양성을 더해 운동 루틴을 흥미진진하게 유지하세요. ChatGPT는 다양한 운동을 제안하여 지루함을 방지하고 새로운 방식으로 신체에 도전할 수 있습니다.</p>
+<h3 id="내-몸에-귀-기울이기"><a class="markdownIt-Anchor" href="#내-몸에-귀-기울이기"></a> 내 몸에 귀 기울이기</h3>
+<p>ChatGPT는 환상적인 가이드를 제공하지만, 항상 내 몸에 귀를 기울이세요. 운동이 불편하거나 통증을 유발하는 경우, 운동을 수정하거나 건너뛰어도 괜찮습니다. 안전과 건강을 최우선으로 생각해야 합니다.</p>
+<h3 id="일관성-중요"><a class="markdownIt-Anchor" href="#일관성-중요"></a> 일관성 중요</h3>
+<p>운동 계획을 일관되게 유지하세요. 결과를 보려면 일관성이 중요합니다. ChatGPT는 여러분의 라이프스타일에 맞는 현실적인 스케줄을 만드는 데 도움을 줄 수 있습니다.</p>
+<h2 id="운동-계획을-위한-chatgpt-프롬프트"><a class="markdownIt-Anchor" href="#운동-계획을-위한-chatgpt-프롬프트"></a> 운동 계획을 위한 ChatGPT 프롬프트</h2>
+<p>다음은 운동 계획을 위한 몇 가지 프롬프트입니다.</p>
+<h3 id="맞춤형-운동-계획-만들기"><a class="markdownIt-Anchor" href="#맞춤형-운동-계획-만들기"></a> 맞춤형 운동 계획 만들기</h3>
+<p>운동 목표를 입력하고, 체중 감량/근육 강화/전반적인 체력 향상 등의 운동 루틴을 통해 이러한 결과를 얻고 싶습니다. 내 [입력 환경 설정 및 일정]에 맞는 계획을 만들 수 있도록 안내해 주세요. 내 [현재 체력 수준, 선호하는 운동, 내가 이용할 수 있는 모든 장비]에 대한 세부 정보를 제공합니다.</p>
+<h3 id="효과적인-홈트레이닝-루틴-설계하기"><a class="markdownIt-Anchor" href="#효과적인-홈트레이닝-루틴-설계하기"></a> 효과적인 홈트레이닝 루틴 설계하기</h3>
+<p>잘 설계된 운동 루틴을 통해 집에서 편안하게 건강을 유지하고 활동적인 상태를 유지하고 싶습니다. 제가 사용할 수 있는 장비를 사용하여 종합적인 계획을 세울 수 있도록 도와주세요. 저는 [장비, 덤벨/저항 밴드 등을 입력]했습니다. 다양한 근육군을 목표로 하고 동기를 부여할 수 있는 루틴을 설계해 주세요.</p>
+<h3 id="바쁜-직장인을-위한-맞춤형-운동-계획-세우기"><a class="markdownIt-Anchor" href="#바쁜-직장인을-위한-맞춤형-운동-계획-세우기"></a> 바쁜 직장인을 위한 맞춤형 운동 계획 세우기</h3>
+<p>바쁜 직장인이라면 운동할 시간을 내기가 어려울 수 있습니다. 바쁜 일정에 완벽하게 맞는 운동 계획을 세울 수 있도록 도와주세요. 근무 시간과 약속을 포함한 일상에 대한 [세부 정보]를 입력하세요. 결과를 극대화할 수 있는 시간 효율적인 계획을 설계합니다. 업무에 지장을 주지 않으면서 건강과 피트니스에 우선순위를 둡니다.</p>
+<h3 id="초보자-친화적인-운동-계획-세우기"><a class="markdownIt-Anchor" href="#초보자-친화적인-운동-계획-세우기"></a> 초보자 친화적인 운동 계획 세우기</h3>
+<p>저는 [운동을 처음 시작하거나] 휴식 후 다시 일상으로 돌아가고 있습니다. [현재 체력 수준, 제한 사항이나 부상 여부, 선호하는 운동 강도를 입력하세요.] 점차 난이도가 높아지는 초보자 친화적인 운동 계획을 만들어 근력과 지구력을 안전하게 키울 수 있도록 해주세요.</p>
+<h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2>
+<p>결론적으로, ChatGPT는 피트니스 여정을 개선하고자 하는 모든 사람에게 유용한 도구입니다. 개인화된 접근 방식과 사용자의 필요에 맞게 조정할 수 있는 ChatGPT는 매력적이고 효과적인 운동 계획을 제공하는 가상 피트니스 동반자가 될 수 있습니다. 성공의 열쇠는 명확한 목표를 설정하고, 일관성을 유지하며, 그 과정을 즐기는 것임을 기억하세요. 더 건강하고 날씬한 나를 위한 여정에 ChatGPT가 가이드가 되어주세요!</p>
+
+        </div>
+        <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+        <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://hgko1207.github.io/2024/03/04/chatgpt-18/" data-id="cltk6evqt00007scxhowhe9n6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Hyeong Gyun Ko"
+        },
+        "headline": "운동 계획을 위한 ChatGPT 프롬프트 가이드",
+        "image": "http://hgko1207.github.io/images/thumbnail/chatgpt.png",
+        "keywords": "AI ChatGPT Artificial Intelligence 프롬프트 ChatGPT 프롬프트 운동 운동 계획",
+        "genre": "Programming AI",
+        "datePublished": "2024-03-04",
+        "dateCreated": "2024-03-04",
+        "dateModified": "2024-03-04",
+        "url": "http://hgko1207.github.io/2024/03/04/chatgpt-18/",
+        "description": "빠르게 변화하는 오늘날의 세상에서 건강을 유지하는 것이 그 어느 때보다 중요해졌습니다. 손끝에 있는 기술을 통해 운동 루틴을 향상시킬 수 있는 새롭고 흥미로운 방법, 바로 ChatGPT가 있습니다! 이 강력한 도구는 피트니스 목표에 맞는 개인 맞춤형의 효과적인 운동 계획을 세우는 데 도움을 줍니다. 이 블로그에서는 ChatGPT가 어떻게 즐겁고 유익한 운동",
+        "wordCount": 599
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                            <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>follow:</p>
+    <ul class="social-links">
+       
+      <li>
+        <a
+          class="social-tooltip"
+          title="github"
+          href="https://github.com/hgko1207"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-github"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="facebook"
+          href="https://www.facebook.com/profile.php?id=100003526102847"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-facebook"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="rss"
+          href="/"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-rss"></i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+   
+<nav id="article-nav">
+    
+        <a href="/2024/03/04/ai-22/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            AI로 수익을 창출하는 방법
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2024/02/27/ai-21/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Google의 Gemini AI: 혁신적인 차세대 AI</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+ 
+  <div class="widgets-container">
+      
+  
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/08/typescript-8/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/typescript.png)" alt="TypeScript 사용법 및 JavaScript와의 비교" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/03/08/typescript-8/" class="title">TypeScript 사용법 및 JavaScript와의 비교</a></p>
+                            <p class="item-date"><time datetime="2024-03-08T04:20:32.000Z" itemprop="datePublished">2024-03-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/08/js-dev-18/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/javascript.png)" alt="JavaScript에서 배열을 만드는 4가지 방법" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/03/08/js-dev-18/" class="title">JavaScript에서 배열을 만드는 4가지 방법</a></p>
+                            <p class="item-date"><time datetime="2024-03-08T03:44:03.000Z" itemprop="datePublished">2024-03-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/06/chatgpt-19/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/chatgpt.png)" alt="번역을 위한 ChatGPT 프롬프트 베스트 10" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2024/03/06/chatgpt-19/" class="title">번역을 위한 ChatGPT 프롬프트 베스트 10</a></p>
+                            <p class="item-date"><time datetime="2024-03-06T06:39:53.000Z" itemprop="datePublished">2024-03-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/05/js-dev-17/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/javascript.png)" alt="JavaScript에서 변수가 배열인지 확인하는 방법 🧐" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/03/05/js-dev-17/" class="title">JavaScript에서 변수가 배열인지 확인하는 방법 🧐</a></p>
+                            <p class="item-date"><time datetime="2024-03-05T13:17:38.000Z" itemprop="datePublished">2024-03-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/04/ai-22/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/ai.png)" alt="AI로 수익을 창출하는 방법" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2024/03/04/ai-22/" class="title">AI로 수익을 창출하는 방법</a></p>
+                            <p class="item-date"><time datetime="2024-03-04T04:34:04.000Z" itemprop="datePublished">2024-03-04</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">40</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">324</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">58</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">32</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">28</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">92</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">74</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">4</span></li></ul></li></ul>
+        </div>
+    </div>
+
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+  <div class="widget-wrap widget-float">
+
+    <h3 class="widget-title">Sponsored</h3>
+    <div class="widget">
+        <a href="https://marcofranssen.nl?adsense_widget" target="_blank" rel="noopener">This widget is sponsored by, Marco Franssen, main contributor to this theme.</a>
+    </div>
+
+</div>
+  
+  </div>
+  <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+
+  <!-- hits 방문자수 -->
+  <a href="https://hits.seeyoufarm.com" target="_blank" rel="noopener">
+    <style>
+      .hits {
+        width: auto;
+        height: auto;
+        max-width: 99px;
+        max-height: 20px;
+      }
+    </style>
+    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhgko1207.github.io&count_bg=%23E6ADD5&title_bg=%23BF98D2&icon=&icon_color=%23E7E7E7&title=%EB%B0%A9%EB%AC%B8%EC%9E%90%EC%88%98&edge_flat=false"/>
+  </a>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h2 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h2>
+                <p>&copy; 2024 Hyeong Gyun Ko</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://hgko1207.github.io/2024/03/04/chatgpt-18/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
