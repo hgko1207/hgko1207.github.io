@@ -10,25 +10,24 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="JavaScript,자바스크립트,변수,Programming,변수가 배열인지,배열" />
+    <meta name="keywords" content="JavaScript,자바스크립트,Programming,객체,객체 생성" />
     
-    <meta name="description" content="자바스크립트에서 객체는 다양한 방식으로 생성할 수 있는 다용도 도구로, 각기 다른 시나리오에 적합합니다. 각 방법을 언제 사용해야 하는지 이해하는 것이 효율적이고 유지 관리가 쉬운 자바스크립트 코드를 작성하는 데 중요합니다. 자바스크립트에서 객체를 만드는 5가지 일반적인 방법을 살펴보고 각 방법에 가장 적합한 사용 사례를 자세히 설명해 보겠습니다. 1. 객">
+    <meta name="description" content="자바스크립트에서 객체는 다양한 방식으로 생성할 수 있는 다용도 도구로, 각기 다른 시나리오에 적합합니다. 각 방법을 언제 사용해야 하는지 이해하는 것이 효율적이고 유지 관리가 쉬운 자바스크립트 코드를 작성하는 데 중요합니다. 자바스크립트에서 객체를 만드는 5가지 일반적인 방법을 살펴보고 각 방법에 가장 적합한 사용 사례를 자세히 설명해 보겠습니다.  1.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="자바스크립트에서 객체를 만드는 5가지 방법">
 <meta property="og:url" content="http://hgko1207.github.io/2024/03/12/js-dev-19/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="자바스크립트에서 객체는 다양한 방식으로 생성할 수 있는 다용도 도구로, 각기 다른 시나리오에 적합합니다. 각 방법을 언제 사용해야 하는지 이해하는 것이 효율적이고 유지 관리가 쉬운 자바스크립트 코드를 작성하는 데 중요합니다. 자바스크립트에서 객체를 만드는 5가지 일반적인 방법을 살펴보고 각 방법에 가장 적합한 사용 사례를 자세히 설명해 보겠습니다. 1. 객">
+<meta property="og:description" content="자바스크립트에서 객체는 다양한 방식으로 생성할 수 있는 다용도 도구로, 각기 다른 시나리오에 적합합니다. 각 방법을 언제 사용해야 하는지 이해하는 것이 효율적이고 유지 관리가 쉬운 자바스크립트 코드를 작성하는 데 중요합니다. 자바스크립트에서 객체를 만드는 5가지 일반적인 방법을 살펴보고 각 방법에 가장 적합한 사용 사례를 자세히 설명해 보겠습니다.  1.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/javascript.png">
 <meta property="article:published_time" content="2024-03-12T04:41:46.000Z">
-<meta property="article:modified_time" content="2024-03-12T04:50:11.474Z">
+<meta property="article:modified_time" content="2024-03-20T04:42:44.989Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="자바스크립트">
-<meta property="article:tag" content="변수">
 <meta property="article:tag" content="Programming">
-<meta property="article:tag" content="변수가 배열인지">
-<meta property="article:tag" content="배열">
+<meta property="article:tag" content="객체">
+<meta property="article:tag" content="객체 생성">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/javascript.png">
     
@@ -249,7 +248,7 @@ ga('send', 'pageview');
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>, <a class="tag-link" href="/tags/Programming/" rel="tag">Programming</a>, <a class="tag-link" href="/tags/%EB%B0%B0%EC%97%B4/" rel="tag">배열</a>, <a class="tag-link" href="/tags/%EB%B3%80%EC%88%98/" rel="tag">변수</a>, <a class="tag-link" href="/tags/%EB%B3%80%EC%88%98%EA%B0%80-%EB%B0%B0%EC%97%B4%EC%9D%B8%EC%A7%80/" rel="tag">변수가 배열인지</a>, <a class="tag-link" href="/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/" rel="tag">자바스크립트</a>
+        <a class="tag-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>, <a class="tag-link" href="/tags/Programming/" rel="tag">Programming</a>, <a class="tag-link" href="/tags/%EA%B0%9D%EC%B2%B4/" rel="tag">객체</a>, <a class="tag-link" href="/tags/%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1/" rel="tag">객체 생성</a>, <a class="tag-link" href="/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/" rel="tag">자바스크립트</a>
     </div>
 
                 
@@ -267,29 +266,29 @@ ga('send', 'pageview');
             
 
             <p>자바스크립트에서 객체는 다양한 방식으로 생성할 수 있는 다용도 도구로, 각기 다른 시나리오에 적합합니다. 각 방법을 언제 사용해야 하는지 이해하는 것이 효율적이고 유지 관리가 쉬운 자바스크립트 코드를 작성하는 데 중요합니다. 자바스크립트에서 객체를 만드는 5가지 일반적인 방법을 살펴보고 각 방법에 가장 적합한 사용 사례를 자세히 설명해 보겠습니다.</p>
-<h2 id="1-객체-리터럴-Object-Literal">1. 객체 리터럴(Object Literal)</h2>
+<h2 id="1-객체-리터럴object-literal"><a class="markdownIt-Anchor" href="#1-객체-리터럴object-literal"></a> 1. 객체 리터럴(Object Literal)</h2>
 <p>객체 리터럴은 중괄호 {}를 사용하여 자바스크립트에서 객체를 생성하는 가장 간단하고 빠른 방법입니다. 이 방법은 청사진이나 반복적인 인스턴스화가 필요 없는 단일 독립형 객체를 생성하는 데 이상적입니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> car = &#123;</span><br><span class="line">  make: <span class="string">'Toyota'</span>,</span><br><span class="line">  model: <span class="string">'Corolla'</span>,</span><br><span class="line">  year: <span class="number">2021</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(car);</span><br></pre></td></tr></table></figure>
 <p>메서드나 프로토타입이 필요하지 않은 빠르고 간단한 객체에는 객체 리터럴을 사용하세요. 구성 옵션, 데이터 저장, 관련 프로퍼티와 메서드를 간단한 구조로 캡슐화하는 데 적합합니다.</p>
-<h2 id="2-new-Object-구문">2. <code>new Object()</code> 구문</h2>
+<h2 id="2-new-object-구문"><a class="markdownIt-Anchor" href="#2-new-object-구문"></a> 2. <code>new Object()</code> 구문</h2>
 <p><code>new Object()</code> 구문으로 객체를 생성하는 것은 자바스크립트 프로그래밍에서 객체를 보다 명시적으로 생성하는 방법입니다. 이는 객체 리터럴과 유사하지만 다른 프로그래밍 언어에서 온 사람들이 더 쉽게 읽을 수 있습니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">person.name = <span class="string">'John'</span>;</span><br><span class="line">person.age = <span class="number">30</span>;</span><br><span class="line">person.isEmployed = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person);</span><br></pre></td></tr></table></figure>
 <p>이 방법은 객체 생성을 명시적으로 보여 주고 싶거나 클래스 기반 또는 생성자 기반 객체 생성을 많이 사용하는 언어에서 전환할 때 유용합니다. 조건에 따라 속성을 동적으로 추가할 때도 유용합니다.</p>
-<h2 id="3-생성자-함수">3. 생성자 함수</h2>
+<h2 id="3-생성자-함수"><a class="markdownIt-Anchor" href="#3-생성자-함수"></a> 3. 생성자 함수</h2>
 <p>생성자 함수는 유사한 객체의 인스턴스를 여러 개 생성하는 데 사용됩니다. 생성자 함수는 자바스크립트에서 동일한 유형의 객체를 생성하기 위한 청사진 역할을 합니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Smartphone</span>(<span class="params">brand, model, year</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.brand = brand;</span><br><span class="line">  <span class="keyword">this</span>.model = model;</span><br><span class="line">  <span class="keyword">this</span>.year = year;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> myPhone = <span class="keyword">new</span> Smartphone(<span class="string">'Apple'</span>, <span class="string">'iPhone 13'</span>, <span class="number">2021</span>);</span><br><span class="line"><span class="built_in">console</span>.log(myPhone);</span><br></pre></td></tr></table></figure>
 <p>생성자 함수는 비슷한 속성과 메서드를 가진 여러 개의 객체가 필요할 때 이상적입니다. 사용자, 제품 또는 공통 구조를 공유하지만 다른 값을 가진 기타 엔티티와 같은 객체를 생성하는 데 유용합니다</p>
-<h2 id="4-Object-create-방법">4. <code>Object.create()</code> 방법</h2>
+<h2 id="4-objectcreate-방법"><a class="markdownIt-Anchor" href="#4-objectcreate-방법"></a> 4. <code>Object.create()</code> 방법</h2>
 <p>자바스크립트의 <code>Object.create()</code>는 지정된 프로토타입과 속성을 가진 새 객체를 만듭니다. 이 메서드는 다른 메서드보다 객체 상속을 더 많이 제어할 수 있습니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> animal = &#123;</span><br><span class="line">  type: <span class="string">'Animal'</span>,</span><br><span class="line">  displayType: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.type);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dog = <span class="built_in">Object</span>.create(animal);</span><br><span class="line">dog.type = <span class="string">'Dog'</span>;</span><br><span class="line">dog.displayType(); <span class="comment">// Output: Dog</span></span><br></pre></td></tr></table></figure>
 <p>이 메서드는 부모의 생성자를 호출하지 않고 다른 객체에서 직접 상속하는 객체를 생성해야 할 때 유용합니다. 복잡한 상속 구조를 위한 강력한 도구이며 다른 고급 패턴 중에서도 동작 위임에 사용할 수 있습니다.</p>
-<h2 id="5-ES6-클래스-구문">5. ES6 클래스 구문</h2>
+<h2 id="5-es6-클래스-구문"><a class="markdownIt-Anchor" href="#5-es6-클래스-구문"></a> 5. ES6 클래스 구문</h2>
 <p>ES6 클래스는 자바스크립트에서 객체를 생성하는 보다 전통적인 클래스 기반 방식을 제공합니다. 이는 자바스크립트의 프로토타입 기반 상속보다 구문론적으로 더 뛰어나지만 클래스 기반 언어에서 온 사람들에게 더 명확하고 친숙한 구문을 제공합니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Book</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(title, author, year) &#123;</span><br><span class="line">    <span class="keyword">this</span>.title = title;</span><br><span class="line">    <span class="keyword">this</span>.author = author;</span><br><span class="line">    <span class="keyword">this</span>.year = year;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  getSummary() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.title&#125;</span> was written by <span class="subst">$&#123;<span class="keyword">this</span>.author&#125;</span> in <span class="subst">$&#123;<span class="keyword">this</span>.year&#125;</span>`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> myBook = <span class="keyword">new</span> Book(<span class="string">'1984'</span>, <span class="string">'George Orwell'</span>, <span class="number">1949</span>);</span><br><span class="line"><span class="built_in">console</span>.log(myBook.getSummary());</span><br></pre></td></tr></table></figure>
 <p>코드의 구성, 가독성 및 상속 구조가 중요한 보다 복잡한 애플리케이션에는 ES6 클래스를 사용하세요. 대규모 애플리케이션이나 명확하고 표준화된 코딩 관행이 필요한 팀에서 작업할 때 유용합니다.</p>
-<h2 id="어떤-방법이-가장-좋고-빠르나요">어떤 방법이 가장 좋고 빠르나요?</h2>
+<h2 id="어떤-방법이-가장-좋고-빠르나요"><a class="markdownIt-Anchor" href="#어떤-방법이-가장-좋고-빠르나요"></a> 어떤 방법이 가장 좋고 빠르나요?</h2>
 <p>객체를 만드는 가장 빠르고 좋은 방법은 애플리케이션의 특정 요구 사항과 상황에 따라 크게 달라지므로 정답은 없습니다. 그러나 단순성과 속도 측면에서 <strong>객체 리터럴</strong>은 특히 단순한 일회용 객체의 경우 객체를 만드는 가장 빠르고 쉬운 방법입니다. 보다 복잡하고 구조화된 애플리케이션의 경우 <strong>ES6 클래스</strong>는 <strong>생성자 함수</strong>에 비해 약간의 오버헤드가 있을 수 있지만 가독성, 기존 구문 및 성능의 균형을 제공합니다.</p>
-<h2 id="결론">결론</h2>
+<h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2>
 <p>자바스크립트에서 객체를 생성하는 데 적합한 방법을 선택하는 것은 애플리케이션의 컨텍스트와 특정 요구 사항에 따라 달라집니다. 단순한 일회성 객체이든 상속이 필요한 복잡한 구조이든, 이 다섯 가지 방법을 이해하면 보다 효과적이고 유지 관리가 쉬운 자바스크립트 코드를 작성할 수 있습니다.</p>
 
         </div>
@@ -396,15 +395,15 @@ ga('send', 'pageview');
         },
         "headline": "자바스크립트에서 객체를 만드는 5가지 방법",
         "image": "http://hgko1207.github.io/images/thumbnail/javascript.png",
-        "keywords": "JavaScript 자바스크립트 변수 Programming 변수가 배열인지 배열",
+        "keywords": "JavaScript 자바스크립트 Programming 객체 객체 생성",
         "genre": "Programming Language JavaScript",
         "datePublished": "2024-03-12",
         "dateCreated": "2024-03-12",
-        "dateModified": "2024-03-12",
+        "dateModified": "2024-03-20",
         "url": "http://hgko1207.github.io/2024/03/12/js-dev-19/",
         "description": "자바스크립트에서 객체는 다양한 방식으로 생성할 수 있는 다용도 도구로, 각기 다른 시나리오에 적합합니다. 각 방법을 언제 사용해야 하는지 이해하는 것이 효율적이고 유지 관리가 쉬운 자바스크립트 코드를 작성하는 데 중요합니다. 자바스크립트에서 객체를 만드는 5가지 일반적인 방법을 살펴보고 각 방법에 가장 적합한 사용 사례를 자세히 설명해 보겠습니다.
-1. 객",
-        "wordCount": 690
+ 1. ",
+        "wordCount": 711
     }
 </script>
 
@@ -515,6 +514,46 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2024/03/25/chatgpt-23/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/chatgpt.png)" alt="프로젝트 관리 기술 향상을 위한 ChatGPT 프롬프트" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2024/03/25/chatgpt-23/" class="title">프로젝트 관리 기술 향상을 위한 ChatGPT 프롬프트</a></p>
+                            <p class="item-date"><time datetime="2024-03-25T04:19:46.000Z" itemprop="datePublished">2024-03-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/19/typescript-10/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/typescript.png)" alt="TypeScript vs JavaScript" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/03/19/typescript-10/" class="title">TypeScript vs JavaScript</a></p>
+                            <p class="item-date"><time datetime="2024-03-19T14:44:27.000Z" itemprop="datePublished">2024-03-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2024/03/14/chatgpt-22/" class="thumbnail">
     
     
@@ -538,7 +577,7 @@ ga('send', 'pageview');
                             <a href="/2024/03/13/info-10/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/header/info-9.png)" alt="최첨단 디스플레이 기술: MWC 2024의 최고의 혁신" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/header/info-10.png)" alt="최첨단 디스플레이 기술: MWC 2024의 최고의 혁신" class="thumbnail-image"></span>
     
     
 </a>
@@ -572,46 +611,6 @@ ga('send', 'pageview');
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/03/12/js-dev-19/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/javascript.png)" alt="자바스크립트에서 객체를 만드는 5가지 방법" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
-                            <p class="item-title"><a href="/2024/03/12/js-dev-19/" class="title">자바스크립트에서 객체를 만드는 5가지 방법</a></p>
-                            <p class="item-date"><time datetime="2024-03-12T04:41:46.000Z" itemprop="datePublished">2024-03-12</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/03/11/typescript-9/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/typescript.png)" alt="TypeScript 컴파일러(tsc) 및 tsconfig" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
-                            <p class="item-title"><a href="/2024/03/11/typescript-9/" class="title">TypeScript 컴파일러(tsc) 및 tsconfig</a></p>
-                            <p class="item-date"><time datetime="2024-03-11T05:26:16.000Z" itemprop="datePublished">2024-03-11</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -619,7 +618,7 @@ ga('send', 'pageview');
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">41</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">329</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">61</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">32</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">28</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">92</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">76</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">9</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">4</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">41</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">331</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">62</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">32</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">28</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">92</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">77</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">10</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">4</span></li></ul></li></ul>
         </div>
     </div>
 
