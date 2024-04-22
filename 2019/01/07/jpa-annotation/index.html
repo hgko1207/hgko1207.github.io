@@ -12,12 +12,12 @@
     
     <meta name="keywords" content="Web,Spring Framework,Jpa,Hibernate,Annotation,Database" />
     
-    <meta name="description" content="JPA 로 개발하면서 자주 사용하는 어노테이션을 정리하였다. @Entity 해당 클래스가 엔티티임을 알리기 위해 사용한다. 애플리케이션이 실행이 될 때 엔티티 자동검색을 통하여 이 어노테이션이 선언된 클래스들은 엔티티 빈으로 등록한다. @Table 데이터의 저장소, 테이블을 의미한다. name 값은 실제 데이터베이스의 테이블 명을 의미하며, 생략이 가능한다">
+    <meta name="description" content="JPA 로 개발하면서 자주 사용하는 어노테이션을 정리하였다.  @Entity 해당 클래스가 엔티티임을 알리기 위해 사용한다. 애플리케이션이 실행이 될 때 엔티티 자동검색을 통하여 이 어노테이션이 선언된 클래스들은 엔티티 빈으로 등록한다.  @Table 데이터의 저장소, 테이블을 의미한다. name 값은 실제 데이터베이스의 테이블 명을 의미하며, 생략이 가능">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[JPA] Annotation 정리">
 <meta property="og:url" content="http://hgko1207.github.io/2019/01/07/jpa-annotation/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="JPA 로 개발하면서 자주 사용하는 어노테이션을 정리하였다. @Entity 해당 클래스가 엔티티임을 알리기 위해 사용한다. 애플리케이션이 실행이 될 때 엔티티 자동검색을 통하여 이 어노테이션이 선언된 클래스들은 엔티티 빈으로 등록한다. @Table 데이터의 저장소, 테이블을 의미한다. name 값은 실제 데이터베이스의 테이블 명을 의미하며, 생략이 가능한다">
+<meta property="og:description" content="JPA 로 개발하면서 자주 사용하는 어노테이션을 정리하였다.  @Entity 해당 클래스가 엔티티임을 알리기 위해 사용한다. 애플리케이션이 실행이 될 때 엔티티 자동검색을 통하여 이 어노테이션이 선언된 클래스들은 엔티티 빈으로 등록한다.  @Table 데이터의 저장소, 테이블을 의미한다. name 값은 실제 데이터베이스의 테이블 명을 의미하며, 생략이 가능">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/spring.png">
 <meta property="article:published_time" content="2019-01-07T05:15:34.000Z">
@@ -267,49 +267,49 @@ ga('send', 'pageview');
             
 
             <p><strong>JPA</strong> 로 개발하면서 자주 사용하는 어노테이션을 정리하였다.</p>
-<h2 id="Entity">@Entity</h2>
+<h2 id="entity"><a class="markdownIt-Anchor" href="#entity"></a> @Entity</h2>
 <p>해당 클래스가 엔티티임을 알리기 위해 사용한다. 애플리케이션이 실행이 될 때 엔티티 자동검색을 통하여 이 어노테이션이 선언된 클래스들은 엔티티 빈으로 등록한다.</p>
-<h2 id="Table">@Table</h2>
+<h2 id="table"><a class="markdownIt-Anchor" href="#table"></a> @Table</h2>
 <p>데이터의 저장소, 테이블을 의미한다. name 값은 실제 데이터베이스의 테이블 명을 의미하며, 생략이 가능한다. 어노테이션을 생략하면 클래스의 이름을 테이블의 이름으로 자동 인식하게 된다.</p>
-<h2 id="Id">@Id</h2>
+<h2 id="id"><a class="markdownIt-Anchor" href="#id"></a> @Id</h2>
 <p>엔티티빈의 기본키를 의미한다. 이 어노테이션은 하나의 엔티티에는 반드시 하나가 존재해야 한다. 복수키도 설정할 수 있다.</p>
-<h2 id="GeneratedValue">@GeneratedValue</h2>
+<h2 id="generatedvalue"><a class="markdownIt-Anchor" href="#generatedvalue"></a> @GeneratedValue</h2>
 <p>데이터베이스에 의해 자동으로 생성된 값이라는 의미다. 즉, 프로그램 상에서 조작된 데이터가 아닌, 실제 데이터베이스에 데이터가 영속(저장)될 때 생성되는 값이다. 몇 가지 생성전략이 존재한다.</p>
 <ul>
 <li>IDENTITY : 기본 키 생성을 데이터베이스가 함</li>
 <li>SEQUENCE : 데이터베이스 시퀀스를 사용해서 기본 키 할당</li>
 <li>TABLE : 키 생성 테이블 생성</li>
 </ul>
-<h2 id="Column">@Column</h2>
+<h2 id="column"><a class="markdownIt-Anchor" href="#column"></a> @Column</h2>
 <p>필드와 테이블의 컬럼을 매핑시켜 준다. 이 어노테이션은 생략이 가능하며, 생략 시 필드의 이름이 테이블의 컬럼으로 자동으로 매핑이 된다.</p>
 <ol>
 <li>
-<p>name속성(String)<br>
+<p>name속성(String)<br />
 필드와 매핑 될 컬럼의 이름을 명시한다.</p>
 </li>
 <li>
-<p>nullable속성(boolean)<br>
+<p>nullable속성(boolean)<br />
 해당 컬럼이 null값을 허용하는가 하지않는 가의 여부다.</p>
 </li>
 <li>
-<p>length속성(int)<br>
+<p>length속성(int)<br />
 컬럼의 길이값을 의미합니다.</p>
 </li>
 <li>
-<p>unique속성(boolean)<br>
+<p>unique속성(boolean)<br />
 컬럼이 유일한 값을 가져야 하는가 아닌가의 여부다.</p>
 </li>
 <li>
-<p>insertable속성(boolean)<br>
+<p>insertable속성(boolean)<br />
 엔티티가 영속될 때 insert에 참여할지 말지를 결정한다. 기본값은 true</p>
 </li>
 <li>
-<p>updatable속성(boolean)<br>
+<p>updatable속성(boolean)<br />
 변경된 필드의 값을 테이블에도 반영할지를 결정한다. 기본값은 true</p>
 </li>
 </ol>
 <p>name 속성을 제외한 나머지 속성은 잘 사용되지 않을 것이라고 생각된다. nullable, length, unique는 DDL과 관련된 속성이고, insertable, updatable은 원래 잘 사용되지 않는 속성이기 때문이다.</p>
-<h2 id="Temporal">@Temporal</h2>
+<h2 id="temporal"><a class="markdownIt-Anchor" href="#temporal"></a> @Temporal</h2>
 <p>java.util.Date와 java.util.Calendar 값을 매핑할 때 사용한다.</p>
 <ul>
 <li>TemporalType.Date : 년-월-일 의 date 타입 (2019-01-04)</li>
@@ -317,18 +317,18 @@ ga('send', 'pageview');
 <li>TemporalType.TIMESTAMP : date + time의 timestamp(datetime) 타입 (2019-01-04 12:11:11)</li>
 <li>어노테이션을 사용하지 않을 경우 기본값은 timestamp 다. JPA 데이터베이스 방언에 의해, 데이터베이스의 타입에 따른 timestamp 또는 datetime은 자동으로 작성된다.</li>
 </ul>
-<h2 id="ColumnPosition-1">@ColumnPosition(1)</h2>
+<h2 id="columnposition1"><a class="markdownIt-Anchor" href="#columnposition1"></a> @ColumnPosition(1)</h2>
 <p>컬럼 순서 정한다.</p>
-<h2 id="Enumerated">@Enumerated</h2>
+<h2 id="enumerated"><a class="markdownIt-Anchor" href="#enumerated"></a> @Enumerated</h2>
 <p>자바의 enum 타입을 매핑할 때 사용한다. 속성으로 EnumType.ORDINAL 과 EnumType.STRING 이 존재하는데 이름 그대로 ORDINAL은 순서를 STRING은 Enum의 이름을 저장한다.</p>
-<h2 id="LOB">@LOB</h2>
+<h2 id="lob"><a class="markdownIt-Anchor" href="#lob"></a> @LOB</h2>
 <p>데이터베이스 BLOB, CLOB 타입과 매핑된다. CLOB(String, char[], java.sql.CLOB)은 문자, BLOB(byte[], java.sql.BLOB)은 나머지가 매핑된다.</p>
-<h2 id="Transient">@Transient</h2>
+<h2 id="transient"><a class="markdownIt-Anchor" href="#transient"></a> @Transient</h2>
 <p>저장 조회에 사용되지도 않고 그냥 단순 값을 가지고 있고 싶을 때 사용한다.</p>
-<h2 id="Access">@Access</h2>
+<h2 id="access"><a class="markdownIt-Anchor" href="#access"></a> @Access</h2>
 <p>데이터베이스에 엔티티에 값이 저장될 때 필드(AccessType.FIELD)의 값을 직접 접근해서 사용할 것인가 아니면 메서드에 직접(AccessType.PROPERTY) 접근할 것 인가를 설정하는 것이다.</p>
-<h2 id="MappedSuperClass">@MappedSuperClass</h2>
-<p>어노테이션을 사용하면 부모 엔티티 접근 없이 부모 클래스의 매핑정보를 사용할 수 있다.<br>
+<h2 id="mappedsuperclass"><a class="markdownIt-Anchor" href="#mappedsuperclass"></a> @MappedSuperClass</h2>
+<p>어노테이션을 사용하면 부모 엔티티 접근 없이 부모 클래스의 매핑정보를 사용할 수 있다.<br />
 부모의 내용을 별도로 재정의해서 사용하고 싶은 경우에는 <code>@AttributeOverride</code>를 사용하여 재정의 한다. 여러 개를 한번에 정의하기 위해서는 <code>@AttributeOverrides</code>를 사용한다.</p>
 
         </div>
@@ -363,7 +363,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="http://hgko1207.github.io/2019/01/07/jpa-annotation/" data-id="clkcpzdtk000e3scx3owjeuxf" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://hgko1207.github.io/2019/01/07/jpa-annotation/" data-id="clvagw7sb000eigcxfxa16c2k" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -442,11 +442,11 @@ ga('send', 'pageview');
         "dateModified": "2024-01-11",
         "url": "http://hgko1207.github.io/2019/01/07/jpa-annotation/",
         "description": "JPA 로 개발하면서 자주 사용하는 어노테이션을 정리하였다.
-@Entity
+ @Entity
 해당 클래스가 엔티티임을 알리기 위해 사용한다. 애플리케이션이 실행이 될 때 엔티티 자동검색을 통하여 이 어노테이션이 선언된 클래스들은 엔티티 빈으로 등록한다.
-@Table
-데이터의 저장소, 테이블을 의미한다. name 값은 실제 데이터베이스의 테이블 명을 의미하며, 생략이 가능한다",
-        "wordCount": 320
+ @Table
+데이터의 저장소, 테이블을 의미한다. name 값은 실제 데이터베이스의 테이블 명을 의미하며, 생략이 가능",
+        "wordCount": 363
     }
 </script>
 
@@ -557,6 +557,66 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2024/04/19/typescript-17/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/typescript.png)" alt="[TypeScript] Set/Get, Protected, Private/Public/Static Members" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/04/19/typescript-17/" class="title">[TypeScript] Set/Get, Protected, Private/Public/Static Members</a></p>
+                            <p class="item-date"><time datetime="2024-04-19T01:34:01.000Z" itemprop="datePublished">2024-04-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/04/19/typescript-16/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/typescript.png)" alt="[TypeScript] OOP 관행, 클래스 및 상속" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/04/19/typescript-16/" class="title">[TypeScript] OOP 관행, 클래스 및 상속</a></p>
+                            <p class="item-date"><time datetime="2024-04-19T01:25:16.000Z" itemprop="datePublished">2024-04-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/04/18/typescript-15/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/typescript.png)" alt="[TypeScript] Any, Void, Never, Null, Strict Null Checks" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/04/18/typescript-15/" class="title">[TypeScript] Any, Void, Never, Null, Strict Null Checks</a></p>
+                            <p class="item-date"><time datetime="2024-04-18T05:14:46.000Z" itemprop="datePublished">2024-04-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2024/04/18/typescript-14/" class="thumbnail">
     
     
@@ -594,66 +654,6 @@ ga('send', 'pageview');
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/04/16/info-13/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/information.png)" alt="웹 개발자의 생산성을 높여주는 10가지 VS Code 확장 프로그램" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/IT/">IT</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/IT/Information/">Information</a></p>
-                            <p class="item-title"><a href="/2024/04/16/info-13/" class="title">웹 개발자의 생산성을 높여주는 10가지 VS Code 확장 프로그램</a></p>
-                            <p class="item-date"><time datetime="2024-04-16T01:58:09.000Z" itemprop="datePublished">2024-04-16</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/04/09/web-7/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/header/web-5.png)" alt="CSS 미디어 쿼리(Media Query): 반응형 웹사이트를 위한 초보자 가이드" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Web/">Web</a></p>
-                            <p class="item-title"><a href="/2024/04/09/web-7/" class="title">CSS 미디어 쿼리(Media Query): 반응형 웹사이트를 위한 초보자 가이드</a></p>
-                            <p class="item-date"><time datetime="2024-04-09T13:18:20.000Z" itemprop="datePublished">2024-04-09</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/04/09/web-design-7/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/header/web-design-7.png)" alt="CSS 개발자가 알아야 할 시간 절약형 웹사이트 11가지" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a></p>
-                            <p class="item-title"><a href="/2024/04/09/web-design-7/" class="title">CSS 개발자가 알아야 할 시간 절약형 웹사이트 11가지</a></p>
-                            <p class="item-date"><time datetime="2024-04-09T12:37:28.000Z" itemprop="datePublished">2024-04-09</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -661,7 +661,7 @@ ga('send', 'pageview');
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">342</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">63</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">33</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">29</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">94</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">82</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">14</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">6</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">345</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">63</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">33</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">29</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">94</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">85</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">17</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">6</span></li></ul></li></ul>
         </div>
     </div>
 

@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="리눅스,Linux,CentOS,Zookeeper" />
+    <meta name="keywords" content="리눅스,CentOS,Linux,Zookeeper" />
     
     <meta name="description" content="아파치 주키퍼(Apache ZooKeeper)는 아파치 소프트웨어 재단 프로젝트 중의 한 소프트웨어 프로젝트로서 공개 분산형 구성 서비스, 동기 서비스 및 대용량 분산 시스템을 위한 네이밍 레지스트리를 제공한다. 주키퍼는 하둡의 한 하위 프로젝트이었으나 지금은 독립적인 상위 프로젝트이다. 출처 : 위키백과  위의 설명처럼 메시키 큐를 관리하고 동기 서비스">
 <meta property="og:type" content="article">
@@ -24,8 +24,8 @@
 <meta property="article:modified_time" content="2024-01-11T08:26:08.304Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="리눅스">
-<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="CentOS">
+<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Zookeeper">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/centos.png">
@@ -265,56 +265,56 @@ ga('send', 'pageview');
             
 
             <blockquote>
-<p>아파치 주키퍼(Apache ZooKeeper)는 아파치 소프트웨어 재단 프로젝트 중의 한 소프트웨어 프로젝트로서 공개 분산형 구성 서비스, 동기 서비스 및 대용량 분산 시스템을 위한 네이밍 레지스트리를 제공한다. 주키퍼는 하둡의 한 하위 프로젝트이었으나 지금은 독립적인 상위 프로젝트이다.<br>
+<p>아파치 주키퍼(Apache ZooKeeper)는 아파치 소프트웨어 재단 프로젝트 중의 한 소프트웨어 프로젝트로서 공개 분산형 구성 서비스, 동기 서비스 및 대용량 분산 시스템을 위한 네이밍 레지스트리를 제공한다. 주키퍼는 하둡의 한 하위 프로젝트이었으나 지금은 독립적인 상위 프로젝트이다.<br />
 출처 : <a href="https://ko.wikipedia.org/wiki/%EC%95%84%ED%8C%8C%EC%B9%98_%EC%A3%BC%ED%82%A4%ED%8D%BC" target="_blank" rel="noopener">위키백과</a></p>
 </blockquote>
 <p>위의 설명처럼 메시키 큐를 관리하고 동기 서비스 및 대용량 분산 시스템을 구축하기 위해 <code>Apache ZooKeeper</code> 를 사용할 경우가 있습니다. <code>Apache ZooKeeper</code> 설치 및 사용 방법에 대해 알아보겠습니다.</p>
-<h2 id="운영환경">운영환경</h2>
+<h2 id="운영환경"><a class="markdownIt-Anchor" href="#운영환경"></a> 운영환경</h2>
 <ul>
 <li>CentOS 7.6</li>
 </ul>
-<h2 id="Java-jdk-설치">Java jdk 설치</h2>
+<h2 id="java-jdk-설치"><a class="markdownIt-Anchor" href="#java-jdk-설치"></a> Java jdk 설치</h2>
 <p>먼저 java jdk를 필수로 설치를 합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]$ yum install java-1.8.0-openjdk.x86_64</span><br></pre></td></tr></table></figure>
 <p>profile 정보를 변경합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]$ vim /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> profile 파일 안에 아래의 내용을 추가</span></span><br><span class="line">export JAVA_HOME=/usr/lib/jvm/jre-1.8.0-openjdk</span><br></pre></td></tr></table></figure>
 <p><code>source</code> 명령어를 이용해서 변경된 내용 적용합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]$ source /etc/profile</span><br></pre></td></tr></table></figure>
-<h2 id="Zookeeper-설치">Zookeeper 설치</h2>
+<h2 id="zookeeper-설치"><a class="markdownIt-Anchor" href="#zookeeper-설치"></a> Zookeeper 설치</h2>
 <p>Zookeeper 서버 패키지를 다운로드하고 환경 설정을 합니다.</p>
-<h3 id="1-계정-생성">1. 계정 생성</h3>
+<h3 id="1-계정-생성"><a class="markdownIt-Anchor" href="#1-계정-생성"></a> 1. 계정 생성</h3>
 <p>먼저 계정을 생성합니다. 계정을 생성하는 이유는 Zookeeper를 별도로 관리하기 위함입니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]$ useradd zookeeper</span><br><span class="line">[root@localhost ~]$ passwd zookeeper</span><br></pre></td></tr></table></figure>
 <p>생성된 계정으로 변경합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]$ su - zookeeper</span><br></pre></td></tr></table></figure>
-<h3 id="2-다운로드-및-설치">2. 다운로드 및 설치</h3>
+<h3 id="2-다운로드-및-설치"><a class="markdownIt-Anchor" href="#2-다운로드-및-설치"></a> 2. 다운로드 및 설치</h3>
 <p>다음의 명령어 순서대로 실행해서 다운로드 한 후 압축을 해제합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[zookeeper@localhost ~]$ cd /home/test</span><br><span class="line">[zookeeper@localhost zookeeper]$ wget http://apache.mirror.cdnetworks.com/zookeeper/zookeeper-3.4.14/zookeeper-3.4.14.tar.gz</span><br><span class="line">[zookeeper@localhost zookeeper]$ tar xvfzp zookeeper-3.4.14.tar.gz</span><br><span class="line">[zookeeper@localhost zookeeper]$ ln -s zookeeper-3.4.14 zookeeper</span><br></pre></td></tr></table></figure>
-<h3 id="3-설정-파일-변경">3. 설정 파일 변경</h3>
+<h3 id="3-설정-파일-변경"><a class="markdownIt-Anchor" href="#3-설정-파일-변경"></a> 3. 설정 파일 변경</h3>
 <p>데이터 디렉터리 경로와 서버 설정을 합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[zookeeper@localhost test]$ cd zookeeper/conf</span><br><span class="line">[zookeeper@localhost conf]$ cp zoo_sample.cfg zoo.cfg</span><br><span class="line">[zookeeper@localhost conf]$ vim zoo.cfg</span><br><span class="line"></span><br><span class="line">dataDir=/home/test/zookeeper/data #zookeeper 데이터 위치, 원하는 경로에 저장입력</span><br><span class="line">server.1=zoo-1:2888:3888 #멀티 서버 설정 (주키퍼 서버가 한곳이 아닐때)</span><br><span class="line"><span class="meta">#</span><span class="bash"> server.2=server_host_1:2888:3888</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> server.3=server_host_2:2888:3888</span></span><br></pre></td></tr></table></figure>
-<h3 id="4-myid-생성">4. myid 생성</h3>
+<h3 id="4-myid-생성"><a class="markdownIt-Anchor" href="#4-myid-생성"></a> 4. myid 생성</h3>
 <p>반드시 <strong>myid</strong> 파일을 <strong>dataDir</strong> 속성에 넣었던 경로에 만들어야 합니다. 호스트마다 아이디를 부여해야 합니다. 위의 설정에서 server.1에만 설정하였기 때문에 <code>{dataDir}/myid</code> 내부에 <code>1</code>이라는 값이 있어야 합니다. 그리고 이 값은 유일해야 하고 <strong>1~255</strong> 사이로 설정해야 합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[zookeeper@localhost ~]$ cd /home/test/zookeeper/data</span><br><span class="line">[zookeeper@localhost data]$ touch myid</span><br><span class="line">[zookeeper@localhost data]$ echo 1 &gt; myid</span><br></pre></td></tr></table></figure>
-<h3 id="5-Zookeeper-서버-실행">5. Zookeeper 서버 실행</h3>
+<h3 id="5-zookeeper-서버-실행"><a class="markdownIt-Anchor" href="#5-zookeeper-서버-실행"></a> 5. Zookeeper 서버 실행</h3>
 <p>다음 명령어를 실행하면 이상없이 서버가 실행됩니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[zookeeper@localhost ~]$ cd /home/test/zookeeper/bin</span><br><span class="line">[zookeeper@localhost bin]$ ./zkServer.sh start</span><br></pre></td></tr></table></figure>
-<h3 id="실행-확인">실행 확인</h3>
+<h3 id="실행-확인"><a class="markdownIt-Anchor" href="#실행-확인"></a> 실행 확인</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[zookeeper@localhost bin]$ ./zkCli.sh -server zoo-1:2181</span><br><span class="line">[zookeeper@localhost bin]$ ls /</span><br></pre></td></tr></table></figure>
-<h3 id="Zookeeper-서버-중지">Zookeeper 서버 중지</h3>
+<h3 id="zookeeper-서버-중지"><a class="markdownIt-Anchor" href="#zookeeper-서버-중지"></a> Zookeeper 서버 중지</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[zookeeper@localhost bin]$ ./zkServer.sh stop</span><br></pre></td></tr></table></figure>
-<h2 id="추가-설정">추가 설정</h2>
+<h2 id="추가-설정"><a class="markdownIt-Anchor" href="#추가-설정"></a> 추가 설정</h2>
 <p>추가적으로 프로세스 저장 경로와 로그 저장 경로 변경 및 환경변수 등록을 위한 절차입니다. 변경하지 않아도 됩니다.</p>
-<h3 id="폴더-권한-변경">폴더 권한 변경</h3>
+<h3 id="폴더-권한-변경"><a class="markdownIt-Anchor" href="#폴더-권한-변경"></a> 폴더 권한 변경</h3>
 <p>Zookeeper 프로세스 아이디 저장 폴더와 로그 저장 폴더를 생성하고 권한을 변경합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> root 계정으로 전환</span></span><br><span class="line">[zookeeper@localhost ~]$ su -</span><br><span class="line">[root@localhost ~]$ cd /var/run</span><br><span class="line">[root@localhost run]$ mkdir zookeeper</span><br><span class="line">[root@localhost run]$ chown zookeeper:zookeeper /var/run/zookeeper</span><br><span class="line">[root@localhost run]$ cd ../log</span><br><span class="line">[root@localhost log]$ mkdir zookeeper</span><br><span class="line">[root@localhost log]$ chown zookeeper:zookeeper /var/log/zookeeper</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> zookeeper 계정으로 다시 돌아가기</span></span><br><span class="line">[root@localhost log]$ exit</span><br></pre></td></tr></table></figure>
 <p>추가로 위 두개의 폴더에 링크를 생성합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[zookeeper@localhost log]$ cd /home/test/zookeeper</span><br><span class="line">[zookeeper@localhost zookeeper]$ ln -s /var/run/zookeeper/ pids</span><br><span class="line">[zookeeper@localhost zookeeper]$ ln -s /var/log/zookeeper/ logs</span><br></pre></td></tr></table></figure>
-<h3 id="환경변수-변경">환경변수 변경</h3>
+<h3 id="환경변수-변경"><a class="markdownIt-Anchor" href="#환경변수-변경"></a> 환경변수 변경</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/lib/jvm/jre-1.8.0-openjdk</span><br><span class="line">export ZOOKEEPER_HOME=/home/test/zookeeper</span><br><span class="line">export ZOOKEEPER_CONF_DIR=$ZOOKEEPER_HOME/conf</span><br><span class="line">export ZOOKEEPER_LOG_DIR=/var/log/zookeeper</span><br><span class="line">export ZOO_LOG_DIR=$ZOOKEEPER_LOG_DIR</span><br><span class="line">export ZOOKEEPER_PID_DIR=/var/run/zookeeper</span><br><span class="line">export ZOOPIDFILE=$ZOOKEEPER_PID_DIR/zookeeper_server.pid</span><br><span class="line">export SERVER_JVMFLAGS=-Xmx1024m</span><br><span class="line">export JAVA=$JAVA_HOME/bin/java</span><br><span class="line">export CLASSPATH=$ZOOKEEPER_CONF_DIR:/usr/share/java/jline.jar:/usr/share/java/log4j-1.2.jar:/usr/share/java/xercesImpl.jar:/usr/share/java/xmlParserAPIs.jar:/usr/share/java/netty.jar:/usr/share/java/slf4j-api.jar:/usr/share/java/slf4j-log4j12.jar:/usr/share/java/zookeeper.jar</span><br></pre></td></tr></table></figure>
-<h3 id="서버-재시작">서버 재시작</h3>
+<h3 id="서버-재시작"><a class="markdownIt-Anchor" href="#서버-재시작"></a> 서버 재시작</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[zookeeper@localhost bin]$ ./zkServer.sh stop</span><br><span class="line">[zookeeper@localhost bin]$ ./zkServer.sh start</span><br></pre></td></tr></table></figure>
-<h3 id="방화벽-설정">방화벽 설정</h3>
+<h3 id="방화벽-설정"><a class="markdownIt-Anchor" href="#방화벽-설정"></a> 방화벽 설정</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]$ firewall-cmd --permanent --zone=public --add-port=2181/tcp</span><br><span class="line">[root@localhost ~]$ firewall-cmd --permanent --zone=public --add-port=2888/tcp</span><br><span class="line">[root@localhost ~]$ firewall-cmd --permanent --zone=public --add-port=3888/tcp</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 방화벽 재시작</span></span></span><br><span class="line">[root@localhost ~]$ firewall-cmd --reload</span><br></pre></td></tr></table></figure>
 
         </div>
@@ -349,7 +349,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="http://hgko1207.github.io/2020/09/28/linux-4/" data-id="clkcpzdz200rj3scx4grm75u1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://hgko1207.github.io/2020/09/28/linux-4/" data-id="clvagw7xu00l1igcxhhbf1qt5" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -421,7 +421,7 @@ ga('send', 'pageview');
         },
         "headline": "[CentOS] Apache Zookeeper 설치 및 사용 방법",
         "image": "http://hgko1207.github.io/images/thumbnail/centos.png",
-        "keywords": "리눅스 Linux CentOS Zookeeper",
+        "keywords": "리눅스 CentOS Linux Zookeeper",
         "genre": "Programming DevOps Linux",
         "datePublished": "2020-09-28",
         "dateCreated": "2020-09-28",
@@ -432,7 +432,7 @@ ga('send', 'pageview');
 출처 : 위키백과
 
 위의 설명처럼 메시키 큐를 관리하고 동기 서비스",
-        "wordCount": 589
+        "wordCount": 635
     }
 </script>
 
@@ -543,6 +543,66 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2024/04/19/typescript-17/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/typescript.png)" alt="[TypeScript] Set/Get, Protected, Private/Public/Static Members" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/04/19/typescript-17/" class="title">[TypeScript] Set/Get, Protected, Private/Public/Static Members</a></p>
+                            <p class="item-date"><time datetime="2024-04-19T01:34:01.000Z" itemprop="datePublished">2024-04-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/04/19/typescript-16/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/typescript.png)" alt="[TypeScript] OOP 관행, 클래스 및 상속" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/04/19/typescript-16/" class="title">[TypeScript] OOP 관행, 클래스 및 상속</a></p>
+                            <p class="item-date"><time datetime="2024-04-19T01:25:16.000Z" itemprop="datePublished">2024-04-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/04/18/typescript-15/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/typescript.png)" alt="[TypeScript] Any, Void, Never, Null, Strict Null Checks" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/04/18/typescript-15/" class="title">[TypeScript] Any, Void, Never, Null, Strict Null Checks</a></p>
+                            <p class="item-date"><time datetime="2024-04-18T05:14:46.000Z" itemprop="datePublished">2024-04-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2024/04/18/typescript-14/" class="thumbnail">
     
     
@@ -580,66 +640,6 @@ ga('send', 'pageview');
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/04/16/info-13/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/information.png)" alt="웹 개발자의 생산성을 높여주는 10가지 VS Code 확장 프로그램" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/IT/">IT</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/IT/Information/">Information</a></p>
-                            <p class="item-title"><a href="/2024/04/16/info-13/" class="title">웹 개발자의 생산성을 높여주는 10가지 VS Code 확장 프로그램</a></p>
-                            <p class="item-date"><time datetime="2024-04-16T01:58:09.000Z" itemprop="datePublished">2024-04-16</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/04/09/web-7/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/header/web-5.png)" alt="CSS 미디어 쿼리(Media Query): 반응형 웹사이트를 위한 초보자 가이드" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Web/">Web</a></p>
-                            <p class="item-title"><a href="/2024/04/09/web-7/" class="title">CSS 미디어 쿼리(Media Query): 반응형 웹사이트를 위한 초보자 가이드</a></p>
-                            <p class="item-date"><time datetime="2024-04-09T13:18:20.000Z" itemprop="datePublished">2024-04-09</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/04/09/web-design-7/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/header/web-design-7.png)" alt="CSS 개발자가 알아야 할 시간 절약형 웹사이트 11가지" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a></p>
-                            <p class="item-title"><a href="/2024/04/09/web-design-7/" class="title">CSS 개발자가 알아야 할 시간 절약형 웹사이트 11가지</a></p>
-                            <p class="item-date"><time datetime="2024-04-09T12:37:28.000Z" itemprop="datePublished">2024-04-09</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -647,7 +647,7 @@ ga('send', 'pageview');
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">342</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">63</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">33</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">29</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">94</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">82</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">14</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">6</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">345</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">63</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">33</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">29</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">94</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">85</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">17</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">6</span></li></ul></li></ul>
         </div>
     </div>
 

@@ -12,12 +12,12 @@
     
     <meta name="keywords" content="Database,DB,Geometry,Oracle,오라클,SDO_GEOMETRY" />
     
-    <meta name="description" content="SDO_GEOMETRY Oracle Spatial을 사용하여 공간 데이터를 생성하고 관리합니다. Oracle 에는 SDO_GEOMETRY 타입을 통하여 공간 데이터를 구성할 수 있습니다. SDO_GEOMETRY 은 다음과 같이 정의됩니다. 1234567CREATE TYPE sdo_geometry AS OBJECT (  SDO_GTYPE NUMBER,  SD">
+    <meta name="description" content="SDO_GEOMETRY Oracle Spatial을 사용하여 공간 데이터를 생성하고 관리합니다. Oracle 에는 SDO_GEOMETRY 타입을 통하여 공간 데이터를 구성할 수 있습니다. SDO_GEOMETRY 은 다음과 같이 정의됩니다. 1234567CREATE TYPE sdo_geometry AS OBJECT (  SDO_GTYPE NUMBER,  S">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Oracle] SDO_GEOMETRY 사용 방법">
 <meta property="og:url" content="http://hgko1207.github.io/2021/03/16/oracle-1/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="SDO_GEOMETRY Oracle Spatial을 사용하여 공간 데이터를 생성하고 관리합니다. Oracle 에는 SDO_GEOMETRY 타입을 통하여 공간 데이터를 구성할 수 있습니다. SDO_GEOMETRY 은 다음과 같이 정의됩니다. 1234567CREATE TYPE sdo_geometry AS OBJECT (  SDO_GTYPE NUMBER,  SD">
+<meta property="og:description" content="SDO_GEOMETRY Oracle Spatial을 사용하여 공간 데이터를 생성하고 관리합니다. Oracle 에는 SDO_GEOMETRY 타입을 통하여 공간 데이터를 구성할 수 있습니다. SDO_GEOMETRY 은 다음과 같이 정의됩니다. 1234567CREATE TYPE sdo_geometry AS OBJECT (  SDO_GTYPE NUMBER,  S">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/oracle.png">
 <meta property="article:published_time" content="2021-03-16T01:22:54.000Z">
@@ -266,11 +266,11 @@ ga('send', 'pageview');
 
             
 
-            <h2 id="SDO-GEOMETRY">SDO_GEOMETRY</h2>
+            <h2 id="sdo_geometry"><a class="markdownIt-Anchor" href="#sdo_geometry"></a> SDO_GEOMETRY</h2>
 <p><strong>Oracle Spatial</strong>을 사용하여 공간 데이터를 생성하고 관리합니다. Oracle 에는 <code>SDO_GEOMETRY</code> 타입을 통하여 공간 데이터를 구성할 수 있습니다.</p>
 <p><code>SDO_GEOMETRY</code> 은 다음과 같이 정의됩니다.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TYPE</span> sdo_geometry <span class="keyword">AS</span> <span class="keyword">OBJECT</span> (</span><br><span class="line">  SDO_GTYPE <span class="built_in">NUMBER</span>,</span><br><span class="line">  SDO_SRID <span class="built_in">NUMBER</span>,</span><br><span class="line">  SDO_POINT SDO_POINT_TYPE,</span><br><span class="line">  SDO_ELEM_INFO SDO_ELEM_INFO_ARRAY,</span><br><span class="line">  SDO_ORDINATES SDO_ORDINATE_ARRAY</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<h5 id="SDO-GTYPE">SDO_GTYPE</h5>
+<h5 id="sdo_gtype"><a class="markdownIt-Anchor" href="#sdo_gtype"></a> SDO_GTYPE</h5>
 <ul>
 <li>00 - UNKNOWN_GEOMETRY</li>
 <li>01 - POINT</li>
@@ -284,11 +284,11 @@ ga('send', 'pageview');
 <li>09 - MULTISOLID</li>
 </ul>
 <p>예) 2003 일 경우 2차원의 POLYGON 형식</p>
-<h5 id="SDO-SRID">SDO_SRID</h5>
+<h5 id="sdo_srid"><a class="markdownIt-Anchor" href="#sdo_srid"></a> SDO_SRID</h5>
 <p>Geometry와 연관된 Coordinate System(Spatial Reference System)입니다. 값이 NULL 이면 관련된 Coordinate System 이 없는 것입니다.</p>
-<h5 id="SDO-POINT">SDO_POINT</h5>
+<h5 id="sdo_point"><a class="markdownIt-Anchor" href="#sdo_point"></a> SDO_POINT</h5>
 <p>POINT 형식일 때 사용합니다. <code>SDO_POINT_TYPE(x, y, z)</code> 을 통해 포인트를 입력합니다.</p>
-<h5 id="SDO-ELEM-INFO">SDO_ELEM_INFO</h5>
+<h5 id="sdo_elem_info"><a class="markdownIt-Anchor" href="#sdo_elem_info"></a> SDO_ELEM_INFO</h5>
 <p><code>SDO_ORDINATES</code> 에 저장될 값의 형식을 정의합니다.</p>
 <p>예) SDO_ELEM_INFO_ARRAY(1,1003,3)</p>
 <ul>
@@ -303,26 +303,26 @@ ga('send', 'pageview');
 </ul>
 </li>
 </ul>
-<h5 id="SDO-ORDINATES">SDO_ORDINATES</h5>
+<h5 id="sdo_ordinates"><a class="markdownIt-Anchor" href="#sdo_ordinates"></a> SDO_ORDINATES</h5>
 <p><code>SDO_ELEM_INFO</code> 에서 정의된 형식으로 값을 입력합니다.</p>
-<h2 id="Spatial-Table-생성">Spatial Table 생성</h2>
-<h3 id="1-테이블-생성">1. 테이블 생성</h3>
+<h2 id="spatial-table-생성"><a class="markdownIt-Anchor" href="#spatial-table-생성"></a> Spatial Table 생성</h2>
+<h3 id="1-테이블-생성"><a class="markdownIt-Anchor" href="#1-테이블-생성"></a> 1. 테이블 생성</h3>
 <p>shape 필드에 <code>SDO_GEOMETRY</code> 타입을 지정하여 Spatial 테이블을 생성하였습니다.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> sample_table</span><br><span class="line">(</span><br><span class="line">  <span class="keyword">id</span> <span class="built_in">NUMBER</span> PRIMARY <span class="keyword">KEY</span>,</span><br><span class="line">  <span class="keyword">name</span> <span class="built_in">VARCHAR2</span>(<span class="number">20</span>),</span><br><span class="line">  shape SDO_GEOMETRY</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<h3 id="2-메타데이터-생성">2. 메타데이터 생성</h3>
+<h3 id="2-메타데이터-생성"><a class="markdownIt-Anchor" href="#2-메타데이터-생성"></a> 2. 메타데이터 생성</h3>
 <p><code>SDO_GEOMETRY</code> 를 사용하기 전에 꼭 메타데이터를 생성해줘야 합니다.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> user_sdo_geom_metadata</span><br><span class="line">  (</span><br><span class="line">    table_name,</span><br><span class="line">    column_name,</span><br><span class="line">    diminfo,</span><br><span class="line">    srid</span><br><span class="line">  )</span><br><span class="line"><span class="keyword">values</span></span><br><span class="line">  (</span><br><span class="line">    <span class="string">'sample_table'</span>,</span><br><span class="line">    <span class="string">'shape'</span>,</span><br><span class="line">    SDO_DIM_ARRAY(</span><br><span class="line">      SDO_DIM_ELEMENT(<span class="string">'Longitude'</span>, <span class="number">-180</span>, <span class="number">180</span>, <span class="number">0.5</span>), =&gt; <span class="number">10</span> 미터 허용오차</span><br><span class="line">      SDO_DIM_ELEMENT(<span class="string">'Latitude'</span>, <span class="number">-90</span>, <span class="number">90</span>, <span class="number">0.5</span>)</span><br><span class="line">    ),</span><br><span class="line">    <span class="number">4326</span>  ====&gt; Longitude/Latitude(WGS <span class="number">84</span>) : <span class="number">4326</span></span><br><span class="line">  );</span><br></pre></td></tr></table></figure>
-<h3 id="3-인덱스-생성">3. 인덱스 생성</h3>
+<h3 id="3-인덱스-생성"><a class="markdownIt-Anchor" href="#3-인덱스-생성"></a> 3. 인덱스 생성</h3>
 <p>메타데이터 생성 후 Spatial 테이블의 인덱스를 생성합니다.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 인덱스 생성 형식</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> index_name <span class="keyword">ON</span> table_name(column_name) <span class="keyword">INDEXTYPE</span> <span class="keyword">IS</span> MDSYS.SPATIAL_INDEX;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 사용 예제</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> sample_index <span class="keyword">ON</span> sample_table(shape) <span class="keyword">indextype</span> <span class="keyword">IS</span> MDSYS.SPATIAL_INDEX;</span><br></pre></td></tr></table></figure>
-<h3 id="4-데이터-입력">4. 데이터 입력</h3>
+<h3 id="4-데이터-입력"><a class="markdownIt-Anchor" href="#4-데이터-입력"></a> 4. 데이터 입력</h3>
 <p>테이블을 생성하고 메타데이터와 인덱스까지 생성하였으면 데이터를 넣어봅니다.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Rectangle 데이터</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> sample_table (<span class="keyword">id</span>, <span class="keyword">name</span>, shape)</span><br><span class="line"><span class="keyword">VALUES</span> ( <span class="number">1</span>, <span class="string">'Rectangle'</span>,</span><br><span class="line">        SDO_GEOMETRY(<span class="number">2003</span>, <span class="number">4326</span>, <span class="literal">NULL</span>,</span><br><span class="line">          SDO_ELEM_INFO_ARRAY(<span class="number">1</span>,<span class="number">1003</span>,<span class="number">3</span>),</span><br><span class="line">          SDO_ORDINATE_ARRAY(<span class="number">5</span>,<span class="number">5</span>, <span class="number">10</span>,<span class="number">10</span>)) );</span><br></pre></td></tr></table></figure>
-<h3 id="5-확인">5. 확인</h3>
+<h3 id="5-확인"><a class="markdownIt-Anchor" href="#5-확인"></a> 5. 확인</h3>
 <p>입력된 데이터가 <code>SDO_GEOMETRY</code> 형식인지 확인합니다. 결과가 <strong>TRUE</strong> 가 아니면 잘못된 입력입니다.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span>, <span class="keyword">name</span>, SDO_GEOM.VALIDATE_GEOMETRY_WITH_CONTEXT(shape, <span class="number">0.5</span>) <span class="keyword">FROM</span> sample_table;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 결과</span></span><br><span class="line">1, Rectangle, TRUE</span><br></pre></td></tr></table></figure>
 <p><code>SDO_GEOMETRY</code> 타입을 사용하여 공간 데이터 생성을 진행하였습니다. 다음에는 생성된 공간 데이터에 대한 쿼리를 알아보겠습니다.</p>
-<h2 id="참고">참고</h2>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <ul>
 <li><a href="https://docs.oracle.com/database/121/SPATL/sdo_geometry-object-type.htm#SPATL492" target="_blank" rel="noopener">Oracle Help Center - SDO_GEOMETRY Object Type</a></li>
 <li><a href="https://docs.oracle.com/database/121/SPATL/polygon-hole.htm#SPATL520" target="_blank" rel="noopener">Oracle Help Center - Polygon with a Hole</a></li>
@@ -361,7 +361,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="http://hgko1207.github.io/2021/03/16/oracle-1/" data-id="clkcpzdzk00t33scx31aigbsa" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://hgko1207.github.io/2021/03/16/oracle-1/" data-id="clvagw7yj00m4igcxan2z3l3x" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -439,11 +439,11 @@ ga('send', 'pageview');
         "dateCreated": "2021-03-16",
         "dateModified": "2024-01-11",
         "url": "http://hgko1207.github.io/2021/03/16/oracle-1/",
-        "description": "SDO_GEOMETRY
+        "description": " SDO_GEOMETRY
 Oracle Spatial을 사용하여 공간 데이터를 생성하고 관리합니다. Oracle 에는 SDO_GEOMETRY 타입을 통하여 공간 데이터를 구성할 수 있습니다.
 SDO_GEOMETRY 은 다음과 같이 정의됩니다.
-1234567CREATE TYPE sdo_geometry AS OBJECT (  SDO_GTYPE NUMBER,  SD",
-        "wordCount": 613
+1234567CREATE TYPE sdo_geometry AS OBJECT (  SDO_GTYPE NUMBER,  S",
+        "wordCount": 652
     }
 </script>
 
@@ -554,6 +554,66 @@ SDO_GEOMETRY 은 다음과 같이 정의됩니다.
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2024/04/19/typescript-17/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/typescript.png)" alt="[TypeScript] Set/Get, Protected, Private/Public/Static Members" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/04/19/typescript-17/" class="title">[TypeScript] Set/Get, Protected, Private/Public/Static Members</a></p>
+                            <p class="item-date"><time datetime="2024-04-19T01:34:01.000Z" itemprop="datePublished">2024-04-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/04/19/typescript-16/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/typescript.png)" alt="[TypeScript] OOP 관행, 클래스 및 상속" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/04/19/typescript-16/" class="title">[TypeScript] OOP 관행, 클래스 및 상속</a></p>
+                            <p class="item-date"><time datetime="2024-04-19T01:25:16.000Z" itemprop="datePublished">2024-04-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/04/18/typescript-15/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/typescript.png)" alt="[TypeScript] Any, Void, Never, Null, Strict Null Checks" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/04/18/typescript-15/" class="title">[TypeScript] Any, Void, Never, Null, Strict Null Checks</a></p>
+                            <p class="item-date"><time datetime="2024-04-18T05:14:46.000Z" itemprop="datePublished">2024-04-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2024/04/18/typescript-14/" class="thumbnail">
     
     
@@ -591,66 +651,6 @@ SDO_GEOMETRY 은 다음과 같이 정의됩니다.
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/04/16/info-13/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/information.png)" alt="웹 개발자의 생산성을 높여주는 10가지 VS Code 확장 프로그램" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/IT/">IT</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/IT/Information/">Information</a></p>
-                            <p class="item-title"><a href="/2024/04/16/info-13/" class="title">웹 개발자의 생산성을 높여주는 10가지 VS Code 확장 프로그램</a></p>
-                            <p class="item-date"><time datetime="2024-04-16T01:58:09.000Z" itemprop="datePublished">2024-04-16</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/04/09/web-7/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/header/web-5.png)" alt="CSS 미디어 쿼리(Media Query): 반응형 웹사이트를 위한 초보자 가이드" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Web/">Web</a></p>
-                            <p class="item-title"><a href="/2024/04/09/web-7/" class="title">CSS 미디어 쿼리(Media Query): 반응형 웹사이트를 위한 초보자 가이드</a></p>
-                            <p class="item-date"><time datetime="2024-04-09T13:18:20.000Z" itemprop="datePublished">2024-04-09</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/04/09/web-design-7/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/header/web-design-7.png)" alt="CSS 개발자가 알아야 할 시간 절약형 웹사이트 11가지" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a></p>
-                            <p class="item-title"><a href="/2024/04/09/web-design-7/" class="title">CSS 개발자가 알아야 할 시간 절약형 웹사이트 11가지</a></p>
-                            <p class="item-date"><time datetime="2024-04-09T12:37:28.000Z" itemprop="datePublished">2024-04-09</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -658,7 +658,7 @@ SDO_GEOMETRY 은 다음과 같이 정의됩니다.
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">342</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">63</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">33</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">29</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">94</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">82</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">14</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">6</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">345</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">63</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">33</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">29</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">94</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">85</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">17</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">6</span></li></ul></li></ul>
         </div>
     </div>
 

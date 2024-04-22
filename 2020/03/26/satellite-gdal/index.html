@@ -10,22 +10,22 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="Satellite,Coordinate System,Gdal,Library" />
+    <meta name="keywords" content="Satellite,Gdal,Coordinate System,Library" />
     
-    <meta name="description" content="GDAL 은 래스터 및 벡터 지리 공간 데이터를 조작할 수 있는 오픈 소스 라이브러리다.  라이브러리로서 지원되는 모든 형식의 호출 응용 프로그램에 단일 추상 데이터 모델을 제공한다. 데이터 변환 및 처리를 위한 다양한 명령 행 인터페이스 유틸리티가 제공된다. Windows, Linux 및 MacOS 에서 사용 가능하다.  1. gdalinfo (http:">
+    <meta name="description" content="GDAL 은 래스터 및 벡터 지리 공간 데이터를 조작할 수 있는 오픈 소스 라이브러리다.  라이브러리로서 지원되는 모든 형식의 호출 응용 프로그램에 단일 추상 데이터 모델을 제공한다. 데이터 변환 및 처리를 위한 다양한 명령 행 인터페이스 유틸리티가 제공된다. Windows, Linux 및 MacOS 에서 사용 가능하다.   1. gdalinfo (http">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Gdal 사용 방법">
 <meta property="og:url" content="http://hgko1207.github.io/2020/03/26/satellite-gdal/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="GDAL 은 래스터 및 벡터 지리 공간 데이터를 조작할 수 있는 오픈 소스 라이브러리다.  라이브러리로서 지원되는 모든 형식의 호출 응용 프로그램에 단일 추상 데이터 모델을 제공한다. 데이터 변환 및 처리를 위한 다양한 명령 행 인터페이스 유틸리티가 제공된다. Windows, Linux 및 MacOS 에서 사용 가능하다.  1. gdalinfo (http:">
+<meta property="og:description" content="GDAL 은 래스터 및 벡터 지리 공간 데이터를 조작할 수 있는 오픈 소스 라이브러리다.  라이브러리로서 지원되는 모든 형식의 호출 응용 프로그램에 단일 추상 데이터 모델을 제공한다. 데이터 변환 및 처리를 위한 다양한 명령 행 인터페이스 유틸리티가 제공된다. Windows, Linux 및 MacOS 에서 사용 가능하다.   1. gdalinfo (http">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/satellite.png">
 <meta property="article:published_time" content="2020-03-26T02:07:02.000Z">
 <meta property="article:modified_time" content="2024-01-11T06:55:54.027Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="Satellite">
-<meta property="article:tag" content="Coordinate System">
 <meta property="article:tag" content="Gdal">
+<meta property="article:tag" content="Coordinate System">
 <meta property="article:tag" content="Library">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/satellite.png">
@@ -270,31 +270,31 @@ ga('send', 'pageview');
 <li>데이터 변환 및 처리를 위한 다양한 명령 행 인터페이스 유틸리티가 제공된다.</li>
 <li>Windows, Linux 및 MacOS 에서 사용 가능하다.</li>
 </ul>
-<h2 id="1-gdalinfo-http-www-gdal-org-gdalinfo-html">1. gdalinfo (<a href="http://www.gdal.org/gdalinfo.html" target="_blank" rel="noopener">http://www.gdal.org/gdalinfo.html</a>)</h2>
+<h2 id="1-gdalinfo-httpwwwgdalorggdalinfohtml"><a class="markdownIt-Anchor" href="#1-gdalinfo-httpwwwgdalorggdalinfohtml"></a> 1. gdalinfo (<a href="http://www.gdal.org/gdalinfo.html" target="_blank" rel="noopener">http://www.gdal.org/gdalinfo.html</a>)</h2>
 <ul>
 <li>GDAL 이 지원하는 영상 정보를 확인한다.</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdalinfo test.tif</span><br></pre></td></tr></table></figure>
-<h2 id="2-gdal-translate-http-www-gdal-org-gdal-translate-html">2. gdal_translate (<a href="http://www.gdal.org/gdal_translate.html" target="_blank" rel="noopener">http://www.gdal.org/gdal_translate.html</a>)</h2>
+<h2 id="2-gdal_translate-httpwwwgdalorggdal_translatehtml"><a class="markdownIt-Anchor" href="#2-gdal_translate-httpwwwgdalorggdal_translatehtml"></a> 2. gdal_translate (<a href="http://www.gdal.org/gdal_translate.html" target="_blank" rel="noopener">http://www.gdal.org/gdal_translate.html</a>)</h2>
 <ul>
 <li>다른 형식으로 래스터 데이터를 변환</li>
 <li>영상 resize 및 포멧 변경</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdal_translate -of GTiff -outsize 50% 50% src_dataset dst_dataset</span><br></pre></td></tr></table></figure>
-<h2 id="3-gdalwarp-http-www-gdal-org-gdal-utilities-html">3. gdalwarp (<a href="http://www.gdal.org/gdal_utilities.html" target="_blank" rel="noopener">http://www.gdal.org/gdal_utilities.html</a>)</h2>
+<h2 id="3-gdalwarp-httpwwwgdalorggdal_utilitieshtml"><a class="markdownIt-Anchor" href="#3-gdalwarp-httpwwwgdalorggdal_utilitieshtml"></a> 3. gdalwarp (<a href="http://www.gdal.org/gdal_utilities.html" target="_blank" rel="noopener">http://www.gdal.org/gdal_utilities.html</a>)</h2>
 <ul>
 <li>image reprojection and warping utility</li>
 <li>좌표변환, resampling, image mosaicing</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdalwarp -t_srs EPSG:4326 input.tif output.tif</span><br></pre></td></tr></table></figure>
-<h2 id="4-gdal-merge-https-gdal-org-programs-gdal-merge-html">4. gdal_merge (<a href="https://gdal.org/programs/gdal_merge.html" target="_blank" rel="noopener">https://gdal.org/programs/gdal_merge.html</a>)</h2>
+<h2 id="4-gdal_merge-httpsgdalorgprogramsgdal_mergehtml"><a class="markdownIt-Anchor" href="#4-gdal_merge-httpsgdalorgprogramsgdal_mergehtml"></a> 4. gdal_merge (<a href="https://gdal.org/programs/gdal_merge.html" target="_blank" rel="noopener">https://gdal.org/programs/gdal_merge.html</a>)</h2>
 <ul>
 <li>일련의 이미지를 자동으로 모자이크한다.</li>
 <li>모든 이미지는 동일한 좌표계에 밴드 수가 일치해야 한다.</li>
 <li>겹치는 영역에서는 마지막 이미지가 이전 이미지에 복사된다.</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdal_merge.py -init 255 -o out.tif in1.tif in2.tif</span><br></pre></td></tr></table></figure>
-<h2 id="5-gdalmanage-http-www-gdal-org-gdalmanage-html">5. gdalmanage (<a href="http://www.gdal.org/gdalmanage.html" target="_blank" rel="noopener">http://www.gdal.org/gdalmanage.html</a>)</h2>
+<h2 id="5-gdalmanage-httpwwwgdalorggdalmanagehtml"><a class="markdownIt-Anchor" href="#5-gdalmanage-httpwwwgdalorggdalmanagehtml"></a> 5. gdalmanage (<a href="http://www.gdal.org/gdalmanage.html" target="_blank" rel="noopener">http://www.gdal.org/gdalmanage.html</a>)</h2>
 <p>Mode:</p>
 <ol>
 <li>identify datasetname : List data format of file. 데이터 포맷 정보 보기</li>
@@ -303,17 +303,17 @@ ga('send', 'pageview');
 <li>delete datasetname : 이미지 삭제</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 파일일 때</span></span><br><span class="line">gdalmanage identify test.tif</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 폴더일 때</span></span><br><span class="line">gdalmanage identify –r test/</span><br></pre></td></tr></table></figure>
-<h2 id="6-gdal-contour-http-www-gdal-org-gdal-contour-html">6. gdal_contour (<a href="http://www.gdal.org/gdal_contour.html" target="_blank" rel="noopener">http://www.gdal.org/gdal_contour.html</a>)</h2>
+<h2 id="6-gdal_contour-httpwwwgdalorggdal_contourhtml"><a class="markdownIt-Anchor" href="#6-gdal_contour-httpwwwgdalorggdal_contourhtml"></a> 6. gdal_contour (<a href="http://www.gdal.org/gdal_contour.html" target="_blank" rel="noopener">http://www.gdal.org/gdal_contour.html</a>)</h2>
 <ul>
 <li>입력 래스터 표고 모델(DEM)로부터 벡터 등고선 파일을 생성한다.</li>
 </ul>
-<h2 id="7-gdal-polygonize-py-http-www-gdal-org-gdal-polygonize-html">7. gdal_polygonize.py (<a href="http://www.gdal.org/gdal_polygonize.html" target="_blank" rel="noopener">http://www.gdal.org/gdal_polygonize.html</a>)</h2>
+<h2 id="7-gdal_polygonizepy-httpwwwgdalorggdal_polygonizehtml"><a class="markdownIt-Anchor" href="#7-gdal_polygonizepy-httpwwwgdalorggdal_polygonizehtml"></a> 7. gdal_polygonize.py (<a href="http://www.gdal.org/gdal_polygonize.html" target="_blank" rel="noopener">http://www.gdal.org/gdal_polygonize.html</a>)</h2>
 <ul>
 <li>Produces a polygon feature layer from a raster.</li>
 <li>ERS -&gt; Shape 파일로 변환</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python gdal_polygonize.py inputFile -f ”ESRI Shapefile” outputFile</span><br></pre></td></tr></table></figure>
-<h2 id="8-ogr2ogr-http-www-gdal-org-ogr2ogr-html">8. ogr2ogr (<a href="http://www.gdal.org/ogr2ogr.html" target="_blank" rel="noopener">http://www.gdal.org/ogr2ogr.html</a>)</h2>
+<h2 id="8-ogr2ogr-httpwwwgdalorgogr2ogrhtml"><a class="markdownIt-Anchor" href="#8-ogr2ogr-httpwwwgdalorgogr2ogrhtml"></a> 8. ogr2ogr (<a href="http://www.gdal.org/ogr2ogr.html" target="_blank" rel="noopener">http://www.gdal.org/ogr2ogr.html</a>)</h2>
 <p>Shape 파일 좌표 변환</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ogr2ogr -f "ESRI Shapefile" out.shp wgs84.shp -s_srs EPSG:32616 -t_srs EPSG:4326</span><br></pre></td></tr></table></figure>
 <p>Shape -&gt; GeoJSON 변환</p>
@@ -321,7 +321,7 @@ ga('send', 'pageview');
 <ol start="3">
 <li><a href="http://www.mercatorgeosystems.com/blog-articles/2008/05/30/using-ogr2ogr-to-re-project-a-shape-file/" target="_blank" rel="noopener">http://www.mercatorgeosystems.com/blog-articles/2008/05/30/using-ogr2ogr-to-re-project-a-shape-file/</a></li>
 </ol>
-<h2 id="9-gdaldem-https-gdal-org-programs-gdaldem-html">9. gdaldem (<a href="https://gdal.org/programs/gdaldem.html" target="_blank" rel="noopener">https://gdal.org/programs/gdaldem.html</a>)</h2>
+<h2 id="9-gdaldem-httpsgdalorgprogramsgdaldemhtml"><a class="markdownIt-Anchor" href="#9-gdaldem-httpsgdalorgprogramsgdaldemhtml"></a> 9. gdaldem (<a href="https://gdal.org/programs/gdaldem.html" target="_blank" rel="noopener">https://gdal.org/programs/gdaldem.html</a>)</h2>
 <p>ERS -&gt; GTiff 파일로 변환한다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdaldem color-relief -of GTiff -co "TILED=YES" K220100502_22131215_ref_med_union.ers color_file.txt color.tif</span><br></pre></td></tr></table></figure>
 <p><strong>※ GDAL 에서 .py 파일은 .exe로 만들어서 붙입니다.</strong></p>
@@ -358,7 +358,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="http://hgko1207.github.io/2020/03/26/satellite-gdal/" data-id="clkcpzdu6002f3scx4bucgzfo" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://hgko1207.github.io/2020/03/26/satellite-gdal/" data-id="clvagw7ss001qigcx6rpchnn6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -430,7 +430,7 @@ ga('send', 'pageview');
         },
         "headline": "Gdal 사용 방법",
         "image": "http://hgko1207.github.io/images/thumbnail/satellite.png",
-        "keywords": "Satellite Coordinate System Gdal Library",
+        "keywords": "Satellite Gdal Coordinate System Library",
         "genre": "IT Satellite",
         "datePublished": "2020-03-26",
         "dateCreated": "2020-03-26",
@@ -442,8 +442,8 @@ ga('send', 'pageview');
 데이터 변환 및 처리를 위한 다양한 명령 행 인터페이스 유틸리티가 제공된다.
 Windows, Linux 및 MacOS 에서 사용 가능하다.
 
-1. gdalinfo (http:",
-        "wordCount": 317
+ 1. gdalinfo (http",
+        "wordCount": 344
     }
 </script>
 
@@ -554,6 +554,66 @@ Windows, Linux 및 MacOS 에서 사용 가능하다.
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2024/04/19/typescript-17/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/typescript.png)" alt="[TypeScript] Set/Get, Protected, Private/Public/Static Members" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/04/19/typescript-17/" class="title">[TypeScript] Set/Get, Protected, Private/Public/Static Members</a></p>
+                            <p class="item-date"><time datetime="2024-04-19T01:34:01.000Z" itemprop="datePublished">2024-04-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/04/19/typescript-16/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/typescript.png)" alt="[TypeScript] OOP 관행, 클래스 및 상속" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/04/19/typescript-16/" class="title">[TypeScript] OOP 관행, 클래스 및 상속</a></p>
+                            <p class="item-date"><time datetime="2024-04-19T01:25:16.000Z" itemprop="datePublished">2024-04-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/04/18/typescript-15/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/typescript.png)" alt="[TypeScript] Any, Void, Never, Null, Strict Null Checks" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/04/18/typescript-15/" class="title">[TypeScript] Any, Void, Never, Null, Strict Null Checks</a></p>
+                            <p class="item-date"><time datetime="2024-04-18T05:14:46.000Z" itemprop="datePublished">2024-04-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2024/04/18/typescript-14/" class="thumbnail">
     
     
@@ -591,66 +651,6 @@ Windows, Linux 및 MacOS 에서 사용 가능하다.
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/04/16/info-13/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/information.png)" alt="웹 개발자의 생산성을 높여주는 10가지 VS Code 확장 프로그램" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/IT/">IT</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/IT/Information/">Information</a></p>
-                            <p class="item-title"><a href="/2024/04/16/info-13/" class="title">웹 개발자의 생산성을 높여주는 10가지 VS Code 확장 프로그램</a></p>
-                            <p class="item-date"><time datetime="2024-04-16T01:58:09.000Z" itemprop="datePublished">2024-04-16</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/04/09/web-7/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/header/web-5.png)" alt="CSS 미디어 쿼리(Media Query): 반응형 웹사이트를 위한 초보자 가이드" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Web/">Web</a></p>
-                            <p class="item-title"><a href="/2024/04/09/web-7/" class="title">CSS 미디어 쿼리(Media Query): 반응형 웹사이트를 위한 초보자 가이드</a></p>
-                            <p class="item-date"><time datetime="2024-04-09T13:18:20.000Z" itemprop="datePublished">2024-04-09</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/04/09/web-design-7/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/header/web-design-7.png)" alt="CSS 개발자가 알아야 할 시간 절약형 웹사이트 11가지" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a></p>
-                            <p class="item-title"><a href="/2024/04/09/web-design-7/" class="title">CSS 개발자가 알아야 할 시간 절약형 웹사이트 11가지</a></p>
-                            <p class="item-date"><time datetime="2024-04-09T12:37:28.000Z" itemprop="datePublished">2024-04-09</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -658,7 +658,7 @@ Windows, Linux 및 MacOS 에서 사용 가능하다.
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">342</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">63</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">33</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">29</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">94</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">82</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">14</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">6</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">345</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">63</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">33</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">29</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">94</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">85</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">17</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">6</span></li></ul></li></ul>
         </div>
     </div>
 

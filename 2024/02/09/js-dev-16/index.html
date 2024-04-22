@@ -12,12 +12,12 @@
     
     <meta name="keywords" content="JavaScript,자바스크립트,Programming,이벤트,클릭 이벤트,Click" />
     
-    <meta name="description" content="소개🌊 JavaScript는 대화형 웹 개발의 핵심이며, 클릭 이벤트 처리는 모든 프론트엔드 개발자가 익혀야 할 기본 기술입니다. 이 글에서는 JavaScript로 클릭 이벤트를 작성하는 세 가지 방법을 살펴봅니다. 이제 막 시작했거나 기술을 연마하고 있는 개발자라면 이 가이드가 웹 페이지를 인터랙티브하게 만드는 방법을 이해하는 데 도움이 될 것입니다.">
+    <meta name="description" content="소개🌊 JavaScript는 대화형 웹 개발의 핵심이며, 클릭 이벤트 처리는 모든 프론트엔드 개발자가 익혀야 할 기본 기술입니다. 이 글에서는 JavaScript로 클릭 이벤트를 작성하는 세 가지 방법을 살펴봅니다. 이제 막 시작했거나 기술을 연마하고 있는 개발자라면 이 가이드가 웹 페이지를 인터랙티브하게 만드는 방법을 이해하는 데 도움이 될 것입니다">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript로 클릭 이벤트를 작성하는 3가지 방법 🖱️">
 <meta property="og:url" content="http://hgko1207.github.io/2024/02/09/js-dev-16/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="소개🌊 JavaScript는 대화형 웹 개발의 핵심이며, 클릭 이벤트 처리는 모든 프론트엔드 개발자가 익혀야 할 기본 기술입니다. 이 글에서는 JavaScript로 클릭 이벤트를 작성하는 세 가지 방법을 살펴봅니다. 이제 막 시작했거나 기술을 연마하고 있는 개발자라면 이 가이드가 웹 페이지를 인터랙티브하게 만드는 방법을 이해하는 데 도움이 될 것입니다.">
+<meta property="og:description" content="소개🌊 JavaScript는 대화형 웹 개발의 핵심이며, 클릭 이벤트 처리는 모든 프론트엔드 개발자가 익혀야 할 기본 기술입니다. 이 글에서는 JavaScript로 클릭 이벤트를 작성하는 세 가지 방법을 살펴봅니다. 이제 막 시작했거나 기술을 연마하고 있는 개발자라면 이 가이드가 웹 페이지를 인터랙티브하게 만드는 방법을 이해하는 데 도움이 될 것입니다">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/javascript.png">
 <meta property="article:published_time" content="2024-02-09T13:54:03.000Z">
@@ -266,33 +266,33 @@ ga('send', 'pageview');
 
             
 
-            <p><img src="/images/header/js-dev-16.png" alt=""></p>
-<h2 id="소개🌊">소개🌊</h2>
+            <p><img src="/images/header/js-dev-16.png" alt="" /></p>
+<h2 id="소개"><a class="markdownIt-Anchor" href="#소개"></a> 소개🌊</h2>
 <p>JavaScript는 대화형 웹 개발의 핵심이며, 클릭 이벤트 처리는 모든 프론트엔드 개발자가 익혀야 할 기본 기술입니다. 이 글에서는 JavaScript로 클릭 이벤트를 작성하는 세 가지 방법을 살펴봅니다. 이제 막 시작했거나 기술을 연마하고 있는 개발자라면 이 가이드가 웹 페이지를 인터랙티브하게 만드는 방법을 이해하는 데 도움이 될 것입니다.</p>
 <p>예제를 자세히 살펴보겠습니다.</p>
-<h2 id="인라인-HTML-이벤트-핸들러-📄">인라인 HTML 이벤트 핸들러 📄</h2>
+<h2 id="인라인-html-이벤트-핸들러"><a class="markdownIt-Anchor" href="#인라인-html-이벤트-핸들러"></a> 인라인 HTML 이벤트 핸들러 📄</h2>
 <p>인라인 HTML 이벤트 핸들러는 HTML 요소 내에 JavaScript 코드를 직접 배치합니다. 이 방법은 거의 모든 HTML 요소에 할당할 수 있는 <code>onclick</code> 속성을 사용합니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onclick=<span class="string">"showAlert()"</span>&gt;Click Me!&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">  function showAlert() &#123;</span></span><br><span class="line"><span class="regexp">    alert('Button clicked!');</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="장점">장점</h3>
+<h3 id="장점"><a class="markdownIt-Anchor" href="#장점"></a> 장점</h3>
 <p>인라인 HTML 이벤트 핸들러는 구현 속도가 매우 빠르기 때문에 간단한 작업이나 소규모 프로젝트에 이상적입니다. 요소에 상호작용을 추가하는 직접적인 방법을 제공하므로 특히 초보자나 복잡한 외부 스크립트 없이 즉각적인 결과가 필요한 시나리오에서 사용자 친화적입니다.</p>
-<h3 id="단점">단점</h3>
+<h3 id="단점"><a class="markdownIt-Anchor" href="#단점"></a> 단점</h3>
 <p>그러나 이 접근 방식은 특히 대규모 애플리케이션에서 코드 가독성 및 유지보수성을 떨어뜨릴 수 있습니다. HTML과 JavaScript를 혼합하여 구조(HTML)와 동작(JavaScript)을 분리하는 모범 사례와 모순되므로 코드 관리 및 업데이트 프로세스가 더 까다로워질 수 있습니다.</p>
-<h2 id="방법-2-Element-ID-및-addEventListener🔍-사용">방법 2: Element ID 및 <code>addEventListener</code>🔍 사용</h2>
+<h2 id="방법-2-element-id-및-addeventlistener-사용"><a class="markdownIt-Anchor" href="#방법-2-element-id-및-addeventlistener-사용"></a> 방법 2: Element ID 및 <code>addEventListener</code>🔍 사용</h2>
 <p><code>addEventListener</code> 메서드는 HTML과 JavaScript 간의 문제를 분리하는 강력한 방법입니다. 이 메서드를 사용하면 ID로 식별되는 Element에 이벤트 리스너를 첨부하여 깔끔하고 유지 관리가 쉬운 코드를 만들 수 있습니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;button id=<span class="string">"myButton"</span>&gt;Click Me!&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">  const myButton = document.getElementById("myButton");</span></span><br><span class="line"><span class="regexp">  myButton.addEventListener("click", function () &#123;</span></span><br><span class="line"><span class="regexp">    alert("Button clicked!");</span></span><br><span class="line"><span class="regexp">  &#125;);</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="장점-2">장점</h3>
+<h3 id="장점-2"><a class="markdownIt-Anchor" href="#장점-2"></a> 장점</h3>
 <p><code>addEventListener</code> 메서드는 이벤트 핸들러를 연결하기 위한 강력한 솔루션으로 HTML과 JavaScript를 깔끔하게 분리할 수 있습니다. 따라서 코드 유지보수 및 구성이 개선되어 규모가 크고 복잡한 애플리케이션에 선호되는 방식입니다. 또한 단일 요소에서 여러 이벤트 핸들러를 활성화하여 유연성을 높일 수 있습니다.</p>
-<h3 id="단점-2">단점</h3>
+<h3 id="단점-2"><a class="markdownIt-Anchor" href="#단점-2"></a> 단점</h3>
 <p>이 방법은 설정하기가 약간 더 복잡할 수 있으며 DOM에 대한 기본적인 이해가 필요합니다. 또한 인라인 방식에 비해 조금 더 장황할 수 있으며, 단순성이 중요한 경우 스크립트가 무거워질 수 있습니다.</p>
-<h2 id="방법-3-이벤트-위임-🚀">방법 3: 이벤트 위임 🚀</h2>
+<h2 id="방법-3-이벤트-위임"><a class="markdownIt-Anchor" href="#방법-3-이벤트-위임"></a> 방법 3: 이벤트 위임 🚀</h2>
 <p>이벤트 위임은 이벤트 버블링 단계를 활용하는 기술입니다. 부모 요소에 단일 이벤트 리스너를 추가하면 여러 하위 요소에 대한 이벤트를 처리할 수 있습니다. 이는 동적으로 추가된 요소를 처리할 때 특히 유용합니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"buttonContainer"</span>&gt;</span><br><span class="line">  &lt;button&gt;Button <span class="number">1</span>&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">  &lt;button&gt;Button 2&lt;/</span>button&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">  document.getElementById('buttonContainer').addEventListener('click', function(e) &#123;</span></span><br><span class="line"><span class="regexp">    if (e.target.tagName === 'BUTTON') &#123;</span></span><br><span class="line"><span class="regexp">      alert('Button clicked: ' + e.target.textContent);</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">  &#125;);</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="장점-3">장점</h3>
+<h3 id="장점-3"><a class="markdownIt-Anchor" href="#장점-3"></a> 장점</h3>
 <p>이벤트 위임은 특히 동적 콘텐츠 시나리오에서 여러 요소의 이벤트를 관리하는 데 매우 효율적입니다. 단일 이벤트 리스너를 부모 요소에 연결함으로써 메모리 사용량을 크게 줄이고 성능을 개선할 수 있어 대규모 애플리케이션에서 매우 중요합니다.</p>
-<h3 id="단점-3">단점</h3>
+<h3 id="단점-3"><a class="markdownIt-Anchor" href="#단점-3"></a> 단점</h3>
 <p>장점에도 불구하고 이벤트 위임에는 한계가 있습니다. focus또는 와 같이 자연스럽게 버블링되지 않는 이벤트를 처리하는 데는 적합하지 않습니다 blur. 또한 특정 이벤트 속성이 필요한 경우 이벤트 버블링 단계 중에 변경될 수 있습니다. 이러한 복잡성과 의도하지 않은 동작의 가능성으로 인해 이 방법은 신중한 구현과 이벤트 전파에 대한 확실한 이해가 필요한 방법입니다.</p>
 <p>장점에도 불구하고 이벤트 위임에는 한계가 있습니다. <code>focus</code>나 <code>blur</code>와 같이 자연적으로 버블링되지 않는 이벤트를 처리하는 데는 적합하지 않습니다. 또한 특정 이벤트 속성이 필요한 경우 이벤트의 버블링 단계에서 해당 속성이 변경될 수 있습니다. 이러한 복잡성과 의도하지 않은 동작이 발생할 가능성이 있기 때문에 이벤트 전파에 대한 확실한 이해와 신중한 구현이 필요한 방법입니다.</p>
-<h2 id="결론🎯">결론🎯</h2>
+<h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론🎯</h2>
 <p>JavaScript에서 클릭 이벤트를 처리하는 데 적합한 방법을 선택하는 것은 특정 요구 사항과 프로젝트의 컨텍스트에 따라 달라집니다. <code>인라인 이벤트 핸들러(Inline event handlers)</code>는 단순성을 제공하고, <code>addEventListener</code>는 유연성을 제공하며, <code>이벤트 위임(event delegation)</code>은 특히 동적 콘텐츠 시나리오에서 효율성을 제공합니다. 이러한 메서드를 이해하고 적용하면 대화형 반응형 웹 애플리케이션을 제작할 수 있는 능력을 갖추게 됩니다.</p>
 
         </div>
@@ -327,7 +327,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="http://hgko1207.github.io/2024/02/09/js-dev-16/" data-id="clsl3wihe0000hkcxci71b64z" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://hgko1207.github.io/2024/02/09/js-dev-16/" data-id="clvagw859019sigcx5hnf59rr" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -406,9 +406,9 @@ ga('send', 'pageview');
         "dateModified": "2024-02-14",
         "url": "http://hgko1207.github.io/2024/02/09/js-dev-16/",
         "description": "
-소개🌊
-JavaScript는 대화형 웹 개발의 핵심이며, 클릭 이벤트 처리는 모든 프론트엔드 개발자가 익혀야 할 기본 기술입니다. 이 글에서는 JavaScript로 클릭 이벤트를 작성하는 세 가지 방법을 살펴봅니다. 이제 막 시작했거나 기술을 연마하고 있는 개발자라면 이 가이드가 웹 페이지를 인터랙티브하게 만드는 방법을 이해하는 데 도움이 될 것입니다.",
-        "wordCount": 602
+ 소개🌊
+JavaScript는 대화형 웹 개발의 핵심이며, 클릭 이벤트 처리는 모든 프론트엔드 개발자가 익혀야 할 기본 기술입니다. 이 글에서는 JavaScript로 클릭 이벤트를 작성하는 세 가지 방법을 살펴봅니다. 이제 막 시작했거나 기술을 연마하고 있는 개발자라면 이 가이드가 웹 페이지를 인터랙티브하게 만드는 방법을 이해하는 데 도움이 될 것입니다",
+        "wordCount": 636
     }
 </script>
 
@@ -519,6 +519,66 @@ JavaScript는 대화형 웹 개발의 핵심이며, 클릭 이벤트 처리는 �
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2024/04/19/typescript-17/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/typescript.png)" alt="[TypeScript] Set/Get, Protected, Private/Public/Static Members" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/04/19/typescript-17/" class="title">[TypeScript] Set/Get, Protected, Private/Public/Static Members</a></p>
+                            <p class="item-date"><time datetime="2024-04-19T01:34:01.000Z" itemprop="datePublished">2024-04-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/04/19/typescript-16/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/typescript.png)" alt="[TypeScript] OOP 관행, 클래스 및 상속" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/04/19/typescript-16/" class="title">[TypeScript] OOP 관행, 클래스 및 상속</a></p>
+                            <p class="item-date"><time datetime="2024-04-19T01:25:16.000Z" itemprop="datePublished">2024-04-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/04/18/typescript-15/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/typescript.png)" alt="[TypeScript] Any, Void, Never, Null, Strict Null Checks" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/04/18/typescript-15/" class="title">[TypeScript] Any, Void, Never, Null, Strict Null Checks</a></p>
+                            <p class="item-date"><time datetime="2024-04-18T05:14:46.000Z" itemprop="datePublished">2024-04-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2024/04/18/typescript-14/" class="thumbnail">
     
     
@@ -556,66 +616,6 @@ JavaScript는 대화형 웹 개발의 핵심이며, 클릭 이벤트 처리는 �
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/04/16/info-13/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/information.png)" alt="웹 개발자의 생산성을 높여주는 10가지 VS Code 확장 프로그램" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/IT/">IT</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/IT/Information/">Information</a></p>
-                            <p class="item-title"><a href="/2024/04/16/info-13/" class="title">웹 개발자의 생산성을 높여주는 10가지 VS Code 확장 프로그램</a></p>
-                            <p class="item-date"><time datetime="2024-04-16T01:58:09.000Z" itemprop="datePublished">2024-04-16</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/04/09/web-7/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/header/web-5.png)" alt="CSS 미디어 쿼리(Media Query): 반응형 웹사이트를 위한 초보자 가이드" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Web/">Web</a></p>
-                            <p class="item-title"><a href="/2024/04/09/web-7/" class="title">CSS 미디어 쿼리(Media Query): 반응형 웹사이트를 위한 초보자 가이드</a></p>
-                            <p class="item-date"><time datetime="2024-04-09T13:18:20.000Z" itemprop="datePublished">2024-04-09</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/04/09/web-design-7/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/header/web-design-7.png)" alt="CSS 개발자가 알아야 할 시간 절약형 웹사이트 11가지" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a></p>
-                            <p class="item-title"><a href="/2024/04/09/web-design-7/" class="title">CSS 개발자가 알아야 할 시간 절약형 웹사이트 11가지</a></p>
-                            <p class="item-date"><time datetime="2024-04-09T12:37:28.000Z" itemprop="datePublished">2024-04-09</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -623,7 +623,7 @@ JavaScript는 대화형 웹 개발의 핵심이며, 클릭 이벤트 처리는 �
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">342</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">63</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">33</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">29</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">94</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">82</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">14</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">6</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">345</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">63</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">33</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">29</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">94</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">85</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">17</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">6</span></li></ul></li></ul>
         </div>
     </div>
 

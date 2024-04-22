@@ -12,12 +12,12 @@
     
     <meta name="keywords" content="Eclipse,RCP,Java,Plugin,이클립스,자바" />
     
-    <meta name="description" content="Eclipse Piug-in 추가 Eclipse에 플러그인을 추가하는 방법에는 두 가지가 있다. 첫 번째 방법은 플러그인을 직접 복사해서 설치하는 방법이고, 두 번째 방법은 Eclipse 에서 제공하는 Software Update Manager 를 활용하는 방법이다. 직접 복사하는 방법 설치하고자 하는 플러그인을 Eclipse_home&#x2F;plugin 디렉터리">
+    <meta name="description" content="Eclipse Piug-in 추가 Eclipse에 플러그인을 추가하는 방법에는 두 가지가 있다. 첫 번째 방법은 플러그인을 직접 복사해서 설치하는 방법이고, 두 번째 방법은 Eclipse 에서 제공하는 Software Update Manager 를 활용하는 방법이다.  직접 복사하는 방법 설치하고자 하는 플러그인을 Eclipse_home&#x2F;plugin 디렉">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Eclipse RCP] 이클립스 플러그인 추가">
 <meta property="og:url" content="http://hgko1207.github.io/2019/01/07/eclipse-rcp/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="Eclipse Piug-in 추가 Eclipse에 플러그인을 추가하는 방법에는 두 가지가 있다. 첫 번째 방법은 플러그인을 직접 복사해서 설치하는 방법이고, 두 번째 방법은 Eclipse 에서 제공하는 Software Update Manager 를 활용하는 방법이다. 직접 복사하는 방법 설치하고자 하는 플러그인을 Eclipse_home&#x2F;plugin 디렉터리">
+<meta property="og:description" content="Eclipse Piug-in 추가 Eclipse에 플러그인을 추가하는 방법에는 두 가지가 있다. 첫 번째 방법은 플러그인을 직접 복사해서 설치하는 방법이고, 두 번째 방법은 Eclipse 에서 제공하는 Software Update Manager 를 활용하는 방법이다.  직접 복사하는 방법 설치하고자 하는 플러그인을 Eclipse_home&#x2F;plugin 디렉">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/rcp.png">
 <meta property="article:published_time" content="2019-01-07T09:25:03.000Z">
@@ -266,42 +266,42 @@ ga('send', 'pageview');
 
             
 
-            <h1>Eclipse Piug-in 추가</h1>
+            <h1 id="eclipse-piug-in-추가"><a class="markdownIt-Anchor" href="#eclipse-piug-in-추가"></a> Eclipse Piug-in 추가</h1>
 <p>Eclipse에 플러그인을 추가하는 방법에는 두 가지가 있다. 첫 번째 방법은 플러그인을 직접 복사해서 설치하는 방법이고, 두 번째 방법은 Eclipse 에서 제공하는 Software Update Manager 를 활용하는 방법이다.</p>
-<h3 id="직접-복사하는-방법">직접 복사하는 방법</h3>
+<h3 id="직접-복사하는-방법"><a class="markdownIt-Anchor" href="#직접-복사하는-방법"></a> 직접 복사하는 방법</h3>
 <p>설치하고자 하는 플러그인을 Eclipse_home/plugin 디렉터리에 복사한 다음 Eclipse를 재시작하면 새롭게 설치된 Eclipse 플러그인 기능을 활용할 수 있다.</p>
-<h3 id="Software-Update-Manager를-활용하는-방법">Software Update Manager를 활용하는 방법</h3>
+<h3 id="software-update-manager를-활용하는-방법"><a class="markdownIt-Anchor" href="#software-update-manager를-활용하는-방법"></a> Software Update Manager를 활용하는 방법</h3>
 <p>Eclipse 에서 제공하는 Software Update Manager 기능은 플러그인을 개발한 곳에서 이 기능을 사용할 수 있도록 지원하지 않으면 사용할 수 없다.</p>
 <p>Eclipse 에서 <code>Help-&gt;Install New Software</code>로 이동 후 설치 할 플러그인 URL를 입력하여 다운받는다.</p>
 <p>또 다른 방법은 <code>Help-&gt;Eclipse Marketplace</code>로 이동 후 설치 플러그인을 검색 후 다운로드한다.</p>
-<h1>이클립스 RCP</h1>
-<h2 id="Piug-in-구조">Piug-in 구조</h2>
+<h1 id="이클립스-rcp"><a class="markdownIt-Anchor" href="#이클립스-rcp"></a> 이클립스 RCP</h1>
+<h2 id="piug-in-구조"><a class="markdownIt-Anchor" href="#piug-in-구조"></a> Piug-in 구조</h2>
 <p>모든 플러그인의 실제 동작에 대한 정의는 코드에 들어있지만, 플러그인의 종속성과 서비스는 <code>MANIFEST.MF</code>와 <code>plugin.xml</code> 파일에서 선다. 이런 구조 덕분에 플러그인 코드가 당장 필요한 순간이 되어서야 로딩되는 늦은 로딩(lazy loading)이 가능하며, 이에 따라 이클립스의 시동 시간과 메모리 사용량을 줄일 수 있습니다.</p>
 <p>이클립스 시동될 때는 플러그인 로더가 각 플러그인에 대한 <code>MANIFEST.MF</code>와 <code>plugin.xml</code> 파일 전부를 훑어본 다음, 플러그인에 대한 정보를 포함하는 구조체를 구성한다.</p>
-<h2 id="Piug-in-선언-MANIFEST-MF">Piug-in 선언(MANIFEST.MF)</h2>
+<h2 id="piug-in-선언manifestmf"><a class="markdownIt-Anchor" href="#piug-in-선언manifestmf"></a> Piug-in 선언(MANIFEST.MF)</h2>
 <p>각 번들 내역서 내에는 이름, ID, 버전, 플러그인 클래스, 프로바이더에 대한 항목이 들어 있다.</p>
-<h3 id="1-Piug-in-ID">1. Piug-in ID</h3>
+<h3 id="1-piug-in-id"><a class="markdownIt-Anchor" href="#1-piug-in-id"></a> 1. Piug-in ID</h3>
 <p>플러그인 ID(Bundle-SymbolicName)는 단 하나의 플러그인을 식별하기 위해 설계된 것이며 일반적으로 자바 패키지 이름 규약(예: com.&lt;회사명&gt;.&lt;제품명&gt;)을 이용해 구성된다.</p>
-<h3 id="2-Piug-in-버전">2. Piug-in 버전</h3>
+<h3 id="2-piug-in-버전"><a class="markdownIt-Anchor" href="#2-piug-in-버전"></a> 2. Piug-in 버전</h3>
 <p>플러그인에 지정된 버전(Bundle-version)은 항상 3개의 수를 점으로 구분해 나열한 것이다. 첫 번째 수는 주 버전(major version)을 의미하며 두 번째는 부 버전(minor version), 세 번째는 서비스 레벨을 의미한다.</p>
-<h3 id="3-Piug-in-이름과-제공자">3. Piug-in 이름과 제공자</h3>
+<h3 id="3-piug-in-이름과-제공자"><a class="markdownIt-Anchor" href="#3-piug-in-이름과-제공자"></a> 3. Piug-in 이름과 제공자</h3>
 <p>이름과 제공자는 둘 다 사람이 읽기 위한 텍스트이므로 어떻게 입력하든지 상관없고 또한 유일할 것일 필요도 없다.</p>
-<h3 id="4-Piug-in-클래스-선언">4. Piug-in 클래스 선언</h3>
+<h3 id="4-piug-in-클래스-선언"><a class="markdownIt-Anchor" href="#4-piug-in-클래스-선언"></a> 4. Piug-in 클래스 선언</h3>
 <p>모든 플러그인은 필요한 경우에 플러그인 클래스(Bundle-Activator)를 지정할 수 있다.</p>
-<h3 id="5-Piug-in-런타임">5. Piug-in 런타임</h3>
+<h3 id="5-piug-in-런타임"><a class="markdownIt-Anchor" href="#5-piug-in-런타임"></a> 5. Piug-in 런타임</h3>
 <p><code>MANIFEST.MF</code> 파일의 Bundle-ClassPath 선언에는 플러그인 코드에 포함된 라이브러리(*.jar 파일) 를 콤마(‘ , ‘)로 구분해 나열한다. Bundle-ClassPath에서 정의한 라이브러리에 들어있는 패키지를 다른 플러그인에서 접근 할 수 있게 지정하려면 ExportPackage 선언을 써서 접근 가능하게 할 패키지를 콤마 구분 목록으로 지정한다.</p>
-<h3 id="6-Piug-in-종속성">6. Piug-in 종속성</h3>
+<h3 id="6-piug-in-종속성"><a class="markdownIt-Anchor" href="#6-piug-in-종속성"></a> 6. Piug-in 종속성</h3>
 <p>플러그인 로더는 각 로딩된 플러그인마다 개별 클래스 로더의 인스턴스를 생성하며 내역서의 Require-Bundle 선언을 사용해 해당 플러그인이 실행 중 참조해야 할 플러그인이 어느 것인지를 지정한다.</p>
-<h2 id="Piug-in-모델">Piug-in 모델</h2>
+<h2 id="piug-in-모델"><a class="markdownIt-Anchor" href="#piug-in-모델"></a> Piug-in 모델</h2>
 <p>이클립스는 처음 실행될 때 각 플러그인 디렉토리를 모두 돌아본 다음, 찾아낸 개별 플러그인을 표현하는 내부 모델을 구성한다. 개별 플러그인 전체를 로딩하지 않으며 플러그인 내역서만 검토한다.</p>
-<h3 id="1-Platform">1. Platform</h3>
+<h3 id="1-platform"><a class="markdownIt-Anchor" href="#1-platform"></a> 1. Platform</h3>
 <p><code>org.eclipse.core.runtime.Platform</code> 클래스는 현재 실행 중인 이클립스 환경에 대한 정보를 제공한다. 이 클래스를 사용해 설치되어 있는 플러그인(번들), 확장, 확장점, 명령행 인자, 작업 관리자 등의 정보를 얻을 수 있다.</p>
-<h3 id="2-Piug-in-과-번들">2. Piug-in 과 번들</h3>
+<h3 id="2-piug-in-과-번들"><a class="markdownIt-Anchor" href="#2-piug-in-과-번들"></a> 2. Piug-in 과 번들</h3>
 <p><code>Platform.getBundleGroupProviders()</code> 나 <code>Platform.getBundle(String)</code>을 사용해 현재 설치된 플러그 인(번들)에 대한 정보를 얻을 수 있다. 플러그인 클래스, 즉 번들 액티베이터에 접근하려면 해당 플러그인을 로드해야 하지만 Bundle 인터페이스에는 별도의 부담 없이 접근할 수 있다.</p>
-<h3 id="3-Piug-in-확장-레지스트리">3. Piug-in 확장 레지스트리</h3>
+<h3 id="3-piug-in-확장-레지스트리"><a class="markdownIt-Anchor" href="#3-piug-in-확장-레지스트리"></a> 3. Piug-in 확장 레지스트리</h3>
 <p><code>Platform.getExtensionRegistry()</code> 메소드를 사용해서 플러그인 확장 레지스트리(extension registry)에 접근할 수 있다. 확장 레지스트리에는 각 플러그인을 표현하는 플러그인 디스크립터가 포함되어 있으며 플러그인을 로딩하지 않고도 다양한 플러그인 정보를 얻을 수 있는 메소드를 제공한다.</p>
-<h1>Piug-in 개발</h1>
-<h2 id="Piug-in-Project-생성">Piug-in Project 생성</h2>
+<h1 id="piug-in-개발"><a class="markdownIt-Anchor" href="#piug-in-개발"></a> Piug-in 개발</h1>
+<h2 id="piug-in-project-생성"><a class="markdownIt-Anchor" href="#piug-in-project-생성"></a> Piug-in Project 생성</h2>
 <p>New -&gt; Plug-in Project 클릭한다.</p>
 <img width="55%" src="/images/rcp/rcp1.png" alt="" title="" >
 <p><em>Project name</em> 입력 후 Next 클릭한다.</p>
@@ -326,7 +326,7 @@ ga('send', 'pageview');
 <img width="65%" src="/images/rcp/rcp6.png" alt="" title="" >
 <p><code>org.eclipse.ui.menus</code> 에서 menuContribution는 사용자 인터페이스에서 메뉴가 표시되는 위치를 정의할 수 있는 locationURI 속성을 가지고 있다. locationURI 속성에는 기본적으로 menu:와 toolbar:, popup: 으로 시작하며 그 다음에는 메뉴가 표시될 위치를 지정할 수 있다. 예를 들어, 파일 메뉴(ID:fileMenu)의 하의 메뉴에 위치시키려면 다음와 같은 위치식을 이용한다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 예)</span></span><br><span class="line">menu:fileMenu?after=addition</span><br></pre></td></tr></table></figure>
-<h2 id="Piug-in-배포">Piug-in 배포</h2>
+<h2 id="piug-in-배포"><a class="markdownIt-Anchor" href="#piug-in-배포"></a> Piug-in 배포</h2>
 <p>플러그인을 만들었으면 jar로 생성해야 합니다.</p>
 <img width="80%" src="/images/rcp/rcp7.png" alt="" title="" >
 <p><strong>Export -&gt; Plug-in Development -&gt; Deployable plug-ins and fragments</strong> 선택 후 Next 클릭한다.</p>
@@ -334,7 +334,7 @@ ga('send', 'pageview');
 <p>배포하는 플러그인 프로젝트를 선택하고, Directory란에 배포하는 폴더를 지정하고, Finish를 클릭한다.</p>
 <img width="80%" src="/images/rcp/rcp9.png" alt="" title="" >
 <p>지정한 폴더에 jar로 배포가 되는 것을 확인할 수 있다.</p>
-<h1>참고</h1>
+<h1 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h1>
 <ul>
 <li><a href="http://eclipse.or.kr/wiki/%ED%8A%B9%EC%A7%91%EA%B8%B0%EC%82%AC:Eclipse_%EC%BB%A4%EB%A7%A8%EB%93%9C_%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC" target="_blank" rel="noopener">이클립스 커맨드 튜토리얼</a></li>
 <li><a href="https://narup.tistory.com/77" target="_blank" rel="noopener">Eclipse RCP 란?</a></li>
@@ -372,7 +372,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="http://hgko1207.github.io/2019/01/07/eclipse-rcp/" data-id="clkcpzdth00093scxdkj15ora" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://hgko1207.github.io/2019/01/07/eclipse-rcp/" data-id="clvagw7s9000bigcx8pw74mb6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -450,11 +450,11 @@ ga('send', 'pageview');
         "dateCreated": "2019-01-07",
         "dateModified": "2024-01-11",
         "url": "http://hgko1207.github.io/2019/01/07/eclipse-rcp/",
-        "description": "Eclipse Piug-in 추가
+        "description": " Eclipse Piug-in 추가
 Eclipse에 플러그인을 추가하는 방법에는 두 가지가 있다. 첫 번째 방법은 플러그인을 직접 복사해서 설치하는 방법이고, 두 번째 방법은 Eclipse 에서 제공하는 Software Update Manager 를 활용하는 방법이다.
-직접 복사하는 방법
-설치하고자 하는 플러그인을 Eclipse_home/plugin 디렉터리",
-        "wordCount": 692
+ 직접 복사하는 방법
+설치하고자 하는 플러그인을 Eclipse_home/plugin 디렉",
+        "wordCount": 756
     }
 </script>
 
@@ -565,6 +565,66 @@ Eclipse에 플러그인을 추가하는 방법에는 두 가지가 있다. 첫 �
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2024/04/19/typescript-17/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/typescript.png)" alt="[TypeScript] Set/Get, Protected, Private/Public/Static Members" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/04/19/typescript-17/" class="title">[TypeScript] Set/Get, Protected, Private/Public/Static Members</a></p>
+                            <p class="item-date"><time datetime="2024-04-19T01:34:01.000Z" itemprop="datePublished">2024-04-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/04/19/typescript-16/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/typescript.png)" alt="[TypeScript] OOP 관행, 클래스 및 상속" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/04/19/typescript-16/" class="title">[TypeScript] OOP 관행, 클래스 및 상속</a></p>
+                            <p class="item-date"><time datetime="2024-04-19T01:25:16.000Z" itemprop="datePublished">2024-04-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/04/18/typescript-15/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/typescript.png)" alt="[TypeScript] Any, Void, Never, Null, Strict Null Checks" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/04/18/typescript-15/" class="title">[TypeScript] Any, Void, Never, Null, Strict Null Checks</a></p>
+                            <p class="item-date"><time datetime="2024-04-18T05:14:46.000Z" itemprop="datePublished">2024-04-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2024/04/18/typescript-14/" class="thumbnail">
     
     
@@ -602,66 +662,6 @@ Eclipse에 플러그인을 추가하는 방법에는 두 가지가 있다. 첫 �
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/04/16/info-13/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/information.png)" alt="웹 개발자의 생산성을 높여주는 10가지 VS Code 확장 프로그램" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/IT/">IT</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/IT/Information/">Information</a></p>
-                            <p class="item-title"><a href="/2024/04/16/info-13/" class="title">웹 개발자의 생산성을 높여주는 10가지 VS Code 확장 프로그램</a></p>
-                            <p class="item-date"><time datetime="2024-04-16T01:58:09.000Z" itemprop="datePublished">2024-04-16</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/04/09/web-7/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/header/web-5.png)" alt="CSS 미디어 쿼리(Media Query): 반응형 웹사이트를 위한 초보자 가이드" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Web/">Web</a></p>
-                            <p class="item-title"><a href="/2024/04/09/web-7/" class="title">CSS 미디어 쿼리(Media Query): 반응형 웹사이트를 위한 초보자 가이드</a></p>
-                            <p class="item-date"><time datetime="2024-04-09T13:18:20.000Z" itemprop="datePublished">2024-04-09</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/04/09/web-design-7/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/header/web-design-7.png)" alt="CSS 개발자가 알아야 할 시간 절약형 웹사이트 11가지" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a></p>
-                            <p class="item-title"><a href="/2024/04/09/web-design-7/" class="title">CSS 개발자가 알아야 할 시간 절약형 웹사이트 11가지</a></p>
-                            <p class="item-date"><time datetime="2024-04-09T12:37:28.000Z" itemprop="datePublished">2024-04-09</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -669,7 +669,7 @@ Eclipse에 플러그인을 추가하는 방법에는 두 가지가 있다. 첫 �
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">342</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">63</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">33</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">29</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">94</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">82</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">14</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">6</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">345</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">63</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">33</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">29</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">94</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">85</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">17</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">6</span></li></ul></li></ul>
         </div>
     </div>
 

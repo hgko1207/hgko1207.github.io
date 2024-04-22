@@ -10,22 +10,22 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="React,리액트,JavaScript,Study,ES6" />
+    <meta name="keywords" content="JavaScript,React,리액트,Study,ES6" />
     
-    <meta name="description" content="React 세미나😊(2) 2. Project Setup 2.1. Requirements 먼저 Node.js 가 설치되어 있어야 한다. Node.js 공식 다운로드 페이지(https:&#x2F;&#x2F;nodejs.org&#x2F;ko&#x2F;download&#x2F;)에서 Window Installer 를 다운로드하고 설치한다. 12$ node -v$ npm -v 에디터로는 MS에서 제공하는 V">
+    <meta name="description" content="React 세미나😊(2)  2. Project Setup  2.1. Requirements 먼저 Node.js 가 설치되어 있어야 한다. Node.js 공식 다운로드 페이지(https:&#x2F;&#x2F;nodejs.org&#x2F;ko&#x2F;download&#x2F;)에서 Window Installer 를 다운로드하고 설치한다. 12$ node -v$ npm -v 에디터로는 MS에서 제공하">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React Study(2)">
 <meta property="og:url" content="http://hgko1207.github.io/2020/03/24/react-study-2/index.html">
 <meta property="og:site_name" content="규니의 블로그">
-<meta property="og:description" content="React 세미나😊(2) 2. Project Setup 2.1. Requirements 먼저 Node.js 가 설치되어 있어야 한다. Node.js 공식 다운로드 페이지(https:&#x2F;&#x2F;nodejs.org&#x2F;ko&#x2F;download&#x2F;)에서 Window Installer 를 다운로드하고 설치한다. 12$ node -v$ npm -v 에디터로는 MS에서 제공하는 V">
+<meta property="og:description" content="React 세미나😊(2)  2. Project Setup  2.1. Requirements 먼저 Node.js 가 설치되어 있어야 한다. Node.js 공식 다운로드 페이지(https:&#x2F;&#x2F;nodejs.org&#x2F;ko&#x2F;download&#x2F;)에서 Window Installer 를 다운로드하고 설치한다. 12$ node -v$ npm -v 에디터로는 MS에서 제공하">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/react.png">
 <meta property="article:published_time" content="2020-03-24T01:41:09.000Z">
 <meta property="article:modified_time" content="2024-01-11T06:51:26.280Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
+<meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="React">
 <meta property="article:tag" content="리액트">
-<meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="Study">
 <meta property="article:tag" content="ES6">
 <meta name="twitter:card" content="summary">
@@ -265,27 +265,27 @@ ga('send', 'pageview');
 
             
 
-            <h1>React 세미나😊(2)</h1>
-<h3 id="2-Project-Setup">2. Project Setup</h3>
-<h4 id="2-1-Requirements">2.1. Requirements</h4>
-<p>먼저 Node.js 가 설치되어 있어야 한다.<br>
+            <h1 id="react-세미나2"><a class="markdownIt-Anchor" href="#react-세미나2"></a> React 세미나😊(2)</h1>
+<h3 id="2-project-setup"><a class="markdownIt-Anchor" href="#2-project-setup"></a> 2. Project Setup</h3>
+<h4 id="21-requirements"><a class="markdownIt-Anchor" href="#21-requirements"></a> 2.1. Requirements</h4>
+<p>먼저 Node.js 가 설치되어 있어야 한다.<br />
 Node.js 공식 다운로드 페이지(<a href="https://nodejs.org/ko/download/" target="_blank" rel="noopener">https://nodejs.org/ko/download/</a>)에서 Window Installer 를 다운로드하고 설치한다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> node -v</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm -v</span></span><br></pre></td></tr></table></figure>
-<p>에디터로는 MS에서 제공하는 Visual Studio Code(VS Code)를 사용한다. vscode 는 크로스 플랫폼 에디터로 다양한 언어를 서포트하며, IntelliSense 와 Git 기능, 그리고 Extension 을 이용한 확장 기능을 제공하고 있다.<br>
+<p>에디터로는 MS에서 제공하는 Visual Studio Code(VS Code)를 사용한다. vscode 는 크로스 플랫폼 에디터로 다양한 언어를 서포트하며, IntelliSense 와 Git 기능, 그리고 Extension 을 이용한 확장 기능을 제공하고 있다.<br />
 설치 방법은 <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">https://code.visualstudio.com/</a> 에 접속하여 다운로드 후 설치하면 된다.</p>
 <blockquote>
 <p>React 개발에 좋은 Extension는 <strong>ESLint</strong>, <strong>Prettier</strong>, <strong>vscode-styled-components</strong>, <strong>Auto Close Tag</strong>, <strong>React-Native/React/Redux snippets for es6/es7</strong> 등 다양하게 있어 설치하고 사용하면 됩니다.</p>
 </blockquote>
-<h4 id="2-2-Creating-React-App">2.2. Creating React App</h4>
+<h4 id="22-creating-react-app"><a class="markdownIt-Anchor" href="#22-creating-react-app"></a> 2.2. Creating React App</h4>
 <p>기존에는 Webpack, Babel 등 필요한 모듈들을 직접 설치하고 설정하느라 상당한 시간이 소요가 되었다. 2016년에 React 작업 환경을 명령어 하나로 설정 할 수 있는 공식 도구가 나오면서 개발자들과 입문자들에게 많은 도움이 되었다.</p>
 <p>먼저 프로젝트 생성을 한다.</p>
 <p>주의사항은 npm 5.2.0 이상 버전을 설치해야 합니다. 최신 npm 버전에는 npx 가 설치되어 있다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install npx -global</span></span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> npx create-react-app <span class="built_in">test</span>-project</span></span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> <span class="built_in">test</span>-project</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> code .</span></span><br></pre></td></tr></table></figure>
-<p>설치가 완료되면 Visual Studio Code 편집기로 프로젝트를 연다.<br>
-<img src="https://hgko1207.github.io/images/react/react-open.png" alt="프로젝트 구조" title="프로젝트 구조"><br>
+<p>설치가 완료되면 Visual Studio Code 편집기로 프로젝트를 연다.<br />
+<img src="https://hgko1207.github.io/images/react/react-open.png" alt="프로젝트 구조" title="프로젝트 구조" /><br />
 처음 프로젝트가 설치되면 여러가지 파일이 생성되는데 초기 세팅을 위해 불필요한 파일을 제거하는 것이 좋다. <code>src</code> 폴더에서 App.js, index.js 파일을 제외한 파일을 제거하고 import 된 코드를 제거한다.</p>
-<h3 id="3-React-개발">3. React 개발</h3>
-<h4 id="3-1-JSX">3.1. JSX</h4>
+<h3 id="3-react-개발"><a class="markdownIt-Anchor" href="#3-react-개발"></a> 3. React 개발</h3>
+<h4 id="31-jsx"><a class="markdownIt-Anchor" href="#31-jsx"></a> 3.1. JSX</h4>
 <p>JSX (JavaScript eXtension) 는 자바스크립트 언어 문법의 확장입니다. 자바스크립트 안에서 HTML 문법을 사용해서 화면을 구성할 수 있게 도와주는 문법으로, React 개발에 엄청난 도움을 줍니다.</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloMessage</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="comment">// JSX 문법</span></span><br><span class="line">      &lt;div&gt;Hello &#123;<span class="keyword">this</span>.props.name&#125;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default HelloMessage;</span></span><br></pre></td></tr></table></figure>
 <p>아래는 스타일링의 여러가지 방법이다.</p>
@@ -305,21 +305,21 @@ Node.js 공식 다운로드 페이지(<a href="https://nodejs.org/ko/download/" 
 <li>최상위 태그는 꼭 1개여야 한다.<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;Fragment&gt;</span><br><span class="line">  &lt;header&gt;</span><br><span class="line">    &lt;h1&gt;header&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>header&gt;</span><br><span class="line">  &lt;main&gt;</span><br><span class="line">    &lt;h1&gt;main&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/m</span>ain&gt;</span><br><span class="line">&lt;<span class="regexp">/Fragment&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h4 id="3-2-Component-기반-구조">3.2. Component 기반 구조</h4>
+<h4 id="32-component-기반-구조"><a class="markdownIt-Anchor" href="#32-component-기반-구조"></a> 3.2. Component 기반 구조</h4>
 <p>React 는 Component 기반 라이브러리다. 하나의 코드로 작성하는 것이 아니라 여러 부분을 분할해서 만들기 때문에 코드의 재사용성과 유지보수성이 증가 된다.</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>홈페이지<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 헤더 내용 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content-list"</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 콘텐츠 리스트 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">footer</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 푸터 내용 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>위와 같은 html 코드가 있다고 해보자. 이를 React 로 만들게 되면 다음과 같다.</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> Header <span class="keyword">from</span> <span class="string">'./component/Header'</span>;</span><br><span class="line"><span class="keyword">import</span> Footer <span class="keyword">from</span> <span class="string">'./component/Footer'</span>;</span><br><span class="line"><span class="keyword">import</span> ContentList <span class="keyword">from</span> <span class="string">'./component/ContentList'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;Header /&gt;</span><br><span class="line">        &lt;ContentList /&gt;</span><br><span class="line">        &lt;Footer /&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default App;</span></span><br></pre></td></tr></table></figure>
 <p>Header 나 Footer, ContentList 등은 컴포넌트로 만들고, 이를 조립해서 루트 컴포넌트를 만드는 방식이다. 컴포넌트의 종류로는 <code>클래스형(stateful)</code>과 <code>함수형(stateless)</code>으로 나누어진다.</p>
-<h4 id="3-3-Props">3.3. Props</h4>
-<p><code>props</code>란 부모 컴포넌트에서 자식 컴포넌트로 전달해 주는 데이터를 말한다.<br>
+<h4 id="33-props"><a class="markdownIt-Anchor" href="#33-props"></a> 3.3. Props</h4>
+<p><code>props</code>란 부모 컴포넌트에서 자식 컴포넌트로 전달해 주는 데이터를 말한다.<br />
 <code>props</code>는 읽기 전용 데이터라고 생각하면 된다. 자식 컴포넌트에서 전달받은 <code>props</code>를 변경이 불가능하고 <code>props</code>를 전달해 준 최상위 부모 컴포넌트만 <code>props</code>를 변경할 수 있다.</p>
-<h4 id="3-4-State">3.4. State</h4>
-<p><code>state</code>는 동적인 데이터를 다룰 때 사용한다. 사용자와의 상호작용을 통해 데이터를 동적으로 변경을 해야 할 때 사용한다.<br>
+<h4 id="34-state"><a class="markdownIt-Anchor" href="#34-state"></a> 3.4. State</h4>
+<p><code>state</code>는 동적인 데이터를 다룰 때 사용한다. 사용자와의 상호작용을 통해 데이터를 동적으로 변경을 해야 할 때 사용한다.<br />
 <code>state</code>는 <code>클래스형 컴포넌트</code>에서만 사용할 수 있는데 각각의 <code>state</code>는 독립적이라 다른 컴포넌트의 직접적인 접근은 불가능하다.</p>
-<h4 id="3-5-LifeCycle-API">3.5 LifeCycle API</h4>
+<h4 id="35-lifecycle-api"><a class="markdownIt-Anchor" href="#35-lifecycle-api"></a> 3.5 LifeCycle API</h4>
 <p>LifeCycle API는 컴포넌트가 DOM 위에 생성되기 전 후 및 데이터가 변경되어 상태를 업데이트하기 전 후로 실행되는 메서드들이다. 자원낭비를 줄이기 위하여 코드를 최적화할 때 사용된다. 많이 사용하는 LifeCycle 메서드들은 <code>constructor</code>, <code>componentDidMount</code>, <code>render</code>, <code>shouldComponentUpdate</code> 이다.</p>
-<h2 id="참고">참고</h2>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <ul>
 <li><a href="https://gomcine.tistory.com/entry/VS-Code-%EA%B8%B0%EB%B3%B8-%EC%84%B8%ED%8C%85?category=624630" target="_blank" rel="noopener">VS Code 기본 세팅</a></li>
 <li><a href="https://caesiumy.github.io/2019/04/02/vscode-recommended-extensions/" target="_blank" rel="noopener">vscode 추천 익스텐션(Extensions)과 세팅</a></li>
@@ -330,7 +330,7 @@ Node.js 공식 다운로드 페이지(<a href="https://nodejs.org/ko/download/" 
 <li><a href="https://velopert.com/3626" target="_blank" rel="noopener">누구든지 하는 리액트 3편: JSX</a></li>
 <li><a href="https://velog.io/@taewo/%EB%A6%AC%EC%95%A1%ED%8A%B8-Styled-Components-76jsolbaf8" target="_blank" rel="noopener">리액트 Styled Components - 1편</a></li>
 </ul>
-<h2 id="강의">강의</h2>
+<h2 id="강의"><a class="markdownIt-Anchor" href="#강의"></a> 강의</h2>
 <ul>
 <li><a href="https://academy.nomadcoders.co/" target="_blank" rel="noopener">https://academy.nomadcoders.co/</a></li>
 <li><a href="https://www.opentutorials.org/module/4058" target="_blank" rel="noopener">https://www.opentutorials.org/module/4058</a></li>
@@ -368,7 +368,7 @@ Node.js 공식 다운로드 페이지(<a href="https://nodejs.org/ko/download/" 
 
 
 
-    <a data-url="http://hgko1207.github.io/2020/03/24/react-study-2/" data-id="clkcpzdtz001m3scx36oa0gh0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://hgko1207.github.io/2020/03/24/react-study-2/" data-id="clvagw7sq001migcxbod1bzgg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -440,20 +440,20 @@ Node.js 공식 다운로드 페이지(<a href="https://nodejs.org/ko/download/" 
         },
         "headline": "React Study(2)",
         "image": "http://hgko1207.github.io/images/thumbnail/react.png",
-        "keywords": "React 리액트 JavaScript Study ES6",
+        "keywords": "JavaScript React 리액트 Study ES6",
         "genre": "Programming Frontend React",
         "datePublished": "2020-03-24",
         "dateCreated": "2020-03-24",
         "dateModified": "2024-01-11",
         "url": "http://hgko1207.github.io/2020/03/24/react-study-2/",
-        "description": "React 세미나😊(2)
-2. Project Setup
-2.1. Requirements
+        "description": " React 세미나😊(2)
+ 2. Project Setup
+ 2.1. Requirements
 먼저 Node.js 가 설치되어 있어야 한다.
 Node.js 공식 다운로드 페이지(https://nodejs.org/ko/download/)에서 Window Installer 를 다운로드하고 설치한다.
 12$ node -v$ npm -v
-에디터로는 MS에서 제공하는 V",
-        "wordCount": 1109
+에디터로는 MS에서 제공하",
+        "wordCount": 1153
     }
 </script>
 
@@ -564,6 +564,66 @@ Node.js 공식 다운로드 페이지(https://nodejs.org/ko/download/)에서 Win
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2024/04/19/typescript-17/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/typescript.png)" alt="[TypeScript] Set/Get, Protected, Private/Public/Static Members" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/04/19/typescript-17/" class="title">[TypeScript] Set/Get, Protected, Private/Public/Static Members</a></p>
+                            <p class="item-date"><time datetime="2024-04-19T01:34:01.000Z" itemprop="datePublished">2024-04-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/04/19/typescript-16/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/typescript.png)" alt="[TypeScript] OOP 관행, 클래스 및 상속" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/04/19/typescript-16/" class="title">[TypeScript] OOP 관행, 클래스 및 상속</a></p>
+                            <p class="item-date"><time datetime="2024-04-19T01:25:16.000Z" itemprop="datePublished">2024-04-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/04/18/typescript-15/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/typescript.png)" alt="[TypeScript] Any, Void, Never, Null, Strict Null Checks" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/04/18/typescript-15/" class="title">[TypeScript] Any, Void, Never, Null, Strict Null Checks</a></p>
+                            <p class="item-date"><time datetime="2024-04-18T05:14:46.000Z" itemprop="datePublished">2024-04-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2024/04/18/typescript-14/" class="thumbnail">
     
     
@@ -601,66 +661,6 @@ Node.js 공식 다운로드 페이지(https://nodejs.org/ko/download/)에서 Win
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/04/16/info-13/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/information.png)" alt="웹 개발자의 생산성을 높여주는 10가지 VS Code 확장 프로그램" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/IT/">IT</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/IT/Information/">Information</a></p>
-                            <p class="item-title"><a href="/2024/04/16/info-13/" class="title">웹 개발자의 생산성을 높여주는 10가지 VS Code 확장 프로그램</a></p>
-                            <p class="item-date"><time datetime="2024-04-16T01:58:09.000Z" itemprop="datePublished">2024-04-16</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/04/09/web-7/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/header/web-5.png)" alt="CSS 미디어 쿼리(Media Query): 반응형 웹사이트를 위한 초보자 가이드" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Web/">Web</a></p>
-                            <p class="item-title"><a href="/2024/04/09/web-7/" class="title">CSS 미디어 쿼리(Media Query): 반응형 웹사이트를 위한 초보자 가이드</a></p>
-                            <p class="item-date"><time datetime="2024-04-09T13:18:20.000Z" itemprop="datePublished">2024-04-09</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/04/09/web-design-7/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/header/web-design-7.png)" alt="CSS 개발자가 알아야 할 시간 절약형 웹사이트 11가지" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a></p>
-                            <p class="item-title"><a href="/2024/04/09/web-design-7/" class="title">CSS 개발자가 알아야 할 시간 절약형 웹사이트 11가지</a></p>
-                            <p class="item-date"><time datetime="2024-04-09T12:37:28.000Z" itemprop="datePublished">2024-04-09</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -668,7 +668,7 @@ Node.js 공식 다운로드 페이지(https://nodejs.org/ko/download/)에서 Win
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">342</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">63</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">33</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">29</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">94</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">82</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">14</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">6</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">345</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">63</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">33</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">29</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">94</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">85</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">17</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">6</span></li></ul></li></ul>
         </div>
     </div>
 
