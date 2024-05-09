@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>2024년을 위한 WPF 개발 모범 사례 | 규니의 블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="C#,WPF,Programming,.NET 개발자" />
+    
+    <meta name="description" content="소프트웨어 개발은 매우 역동적이며 프로그램 내에서 효율성을 유지하면서 자신의 스타일을 적응하고 개선하는 데 개방적인 사람들에게 유리합니다. .NET 개발자에게 Windows Presentation Foundation(WPF)은 여전히 강력한 데스크톱 애플리케이션을 빌드하는 데 가장 적합한 도구 중 하나입니다. 2024년에 점점 더 가까워지는 지금, 이 기회">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024년을 위한 WPF 개발 모범 사례">
+<meta property="og:url" content="http://hgko1207.github.io/2024/05/07/wpf-1/index.html">
+<meta property="og:site_name" content="규니의 블로그">
+<meta property="og:description" content="소프트웨어 개발은 매우 역동적이며 프로그램 내에서 효율성을 유지하면서 자신의 스타일을 적응하고 개선하는 데 개방적인 사람들에게 유리합니다. .NET 개발자에게 Windows Presentation Foundation(WPF)은 여전히 강력한 데스크톱 애플리케이션을 빌드하는 데 가장 적합한 도구 중 하나입니다. 2024년에 점점 더 가까워지는 지금, 이 기회">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/wpf.png">
+<meta property="article:published_time" content="2024-05-07T05:57:13.000Z">
+<meta property="article:modified_time" content="2024-05-08T15:39:05.697Z">
+<meta property="article:author" content="Hyeong Gyun Ko">
+<meta property="article:tag" content="C#">
+<meta property="article:tag" content="WPF">
+<meta property="article:tag" content="Programming">
+<meta property="article:tag" content=".NET 개발자">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/wpf.png">
+    
+
+    
+        <link rel="alternate" href="/" title="규니의 블로그" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-166318275-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+
+    <!-- <script
+  data-ad-client="ca-pub-7581566810202853"
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+></script>
+ -->
+
+    <!-- 구글 애드센스 -->
+    <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!-- 네이버 -->
+    <meta name="naver-site-verification" content="a6e2912bbd1e42226e10ee12d3498a246c51ec1f" />
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h2 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h2>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">hgko&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ETC/">ETC</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/">IT</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/BlockChain/">BlockChain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Blockchain/">Blockchain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Information/">Information</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Satellite/">Satellite</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Backend/">Backend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DB/">DB</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Frontend/">Frontend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Language/">Language</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Mobile/">Mobile</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Web/">Web</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about">About</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/profile">Profile</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h2 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Frontend/">Frontend</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Frontend/WPF/">WPF</a>
+    </h2>
+</div>
+
+                        <div class="main-body-content">
+                            <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+                            <!-- 상단 광고 -->
+<ins
+  class="adsbygoogle"
+  style="display: block"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="1131844921"
+  data-ad-format="auto"
+  data-full-width-responsive="true"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                            <article id="post-wpf-1" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        2024년을 위한 WPF 개발 모범 사례
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2024/05/07/wpf-1/" class="article-date">
+         <time datetime="2024-05-07T05:57:13.000Z" itemprop="datePublished">2024-05-07</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/NET-%EA%B0%9C%EB%B0%9C%EC%9E%90/" rel="tag">.NET 개발자</a>, <a class="tag-link" href="/tags/C/" rel="tag">C#</a>, <a class="tag-link" href="/tags/Programming/" rel="tag">Programming</a>, <a class="tag-link" href="/tags/WPF/" rel="tag">WPF</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>소프트웨어 개발은 매우 역동적이며 프로그램 내에서 효율성을 유지하면서 자신의 스타일을 적응하고 개선하는 데 개방적인 사람들에게 유리합니다.</p>
+<p>.NET 개발자에게 <strong>Windows Presentation Foundation</strong>(WPF)은 여전히 강력한 데스크톱 애플리케이션을 빌드하는 데 가장 적합한 도구 중 하나입니다. 2024년에 점점 더 가까워지는 지금, 이 기회에 WPF를 더 효과적으로 사용할 수 있는 가장 중요한 모범 사례 몇 가지를 살펴보세요!</p>
+<h2 id="최신-상태로-유지하여-net-발전-수용하기"><a class="markdownIt-Anchor" href="#최신-상태로-유지하여-net-발전-수용하기"></a> 최신 상태로 유지하여 .NET 발전 수용하기</h2>
+<p>.NET 프레임워크에 도입된 최신 기능과 향상된 기능을 활용하여 기술의 최전선에 서세요. .NET은 매년 더 나은 성능, 보안 및 언어 기능을 제공하기 위해 계속 발전하고 있습니다. 최신 .NET 버전을 구현하여 이러한 개선 사항의 이점을 활용하면 WPF 프로젝트에 큰 도움이 될 것입니다.</p>
+<h2 id="비동기-프로그래밍을-사용한-반응형-ui"><a class="markdownIt-Anchor" href="#비동기-프로그래밍을-사용한-반응형-ui"></a> 비동기 프로그래밍을 사용한 반응형 UI</h2>
+<p>UI는 사용자 경험을 소개하는 가장 중요한 요소이며, 첫인상을 결정짓는 중요한 요소입니다. 비동기 프로그래밍 패턴과 동적 보기를 채택하여 WPF 애플리케이션의 유동성과 반응성을 유지하세요. 비차단 작업에 <code>async</code>/<code>await</code>를 사용하면 UI가 멈추는 것을 방지하고 전반적인 사용자 경험을 향상시킬 수 있습니다.</p>
+<h2 id="유지보수성을-위한-mvvm-아키텍처"><a class="markdownIt-Anchor" href="#유지보수성을-위한-mvvm-아키텍처"></a> 유지보수성을 위한 MVVM 아키텍처</h2>
+<p><strong>Model-View-View-Model</strong>(MVVM) 아키텍처 패턴은 여전히 WPF 개발에서 큰 부분을 차지합니다. MVVM을 토폴로지에 도입하여 문제를 분리하고, 테스트 가능성을 높이고, 유지 관리를 간소화하세요. Visual Studio와 같은 도구는 처음부터 MVVM 구조를 스캐폴딩할 수 있도록 지원하므로 팀과 프로젝트의 모범 사례에 따라 쉽게 구현할 수 있습니다.</p>
+<h2 id="선언적-ui를-위한-xaml-활용"><a class="markdownIt-Anchor" href="#선언적-ui를-위한-xaml-활용"></a> 선언적 UI를 위한 XAML 활용</h2>
+<p><strong>XAML</strong>(eXtensible Application Markup Language)은 WPF에서 선언적 UI를 만들기 위한 강력한 도구입니다. XAML을 사용하여 애플리케이션의 사용자 인터페이스를 정의하면 UI의 가독성과 유지 관리성을 크게 향상시킬 수 있습니다. 이 접근 방식은 팀과 이해관계자 간의 커뮤니케이션을 강화하여 궁극적으로 훨씬 더 효율적인 워크플로우를 제공합니다.</p>
+<h2 id="데이터-바인딩-기법-최적화"><a class="markdownIt-Anchor" href="#데이터-바인딩-기법-최적화"></a> 데이터 바인딩 기법 최적화</h2>
+<p>데이터를 효율적으로 바인딩하는 것은 WPF 인프라에 매우 중요합니다. 애플리케이션의 요구 사항에 따라 적절한 데이터 바인딩 모드(<code>OneTime</code>, <code>OneWay</code>, <code>TwoWay</code>)를 선택하세요. 또한 데이터 유효성 검사 및 <code>INotifyPropertyChanged</code>와 같은 기능을 활용하여 실시간 업데이트를 보장하고 데이터 무결성을 유지할 수 있습니다. 많은 경우 복잡한 C# 컨버터를 작성하지 않아도 되는 WPF BindingExpressions 라이브러리를 사용하면 MVVM 애플리케이션에서 데이터 바인딩을 더욱 쉽게 수행할 수 있습니다.</p>
+<h2 id="종속성-주입-수용"><a class="markdownIt-Anchor" href="#종속성-주입-수용"></a> 종속성 주입 수용</h2>
+<p>종속성 주입(DI)은 모듈화되고 유지 관리 가능한 코드를 장려하는 모범 사례입니다. Microsoft.Extensions.DependencyInjection과 같은 DI 프레임워크를 사용하여 WPF 애플리케이션의 종속성을 관리하세요. 이렇게 하면 테스트 가능성, 유연성 및 전반적인 코드 품질이 향상됩니다.</p>
+<h2 id="필요한-사용자를-위한-접근성-우선-순위-지정"><a class="markdownIt-Anchor" href="#필요한-사용자를-위한-접근성-우선-순위-지정"></a> 필요한 사용자를 위한 접근성 우선 순위 지정</h2>
+<p>포용적 디자인은 다양한 사용자 요구를 충족하는 애플리케이션을 만드는 데 있어 기본입니다. 장애가 있거나 특별한 요청이 필요한 사용자가 WPF 애플리케이션에 액세스할 수 있는지 확인해야 합니다. WPF의 기본 제공 접근성 기능을 사용하고 접근성 표준을 준수하여 더 많은 사용자가 애플리케이션을 사용할 수 있도록 하세요.</p>
+<h2 id="스타일-및-템플릿으로-프로그레시브-ui-구현"><a class="markdownIt-Anchor" href="#스타일-및-템플릿으로-프로그레시브-ui-구현"></a> 스타일 및 템플릿으로 프로그레시브 UI 구현</h2>
+<p>미리 빌드된 스타일과 템플릿을 사용하여 시각적으로 매력적이고 일관된 사용자 인터페이스를 제작하세요. 애플리케이션 전반에 걸쳐 일관된 디자인 언어를 만들어 사용자의 인지도와 전반적인 만족도를 향상시키세요. WPF의 스타일 지정 기능을 사용하면 프로젝트에 필요한 보다 현대적이고 직관적인 UI를 구현할 수 있습니다.</p>
+<h2 id="라이브-비주얼-트리로-디버깅-향상"><a class="markdownIt-Anchor" href="#라이브-비주얼-트리로-디버깅-향상"></a> 라이브 비주얼 트리로 디버깅 향상</h2>
+<p>디버깅은 개발 프로세스에서 매우 중요한 부분입니다. Visual Studio의 라이브 비주얼 트리와 같은 유용한 도구를 활용하여 실행 중인 WPF 애플리케이션의 시각적 구조를 자세히 조사할 수 있습니다. 이 기능은 UI 계층 구조에 대한 실시간 인사이트를 제공하여 문제를 빠르게 식별하고 해결하는 데 도움이 됩니다.</p>
+<h2 id="보안-의식-유지"><a class="markdownIt-Anchor" href="#보안-의식-유지"></a> 보안 의식 유지</h2>
+<p>소프트웨어 개발에서 보안은 타협할 수 없는 부분입니다. WPF 애플리케이션 보안을 위한 업계 모범 사례를 따르세요. 중요한 정보를 암호화하고, 사용자 입력의 유효성을 검사하고, .NET 프레임워크의 최신 보안 업데이트에 대한 정보를 지속적으로 확인하세요. 빠르고 유연한 내부 및 외부 보고를 통해 규제 기관과 보조를 맞추세요.</p>
+<h2 id="마무리"><a class="markdownIt-Anchor" href="#마무리"></a> 마무리</h2>
+<p>.NET 개발자는 2024년에 주목할 만한 WPF 개발에 더욱 도전하게 될 것입니다. 이러한 모범 사례를 채택하면 보다 효율적이고 유지 관리가 쉬우며 사용자 친화적인 애플리케이션을 개발할 수 있을 것입니다. 최신 기술을 최신 상태로 유지하고 이러한 지침을 워크플로에 통합하면 끊임없이 진화하는 세상에서 WPF 개발 기술을 마스터하는 데 도움이 될 것입니다.</p>
+
+        </div>
+        <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+        <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://hgko1207.github.io/2024/05/07/wpf-1/" data-id="clvypycdx000dbkcx02r24oau" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Hyeong Gyun Ko"
+        },
+        "headline": "2024년을 위한 WPF 개발 모범 사례",
+        "image": "http://hgko1207.github.io/images/thumbnail/wpf.png",
+        "keywords": "C# WPF Programming .NET 개발자",
+        "genre": "Programming Frontend WPF",
+        "datePublished": "2024-05-07",
+        "dateCreated": "2024-05-07",
+        "dateModified": "2024-05-09",
+        "url": "http://hgko1207.github.io/2024/05/07/wpf-1/",
+        "description": "소프트웨어 개발은 매우 역동적이며 프로그램 내에서 효율성을 유지하면서 자신의 스타일을 적응하고 개선하는 데 개방적인 사람들에게 유리합니다.
+.NET 개발자에게 Windows Presentation Foundation(WPF)은 여전히 강력한 데스크톱 애플리케이션을 빌드하는 데 가장 적합한 도구 중 하나입니다. 2024년에 점점 더 가까워지는 지금, 이 기회",
+        "wordCount": 571
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                            <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>follow:</p>
+    <ul class="social-links">
+       
+      <li>
+        <a
+          class="social-tooltip"
+          title="github"
+          href="https://github.com/hgko1207"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-github"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="facebook"
+          href="https://www.facebook.com/profile.php?id=100003526102847"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-facebook"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="rss"
+          href="/"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-rss"></i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+   
+<nav id="article-nav">
+    
+        <a href="/2024/05/09/typescript-21/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            [TypeScript] 엄격한 타입 검사, 고급 컴파일러 옵션
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2024/05/03/chatgpt-24/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Google에서 1위를 차지하기 위한 10가지 ChatGPT 프롬프트</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+ 
+  <div class="widgets-container">
+      
+  
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/05/09/typescript-21/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/typescript.png)" alt="[TypeScript] 엄격한 타입 검사, 고급 컴파일러 옵션" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/05/09/typescript-21/" class="title">[TypeScript] 엄격한 타입 검사, 고급 컴파일러 옵션</a></p>
+                            <p class="item-date"><time datetime="2024-05-08T15:41:27.000Z" itemprop="datePublished">2024-05-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/05/07/wpf-1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/wpf.png)" alt="2024년을 위한 WPF 개발 모범 사례" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a></p>
+                            <p class="item-title"><a href="/2024/05/07/wpf-1/" class="title">2024년을 위한 WPF 개발 모범 사례</a></p>
+                            <p class="item-date"><time datetime="2024-05-07T05:57:13.000Z" itemprop="datePublished">2024-05-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/05/03/chatgpt-24/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/chatgpt.png)" alt="Google에서 1위를 차지하기 위한 10가지 ChatGPT 프롬프트" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2024/05/03/chatgpt-24/" class="title">Google에서 1위를 차지하기 위한 10가지 ChatGPT 프롬프트</a></p>
+                            <p class="item-date"><time datetime="2024-05-03T04:49:33.000Z" itemprop="datePublished">2024-05-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/05/03/typescript-20/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/typescript.png)" alt="[TypeScript] Namespace, Generic and Custom Module" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/05/03/typescript-20/" class="title">[TypeScript] Namespace, Generic and Custom Module</a></p>
+                            <p class="item-date"><time datetime="2024-05-03T04:35:17.000Z" itemprop="datePublished">2024-05-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/05/02/typescript-19/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/typescript.png)" alt="[TypeScript] Generic, Type Guard, Signature 및 Overload" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/05/02/typescript-19/" class="title">[TypeScript] Generic, Type Guard, Signature 및 Overload</a></p>
+                            <p class="item-date"><time datetime="2024-05-02T01:47:38.000Z" itemprop="datePublished">2024-05-02</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">353</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">65</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">33</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">29</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">96</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">89</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">21</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">6</span></li></ul></li></ul>
+        </div>
+    </div>
+
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+  <div class="widget-wrap widget-float">
+
+    <h3 class="widget-title">Sponsored</h3>
+    <div class="widget">
+        <a href="https://marcofranssen.nl?adsense_widget" target="_blank" rel="noopener">This widget is sponsored by, Marco Franssen, main contributor to this theme.</a>
+    </div>
+
+</div>
+  
+  </div>
+  <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+
+  <!-- hits 방문자수 -->
+  <a href="https://hits.seeyoufarm.com" target="_blank" rel="noopener">
+    <style>
+      .hits {
+        width: auto;
+        height: auto;
+        max-width: 99px;
+        max-height: 20px;
+      }
+    </style>
+    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhgko1207.github.io&count_bg=%23E6ADD5&title_bg=%23BF98D2&icon=&icon_color=%23E7E7E7&title=%EB%B0%A9%EB%AC%B8%EC%9E%90%EC%88%98&edge_flat=false"/>
+  </a>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h2 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h2>
+                <p>&copy; 2024 Hyeong Gyun Ko</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://hgko1207.github.io/2024/05/07/wpf-1/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
