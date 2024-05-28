@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>OpenAI, ChatGPT-4o 출시 | 규니의 블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="AI,Artificial Intelligence,ChatGPT,OpenAI,Programming,ChatGPT-4o" />
+    
+    <meta name="description" content="소개 OpenAI는 인공지능과 상호작용하는 방식을 바꿀 최신 플래그십 모델인 GPT-4o를 공개했습니다. 다재다능한 기능으로 &#39;omni’라고 불리는 이 새로운 모델은 텍스트, 오디오, 이미지를 실시간으로 처리하고 생성할 수 있습니다. 기술 발전에 관심이 많거나 인공지능에 대해 궁금한 점이 있다면 이번 발표가 획기적인 변화를 가져올 것입니다. GPT-4o가">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenAI, ChatGPT-4o 출시">
+<meta property="og:url" content="http://hgko1207.github.io/2024/05/27/chatgpt-26/index.html">
+<meta property="og:site_name" content="규니의 블로그">
+<meta property="og:description" content="소개 OpenAI는 인공지능과 상호작용하는 방식을 바꿀 최신 플래그십 모델인 GPT-4o를 공개했습니다. 다재다능한 기능으로 &#39;omni’라고 불리는 이 새로운 모델은 텍스트, 오디오, 이미지를 실시간으로 처리하고 생성할 수 있습니다. 기술 발전에 관심이 많거나 인공지능에 대해 궁금한 점이 있다면 이번 발표가 획기적인 변화를 가져올 것입니다. GPT-4o가">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/chatgpt.png">
+<meta property="article:published_time" content="2024-05-27T14:07:24.000Z">
+<meta property="article:modified_time" content="2024-05-27T14:27:19.630Z">
+<meta property="article:author" content="Hyeong Gyun Ko">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="Artificial Intelligence">
+<meta property="article:tag" content="ChatGPT">
+<meta property="article:tag" content="OpenAI">
+<meta property="article:tag" content="Programming">
+<meta property="article:tag" content="ChatGPT-4o">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/chatgpt.png">
+    
+
+    
+        <link rel="alternate" href="/" title="규니의 블로그" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-166318275-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+
+    <!-- <script
+  data-ad-client="ca-pub-7581566810202853"
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+></script>
+ -->
+
+    <!-- 구글 애드센스 -->
+    <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!-- 네이버 -->
+    <meta name="naver-site-verification" content="a6e2912bbd1e42226e10ee12d3498a246c51ec1f" />
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h2 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h2>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">hgko&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ETC/">ETC</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/">IT</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/BlockChain/">BlockChain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Blockchain/">Blockchain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Information/">Information</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Satellite/">Satellite</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Backend/">Backend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DB/">DB</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Frontend/">Frontend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Language/">Language</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Mobile/">Mobile</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Web/">Web</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about">About</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/profile">Profile</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h2 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/AI/">AI</a>
+    </h2>
+</div>
+
+                        <div class="main-body-content">
+                            <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+                            <!-- 상단 광고 -->
+<ins
+  class="adsbygoogle"
+  style="display: block"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="1131844921"
+  data-ad-format="auto"
+  data-full-width-responsive="true"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                            <article id="post-chatgpt-26" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        OpenAI, ChatGPT-4o 출시
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2024/05/27/chatgpt-26/" class="article-date">
+         <time datetime="2024-05-27T14:07:24.000Z" itemprop="datePublished">2024-05-27</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/AI/" rel="tag">AI</a>, <a class="tag-link" href="/tags/Artificial-Intelligence/" rel="tag">Artificial Intelligence</a>, <a class="tag-link" href="/tags/ChatGPT/" rel="tag">ChatGPT</a>, <a class="tag-link" href="/tags/ChatGPT-4o/" rel="tag">ChatGPT-4o</a>, <a class="tag-link" href="/tags/OpenAI/" rel="tag">OpenAI</a>, <a class="tag-link" href="/tags/Programming/" rel="tag">Programming</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="/images/header/chatgpt-26.png" alt=""></p>
+<h2 id="소개">소개</h2>
+<p>OpenAI는 인공지능과 상호작용하는 방식을 바꿀 최신 플래그십 모델인 <strong>GPT-4o</strong>를 공개했습니다. 다재다능한 기능으로 '<strong>omni</strong>’라고 불리는 이 새로운 모델은 텍스트, 오디오, 이미지를 실시간으로 처리하고 생성할 수 있습니다.</p>
+<p>기술 발전에 관심이 많거나 인공지능에 대해 궁금한 점이 있다면 이번 발표가 획기적인 변화를 가져올 것입니다. GPT-4o가 무엇이며 왜 그렇게 중요한지 알아보세요.</p>
+<h2 id="OpenAI란-무엇인가요">OpenAI란 무엇인가요?</h2>
+<p>OpenAI는 인류를 위한 AI 기술 개발에 전념하는 선구적인 연구 기관입니다. 2015년 설립된 이래로 OpenAI는 AI 혁신의 선두에 서서 GPT 시리즈와 같은 혁신적인 기술을 제공해 왔습니다.</p>
+<h2 id="GPT-4o를-향한-여정">GPT-4o를 향한 여정</h2>
+<p>GPT-1에서 GPT-4에 이르기까지, 각 버전은 자연어 처리에 상당한 발전을 가져왔습니다. GPT-4o는 보다 자연스러운 인간과 컴퓨터의 상호작용을 위해 여러 양식을 통합하는 최신의 도약을 나타냅니다.</p>
+<h2 id="GPT-4o-이해하기">GPT-4o 이해하기</h2>
+<h3 id="GPT-4o란-무엇인가요">GPT-4o란 무엇인가요?</h3>
+<p>GPT-4o는 OpenAI의 생성 언어 모델의 최신 버전입니다. 스트, 오디오, 이미지를 이해하고 생성하도록 설계되어 다양한 애플리케이션을 위한 다용도 도구로 사용할 수 있습니다. 이러한 멀티 모달 기능은 GPT-4o를 이전 버전과 차별화합니다.</p>
+<h2 id="GPT-4o의-주요-기능">GPT-4o의 주요 기능</h2>
+<ul>
+<li><strong>실시간 멀티 모달 처리:</strong> GPT-4o는 텍스트, 오디오, 이미지를 동시에 처리할 수 있어 원활한 상호작용이 가능합니다.</li>
+<li><strong>인간과 유사한 응답 시간:</strong> 최소 232 millisecond, 평균 320 millisecond 만에 오디오 입력에 응답하여 사람의 대화 속도와 유사합니다.</li>
+<li><strong>고급 언어 지원:</strong> 영어 텍스트와 코드에 대한 GPT-4 Turbo의 성능은 비슷하지만, 비영어권 언어에 대한 성능은 GPT-4o가 더 뛰어납니다.</li>
+<li><strong>비용 효율성:</strong> API를 통해 더 빠르고 50% 저렴하게 사용할 수 있어 접근성이 뛰어납니다.</li>
+</ul>
+<h2 id="GPT-4o와-GPT-4의-차이점">GPT-4o와 GPT-4의 차이점</h2>
+<p>GPT-4와 비교하여 GPT-4o는 다음을 제공합니다.</p>
+<ul>
+<li><strong>멀티 모달 기능:</strong> 텍스트, 오디오, 이미지를 하나의 통합된 모델로 처리합니다.</li>
+<li><strong>속도 및 비용:</strong> 응답 시간이 빨라지고 비용이 절감됩니다.</li>
+<li><strong>향상된 언어 지원:</strong> 비영어권 언어에 대한 성능 향상.</li>
+</ul>
+<h2 id="GPT-4o의-기술-발전">GPT-4o의 기술 발전</h2>
+<h3 id="향상된-자연어-이해력">향상된 자연어 이해력</h3>
+<p>복잡한 언어 구조를 이해하는 GPT-4o의 향상된 능력으로 더욱 미묘하고 맥락을 파악하는 상호작용이 가능해졌습니다. 이러한 개선은 풍자, 관용구 및 사람 말의 미묘한 차이를 이해하는 데 도움이 됩니다.</p>
+<h3 id="향상된-대화-능력">향상된 대화 능력</h3>
+<p>GPT-4o의 뛰어난 기능 중 하나는 긴 대화에서도 맥락을 유지하는 능력입니다. 이를 통해 상호 작용이 더 부드럽고 일관성 있게 이루어져 전반적인 사용자 경험이 향상됩니다.</p>
+<h3 id="고급-문맥-인식">고급 문맥 인식</h3>
+<p>GPT-4o는 기술적이든 일상적이든 대화의 폭넓은 맥락을 이해하는 데 탁월합니다. 대화의 흐름을 놓치지 않고 복잡한 쿼리를 처리하고 응답할 수 있습니다.</p>
+<h3 id="뛰어난-사용자-지정-기능">뛰어난 사용자 지정 기능</h3>
+<p>사용자 정의(Customization)는 GPT-4o의 핵심 강점입니다. 사용자는 특정 작업에 맞게 모델을 미세 조정할 수 있으므로 다양한 산업과 애플리케이션에 맞게 조정할 수 있습니다.</p>
+<h2 id="모델-안전-및-제한-사항">모델 안전 및 제한 사항</h2>
+<h3 id="내장된-안전-기능">내장된 안전 기능</h3>
+<p>GPT-4o는 모달리티 전반에 걸쳐 고급 안전 기능을 통합합니다. 여기에는 훈련 데이터를 필터링하고 훈련 후 조정을 통해 모델의 동작을 개선하는 기능이 포함됩니다. 또한 음성 출력에 가드레일을 제공하기 위해 새로운 안전 시스템이 구현되었습니다.</p>
+<h3 id="대비-프레임워크-평가">대비 프레임워크 평가</h3>
+<p>GPT-4o는 자발적인 약속에 따라 OpenAI의 준비 프레임워크에 따라 철저한 평가를 거쳤습니다. 사이버 보안, 화학, 생물학, 방사능, 핵(CBRN) 위험, 설득력, 모델 자율성에 대한 평가 결과 GPT-4o는 어떤 범주에서도 중간 위험 수준을 초과하지 않는 것으로 나타났습니다.</p>
+<p>이러한 평가에는 모델 훈련 과정 전반에 걸쳐 자동화된 테스트와 사람에 의한 테스트가 모두 포함되었으며, 안전 완화 전후 버전이 모두 포함되었습니다.</p>
+<h3 id="광범위한-외부-테스트">광범위한 외부 테스트</h3>
+<p>OpenAI는 사회 심리학, 편견과 공정성, 잘못된 정보 등 다양한 분야의 외부 전문가 70여 명을 참여시켜 광범위한 레드팀 테스트를 실시했습니다. 이를 통해 GPT-4o의 새로운 양식으로 인해 발생할 수 있는 잠재적 위험을 파악할 수 있었습니다.</p>
+<p>이 테스트에서 얻은 인사이트는 GPT-4o의 안전 조치를 강화하는 데 사용되었으며, OpenAI는 새로운 위험이 발견되는 대로 이를 해결하기 위해 최선을 다하고 있습니다.</p>
+<h3 id="모달리티별-위험">모달리티별 위험</h3>
+<p>GPT-4o의 오디오 기능은 새로운 위험을 초래합니다. 현재 OpenAI는 텍스트 출력과 함께 텍스트 및 이미지 입력을 출시하고 있습니다. 앞으로 몇 주에서 몇 달 동안 다른 양식도 출시하는 데 필요한 기술 인프라와 안전 조치를 마련할 예정입니다.</p>
+<p>예를 들어, 출시 시 오디오 출력은 사전 설정된 일부 음성으로 제한되며 기존의 안전 정책을 준수할 것입니다. 자세한 내용은 향후 시스템 카드에 제공될 예정입니다.</p>
+<h2 id="한계">한계</h2>
+<p>고급 기능에도 불구하고 GPT-4o에는 몇 가지 한계가 있습니다. 여기에는 복잡한 감정을 이해하거나 다중 화자 환경을 정확하게 해석하는 것과 같은 모든 양식에 걸친 과제가 포함됩니다. 이러한 문제를 해결하려면 지속적인 테스트와 반복이 필수적입니다.</p>
+<h2 id="모델-가용성">모델 가용성</h2>
+<h3 id="실용적인-사용성">실용적인 사용성</h3>
+<p>GPT-4o는 딥러닝의 실질적인 사용성을 향한 중요한 진전을 의미합니다. 지난 2년 동안 OpenAI는 모든 계층에서 효율성을 개선하는 데 집중하여 GPT-4 수준의 모델을 보다 광범위하게 제공할 수 있게 되었습니다.</p>
+<h3 id="롤아웃-및-액세스">롤아웃 및 액세스</h3>
+<p>무료 티어 사용자와 최대 5배 더 높은 메시지 한도를 누릴 수 있는 플러스 사용자 모두 사용할 수 있는 ChatGPT에서 GPT-4o의 텍스트 및 이미지 기능이 출시됩니다.</p>
+<p>향후 몇 주 내에 ChatGPT 플러스 사용자들을 위한 새로운 버전의 GPT-4o 음성 모드가 알파 버전으로 제공될 예정입니다.</p>
+<h3 id="개발자-액세스">개발자 액세스</h3>
+<p>이제 개발자는 텍스트 및 비전 애플리케이션용 API를 통해 GPT-4o에 액세스할 수 있습니다. GPT-4o는 GPT-4 터보에 비해 2배 더 빠르고 가격은 절반이며 5배 더 높은 속도 제한을 지원합니다.</p>
+<p>오디오 및 비디오 기능은 향후 몇 주 내에 API의 일부 신뢰할 수 있는 파트너 그룹에 제공될 예정입니다.</p>
+<h2 id="GPT-4o의-활용-분야">GPT-4o의 활용 분야</h2>
+<h3 id="교육-분야">교육 분야</h3>
+<p>GPT-4o는 개인 맞춤형 과외, 숙제 지원, 교육 콘텐츠 제작을 통해 교육을 혁신할 수 있습니다. 멀티 모달 기능을 통해 학습을 더욱 인터랙티브하고 매력적으로 만들 수 있습니다.</p>
+<h3 id="비즈니스-분야">비즈니스 분야</h3>
+<p>기업은 고객 지원, 일상적인 업무 자동화, 마케팅 콘텐츠 제작에 GPT-4o를 활용할 수 있습니다. 고급 대화 기술을 통해 고객과의 상호작용을 개선하고 만족도를 높일 수 있습니다.</p>
+<h3 id="의료-분야">의료 분야</h3>
+<p>의료 분야에서 GPT-4o는 환자 커뮤니케이션을 지원하고, 기록을 관리하며, 예비 의료 조언을 제공할 수 있습니다. 복잡한 의료 정보를 이해하고 처리하는 능력은 의료 서비스 제공자가 더 나은 치료를 제공할 수 있도록 지원할 수 있습니다.</p>
+<h3 id="엔터테인먼트-분야">엔터테인먼트 분야</h3>
+<p>스크립트 작성부터 인터랙티브 콘텐츠 생성까지, GPT-4o의 기능은 엔터테인먼트 산업에 혁신을 가져올 수 있습니다. 크리에이터가 시청자를 위해 더욱 매력적이고 개인화된 콘텐츠를 제작하는 데 도움이 될 수 있습니다.</p>
+<h2 id="GPT-4o가-사회에-미치는-영향">GPT-4o가 사회에 미치는 영향</h2>
+<h3 id="윤리적-고려-사항">윤리적 고려 사항</h3>
+<p>GPT-4o의 고급 기능은 중요한 윤리적 문제를 제기합니다. 책임감 있는 사용을 어떻게 보장할 수 있을까요? OpenAI는 오용을 방지하고 투명성을 높이기 위해 윤리적 지침을 강조합니다.</p>
+<h3 id="고용-시장의-혁신">고용 시장의 혁신</h3>
+<p>GPT-4o의 도입은 의심할 여지 없이 고용 시장에 영향을 미칠 것입니다. 일부에서는 일자리가 사라질 것이라고 우려하지만, GPT-4o는 인간의 역할을 보강하여 반복적인 업무를 대신하고 사람들이 보다 전략적이고 창의적인 노력에 집중할 수 있도록 할 가능성이 더 높습니다.</p>
+<h3 id="개인정보-보호-우려">개인정보 보호 우려</h3>
+<p>모든 AI와 마찬가지로 개인정보 보호는 주요 관심사입니다. OpenAI는 GPT-4o가 데이터 보호 규정을 준수하고 사용자 프라이버시를 우선시할 수 있도록 최선을 다하고 있습니다. 사용자도 자신의 데이터가 어떻게 사용되고 저장되는지 주의해야 합니다.</p>
+<h2 id="GPT-4o의-미래-전망">GPT-4o의 미래 전망</h2>
+<h3 id="잠재적-발전">잠재적 발전</h3>
+<p>GPT-4o의 미래는 밝습니다. 지속적인 연구와 개발을 통해 더욱 정교한 언어 모델을 제공할 수 있습니다. 향후 버전에서는 감성 지능이 향상되고, 문맥에 대한 이해도가 높아지며, 적응력이 향상될 수 있습니다.</p>
+<h3 id="다른-기술과의-통합">다른 기술과의 통합</h3>
+<p>GPT-4o는 시작에 불과합니다. 증강 현실이나 로보틱스와 같은 다른 기술과 통합한다고 상상해 보세요. 이러한 시너지 효과는 일상 업무를 더욱 원활하고 자동화하여 오늘날 우리가 꿈꿀 수 있는 혁신으로 이어질 수 있습니다.</p>
+<h2 id="결론">결론</h2>
+<p>OpenAI의 Chat GPT-4o 출시는 AI의 진화에 있어 중요한 이정표가 될 것입니다. 이 고급 기능은 다양한 분야에 혁신을 가져올 것이며, 기술과의 상호작용을 더욱 자연스럽고 직관적으로 만들 것입니다. 해결해야 할 과제가 있지만, GPT-4o의 잠재적 이점은 우려되는 것보다 훨씬 큽니다. 미래를 바라보며 GPT-4o가 열어갈 가능성을 상상하는 것은 흥미로운 일입니다.</p>
+
+        </div>
+        <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+        <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://hgko1207.github.io/2024/05/27/chatgpt-26/" data-id="clwpypp4f00016wcxby2eaehr" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Hyeong Gyun Ko"
+        },
+        "headline": "OpenAI, ChatGPT-4o 출시",
+        "image": "http://hgko1207.github.io/images/thumbnail/chatgpt.png",
+        "keywords": "AI Artificial Intelligence ChatGPT OpenAI Programming ChatGPT-4o",
+        "genre": "Programming AI",
+        "datePublished": "2024-05-27",
+        "dateCreated": "2024-05-27",
+        "dateModified": "2024-05-27",
+        "url": "http://hgko1207.github.io/2024/05/27/chatgpt-26/",
+        "description": "
+소개
+OpenAI는 인공지능과 상호작용하는 방식을 바꿀 최신 플래그십 모델인 GPT-4o를 공개했습니다. 다재다능한 기능으로 'omni’라고 불리는 이 새로운 모델은 텍스트, 오디오, 이미지를 실시간으로 처리하고 생성할 수 있습니다.
+기술 발전에 관심이 많거나 인공지능에 대해 궁금한 점이 있다면 이번 발표가 획기적인 변화를 가져올 것입니다. GPT-4o가",
+        "wordCount": 996
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                            <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>follow:</p>
+    <ul class="social-links">
+       
+      <li>
+        <a
+          class="social-tooltip"
+          title="github"
+          href="https://github.com/hgko1207"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-github"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="facebook"
+          href="https://www.facebook.com/profile.php?id=100003526102847"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-facebook"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="rss"
+          href="/"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-rss"></i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+   
+<nav id="article-nav">
+    
+        <a href="/2024/05/28/chatgpt-27/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            chatgpt-27
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2024/05/24/typescript-24/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">[TypeScript] Interfaces vs Classes vs Types</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+ 
+  <div class="widgets-container">
+      
+  
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/05/28/chatgpt-27/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2024/05/28/chatgpt-27/" class="title">chatgpt-27</a></p>
+                            <p class="item-date"><time datetime="2024-05-28T05:33:55.000Z" itemprop="datePublished">2024-05-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/05/27/chatgpt-26/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/chatgpt.png)" alt="OpenAI, ChatGPT-4o 출시" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2024/05/27/chatgpt-26/" class="title">OpenAI, ChatGPT-4o 출시</a></p>
+                            <p class="item-date"><time datetime="2024-05-27T14:07:24.000Z" itemprop="datePublished">2024-05-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/05/24/typescript-24/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/typescript.png)" alt="[TypeScript] Interfaces vs Classes vs Types" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/05/24/typescript-24/" class="title">[TypeScript] Interfaces vs Classes vs Types</a></p>
+                            <p class="item-date"><time datetime="2024-05-24T04:57:41.000Z" itemprop="datePublished">2024-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/05/23/chatgpt-25/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/chatgpt.png)" alt="ChatGPT 개발자 가이드" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2024/05/23/chatgpt-25/" class="title">ChatGPT 개발자 가이드</a></p>
+                            <p class="item-date"><time datetime="2024-05-23T06:38:00.000Z" itemprop="datePublished">2024-05-23</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/05/22/web-13/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/header/web-13.png)" alt="모든 웹 개발자에게 필요한 7가지 최고의 AI Custom GPTs" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a></p>
+                            <p class="item-title"><a href="/2024/05/22/web-13/" class="title">모든 웹 개발자에게 필요한 7가지 최고의 AI Custom GPTs</a></p>
+                            <p class="item-date"><time datetime="2024-05-22T12:24:40.000Z" itemprop="datePublished">2024-05-22</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">363</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">67</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">33</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">29</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">101</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">92</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">24</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">6</span></li></ul></li></ul>
+        </div>
+    </div>
+
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+  <div class="widget-wrap widget-float">
+
+    <h3 class="widget-title">Sponsored</h3>
+    <div class="widget">
+        <a href="https://marcofranssen.nl?adsense_widget" target="_blank" rel="noopener">This widget is sponsored by, Marco Franssen, main contributor to this theme.</a>
+    </div>
+
+</div>
+  
+  </div>
+  <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+
+  <!-- hits 방문자수 -->
+  <a href="https://hits.seeyoufarm.com" target="_blank" rel="noopener">
+    <style>
+      .hits {
+        width: auto;
+        height: auto;
+        max-width: 99px;
+        max-height: 20px;
+      }
+    </style>
+    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhgko1207.github.io&count_bg=%23E6ADD5&title_bg=%23BF98D2&icon=&icon_color=%23E7E7E7&title=%EB%B0%A9%EB%AC%B8%EC%9E%90%EC%88%98&edge_flat=false"/>
+  </a>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h2 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h2>
+                <p>&copy; 2024 Hyeong Gyun Ko</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://hgko1207.github.io/2024/05/27/chatgpt-26/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
