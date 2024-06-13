@@ -6,20 +6,22 @@
     
 
     
-    <title>자바스크립트를 배우기 쉬운 방법 | 규니의 블로그</title>
+    <title>초보 개발자가 프로처럼 보일 수 있는 자바스크립트 원라이너 10가지 | 규니의 블로그</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="keywords" content="JavaScript,Programming,Web Development,Coding,Javascript Development,Javascript Tips" />
     
-    <meta property="og:type" content="article">
-<meta property="og:title" content="자바스크립트를 배우기 쉬운 방법">
+    <meta name="description" content="다른 사람이 자바스크립트 한 줄로 문제를 해결했을 때 코딩에 푹 빠져본 적이 있나요? 마치 코딩 마술과도 같습니다. 이것이 바로 한 줄의 힘입니다. 이 짧은 코드 스니펫은 매우 효과적이어서 마치 자바스크립트 전문가가 된 듯한 기분을 느낄 수 있습니다. 원라이너(one-liner)는 기능을 한 줄로 압축한 짧은 자바스크립트 코드 조각입니다. 원라이너를 사용">
+<meta property="og:type" content="article">
+<meta property="og:title" content="초보 개발자가 프로처럼 보일 수 있는 자바스크립트 원라이너 10가지">
 <meta property="og:url" content="http://hgko1207.github.io/2024/06/11/js-dev-22/index.html">
 <meta property="og:site_name" content="규니의 블로그">
+<meta property="og:description" content="다른 사람이 자바스크립트 한 줄로 문제를 해결했을 때 코딩에 푹 빠져본 적이 있나요? 마치 코딩 마술과도 같습니다. 이것이 바로 한 줄의 힘입니다. 이 짧은 코드 스니펫은 매우 효과적이어서 마치 자바스크립트 전문가가 된 듯한 기분을 느낄 수 있습니다. 원라이너(one-liner)는 기능을 한 줄로 압축한 짧은 자바스크립트 코드 조각입니다. 원라이너를 사용">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/javascript.png">
 <meta property="article:published_time" content="2024-06-11T03:27:34.000Z">
-<meta property="article:modified_time" content="2024-06-11T13:29:53.102Z">
+<meta property="article:modified_time" content="2024-06-11T14:49:57.651Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="Programming">
@@ -225,7 +227,7 @@ ga('send', 'pageview');
                 
     
         <h1 class="article-title" itemprop="name">
-        자바스크립트를 배우기 쉬운 방법
+        초보 개발자가 프로처럼 보일 수 있는 자바스크립트 원라이너 10가지
         </h1>
     
 
@@ -264,7 +266,56 @@ ga('send', 'pageview');
 
             
 
-            <p><img src="/images/header/js-dev-22.png" alt=""></p>
+            <p><img src="/images/header/js-dev-22.png" alt="" /></p>
+<p>다른 사람이 자바스크립트 한 줄로 문제를 해결했을 때 코딩에 푹 빠져본 적이 있나요? 마치 코딩 마술과도 같습니다. 이것이 바로 한 줄의 힘입니다. 이 짧은 코드 스니펫은 매우 효과적이어서 마치 자바스크립트 전문가가 된 듯한 기분을 느낄 수 있습니다.</p>
+<p><strong>원라이너</strong>(one-liner)는 기능을 한 줄로 압축한 짧은 자바스크립트 코드 조각입니다. 원라이너를 사용하면 보다 간결한 코드를 작성할 수 있고 때로는 가독성을 향상시킬 수도 있습니다.</p>
+<p>어떤 이점이 있을까요? 시간을 절약하고, 더 깔끔한 코드를 작성하며, 다른 개발자에게 깊은 인상을 줄 수도 있습니다(약간은). 이제 초보자도 쉽게 따라 할 수 있는 실용적인 원라이너에 초점을 맞추고 있습니다.</p>
+<h2 id="1-array-filtering"><a class="markdownIt-Anchor" href="#1-array-filtering"></a> 1. Array Filtering</h2>
+<p>시험 점수의 배열이 있고 점수 중에 짝수를 찾아야 한다고 가정해 봅시다. 한 줄로 해결하세요!</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> scores = [<span class="number">85</span>, <span class="number">92</span>, <span class="number">73</span>, <span class="number">98</span>, <span class="number">80</span>];</span><br><span class="line"><span class="keyword">const</span> evenScores = scores.filter(<span class="function">(<span class="params">num</span>) =&gt;</span> num % <span class="number">2</span> === <span class="number">0</span>);</span><br><span class="line"><span class="comment">// 결과: [92, 98, 80]</span></span><br></pre></td></tr></table></figure>
+<p>이 코드는 <code>filter</code> 메서드를 사용하여 테스트를 통과한 요소만 포함하는 새 배열을 만듭니다. 화살표 함수(<code>num =&gt; num % 2 === 0</code>)는 각 숫자가 짝수인지 확인합니다.</p>
+<p>배열에서 원하지 않는 요소를 제거하는 필터링은 일반적인 작업입니다. 이 한 줄짜리 함수는 데이터를 깔끔하게 유지하는 데 유용합니다.</p>
+<h2 id="2-array-mapping"><a class="markdownIt-Anchor" href="#2-array-mapping"></a> 2. Array Mapping</h2>
+<p>변 길이의 배열이 있고 각 사각형의 면적을 파악하려는 경우. 이 한 줄로 배열의 각 요소를 해당 정사각형으로 매핑(변환)할 수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sideLengths = [<span class="number">5</span>, <span class="number">3</span>, <span class="number">7</span>];</span><br><span class="line"><span class="keyword">const</span> areas = sideLengths.map(<span class="function">(<span class="params">num</span>) =&gt;</span> num * num);</span><br><span class="line"><span class="comment">// 결과: [25, 9, 49]</span></span><br></pre></td></tr></table></figure>
+<p><code>map</code> 메서드는 원래 배열의 모든 요소에 대해 제공된 함수를 호출한 결과로 새 배열을 만듭니다. 여기서 함수는 각 숫자를 제곱합니다. 이 함수는 배열의 각 요소에 수학적 연산을 수행할 때 유용합니다.</p>
+<h2 id="3-flattening-arrays"><a class="markdownIt-Anchor" href="#3-flattening-arrays"></a> 3. Flattening Arrays</h2>
+<p>식료품점 제품 목록과 같이 각 이형 상품에 대한 하위 항목이 있는 중첩 배열을 접할 때가 있습니다. 한 줄짜리 코드를 사용하면 이러한 구조를 평평하게 만들 수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> nestedGroceries = [</span><br><span class="line">  [<span class="string">'Apples'</span>, [<span class="string">'Red'</span>, <span class="string">'Green'</span>]],</span><br><span class="line">  [<span class="string">'Milk'</span>, [<span class="string">'Whole'</span>, <span class="string">'2%'</span>]],</span><br><span class="line">];</span><br><span class="line"><span class="keyword">const</span> flatGroceries = nestedGroceries.flat();</span><br><span class="line"><span class="comment">// 결과: ["Apples", "Red", "Green", "Milk", "Whole", "2%"]</span></span><br></pre></td></tr></table></figure>
+<p><code>flat</code> 메서드(ES6 이상에서 사용 가능)는 모든 하위 배열 요소가 연결된 새 배열을 생성합니다. 이를 통해 데이터 조작 작업을 간소화할 수 있습니다.</p>
+<p>중첩 배열을 플랫화하면 단일 차원의 데이터로 작업하기가 더 쉬워집니다.</p>
+<h2 id="4-고유-요소중복-허용되지-않음"><a class="markdownIt-Anchor" href="#4-고유-요소중복-허용되지-않음"></a> 4. 고유 요소(중복 허용되지 않음!)</h2>
+<p>게스트 목록에 안타깝게도 중복 항목이 있는 경우가 있을 수 있습니다. 한 줄짜리 코드를 사용하면 모든 사람에게 고유한 초대장을 보낼 수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> guestList = [<span class="string">'Alice'</span>, <span class="string">'Bob'</span>, <span class="string">'Charlie'</span>, <span class="string">'Alice'</span>];</span><br><span class="line"><span class="comment">// 중복입니다!</span></span><br><span class="line"><span class="keyword">const</span> uniqueGuests = [...new <span class="built_in">Set</span>(guestList)];</span><br><span class="line"><span class="comment">// 결과: ["Alice", "Bob", "Charlie"]</span></span><br></pre></td></tr></table></figure>
+<p>데이터 정리는 종종 배열에서 중복을 제거하는 것을 의미합니다. 이 코드로 데이터를 깨끗하고 깔끔하게 유지합니다.</p>
+<h2 id="5-조건문"><a class="markdownIt-Anchor" href="#5-조건문"></a> 5. 조건문</h2>
+<p>조건에 따라 값을 할당하기 위해 여러 줄에 걸쳐 <code>if...else</code> 문을 작성해 본 적이 있나요? 더 간결한 방법이 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> age = <span class="number">18</span>;</span><br><span class="line"><span class="keyword">const</span> message = age &gt;= <span class="number">18</span> ? <span class="string">'Welcome!'</span> : <span class="string">'Sorry, not yet.'</span>;</span><br></pre></td></tr></table></figure>
+<p>이 코드는 삼항 연산자를 사용하는데, 한 줄로 짧은 if-else 문을 작성하는 멋진 방법입니다.</p>
+<p>조건(<code>age &gt;= 18</code>)이 확인되면 해당 값(<code>&quot;Welcome!&quot; 또는 &quot;Sorry, not still.&quot;</code>)이 메시지 변수에 할당됩니다. 삼항 연산자는 좋지만 복잡한 상황에서는 코드를 이해하기 어려울 수 있습니다. 현명하게 사용하세요!</p>
+<h2 id="6-문자열-반전"><a class="markdownIt-Anchor" href="#6-문자열-반전"></a> 6. 문자열 반전</h2>
+<p>문자열을 반전시켜서 팰린드롬(앞뒤가 같은 단어, 예를 들어 “racecar” 처럼)인지 확인해보는 것은 어떨까요?</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">'Hello, world!'</span>;</span><br><span class="line"><span class="keyword">const</span> reversedStr = str.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>);</span><br><span class="line"><span class="comment">// 결과: "!dlrow ,olleH"</span></span><br></pre></td></tr></table></figure>
+<p>문자열을 문자 배열로 나누고, 요소의 순서를 반전시킨 다음 새로운 문자열로 다시 결합하여 한 줄로 만듭니다. 하위 문자열 반전 또는 추출과 같은 문자열 조작 작업은 한 줄로 간단하게 처리할 수 있습니다.</p>
+<h2 id="7-개체-속성-존재-여부"><a class="markdownIt-Anchor" href="#7-개체-속성-존재-여부"></a> 7. 개체 속성 존재 여부</h2>
+<p>사용자 프로필 시스템을 만들고 있는데 사용자 개체에 특정 속성(예: ‘email’)이 존재하는지 파악해야 한다고 가정해 보세요. 원라이너가 도움이 될 수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> user = &#123; <span class="attr">name</span>: <span class="string">'Alice'</span>, <span class="attr">age</span>: <span class="number">30</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> hasEmail = <span class="string">'email'</span> <span class="keyword">in</span> user;</span><br><span class="line"><span class="comment">// 결과: false (이메일 속성이 없음)</span></span><br></pre></td></tr></table></figure>
+<p><code>in</code> 연산자는 객체 내에 프로퍼티가 존재하는지 확인합니다. 여기서는 <code>user</code> 객체에 <code>'email'</code> 프로퍼티가 있는지 확인합니다.</p>
+<h2 id="8-기본-매개변수-값"><a class="markdownIt-Anchor" href="#8-기본-매개변수-값"></a> 8. 기본 매개변수 값</h2>
+<p>사용자에게 인사하는 작업을 만들되 이름이 제공되지 않은 경우를 대비해 백업 값을 제공하는 것은 어떨까요? 원라이너로 이를 관리할 수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> greet = <span class="function">(<span class="params">name = <span class="string">'Guest'</span></span>) =&gt;</span> <span class="string">`Hello, <span class="subst">$&#123;name&#125;</span>!`</span>;</span><br><span class="line"><span class="built_in">console</span>.log(greet());</span><br><span class="line"><span class="comment">// 결과: Hello, Guest!</span></span><br><span class="line"><span class="built_in">console</span>.log(greet(<span class="string">'Bob'</span>));</span><br><span class="line"><span class="comment">// 결과: Hello, Bob!</span></span><br></pre></td></tr></table></figure>
+<p>이 예시는 ES6 기본 매개변수를 사용합니다. 여기서 <code>greet</code> 함수를 호출할 때 이름을 지정하지 않으면 기본값인 <code>'Guest'</code>가 사용됩니다.</p>
+<p>기본 매개변수는 적절한 인수 없이 함수를 호출할 때 발생하는 오류를 방지하여 코드를 더욱 강력하게 만들어 줍니다.</p>
+<h2 id="9-컴팩트-배열"><a class="markdownIt-Anchor" href="#9-컴팩트-배열"></a> 9. 컴팩트 배열</h2>
+<p>가끔 빈 값이나 <code>null</code> 요소가 있는 배열이 있을 수 있습니다. 원라이너를 사용하면 이러한 불청객을 제거할 수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">0</span>, <span class="literal">null</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">const</span> compactNumbers = numbers.filter(<span class="built_in">Boolean</span>);</span><br><span class="line"><span class="comment">// 결과: [1, 3]</span></span><br></pre></td></tr></table></figure>
+<p>이 예시는 <code>filter</code> 메서드를 다시 활용합니다. 하지만 이번에는 필터가 <code>Boolean</code> 생성자를 사용하여 <code>null</code>, <code>undefined</code>, <code>0</code>, <code>&quot;&quot;</code>, <code>NaN</code>과 같은 “falsy” 값을 확인합니다. <code>false</code>로 평가되는 모든 요소는 새 배열에서 제외됩니다.</p>
+<h2 id="10-동적-객체-키"><a class="markdownIt-Anchor" href="#10-동적-객체-키"></a> 10. 동적 객체 키</h2>
+<p>원라이너를 사용하여 작업 후에 결정되는 키가 있는 객체를 만들 수도 있습니다. 놀랍죠?</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> prop = <span class="string">'score'</span>;</span><br><span class="line"><span class="keyword">const</span> person = &#123; [prop]: <span class="number">90</span> &#125;;</span><br><span class="line"><span class="comment">// 결과: &#123;score: 90&#125;</span></span><br></pre></td></tr></table></figure>
+<p>이 예시는 계산된 프로퍼티 이름을 사용합니다. <code>prop</code> 변수의 값은 객체를 생성할 때 중괄호 안의 키 이름으로 사용됩니다. 이를 통해 변수나 표현식을 기반으로 동적 키를 생성할 수 있습니다.</p>
+<h2 id="마무리"><a class="markdownIt-Anchor" href="#마무리"></a> 마무리</h2>
+<p>자바스크립트 코드를 개선할 수 있는 몇 가지 훌륭한 원라이너를 배웠기를 바랍니다. 원라이너는 강력한 도구이지만 코드의 명확성과 유지보수성을 보장하기 위해 신중하게 사용해야 한다는 점을 기억하세요.</p>
 
         </div>
         <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
@@ -368,7 +419,7 @@ ga('send', 'pageview');
             "@type": "Person",
             "name": "Hyeong Gyun Ko"
         },
-        "headline": "자바스크립트를 배우기 쉬운 방법",
+        "headline": "초보 개발자가 프로처럼 보일 수 있는 자바스크립트 원라이너 10가지",
         "image": "http://hgko1207.github.io/images/thumbnail/javascript.png",
         "keywords": "JavaScript Programming Web Development Coding Javascript Development Javascript Tips",
         "genre": "Programming Language JavaScript",
@@ -377,8 +428,9 @@ ga('send', 'pageview');
         "dateModified": "2024-06-11",
         "url": "http://hgko1207.github.io/2024/06/11/js-dev-22/",
         "description": "
-",
-        "wordCount": 3
+다른 사람이 자바스크립트 한 줄로 문제를 해결했을 때 코딩에 푹 빠져본 적이 있나요? 마치 코딩 마술과도 같습니다. 이것이 바로 한 줄의 힘입니다. 이 짧은 코드 스니펫은 매우 효과적이어서 마치 자바스크립트 전문가가 된 듯한 기분을 느낄 수 있습니다.
+원라이너(one-liner)는 기능을 한 줄로 압축한 짧은 자바스크립트 코드 조각입니다. 원라이너를 사용",
+        "wordCount": 964
     }
 </script>
 
@@ -459,6 +511,16 @@ ga('send', 'pageview');
    
 <nav id="article-nav">
     
+        <a href="/2024/06/11/test/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            test
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
     
         <a href="/2024/06/10/js-dev-21/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
@@ -479,10 +541,70 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2024/06/13/react-18/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/react.png)" alt="React.js 살펴보기: 초보자 가이드" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a></p>
+                            <p class="item-title"><a href="/2024/06/13/react-18/" class="title">React.js 살펴보기: 초보자 가이드</a></p>
+                            <p class="item-date"><time datetime="2024-06-13T14:33:27.000Z" itemprop="datePublished">2024-06-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/06/12/web-16/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/information.png)" alt="여러 디바이스와 호환되는 웹 디자인 템플릿을 찾는 방법" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Web/">Web</a></p>
+                            <p class="item-title"><a href="/2024/06/12/web-16/" class="title">여러 디바이스와 호환되는 웹 디자인 템플릿을 찾는 방법</a></p>
+                            <p class="item-date"><time datetime="2024-06-12T12:55:31.000Z" itemprop="datePublished">2024-06-12</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/06/11/test/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2024/06/11/test/" class="title">test</a></p>
+                            <p class="item-date"><time datetime="2024-06-11T13:39:13.830Z" itemprop="datePublished">2024-06-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2024/06/11/js-dev-22/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/thumbnail/javascript.png)" alt="자바스크립트를 배우기 쉬운 방법" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/thumbnail/javascript.png)" alt="초보 개발자가 프로처럼 보일 수 있는 자바스크립트 원라이너 10가지" class="thumbnail-image"></span>
     
     
 </a>
@@ -491,7 +613,7 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
-                            <p class="item-title"><a href="/2024/06/11/js-dev-22/" class="title">자바스크립트를 배우기 쉬운 방법</a></p>
+                            <p class="item-title"><a href="/2024/06/11/js-dev-22/" class="title">초보 개발자가 프로처럼 보일 수 있는 자바스크립트 원라이너 10가지</a></p>
                             <p class="item-date"><time datetime="2024-06-11T03:27:34.000Z" itemprop="datePublished">2024-06-11</time></p>
                         </div>
                     </li>
@@ -516,66 +638,6 @@ ga('send', 'pageview');
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/06/05/info-15/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/information.png)" alt="믿을 수 없을 만큼 놀라운 코딩 꿀팁" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/IT/">IT</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/IT/Information/">Information</a></p>
-                            <p class="item-title"><a href="/2024/06/05/info-15/" class="title">믿을 수 없을 만큼 놀라운 코딩 꿀팁</a></p>
-                            <p class="item-date"><time datetime="2024-06-05T14:14:53.000Z" itemprop="datePublished">2024-06-05</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/06/04/web-15/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/information.png)" alt="많은 웹 개발자가 반응형 디자인에 어려움을 겪는 이유" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a></p>
-                            <p class="item-title"><a href="/2024/06/04/web-15/" class="title">많은 웹 개발자가 반응형 디자인에 어려움을 겪는 이유</a></p>
-                            <p class="item-date"><time datetime="2024-06-04T05:26:53.000Z" itemprop="datePublished">2024-06-04</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/06/03/web-14/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/information.png)" alt="웹 개발자를 위한 최고의 Chrome 확장 프로그램 7가지" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a></p>
-                            <p class="item-title"><a href="/2024/06/03/web-14/" class="title">웹 개발자를 위한 최고의 Chrome 확장 프로그램 7가지</a></p>
-                            <p class="item-date"><time datetime="2024-06-03T13:08:26.000Z" itemprop="datePublished">2024-06-03</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -583,7 +645,7 @@ ga('send', 'pageview');
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">47</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">369</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">69</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">33</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">29</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">103</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">94</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">24</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">6</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">47</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">371</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">69</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">33</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">29</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">104</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">94</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">24</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">7</span></li></ul></li></ul>
         </div>
     </div>
 
