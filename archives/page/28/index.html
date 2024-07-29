@@ -230,6 +230,265 @@ ga('send', 'pageview');
         <article class="article article-summary">
     <div class="article-summary-inner">
         
+        <a href="/2022/11/08/postgresql-6/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/postgresql.png)" alt="[PostgreSQL] 사용자, 그룹 관리" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2022/11/08/postgresql-6/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/DB/">DB</a>
+            </div>
+            <div class="date"><time datetime="2022-11-08T05:03:30.000Z" itemprop="datePublished">2022-11-08</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2022/11/08/postgresql-6/">[PostgreSQL] 사용자, 그룹 관리</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+             실행 파일을 통합 방법
+ 사용자 생성
+1$ createuser hgko --createdb --no-superuser --no-createrole
+ 사용자 삭제
+1$ dropuser hgko
+ DB 접속을 통한 방법
+ GROUP 생성, 수정, 삭제
+
+SYSID: 내부의 GROUP ID 구분용 숫자 코드이며, 설정하지 않으면 자동으로 100부터 1씩 증가합
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2022/11/08/postgresql-5/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/postgresql.png)" alt="[PostgreSQL] 사용자 인증" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2022/11/08/postgresql-5/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/DB/">DB</a>
+            </div>
+            <div class="date"><time datetime="2022-11-08T04:39:56.000Z" itemprop="datePublished">2022-11-08</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2022/11/08/postgresql-5/">[PostgreSQL] 사용자 인증</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+             사용자 인증
+Postgresql을 처음 설치하게 되면 비밀번호를 묻지 않고 로그인을 할 수 있습니다.
+인증과정을 포함하려면 pg_hba.conf 에서 설정해야 합니다.
+pg_hba.conf 파일은 initdb 에서 생성된 클러스터 폴더에 위치합니다.
+Authentication Method 필드의 값에 따라서 인증처리가 됩니다.
+
+trust: 패스워드 없이
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2022/11/04/oracle-5/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/oracle.png)" alt="[Oracle] 사용자 및 테이블 조회" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2022/11/04/oracle-5/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/DB/">DB</a>
+            </div>
+            <div class="date"><time datetime="2022-11-04T07:57:39.000Z" itemprop="datePublished">2022-11-04</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2022/11/04/oracle-5/">[Oracle] 사용자 및 테이블 조회</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+             테이블 스페이스 남은 공간 조회
+현재 접속한 사용자의 DEFAULT_TABLESPACE 남은 공간을 조회합니다.
+123456789101112SELECT  ts.tablespace_name,  TO_CHAR(SUM(NVL(fs.bytes, 0)) / 1024 / 1024, '99,999,990.99') AS MB_FREEFROM  user_free_spac
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2022/11/04/oracle-3/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/oracle.png)" alt="[Oracle] 테이블 스페이스 사용 방법" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2022/11/04/oracle-3/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/DB/">DB</a>
+            </div>
+            <div class="date"><time datetime="2022-11-04T06:44:12.000Z" itemprop="datePublished">2022-11-04</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2022/11/04/oracle-3/">[Oracle] 테이블 스페이스 사용 방법</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+             테이블 스페이스(Table Space)란
+
+테이블스페이스(Tablespace)는 데이터베이스 오브젝트 내 실제 데이터를 저장하는 공간이다. 이것은 데이터베이스의 물리적인 부분이며, 세그먼트로 관리되는 모든 DBMS에 대해 저장소(세그먼트)를 할당한다.
+테이블스페이스는 단지 데이터베이스 저장소 위치를 지정할 뿐이며, 논리적 데이터베이스 구조나 스키마를 지정
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2022/11/04/oracle-4/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/oracle.png)" alt="[Oracle] 계정 관리" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2022/11/04/oracle-4/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/DB/">DB</a>
+            </div>
+            <div class="date"><time datetime="2022-11-04T06:44:12.000Z" itemprop="datePublished">2022-11-04</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2022/11/04/oracle-4/">[Oracle] 계정 관리</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            Oracle에서 계정 생성, 삭제 및 권한을 부여하는 방법입니다.
+ 계정 생성 및 권한 부여
+12345SQL&gt; CREATE USER [계정]     IDENTIFIED BY [비밀번호]     DEFAULT TABLESPACE [테이블스페이스명]     QUOTA unlimited ON [테이블스페이스명]  -- 테이블 스페이스의 내용을 모두 쓸 수 
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
         <a href="/2022/11/03/linux-21/" class="thumbnail">
     
     
@@ -272,10 +531,14 @@ ga('send', 'pageview');
     </div>
 </article>
     
+        </div>
+    
 
     
     
     
+    
+        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -320,14 +583,10 @@ ga('send', 'pageview');
     </div>
 </article>
     
-        </div>
-    
 
     
     
     
-    
-        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -373,10 +632,14 @@ Angular는 Google이 주관하는 웹 애플리케이션 프레임워크다. 개
     </div>
 </article>
     
+        </div>
+    
 
     
     
     
+    
+        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -424,14 +687,10 @@ root의 패스워드를 입력하여 로그인합니다.
     </div>
 </article>
     
-        </div>
-    
 
     
     
     
-    
-        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -477,264 +736,6 @@ MariaDB는 오픈 소스의 관계형 데이터베이스 관리 시스템이다.
     </div>
 </article>
     
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2022/10/26/nodejs-4/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/nodejs.png)" alt="NVM 설치 및 사용 방법" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2022/10/26/nodejs-4/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Backend/">Backend</a>
-            </div>
-            <div class="date"><time datetime="2022-10-26T01:44:59.000Z" itemprop="datePublished">2022-10-26</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2022/10/26/nodejs-4/">NVM 설치 및 사용 방법</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            Windows 환경에서 NVM를 설치하고 Node 버전을 관리하는 방법에 대해 알아보겠습니다.
- NVM(Node Version Manager)
-NVM 은 Node.js의 버전을 관리하는 도구입니다. 여러 개의 Node.js 버전을 설치할 수 있고 설치된 모든 버전을 확인할 수 있습니다. 그리고 필요에 따라 버전 변경도 할 수 있습니다.
- 설치
-NVM Git
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2022/10/23/js-dev-5/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/javascript.png)" alt="[JavaScript] 주민등록번호 유효성 검사" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2022/10/23/js-dev-5/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a>
-            </div>
-            <div class="date"><time datetime="2022-10-23T08:26:18.000Z" itemprop="datePublished">2022-10-23</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2022/10/23/js-dev-5/">[JavaScript] 주민등록번호 유효성 검사</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            JavaScript에서 주민등록번호 유효성 검사 방법에 대해 알아보겠습니다.
- 주민등록번호란
-
-주민등록번호는 “주민의 거주관계를 파악하고 상시로 인구의 동태를 명확히 하여 행정사무의 적정하고 간이 한 처리를 도모함”(1962년 주민등록법) 등을 목적으로 만든 일련번호로서, 개개인의 신원을 명확하게 구분하는 역할을 한다.
-나무위키
-
-내국인과 외국인 주민등록번
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2022/10/22/python-3/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/python.png)" alt="[Python] OpenCV Sharpening" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2022/10/22/python-3/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a>
-            </div>
-            <div class="date"><time datetime="2022-10-22T14:41:19.000Z" itemprop="datePublished">2022-10-22</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2022/10/22/python-3/">[Python] OpenCV Sharpening</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            Python에서 OpenCV를 사용하여 Sharpening 하는 방법에 대해 알아보겠습니다.
- Sharpening
-Sharpening 기법은 Bluring과 반대되는 개념으로, 초점이 잘 맞은 사진처럼 사물의 윤곽이 뚜렷하고 선명한 느낌이 나도록 하는 것이다.
- 설치
-Python 에서 OpenCV 를 사용하기 위해 패키지를 설치합니다.
-1$ pip inst
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2022/10/12/angular-8/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/angular.png)" alt="[Angular] Cytoscape 사용 방법" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2022/10/12/angular-8/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a>
-            </div>
-            <div class="date"><time datetime="2022-10-12T06:53:50.000Z" itemprop="datePublished">2022-10-12</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2022/10/12/angular-8/">[Angular] Cytoscape 사용 방법</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-             Cytoscape 소개
-Cytoscape은 점 (node)과 선 (edge)으로 이루어진 네트워크의 가시화, 통합, 분석을 가능하게 하는 프리 오픈소스 소프트웨어입니다. 자바로 구현되어 있어 윈도우, 맥, 리눅스등에서 자유롭게 구동합니다.
-Cytoscape 라이브러리를 사용하여 노드 간의 절차를 시각화하는 그래프를 구현하는 방법에 대해 알아보겠습니다.
- 
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2022/09/29/angular-7/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/angular.png)" alt="[Angular] Markdown 사용 방법" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2022/09/29/angular-7/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a>
-            </div>
-            <div class="date"><time datetime="2022-09-29T04:30:09.000Z" itemprop="datePublished">2022-09-29</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2022/09/29/angular-7/">[Angular] Markdown 사용 방법</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-             Markdown 이란
-
-마크다운은 일반 텍스트 기반의 경량 마크업 언어다. 일반 텍스트로 서식이 있는 문서를 작성하는 데 사용되며, 일반 마크업 언어에 비해 문법이 쉽고 간단한 것이 특징이다. HTML과 리치 텍스트(RTF) 등 서식 문서로 쉽게 변환되기 때문에 응용 소프트웨어와 함께 배포되는 README 파일이나 온라인 게시물 등에 많이 사용된다. 위키
-        </p>
-    </div>
-</article>
-    
         </div>
     
 
@@ -743,8 +744,8 @@ Cytoscape 라이브러리를 사용하여 노드 간의 절차를 시각화하�
 
 
     <nav id="page-nav">
-        <span class="pages">Page 28 of 45</span>
-        <a class="extend prev" rel="prev" href="/archives/page/27/">&laquo;</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/26/">26</a><a class="page-number" href="/archives/page/27/">27</a><span class="page-number current">28</span><a class="page-number" href="/archives/page/29/">29</a><a class="page-number" href="/archives/page/30/">30</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/45/">45</a><a class="extend next" rel="next" href="/archives/page/29/">&raquo;</a>
+        <span class="pages">Page 28 of 46</span>
+        <a class="extend prev" rel="prev" href="/archives/page/27/">&laquo;</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/26/">26</a><a class="page-number" href="/archives/page/27/">27</a><span class="page-number current">28</span><a class="page-number" href="/archives/page/29/">29</a><a class="page-number" href="/archives/page/30/">30</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/46/">46</a><a class="extend next" rel="next" href="/archives/page/29/">&raquo;</a>
     </nav>
 
 
@@ -819,50 +820,10 @@ Cytoscape 라이브러리를 사용하여 노드 간의 절차를 시각화하�
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2024/07/16/chatgpt-30/" class="thumbnail">
+                            <a href="/2024/07/29/csharp-9/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/thumbnail/chatgpt.png)" alt="최고의 ChatGPT 프롬프트 10가지" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
-                            <p class="item-title"><a href="/2024/07/16/chatgpt-30/" class="title">최고의 ChatGPT 프롬프트 10가지</a></p>
-                            <p class="item-date"><time datetime="2024-07-16T14:19:27.000Z" itemprop="datePublished">2024-07-16</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/07/12/chatgpt-29/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/chatgpt.png)" alt="최고의 ChatGPT 프롬프트 10가지" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
-                            <p class="item-title"><a href="/2024/07/12/chatgpt-29/" class="title">최고의 ChatGPT 프롬프트 10가지</a></p>
-                            <p class="item-date"><time datetime="2024-07-12T05:45:32.000Z" itemprop="datePublished">2024-07-12</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/07/11/csharp-8/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/csharp.png)" alt="[C#] var 사용의 장단점" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/thumbnail/csharp.png)" alt="[C#] 클래스와 인터페이스를 함께 사용하는 이유" class="thumbnail-image"></span>
     
     
 </a>
@@ -871,18 +832,78 @@ Cytoscape 라이브러리를 사용하여 노드 간의 절차를 시각화하�
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
-                            <p class="item-title"><a href="/2024/07/11/csharp-8/" class="title">[C#] var 사용의 장단점</a></p>
-                            <p class="item-date"><time datetime="2024-07-11T14:19:18.000Z" itemprop="datePublished">2024-07-11</time></p>
+                            <p class="item-title"><a href="/2024/07/29/csharp-9/" class="title">[C#] 클래스와 인터페이스를 함께 사용하는 이유</a></p>
+                            <p class="item-date"><time datetime="2024-07-29T01:55:00.000Z" itemprop="datePublished">2024-07-29</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2024/07/10/info-22/" class="thumbnail">
+                            <a href="/2024/07/25/java-2/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/thumbnail/information.png)" alt="Mac vs. Windows vs. Linux: 소프트웨어 개발자를 위한 최고의 가이드" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/thumbnail/java.png)" alt="Java 8 코딩 및 프로그래밍 면접 질문과 답변" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/07/25/java-2/" class="title">Java 8 코딩 및 프로그래밍 면접 질문과 답변</a></p>
+                            <p class="item-date"><time datetime="2024-07-25T03:39:24.000Z" itemprop="datePublished">2024-07-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/07/25/java-1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/java.png)" alt="[Java 8] Stream API 면접 질문과 답변" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/07/25/java-1/" class="title">[Java 8] Stream API 면접 질문과 답변</a></p>
+                            <p class="item-date"><time datetime="2024-07-25T03:33:40.000Z" itemprop="datePublished">2024-07-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/07/25/typescript-25/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/typescript.png)" alt="디자인 패턴을 사용하여 TypeScript로 확장 가능한 사용자 관리 시스템 구축하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/07/25/typescript-25/" class="title">디자인 패턴을 사용하여 TypeScript로 확장 가능한 사용자 관리 시스템 구축하기</a></p>
+                            <p class="item-date"><time datetime="2024-07-25T02:05:49.000Z" itemprop="datePublished">2024-07-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/07/24/info-23/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/information.png)" alt="API 디자인: 기초부터 모범 사례까지" class="thumbnail-image"></span>
     
     
 </a>
@@ -891,28 +912,8 @@ Cytoscape 라이브러리를 사용하여 노드 간의 절차를 시각화하�
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/IT/">IT</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/IT/Information/">Information</a></p>
-                            <p class="item-title"><a href="/2024/07/10/info-22/" class="title">Mac vs. Windows vs. Linux: 소프트웨어 개발자를 위한 최고의 가이드</a></p>
-                            <p class="item-date"><time datetime="2024-07-10T13:04:58.000Z" itemprop="datePublished">2024-07-10</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/07/08/ai-26/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/ai.png)" alt="모든 개발자가 알아야 할 상위 100가지 AI 용어" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
-                            <p class="item-title"><a href="/2024/07/08/ai-26/" class="title">모든 개발자가 알아야 할 상위 100가지 AI 용어</a></p>
-                            <p class="item-date"><time datetime="2024-07-08T14:46:45.000Z" itemprop="datePublished">2024-07-08</time></p>
+                            <p class="item-title"><a href="/2024/07/24/info-23/" class="title">API 디자인: 기초부터 모범 사례까지</a></p>
+                            <p class="item-date"><time datetime="2024-07-24T13:30:42.000Z" itemprop="datePublished">2024-07-24</time></p>
                         </div>
                     </li>
                 
@@ -923,7 +924,7 @@ Cytoscape 라이브러리를 사용하여 노드 간의 절차를 시각화하�
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">54</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">382</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">73</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">33</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">29</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">108</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">96</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">24</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">8</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">55</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">386</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">73</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">33</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">29</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">108</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">100</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">25</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">8</span></li></ul></li></ul>
         </div>
     </div>
 
