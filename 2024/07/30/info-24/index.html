@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>HTTP Status Code 초보자 가이드 | 규니의 블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="IT,HTTP,기술,Status Code,Http Status Code,Http Request" />
+    
+    <meta name="description" content="블로그의 내용은 다음과 같습니다.  HTTP란 무엇인가요? 상태 코드(Status Code)란 무엇인가요? HTTP 코드의 종류는 무엇인가요? 각 HTTP 코드에 대한 간략한 설명.  HTTP란 무엇인가요? HTTP(Hypertext Transfer Protocol)은 HTML과 같은 하이퍼미디어 문서를 전송하기 위한 애플리케이션 계층 프로토콜입니다. 웹">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP Status Code 초보자 가이드">
+<meta property="og:url" content="http://hgko1207.github.io/2024/07/30/info-24/index.html">
+<meta property="og:site_name" content="규니의 블로그">
+<meta property="og:description" content="블로그의 내용은 다음과 같습니다.  HTTP란 무엇인가요? 상태 코드(Status Code)란 무엇인가요? HTTP 코드의 종류는 무엇인가요? 각 HTTP 코드에 대한 간략한 설명.  HTTP란 무엇인가요? HTTP(Hypertext Transfer Protocol)은 HTML과 같은 하이퍼미디어 문서를 전송하기 위한 애플리케이션 계층 프로토콜입니다. 웹">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/information.png">
+<meta property="article:published_time" content="2024-07-30T04:59:48.000Z">
+<meta property="article:modified_time" content="2024-07-30T05:40:03.221Z">
+<meta property="article:author" content="Hyeong Gyun Ko">
+<meta property="article:tag" content="IT">
+<meta property="article:tag" content="HTTP">
+<meta property="article:tag" content="기술">
+<meta property="article:tag" content="Status Code">
+<meta property="article:tag" content="Http Status Code">
+<meta property="article:tag" content="Http Request">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/information.png">
+    
+
+    
+        <link rel="alternate" href="/" title="규니의 블로그" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-166318275-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+
+    <!-- <script
+  data-ad-client="ca-pub-7581566810202853"
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+></script>
+ -->
+
+    <!-- 구글 애드센스 -->
+    <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!-- 네이버 -->
+    <meta name="naver-site-verification" content="a6e2912bbd1e42226e10ee12d3498a246c51ec1f" />
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h2 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h2>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">hgko&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ETC/">ETC</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/">IT</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/BlockChain/">BlockChain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Blockchain/">Blockchain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Information/">Information</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Satellite/">Satellite</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Backend/">Backend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DB/">DB</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Frontend/">Frontend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Language/">Language</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Mobile/">Mobile</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Web/">Web</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about">About</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/profile">Profile</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h2 class="header">
+    
+    <a class="page-title-link" href="/categories/IT/">IT</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/IT/Information/">Information</a>
+    </h2>
+</div>
+
+                        <div class="main-body-content">
+                            <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+                            <!-- 상단 광고 -->
+<ins
+  class="adsbygoogle"
+  style="display: block"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="1131844921"
+  data-ad-format="auto"
+  data-full-width-responsive="true"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                            <article id="post-info-24" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        HTTP Status Code 초보자 가이드
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2024/07/30/info-24/" class="article-date">
+         <time datetime="2024-07-30T04:59:48.000Z" itemprop="datePublished">2024-07-30</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/HTTP/" rel="tag">HTTP</a>, <a class="tag-link" href="/tags/Http-Request/" rel="tag">Http Request</a>, <a class="tag-link" href="/tags/Http-Status-Code/" rel="tag">Http Status Code</a>, <a class="tag-link" href="/tags/IT/" rel="tag">IT</a>, <a class="tag-link" href="/tags/Status-Code/" rel="tag">Status Code</a>, <a class="tag-link" href="/tags/%EA%B8%B0%EC%88%A0/" rel="tag">기술</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>블로그의 내용은 다음과 같습니다.</p>
+<ul>
+<li>HTTP란 무엇인가요?</li>
+<li>상태 코드(Status Code)란 무엇인가요?</li>
+<li>HTTP 코드의 종류는 무엇인가요?</li>
+<li>각 HTTP 코드에 대한 간략한 설명.</li>
+</ul>
+<h2 id="HTTP란-무엇인가요">HTTP란 무엇인가요?</h2>
+<p>HTTP(Hypertext Transfer Protocol)은 HTML과 같은 하이퍼미디어 문서를 전송하기 위한 애플리케이션 계층 프로토콜입니다. 웹 브라우저와 웹 서버 간의 통신을 위해 설계되었습니다.</p>
+<p><img src="/images/header/info-24_1.png" alt=""></p>
+<p>각각의 개별 요청은 서버로 전송되며, 서버는 이를 처리하고 응답이라는 답변을 제공합니다.</p>
+<h2 id="상태-코드-Status-Code-란-무엇인가요">상태 코드(Status Code)란 무엇인가요?</h2>
+<p>클라이언트의 요청이 있을 때마다 서버는 요청의 상태를 전달하는 데 도움이 되는 코드를 응답으로 보냅니다. 이는 응답 본문에 투자하지 않고도 요청이 성공했는지 여부를 빠르게 검사할 수 있는 방법입니다.</p>
+<h2 id="HTTP-코드의-유형은-무엇인가요">HTTP 코드의 유형은 무엇인가요?</h2>
+<p>응답은 5가지 클래스로 분류됩니다.</p>
+<ul>
+<li>정보성 응답(100-199)</li>
+<li>성공적인 응답(200-299)</li>
+<li>리디렉션 메시지(300-399)</li>
+<li>클라이언트 오류 응답(400-499)</li>
+<li>서버 오류 응답(500-599)</li>
+</ul>
+<p><img src="/images/header/info-24_2.png" alt=""></p>
+<h3 id="정보-Information-응답">정보(Information) 응답</h3>
+<ul>
+<li><strong>100 Continue:</strong> 클라이언트가 요청을 계속하거나 요청이 이미 완료된 경우 응답을 무시해야 함을 나타냅니다.</li>
+<li><strong>101 Switching Protocols:</strong> 클라이언트의 업그레이드 요청 헤더에 대한 응답으로 전송되며 서버가 전환 중인 프로토콜을 나타냅니다.</li>
+<li><strong>102 Processing:</strong> 서버가 요청을 수신하여 처리 중이지만 아직 응답이 없음을 나타냅니다.</li>
+<li><strong>103 Early Hints:</strong> 주로 링크 헤더와 함께 사용되며, 서버가 응답을 준비하는 동안 사용자 에이전트가 리소스 사전 로딩을 시작할 수 있도록 합니다.</li>
+</ul>
+<h3 id="성공적인-Successful-응답">성공적인(Successful) 응답</h3>
+<ul>
+<li>
+<p><strong>200 OK:</strong> 요청이 성공했습니다. &quot;성공&quot;의 결과 의미는 HTTP 메서드에 따라 다릅니다:</p>
+<ul>
+<li><strong>GET:</strong> 리소스를 가져와 메시지 본문으로 전송했습니다.</li>
+<li><strong>HEAD:</strong> 메시지 본문 없이 표현 헤더가 응답에 포함됩니다.</li>
+<li><strong>PUT 또는 POST:</strong> 작업 결과를 설명하는 리소스가 메시지 본문으로 전송됩니다.</li>
+<li><strong>TRACE:</strong> 메시지 본문에는 서버가 수신한 요청 메시지가 포함됩니다.</li>
+</ul>
+</li>
+<li>
+<p><strong>201 Created:</strong> 요청이 성공했으며 그 결과 새 리소스가 생성되었습니다. 일반적으로 POST 요청 또는 일부 PUT 요청 후에 전송되는 응답입니다.</p>
+</li>
+<li>
+<p><strong>202 Accepted:</strong> 요청이 수신되었지만 아직 처리되지 않았습니다. HTTP에서는 나중에 요청 결과를 나타내는 비동기 응답을 전송할 방법이 없기 때문에 비커밋 상태입니다. 다른 프로세스나 서버가 요청을 처리하는 경우 또는 일괄 처리를 위한 것입니다.</p>
+</li>
+<li>
+<p><strong>203 Non-Authoritative Information:</strong> 반환된 메타데이터가 원본 서버에서 사용할 수 있는 것과 정확히 동일하지 않고 로컬 또는 타사 사본에서 수집되었음을 의미합니다. 주로 다른 리소스의 미러 또는 백업에 사용됩니다. 이러한 특별한 경우를 제외하고는 이 상태보다 200 OK 응답이 선호됩니다.</p>
+</li>
+<li>
+<p><strong>204 No Content:</strong> 이 요청에 대해 보낼 콘텐츠가 없지만 헤더가 유용할 수 있습니다. 사용자 에이전트는 이 리소스에 대해 캐시된 헤더를 새 헤더로 업데이트할 수 있습니다.</p>
+</li>
+<li>
+<p><strong>205 Reset Content:</strong> 사용자 에이전트에게 이 요청을 보낸 문서를 재설정하라고 알려줍니다.</p>
+</li>
+<li>
+<p><strong>206 Partial Content:</strong> 클라이언트에서 리소스의 일부만 요청하기 위해 범위 헤더를 보낼 때 사용되는 응답 코드입니다.</p>
+</li>
+<li>
+<p><strong>207 Multi-Status:</strong> 여러 상태 코드가 적절할 수 있는 상황에 대해 여러 리소스에 대한 정보를 전달합니다.</p>
+</li>
+<li>
+<p><strong>208 Already Reported:</strong> 동일한 컬렉션에 대한 여러 바인딩의 내부 멤버를 반복적으로 열거하지 않기 위해 응답 요소 내부에서 사용됩니다.</p>
+</li>
+<li>
+<p><strong>226 IM used (HTTP Delta encoding):</strong> 서버가 리소스에 대한 GET 요청을 처리했으며, 응답은 현재 인스턴스에 적용된 하나 이상의 인스턴스 조작 결과를 나타냅니다.</p>
+</li>
+</ul>
+<h3 id="리디렉션-메시지">리디렉션 메시지</h3>
+<ul>
+<li>
+<p><strong>300 Multiple Choice:</strong> 요청에 가능한 응답이 두 개 이상 있습니다. 사용자 에이전트 또는 사용자는 그 중 하나를 선택해야 합니다. (응답 중 하나를 선택하는 표준화된 방법은 없지만 사용자가 선택할 수 있도록 가능성에 대한 HTML 링크를 제공하는 것이 좋습니다.)</p>
+</li>
+<li>
+<p><strong>301 Moved Permanently:</strong> 요청된 리소스의 URL이 영구적으로 변경되었습니다. 새 URL은 응답에 제공됩니다.</p>
+</li>
+<li>
+<p><strong>302 Found:</strong> 요청된 리소스의 URI가 일시적으로 변경되었음을 의미합니다. 향후 URI가 추가로 변경될 수 있습니다. 따라서 클라이언트는 향후 요청 시 동일한 URI를 사용해야 합니다.</p>
+</li>
+<li>
+<p><strong>303 See Other:</strong> 서버가 이 응답을 전송하여 클라이언트가 GET 요청을 통해 다른 URI에서 요청된 리소스를 가져오도록 안내합니다.</p>
+</li>
+<li>
+<p><strong>304 Not Modified:</strong> 캐싱 목적으로 사용됩니다. 응답이 수정되지 않았음을 클라이언트에 알려주므로 클라이언트는 동일한 캐시된 버전의 응답을 계속 사용할 수 있습니다.</p>
+</li>
+<li>
+<p><strong>305 Use Proxy:</strong> 요청된 응답이 프록시를 통해 액세스되어야 함을 나타내기 위해 이전 버전의 HTTP 사양에서 정의되었습니다. 프록시의 대역 내 구성과 관련된 보안 문제로 인해 더 이상 사용되지 않습니다.</p>
+</li>
+<li>
+<p><strong>306 unused:</strong> 더 이상 사용되지 않습니다. 이전 버전의 HTTP/1.1 사양에서 사용되었습니다.</p>
+</li>
+<li>
+<p><strong>307 Temporary Redirect:</strong> 서버는 이전 요청에 사용된 것과 동일한 방법으로 클라이언트가 요청된 리소스를 다른 URI에서 가져오도록 지시하기 위해 이 응답을 보냅니다. 302 HTTP를 찾을 수 없음 응답 코드와 의미는 동일하지만 사용자 에이전트가 사용된 HTTP 방법을 변경해서는 안 된다는 점, 즉 첫 번째 요청에서 POST를 사용했다면 두 번째 요청에서는 POST를 사용해야 한다는 점을 제외하면 동일한 의미를 가집니다.</p>
+</li>
+<li>
+<p><strong>308 Permanent Redirect:</strong> 리소스가 이제 위치에서 지정한 다른 URI에 영구적으로 위치하게 되었음을 의미합니다: HTTP 응답 헤더로 지정된 다른 URI에 리소스가 영구적으로 배치되었음을 의미합니다. 이는 301 영구적으로 이동됨 HTTP 응답 코드와 동일한 의미를 갖지만 사용자 에이전트가 사용된 HTTP 방법을 변경해서는 안 된다는 점을 제외하면 첫 번째 요청에서 POST를 사용했다면 두 번째 요청에서도 POST를 사용해야 한다는 점만 다릅니다.</p>
+</li>
+</ul>
+<h3 id="클라이언트-오류-응답">클라이언트 오류 응답</h3>
+<ul>
+<li>
+<p><strong>400 Bad Request:</strong> 잘못된 구문으로 인해 서버가 요청을 이해할 수 없습니다.</p>
+</li>
+<li>
+<p><strong>401 Unauthorized:</strong> HTTP 표준은 &quot;Unauthorized&quot;을 명시하고 있지만, 의미상 이 응답은 &quot;unauthenticated&quot;을 의미합니다. 즉, 클라이언트가 요청된 응답을 받으려면 자신을 인증해야 합니다.</p>
+</li>
+<li>
+<p><strong>402 Payment Required:</strong> 향후 사용을 위해 예약되어 있습니다. 이 코드를 만든 초기 목적은 디지털 결제 시스템에 사용하기 위한 것이었지만, 이 상태 코드는 거의 사용되지 않으며 표준 규칙도 존재하지 않습니다.</p>
+</li>
+<li>
+<p><strong>403 Forbidden:</strong> 클라이언트에 콘텐츠에 대한 액세스 권한이 없습니다. 즉, 권한이 없으므로 서버가 요청된 리소스 제공을 거부합니다. 401 Unauthorized과 달리 클라이언트의 신원이 서버에 알려져 있습니다.</p>
+</li>
+<li>
+<p><strong>404 Not Found:</strong> 서버가 요청된 리소스를 찾을 수 없습니다. 브라우저에서는 URL이 인식되지 않음을 의미합니다. API에서는 엔드포인트는 유효하지만 리소스 자체가 존재하지 않음을 의미할 수도 있습니다. 서버는 권한이 없는 클라이언트로부터 리소스의 존재를 숨기기 위해 403 Forbidden 대신 이 응답을 보낼 수도 있습니다. 이 응답 코드는 웹에서 자주 발생하기 때문에 가장 잘 알려져 있습니다.</p>
+</li>
+<li>
+<p><strong>405 Method Not Allowed:</strong> 요청 메서드가 서버에서 알고 있지만 대상 리소스에서 지원되지 않습니다. 예를 들어, 리소스를 제거하기 위해 DELETE를 호출하는 것을 허용하지 않는 API가 있을 수 있습니다.</p>
+</li>
+<li>
+<p><strong>406 Not Acceptable:</strong> 웹 서버가 서버 기반 콘텐츠 협상을 수행한 후 사용자 에이전트가 지정한 기준에 맞는 콘텐츠를 찾지 못한 경우 이 응답이 전송됩니다.</p>
+</li>
+<li>
+<p><strong>407 Proxy Authentication Required:</strong> 401 Unauthorized과 유사하지만 프록시를 통한 인증이 필요한 경우입니다.</p>
+</li>
+<li>
+<p><strong>408 Request Timeout:</strong> 이 응답은 클라이언트의 사전 요청 없이도 일부 서버가 유휴 연결 상태에서 전송합니다. 이는 서버가 사용하지 않는 연결을 종료하고자 함을 의미합니다. 이 응답은 크롬, 파이어폭스 27+ 또는 IE9와 같은 일부 브라우저에서 서핑 속도를 높이기 위해 HTTP 사전 연결 메커니즘을 사용하기 때문에 훨씬 더 많이 사용됩니다. 또한 일부 서버는 이 메시지를 보내지 않고 단순히 연결을 종료하기도 합니다.</p>
+</li>
+<li>
+<p><strong>409 Conflict:</strong> 요청이 서버의 현재 상태와 충돌할 때 이 응답이 전송됩니다.</p>
+</li>
+<li>
+<p><strong>410 Gone:</strong> 요청된 콘텐츠가 서버에서 전달 주소 없이 영구적으로 삭제된 경우 이 응답이 전송됩니다. 클라이언트는 캐시 및 리소스에 대한 링크를 제거해야 합니다. HTTP 사양에서는 이 상태 코드를 &quot;limited-time, promotional services&quot;에 사용하도록 의도하고 있습니다. API는 이 상태 코드로 삭제된 리소스를 표시해야 할 필요는 없습니다.</p>
+</li>
+<li>
+<p><strong>411 Length Required:</strong> Content-Length 헤더 필드가 정의되지 않았고 서버에서 이를 요구하기 때문에 서버가 요청을 거부했습니다.</p>
+</li>
+<li>
+<p><strong>412 Precondition Failed:</strong> 클라이언트가 헤더에 서버가 충족하지 않는 전제 조건을 표시했습니다.</p>
+</li>
+<li>
+<p><strong>413 Payload Too Large:</strong> 요청 엔티티가 서버에서 정의한 제한보다 큽니다. 서버가 연결을 닫거나 재시도 후 헤더 필드를 반환할 수 있습니다.</p>
+</li>
+<li>
+<p><strong>414 URI Too Long:</strong> 클라이언트에서 요청한 URI가 서버가 해석할 수 있는 것보다 깁니다.</p>
+</li>
+<li>
+<p><strong>415 Unsupported Media Type:</strong> 요청된 데이터의 미디어 형식이 서버에서 지원되지 않으므로 서버가 요청을 거부합니다.</p>
+</li>
+<li>
+<p><strong>416 Range Not Satisfiable:</strong> 요청의 범위 헤더 필드에 지정된 범위를 충족할 수 없습니다. 범위가 대상 URI의 데이터 크기를 벗어났을 수 있습니다.</p>
+</li>
+<li>
+<p><strong>417 Expectation failed:</strong> 이 응답 코드는 서버에서 기대 요청 헤더 필드에 표시된 기대치를 충족할 수 없음을 의미합니다.</p>
+</li>
+<li>
+<p><strong>421 Misdirected Request:</strong> 응답을 생성할 수 없는 서버로 요청이 전송되었습니다. 요청 URI에 포함된 체계와 권한의 조합에 대한 응답을 생성하도록 구성되지 않은 서버에서 보낼 수 있습니다.</p>
+</li>
+<li>
+<p><strong>422 Unprocessable Entity:</strong> 요청은 잘 형성되었지만 의미론적 오류로 인해 요청을 따를 수 없습니다.</p>
+</li>
+<li>
+<p><strong>423 Locked:</strong> 액세스 중인 리소스가 잠겼습니다.</p>
+</li>
+<li>
+<p><strong>424 Failed Dependency:</strong> 이전 요청의 실패로 인해 요청이 실패했습니다.</p>
+</li>
+<li>
+<p><strong>425 Too Early:</strong> 서버가 재생될 수 있는 요청을 처리할 위험을 감수하지 않으려 함을 나타냅니다.</p>
+</li>
+<li>
+<p><strong>426 Upgrade Required:</strong> 서버가 현재 프로토콜을 사용하여 요청을 수행하는 것을 거부하지만 클라이언트가 다른 프로토콜로 업그레이드한 후에는 요청을 수행할 의향이 있을 수 있습니다. 서버는 426 응답에 업그레이드 헤더를 전송하여 필요한 프로토콜을 표시합니다.</p>
+</li>
+<li>
+<p><strong>428 Precondition Required:</strong> 원본 서버는 요청이 조건부일 것을 요구합니다. 이 응답은 클라이언트가 리소스의 상태를 가져와서 수정한 후 서버에 다시 넣을 때 제3자가 서버의 상태를 수정하여 충돌이 발생하는 ‘업데이트 손실’ 문제를 방지하기 위한 것입니다.</p>
+</li>
+<li>
+<p><strong>429 Too Many Requests:</strong> 사용자가 주어진 시간 동안 너무 많은 요청을 보냈습니다(“속도 제한”).</p>
+</li>
+<li>
+<p><strong>431 Request Header Fields Too Large:</strong> 서버가 헤더 필드가 너무 커서 요청을 처리할 수 없습니다. 요청 헤더 필드의 크기를 줄인 후 요청을 다시 제출할 수 있습니다.</p>
+</li>
+<li>
+<p><strong>451 Unavailable For Legal Reasons:</strong> 사용자 에이전트가 정부에서 검열하는 웹 페이지 등 법적으로 제공할 수 없는 리소스를 요청했습니다.</p>
+</li>
+</ul>
+<h3 id="서버-오류-응답">서버 오류 응답</h3>
+<ul>
+<li>
+<p><strong>500 Internal Server Error:</strong> 서버가 처리할 수 없는 상황이 발생했습니다.</p>
+</li>
+<li>
+<p><strong>501 Not Implemented:</strong> 요청 메서드가 서버에서 지원되지 않아 처리할 수 없습니다. 서버가 지원해야 하는(따라서 이 코드를 반환해서는 안 되는) 유일한 메서드는 GET과 HEAD입니다.</p>
+</li>
+<li>
+<p><strong>502 Bad Gateway:</strong> 서버가 요청을 처리하는 데 필요한 응답을 얻기 위해 게이트웨이로 작동하는 동안 잘못된 응답을 받았음을 의미합니다.</p>
+</li>
+<li>
+<p><strong>503 Service Unavailable:</strong> 서버가 요청을 처리할 준비가 되지 않았습니다. 일반적인 원인은 유지보수를 위해 서버가 다운되었거나 과부하가 걸린 경우입니다. 이 응답과 함께 문제를 설명하는 사용자 친화적인 페이지가 전송되어야 한다는 점에 유의하세요. 이 응답은 일시적인 상황에 사용해야 하며, 가능하면 서비스 복구 전 예상 시간을 Retry-After HTTP 헤더에 포함해야 합니다. 이러한 임시 상태 응답은 일반적으로 캐싱되지 않아야 하므로 웹 마스터는 이 응답과 함께 전송되는 캐싱 관련 헤더에도 주의해야 합니다.</p>
+</li>
+<li>
+<p><strong>504 Gateway Timeout:</strong> 서버가 게이트웨이 역할을 하고 있는데 제시간에 응답을 받을 수 없는 경우 이 오류 응답이 표시됩니다.</p>
+</li>
+<li>
+<p><strong>505 HTTP Version Not Supported:</strong> 요청에 사용된 HTTP 버전이 서버에서 지원되지 않습니다.</p>
+</li>
+<li>
+<p><strong>506 Variant Negotiates:</strong> 서버에 내부 구성 오류가 있습니다. 선택한 변형 리소스가 투명한 콘텐츠 협상 자체에 참여하도록 구성되어 있으므로 협상 프로세스의 적절한 엔드포인트가 아닙니다.</p>
+</li>
+<li>
+<p><strong>507 Insufficient Storage:</strong> 서버가 요청을 성공적으로 완료하는 데 필요한 표현을 저장할 수 없기 때문에 리소스에서 메서드를 수행할 수 없습니다.</p>
+</li>
+<li>
+<p><strong>508 Loop Detected:</strong> 서버가 요청을 처리하는 동안 무한 루프를 감지했습니다.</p>
+</li>
+<li>
+<p><strong>510 Not Extended:</strong> 서버가 요청을 처리하려면 요청에 대한 추가 확장이 필요합니다.</p>
+</li>
+<li>
+<p><strong>511 Network Authentication Required:</strong> 클라이언트가 네트워크 액세스를 얻기 위해 인증이 필요함을 나타냅니다.</p>
+</li>
+</ul>
+
+        </div>
+        <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+        <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://hgko1207.github.io/2024/07/30/info-24/" data-id="clzcttvuv000esscx8zj7chkj" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Hyeong Gyun Ko"
+        },
+        "headline": "HTTP Status Code 초보자 가이드",
+        "image": "http://hgko1207.github.io/images/thumbnail/information.png",
+        "keywords": "IT HTTP 기술 Status Code Http Status Code Http Request",
+        "genre": "IT Information",
+        "datePublished": "2024-07-30",
+        "dateCreated": "2024-07-30",
+        "dateModified": "2024-07-30",
+        "url": "http://hgko1207.github.io/2024/07/30/info-24/",
+        "description": "블로그의 내용은 다음과 같습니다.
+
+HTTP란 무엇인가요?
+상태 코드(Status Code)란 무엇인가요?
+HTTP 코드의 종류는 무엇인가요?
+각 HTTP 코드에 대한 간략한 설명.
+
+HTTP란 무엇인가요?
+HTTP(Hypertext Transfer Protocol)은 HTML과 같은 하이퍼미디어 문서를 전송하기 위한 애플리케이션 계층 프로토콜입니다. 웹 ",
+        "wordCount": 1427
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                            <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>follow:</p>
+    <ul class="social-links">
+       
+      <li>
+        <a
+          class="social-tooltip"
+          title="github"
+          href="https://github.com/hgko1207"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-github"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="facebook"
+          href="https://www.facebook.com/profile.php?id=100003526102847"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-facebook"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="rss"
+          href="/"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-rss"></i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+   
+<nav id="article-nav">
+    
+    
+        <a href="/2024/07/30/java-3/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">[Java] Logger</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+ 
+  <div class="widgets-container">
+      
+  
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/07/30/info-24/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/information.png)" alt="HTTP Status Code 초보자 가이드" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/IT/">IT</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/IT/Information/">Information</a></p>
+                            <p class="item-title"><a href="/2024/07/30/info-24/" class="title">HTTP Status Code 초보자 가이드</a></p>
+                            <p class="item-date"><time datetime="2024-07-30T04:59:48.000Z" itemprop="datePublished">2024-07-30</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/07/30/java-3/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/java.png)" alt="[Java] Logger" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/07/30/java-3/" class="title">[Java] Logger</a></p>
+                            <p class="item-date"><time datetime="2024-07-30T04:12:06.000Z" itemprop="datePublished">2024-07-30</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/07/29/csharp-10/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/csharp.png)" alt="C#에서 DDD를 사용하는 것이 좋은 이유와 장단점" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/07/29/csharp-10/" class="title">C#에서 DDD를 사용하는 것이 좋은 이유와 장단점</a></p>
+                            <p class="item-date"><time datetime="2024-07-29T02:06:35.000Z" itemprop="datePublished">2024-07-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/07/29/csharp-9/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/csharp.png)" alt="[C#] 클래스와 인터페이스를 함께 사용하는 이유" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/07/29/csharp-9/" class="title">[C#] 클래스와 인터페이스를 함께 사용하는 이유</a></p>
+                            <p class="item-date"><time datetime="2024-07-29T01:55:00.000Z" itemprop="datePublished">2024-07-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/07/25/java-2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/java.png)" alt="Java 8 코딩 및 프로그래밍 면접 질문과 답변" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/07/25/java-2/" class="title">Java 8 코딩 및 프로그래밍 면접 질문과 답변</a></p>
+                            <p class="item-date"><time datetime="2024-07-25T03:39:24.000Z" itemprop="datePublished">2024-07-25</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">56</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">32</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">388</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">73</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">33</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">29</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">108</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">102</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">25</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">8</span></li></ul></li></ul>
+        </div>
+    </div>
+
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+  <div class="widget-wrap widget-float">
+
+    <h3 class="widget-title">Sponsored</h3>
+    <div class="widget">
+        <a href="https://marcofranssen.nl?adsense_widget" target="_blank" rel="noopener">This widget is sponsored by, Marco Franssen, main contributor to this theme.</a>
+    </div>
+
+</div>
+  
+  </div>
+  <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+
+  <!-- hits 방문자수 -->
+  <a href="https://hits.seeyoufarm.com" target="_blank" rel="noopener">
+    <style>
+      .hits {
+        width: auto;
+        height: auto;
+        max-width: 99px;
+        max-height: 20px;
+      }
+    </style>
+    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhgko1207.github.io&count_bg=%23E6ADD5&title_bg=%23BF98D2&icon=&icon_color=%23E7E7E7&title=%EB%B0%A9%EB%AC%B8%EC%9E%90%EC%88%98&edge_flat=false"/>
+  </a>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h2 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h2>
+                <p>&copy; 2024 Hyeong Gyun Ko</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://hgko1207.github.io/2024/07/30/info-24/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
