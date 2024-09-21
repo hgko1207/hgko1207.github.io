@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>고급 자바스크립트 트릭 10가지 소개 | 규니의 블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    <meta name="keywords" content="JavaScript,Programming,Web Development,Coding,Web Developer,Javascript Development,Javascript Tips" />
+    
+    <meta name="description" content="자바스크립트는 개발 프로세스를 더 효율적으로 만들고 코드를 더 깔끔하게 만들 수 있는 많은 숨겨진 기능을 갖춘 다목적 언어입니다. 여러분이 잘 모르지만 코딩 실력을 크게 향상시킬 수 있는 고급 자바스크립트 트릭 10가지를 소개합니다. 1. Aliasing을 사용한 구조 분해 구조조정을 사용하면 배열의 값이나 객체의 속성을 별개의 변수로 압축을 풀 수 있습">
+<meta property="og:type" content="article">
+<meta property="og:title" content="고급 자바스크립트 트릭 10가지 소개">
+<meta property="og:url" content="http://hgko1207.github.io/2024/09/20/js-dev-25/index.html">
+<meta property="og:site_name" content="규니의 블로그">
+<meta property="og:description" content="자바스크립트는 개발 프로세스를 더 효율적으로 만들고 코드를 더 깔끔하게 만들 수 있는 많은 숨겨진 기능을 갖춘 다목적 언어입니다. 여러분이 잘 모르지만 코딩 실력을 크게 향상시킬 수 있는 고급 자바스크립트 트릭 10가지를 소개합니다. 1. Aliasing을 사용한 구조 분해 구조조정을 사용하면 배열의 값이나 객체의 속성을 별개의 변수로 압축을 풀 수 있습">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/javascript.png">
+<meta property="article:published_time" content="2024-09-20T02:07:02.000Z">
+<meta property="article:modified_time" content="2024-09-20T03:52:22.348Z">
+<meta property="article:author" content="Hyeong Gyun Ko">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="Programming">
+<meta property="article:tag" content="Web Development">
+<meta property="article:tag" content="Coding">
+<meta property="article:tag" content="Web Developer">
+<meta property="article:tag" content="Javascript Development">
+<meta property="article:tag" content="Javascript Tips">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/javascript.png">
+    
+
+    
+        <link rel="alternate" href="/" title="규니의 블로그" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-166318275-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+
+    <!-- <script
+  data-ad-client="ca-pub-7581566810202853"
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+></script>
+ -->
+
+    <!-- 구글 애드센스 -->
+    <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!-- 네이버 -->
+    <meta name="naver-site-verification" content="a6e2912bbd1e42226e10ee12d3498a246c51ec1f" />
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h2 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h2>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">hgko&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ETC/">ETC</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/">IT</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/BlockChain/">BlockChain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Blockchain/">Blockchain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Information/">Information</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Satellite/">Satellite</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Backend/">Backend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DB/">DB</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Frontend/">Frontend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Language/">Language</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Mobile/">Mobile</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Web/">Web</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about">About</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/profile">Profile</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h2 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a>
+    </h2>
+</div>
+
+                        <div class="main-body-content">
+                            <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+                            <!-- 상단 광고 -->
+<ins
+  class="adsbygoogle"
+  style="display: block"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="1131844921"
+  data-ad-format="auto"
+  data-full-width-responsive="true"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                            <article id="post-js-dev-25" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        고급 자바스크립트 트릭 10가지 소개
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2024/09/20/js-dev-25/" class="article-date">
+         <time datetime="2024-09-20T02:07:02.000Z" itemprop="datePublished">2024-09-20</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Coding/" rel="tag">Coding</a>, <a class="tag-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>, <a class="tag-link" href="/tags/Javascript-Development/" rel="tag">Javascript Development</a>, <a class="tag-link" href="/tags/Javascript-Tips/" rel="tag">Javascript Tips</a>, <a class="tag-link" href="/tags/Programming/" rel="tag">Programming</a>, <a class="tag-link" href="/tags/Web-Developer/" rel="tag">Web Developer</a>, <a class="tag-link" href="/tags/Web-Development/" rel="tag">Web Development</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="/images/header/js-dev-25.png" alt=""></p>
+<p>자바스크립트는 개발 프로세스를 더 효율적으로 만들고 코드를 더 깔끔하게 만들 수 있는 많은 숨겨진 기능을 갖춘 다목적 언어입니다. 여러분이 잘 모르지만 코딩 실력을 크게 향상시킬 수 있는 고급 자바스크립트 트릭 10가지를 소개합니다.</p>
+<h2 id="1-Aliasing을-사용한-구조-분해">1. Aliasing을 사용한 구조 분해</h2>
+<p>구조조정을 사용하면 배열의 값이나 객체의 속성을 별개의 변수로 압축을 풀 수 있습니다. 에일리어싱(Aliasing)을 사용하면 이 과정에서 변수 이름을 변경할 수 있으므로 API와 같은 외부 소스의 데이터를 다룰 때 특히 유용합니다.</p>
+<ul>
+<li><strong>사용 사례:</strong> API에서 데이터를 가져올 경우 코드 가독성과 유지보수성을 높이기 위해 프로퍼티에 더 의미 있는 이름을 부여하고 싶을 때.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> apiResponse = &#123; <span class="attr">first_name</span>: <span class="string">'John'</span>, <span class="attr">user_age</span>: <span class="number">30</span>, <span class="attr">address</span>: &#123; <span class="attr">city</span>: <span class="string">'New York'</span>, <span class="attr">zip</span>: <span class="string">'10001'</span> &#125; &#125;;</span><br><span class="line"><span class="keyword">const</span> &#123;</span><br><span class="line">  first_name: firstName,</span><br><span class="line">  user_age: age,</span><br><span class="line">  address: &#123; <span class="attr">city</span>: hometown, <span class="attr">zip</span>: postalCode &#125;,</span><br><span class="line">&#125; = apiResponse;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(firstName); <span class="comment">// John</span></span><br><span class="line"><span class="built_in">console</span>.log(age); <span class="comment">// 30</span></span><br><span class="line"><span class="built_in">console</span>.log(hometown); <span class="comment">// New York</span></span><br><span class="line"><span class="built_in">console</span>.log(postalCode); <span class="comment">// 10001</span></span><br></pre></td></tr></table></figure>
+<p>왜 사용하는가? 변수 이름을 보다 명확하고 직관적으로 만들어 코드 가독성과 유지보수를 개선하는 데 도움이 됩니다. 에일리어싱을 사용하면 이름 충돌을 피하고 코드의 명확성을 높여 복잡한 데이터 구조로 작업하기가 더 쉬워집니다.</p>
+<h2 id="2-Currying">2. Currying</h2>
+<p>커링(Currying)은 여러 인수를 받는 함수를 각각 하나의 인수를 받는 일련의 함수로 변환하는 프로세스입니다. 이 기술을 사용하면 보다 유연하고 재사용 가능한 함수를 만들 수 있어 함수형 프로그래밍에 특히 유용할 수 있습니다.</p>
+<ul>
+<li><strong>사용 사례:</strong> 할인 적용을 위해 재사용 가능하고 구성 가능한 함수를 만듭니다. 서로 다른 할인율에 대해 별도의 함수를 작성하는 대신 하나의 커리 함수를 만들 수 있습니다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> applyDiscount = <span class="function">(<span class="params">discount</span>) =&gt;</span> <span class="function">(<span class="params">price</span>) =&gt;</span> price - (price * discount) / <span class="number">100</span>;</span><br><span class="line"><span class="keyword">const</span> tenPercentOff = applyDiscount(<span class="number">10</span>);</span><br><span class="line"><span class="keyword">const</span> twentyPercentOff = applyDiscount(<span class="number">20</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(tenPercentOff(<span class="number">100</span>)); <span class="comment">// 90</span></span><br><span class="line"><span class="built_in">console</span>.log(twentyPercentOff(<span class="number">100</span>)); <span class="comment">// 80</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> applyTax = <span class="function">(<span class="params">taxRate</span>) =&gt;</span> <span class="function">(<span class="params">price</span>) =&gt;</span> price + (price * taxRate) / <span class="number">100</span>;</span><br><span class="line"><span class="keyword">const</span> applyTenPercentTax = applyTax(<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(applyTenPercentTax(<span class="number">100</span>)); <span class="comment">// 110</span></span><br><span class="line"><span class="built_in">console</span>.log(applyTenPercentTax(twentyPercentOff(<span class="number">100</span>))); <span class="comment">// 88</span></span><br></pre></td></tr></table></figure>
+<p>왜 사용하는가? 함수에 인수를 미리 설정할 수 있어 보다 모듈화되고 컴포저블한 코드를 만들 수 있습니다. 재사용 가능성이 높은 유틸리티 함수의 생성을 크게 간소화하여 코드베이스를 더 깔끔하고 유지 관리하기 쉽게 만들 수 있습니다. 커링은 함수를 부분적으로 적용하거나 다른 구성으로 재사용해야 하는 시나리오에서 특히 유용합니다.</p>
+<h2 id="3-Debouncing-및-Throttling">3. Debouncing 및 Throttling</h2>
+<p>디바운싱(Debouncing)과 쓰로틀링(Throttling)은 함수가 실행되는 빈도를 제어하는 기술입니다. 특히 성능을 저하시킬 수 있는 과도한 함수 호출을 방지하기 위해 이벤트 핸들러를 최적화하는 데 유용합니다.</p>
+<h3 id="Debouncing">Debouncing</h3>
+<p>디바운싱은 마지막 호출 이후 일정 시간이 경과할 때까지 함수가 다시 호출되지 않도록 합니다. 이는 검색 입력 필드와 같이 사용자가 입력을 멈출 때까지 기다렸다가 API 호출을 하고자 하는 시나리오에 유용합니다.</p>
+<ul>
+<li><strong>사용 사례:</strong> 검색 입력 필드를 최적화하여 API 호출 횟수를 줄입니다. 이렇게 하면 사용자가 입력을 마친 후에만 검색을 시작하여 서버 과부하를 방지하고 사용자 환경을 개선할 수 있습니다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">func, delay</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> timeoutId;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">...args</span>) </span>&#123;</span><br><span class="line">    clearTimeout(timeoutId);</span><br><span class="line">    timeoutId = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> func.apply(<span class="keyword">this</span>, args), delay);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> search = debounce(<span class="function">(<span class="params">query</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Searching for <span class="subst">$&#123;query&#125;</span>`</span>);</span><br><span class="line">  <span class="comment">// Imagine an API call here</span></span><br><span class="line">&#125;, <span class="number">300</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'searchInput'</span>).addEventListener(<span class="string">'input'</span>, (event) =&gt; &#123;</span><br><span class="line">  search(event.target.value);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>사용자가 트리거 동작을 중단한 후에만 함수가 호출되도록 함으로써 불필요한 함수 호출 횟수를 줄여 성능과 사용자 경험을 개선합니다. 네트워크 요청이나 무거운 계산이 수반되는 작업에 특히 유용합니다.</p>
+<h3 id="Throttling">Throttling</h3>
+<p>쓰로틀링은 함수가 지정된 기간에 최대 한 번만 호출되도록 합니다. 이는 함수 호출 빈도를 제한하려는 스크롤 이벤트와 같은 시나리오에 유용합니다.</p>
+<ul>
+<li><strong>사용 사례:</strong> 스크롤 이벤트 처리를 최적화하여 성능을 개선합니다. 이를 통해 브라우저가 너무 많은 이벤트 호출에 압도되는 것을 방지하여 보다 원활하고 반응이 빠른 상호작용을 보장할 수 있습니다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">func, interval</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> lastCall = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">...args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> now = <span class="built_in">Date</span>.now();</span><br><span class="line">    <span class="keyword">if</span> (now - lastCall &gt;= interval) &#123;</span><br><span class="line">      lastCall = now;</span><br><span class="line">      func.apply(<span class="keyword">this</span>, args);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> handleScroll = throttle(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Scrolled'</span>);</span><br><span class="line">  <span class="comment">// Imagine complex calculations or DOM updates here</span></span><br><span class="line">&#125;, <span class="number">300</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'scroll'</span>, handleScroll);</span><br></pre></td></tr></table></figure>
+<p>함수가 제어된 간격으로 호출되도록 하여 성능 문제를 방지하고 브라우저의 부하를 줄이며 더 나은 사용자 경험을 제공합니다. 쓰로틀링은 스크롤 또는 크기 조정 이벤트와 같이 자주 트리거될 수 있는 이벤트 리스너에 특히 유용합니다.</p>
+<h2 id="4-Memoization">4. Memoization</h2>
+<p>Memoization은 비용이 많이 드는 함수 호출의 결과를 캐시하고 동일한 입력이 다시 발생할 때 캐시된 결과를 반환하는 최적화 기법입니다. 이를 통해 연산량이 많은 함수, 특히 동일한 인수로 자주 호출되는 함수의 성능을 크게 향상시킬 수 있습니다.</p>
+<ul>
+<li><strong>사용 사례:</strong> 피보나치 계산과 같은 재귀 함수의 성능을 개선합니다. Memoization 기능이 없으면 피보나치 함수를 호출할 때마다 같은 값을 여러 번 중복 계산하게 되어 시간이 기하급수적으로 복잡해집니다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> memoize = <span class="function">(<span class="params">fn</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> cache = &#123;&#125;;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">...args</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> key = <span class="built_in">JSON</span>.stringify(args);</span><br><span class="line">    <span class="keyword">if</span> (!cache[key]) &#123;</span><br><span class="line">      cache[key] = fn(...args);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cache[key];</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fibonacci = memoize(<span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) <span class="keyword">return</span> n;</span><br><span class="line">  <span class="keyword">return</span> fibonacci(n - <span class="number">1</span>) + fibonacci(n - <span class="number">2</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(fibonacci(<span class="number">40</span>)); <span class="comment">// 102334155</span></span><br></pre></td></tr></table></figure>
+<p>중복 계산을 방지하여 입력이 반복되는 함수의 성능을 크게 향상시킵니다. Memoization은 비효율적이고 반복적인 계산을 관리 가능한 선형 시간 연산으로 전환할 수 있으므로 성능 집약적인 작업을 최적화하는 데 필수적인 기술입니다.</p>
+<h2 id="5-Proxy">5. Proxy</h2>
+<p>프록시 객체를 사용하면 다른 객체에 대한 프록시를 생성하여 속성 조회, 할당, 열거, 함수 호출 등과 같은 기본 연산을 가로채고 재정의할 수 있습니다. 이를 통해 객체에 사용자 지정 동작을 추가할 수 있는 강력한 방법을 제공합니다.</p>
+<ul>
+<li><strong>사용 사례:</strong> 객체 속성 액세스 및 할당에 대한 유효성 검사 및 로깅. 예를 들어, 유형 제약 조건을 적용하고 액세스 시도를 기록하여 더 나은 제어 및 디버깅 기능을 제공할 수 있습니다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> user = &#123;</span><br><span class="line">  name: <span class="string">'John'</span>,</span><br><span class="line">  age: <span class="number">30</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> handler = &#123;</span><br><span class="line">  <span class="keyword">get</span>: (target, prop) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`Getting <span class="subst">$&#123;prop&#125;</span>`</span>);</span><br><span class="line">    <span class="keyword">return</span> target[prop];</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">set</span>: (target, prop, value) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (prop === <span class="string">'age'</span> &amp;&amp; <span class="keyword">typeof</span> value !== <span class="string">'number'</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Age must be a number'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`Setting <span class="subst">$&#123;prop&#125;</span> to <span class="subst">$&#123;value&#125;</span>`</span>);</span><br><span class="line">    target[prop] = value;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> proxyUser = <span class="keyword">new</span> <span class="built_in">Proxy</span>(user, handler);</span><br><span class="line"><span class="built_in">console</span>.log(proxyUser.name); <span class="comment">// Getting name, John</span></span><br><span class="line">proxyUser.age = <span class="number">35</span>; <span class="comment">// Setting age to 35</span></span><br><span class="line"><span class="comment">// proxyUser.age = '35'; // Throws TypeError</span></span><br></pre></td></tr></table></figure>
+<p>유효성 검사, 로깅 등과 같은 객체 작업에 대한 사용자 정의 동작을 허용하여 객체 조작에 대한 제어를 강화합니다. 프록시는 액세스 제어 및 데이터 바인딩과 같은 복잡한 로직을 구현하는 데에도 사용할 수 있습니다. 따라서 프록시는 객체의 동작을 관리하고 확장하기 위한 다용도 도구입니다.</p>
+<h2 id="6-Generators">6. Generators</h2>
+<p>제너레이터는 종료했다가 나중에 다시 입력할 수 있는 함수로, 재입력 시에도 컨텍스트와 변수 바인딩을 유지합니다. 제너레이터는 반복기를 구현하고 비동기 작업을 동기식처럼 처리하는 데 유용합니다.</p>
+<ul>
+<li><strong>사용 사례:</strong> 사용자 지정 객체 탐색을 위한 iterator 구현. 제너레이터는 사용자 정의 반복 동작을 정의하는 간단한 방법을 제공하여 복잡한 데이터 구조를 쉽게 순회할 수 있도록 해줍니다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">objectEntries</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">of</span> <span class="built_in">Object</span>.keys(obj)) &#123;</span><br><span class="line">    <span class="keyword">yield</span> [key, obj[key]];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> user = &#123; <span class="attr">name</span>: <span class="string">'John'</span>, <span class="attr">age</span>: <span class="number">30</span>, <span class="attr">city</span>: <span class="string">'New York'</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> [key, value] <span class="keyword">of</span> objectEntries(user)) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;key&#125;</span>: <span class="subst">$&#123;value&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// name: John</span></span><br><span class="line"><span class="comment">// age: 30</span></span><br><span class="line"><span class="comment">// city: New York</span></span><br></pre></td></tr></table></figure>
+<p>제너레이터를 사용하면 복잡한 반복 로직과 비동기 프로세스를 보다 쉽게 처리할 수 있어 코드 가독성과 유지 관리가 용이해집니다. 또한 <code>co</code>와 같은 라이브러리를 사용하여 보다 간단하고 선형적인 방식으로 비동기 작업을 관리하는 등의 작업에도 사용할 수 있습니다.</p>
+<h2 id="7-Console-활용하기">7. Console 활용하기</h2>
+<ul>
+<li><strong>사용 사례:</strong> 복잡한 객체 디버깅을 위한 로깅 개선. <code>console.table</code>, <code>console.group</code>, <code>console.time</code>과 같은 콘솔 메서드는 보다 체계적이고 유익한 디버그 정보를 제공할 수 있습니다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Basic logging</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'Simple log'</span>);</span><br><span class="line"><span class="built_in">console</span>.error(<span class="string">'This is an error'</span>);</span><br><span class="line"><span class="built_in">console</span>.warn(<span class="string">'This is a warning'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Logging tabular data</span></span><br><span class="line"><span class="keyword">const</span> users = [</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">'John'</span>, <span class="attr">age</span>: <span class="number">30</span>, <span class="attr">city</span>: <span class="string">'New York'</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">'Jane'</span>, <span class="attr">age</span>: <span class="number">25</span>, <span class="attr">city</span>: <span class="string">'San Francisco'</span> &#125;,</span><br><span class="line">];</span><br><span class="line"><span class="built_in">console</span>.table(users);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Grouping logs</span></span><br><span class="line"><span class="built_in">console</span>.group(<span class="string">'User Details'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'User 1: John'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'User 2: Jane'</span>);</span><br><span class="line"><span class="built_in">console</span>.groupEnd();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Timing code execution</span></span><br><span class="line"><span class="built_in">console</span>.time(<span class="string">'Timer'</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">1000000</span>; i++) &#123;</span><br><span class="line">  <span class="comment">// Some heavy computation</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'Timer'</span>);</span><br></pre></td></tr></table></figure>
+<p>디버깅 정보의 가시성과 정리가 향상되어 문제를 더 쉽게 진단하고 해결할 수 있습니다. 콘솔 방법을 올바르게 사용하면 명확하고 체계적이며 상세한 로그를 제공함으로써 디버깅 프로세스의 효율성을 크게 향상시킬 수 있습니다.</p>
+<h2 id="8-structuredClone을-사용한-구조화된-복제">8. <code>structuredClone</code>을 사용한 구조화된 복제</h2>
+<p>새로운 <code>structuredClone</code>을 사용하여 오브젝트를 Deep Clone합니다. 기존의 얕은 복사본과 달리 구조화된 복제는 개체의 깊은 복사본을 만들어 중첩된 개체도 복사되도록 합니다. 이 방법은 함수, 정의되지 않은 참조, 순환 참조와 같은 특정 데이터 유형을 처리할 수 없는 <code>JSON.parse(JSON.stringify(obj))</code>의 한계를 피할 수 있습니다.</p>
+<ul>
+<li><strong>사용 사례:</strong> 복잡한 객체의 심층 사본 생성. 원본 데이터를 변경해서는 안 되는 작업을 위해 객체를 복제해야 할 때 유용합니다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  a: <span class="number">1</span>,</span><br><span class="line">  b: &#123; <span class="attr">c</span>: <span class="number">2</span> &#125;,</span><br><span class="line">  date: <span class="keyword">new</span> <span class="built_in">Date</span>(),</span><br><span class="line">  arr: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">  nestedArr: [&#123; <span class="attr">d</span>: <span class="number">4</span> &#125;],</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> clonedObj = structuredClone(obj);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(clonedObj);</span><br><span class="line"><span class="comment">// &#123; a: 1, b: &#123; c: 2 &#125;, date: 2024-09-20T00:00:00.000Z, arr: [1, 2, 3], nestedArr: [&#123; d: 4 &#125;] &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(clonedObj === obj); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(clonedObj.b === obj.b); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(clonedObj.date === obj.date); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(clonedObj.arr === obj.arr); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(clonedObj.nestedArr[<span class="number">0</span>] === obj.nestedArr[<span class="number">0</span>]); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>이 메서드는 <code>JSON.parse(JSON.stringify(obj))</code>와 같은 대안보다 더 안정적이며 복잡한 데이터 구조를 더 잘 처리합니다.</p>
+<h2 id="9-자체-호출-Self-Invoking-함수">9. 자체 호출(Self-Invoking) 함수</h2>
+<p>즉시 호출 함수 표현식(Immediately Invoked Function Expressions, IIFE)이라고도 하는 자체 호출(Self-Invoking) 함수는 생성된 후 자동으로 실행됩니다. 코드를 캡슐화하여 전역 범위를 오염시키지 않도록 하는 데 유용하며, 이는 깔끔하고 모듈화된 코드를 유지하는 데 필수적입니다.</p>
+<ul>
+<li><strong>사용 사례:</strong> 코드를 캡슐화하여 전역 범위의 오염을 방지합니다. 이 기술은 블록 범위(let 및 const)를 사용할 수 없는 구형 JavaScript 환경이나 초기화 로직에 즉각적인 실행이 필요한 시나리오에서 특히 유용합니다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> privateVar = <span class="string">'This is private'</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Self-invoking function runs immediately'</span>);</span><br><span class="line">  <span class="comment">// Initialization code here</span></span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Private variables are not accessible from outside</span></span><br><span class="line"><span class="comment">// console.log(privateVar); // ReferenceError: privateVar is not defined</span></span><br></pre></td></tr></table></figure>
+<p>전역 변수를 피하고 전역 범위에 흔적을 남기지 않고 초기화 코드를 실행하여 깔끔한 코드를 유지하는 데 도움이 됩니다. 이 접근 방식은 대규모 코드베이스에서 충돌을 방지하고 기능을 더 잘 캡슐화하여 코드 유지보수성을 개선하고 부작용을 방지할 수 있습니다.</p>
+<h2 id="10-Tagged-Template-Literals">10. Tagged Template Literals</h2>
+<p>국제화, HTML 위생 처리 또는 동적 SQL 쿼리 생성 등 특수 템플릿을 만들 때 유용합니다.</p>
+<ul>
+<li><strong>사용 사례:</strong> HTML 템플릿에서 사용자 입력을 위생 처리하여 XSS 공격을 방지합니다. 이 기술을 사용하면 악성 스크립트를 실행하지 않고도 사용자가 생성한 콘텐츠를 DOM에 안전하게 삽입할 수 있습니다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sanitize</span>(<span class="params">strings, ...values</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> strings.reduce(<span class="function">(<span class="params">result, string, i</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> value = values[i - <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> value === <span class="string">'string'</span>) &#123;</span><br><span class="line">      value = value</span><br><span class="line">        .replace(<span class="regexp">/&amp;/g</span>, <span class="string">'&amp;amp;'</span>)</span><br><span class="line">        .replace(<span class="regexp">/&lt;/g</span>, <span class="string">'&amp;lt;'</span>)</span><br><span class="line">        .replace(<span class="regexp">/&gt;/g</span>, <span class="string">'&amp;gt;'</span>)</span><br><span class="line">        .replace(<span class="regexp">/"/g</span>, <span class="string">'&amp;quot;'</span>)</span><br><span class="line">        .replace(<span class="regexp">/'/g</span>, <span class="string">'&amp;#39;'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result + value + string;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> userInput = <span class="string">'&lt;script&gt;alert("xss")&lt;/script&gt;'</span>;</span><br><span class="line"><span class="keyword">const</span> message = sanitize<span class="string">`User input: <span class="subst">$&#123;userInput&#125;</span>`</span>;</span><br><span class="line"><span class="built_in">console</span>.log(message); <span class="comment">// User input: &amp;lt;script&amp;gt;alert("xss")&amp;lt;/script&amp;gt;</span></span><br></pre></td></tr></table></figure>
+<p>Template Literal의 출력을 제어하고 사용자 정의할 수 있는 강력한 메커니즘을 제공하여 보다 안전하고 유연한 템플릿 생성을 가능하게 합니다. 보안을 강화하고, 문자열 형식을 지정하고, 동적 콘텐츠를 생성하여 코드의 견고성과 다양성을 향상시킬 수 있습니다.</p>
+<h2 id="결론">결론</h2>
+<p>자바스크립트는 더 깔끔하고 효율적인 코드를 작성하는 데 도움이 되는 기능이 풍부한 언어입니다. 이러한 고급 트릭을 코딩 작업에 통합하면 생산성을 향상하고 코드의 가독성을 높일 수 있습니다.</p>
+
+        </div>
+        <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+        <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://hgko1207.github.io/2024/09/20/js-dev-25/" data-id="cm1c9swlv0009rscx6b7tbd4g" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Hyeong Gyun Ko"
+        },
+        "headline": "고급 자바스크립트 트릭 10가지 소개",
+        "image": "http://hgko1207.github.io/images/thumbnail/javascript.png",
+        "keywords": "JavaScript Programming Web Development Coding Web Developer Javascript Development Javascript Tips",
+        "genre": "Programming Language JavaScript",
+        "datePublished": "2024-09-20",
+        "dateCreated": "2024-09-20",
+        "dateModified": "2024-09-20",
+        "url": "http://hgko1207.github.io/2024/09/20/js-dev-25/",
+        "description": "
+자바스크립트는 개발 프로세스를 더 효율적으로 만들고 코드를 더 깔끔하게 만들 수 있는 많은 숨겨진 기능을 갖춘 다목적 언어입니다. 여러분이 잘 모르지만 코딩 실력을 크게 향상시킬 수 있는 고급 자바스크립트 트릭 10가지를 소개합니다.
+1. Aliasing을 사용한 구조 분해
+구조조정을 사용하면 배열의 값이나 객체의 속성을 별개의 변수로 압축을 풀 수 있습",
+        "wordCount": 2359
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                            <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>follow:</p>
+    <ul class="social-links">
+       
+      <li>
+        <a
+          class="social-tooltip"
+          title="github"
+          href="https://github.com/hgko1207"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-github"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="facebook"
+          href="https://www.facebook.com/profile.php?id=100003526102847"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-facebook"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="rss"
+          href="/"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-rss"></i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+   
+<nav id="article-nav">
+    
+        <a href="/2024/09/20/info-26/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            꼭 사용해봐야 할 11가지 VS Code 테마
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2024/09/20/js-dev-24/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">[자바스크립트] 자주 사용하는 한 줄 코드 11가지</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+ 
+  <div class="widgets-container">
+      
+  
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/09/20/nodejs-8/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/nodejs.png)" alt="[Node.js] Winston 사용하여 로깅하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Backend/">Backend</a></p>
+                            <p class="item-title"><a href="/2024/09/20/nodejs-8/" class="title">[Node.js] Winston 사용하여 로깅하기</a></p>
+                            <p class="item-date"><time datetime="2024-09-20T04:41:56.000Z" itemprop="datePublished">2024-09-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/09/20/info-26/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/information.png)" alt="꼭 사용해봐야 할 11가지 VS Code 테마" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/IT/">IT</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/IT/Information/">Information</a></p>
+                            <p class="item-title"><a href="/2024/09/20/info-26/" class="title">꼭 사용해봐야 할 11가지 VS Code 테마</a></p>
+                            <p class="item-date"><time datetime="2024-09-20T03:54:23.000Z" itemprop="datePublished">2024-09-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/09/20/js-dev-25/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/javascript.png)" alt="고급 자바스크립트 트릭 10가지 소개" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/09/20/js-dev-25/" class="title">고급 자바스크립트 트릭 10가지 소개</a></p>
+                            <p class="item-date"><time datetime="2024-09-20T02:07:02.000Z" itemprop="datePublished">2024-09-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/09/20/js-dev-24/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/javascript.png)" alt="[자바스크립트] 자주 사용하는 한 줄 코드 11가지" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/09/20/js-dev-24/" class="title">[자바스크립트] 자주 사용하는 한 줄 코드 11가지</a></p>
+                            <p class="item-date"><time datetime="2024-09-20T01:38:27.000Z" itemprop="datePublished">2024-09-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/08/20/nodejs-7/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/nodejs.png)" alt="[Node.js] 필수 NPM 패키지 알아보기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Backend/">Backend</a></p>
+                            <p class="item-title"><a href="/2024/08/20/nodejs-7/" class="title">[Node.js] 필수 NPM 패키지 알아보기</a></p>
+                            <p class="item-date"><time datetime="2024-08-20T05:55:20.000Z" itemprop="datePublished">2024-08-20</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">58</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">399</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">73</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">34</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">17</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">33</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">29</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">114</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">104</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">25</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">8</span></li></ul></li></ul>
+        </div>
+    </div>
+
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+  <div class="widget-wrap widget-float">
+
+    <h3 class="widget-title">Sponsored</h3>
+    <div class="widget">
+        <a href="https://marcofranssen.nl?adsense_widget" target="_blank" rel="noopener">This widget is sponsored by, Marco Franssen, main contributor to this theme.</a>
+    </div>
+
+</div>
+  
+  </div>
+  <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+
+  <!-- hits 방문자수 -->
+  <a href="https://hits.seeyoufarm.com" target="_blank" rel="noopener">
+    <style>
+      .hits {
+        width: auto;
+        height: auto;
+        max-width: 99px;
+        max-height: 20px;
+      }
+    </style>
+    <img
+      src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhgko1207.github.io&count_bg=%23E6ADD5&title_bg=%23BF98D2&icon=&icon_color=%23E7E7E7&title=%EB%B0%A9%EB%AC%B8%EC%9E%90%EC%88%98&edge_flat=false"
+      alt="방문자수"
+    />
+  </a>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h2 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h2>
+                <p>&copy; 2024 Hyeong Gyun Ko</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://hgko1207.github.io/2024/09/20/js-dev-25/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
