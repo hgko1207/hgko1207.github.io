@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>모든 개발자가 알아야 할 25가지 자바스크립트 기초 | 규니의 블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    <meta name="keywords" content="JavaScript,Programming,Web Development,Coding,Web Developer,Javascript Development,Javascript Tips" />
+    
+    <meta name="description" content="자바스크립트는 최신 웹 개발에 필수적인 다재다능하고 강력한 언어입니다. 다음은 더 효율적이고 효과적인 자바스크립트 개발자가 될 수 있는 25가지 기초 문법에 대한 자세한 설명 및 예제입니다. 1. var 대신 let과 const 사용 let과 const를 사용하면 변수가 정의된 블록 내에서만 액세스할 수 있도록 하여 범위 관련 버그를 방지할 수 있습니다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="모든 개발자가 알아야 할 25가지 자바스크립트 기초">
+<meta property="og:url" content="http://hgko1207.github.io/2024/09/23/js-dev-26/index.html">
+<meta property="og:site_name" content="규니의 블로그">
+<meta property="og:description" content="자바스크립트는 최신 웹 개발에 필수적인 다재다능하고 강력한 언어입니다. 다음은 더 효율적이고 효과적인 자바스크립트 개발자가 될 수 있는 25가지 기초 문법에 대한 자세한 설명 및 예제입니다. 1. var 대신 let과 const 사용 let과 const를 사용하면 변수가 정의된 블록 내에서만 액세스할 수 있도록 하여 범위 관련 버그를 방지할 수 있습니다.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/javascript.png">
+<meta property="article:published_time" content="2024-09-23T01:13:02.000Z">
+<meta property="article:modified_time" content="2024-09-23T05:52:42.047Z">
+<meta property="article:author" content="Hyeong Gyun Ko">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="Programming">
+<meta property="article:tag" content="Web Development">
+<meta property="article:tag" content="Coding">
+<meta property="article:tag" content="Web Developer">
+<meta property="article:tag" content="Javascript Development">
+<meta property="article:tag" content="Javascript Tips">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/javascript.png">
+    
+
+    
+        <link rel="alternate" href="/" title="규니의 블로그" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-166318275-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+
+    <!-- <script
+  data-ad-client="ca-pub-7581566810202853"
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+></script>
+ -->
+
+    <!-- 구글 애드센스 -->
+    <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!-- 네이버 -->
+    <meta name="naver-site-verification" content="a6e2912bbd1e42226e10ee12d3498a246c51ec1f" />
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h2 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h2>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">hgko&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ETC/">ETC</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/">IT</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/BlockChain/">BlockChain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Blockchain/">Blockchain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Information/">Information</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Satellite/">Satellite</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Backend/">Backend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DB/">DB</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Frontend/">Frontend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Language/">Language</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Mobile/">Mobile</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Web/">Web</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about">About</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/profile">Profile</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h2 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a>
+    </h2>
+</div>
+
+                        <div class="main-body-content">
+                            <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+                            <!-- 상단 광고 -->
+<ins
+  class="adsbygoogle"
+  style="display: block"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="1131844921"
+  data-ad-format="auto"
+  data-full-width-responsive="true"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                            <article id="post-js-dev-26" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        모든 개발자가 알아야 할 25가지 자바스크립트 기초
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2024/09/23/js-dev-26/" class="article-date">
+         <time datetime="2024-09-23T01:13:02.000Z" itemprop="datePublished">2024-09-23</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Coding/" rel="tag">Coding</a>, <a class="tag-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>, <a class="tag-link" href="/tags/Javascript-Development/" rel="tag">Javascript Development</a>, <a class="tag-link" href="/tags/Javascript-Tips/" rel="tag">Javascript Tips</a>, <a class="tag-link" href="/tags/Programming/" rel="tag">Programming</a>, <a class="tag-link" href="/tags/Web-Developer/" rel="tag">Web Developer</a>, <a class="tag-link" href="/tags/Web-Development/" rel="tag">Web Development</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="/images/header/js-dev-24.png" alt=""></p>
+<p>자바스크립트는 최신 웹 개발에 필수적인 다재다능하고 강력한 언어입니다. 다음은 더 효율적이고 효과적인 자바스크립트 개발자가 될 수 있는 25가지 기초 문법에 대한 자세한 설명 및 예제입니다.</p>
+<h2 id="1-var-대신-let과-const-사용">1. <code>var</code> 대신 <code>let</code>과 <code>const</code> 사용</h2>
+<p><code>let</code>과 <code>const</code>를 사용하면 변수가 정의된 블록 내에서만 액세스할 수 있도록 하여 범위 관련 버그를 방지할 수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> count = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">const</span> PI = <span class="number">3.14</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="2-Default-Parameters">2. Default Parameters</h2>
+<p>Default Parameter는 함수에 합리적인 기본값을 설정하여 오류를 방지하고 코드를 더욱 견고하게 만듭니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greet</span>(<span class="params">name = <span class="string">'Guest'</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">`Hello, <span class="subst">$&#123;name&#125;</span>!`</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(greet()); <span class="comment">// "Hello, Guest!"</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-Template-Literals">3. Template Literals</h2>
+<p>Template Literal을 사용하면 임베디드 표현식과 여러 줄 문자열을 포함하는 문자열을 더 쉽게 만들 수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">'John'</span>;</span><br><span class="line"><span class="keyword">const</span> greeting = <span class="string">`Hello, <span class="subst">$&#123;name&#125;</span>!`</span>;</span><br><span class="line"><span class="built_in">console</span>.log(greeting); <span class="comment">// "Hello, John!"</span></span><br></pre></td></tr></table></figure>
+<h2 id="4-구조-분해-할당-Destructuring-Assignment">4. 구조 분해 할당(Destructuring Assignment)</h2>
+<p>구조 분해 할당을 사용하면 객체에서 속성을 추출하고 배열에서 요소를 별개의 변수로 쉽게 추출할 수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> user = &#123; <span class="attr">name</span>: <span class="string">'Jane'</span>, <span class="attr">age</span>: <span class="number">25</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> &#123; name, age &#125; = user;</span><br><span class="line"><span class="built_in">console</span>.log(name, age); <span class="comment">// "Jane" 25</span></span><br></pre></td></tr></table></figure>
+<h2 id="5-Arrow-Functions">5. Arrow Functions</h2>
+<p>Arrow Function는 함수 표현식에 간결한 구문을 제공하고 <code>this</code>이 어휘적으로 바인딩되도록 합니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> add = <span class="function">(<span class="params">a, b</span>) =&gt;</span> a + b;</span><br><span class="line"><span class="built_in">console</span>.log(add(<span class="number">2</span>, <span class="number">3</span>)); <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+<h2 id="6-Spread-Operator">6. Spread Operator</h2>
+<p>배열이나 객체를 결합하는 것이 번거로울 수 있습니다. Spread Operator를 사용하면 배열과 객체를 쉽게 결합할 수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">const</span> arr2 = [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>];</span><br><span class="line"><span class="keyword">const</span> combined = [...arr1, ...arr2];</span><br><span class="line"><span class="built_in">console</span>.log(combined); <span class="comment">// [1, 2, 3, 4, 5, 6]</span></span><br></pre></td></tr></table></figure>
+<h2 id="7-Rest-Parameters">7. Rest Parameters</h2>
+<p>다양한 수의 함수 인수를 처리하는 것은 까다로울 수 있습니다. Rest Parameter를 사용하면 무한한 수의 인수를 배열로 처리할 수 있으므로 함수를 더욱 유연하게 만들 수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">...args</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> args.reduce(<span class="function">(<span class="params">total, num</span>) =&gt;</span> total + num, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(sum(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)); <span class="comment">// 10</span></span><br></pre></td></tr></table></figure>
+<h2 id="8-단략-평가-Short-Circuit-Evaluation">8. 단략 평가(Short-Circuit Evaluation)</h2>
+<p>조건문을 작성하는 것은 장황할 수 있습니다. 단략 평가는 논리 <code>&amp;&amp;</code> 및 <code>||</code> 연산자를 사용하여 조건 표현식을 단순화합니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> isLoggedIn = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">const</span> user = isLoggedIn &amp;&amp; &#123; <span class="attr">name</span>: <span class="string">'Jane'</span>, <span class="attr">age</span>: <span class="number">25</span> &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(user); <span class="comment">// &#123; name: 'Jane', age: 25 &#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="9-옵셔널-체이닝-Optional-Chaining">9. 옵셔널 체이닝(Optional Chaining)</h2>
+<p>체인의 각 레벨에서 <code>null</code> 또는 <code>undefined</code>을 명시적으로 확인하지 않고도 중첩된 프로퍼티에 안전하게 액세스할 수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> user = &#123; <span class="attr">profile</span>: &#123; <span class="attr">name</span>: <span class="string">'Jane'</span> &#125; &#125;;</span><br><span class="line"><span class="keyword">const</span> userName = user?.profile?.name;</span><br><span class="line"><span class="built_in">console</span>.log(userName); <span class="comment">// "Jane"</span></span><br></pre></td></tr></table></figure>
+<h2 id="10-Nullish-Coalescing">10. Nullish Coalescing</h2>
+<p><code>||</code>를 사용하여 기본값을 제공하면 값이 <code>0</code> 또는 <code>&quot;&quot;</code>인 경우 예기치 않은 결과가 발생할 수 있습니다. Nullish Coalescing(<code>??</code>)을 사용하여 <code>null</code> 또는 <code>undefined</code> 경우에만 기본값을 제공하세요.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> user = &#123; <span class="attr">name</span>: <span class="string">''</span>, <span class="attr">age</span>: <span class="number">0</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> userName = user.name ?? <span class="string">'Anonymous'</span>;</span><br><span class="line"><span class="keyword">const</span> userAge = user.age ?? <span class="number">18</span>;</span><br><span class="line"><span class="built_in">console</span>.log(userName); <span class="comment">// ""</span></span><br><span class="line"><span class="built_in">console</span>.log(userAge); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+<h2 id="11-Property-Shorthand">11. Property Shorthand</h2>
+<p>변수 이름과 일치하는 경우 속성 이름을 생략할 수 있어 코드가 더 깔끔해집니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">'Jane'</span>;</span><br><span class="line"><span class="keyword">const</span> age = <span class="number">25</span>;</span><br><span class="line"><span class="keyword">const</span> user = &#123; name, age &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(user); <span class="comment">// &#123; name: 'Jane', age: 25 &#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="12-Dynamic-Property-Names">12. Dynamic Property Names</h2>
+<p>표현식 값을 속성 이름으로 사용하여 객체 속성을 동적으로 생성할 수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> propName = <span class="string">'age'</span>;</span><br><span class="line"><span class="keyword">const</span> user = &#123; <span class="attr">name</span>: <span class="string">'Jane'</span>, [propName]: <span class="number">25</span> &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(user); <span class="comment">// &#123; name: 'Jane', age: 25 &#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="13-map-filter-reduce-사용하기">13. <code>map()</code>, <code>filter()</code>, <code>reduce()</code> 사용하기</h2>
+<p>일반적인 배열 연산에는 <code>map()</code>, <code>filter()</code>, <code>reduce()</code>를 사용하세요. 이러한 배열 메서드는 배열을 변환, 필터링 및 축소하는 기능적 접근 방식을 제공하여 코드를 보다 표현력 있고 간결하게 만듭니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">const</span> doubled = numbers.map(<span class="function">(<span class="params">num</span>) =&gt;</span> num * <span class="number">2</span>);</span><br><span class="line"><span class="built_in">console</span>.log(doubled); <span class="comment">// [2, 4, 6, 8, 10]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> evens = numbers.filter(<span class="function">(<span class="params">num</span>) =&gt;</span> num % <span class="number">2</span> === <span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(evens); <span class="comment">// [2, 4]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> sum = numbers.reduce(<span class="function">(<span class="params">total, num</span>) =&gt;</span> total + num, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(sum); <span class="comment">// 15</span></span><br></pre></td></tr></table></figure>
+<h2 id="14-문자열-includes-startsWith-및-endsWith">14. 문자열 <code>includes()</code>, <code>startsWith()</code> 및 <code>endsWith()</code></h2>
+<p>더 간단한 문자열 검사를 위해 <code>includes()</code>, <code>startsWith()</code> 및 <code>endsWith()</code>를 사용하세요. 이러한 문자열 메서드는 하위 문자열의 존재, 시작 또는 끝을 간단하고 읽기 쉽게 확인할 수 있는 방법을 제공합니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">'Hello, world!'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.includes(<span class="string">'world'</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(str.startsWith(<span class="string">'Hello'</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(str.endsWith(<span class="string">'!'</span>)); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h2 id="15-함수-매개변수에서-배열-및-객체-구조-분해">15. 함수 매개변수에서 배열 및 객체 구조 분해</h2>
+<p>함수 매개변수로 전달된 배열이나 객체에서 값을 추출하는 것은 장황할 수 있습니다. 함수 매개변수에서 구조조정을 사용하여 값을 직접 추출하세요.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> user = &#123; <span class="attr">name</span>: <span class="string">'Jane'</span>, <span class="attr">age</span>: <span class="number">25</span> &#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greet</span>(<span class="params">&#123; name, age &#125;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">`Hello, <span class="subst">$&#123;name&#125;</span>! You are <span class="subst">$&#123;age&#125;</span> years old.`</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(greet(user)); <span class="comment">// "Hello, Jane! You are 25 years old."</span></span><br></pre></td></tr></table></figure>
+<h2 id="16-Destructuring의-기본값">16. Destructuring의 기본값</h2>
+<p>누락될 수 있는 속성에 대한 대체 값을 제공하여 코드를 더욱 견고하게 만들 수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> user = &#123; <span class="attr">name</span>: <span class="string">'Jane'</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> &#123; name, age = <span class="number">18</span> &#125; = user;</span><br><span class="line"><span class="built_in">console</span>.log(name); <span class="comment">// "Jane"</span></span><br><span class="line"><span class="built_in">console</span>.log(age); <span class="comment">// 18</span></span><br></pre></td></tr></table></figure>
+<h2 id="17-Object-assign">17. Object <code>assign()</code></h2>
+<p>객체 복제 또는 병합은 장황하고 오류가 발생하기 쉽습니다. <code>Object.assign()</code>을 사용하면 객체를 효율적으로 복제하거나 병합할 수 있으므로 수동 복사의 필요성을 줄일 수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> source = &#123; <span class="attr">b</span>: <span class="number">2</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> merged = <span class="built_in">Object</span>.assign(target, source);</span><br><span class="line"><span class="built_in">console</span>.log(merged); <span class="comment">// &#123; a: 1, b: 2 &#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="18-find-및-findIndex">18. <code>find()</code> 및 <code>findIndex()</code></h2>
+<p>배열에서 요소나 그 인덱스를 찾는 것이 번거로울 수 있습니다. <code>find()</code> 및 <code>findIndex()</code> 메서드는 조건에 따라 요소 또는 그 인덱스를 찾는 간단한 방법을 제공하여 코드 가독성을 향상시킵니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> users = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">'Jane'</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">name</span>: <span class="string">'John'</span> &#125;,</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> user = users.find(<span class="function">(<span class="params">u</span>) =&gt;</span> u.id === <span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(user); <span class="comment">// &#123; id: 1, name: 'Jane' &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> index = users.findIndex(<span class="function">(<span class="params">u</span>) =&gt;</span> u.id === <span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(index); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+<h2 id="19-some-및-every">19. <code>some()</code> 및 <code>every()</code></h2>
+<p><code>some()</code> 및 <code>every()</code> 메서드를 사용하면 배열의 일부 또는 모든 요소가 조건을 충족하는지 간결한 방식으로 확인할 수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">const</span> hasEven = numbers.some(<span class="function">(<span class="params">num</span>) =&gt;</span> num % <span class="number">2</span> === <span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(hasEven); <span class="comment">// true</span></span><br><span class="line"><span class="keyword">const</span> allEven = numbers.every(<span class="function">(<span class="params">num</span>) =&gt;</span> num % <span class="number">2</span> === <span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(allEven); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<h2 id="20-flat-및-flatMap">20. <code>flat()</code> 및 <code>flatMap()</code></h2>
+<p><code>flat()</code> 및 <code>flatMap()</code> 메서드는 중첩 배열을 평평하게 만들고 한 단계로 매핑 및 평평하게 만드는 간단한 방법을 제공합니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> nested = [<span class="number">1</span>, [<span class="number">2</span>, [<span class="number">3</span>, [<span class="number">4</span>]]]];</span><br><span class="line"><span class="keyword">const</span> flat = nested.flat(<span class="number">2</span>);</span><br><span class="line"><span class="built_in">console</span>.log(flat); <span class="comment">// [1, 2, 3, [4]]</span></span><br><span class="line"><span class="keyword">const</span> mapped = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].flatMap(<span class="function">(<span class="params">x</span>) =&gt;</span> [x, x * <span class="number">2</span>]);</span><br><span class="line"><span class="built_in">console</span>.log(mapped); <span class="comment">// [1, 2, 2, 4, 3, 6]</span></span><br></pre></td></tr></table></figure>
+<h2 id="21-from-및-of">21. <code>from()</code> 및 <code>of()</code></h2>
+<p><code>Array.from()</code>을 사용하면 iterable 객체에서 배열을 만들 수 있고, <code>Array.of()</code>을 사용하면 인자 목록에서 배열을 만들 수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">set</span> = new Set([1, 2, 3]);</span><br><span class="line">const arrFromSet = Array.from(<span class="keyword">set</span>);</span><br><span class="line">console.log(arrFromSet); // [1, 2, 3]</span><br><span class="line">const arrOfNumbers = Array.of(1, 2, 3);</span><br><span class="line">console.log(arrOfNumbers); // [1, 2, 3]</span><br></pre></td></tr></table></figure>
+<h2 id="22-콜백의-매개변수-구조-분해">22. 콜백의 매개변수 구조 분해</h2>
+<p>콜백 매개변수에서 구조 분해를하면 콜백에 전달된 객체의 속성에 직접 액세스할 수 있으므로 코드를 더욱 간결하게 만들 수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> users = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">'Jane'</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">name</span>: <span class="string">'John'</span> &#125;,</span><br><span class="line">];</span><br><span class="line">users.forEach(<span class="function">(<span class="params">&#123; id, name &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`User ID: <span class="subst">$&#123;id&#125;</span>, User Name: <span class="subst">$&#123;name&#125;</span>`</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="23-선택적-콜백-함수">23. 선택적 콜백 함수</h2>
+<p>Short-circuit evaluation를 사용하면 선택적 콜백 함수가 제공된 경우에만 호출할 수 있으므로 코드가 더욱 견고해집니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fetchData</span>(<span class="params">url, callback</span>) </span>&#123;</span><br><span class="line">  fetch(url)</span><br><span class="line">    .then(<span class="function">(<span class="params">response</span>) =&gt;</span> response.json())</span><br><span class="line">    .then(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">      callback &amp;&amp; callback(data);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="24-Promisify-Callbacks">24. Promisify Callbacks</h2>
+<p><code>promisify</code> 유틸리티 함수를 사용하여 콜백 기반 함수를 Promise으로 변환할 수 있으므로 async/await 구문으로 작업하기가 더 쉬워집니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">promisify</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">...args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">      fn(...args, (err, result) =&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> (err) reject(err);</span><br><span class="line">        <span class="keyword">else</span> resolve(result);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> readFile = promisify(<span class="built_in">require</span>(<span class="string">'fs'</span>).readFile);</span><br><span class="line">readFile(<span class="string">'path/to/file.txt'</span>, <span class="string">'utf8'</span>)</span><br><span class="line">  .then(<span class="function">(<span class="params">data</span>) =&gt;</span> <span class="built_in">console</span>.log(data))</span><br><span class="line">  .catch(<span class="function">(<span class="params">err</span>) =&gt;</span> <span class="built_in">console</span>.error(err));</span><br></pre></td></tr></table></figure>
+<h2 id="25-동시-실행을-위한-Promise-all">25. 동시 실행을 위한 Promise.all</h2>
+<p>여러 비동기 작업을 동시에 처리하는 것은 어려울 수 있습니다. <code>Promise.all</code>을 사용하면 여러 비동기 작업을 동시에 처리하고 모든 작업이 완료되면 계속 진행할 수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fetchData1 = fetch(<span class="string">'https://api.example.com/data1'</span>).then(<span class="function">(<span class="params">response</span>) =&gt;</span> response.json());</span><br><span class="line"><span class="keyword">const</span> fetchData2 = fetch(<span class="string">'https://api.example.com/data2'</span>).then(<span class="function">(<span class="params">response</span>) =&gt;</span> response.json());</span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span>.all([fetchData1, fetchData2])</span><br><span class="line">  .then(<span class="function">(<span class="params">[data1, data2]</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Data 1:'</span>, data1);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Data 2:'</span>, data2);</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.error(<span class="string">'Error:'</span>, error);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+
+        </div>
+        <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+        <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://hgko1207.github.io/2024/09/23/js-dev-26/" data-id="cm1fqoa8a000000cx2vmi45xn" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Hyeong Gyun Ko"
+        },
+        "headline": "모든 개발자가 알아야 할 25가지 자바스크립트 기초",
+        "image": "http://hgko1207.github.io/images/thumbnail/javascript.png",
+        "keywords": "JavaScript Programming Web Development Coding Web Developer Javascript Development Javascript Tips",
+        "genre": "Programming Language JavaScript",
+        "datePublished": "2024-09-23",
+        "dateCreated": "2024-09-23",
+        "dateModified": "2024-09-23",
+        "url": "http://hgko1207.github.io/2024/09/23/js-dev-26/",
+        "description": "
+자바스크립트는 최신 웹 개발에 필수적인 다재다능하고 강력한 언어입니다. 다음은 더 효율적이고 효과적인 자바스크립트 개발자가 될 수 있는 25가지 기초 문법에 대한 자세한 설명 및 예제입니다.
+1. var 대신 let과 const 사용
+let과 const를 사용하면 변수가 정의된 블록 내에서만 액세스할 수 있도록 하여 범위 관련 버그를 방지할 수 있습니다.",
+        "wordCount": 1816
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                            <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>follow:</p>
+    <ul class="social-links">
+       
+      <li>
+        <a
+          class="social-tooltip"
+          title="github"
+          href="https://github.com/hgko1207"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-github"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="facebook"
+          href="https://www.facebook.com/profile.php?id=100003526102847"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-facebook"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="rss"
+          href="/"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-rss"></i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+   
+<nav id="article-nav">
+    
+    
+        <a href="/2024/09/20/nodejs-8/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">[Node.js] Winston 사용하여 로깅하기</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+ 
+  <div class="widgets-container">
+      
+  
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/09/23/js-dev-26/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/javascript.png)" alt="모든 개발자가 알아야 할 25가지 자바스크립트 기초" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/09/23/js-dev-26/" class="title">모든 개발자가 알아야 할 25가지 자바스크립트 기초</a></p>
+                            <p class="item-date"><time datetime="2024-09-23T01:13:02.000Z" itemprop="datePublished">2024-09-23</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/09/20/nodejs-8/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/nodejs.png)" alt="[Node.js] Winston 사용하여 로깅하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Backend/">Backend</a></p>
+                            <p class="item-title"><a href="/2024/09/20/nodejs-8/" class="title">[Node.js] Winston 사용하여 로깅하기</a></p>
+                            <p class="item-date"><time datetime="2024-09-20T04:41:56.000Z" itemprop="datePublished">2024-09-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/09/20/info-26/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/information.png)" alt="꼭 사용해봐야 할 11가지 VS Code 테마" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/IT/">IT</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/IT/Information/">Information</a></p>
+                            <p class="item-title"><a href="/2024/09/20/info-26/" class="title">꼭 사용해봐야 할 11가지 VS Code 테마</a></p>
+                            <p class="item-date"><time datetime="2024-09-20T03:54:23.000Z" itemprop="datePublished">2024-09-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/09/20/js-dev-25/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/javascript.png)" alt="고급 자바스크립트 트릭 10가지 소개" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/09/20/js-dev-25/" class="title">고급 자바스크립트 트릭 10가지 소개</a></p>
+                            <p class="item-date"><time datetime="2024-09-20T02:07:02.000Z" itemprop="datePublished">2024-09-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/09/20/js-dev-24/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/javascript.png)" alt="[자바스크립트] 자주 사용하는 한 줄 코드 11가지" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/09/20/js-dev-24/" class="title">[자바스크립트] 자주 사용하는 한 줄 코드 11가지</a></p>
+                            <p class="item-date"><time datetime="2024-09-20T01:38:27.000Z" itemprop="datePublished">2024-09-20</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">58</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">400</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">73</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">34</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">17</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">33</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">29</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">114</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">105</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">25</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">8</span></li></ul></li></ul>
+        </div>
+    </div>
+
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+  <div class="widget-wrap widget-float">
+
+    <h3 class="widget-title">Sponsored</h3>
+    <div class="widget">
+        <a href="https://marcofranssen.nl?adsense_widget" target="_blank" rel="noopener">This widget is sponsored by, Marco Franssen, main contributor to this theme.</a>
+    </div>
+
+</div>
+  
+  </div>
+  <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+
+  <!-- hits 방문자수 -->
+  <a href="https://hits.seeyoufarm.com" target="_blank" rel="noopener">
+    <style>
+      .hits {
+        width: auto;
+        height: auto;
+        max-width: 99px;
+        max-height: 20px;
+      }
+    </style>
+    <img
+      src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhgko1207.github.io&count_bg=%23E6ADD5&title_bg=%23BF98D2&icon=&icon_color=%23E7E7E7&title=%EB%B0%A9%EB%AC%B8%EC%9E%90%EC%88%98&edge_flat=false"
+      alt="방문자수"
+    />
+  </a>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h2 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h2>
+                <p>&copy; 2024 Hyeong Gyun Ko</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://hgko1207.github.io/2024/09/23/js-dev-26/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
