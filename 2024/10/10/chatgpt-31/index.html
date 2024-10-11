@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>백엔드 개발자로서 ChatGPT를 사용하는 방법(5가지 방법) | 규니의 블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    <meta name="keywords" content="AI,Artificial Intelligence,ChatGPT,OpenAI,Programming,ChatGPT-4,ChatGPT-4o" />
+    
+    <meta name="description" content="ChatGPT는 생산성과 문제 해결 능력을 향상시키는 귀중한 도구입니다. 백엔드 개발을 할 때 ChatGPT를 활용하는 5가지 방법을 소개합니다. 1. API 문서 생성 백엔드 개발자에게 가장 시간이 많이 걸리는 작업 중 하나는 포괄적인 API 문서를 작성하는 것입니다. ChatGPT는 이 작업에 탁월합니다,  엔드포인트 설명: 엔드포인트 세부 정보를 제">
+<meta property="og:type" content="article">
+<meta property="og:title" content="백엔드 개발자로서 ChatGPT를 사용하는 방법(5가지 방법)">
+<meta property="og:url" content="http://hgko1207.github.io/2024/10/10/chatgpt-31/index.html">
+<meta property="og:site_name" content="규니의 블로그">
+<meta property="og:description" content="ChatGPT는 생산성과 문제 해결 능력을 향상시키는 귀중한 도구입니다. 백엔드 개발을 할 때 ChatGPT를 활용하는 5가지 방법을 소개합니다. 1. API 문서 생성 백엔드 개발자에게 가장 시간이 많이 걸리는 작업 중 하나는 포괄적인 API 문서를 작성하는 것입니다. ChatGPT는 이 작업에 탁월합니다,  엔드포인트 설명: 엔드포인트 세부 정보를 제">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/chatgpt.png">
+<meta property="article:published_time" content="2024-10-10T03:54:04.000Z">
+<meta property="article:modified_time" content="2024-10-10T04:09:18.316Z">
+<meta property="article:author" content="Hyeong Gyun Ko">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="Artificial Intelligence">
+<meta property="article:tag" content="ChatGPT">
+<meta property="article:tag" content="OpenAI">
+<meta property="article:tag" content="Programming">
+<meta property="article:tag" content="ChatGPT-4">
+<meta property="article:tag" content="ChatGPT-4o">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/chatgpt.png">
+    
+
+    
+        <link rel="alternate" href="/" title="규니의 블로그" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-166318275-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+
+    <!-- <script
+  data-ad-client="ca-pub-7581566810202853"
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+></script>
+ -->
+
+    <!-- 구글 애드센스 -->
+    <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!-- 네이버 -->
+    <meta name="naver-site-verification" content="a6e2912bbd1e42226e10ee12d3498a246c51ec1f" />
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h2 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h2>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">hgko&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ETC/">ETC</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/">IT</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/BlockChain/">BlockChain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Blockchain/">Blockchain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Information/">Information</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Satellite/">Satellite</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Backend/">Backend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DB/">DB</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Frontend/">Frontend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Language/">Language</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Mobile/">Mobile</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Web/">Web</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about">About</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/profile">Profile</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h2 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/AI/">AI</a>
+    </h2>
+</div>
+
+                        <div class="main-body-content">
+                            <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+                            <!-- 상단 광고 -->
+<ins
+  class="adsbygoogle"
+  style="display: block"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="1131844921"
+  data-ad-format="auto"
+  data-full-width-responsive="true"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                            <article id="post-chatgpt-31" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        백엔드 개발자로서 ChatGPT를 사용하는 방법(5가지 방법)
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2024/10/10/chatgpt-31/" class="article-date">
+         <time datetime="2024-10-10T03:54:04.000Z" itemprop="datePublished">2024-10-10</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/AI/" rel="tag">AI</a>, <a class="tag-link" href="/tags/Artificial-Intelligence/" rel="tag">Artificial Intelligence</a>, <a class="tag-link" href="/tags/ChatGPT/" rel="tag">ChatGPT</a>, <a class="tag-link" href="/tags/ChatGPT-4/" rel="tag">ChatGPT-4</a>, <a class="tag-link" href="/tags/ChatGPT-4o/" rel="tag">ChatGPT-4o</a>, <a class="tag-link" href="/tags/OpenAI/" rel="tag">OpenAI</a>, <a class="tag-link" href="/tags/Programming/" rel="tag">Programming</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="/images/header/chatgpt-31.png" alt=""></p>
+<p><strong>ChatGPT</strong>는 생산성과 문제 해결 능력을 향상시키는 귀중한 도구입니다. 백엔드 개발을 할 때 ChatGPT를 활용하는 5가지 방법을 소개합니다.</p>
+<h2 id="1-API-문서-생성">1. API 문서 생성</h2>
+<p>백엔드 개발자에게 가장 시간이 많이 걸리는 작업 중 하나는 포괄적인 API 문서를 작성하는 것입니다. ChatGPT는 이 작업에 탁월합니다,</p>
+<ul>
+<li><strong>엔드포인트 설명:</strong> 엔드포인트 세부 정보를 제공하면 ChatGPT가 명확하고 간결한 설명을 생성합니다.</li>
+<li><strong>요청/응답 예제:</strong> 현실적인 페이로드와 응답 예제를 생성할 수 있습니다.</li>
+<li><strong>오류 시나리오:</strong> ChatGPT는 잠재적인 오류 사례와 해당 상태 코드를 문서화하는 데 도움을 줍니다.</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ChatGPT로 생성된 API 문서 예시</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"endpoint"</span>: <span class="string">"/api/v1/users"</span>,</span><br><span class="line">  <span class="attr">"method"</span>: <span class="string">"POST"</span>,</span><br><span class="line">  <span class="attr">"description"</span>: <span class="string">"Creates a new user account"</span>,</span><br><span class="line">  <span class="attr">"request_body"</span>: &#123;</span><br><span class="line">    <span class="attr">"username"</span>: <span class="string">"string"</span>,</span><br><span class="line">    <span class="attr">"email"</span>: <span class="string">"string"</span>,</span><br><span class="line">    <span class="attr">"password"</span>: <span class="string">"string"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"response"</span>: &#123;</span><br><span class="line">    <span class="attr">"201"</span>: &#123;</span><br><span class="line">      <span class="attr">"description"</span>: <span class="string">"User successfully created"</span>,</span><br><span class="line">      <span class="attr">"content"</span>: &#123;</span><br><span class="line">        <span class="attr">"user_id"</span>: <span class="string">"uuid"</span>,</span><br><span class="line">        <span class="attr">"username"</span>: <span class="string">"string"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"400"</span>: &#123;</span><br><span class="line">      <span class="attr">"description"</span>: <span class="string">"Invalid input"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-데이터베이스-쿼리-최적화">2. 데이터베이스 쿼리 최적화</h2>
+<p>ChatGPT는 쿼리 최적화 전략을 브레인스토밍하는 데 탁월합니다.</p>
+<ul>
+<li><strong>쿼리 분석:</strong> 문제가 있는 쿼리를 붙여넣으면 ChatGPT가 개선점을 제안합니다.</li>
+<li><strong>인덱스 추천:</strong> 쿼리 성능을 향상시킬 수 있는 잠재적인 인덱스를 제안할 수 있습니다.</li>
+<li><strong>대체 접근 방식:</strong> 종종 더 효율적일 수 있는 다른 쿼리 구조를 제안합니다.</li>
+</ul>
+<h2 id="3-코드-리팩토링-도우미">3. 코드 리팩토링 도우미</h2>
+<p>레거시 코드 또는 복잡한 리팩터링 작업에 직면했을 때 활동합니다.</p>
+<ul>
+<li><strong>코드 분석:</strong> ChatGPT는 코드 냄새와 잠재적인 개선 사항을 식별하는 데 도움을 줍니다.</li>
+<li><strong>디자인 패턴:</strong> 특정 시나리오에 적합한 디자인 패턴을 제안합니다.</li>
+<li><strong>현대화:</strong> 최신 언어 기능 및 모범 사례를 사용하도록 오래된 코드를 업데이트하는 데 도움을 줍니다.</li>
+</ul>
+<p>예를 들어, 아래 코드를 변환합니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 수정 전</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getUserData</span>(<span class="params">$userId</span>) </span>&#123;</span><br><span class="line">    $data = array();</span><br><span class="line">    $result = mysql_query(<span class="string">"SELECT * FROM users WHERE id = "</span> . $userId);</span><br><span class="line">    <span class="keyword">while</span> ($row = mysql_fetch_assoc($result)) &#123;</span><br><span class="line">        $data[] = $row;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> $data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 수정 후</span></span><br><span class="line">public <span class="function"><span class="keyword">function</span> <span class="title">getUserData</span>(<span class="params">int $userId</span>): <span class="title">array</span> </span>&#123;</span><br><span class="line">    $pdo = Database::getInstance()-&gt;getConnection();</span><br><span class="line">    $stmt = $pdo-&gt;prepare(<span class="string">"SELECT * FROM users WHERE id = :userId"</span>);</span><br><span class="line">    $stmt-&gt;execute([<span class="string">'userId'</span> =&gt; $userId]);</span><br><span class="line">    <span class="keyword">return</span> $stmt-&gt;fetchAll(PDO::FETCH_ASSOC);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-테스트-시나리오-생성">4. 테스트 시나리오 생성</h2>
+<p>ChatGPT는 다양한 테스트 시나리오를 생각하도록 도와주는 데 탁월합니다.</p>
+<ul>
+<li><strong>Edge 케이스:</strong> 제가 놓쳤을 수 있는 경계 조건을 식별합니다.</li>
+<li><strong>테스트 데이터:</strong> 다양한 시나리오에 대한 현실적인 테스트 데이터를 생성합니다.</li>
+<li><strong>테스트 구조:</strong> 테스트 사례를 명확하고 체계적으로 정리할 수 있도록 도와줍니다.</li>
+</ul>
+<p>ChatGPT가 생성한 테스트 시나리오 예시입니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public <span class="function"><span class="keyword">function</span> <span class="title">testUserRegistration</span>(<span class="params"></span>): <span class="title">void</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 등록 성공 테스트</span></span><br><span class="line">    $<span class="keyword">this</span>-&gt;testSuccessfulRegistration();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 중복 이메일 테스트</span></span><br><span class="line">    $<span class="keyword">this</span>-&gt;testDuplicateEmailRegistration();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 유효하지 않은 이메일 형식 테스트</span></span><br><span class="line">    $<span class="keyword">this</span>-&gt;testInvalidEmailFormat();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 비밀번호 요구 사항 테스트</span></span><br><span class="line">    $<span class="keyword">this</span>-&gt;testPasswordTooShort();</span><br><span class="line">    $<span class="keyword">this</span>-&gt;testPasswordRequiresSpecialChar();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 사용자 이름 요구 사항 테스트</span></span><br><span class="line">    $<span class="keyword">this</span>-&gt;testUsernameTooLong();</span><br><span class="line">    $<span class="keyword">this</span>-&gt;testUsernameWithInvalidChars();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="5-디버깅-파트너">5. 디버깅 파트너</h2>
+<p>까다로운 버그에 걸렸을 때 사용합니다.</p>
+<ul>
+<li><strong>오류 분석:</strong> 오류 메시지를 공유하면 ChatGPT가 해석을 도와줍니다.</li>
+<li><strong>디버깅 단계:</strong> 문제를 격리하기 위한 체계적인 접근 방식을 제안합니다.</li>
+<li><strong>솔루션 브레인스토밍:</strong> 잠재적인 수정 사항과 설명을 제공합니다.</li>
+</ul>
+<p>ChatGPT 사용 모범 사례</p>
+<ol>
+<li><strong>결과물 확인:</strong> 구현하기 전에 항상 ChatGPT의 제안을 검토하고 테스트하세요.</li>
+<li><strong>컨텍스트 제공:</strong> 더 많은 컨텍스트를 제공할수록 더 나은 응답을 얻을 수 있습니다.</li>
+<li><strong>반복하기:</strong> ChatGPT를 시작점으로 삼아 제안을 구체화하세요.</li>
+<li><strong>보안 인식:</strong> 민감한 정보나 자격 증명을 절대 공유하지 마세요.</li>
+</ol>
+
+        </div>
+        <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+        <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://hgko1207.github.io/2024/10/10/chatgpt-31/" data-id="cm24u7wf50000j4cx38c5bs5d" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Hyeong Gyun Ko"
+        },
+        "headline": "백엔드 개발자로서 ChatGPT를 사용하는 방법(5가지 방법)",
+        "image": "http://hgko1207.github.io/images/thumbnail/chatgpt.png",
+        "keywords": "AI Artificial Intelligence ChatGPT OpenAI Programming ChatGPT-4 ChatGPT-4o",
+        "genre": "Programming AI",
+        "datePublished": "2024-10-10",
+        "dateCreated": "2024-10-10",
+        "dateModified": "2024-10-10",
+        "url": "http://hgko1207.github.io/2024/10/10/chatgpt-31/",
+        "description": "
+ChatGPT는 생산성과 문제 해결 능력을 향상시키는 귀중한 도구입니다. 백엔드 개발을 할 때 ChatGPT를 활용하는 5가지 방법을 소개합니다.
+1. API 문서 생성
+백엔드 개발자에게 가장 시간이 많이 걸리는 작업 중 하나는 포괄적인 API 문서를 작성하는 것입니다. ChatGPT는 이 작업에 탁월합니다,
+
+엔드포인트 설명: 엔드포인트 세부 정보를 제",
+        "wordCount": 720
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                            <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>follow:</p>
+    <ul class="social-links">
+       
+      <li>
+        <a
+          class="social-tooltip"
+          title="github"
+          href="https://github.com/hgko1207"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-github"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="facebook"
+          href="https://www.facebook.com/profile.php?id=100003526102847"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-facebook"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="rss"
+          href="/"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-rss"></i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+   
+<nav id="article-nav">
+    
+        <a href="/2024/10/10/netcore-1/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            .NET Core로 고성능 API 빌드하기
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2024/10/08/backend-1/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">백엔드(Backend)를 무료로 호스팅할 수 있는 10가지 사이트</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+ 
+  <div class="widgets-container">
+      
+  
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/10/10/netcore-1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/netcore.png)" alt=".NET Core로 고성능 API 빌드하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Backend/">Backend</a></p>
+                            <p class="item-title"><a href="/2024/10/10/netcore-1/" class="title">.NET Core로 고성능 API 빌드하기</a></p>
+                            <p class="item-date"><time datetime="2024-10-10T04:11:29.000Z" itemprop="datePublished">2024-10-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/10/10/chatgpt-31/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/chatgpt.png)" alt="백엔드 개발자로서 ChatGPT를 사용하는 방법(5가지 방법)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2024/10/10/chatgpt-31/" class="title">백엔드 개발자로서 ChatGPT를 사용하는 방법(5가지 방법)</a></p>
+                            <p class="item-date"><time datetime="2024-10-10T03:54:04.000Z" itemprop="datePublished">2024-10-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/10/08/backend-1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/backend.png)" alt="백엔드(Backend)를 무료로 호스팅할 수 있는 10가지 사이트" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Backend/">Backend</a></p>
+                            <p class="item-title"><a href="/2024/10/08/backend-1/" class="title">백엔드(Backend)를 무료로 호스팅할 수 있는 10가지 사이트</a></p>
+                            <p class="item-date"><time datetime="2024-10-08T13:29:28.000Z" itemprop="datePublished">2024-10-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/09/24/info-27/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/information.png)" alt="IP 주소란 무엇인가요?" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/IT/">IT</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/IT/Information/">Information</a></p>
+                            <p class="item-title"><a href="/2024/09/24/info-27/" class="title">IP 주소란 무엇인가요?</a></p>
+                            <p class="item-date"><time datetime="2024-09-24T03:31:46.000Z" itemprop="datePublished">2024-09-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/09/24/web-20/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/information.png)" alt="꼭 알아야 할 21가지 HTML 팁" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Frontend/">Frontend</a></p>
+                            <p class="item-title"><a href="/2024/09/24/web-20/" class="title">꼭 알아야 할 21가지 HTML 팁</a></p>
+                            <p class="item-date"><time datetime="2024-09-24T01:21:35.000Z" itemprop="datePublished">2024-09-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">59</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">405</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">74</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">36</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Net-Core/">.Net Core</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">17</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">33</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">29</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">116</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">105</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">25</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">8</span></li></ul></li></ul>
+        </div>
+    </div>
+
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+  <div class="widget-wrap widget-float">
+
+    <h3 class="widget-title">Sponsored</h3>
+    <div class="widget">
+        <a href="https://marcofranssen.nl?adsense_widget" target="_blank" rel="noopener">This widget is sponsored by, Marco Franssen, main contributor to this theme.</a>
+    </div>
+
+</div>
+  
+  </div>
+  <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+
+  <!-- hits 방문자수 -->
+  <a href="https://hits.seeyoufarm.com" target="_blank" rel="noopener">
+    <style>
+      .hits {
+        width: auto;
+        height: auto;
+        max-width: 99px;
+        max-height: 20px;
+      }
+    </style>
+    <img
+      src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhgko1207.github.io&count_bg=%23E6ADD5&title_bg=%23BF98D2&icon=&icon_color=%23E7E7E7&title=%EB%B0%A9%EB%AC%B8%EC%9E%90%EC%88%98&edge_flat=false"
+      alt="방문자수"
+    />
+  </a>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h2 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h2>
+                <p>&copy; 2024 Hyeong Gyun Ko</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://hgko1207.github.io/2024/10/10/chatgpt-31/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
