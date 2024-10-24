@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>알아두면 유용한 12가지 파이썬 라이브러리 | 규니의 블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    <meta name="keywords" content="Python,라이브러리,Programming" />
+    
+    <meta name="description" content="Python은 그 단순함, 가독성, 그리고 방대한 라이브러리 생태계 덕분에 매우 유용한 언어입니다. 많은 개발자들이 NumPy, pandas, requests, Flask와 같은 유명한 라이브러리에 익숙하지만, 그 외에도 생산성을 높이고 특정 문제를 더 효율적으로 해결할 수 있는 덜 알려진 라이브러리들이 많이 존재합니다. 이러한 라이브러리들은 잘 알려진 라">
+<meta property="og:type" content="article">
+<meta property="og:title" content="알아두면 유용한 12가지 파이썬 라이브러리">
+<meta property="og:url" content="http://hgko1207.github.io/2024/10/22/python-6/index.html">
+<meta property="og:site_name" content="규니의 블로그">
+<meta property="og:description" content="Python은 그 단순함, 가독성, 그리고 방대한 라이브러리 생태계 덕분에 매우 유용한 언어입니다. 많은 개발자들이 NumPy, pandas, requests, Flask와 같은 유명한 라이브러리에 익숙하지만, 그 외에도 생산성을 높이고 특정 문제를 더 효율적으로 해결할 수 있는 덜 알려진 라이브러리들이 많이 존재합니다. 이러한 라이브러리들은 잘 알려진 라">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/python.png">
+<meta property="article:published_time" content="2024-10-22T06:25:00.000Z">
+<meta property="article:modified_time" content="2024-10-22T06:45:02.585Z">
+<meta property="article:author" content="Hyeong Gyun Ko">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="라이브러리">
+<meta property="article:tag" content="Programming">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/python.png">
+    
+
+    
+        <link rel="alternate" href="/" title="규니의 블로그" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-166318275-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+
+    <!-- <script
+  data-ad-client="ca-pub-7581566810202853"
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+></script>
+ -->
+
+    <!-- 구글 애드센스 -->
+    <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!-- 네이버 -->
+    <meta name="naver-site-verification" content="a6e2912bbd1e42226e10ee12d3498a246c51ec1f" />
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h2 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h2>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">hgko&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ETC/">ETC</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/">IT</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/BlockChain/">BlockChain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Blockchain/">Blockchain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Information/">Information</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Satellite/">Satellite</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Backend/">Backend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DB/">DB</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Frontend/">Frontend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Language/">Language</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Mobile/">Mobile</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Web/">Web</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about">About</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/profile">Profile</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h2 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Language/Python/">Python</a>
+    </h2>
+</div>
+
+                        <div class="main-body-content">
+                            <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+                            <!-- 상단 광고 -->
+<ins
+  class="adsbygoogle"
+  style="display: block"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="1131844921"
+  data-ad-format="auto"
+  data-full-width-responsive="true"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                            <article id="post-python-6" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        알아두면 유용한 12가지 파이썬 라이브러리
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2024/10/22/python-6/" class="article-date">
+         <time datetime="2024-10-22T06:25:00.000Z" itemprop="datePublished">2024-10-22</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Programming/" rel="tag">Programming</a>, <a class="tag-link" href="/tags/Python/" rel="tag">Python</a>, <a class="tag-link" href="/tags/%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC/" rel="tag">라이브러리</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>Python은 그 단순함, 가독성, 그리고 방대한 라이브러리 생태계 덕분에 매우 유용한 언어입니다. 많은 개발자들이 <code>NumPy</code>, <code>pandas</code>, <code>requests</code>, <code>Flask</code>와 같은 유명한 라이브러리에 익숙하지만, 그 외에도 생산성을 높이고 특정 문제를 더 효율적으로 해결할 수 있는 덜 알려진 라이브러리들이 많이 존재합니다.</p>
+<p>이러한 라이브러리들은 잘 알려진 라이브러리들에 비해 덜 주목받지만, 작업을 단순화하고, 워크플로를 최적화하며, 프로젝트에 혁신을 가져올 수 있는 독특한 기능들을 제공합니다.</p>
+<p>Python에는 매우 유용하지만 널리 알려지지 않은 라이브러리들이 많이 있습니다. 이러한 라이브러리는 반복 작업을 자동화하고, 데이터를 더 효율적으로 처리하며, 적은 코드로 강력한 애플리케이션을 구축하는 데 도움을 줄 수 있습니다.</p>
+<p>이번 글에서는 파일 처리, 데이터 처리, 웹 개발 등 다양한 분야에 걸친 라이브러리들을 소개하며, 개발 과정을 더 원활하고 효율적으로 만드는 방법을 알아보겠습니다.</p>
+<h2 id="1-WeasyPrint-HTML과-CSS를-PDF로-변환">1. WeasyPrint - HTML과 CSS를 PDF로 변환</h2>
+<p><strong>WeasyPrint</strong>는 HTML과 CSS를 PDF로 변환할 수 있는 간단하고 우아한 라이브러리입니다. 다른 PDF 라이브러리와 달리 복잡한 레이아웃을 지원하며, 웹 기술을 사용합니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> weasyprint <span class="keyword">import</span> HTML</span><br><span class="line"></span><br><span class="line">html_content = <span class="string">"""&lt;h1&gt;Hello, World!&lt;/h1&gt;&lt;p&gt;This is a PDF generated</span></span><br><span class="line"><span class="string">from HTML and CSS.&lt;/p&gt;"""</span></span><br><span class="line"></span><br><span class="line">HTML(string=html_content).write_pdf(<span class="string">"output.pdf"</span>)</span><br></pre></td></tr></table></figure>
+<p>이 라이브러리는 청구서나 보고서와 같은 PDF 파일을 동적으로 생성해야 하는 웹 애플리케이션에서 사용할 수 있습니다.</p>
+<h2 id="2-Pyexcel-간단한-엑셀-데이터-처리">2. Pyexcel - 간단한 엑셀 데이터 처리</h2>
+<p><strong>Pyexcel</strong>은 다양한 형식(.xls, .xlsx, .ods)의 엑셀 파일을 읽고, 쓰고, 조작할 수 있는 경량 라이브러리입니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyexcel <span class="keyword">as</span> p</span><br><span class="line"></span><br><span class="line">data = p.get_array(file_name=<span class="string">"example.xlsx"</span>)</span><br><span class="line"></span><br><span class="line">print(data)</span><br></pre></td></tr></table></figure>
+<p>이 라이브러리는 프로젝트에서 여러 엑셀 형식을 처리해야 할 때 유용합니다.</p>
+<h2 id="3-Pendulum-간단한-날짜-시간-처리">3. Pendulum - 간단한 날짜/시간 처리</h2>
+<p><strong>Pendulum</strong>은 Python의 <code>datetime</code> 라이브러리를 대체할 수 있는 라이브러리로, 직관적이고 간단한 API를 제공하며, 시간대 지원, 파싱, 포맷팅, 날짜 연산 등을 포함합니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pendulum</span><br><span class="line"></span><br><span class="line">now = pendulum.now(<span class="string">'UTC'</span>)</span><br><span class="line"></span><br><span class="line">print(now.to_datetime_string())</span><br><span class="line"><span class="comment"># 출력: 2024-10-22 6:32:10</span></span><br></pre></td></tr></table></figure>
+<p>이 라이브러리는 표준 <code>datetime</code> 라이브러리로 처리하기 번거로운 많은 복잡한 날짜 계산을 단순화합니다. 서머타임 변환과 같은 까다로운 부분도 자동으로 처리할 수 있습니다.</p>
+<h2 id="4-Tenacity-Python용-재시도-라이브러리">4. Tenacity - Python용 재시도 라이브러리</h2>
+<p><strong>Tenacity</strong>는 네트워크 요청이나 데이터베이스 연결과 같이 신뢰할 수 없는 함수에 대한 재시도 로직을 간단하게 처리할 수 있는 범용 재시도 라이브러리입니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tenacity <span class="keyword">import</span> retry, stop_after_attempt</span><br><span class="line"></span><br><span class="line"><span class="meta">@retry(stop=stop_after_attempt(3))</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">unreliable_function</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"Attempting to execute..."</span>)</span><br><span class="line">    <span class="keyword">raise</span> Exception(<span class="string">"Failed"</span>)</span><br><span class="line"></span><br><span class="line">unreliable_function()</span><br></pre></td></tr></table></figure>
+<p>이 라이브러리는 간헐적인 네트워크 오류를 유연하게 처리하는 데 유용합니다. 수동으로 재시도 로직을 작성하지 않고, 함수에 데코레이터를 적용하여 코드 복잡성을 줄이고 신뢰성을 높일 수 있습니다.</p>
+<h2 id="5-Dataset-간단한-데이터베이스-상호작용">5. Dataset - 간단한 데이터베이스 상호작용</h2>
+<p><strong>Dataset</strong>은 SQL 데이터베이스와 Python 구문을 사용해 상호작용할 수 있는 데이터베이스 추상화 계층입니다. SQL을 작성하지 않고도 데이터베이스 기반 애플리케이션을 빠르게 프로토타입할 수 있습니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> dataset</span><br><span class="line"></span><br><span class="line">db = dataset.connect(<span class="string">'sqlite:///mydatabase.db'</span>)</span><br><span class="line"></span><br><span class="line">db[<span class="string">'users'</span>].insert(dict(name=<span class="string">'hgko'</span>, age=<span class="number">30</span>))</span><br></pre></td></tr></table></figure>
+<p>이 라이브러리는 복잡한 ORM 설정을 걱정하지 않고 데이터베이스 상호작용을 처리할 수 있어, 애플리케이션 로직에 집중할 수 있게 해줍니다.</p>
+<h2 id="6-Poetry-의존성-관리-및-패키징">6. Poetry - 의존성 관리 및 패키징</h2>
+<p><strong>Poetry</strong>는 Python 프로젝트 관리의 의존성 관리 및 패키징 도구입니다. 단순한 설정 파일로 의존성 관리, 빌드, PyPI에 배포까지 처리할 수 있습니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">poetry new my_project</span><br><span class="line">poetry add pendulum</span><br><span class="line">poetry add requests</span><br></pre></td></tr></table></figure>
+<p>이 라이브러리는 가상 환경 설정, 의존성 관리, 프로젝트 패키징 과정을 간소화하며, pip, pipenv, setup.py와 같은 도구를 하나의 통합된 솔루션으로 대체할 수 있습니다.</p>
+<h2 id="7-Dask-병렬-컴퓨팅-및-태스크-스케줄링">7. Dask - 병렬 컴퓨팅 및 태스크 스케줄링</h2>
+<p><strong>Dask</strong>는 유연한 병렬 컴퓨팅 라이브러리로, 기존 Python 코드에 쉽게 통합할 수 있습니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> dask.dataframe <span class="keyword">as</span> dd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 큰 데이터셋 읽기</span></span><br><span class="line">df = dd.read_csv(<span class="string">'large_dataset.csv'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 병렬로 그룹화 연산 수행</span></span><br><span class="line">result = df.groupby(<span class="string">'category'</span>).sum().compute()</span><br><span class="line"></span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
+<p>이 라이브러리는 메모리에 적재하기 어려운 대규모 데이터셋을 처리할 때 유용합니다. Dask는 태스크를 더 작은 청크로 나누어 병렬로 처리함으로써 처리 시간을 크게 줄일 수 있습니다.</p>
+<h2 id="8-Faker-테스트를-위한-가짜-데이터-생성">8. Faker - 테스트를 위한 가짜 데이터 생성</h2>
+<p><strong>Faker</strong>는 이름, 주소, 이메일, 전화번호 등과 같은 가짜 데이터를 생성할 수 있는 라이브러리입니다. 테스트, 데이터 생성, 데이터베이스 시드(seed) 작업에 유용합니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> faker <span class="keyword">import</span> Faker</span><br><span class="line"></span><br><span class="line">fake = Faker()</span><br><span class="line"></span><br><span class="line">print(fake.name())  <span class="comment"># 랜덤한 이름 출력</span></span><br><span class="line">print(fake.address())  <span class="comment"># 랜덤한 주소 출력</span></span><br></pre></td></tr></table></figure>
+<p>이 라이브러리는 애플리케이션 성능을 테스트할 대규모 데이터셋이 필요할 때 유용합니다.</p>
+<h2 id="9-FlashText-빠른-키워드-검색-및-치환">9. FlashText - 빠른 키워드 검색 및 치환</h2>
+<p><strong>FlashText</strong>는 키워드 기반의 빠른 검색 및 치환을 위한 라이브러리입니다. 정규 표현식보다 키워드 검색 작업에 훨씬 효율적입니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flashtext <span class="keyword">import</span> KeywordProcessor</span><br><span class="line"></span><br><span class="line">keyword_processor = KeywordProcessor()</span><br><span class="line">keyword_processor.add_keyword(<span class="string">'JavaScript'</span>, <span class="string">'JS'</span>)</span><br><span class="line"></span><br><span class="line">text = <span class="string">"JavaScript is a popular programming language."</span></span><br><span class="line"></span><br><span class="line">print(keyword_processor.replace_keywords(text))</span><br><span class="line"><span class="comment"># 출력: JS is a popular programming language.</span></span><br></pre></td></tr></table></figure>
+<p>이 라이브러리는 수백만 개의 레코드에서 여러 키워드를 치환해야 하는 경우에 특히 유용합니다.</p>
+<h2 id="10-PyPDF2-PDF-파일-조작">10. PyPDF2 - PDF 파일 조작</h2>
+<p><strong>PyPDF2</strong>는 PDF 파일을 합치거나, 분할하거나, 회전하거나, 텍스트를 추출할 수 있는 라이브러리입니다. 자동화된 워크플로에서 PDF 문서를 처리할 때 적합합니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PyPDF2 <span class="keyword">import</span> PdfReader, PdfWriter</span><br><span class="line"></span><br><span class="line">reader = PdfReader(<span class="string">'input.pdf'</span>)</span><br><span class="line"></span><br><span class="line">writer = PdfWriter()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> page <span class="keyword">in</span> reader.pages:</span><br><span class="line">    writer.add_page(page)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'output.pdf'</span>, <span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    writer.write(f)</span><br></pre></td></tr></table></figure>
+<p>이 라이브러리는 여러 PDF 문서를 하나의 파일로 합치는 작업을 자동화하는 데 유용합니다.</p>
+<h2 id="11-Humanize-데이터의-인간-친화적-변환">11. Humanize - 데이터의 인간 친화적 변환</h2>
+<p><strong>Humanize</strong>는 숫자를 단어로 바꾸거나 날짜를 자연어로 표현하는 등 데이터를 더 읽기 쉽게 변환하는 도구를 제공합니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> humanize</span><br><span class="line"></span><br><span class="line">print(humanize.naturalsize(<span class="number">1024</span>))</span><br><span class="line"><span class="comment"># 출력: '1.0 kB'</span></span><br><span class="line"></span><br><span class="line">print(humanize.intword(<span class="number">1234567890</span>))</span><br><span class="line"><span class="comment"># 출력: '1.2 billion'</span></span><br></pre></td></tr></table></figure>
+<p>이 라이브러리는 비기술적인 이해관계자에게 더 이해하기 쉬운 형식으로 데이터를 제시해야 하는 보고 도구에 특히 유용합니다.</p>
+<h2 id="12-Memory-Profiler-Python-코드의-메모리-사용량-모니터링">12. Memory-Profiler - Python 코드의 메모리 사용량 모니터링</h2>
+<p><strong>Memory-Profiler</strong>는 Python 프로그램의 메모리 사용량을 줄 단위로 모니터링할 수 있는 모듈입니다. 메모리 누수 식별이나 메모리 사용량 최적화에 유용합니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> memory_profiler <span class="keyword">import</span> profile</span><br><span class="line"></span><br><span class="line"><span class="meta">@profile</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_func</span><span class="params">()</span>:</span></span><br><span class="line">    a = [<span class="number">1</span>] * (<span class="number">10</span> ** <span class="number">6</span>)</span><br><span class="line">    b = [<span class="number">2</span>] * (<span class="number">2</span> * <span class="number">10</span> ** <span class="number">7</span>)</span><br><span class="line">    <span class="keyword">del</span> b</span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line"></span><br><span class="line">my_func()</span><br></pre></td></tr></table></figure>
+<p>이 라이브러리는 비효율적인 데이터 구조로 인해 메모리 사용량이 과도한 Python 스크립트를 최적화하는 데 사용할 수 있습니다. 병목 지점을 식별하고 애플리케이션의 메모리 사용량을 줄이는 데 도움이 됩니다.</p>
+<h2 id="결론">결론</h2>
+<p>Python의 방대한 생태계에는 잘 알려지지 않았지만 개발 경험을 크게 향상시킬 수 있는 라이브러리들이 많이 있습니다. 이러한 도구들을 적극적으로 사용해 보세요. 이러한 라이브러리들은 당신이 예상하지 못한 문제에 대한 해결책이 될 수 있습니다.</p>
+
+        </div>
+        <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+        <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://hgko1207.github.io/2024/10/22/python-6/" data-id="cm2mpikw200016ccx3rv53kx6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Hyeong Gyun Ko"
+        },
+        "headline": "알아두면 유용한 12가지 파이썬 라이브러리",
+        "image": "http://hgko1207.github.io/images/thumbnail/python.png",
+        "keywords": "Python 라이브러리 Programming",
+        "genre": "Programming Language Python",
+        "datePublished": "2024-10-22",
+        "dateCreated": "2024-10-22",
+        "dateModified": "2024-10-22",
+        "url": "http://hgko1207.github.io/2024/10/22/python-6/",
+        "description": "Python은 그 단순함, 가독성, 그리고 방대한 라이브러리 생태계 덕분에 매우 유용한 언어입니다. 많은 개발자들이 NumPy, pandas, requests, Flask와 같은 유명한 라이브러리에 익숙하지만, 그 외에도 생산성을 높이고 특정 문제를 더 효율적으로 해결할 수 있는 덜 알려진 라이브러리들이 많이 존재합니다.
+이러한 라이브러리들은 잘 알려진 라",
+        "wordCount": 1075
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                            <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>follow:</p>
+    <ul class="social-links">
+       
+      <li>
+        <a
+          class="social-tooltip"
+          title="github"
+          href="https://github.com/hgko1207"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-github"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="facebook"
+          href="https://www.facebook.com/profile.php?id=100003526102847"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-facebook"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="rss"
+          href="/"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-rss"></i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+   
+<nav id="article-nav">
+    
+    
+        <a href="/2024/10/22/spring-7/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Spring Boot에서 데이터 캐싱 방법</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+ 
+  <div class="widgets-container">
+      
+  
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/10/22/python-6/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/python.png)" alt="알아두면 유용한 12가지 파이썬 라이브러리" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/10/22/python-6/" class="title">알아두면 유용한 12가지 파이썬 라이브러리</a></p>
+                            <p class="item-date"><time datetime="2024-10-22T06:25:00.000Z" itemprop="datePublished">2024-10-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/10/22/spring-7/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/spring.png)" alt="Spring Boot에서 데이터 캐싱 방법" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Backend/">Backend</a></p>
+                            <p class="item-title"><a href="/2024/10/22/spring-7/" class="title">Spring Boot에서 데이터 캐싱 방법</a></p>
+                            <p class="item-date"><time datetime="2024-10-22T04:00:21.000Z" itemprop="datePublished">2024-10-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/10/22/java-5/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/java.png)" alt="Java 성능 향상을 위한 작은 팁들" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/10/22/java-5/" class="title">Java 성능 향상을 위한 작은 팁들</a></p>
+                            <p class="item-date"><time datetime="2024-10-22T03:02:09.000Z" itemprop="datePublished">2024-10-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/10/21/java-4/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/java.png)" alt="자바 스트림의 7가지 활용 팁" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/10/21/java-4/" class="title">자바 스트림의 7가지 활용 팁</a></p>
+                            <p class="item-date"><time datetime="2024-10-21T05:19:26.000Z" itemprop="datePublished">2024-10-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/10/21/spring-6/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/spring.png)" alt="[Spring Boot] 대용량 데이터 쿼리 REST 엔드포인트 처리" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Backend/">Backend</a></p>
+                            <p class="item-title"><a href="/2024/10/21/spring-6/" class="title">[Spring Boot] 대용량 데이터 쿼리 REST 엔드포인트 처리</a></p>
+                            <p class="item-date"><time datetime="2024-10-21T04:53:07.000Z" itemprop="datePublished">2024-10-21</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">62</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">413</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">38</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Net-Core/">.Net Core</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">19</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">33</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">29</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">116</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">110</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">25</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">8</span></li></ul></li></ul>
+        </div>
+    </div>
+
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+  <div class="widget-wrap widget-float">
+
+    <h3 class="widget-title">Sponsored</h3>
+    <div class="widget">
+        <a href="https://marcofranssen.nl?adsense_widget" target="_blank" rel="noopener">This widget is sponsored by, Marco Franssen, main contributor to this theme.</a>
+    </div>
+
+</div>
+  
+  </div>
+  <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+
+  <!-- hits 방문자수 -->
+  <a href="https://hits.seeyoufarm.com" target="_blank" rel="noopener">
+    <style>
+      .hits {
+        width: auto;
+        height: auto;
+        max-width: 99px;
+        max-height: 20px;
+      }
+    </style>
+    <img
+      src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhgko1207.github.io&count_bg=%23E6ADD5&title_bg=%23BF98D2&icon=&icon_color=%23E7E7E7&title=%EB%B0%A9%EB%AC%B8%EC%9E%90%EC%88%98&edge_flat=false"
+      alt="방문자수"
+    />
+  </a>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h2 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h2>
+                <p>&copy; 2024 Hyeong Gyun Ko</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://hgko1207.github.io/2024/10/22/python-6/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
