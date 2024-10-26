@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>파이썬에서 함수형 프로그래밍 실습 | 규니의 블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    <meta name="keywords" content="Python,Programming,Coding,Software Engineering,Functional Programming" />
+    
+    <meta name="description" content="함수형 프로그래밍은 계산을 함수의 평가로 간주하며, 가변 상태와 반복문 사용을 지양하는 프로그래밍 패러다임입니다. 함수형 프로그래밍은 함수의 계산에 중점을 두며, 부수효과는 최소화합니다. 함수형 프로그래밍에서는 함수가 일급 객체(first-class citizen)로 취급되며, 이는 함수가 다른 객체처럼 조작되고 전달될 수 있다는 것을 의미합니다. Pyt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="파이썬에서 함수형 프로그래밍 실습">
+<meta property="og:url" content="http://hgko1207.github.io/2024/10/24/python-9/index.html">
+<meta property="og:site_name" content="규니의 블로그">
+<meta property="og:description" content="함수형 프로그래밍은 계산을 함수의 평가로 간주하며, 가변 상태와 반복문 사용을 지양하는 프로그래밍 패러다임입니다. 함수형 프로그래밍은 함수의 계산에 중점을 두며, 부수효과는 최소화합니다. 함수형 프로그래밍에서는 함수가 일급 객체(first-class citizen)로 취급되며, 이는 함수가 다른 객체처럼 조작되고 전달될 수 있다는 것을 의미합니다. Pyt">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/python.png">
+<meta property="article:published_time" content="2024-10-24T04:43:55.000Z">
+<meta property="article:modified_time" content="2024-10-24T04:58:31.902Z">
+<meta property="article:author" content="Hyeong Gyun Ko">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Programming">
+<meta property="article:tag" content="Coding">
+<meta property="article:tag" content="Software Engineering">
+<meta property="article:tag" content="Functional Programming">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/python.png">
+    
+
+    
+        <link rel="alternate" href="/" title="규니의 블로그" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-166318275-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+
+    <!-- <script
+  data-ad-client="ca-pub-7581566810202853"
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+></script>
+ -->
+
+    <!-- 구글 애드센스 -->
+    <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!-- 네이버 -->
+    <meta name="naver-site-verification" content="a6e2912bbd1e42226e10ee12d3498a246c51ec1f" />
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h2 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h2>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">hgko&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ETC/">ETC</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/">IT</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/BlockChain/">BlockChain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Blockchain/">Blockchain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Information/">Information</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Satellite/">Satellite</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Backend/">Backend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DB/">DB</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Frontend/">Frontend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Language/">Language</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Mobile/">Mobile</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Web/">Web</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about">About</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/profile">Profile</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h2 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Language/Python/">Python</a>
+    </h2>
+</div>
+
+                        <div class="main-body-content">
+                            <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+                            <!-- 상단 광고 -->
+<ins
+  class="adsbygoogle"
+  style="display: block"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="1131844921"
+  data-ad-format="auto"
+  data-full-width-responsive="true"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                            <article id="post-python-9" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        파이썬에서 함수형 프로그래밍 실습
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2024/10/24/python-9/" class="article-date">
+         <time datetime="2024-10-24T04:43:55.000Z" itemprop="datePublished">2024-10-24</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Coding/" rel="tag">Coding</a>, <a class="tag-link" href="/tags/Functional-Programming/" rel="tag">Functional Programming</a>, <a class="tag-link" href="/tags/Programming/" rel="tag">Programming</a>, <a class="tag-link" href="/tags/Python/" rel="tag">Python</a>, <a class="tag-link" href="/tags/Software-Engineering/" rel="tag">Software Engineering</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="/images/header/python-9.png" alt="" /></p>
+<p>함수형 프로그래밍은 계산을 함수의 평가로 간주하며, 가변 상태와 반복문 사용을 지양하는 프로그래밍 패러다임입니다. 함수형 프로그래밍은 함수의 계산에 중점을 두며, 부수효과는 최소화합니다.</p>
+<p>함수형 프로그래밍에서는 함수가 일급 객체(first-class citizen)로 취급되며, 이는 함수가 다른 객체처럼 조작되고 전달될 수 있다는 것을 의미합니다.</p>
+<p>Python은 객체 지향 프로그래밍 언어이지만, 함수형 프로그래밍의 특징도 지원합니다. Python에서 우리는 함수형 스타일의 코드를 작성하여 그 간결함과 효율성을 활용해 실질적인 문제를 해결할 수 있습니다.</p>
+<h2 id="1-필수-개념"><a class="markdownIt-Anchor" href="#1-필수-개념"></a> 1. 필수 개념</h2>
+<h3 id="11-함수는-일급-객체이다"><a class="markdownIt-Anchor" href="#11-함수는-일급-객체이다"></a> 1.1 함수는 일급 객체이다</h3>
+<p>함수형 프로그래밍에서 함수는 일급 객체로 취급됩니다. 이는 함수가 다른 객체처럼 조작되고 전달될 수 있다는 것을 의미합니다.</p>
+<p>이 덕분에 함수를 다른 함수의 인수로 전달하거나, 함수에서 함수를 반환할 수 있습니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">square</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x * x</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cube</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x * x * x</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compose</span><span class="params">(f, g)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">lambda</span> x: f(g(x))</span><br><span class="line"></span><br><span class="line">square_of_cube = compose(square, cube)</span><br><span class="line"></span><br><span class="line">print(square_of_cube(<span class="number">2</span>))</span><br><span class="line"><span class="comment"># 출력: 64</span></span><br></pre></td></tr></table></figure>
+<h3 id="12-불변-데이터"><a class="markdownIt-Anchor" href="#12-불변-데이터"></a> 1.2 불변 데이터</h3>
+<p>함수형 프로그래밍은 불변 데이터를 중시합니다. 이는 데이터 구조가 한 번 생성되면 변경할 수 없음을 의미합니다.</p>
+<p>모든 연산은 원래 데이터를 수정하지 않고, 새로운 데이터를 반환해야 합니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">increment</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">num = <span class="number">1</span></span><br><span class="line">num_plus_one = increment(num)</span><br><span class="line"></span><br><span class="line">print(num_plus_one)</span><br><span class="line"><span class="comment"># 출력: 2</span></span><br><span class="line"></span><br><span class="line">print(num)</span><br><span class="line"><span class="comment"># 출력: 1</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-python의-기능"><a class="markdownIt-Anchor" href="#2-python의-기능"></a> 2. Python의 기능</h2>
+<p>Python은 순수 함수형 프로그래밍 언어는 아니지만, 함수형 프로그래밍의 일부 기능을 갖추고 있습니다. 이러한 기능은 더 깔끔하고 효율적인 코드를 작성하는 데 도움을 줍니다.</p>
+<h3 id="21-익명-함수와-람다lambda-표현식"><a class="markdownIt-Anchor" href="#21-익명-함수와-람다lambda-표현식"></a> 2.1 익명 함수와 람다(Lambda) 표현식</h3>
+<p>Python은 익명 함수를 지원하여 코드의 가독성을 높여줍니다. 람다 표현식은 간단한 익명 함수를 생성할 수 있는 Python의 중요한 기능입니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 피보나치 수열을 생성하는 람다 함수</span></span><br><span class="line">fibonacci = <span class="keyword">lambda</span> n: n <span class="keyword">if</span> n &lt;= <span class="number">1</span> <span class="keyword">else</span> fibonacci(n - <span class="number">1</span>) + fibonacci(n - <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 람다 함수를 사용하여 10번째 피보나치 수를 계산</span></span><br><span class="line">tenth_fibonacci = fibonacci(<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">print(tenth_fibonacci)</span><br><span class="line"><span class="comment"># 출력: 55</span></span><br></pre></td></tr></table></figure>
+<p>이 예시에서 <code>fibonacci</code> 람다 함수는 재귀적으로 피보나치 수열을 생성합니다. 그런 다음, 이 함수를 사용해 10번째 피보나치 수를 계산하면 결과는 55가 됩니다.</p>
+<h3 id="22-리스트-컴프리헨션"><a class="markdownIt-Anchor" href="#22-리스트-컴프리헨션"></a> 2.2 리스트 컴프리헨션</h3>
+<p>리스트 컴프리헨션(List Comprehension)은 Python에서 매우 강력한 기능으로, 간결한 구문을 통해 리스트를 생성할 수 있게 합니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 리스트 컴프리헨션 사용</span></span><br><span class="line">squares = [x * x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>)]</span><br><span class="line"></span><br><span class="line">print(squares)</span><br><span class="line"><span class="comment"># 출력: [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-함수형-프로그래밍-실습"><a class="markdownIt-Anchor" href="#3-함수형-프로그래밍-실습"></a> 3. 함수형 프로그래밍 실습</h2>
+<h3 id="31-정렬과-맵핑"><a class="markdownIt-Anchor" href="#31-정렬과-맵핑"></a> 3.1 정렬과 맵핑</h3>
+<p>Python의 내장 함수 <code>sorted</code>와 <code>map</code>을 사용하면 리스트를 쉽게 정렬하고 맵핑할 수 있습니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">numbers = [<span class="number">3</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">9</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 정렬</span></span><br><span class="line">sorted_numbers = sorted(numbers)</span><br><span class="line">print(sorted_numbers)</span><br><span class="line"><span class="comment"># 출력: [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 제곱 함수 정의</span></span><br><span class="line">square = <span class="keyword">lambda</span> x: x * x</span><br><span class="line"></span><br><span class="line"><span class="comment"># 맵핑</span></span><br><span class="line">squared_numbers = list(map(square, numbers))</span><br><span class="line">print(squared_numbers)</span><br><span class="line"><span class="comment"># 출력: [9, 1, 16, 1, 25, 81, 4, 36, 25, 9, 25]</span></span><br></pre></td></tr></table></figure>
+<h3 id="32-필터링과-집계"><a class="markdownIt-Anchor" href="#32-필터링과-집계"></a> 3.2 필터링과 집계</h3>
+<p>Python은 <code>filter</code>와 <code>reduce</code> 같은 내장 필터링 및 집계 함수를 제공합니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> reduce</span><br><span class="line"></span><br><span class="line">numbers = [<span class="number">3</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">9</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 필터링</span></span><br><span class="line">even_numbers = list(filter(<span class="keyword">lambda</span> x: x % <span class="number">2</span> == <span class="number">0</span>, numbers))</span><br><span class="line">print(even_numbers)</span><br><span class="line"><span class="comment"># 출력: [4, 2, 6]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 집계</span></span><br><span class="line">summed = reduce(<span class="keyword">lambda</span> x, y: x + y, numbers)</span><br><span class="line">print(summed)</span><br><span class="line"><span class="comment"># 출력: 43</span></span><br></pre></td></tr></table></figure>
+<h2 id="4-메서드-체이닝을-사용한-파이프-시뮬레이션"><a class="markdownIt-Anchor" href="#4-메서드-체이닝을-사용한-파이프-시뮬레이션"></a> 4. 메서드 체이닝을 사용한 파이프 시뮬레이션</h2>
+<p>Python에서는 Unix 쉘 스크립트와 같은 “Pipe” 개념이 기본적으로 제공되지는 않지만, 메서드 체이닝(Method Chaining)이나 함수 조합을 사용해 유사한 기능을 구현할 수 있습니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 함수 정의</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">square</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x ** <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">double</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x * <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_five</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x + <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 파이프 같은 구성을 위한 메서드 체이닝</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pipeable</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, value)</span>:</span></span><br><span class="line">        self.value = value</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pipe</span><span class="params">(self, func)</span>:</span></span><br><span class="line">        self.value = func(self.value)</span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">number = Pipeable(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 메서드 체이닝을 통한 파이프 구성</span></span><br><span class="line">result = number.pipe(square).pipe(double).pipe(add_five)</span><br><span class="line"></span><br><span class="line">print(result.value)</span><br><span class="line"><span class="comment"># 출력: 23</span></span><br></pre></td></tr></table></figure>
+<p>이 예시는 <code>Pipeable</code> 클래스를 사용하여 파이프와 같은 구성을 구현하는 방법을 보여줍니다. <code>pipe</code> 메서드를 사용해 각 함수가 이전 결과를 받아들여 처리할 수 있습니다.</p>
+<h2 id="요약"><a class="markdownIt-Anchor" href="#요약"></a> 요약</h2>
+<p>함수형 프로그래밍은 함수 계산에 중점을 두며, 부수효과를 최소화하는 새로운 프로그래밍 패러다임입니다.</p>
+<p>Python은 함수형 프로그래밍 기능을 지원하여 더 간단하고 효율적인 코드를 작성할 수 있게 합니다. Python은 순수 함수형 언어는 아니지만, 데이터 처리와 응용 프로그램 개발에서 매우 강력한 기능을 제공합니다.</p>
+<p><strong>장점:</strong></p>
+<ul>
+<li>코드가 간결함</li>
+<li>이해 및 유지보수가 쉬움</li>
+<li>코드 재사용성을 높임</li>
+</ul>
+<p><strong>단점:</strong></p>
+<ul>
+<li>학습 비용이 있을 수 있음</li>
+<li>일부 상황에서는 명령형 프로그래밍보다 성능이 낮을 수 있음</li>
+</ul>
+<p>결론적으로, 함수형 프로그래밍은 모듈화되고 이해하기 쉬운 유지보수성이 높은 코드를 작성하는 데 도움이 되는 강력한 프로그래밍 패러다임입니다. Python에서 함수형 프로그래밍의 기능을 활용해 실질적인 문제를 해결하고, 프로그래밍 효율성을 높여보세요!</p>
+
+        </div>
+        <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+        <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://hgko1207.github.io/2024/10/24/python-9/" data-id="cm2q7diat000318cxblbzh3hq" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Hyeong Gyun Ko"
+        },
+        "headline": "파이썬에서 함수형 프로그래밍 실습",
+        "image": "http://hgko1207.github.io/images/thumbnail/python.png",
+        "keywords": "Python Programming Coding Software Engineering Functional Programming",
+        "genre": "Programming Language Python",
+        "datePublished": "2024-10-24",
+        "dateCreated": "2024-10-24",
+        "dateModified": "2024-10-24",
+        "url": "http://hgko1207.github.io/2024/10/24/python-9/",
+        "description": "
+함수형 프로그래밍은 계산을 함수의 평가로 간주하며, 가변 상태와 반복문 사용을 지양하는 프로그래밍 패러다임입니다. 함수형 프로그래밍은 함수의 계산에 중점을 두며, 부수효과는 최소화합니다.
+함수형 프로그래밍에서는 함수가 일급 객체(first-class citizen)로 취급되며, 이는 함수가 다른 객체처럼 조작되고 전달될 수 있다는 것을 의미합니다.
+Pyt",
+        "wordCount": 997
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                            <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>follow:</p>
+    <ul class="social-links">
+       
+      <li>
+        <a
+          class="social-tooltip"
+          title="github"
+          href="https://github.com/hgko1207"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-github"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="facebook"
+          href="https://www.facebook.com/profile.php?id=100003526102847"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-facebook"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="rss"
+          href="/"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-rss"></i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+   
+<nav id="article-nav">
+    
+    
+        <a href="/2024/10/24/python-8/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">파이썬 데코레이터(Decorator) 5가지 소개</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+ 
+  <div class="widgets-container">
+      
+  
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/10/24/python-9/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/python.png)" alt="파이썬에서 함수형 프로그래밍 실습" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/10/24/python-9/" class="title">파이썬에서 함수형 프로그래밍 실습</a></p>
+                            <p class="item-date"><time datetime="2024-10-24T04:43:55.000Z" itemprop="datePublished">2024-10-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/10/24/python-8/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/python.png)" alt="파이썬 데코레이터(Decorator) 5가지 소개" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/10/24/python-8/" class="title">파이썬 데코레이터(Decorator) 5가지 소개</a></p>
+                            <p class="item-date"><time datetime="2024-10-24T03:35:11.000Z" itemprop="datePublished">2024-10-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/10/24/python-7/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/python.png)" alt="파이썬에서 디자인 패턴 사용 방법" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/10/24/python-7/" class="title">파이썬에서 디자인 패턴 사용 방법</a></p>
+                            <p class="item-date"><time datetime="2024-10-24T03:08:04.000Z" itemprop="datePublished">2024-10-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/10/22/python-6/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/python.png)" alt="알아두면 유용한 12가지 파이썬 라이브러리" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/10/22/python-6/" class="title">알아두면 유용한 12가지 파이썬 라이브러리</a></p>
+                            <p class="item-date"><time datetime="2024-10-22T06:25:00.000Z" itemprop="datePublished">2024-10-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/10/22/spring-7/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/spring.png)" alt="Spring Boot에서 데이터 캐싱 방법" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Backend/">Backend</a></p>
+                            <p class="item-title"><a href="/2024/10/22/spring-7/" class="title">Spring Boot에서 데이터 캐싱 방법</a></p>
+                            <p class="item-date"><time datetime="2024-10-22T04:00:21.000Z" itemprop="datePublished">2024-10-22</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">62</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">416</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">38</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Net-Core/">.Net Core</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">19</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">33</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">29</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">116</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">113</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">25</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">8</span></li></ul></li></ul>
+        </div>
+    </div>
+
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+  <div class="widget-wrap widget-float">
+
+    <h3 class="widget-title">Sponsored</h3>
+    <div class="widget">
+        <a href="https://marcofranssen.nl?adsense_widget" target="_blank" rel="noopener">This widget is sponsored by, Marco Franssen, main contributor to this theme.</a>
+    </div>
+
+</div>
+  
+  </div>
+  <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+
+  <!-- hits 방문자수 -->
+  <a href="https://hits.seeyoufarm.com" target="_blank" rel="noopener">
+    <style>
+      .hits {
+        width: auto;
+        height: auto;
+        max-width: 99px;
+        max-height: 20px;
+      }
+    </style>
+    <img
+      src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhgko1207.github.io&count_bg=%23E6ADD5&title_bg=%23BF98D2&icon=&icon_color=%23E7E7E7&title=%EB%B0%A9%EB%AC%B8%EC%9E%90%EC%88%98&edge_flat=false"
+      alt="방문자수"
+    />
+  </a>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h2 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h2>
+                <p>&copy; 2024 Hyeong Gyun Ko</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://hgko1207.github.io/2024/10/24/python-9/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
