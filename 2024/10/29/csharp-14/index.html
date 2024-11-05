@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>효율적인 .NET 개발을 위한 4가지 필수 라이브러리 소개 | 규니의 블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    <meta name="keywords" content="C#,라이브러리,Programming,.NET,ASP.NET Core" />
+    
+    <meta name="description" content="2014년에 마이크로소프트는 기존 .NET Framework의 오픈 소스 후속작인 .NET Core를 발표했습니다. 이 발표는 큰 변화였으며, 곧 .NET 소스 코드가 GitHub에 공개되었습니다. 마이크로소프트는 앞으로 모든 .NET 릴리스의 기초로 .NET Core를 활용하겠다고 밝혔고, 오픈 소스 기여는 .NET Foundation의 가이드 하에 이루">
+<meta property="og:type" content="article">
+<meta property="og:title" content="효율적인 .NET 개발을 위한 4가지 필수 라이브러리 소개">
+<meta property="og:url" content="http://hgko1207.github.io/2024/10/29/csharp-14/index.html">
+<meta property="og:site_name" content="규니의 블로그">
+<meta property="og:description" content="2014년에 마이크로소프트는 기존 .NET Framework의 오픈 소스 후속작인 .NET Core를 발표했습니다. 이 발표는 큰 변화였으며, 곧 .NET 소스 코드가 GitHub에 공개되었습니다. 마이크로소프트는 앞으로 모든 .NET 릴리스의 기초로 .NET Core를 활용하겠다고 밝혔고, 오픈 소스 기여는 .NET Foundation의 가이드 하에 이루">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/csharp.png">
+<meta property="article:published_time" content="2024-10-29T04:49:11.000Z">
+<meta property="article:modified_time" content="2024-10-29T05:27:00.160Z">
+<meta property="article:author" content="Hyeong Gyun Ko">
+<meta property="article:tag" content="C#">
+<meta property="article:tag" content="라이브러리">
+<meta property="article:tag" content="Programming">
+<meta property="article:tag" content=".NET">
+<meta property="article:tag" content="ASP.NET Core">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/csharp.png">
+    
+
+    
+        <link rel="alternate" href="/" title="규니의 블로그" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-166318275-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+
+    <!-- <script
+  data-ad-client="ca-pub-7581566810202853"
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+></script>
+ -->
+
+    <!-- 구글 애드센스 -->
+    <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!-- 네이버 -->
+    <meta name="naver-site-verification" content="a6e2912bbd1e42226e10ee12d3498a246c51ec1f" />
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h2 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h2>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">hgko&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ETC/">ETC</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/">IT</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/BlockChain/">BlockChain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Blockchain/">Blockchain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Information/">Information</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Satellite/">Satellite</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Backend/">Backend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DB/">DB</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Frontend/">Frontend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Language/">Language</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Mobile/">Mobile</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Web/">Web</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about">About</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/profile">Profile</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h2 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Language/C/">C#</a>
+    </h2>
+</div>
+
+                        <div class="main-body-content">
+                            <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+                            <!-- 상단 광고 -->
+<ins
+  class="adsbygoogle"
+  style="display: block"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="1131844921"
+  data-ad-format="auto"
+  data-full-width-responsive="true"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                            <article id="post-csharp-14" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        효율적인 .NET 개발을 위한 4가지 필수 라이브러리 소개
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2024/10/29/csharp-14/" class="article-date">
+         <time datetime="2024-10-29T04:49:11.000Z" itemprop="datePublished">2024-10-29</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/NET/" rel="tag">.NET</a>, <a class="tag-link" href="/tags/ASP-NET-Core/" rel="tag">ASP.NET Core</a>, <a class="tag-link" href="/tags/C/" rel="tag">C#</a>, <a class="tag-link" href="/tags/Programming/" rel="tag">Programming</a>, <a class="tag-link" href="/tags/%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC/" rel="tag">라이브러리</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>2014년에 마이크로소프트는 기존 .NET Framework의 오픈 소스 후속작인 <strong>.NET Core</strong>를 발표했습니다. 이 발표는 큰 변화였으며, 곧 .NET 소스 코드가 GitHub에 공개되었습니다. 마이크로소프트는 앞으로 모든 .NET 릴리스의 기초로 .NET Core를 활용하겠다고 밝혔고, 오픈 소스 기여는 .NET Foundation의 가이드 하에 이루어지게 되었습니다.</p>
+<p>.NET Core는 큰 성공을 거두었고, 2020년에는 .NET Framework와 .NET Core가 하나의 오픈 소스 크로스 플랫폼 기술로 통합된 .NET 5가 출시되었습니다.</p>
+<p>오픈 소스로 전환됨에 따라 .NET 플랫폼에는 활기 넘치는 커뮤니티가 형성되었습니다. 많은 뛰어난 개발자들이 고품질의 도구와 라이브러리를 게시해 개발자들의 일상 업무를 한결 쉽게 만들고 있습니다.</p>
+<p>이번 글에서는 새 프로젝트를 시작할 때 꼭 설치하는 필수 라이브러리 4가지를 소개하고자 합니다.</p>
+<h2 id="1-Refit">1. Refit</h2>
+<p>.NET에서 HTTP 요청을 다루는 작업은 상당히 많은 수작업과 반복되는 코드를 요구합니다. 예를 들어 <code>HttpClient</code> 클래스를 직접 구현해 요청을 처리하는 코드는 다음과 같습니다</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">readonly</span> HttpClient client = <span class="keyword">new</span> HttpClient();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">async</span> Task <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">var</span> user = <span class="keyword">await</span> GetUserAsync(<span class="number">123</span>);</span><br><span class="line">        Console.WriteLine(<span class="string">$"User Name: <span class="subst">&#123;user.Name&#125;</span>"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">async</span> Task&lt;User&gt; <span class="title">GetUserAsync</span>(<span class="params"><span class="keyword">int</span> userId</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">// 필요한 경우 기본 주소와 기본 헤더를 설정합니다.</span></span><br><span class="line">        client.BaseAddress = <span class="keyword">new</span> Uri(<span class="string">"https://api.example.com/"</span>);</span><br><span class="line">        client.DefaultRequestHeaders.Accept.Clear();</span><br><span class="line">        client.DefaultRequestHeaders.Accept.Add(<span class="keyword">new</span> MediaTypeWithQualityHeaderValue(<span class="string">"application/json"</span>));</span><br><span class="line"></span><br><span class="line">        <span class="comment">// HTTP 요청하기</span></span><br><span class="line">        <span class="keyword">var</span> response = <span class="keyword">await</span> client.GetAsync(<span class="string">$"users/<span class="subst">&#123;userId&#125;</span>"</span>);</span><br><span class="line">        response.EnsureSuccessStatusCode();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 응답 역직렬화</span></span><br><span class="line">        <span class="keyword">var</span> responseBody = <span class="keyword">await</span> response.Content.ReadAsStringAsync();</span><br><span class="line">        <span class="keyword">return</span> JsonConvert.DeserializeObject&lt;User&gt;(responseBody);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이와 같은 구현 방식은 복잡하고, 반복적인 코드가 많아지기 쉽습니다.</p>
+<p><strong>Refit</strong>은 이런 작업을 간편하게 해주는 라이브러리입니다. 단순히 인터페이스를 정의하여 REST API를 사용하게 도와줍니다.</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">IMyApi</span></span><br><span class="line">&#123;</span><br><span class="line">    [<span class="meta">Get(<span class="meta-string">"/users/&#123;userId&#125;"</span>)</span>]</span><br><span class="line">    <span class="function">Task&lt;User&gt; <span class="title">GetUserAsync</span>(<span class="params"><span class="keyword">int</span> userId</span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>그 후, 원하는 곳에 주입하여 다음과 같이 사용할 수 있습니다.</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">UsersController</span> : <span class="title">ControllerBase</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> IMyApi _myApi;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UsersController</span>(<span class="params">IMyApi myApi</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        _myApi = myApi;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    [<span class="meta">HttpGet(<span class="meta-string">"&#123;id&#125;"</span>)</span>]</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">async</span> Task&lt;IActionResult&gt; <span class="title">GetUser</span>(<span class="params"><span class="keyword">int</span> id</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">var</span> user = <span class="keyword">await</span> _myApi.GetUserAsync(id);</span><br><span class="line">        <span class="keyword">return</span> Ok(user);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이렇게 하면 HTTP 요청 관련 코드가 간소화되어 유지보수가 용이하며, API 호출이 컴파일 시간에 타입 검사까지 지원됩니다.</p>
+<h2 id="2-Coravel">2. Coravel</h2>
+<p><strong>Coravel</strong>은 작업 스케줄링, 큐잉, 캐싱, 백그라운드 작업, 이벤트 브로드캐스팅과 같은 반복적이고 어려운 작업을 매우 쉽게 처리할 수 있도록 도와주는 훌륭한 라이브러리입니다. Coravel은 다양한 영역을 포괄하는 대규모 라이브러리이며, 특히 스케줄링 기능이 뛰어납니다.</p>
+<p>일반적으로 시스템을 구축할 때 어떤 형태로든 반복 작업을 처리해야 할 경우가 많습니다. 예를 들어, 매 시간마다 제3자 시스템에 데이터를 전달하거나, 매일 자정에 데이터베이스 백업을 수행해야 하는 경우가 있을 수 있습니다. Coravel은 이러한 작업을 매우 간단하게 처리할 수 있는 설정 방식을 제공하며, 주요 클라우드 제공 업체의 솔루션보다 유지보수가 더 쉬운 편입니다.</p>
+<p>Coravel에서 작업을 정의하려면 <code>IInvocable</code> 인터페이스를 상속하는 클래스를 만들어야 합니다. 이 클래스가 바로 Coravel이 다양한 애플리케이션 파트에서 사용할 수 있는 특정 작업을 나타내며, 주기적으로 실행될 비즈니스 로직을 넣는 부분입니다.</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> Coravel.Invocable;</span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Threading.Tasks;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyScheduledTask</span> : <span class="title">IInvocable</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Task <span class="title">Invoke</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">// 여기에 실행할 로직을 작성합니다</span></span><br><span class="line">        Console.WriteLine(<span class="string">$"스케줄된 작업 실행 시간: <span class="subst">&#123;DateTime.Now&#125;</span>"</span>);</span><br><span class="line">        <span class="keyword">return</span> Task.CompletedTask;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이제 <code>Program.cs</code> 파일에서 Coravel 스케줄러 서비스를 등록하고, 작업을 실행할 주기와 시점을 지정합니다.</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> Coravel;</span><br><span class="line"><span class="keyword">using</span> Microsoft.AspNetCore.Builder;</span><br><span class="line"><span class="keyword">using</span> Microsoft.Extensions.DependencyInjection;</span><br><span class="line"><span class="keyword">using</span> Microsoft.Extensions.Hosting;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> builder = WebApplication.CreateBuilder(args);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 서비스 등록</span></span><br><span class="line">builder.Services.AddControllers();</span><br><span class="line">builder.Services.AddEndpointsApiExplorer();</span><br><span class="line">builder.Services.AddSwaggerGen();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Coravel 서비스 추가</span></span><br><span class="line">builder.Services.AddScheduler();</span><br><span class="line"></span><br><span class="line"><span class="comment">// IInvocable 작업(MyScheduledTask) 등록</span></span><br><span class="line">builder.Services.AddTransient&lt;MyScheduledTask&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> app = builder.Build();</span><br><span class="line"></span><br><span class="line"><span class="comment">// HTTP 요청 파이프라인 구성</span></span><br><span class="line"><span class="keyword">if</span> (app.Environment.IsDevelopment())</span><br><span class="line">&#123;</span><br><span class="line">    app.UseSwagger();</span><br><span class="line">    app.UseSwaggerUI();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">app.UseHttpsRedirection();</span><br><span class="line">app.UseAuthorization();</span><br><span class="line">app.MapControllers();</span><br><span class="line"></span><br><span class="line"><span class="comment">// IInvocable 작업 스케줄 설정</span></span><br><span class="line"><span class="keyword">var</span> provider = app.Services;</span><br><span class="line"></span><br><span class="line">provider.UseScheduler(scheduler =&gt;</span><br><span class="line">&#123;</span><br><span class="line">    scheduler.Schedule&lt;MyScheduledTask&gt;().EveryMinute();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.Run();</span><br></pre></td></tr></table></figure>
+<p>이렇게 설정이 완료됩니다. Coravel은 내부적으로 작업을 스케줄에 맞춰 실행할 코드를 자동으로 관리합니다. 또한, 원하는 주기로 정확하게 작업이 실행되도록 설정할 수 있으며, CRON 표현식도 사용할 수 있어 더욱 세부적인 스케줄 관리가 가능합니다.</p>
+<h2 id="3-FluentValidation">3. FluentValidation</h2>
+<p><strong>FluentValidation</strong>은 .NET 애플리케이션에서 데이터 유효성 검사를 간편하게 정의하고 적용할 수 있도록 해주는 인기 있는 라이브러리입니다. 전통적으로 .NET에서의 데이터 유효성 검사는 커스텀 로직을 클래스 내부에 추가하거나 유연성이 부족한 데이터 주석을 사용하는 방식으로 이루어졌습니다.</p>
+<p>대신 FluentValidation을 사용하면, 검증 로직을 작성하는 부담을 줄이고 커스터마이징 가능한 유효성 검사를 위한 인터페이스를 제공합니다. 이는 번잡하고 반복적인 유효성 검사 코드를 작성하지 않아도 되며, 자연스러운 언어처럼 유효성 검사를 정의할 수 있어 코드 가독성이 크게 향상됩니다. 또한, 다른 개발자들이 향후 코드를 쉽게 이해하고 유지보수할 수 있게 만듭니다.</p>
+<p>먼저 <code>AbstractValidator</code> 클래스를 상속하는 클래스를 정의하고, <code>RuleFor</code> 메서드를 통해 유효성 검사 규칙을 간단히 설정합니다.</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Customer</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Name &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Age &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Email &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class CustomerValidator : AbstractValidator&lt;Customer&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CustomerValidator</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        RuleFor(customer =&gt; customer.Name)</span><br><span class="line">            .NotEmpty().WithMessage(<span class="string">"이름은 필수 항목입니다."</span>);</span><br><span class="line">        RuleFor(customer =&gt; customer.Age)</span><br><span class="line">            .InclusiveBetween(<span class="number">18</span>, <span class="number">60</span>).WithMessage(<span class="string">"나이는 18세에서 60세 사이여야 합니다."</span>);</span><br><span class="line">        RuleFor(customer =&gt; customer.Email)</span><br><span class="line">            .EmailAddress().WithMessage(<span class="string">"유효하지 않은 이메일 주소입니다."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>FluentValidation에는 <code>.EmailAddress()</code>, <code>.NotEmpty()</code>, <code>.GreaterThan()</code>, <code>.CreditCard()</code>와 같은 편리한 기본 제공 메서드가 다수 포함되어 있으며, 필요에 따라 사용자 정의 유효성 검사 로직도 구현할 수 있습니다.</p>
+<p>이제 정의된 <code>CustomerValidator</code>를 사용하여 필요한 곳에서 <code>Customer</code> 객체를 검증할 수 있습니다.</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> customer = <span class="keyword">new</span> Customer &#123; Name = <span class="string">""</span>, Age = <span class="number">25</span>, Email = <span class="string">"invalid-email"</span> &#125;;</span><br><span class="line"><span class="keyword">var</span> validator = <span class="keyword">new</span> CustomerValidator();</span><br><span class="line"><span class="keyword">var</span> result = validator.Validate(customer);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!result.IsValid)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">foreach</span> (<span class="keyword">var</span> failure <span class="keyword">in</span> result.Errors)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">$"속성 <span class="subst">&#123;failure.PropertyName&#125;</span>이(가) 유효성 검사를 통과하지 못했습니다. 오류: <span class="subst">&#123;failure.ErrorMessage&#125;</span>"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-Polly">4. Polly</h2>
+<p><strong>Polly</strong>는 .NET 애플리케이션의 강인성과 장애 처리 기능을 크게 향상시켜주는 인기 있는 라이브러리입니다. Polly를 사용하면 개발자가 재시도(retry) 로직, 회로 차단(circuit breaking), 타임아웃(timeout), 벌크헤드 격리(bulkhead isolation), 폴백(fallback) 등의 다양한 정책을 정의하여 소프트웨어의 안정성을 높일 수 있습니다.</p>
+<p>소프트웨어를 작성하다 보면 예외와 일시적인 오류가 불가피하게 발생합니다. 예를 들어, 프로그램이 네트워크 타임아웃을 겪는 경우가 있을 수 있으며, 이러한 상황을 우아하게 처리하지 못하면 비즈니스에 중요한 애플리케이션 부분에 악영향을 미칠 수 있습니다. 이러한 상황에서 Polly가 매우 유용합니다. Polly의 정책은 모듈식으로 구성되어 있으며, 복잡한 오류 처리 시나리오도 대응할 수 있도록 조합할 수 있습니다.</p>
+<p>예를 들어, 재시도 정책과 회로 차단 정책을 결합하여 강력한 오류 처리 전략을 만들 수 있습니다.</p>
+<p>외부 API에서 데이터를 가져오는 서비스를 예로 들어, 일시적인 오류에도 잘 견딜 수 있도록 설정해 보겠습니다.</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Net.Http;</span><br><span class="line"><span class="keyword">using</span> System.Threading.Tasks;</span><br><span class="line"><span class="keyword">using</span> Polly;</span><br><span class="line"><span class="keyword">using</span> Polly.CircuitBreaker;</span><br><span class="line"><span class="keyword">using</span> Polly.Fallback;</span><br><span class="line"><span class="keyword">using</span> Polly.Retry;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">async</span> Task <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">// 재시도 정책 정의</span></span><br><span class="line">        <span class="keyword">var</span> retryPolicy = Policy</span><br><span class="line">            .HandleResult&lt;HttpResponseMessage&gt;(r =&gt; !r.IsSuccessStatusCode)</span><br><span class="line">            .WaitAndRetryAsync(<span class="number">3</span>, retryAttempt =&gt; TimeSpan.FromSeconds(Math.Pow(<span class="number">2</span>, retryAttempt)));</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 회로 차단 정책 정의</span></span><br><span class="line">        <span class="keyword">var</span> circuitBreakerPolicy = Policy</span><br><span class="line">            .HandleResult&lt;HttpResponseMessage&gt;(r =&gt; !r.IsSuccessStatusCode)</span><br><span class="line">            .CircuitBreakerAsync(<span class="number">3</span>, TimeSpan.FromSeconds(<span class="number">30</span>));</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 폴백 정책 정의</span></span><br><span class="line">        <span class="keyword">var</span> fallbackPolicy = Policy&lt;HttpResponseMessage&gt;</span><br><span class="line">            .Handle&lt;BrokenCircuitException&gt;()</span><br><span class="line">            .OrResult(r =&gt; !r.IsSuccessStatusCode)</span><br><span class="line">            .FallbackAsync(</span><br><span class="line">                <span class="keyword">new</span> HttpResponseMessage(System.Net.HttpStatusCode.OK)</span><br><span class="line">                &#123;</span><br><span class="line">                    Content = <span class="keyword">new</span> StringContent(<span class="string">"&#123;\"message\": \"Fallback response\"&#125;"</span>)</span><br><span class="line">                &#125;,</span><br><span class="line">                onFallbackAsync: <span class="keyword">async</span> b =&gt;</span><br><span class="line">                &#123;</span><br><span class="line">                    Console.WriteLine(<span class="string">"폴백 로직 실행 중..."</span>);</span><br><span class="line">                &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 정책 조합</span></span><br><span class="line">        <span class="keyword">var</span> combinedPolicy = fallbackPolicy.WrapAsync(circuitBreakerPolicy).WrapAsync(retryPolicy);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">using</span> (<span class="keyword">var</span> httpClient = <span class="keyword">new</span> HttpClient())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">var</span> request = <span class="keyword">new</span> HttpRequestMessage(HttpMethod.Get, <span class="string">"https://external-api.com/data"</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">try</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">// 조합된 정책을 사용하여 요청 실행</span></span><br><span class="line">                HttpResponseMessage response = <span class="keyword">await</span> combinedPolicy.ExecuteAsync(() =&gt; httpClient.SendAsync(request));</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (response.IsSuccessStatusCode)</span><br><span class="line">                &#123;</span><br><span class="line">                    Console.WriteLine(<span class="string">"요청 성공!"</span>);</span><br><span class="line">                    <span class="comment">// 응답 처리</span></span><br><span class="line">                    <span class="keyword">string</span> data = <span class="keyword">await</span> response.Content.ReadAsStringAsync();</span><br><span class="line">                    Console.WriteLine(data);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    Console.WriteLine(<span class="string">"요청 실패. 상태 코드: "</span> + response.StatusCode);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">catch</span> (Exception ex)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">"예외 발생: "</span> + ex.Message);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>우선, 세 가지 정책을 정의했습니다: <strong>재시도 정책</strong>, <strong>회로 차단 정책</strong>, 그리고 <strong>폴백 정책</strong>입니다.</p>
+<ul>
+<li>
+<p><strong>재시도 정책</strong>은 HTTP 요청이 실패하여 성공하지 않은 상태 코드가 반환되면 최대 3회까지 재시도하도록 합니다. 재시도 간격은 지수 백오프(exponential backoff) 전략을 사용해 실패할 때마다 재시도 간격이 증가합니다.</p>
+</li>
+<li>
+<p><strong>회로 차단 정책</strong>은 연속해서 세 번 실패하면 30초 동안 추가 시도를 중단하게 됩니다. 이로 인해 시스템에 회복할 시간을 주고 이후에 다시 시도하게 됩니다.</p>
+</li>
+<li>
+<p>마지막으로, <strong>폴백 정책</strong>은 모든 재시도가 실패하고 회로가 여전히 열린 경우 기본 응답을 제공하여 애플리케이션이 계속 정상적으로 동작할 수 있도록 합니다.</p>
+</li>
+</ul>
+<p>이렇게 조합된 정책을 통해 HTTP 요청 실행 중 발생할 수 있는 오류나 예외를 강력하게 처리할 수 있는 시스템을 구축할 수 있습니다.</p>
+
+        </div>
+        <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+        <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://hgko1207.github.io/2024/10/29/csharp-14/" data-id="cm34h1yug0001ukcxdt318761" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Hyeong Gyun Ko"
+        },
+        "headline": "효율적인 .NET 개발을 위한 4가지 필수 라이브러리 소개",
+        "image": "http://hgko1207.github.io/images/thumbnail/csharp.png",
+        "keywords": "C# 라이브러리 Programming .NET ASP.NET Core",
+        "genre": "Programming Language C#",
+        "datePublished": "2024-10-29",
+        "dateCreated": "2024-10-29",
+        "dateModified": "2024-10-29",
+        "url": "http://hgko1207.github.io/2024/10/29/csharp-14/",
+        "description": "2014년에 마이크로소프트는 기존 .NET Framework의 오픈 소스 후속작인 .NET Core를 발표했습니다. 이 발표는 큰 변화였으며, 곧 .NET 소스 코드가 GitHub에 공개되었습니다. 마이크로소프트는 앞으로 모든 .NET 릴리스의 기초로 .NET Core를 활용하겠다고 밝혔고, 오픈 소스 기여는 .NET Foundation의 가이드 하에 이루",
+        "wordCount": 2549
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                            <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>follow:</p>
+    <ul class="social-links">
+       
+      <li>
+        <a
+          class="social-tooltip"
+          title="github"
+          href="https://github.com/hgko1207"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-github"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="facebook"
+          href="https://www.facebook.com/profile.php?id=100003526102847"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-facebook"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="rss"
+          href="/"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-rss"></i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+   
+<nav id="article-nav">
+    
+        <a href="/2024/10/29/python-10/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            주말에 만들 수 있는 5가지 AI 프로젝트 (Python 사용)
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2024/10/28/chatgpt-32/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">개발자가 싫어하는 작업을 ChatGPT로 해결하는 방법</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+ 
+  <div class="widgets-container">
+      
+  
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/10/29/python-10/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/python.png)" alt="주말에 만들 수 있는 5가지 AI 프로젝트 (Python 사용)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/10/29/python-10/" class="title">주말에 만들 수 있는 5가지 AI 프로젝트 (Python 사용)</a></p>
+                            <p class="item-date"><time datetime="2024-10-29T05:26:40.000Z" itemprop="datePublished">2024-10-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/10/29/csharp-14/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/csharp.png)" alt="효율적인 .NET 개발을 위한 4가지 필수 라이브러리 소개" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/10/29/csharp-14/" class="title">효율적인 .NET 개발을 위한 4가지 필수 라이브러리 소개</a></p>
+                            <p class="item-date"><time datetime="2024-10-29T04:49:11.000Z" itemprop="datePublished">2024-10-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/10/28/chatgpt-32/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/chatgpt.png)" alt="개발자가 싫어하는 작업을 ChatGPT로 해결하는 방법" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2024/10/28/chatgpt-32/" class="title">개발자가 싫어하는 작업을 ChatGPT로 해결하는 방법</a></p>
+                            <p class="item-date"><time datetime="2024-10-28T06:44:57.000Z" itemprop="datePublished">2024-10-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/10/28/csharp-13/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/csharp.png)" alt="[C#] LINQ 모범 사례" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/10/28/csharp-13/" class="title">[C#] LINQ 모범 사례</a></p>
+                            <p class="item-date"><time datetime="2024-10-28T05:07:51.000Z" itemprop="datePublished">2024-10-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/10/24/python-9/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/python.png)" alt="파이썬에서 함수형 프로그래밍 실습" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2024/10/24/python-9/" class="title">파이썬에서 함수형 프로그래밍 실습</a></p>
+                            <p class="item-date"><time datetime="2024-10-24T04:43:55.000Z" itemprop="datePublished">2024-10-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">62</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">420</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">76</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">38</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Net-Core/">.Net Core</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">19</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">33</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">29</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">116</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">116</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">25</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">8</span></li></ul></li></ul>
+        </div>
+    </div>
+
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+  <div class="widget-wrap widget-float">
+
+    <h3 class="widget-title">Sponsored</h3>
+    <div class="widget">
+        <a href="https://marcofranssen.nl?adsense_widget" target="_blank" rel="noopener">This widget is sponsored by, Marco Franssen, main contributor to this theme.</a>
+    </div>
+
+</div>
+  
+  </div>
+  <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+
+  <!-- hits 방문자수 -->
+  <a href="https://hits.seeyoufarm.com" target="_blank" rel="noopener">
+    <style>
+      .hits {
+        width: auto;
+        height: auto;
+        max-width: 99px;
+        max-height: 20px;
+      }
+    </style>
+    <img
+      src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhgko1207.github.io&count_bg=%23E6ADD5&title_bg=%23BF98D2&icon=&icon_color=%23E7E7E7&title=%EB%B0%A9%EB%AC%B8%EC%9E%90%EC%88%98&edge_flat=false"
+      alt="방문자수"
+    />
+  </a>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h2 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h2>
+                <p>&copy; 2024 Hyeong Gyun Ko</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://hgko1207.github.io/2024/10/29/csharp-14/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
