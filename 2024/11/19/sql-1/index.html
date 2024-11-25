@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>필수로 알아야할 13가지 SQL 문법 | 규니의 블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    <meta name="keywords" content="Database,DB,SQL" />
+    
+    <meta name="description" content="Structured Query Language(SQL)은 관계형 데이터베이스를 관리하고 조작하기 위해 설계된 프로그래밍 언어입니다. 이는 데이터 분석가와 데이터 과학자가 대규모 데이터셋에서 통찰을 추출하기 위해 널리 사용됩니다. SQL은 데이터를 필터링, 정렬, 그룹화, 집계하는 등 다양한 데이터 조작 작업을 수행할 수 있는 강력한 도구입니다. 이 글에서는">
+<meta property="og:type" content="article">
+<meta property="og:title" content="필수로 알아야할 13가지 SQL 문법">
+<meta property="og:url" content="http://hgko1207.github.io/2024/11/19/sql-1/index.html">
+<meta property="og:site_name" content="규니의 블로그">
+<meta property="og:description" content="Structured Query Language(SQL)은 관계형 데이터베이스를 관리하고 조작하기 위해 설계된 프로그래밍 언어입니다. 이는 데이터 분석가와 데이터 과학자가 대규모 데이터셋에서 통찰을 추출하기 위해 널리 사용됩니다. SQL은 데이터를 필터링, 정렬, 그룹화, 집계하는 등 다양한 데이터 조작 작업을 수행할 수 있는 강력한 도구입니다. 이 글에서는">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/mysql.png">
+<meta property="article:published_time" content="2024-11-19T05:15:26.000Z">
+<meta property="article:modified_time" content="2024-11-21T03:42:41.120Z">
+<meta property="article:author" content="Hyeong Gyun Ko">
+<meta property="article:tag" content="Database">
+<meta property="article:tag" content="DB">
+<meta property="article:tag" content="SQL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/mysql.png">
+    
+
+    
+        <link rel="alternate" href="/" title="규니의 블로그" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-166318275-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+
+    <!-- <script
+  data-ad-client="ca-pub-7581566810202853"
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+></script>
+ -->
+
+    <!-- 구글 애드센스 -->
+    <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!-- 네이버 -->
+    <meta name="naver-site-verification" content="a6e2912bbd1e42226e10ee12d3498a246c51ec1f" />
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h2 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h2>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">hgko&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ETC/">ETC</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/">IT</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/BlockChain/">BlockChain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Blockchain/">Blockchain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Information/">Information</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Satellite/">Satellite</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Backend/">Backend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DB/">DB</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Frontend/">Frontend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Language/">Language</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Mobile/">Mobile</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Web/">Web</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about">About</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/profile">Profile</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h2 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/DB/">DB</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/DB/SQL/">SQL</a>
+    </h2>
+</div>
+
+                        <div class="main-body-content">
+                            <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+                            <!-- 상단 광고 -->
+<ins
+  class="adsbygoogle"
+  style="display: block"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="1131844921"
+  data-ad-format="auto"
+  data-full-width-responsive="true"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                            <article id="post-sql-1" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        필수로 알아야할 13가지 SQL 문법
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2024/11/19/sql-1/" class="article-date">
+         <time datetime="2024-11-19T05:15:26.000Z" itemprop="datePublished">2024-11-19</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/DB/" rel="tag">DB</a>, <a class="tag-link" href="/tags/Database/" rel="tag">Database</a>, <a class="tag-link" href="/tags/SQL/" rel="tag">SQL</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><strong>Structured Query Language</strong>(SQL)은 관계형 데이터베이스를 관리하고 조작하기 위해 설계된 프로그래밍 언어입니다. 이는 데이터 분석가와 데이터 과학자가 대규모 데이터셋에서 통찰을 추출하기 위해 널리 사용됩니다.</p>
+<p>SQL은 데이터를 필터링, 정렬, 그룹화, 집계하는 등 다양한 데이터 조작 작업을 수행할 수 있는 강력한 도구입니다. 이 글에서는 데이터 과학 작업의 90%를 수행할 수 있는 13가지 필수 SQL 문법에 대해 다룹니다. 이러한 문법은 이해하기 쉽고 구현하기 쉬우며, SQL 작업의 기초를 다지는 데에 도움을 줍니다.</p>
+<h2 id="1-select"><a class="markdownIt-Anchor" href="#1-select"></a> 1. SELECT</h2>
+<p><code>SELECT</code> 문은 데이터베이스에서 하나 이상의 테이블에서 데이터를 조회하는 데 사용됩니다. <code>WHERE</code>, <code>ORDER BY</code>, <code>GROUP BY</code>와 같은 다양한 함수와 함께 사용하여 데이터를 필터링, 정렬, 그룹화하는 데 익숙해져야 합니다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1, column2, column3</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> condition;</span><br></pre></td></tr></table></figure>
+<p>위 예제에서 <code>column1</code>, <code>column2</code>, <code>column3</code>는 조회하려는 열의 이름이며, <code>table_name</code>은 데이터를 포함한 테이블의 이름입니다. <code>WHERE</code> 절은 선택 사항이지만, 쿼리가 데이터를 조회하기 위해 충족해야 하는 조건을 지정하는 데 사용됩니다.</p>
+<h3 id="예제"><a class="markdownIt-Anchor" href="#예제"></a> 예제</h3>
+<p>고객 테이블에서 18세 이상인 모든 고객을 조회</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> customers</span><br><span class="line"><span class="keyword">WHERE</span> age &gt;= <span class="number">18</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="2-join"><a class="markdownIt-Anchor" href="#2-join"></a> 2. JOIN</h2>
+<p><code>JOIN</code> 문은 데이터베이스의 두 개 이상의 테이블에서 데이터를 결합할 때 사용됩니다. 필요한 경우 적합한 JOIN 유형(예: <code>INNER</code>, <code>LEFT</code>, <code>RIGHT</code>, <code>FULL OUTER</code>)을 지정해야 합니다.</p>
+<h3 id="inner-join"><a class="markdownIt-Anchor" href="#inner-join"></a> INNER JOIN</h3>
+<p><code>INNER JOIN</code>은 두 테이블의 열에서 일치하는 행만 반환합니다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> orders.order_id, customers.customer_name</span><br><span class="line"><span class="keyword">FROM</span> orders</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> customers</span><br><span class="line"><span class="keyword">ON</span> orders.customer_id = customers.customer_id;</span><br></pre></td></tr></table></figure>
+<p>위 예제에서 <code>orders</code> 테이블과 <code>customers</code> 테이블은 <code>customer_id</code> 열을 사용하여 조인됩니다. 결과 테이블에는 두 테이블의 <code>customer_id</code> 열에서 일치하는 데이터가 있는 경우에만 <code>order_id</code>와 <code>customer_name</code> 열이 포함됩니다.</p>
+<h3 id="left-join"><a class="markdownIt-Anchor" href="#left-join"></a> LEFT JOIN</h3>
+<p><code>LEFT JOIN</code>은 왼쪽 테이블의 모든 행과 오른쪽 테이블에서 일치하는 행을 반환합니다. 오른쪽 테이블에 일치하는 데이터가 없으면 결과에 <code>NULL</code> 값이 포함됩니다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> customers.customer_name, orders.order_id</span><br><span class="line"><span class="keyword">FROM</span> customers</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> orders</span><br><span class="line"><span class="keyword">ON</span> customers.customer_id = orders.customer_id;</span><br></pre></td></tr></table></figure>
+<p>위 예제에서 <code>customers</code> 테이블은 왼쪽 테이블이고 <code>orders</code> 테이블은 오른쪽 테이블입니다. 두 테이블은 <code>customer_id</code> 열을 사용하여 조인됩니다. 결과 테이블에는 <code>customers</code> 테이블의 모든 행이 포함되고, <code>orders</code> 테이블에 일치하는 데이터가 없는 경우 <code>order_id</code> 열은 <code>NULL</code> 값을 가집니다.</p>
+<h3 id="right-join"><a class="markdownIt-Anchor" href="#right-join"></a> RIGHT JOIN</h3>
+<p><code>RIGHT JOIN</code>은 오른쪽 테이블의 모든 행과 왼쪽 테이블에서 일치하는 행을 반환합니다. 왼쪽 테이블에 일치하는 데이터가 없으면 결과에 <code>NULL</code> 값이 포함됩니다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> customers.customer_name, orders.order_id</span><br><span class="line"><span class="keyword">FROM</span> customers</span><br><span class="line"><span class="keyword">RIGHT</span> <span class="keyword">JOIN</span> orders</span><br><span class="line"><span class="keyword">ON</span> customers.customer_id = orders.customer_id;</span><br></pre></td></tr></table></figure>
+<p>위 예제에서 <code>orders</code> 테이블은 오른쪽 테이블이고, <code>customers</code> 테이블은 왼쪽 테이블입니다. 두 테이블은 <code>customer_id</code> 열을 사용하여 조인됩니다. 결과 테이블에는 <code>orders</code> 테이블의 모든 행이 포함되고, <code>customers</code> 테이블에 일치하는 데이터가 없는 경우 <code>customer_name</code> 열은 <code>NULL</code> 값을 가집니다.</p>
+<h3 id="outer-join"><a class="markdownIt-Anchor" href="#outer-join"></a> OUTER JOIN</h3>
+<p><code>OUTER JOIN</code>은 두 테이블 중 하나 또는 두 테이블의 모든 행을 반환하며, 일치하지 않는 행도 포함합니다. <code>LEFT OUTER JOIN</code>과 <code>RIGHT OUTER JOIN</code> 두 가지 유형이 있습니다.</p>
+<h4 id="left-outer-join-예제"><a class="markdownIt-Anchor" href="#left-outer-join-예제"></a> LEFT OUTER JOIN 예제</h4>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> customers.customer_name, orders.order_id</span><br><span class="line"><span class="keyword">FROM</span> customers</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> orders</span><br><span class="line"><span class="keyword">ON</span> customers.customer_id = orders.customer_id;</span><br></pre></td></tr></table></figure>
+<p>위 예제에서 <code>customers</code> 테이블은 왼쪽 테이블이고 <code>orders</code> 테이블은 오른쪽 테이블입니다. 결과 테이블에는 <code>customers</code> 테이블의 모든 행이 포함되며, <code>orders</code> 테이블에 일치하는 데이터가 없는 경우 <code>order_id</code> 열은 <code>NULL</code> 값을 가집니다.</p>
+<h4 id="right-outer-join-예제"><a class="markdownIt-Anchor" href="#right-outer-join-예제"></a> RIGHT OUTER JOIN 예제</h4>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> customers.customer_name, orders.order_id</span><br><span class="line"><span class="keyword">FROM</span> customers</span><br><span class="line"><span class="keyword">RIGHT</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> orders</span><br><span class="line"><span class="keyword">ON</span> customers.customer_id = orders.customer_id;</span><br></pre></td></tr></table></figure>
+<p>위 예제에서 <code>orders</code> 테이블은 오른쪽 테이블이고 <code>customers</code> 테이블은 왼쪽 테이블입니다. 결과 테이블에는 <code>orders</code> 테이블의 모든 행이 포함되며, <code>customers</code> 테이블에 일치하는 데이터가 없는 경우 <code>customer_name</code> 열은 <code>NULL</code> 값을 가집니다.</p>
+<p><strong>참고:</strong> 일부 데이터베이스는 <code>RIGHT OUTER JOIN</code>을 지원하지 않을 수 있습니다. 이 경우, <code>LEFT OUTER JOIN</code>을 사용하고 테이블의 순서를 바꾸어 동일한 결과를 얻을 수 있습니다.</p>
+<h2 id="3-where"><a class="markdownIt-Anchor" href="#3-where"></a> 3. WHERE</h2>
+<p><code>WHERE</code> 문은 지정된 조건에 따라 데이터를 필터링하는 데 사용됩니다. 특정 기준을 충족하는 데이터만 조회하려면 <code>WHERE</code> 문을 능숙하게 사용하는 것이 중요합니다.</p>
+<p>아래는 테이블에서 데이터를 필터링하기 위해 <code>WHERE</code> 문을 사용하는 예제입니다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">name</span>, department, salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> department = <span class="string">'Sales'</span> <span class="keyword">AND</span> salary &gt; <span class="number">50000</span>;</span><br></pre></td></tr></table></figure>
+<p>이 쿼리는 “Sales” 부서에서 근무하며 급여가 $50,000 이상인 모든 직원의 이름, 부서, 급여를 결과로 반환합니다.</p>
+<h2 id="4-group-by"><a class="markdownIt-Anchor" href="#4-group-by"></a> 4. GROUP BY</h2>
+<p><code>GROUP BY</code> 문은 하나 이상의 열을 기준으로 데이터를 그룹화하며, <code>COUNT</code>, <code>SUM</code>, <code>AVG</code>와 같은 집계 함수를 사용하여 그룹화된 데이터의 요약 정보를 계산할 수 있습니다. GROUP BY를 활용하여 카테고리별로 데이터를 분석하는 방법을 숙달하는 것이 중요합니다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> department, <span class="keyword">AVG</span>(salary) <span class="keyword">AS</span> avg_salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> department;</span><br></pre></td></tr></table></figure>
+<p>이 쿼리는 모든 부서와 각 부서의 평균 급여를 반환합니다. 각 부서의 평균 급여는 해당 부서 직원들의 모든 급여 합계를 직원 수로 나눈 값으로 계산됩니다. <code>GROUP BY</code> 절은 부서별로 직원을 그룹화하는 데 사용되며, <code>AVG</code> 함수는 각 부서의 평균 급여를 계산하는 데 사용됩니다.</p>
+<table>
+<thead>
+<tr>
+<th>Department</th>
+<th>Avg Salary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sales</td>
+<td>65,000</td>
+</tr>
+<tr>
+<td>Marketing</td>
+<td>55,000</td>
+</tr>
+<tr>
+<td>Engineering</td>
+<td>80,000</td>
+</tr>
+</tbody>
+</table>
+<p>위 예제에서, <strong>Sales</strong> 부서는 평균 급여가 $65,000, <strong>Marketing</strong> 부서는 $55,000, <strong>Engineering</strong> 부서는 $80,000임을 확인할 수 있습니다.</p>
+<h2 id="5-having"><a class="markdownIt-Anchor" href="#5-having"></a> 5. HAVING</h2>
+<p><code>HAVING</code> 문은 <code>GROUP BY</code>로 그룹화된 데이터를 특정 조건에 따라 필터링하는 데 사용됩니다. 그룹화된 데이터를 추가로 필터링하는 방법을 숙달하는 것이 중요합니다.</p>
+<p>아래는 <code>HAVING</code> 절을 사용하는 SQL 예제입니다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> customer_id, <span class="keyword">SUM</span>(quantity) <span class="keyword">AS</span> total_quantity</span><br><span class="line"><span class="keyword">FROM</span> orders</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> customer_id</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">SUM</span>(quantity) &gt;= <span class="number">50</span>;</span><br></pre></td></tr></table></figure>
+<p>이 쿼리는 모든 고객과 그들이 주문한 총 제품 수량을 반환하지만, 총 수량이 50단위 이상인 고객만 결과에 포함됩니다. <code>GROUP BY</code> 절은 고객별로 주문을 그룹화하는 데 사용되고, <code>SUM</code> 함수는 각 고객이 주문한 제품의 총 수량을 계산하는 데 사용됩니다. 마지막으로 <code>HAVING</code> 절은 결과를 필터링하여 조건을 만족하는 데이터만 반환합니다.</p>
+<h2 id="6-윈도우-함수-window-function"><a class="markdownIt-Anchor" href="#6-윈도우-함수-window-function"></a> 6. 윈도우 함수 (Window Function)</h2>
+<p>SQL에서 윈도우 함수는 현재 행과 관련된 행 집합에 대해 계산을 수행하는 데 사용됩니다. 이러한 함수는 지정된 조건이나 파티션에 기반한 테이블의 일부 행(윈도우)에 적용됩니다. 아래는 SQL에서 윈도우 함수를 사용하는 몇 가지 예제입니다.</p>
+<h3 id="1-row_number"><a class="markdownIt-Anchor" href="#1-row_number"></a> 1. <code>ROW_NUMBER()</code></h3>
+<p><code>ROW_NUMBER()</code> 함수는 각 파티션 내에서 각 행에 고유한 순차 번호를 할당합니다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1, column2, ..., ROW_NUMBER() <span class="keyword">OVER</span> (<span class="keyword">ORDER</span> <span class="keyword">BY</span> column1) <span class="keyword">AS</span> row_num</span><br><span class="line"><span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+<p>이 쿼리는 결과 집합에 <code>row_num</code>이라는 추가 열을 포함하며, 이 열은 <code>column1</code>의 순서에 따라 각 행에 순차적으로 번호를 부여합니다.</p>
+<h3 id="2-sum"><a class="markdownIt-Anchor" href="#2-sum"></a> 2. <code>SUM()</code></h3>
+<p><code>SUM()</code> 함수는 각 파티션 내에서 특정 열의 합계를 계산합니다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1, column2, ..., <span class="keyword">SUM</span>(column3) <span class="keyword">OVER</span> (<span class="keyword">PARTITION</span> <span class="keyword">BY</span> column1) <span class="keyword">AS</span> column3_sum</span><br><span class="line"><span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+<p>이 쿼리는 결과 집합에 <code>column3_sum</code>이라는 추가 열을 포함하며, 이 열은 각 파티션에서 <code>column1</code> 값에 따라 <code>column3</code>의 합계를 계산합니다.</p>
+<h3 id="3-rank"><a class="markdownIt-Anchor" href="#3-rank"></a> 3. <code>RANK()</code></h3>
+<p><code>RANK()</code> 함수는 특정 열의 값에 따라 각 파티션 내에서 각 행에 순위를 할당합니다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1, column2, ..., <span class="keyword">RANK</span>() <span class="keyword">OVER</span> (<span class="keyword">PARTITION</span> <span class="keyword">BY</span> column1 <span class="keyword">ORDER</span> <span class="keyword">BY</span> column3 <span class="keyword">DESC</span>) <span class="keyword">AS</span> rank_num</span><br><span class="line"><span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+<p>이 쿼리는 결과 집합에 <code>rank_num</code>이라는 추가 열을 포함하며, 이 열은 각 파티션에서 <code>column3</code> 값을 기준으로 내림차순 정렬된 순위를 나타냅니다.</p>
+<h3 id="4-avg"><a class="markdownIt-Anchor" href="#4-avg"></a> 4. <code>AVG()</code></h3>
+<p><code>AVG()</code> 함수는 각 파티션 내에서 특정 열의 평균을 계산합니다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1, column2, ..., <span class="keyword">AVG</span>(column3) <span class="keyword">OVER</span> (<span class="keyword">PARTITION</span> <span class="keyword">BY</span> column1) <span class="keyword">AS</span> column3_avg</span><br><span class="line"><span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+<p>이 쿼리는 결과 집합에 <code>column3_avg</code>라는 추가 열을 포함하며, 이 열은 각 파티션에서 <code>column1</code> 값에 따라 <code>column3</code>의 평균을 계산합니다.</p>
+<h3 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h3>
+<p>윈도우 함수의 문법은 사용하는 데이터베이스 관리 시스템(DBMS)에 따라 다를 수 있습니다. 사용하려는 DBMS의 문서를 참고하여 정확한 문법을 확인하는 것이 좋습니다.</p>
+<h2 id="7-union"><a class="markdownIt-Anchor" href="#7-union"></a> 7. UNION</h2>
+<p>SQL에서 <code>UNION</code> 연산자는 두 개 이상의 <code>SELECT</code> 문의 결과를 하나의 결과 집합으로 결합하는 데 사용됩니다. 각 <code>SELECT</code> 문은 동일한 열 개수와 호환 가능한 데이터 유형을 가져야 합니다. 결과 집합에서는 중복된 행이 자동으로 제거됩니다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">name</span>, city</span><br><span class="line"><span class="keyword">FROM</span> customers</span><br><span class="line"><span class="keyword">WHERE</span> city = <span class="string">'New York'</span></span><br><span class="line"><span class="keyword">UNION</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">name</span>, city</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> city = <span class="string">'New York'</span>;</span><br></pre></td></tr></table></figure>
+<p>이 쿼리는 뉴욕에 거주하는 모든 사람(고객과 직원 포함)의 목록을 반환합니다. 첫 번째 <code>SELECT</code> 문은 뉴욕에 거주하는 고객을 조회하며, 두 번째 <code>SELECT</code> 문은 뉴욕에 거주하는 직원을 조회합니다. <code>UNION</code> 연산자는 이 두 <code>SELECT</code> 문의 결과를 결합하고 중복된 행을 제거합니다.</p>
+<h2 id="8-create"><a class="markdownIt-Anchor" href="#8-create"></a> 8. CREATE</h2>
+<p><code>CREATE</code> 문은 새로운 데이터베이스 테이블, 뷰 또는 기타 데이터베이스 객체를 생성하는 데 사용됩니다. 새로운 테이블, 뷰, 기타 객체를 생성하는 방법을 숙달하는 것이 중요합니다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> customers (</span><br><span class="line">  <span class="keyword">id</span> <span class="built_in">INT</span> PRIMARY <span class="keyword">KEY</span>,</span><br><span class="line">  <span class="keyword">name</span> <span class="built_in">VARCHAR</span>(<span class="number">50</span>),</span><br><span class="line">  email <span class="built_in">VARCHAR</span>(<span class="number">100</span>),</span><br><span class="line">  phone <span class="built_in">VARCHAR</span>(<span class="number">20</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>이 쿼리는 &quot;customers&quot;라는 이름의 새 테이블을 생성하며, 네 개의 열(“id”, “name”, “email”, “phone”)을 포함합니다.</p>
+<ul>
+<li><strong>id:</strong> 정수형으로 설정되며, 테이블의 기본 키로 지정됩니다.</li>
+<li><strong>name:</strong> 최대 50자까지 저장할 수 있는 문자열로 설정됩니다.</li>
+<li><strong>email:</strong> 최대 100자까지 저장할 수 있는 문자열로 설정됩니다.</li>
+<li><strong>phone:</strong> 최대 20자까지 저장할 수 있는 문자열로 설정됩니다.</li>
+</ul>
+<h2 id="9-insert"><a class="markdownIt-Anchor" href="#9-insert"></a> 9. INSERT</h2>
+<p><code>INSERT</code> 문은 데이터베이스 테이블에 새 데이터를 삽입하는 데 사용됩니다. 테이블에 데이터를 추가하는 방법을 숙달하는 것이 중요합니다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> students (<span class="keyword">id</span>, <span class="keyword">name</span>, major, gpa)</span><br><span class="line"><span class="keyword">VALUES</span> (<span class="number">1234</span>, <span class="string">'John Doe'</span>, <span class="string">'Computer Science'</span>, <span class="number">3.5</span>);</span><br></pre></td></tr></table></figure>
+<p>이 쿼리는 다음 값으로 새 행을 “students” 테이블에 삽입합니다:</p>
+<ul>
+<li><strong>id:</strong> 1234</li>
+<li><strong>name:</strong> John Doe</li>
+<li><strong>major:</strong> Computer Science</li>
+<li><strong>gpa:</strong> 3.5</li>
+</ul>
+<p><code>INSERT</code> 문은 데이터를 삽입하려는 테이블의 이름을 지정하고, 삽입할 열 목록을 작성한 뒤, <code>VALUES</code> 키워드를 사용해 해당 열에 삽입할 값을 순서대로 지정합니다.</p>
+<h2 id="10-update"><a class="markdownIt-Anchor" href="#10-update"></a> 10. UPDATE</h2>
+<p><code>UPDATE</code> 문은 데이터베이스 테이블의 기존 데이터를 수정하는 데 사용됩니다. 테이블의 하나 이상의 열 값을 업데이트하는 방법을 숙달하는 것이 중요합니다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> students</span><br><span class="line"><span class="keyword">SET</span> major = <span class="string">'Mathematics'</span>, gpa = <span class="number">3.7</span></span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">id</span> = <span class="number">1234</span>;</span><br></pre></td></tr></table></figure>
+<p>이 쿼리는 다음과 같은 작업을 수행합니다:</p>
+<ul>
+<li><strong>major</strong> 열의 값을 'Mathematics’로 업데이트</li>
+<li><strong>gpa</strong> 열의 값을 3.7로 업데이트</li>
+<li><strong>WHERE</strong> 절을 사용하여 ID가 1234인 행만 업데이트</li>
+</ul>
+<p><code>UPDATE</code> 문은 업데이트하려는 테이블의 이름을 지정한 후, <code>SET</code> 키워드를 사용하여 업데이트할 열과 새 값을 나열합니다. 특정 행만 업데이트하려면 <code>WHERE</code> 절을 사용하여 조건을 지정해야 합니다.</p>
+<h2 id="11-delete"><a class="markdownIt-Anchor" href="#11-delete"></a> 11. DELETE</h2>
+<p><code>DELETE</code> 문은 데이터베이스 테이블에서 하나 이상의 행을 삭제하는 데 사용됩니다. 테이블에서 데이터를 제거하는 방법을 숙달하는 것이 중요합니다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> students</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">id</span> = <span class="number">1234</span>;</span><br></pre></td></tr></table></figure>
+<p>이 쿼리는 “students” 테이블에서 ID가 1234인 행을 제거합니다.</p>
+<ul>
+<li><code>DELETE FROM</code>은 데이터를 삭제하려는 테이블의 이름을 지정합니다.</li>
+<li><code>WHERE</code> 절은 삭제할 행을 지정하는 조건을 나타냅니다. 이 경우, ID가 1234인 행을 삭제하도록 설정했습니다.</li>
+</ul>
+<h2 id="12-drop"><a class="markdownIt-Anchor" href="#12-drop"></a> 12. DROP</h2>
+<p><code>DROP</code> 문은 데이터베이스 테이블이나 기타 데이터베이스 객체를 삭제하는 데 사용됩니다. 불필요한 테이블이나 기타 객체를 데이터베이스에서 제거하는 방법을 숙달하는 것이 중요합니다.</p>
+<h3 id="1-drop-table"><a class="markdownIt-Anchor" href="#1-drop-table"></a> 1. DROP TABLE</h3>
+<p>기존 테이블과 해당 테이블의 모든 데이터 및 인덱스를 삭제합니다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> table_name;</span><br></pre></td></tr></table></figure>
+<h3 id="2-drop-index"><a class="markdownIt-Anchor" href="#2-drop-index"></a> 2. DROP INDEX</h3>
+<p>테이블에서 기존 인덱스를 삭제합니다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">INDEX</span> index_name <span class="keyword">ON</span> table_name;</span><br></pre></td></tr></table></figure>
+<h3 id="3-drop-view"><a class="markdownIt-Anchor" href="#3-drop-view"></a> 3. DROP VIEW</h3>
+<p>기존의 뷰(View)를 삭제합니다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">VIEW</span> view_name;</span><br></pre></td></tr></table></figure>
+<h3 id="4-drop-procedure"><a class="markdownIt-Anchor" href="#4-drop-procedure"></a> 4. DROP PROCEDURE</h3>
+<p>기존의 저장 프로시저(Stored Procedure)를 삭제합니다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">PROCEDURE</span> procedure_name;</span><br></pre></td></tr></table></figure>
+<h3 id="주의-사항"><a class="markdownIt-Anchor" href="#주의-사항"></a> 주의 사항</h3>
+<ul>
+<li><code>DROP</code> 문은 지정된 객체와 관련된 모든 데이터 및 인덱스를 <strong>영구적으로 삭제</strong>합니다.</li>
+<li>삭제된 데이터나 객체는 복구할 수 없으므로, 삭제 작업을 실행하기 전에 데이터를 반드시 백업해야 합니다.</li>
+<li>사용하는 데이터베이스 관리 시스템(DBMS)에 따라 <code>DROP</code> 문의 정확한 문법이 다를 수 있으므로, 사용하는 DBMS의 문서를 참조하는 것이 좋습니다.</li>
+</ul>
+<h2 id="13-alter"><a class="markdownIt-Anchor" href="#13-alter"></a> 13. ALTER</h2>
+<p><code>ALTER</code> 문은 데이터베이스 테이블이나 기타 데이터베이스 객체의 구조를 수정하는 데 사용됩니다. 열 추가 및 삭제, 데이터 유형 변경, 제약 조건 설정 등 다양한 작업을 수행하는 방법을 숙달하는 것이 중요합니다.</p>
+<h3 id="1-alter-table"><a class="markdownIt-Anchor" href="#1-alter-table"></a> 1. ALTER TABLE</h3>
+<p>기존 테이블의 구조를 수정합니다. 열을 추가하거나 삭제하고, 데이터 유형을 변경하거나 제약 조건을 설정하는 데 사용됩니다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name</span><br><span class="line"><span class="keyword">ADD</span> column_name data_type [<span class="keyword">constraint</span>],</span><br><span class="line"><span class="keyword">MODIFY</span> column_name data_type [<span class="keyword">constraint</span>],</span><br><span class="line"><span class="keyword">DROP</span> column_name,</span><br><span class="line"><span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> constraint_name constraint_definition,</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">CONSTRAINT</span> constraint_name;</span><br></pre></td></tr></table></figure>
+<p>테이블에 새로운 열 추가</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> customers</span><br><span class="line"><span class="keyword">ADD</span> phone_number <span class="built_in">VARCHAR</span>(<span class="number">15</span>);</span><br></pre></td></tr></table></figure>
+<p>기존 열 삭제</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> customers</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">COLUMN</span> phone_number;</span><br></pre></td></tr></table></figure>
+<h3 id="2-alter-index"><a class="markdownIt-Anchor" href="#2-alter-index"></a> 2. ALTER INDEX</h3>
+<p>기존 인덱스의 구조를 수정합니다. 열을 추가하거나 제거하고, 인덱스 유형을 변경할 수 있습니다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">INDEX</span> index_name</span><br><span class="line"><span class="keyword">ADD</span> column_name,</span><br><span class="line"><span class="keyword">DROP</span> column_name;</span><br></pre></td></tr></table></figure>
+<h3 id="3-alter-view"><a class="markdownIt-Anchor" href="#3-alter-view"></a> 3. ALTER VIEW</h3>
+<p>기존 뷰(View)의 정의를 수정합니다. 생성 시 사용된 <code>SELECT</code> 문을 변경할 수 있습니다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">VIEW</span> view_name</span><br><span class="line"><span class="keyword">AS</span> select_statement;</span><br></pre></td></tr></table></figure>
+<h3 id="참고-2"><a class="markdownIt-Anchor" href="#참고-2"></a> 참고</h3>
+<ul>
+<li><code>ALTER</code> 문의 정확한 문법은 사용하는 데이터베이스 관리 시스템(DBMS)에 따라 다를 수 있습니다.</li>
+<li>구조를 수정하는 작업은 데이터 무결성에 영향을 미칠 수 있으므로, 변경 전에 데이터베이스 구조와 데이터에 미치는 영향을 철저히 검토해야 합니다.</li>
+</ul>
+
+        </div>
+        <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+        <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://hgko1207.github.io/2024/11/19/sql-1/" data-id="cm3x5te9j000084cxd5ze4htj" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Hyeong Gyun Ko"
+        },
+        "headline": "필수로 알아야할 13가지 SQL 문법",
+        "image": "http://hgko1207.github.io/images/thumbnail/mysql.png",
+        "keywords": "Database DB SQL",
+        "genre": "Programming DB SQL",
+        "datePublished": "2024-11-19",
+        "dateCreated": "2024-11-19",
+        "dateModified": "2024-11-21",
+        "url": "http://hgko1207.github.io/2024/11/19/sql-1/",
+        "description": "Structured Query Language(SQL)은 관계형 데이터베이스를 관리하고 조작하기 위해 설계된 프로그래밍 언어입니다. 이는 데이터 분석가와 데이터 과학자가 대규모 데이터셋에서 통찰을 추출하기 위해 널리 사용됩니다.
+SQL은 데이터를 필터링, 정렬, 그룹화, 집계하는 등 다양한 데이터 조작 작업을 수행할 수 있는 강력한 도구입니다. 이 글에서는",
+        "wordCount": 2041
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                            <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>follow:</p>
+    <ul class="social-links">
+       
+      <li>
+        <a
+          class="social-tooltip"
+          title="github"
+          href="https://github.com/hgko1207"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-github"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="facebook"
+          href="https://www.facebook.com/profile.php?id=100003526102847"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-facebook"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="rss"
+          href="/"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-rss"></i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+   
+<nav id="article-nav">
+    
+        <a href="/2024/11/19/info-31/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            시니어 개발자들이 절대 놓치지 않는 10가지 코딩 습관
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2024/11/12/react-19/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">React 컴포넌트 작성, 전문가처럼!</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+ 
+  <div class="widgets-container">
+      
+  
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/11/25/spring-9/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/spring.png)" alt="Spring Boot에서 Lombok을 활용한 효율적인 Java 개발 가이드 🌟" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Backend/">Backend</a></p>
+                            <p class="item-title"><a href="/2024/11/25/spring-9/" class="title">Spring Boot에서 Lombok을 활용한 효율적인 Java 개발 가이드 🌟</a></p>
+                            <p class="item-date"><time datetime="2024-11-25T05:38:56.000Z" itemprop="datePublished">2024-11-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/11/25/git-4/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/git.png)" alt="모든 개발자가 알아야 할 20가지 Git 명령어" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/IT/">IT</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/IT/Git/">Git</a></p>
+                            <p class="item-title"><a href="/2024/11/25/git-4/" class="title">모든 개발자가 알아야 할 20가지 Git 명령어</a></p>
+                            <p class="item-date"><time datetime="2024-11-25T04:55:03.000Z" itemprop="datePublished">2024-11-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/11/25/devops-3/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/docker.png)" alt="개발자를 성장시키는 25가지 Docker 명령어(2)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/DevOps/">DevOps</a></p>
+                            <p class="item-title"><a href="/2024/11/25/devops-3/" class="title">개발자를 성장시키는 25가지 Docker 명령어(2)</a></p>
+                            <p class="item-date"><time datetime="2024-11-25T04:37:37.000Z" itemprop="datePublished">2024-11-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/11/25/devops-2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/docker.png)" alt="개발자를 성장시키는 25가지 Docker 명령어(1)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/DevOps/">DevOps</a></p>
+                            <p class="item-title"><a href="/2024/11/25/devops-2/" class="title">개발자를 성장시키는 25가지 Docker 명령어(1)</a></p>
+                            <p class="item-date"><time datetime="2024-11-25T04:10:16.000Z" itemprop="datePublished">2024-11-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/11/21/spring-8/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/spring.png)" alt="Spring Boot에서 API 응답을 구조화하는 가장 좋은 방법" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Backend/">Backend</a></p>
+                            <p class="item-title"><a href="/2024/11/21/spring-8/" class="title">Spring Boot에서 API 응답을 구조화하는 가장 좋은 방법</a></p>
+                            <p class="item-date"><time datetime="2024-11-21T03:12:17.000Z" itemprop="datePublished">2024-11-21</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">64</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">37</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">426</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">76</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">40</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Net-Core/">.Net Core</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">21</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">27</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/SQL/">SQL</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">35</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">29</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">116</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">25</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">8</span></li></ul></li></ul>
+        </div>
+    </div>
+
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+  <div class="widget-wrap widget-float">
+
+    <h3 class="widget-title">Sponsored</h3>
+    <div class="widget">
+        <a href="https://marcofranssen.nl?adsense_widget" target="_blank" rel="noopener">This widget is sponsored by, Marco Franssen, main contributor to this theme.</a>
+    </div>
+
+</div>
+  
+  </div>
+  <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+
+  <!-- hits 방문자수 -->
+  <a href="https://hits.seeyoufarm.com" target="_blank" rel="noopener">
+    <style>
+      .hits {
+        width: auto;
+        height: auto;
+        max-width: 99px;
+        max-height: 20px;
+      }
+    </style>
+    <img
+      src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhgko1207.github.io&count_bg=%23E6ADD5&title_bg=%23BF98D2&icon=&icon_color=%23E7E7E7&title=%EB%B0%A9%EB%AC%B8%EC%9E%90%EC%88%98&edge_flat=false"
+      alt="방문자수"
+    />
+  </a>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h2 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h2>
+                <p>&copy; 2024 Hyeong Gyun Ko</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://hgko1207.github.io/2024/11/19/sql-1/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
