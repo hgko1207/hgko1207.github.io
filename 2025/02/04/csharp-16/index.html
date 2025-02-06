@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>.NET 성능 저하 안티 패턴 10가지와 해결 방법 | 규니의 블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    <meta name="keywords" content="C#,Programming,Software Development,.NET" />
+    
+    <meta name="description" content="애플리케이션의 성능 병목 현상은 효율성, 확장성, 사용자 경험을 저하시킬 수 있습니다. 많은 .NET 개발자들은 무의식적으로 성능을 저하시킬 수 있는 안티 패턴을 따르게 됩니다. 이번 글에서는 대표적인 .NET 성능 저하 안티 패턴 10가지를 살펴보고, 그것이 왜 문제인지, 그리고 최적화된 해결 방법을 제시하겠습니다. 1. 과도한 객체 할당 및 가비지 컬렉">
+<meta property="og:type" content="article">
+<meta property="og:title" content=".NET 성능 저하 안티 패턴 10가지와 해결 방법">
+<meta property="og:url" content="http://hgko1207.github.io/2025/02/04/csharp-16/index.html">
+<meta property="og:site_name" content="규니의 블로그">
+<meta property="og:description" content="애플리케이션의 성능 병목 현상은 효율성, 확장성, 사용자 경험을 저하시킬 수 있습니다. 많은 .NET 개발자들은 무의식적으로 성능을 저하시킬 수 있는 안티 패턴을 따르게 됩니다. 이번 글에서는 대표적인 .NET 성능 저하 안티 패턴 10가지를 살펴보고, 그것이 왜 문제인지, 그리고 최적화된 해결 방법을 제시하겠습니다. 1. 과도한 객체 할당 및 가비지 컬렉">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/csharp.png">
+<meta property="article:published_time" content="2025-02-04T06:08:38.000Z">
+<meta property="article:modified_time" content="2025-02-04T06:22:09.443Z">
+<meta property="article:author" content="Hyeong Gyun Ko">
+<meta property="article:tag" content="C#">
+<meta property="article:tag" content="Programming">
+<meta property="article:tag" content="Software Development">
+<meta property="article:tag" content=".NET">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/csharp.png">
+    
+
+    
+        <link rel="alternate" href="/" title="규니의 블로그" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-166318275-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+
+    <!-- <script
+  data-ad-client="ca-pub-7581566810202853"
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+></script>
+ -->
+
+    <!-- 구글 애드센스 -->
+    <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!-- 네이버 -->
+    <meta name="naver-site-verification" content="a6e2912bbd1e42226e10ee12d3498a246c51ec1f" />
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h2 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h2>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">hgko&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ETC/">ETC</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/">IT</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/BlockChain/">BlockChain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Blockchain/">Blockchain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Information/">Information</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Satellite/">Satellite</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Backend/">Backend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DB/">DB</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Frontend/">Frontend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Language/">Language</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Mobile/">Mobile</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Web/">Web</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about">About</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/profile">Profile</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h2 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Language/C/">C#</a>
+    </h2>
+</div>
+
+                        <div class="main-body-content">
+                            <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+                            <!-- 상단 광고 -->
+<ins
+  class="adsbygoogle"
+  style="display: block"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="1131844921"
+  data-ad-format="auto"
+  data-full-width-responsive="true"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                            <article id="post-csharp-16" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        .NET 성능 저하 안티 패턴 10가지와 해결 방법
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2025/02/04/csharp-16/" class="article-date">
+         <time datetime="2025-02-04T06:08:38.000Z" itemprop="datePublished">2025-02-04</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/NET/" rel="tag">.NET</a>, <a class="tag-link" href="/tags/C/" rel="tag">C#</a>, <a class="tag-link" href="/tags/Programming/" rel="tag">Programming</a>, <a class="tag-link" href="/tags/Software-Development/" rel="tag">Software Development</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>애플리케이션의 성능 병목 현상은 효율성, 확장성, 사용자 경험을 저하시킬 수 있습니다. 많은 .NET 개발자들은 무의식적으로 성능을 저하시킬 수 있는 안티 패턴을 따르게 됩니다. 이번 글에서는 대표적인 .NET 성능 저하 안티 패턴 10가지를 살펴보고, 그것이 왜 문제인지, 그리고 최적화된 해결 방법을 제시하겠습니다.</p>
+<h2 id="1-과도한-객체-할당-및-가비지-컬렉션-GC-부하">1. 과도한 객체 할당 및 가비지 컬렉션(GC) 부하</h2>
+<p><strong>문제점:</strong></p>
+<ul>
+<li>짧은 수명의 객체를 너무 많이 생성하면 빈번한 GC 실행을 유발하여 애플리케이션 성능을 저하시킵니다.</li>
+</ul>
+<p><strong>해결 방법:</strong></p>
+<ul>
+<li>재사용 가능한 객체를 위한 <strong>객체 풀링(Object Pooling)</strong> 사용</li>
+<li>작은 크기의 불변 객체는 <strong>클래스 대신 구조체(Struct)</strong> 사용</li>
+<li><strong>Span 및 Memory</strong> 사용하여 할당 줄이기</li>
+<li>필요할 경우 <strong>GC 설정(GCSettings.LargeObjectHeapCompactionMode)</strong> 튜닝</li>
+</ul>
+<p><strong>예제 코드:</strong></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 안티 패턴</span></span><br><span class="line"><span class="keyword">var</span> data = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 최적화: MemoryPool을 사용하여 메모리 재사용</span></span><br><span class="line"><span class="keyword">var</span> pool = MemoryPool&lt;<span class="keyword">byte</span>&gt;.Shared;</span><br><span class="line"><span class="keyword">using</span> (<span class="keyword">var</span> owner = pool.Rent(<span class="number">1024</span>))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span> memory = owner.Memory;</span><br><span class="line">    <span class="comment">// 메모리 처리 로직</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-비동기-코드-차단-Sync-Over-Async">2. 비동기 코드 차단 (Sync Over Async)</h2>
+<p><strong>문제점:</strong></p>
+<ul>
+<li>비동기 메서드에서 <code>.Result</code> 또는 <code>.GetAwaiter().GetResult()</code>를 호출하면 스레드가 차단되어 데드락이 발생할 수 있습니다.</li>
+</ul>
+<p><strong>해결 방법:</strong></p>
+<ul>
+<li>항상 <strong>async/await</strong> 사용</li>
+<li>동기 코드와 비동기 코드를 섞어 사용하지 않기</li>
+</ul>
+<p><strong>예제 코드:</strong></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 안티 패턴</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">string</span> <span class="title">GetData</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> GetDataAsync().Result; <span class="comment">// 스레드 차단 발생</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 최적화</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">async</span> Task&lt;<span class="keyword">string</span>&gt; <span class="title">GetDataAsync</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">await</span> FetchDataFromServiceAsync();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-비효율적인-데이터베이스-쿼리">3. 비효율적인 데이터베이스 쿼리</h2>
+<p><strong>문제점:</strong></p>
+<ul>
+<li>ORM (예: Entity Framework)에서 N+1 문제 발생</li>
+<li>적절한 인덱스 미사용</li>
+<li>불필요한 데이터 조회</li>
+</ul>
+<p><strong>해결 방법:</strong></p>
+<ul>
+<li>Lazy Loading 대신 Eager Loading 사용 (필요한 데이터를 한 번에 가져오기)</li>
+<li>페이징 및 인덱싱 최적화</li>
+<li>EF Core 로깅을 활용하여 쿼리 프로파일링</li>
+</ul>
+<p><strong>예제 코드:</strong></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 안티 패턴</span></span><br><span class="line"><span class="keyword">var</span> orders = context.Orders.ToList();</span><br><span class="line"><span class="keyword">foreach</span> (<span class="keyword">var</span> order <span class="keyword">in</span> orders)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span> customer = context.Customers.Find(order.CustomerId); <span class="comment">// N+1 문제 발생</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 최적화</span></span><br><span class="line"><span class="keyword">var</span> ordersWithCustomers = context.Orders.Include(o =&gt; o.Customer).ToList();</span><br></pre></td></tr></table></figure>
+<h2 id="4-과도한-Reflection-사용">4. 과도한 Reflection 사용</h2>
+<p><strong>문제점:</strong></p>
+<ul>
+<li>Reflection은 메타데이터를 검사해야 하므로 성능 비용이 큽니다.</li>
+</ul>
+<p><strong>해결 방법:</strong></p>
+<ul>
+<li>컴파일된 표현식(Compiled Expressions) 또는 소스 생성기(Source Generators) 사용</li>
+<li>Reflection 결과 캐싱</li>
+</ul>
+<p><strong>예제 코드:</strong></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 안티 패턴</span></span><br><span class="line"><span class="keyword">var</span> type = <span class="keyword">typeof</span>(MyClass);</span><br><span class="line"><span class="keyword">var</span> property = type.GetProperty(<span class="string">"MyProperty"</span>);</span><br><span class="line"><span class="keyword">var</span> <span class="keyword">value</span> = property.GetValue(instance);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 최적화</span></span><br><span class="line"><span class="keyword">var</span> propertyDelegate = (Func&lt;MyClass, <span class="keyword">object</span>&gt;)Delegate.CreateDelegate(</span><br><span class="line">    <span class="keyword">typeof</span>(Func&lt;MyClass, <span class="keyword">object</span>&gt;), <span class="literal">null</span>, type.GetProperty(<span class="string">"MyProperty"</span>).GetMethod);</span><br><span class="line"><span class="keyword">var</span> valueOptimized = propertyDelegate(instance);</span><br></pre></td></tr></table></figure>
+<h2 id="5-루프에서-문자열-연결-사용">5. 루프에서 문자열 연결 사용</h2>
+<p><strong>문제점:</strong></p>
+<ul>
+<li>문자열은 불변 객체이므로, 반복적으로 문자열을 연결하면 새로운 객체가 계속 생성됩니다.</li>
+</ul>
+<p><strong>해결 방법:</strong></p>
+<ul>
+<li>StringBuilder 사용</li>
+</ul>
+<p><strong>예제 코드:</strong></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 안티 패턴</span></span><br><span class="line"><span class="keyword">string</span> result = <span class="string">""</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line">    result += i.ToString();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 최적화</span></span><br><span class="line"><span class="keyword">var</span> sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line">    sb.Append(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">string</span> optimizedResult = sb.ToString();</span><br></pre></td></tr></table></figure>
+<h2 id="6-캐싱을-활용하지-않음">6. 캐싱을 활용하지 않음</h2>
+<p><strong>문제점:</strong></p>
+<ul>
+<li>같은 비용이 큰 연산을 반복 실행하면 불필요한 자원이 낭비됩니다.</li>
+</ul>
+<p><strong>해결 방법:</strong></p>
+<ul>
+<li>MemoryCache, Redis 또는 Lazy 사용</li>
+<li>출력 캐싱(Output Caching) 적용</li>
+</ul>
+<p><strong>예제 코드:</strong></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">readonly</span> MemoryCache _cache = <span class="keyword">new</span> MemoryCache(<span class="keyword">new</span> MemoryCacheOptions());</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">string</span> <span class="title">GetExpensiveData</span>(<span class="params"><span class="keyword">string</span> key</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!_cache.TryGetValue(key, <span class="keyword">out</span> <span class="keyword">string</span> cachedData))</span><br><span class="line">    &#123;</span><br><span class="line">        cachedData = ComputeExpensiveData();</span><br><span class="line">        _cache.Set(key, cachedData, TimeSpan.FromMinutes(<span class="number">10</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cachedData;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="7-비동기-데이터베이스-호출-미사용">7. 비동기 데이터베이스 호출 미사용</h2>
+<p><strong>문제점:</strong></p>
+<ul>
+<li>동기적인 데이터베이스 쿼리는 스레드를 차단하고 확장성을 저하시킵니다.</li>
+</ul>
+<p><strong>해결 방법:</strong></p>
+<ul>
+<li>EF Core의 ToListAsync() 등의 비동기 메서드 사용</li>
+</ul>
+<p><strong>예제 코드:</strong></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 안티 패턴</span></span><br><span class="line"><span class="keyword">var</span> users = context.Users.ToList(); <span class="comment">// 스레드 차단 발생</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 최적화</span></span><br><span class="line"><span class="keyword">var</span> users = <span class="keyword">await</span> context.Users.ToListAsync();</span><br></pre></td></tr></table></figure>
+<h2 id="8-성능이-중요한-경로에서-과도한-로깅">8. 성능이 중요한 경로에서 과도한 로깅</h2>
+<p><strong>문제점:</strong></p>
+<ul>
+<li>과도한 로깅은 실행 속도를 저하시킵니다.</li>
+</ul>
+<p><strong>해결 방법:</strong></p>
+<ul>
+<li>조건부 로깅 사용</li>
+<li>핫 패스(Hot Path)에서는 로그 레벨을 줄이기</li>
+</ul>
+<p><strong>예제 코드:</strong></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 안티 패턴</span></span><br><span class="line">_logger.LogInformation(<span class="string">"Processing item: &#123;Id&#125;"</span>, item.Id);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 최적화</span></span><br><span class="line"><span class="keyword">if</span> (_logger.IsEnabled(LogLevel.Debug))</span><br><span class="line">&#123;</span><br><span class="line">    _logger.LogDebug(<span class="string">"Processing item: &#123;Id&#125;"</span>, item.Id);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="9-LINQ-비효율적-사용">9. LINQ 비효율적 사용</h2>
+<p><strong>문제점:</strong></p>
+<ul>
+<li>필터링 전에 .ToList()를 호출하면 불필요한 메모리 사용이 발생합니다.</li>
+</ul>
+<p><strong>해결 방법:</strong></p>
+<ul>
+<li>지연 실행(Deferred Execution) 활용</li>
+</ul>
+<p><strong>예제 코드:</strong></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 안티 패턴</span></span><br><span class="line"><span class="keyword">var</span> filteredUsers = context.Users.ToList().Where(u =&gt; u.IsActive);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 최적화</span></span><br><span class="line"><span class="keyword">var</span> filteredUsers = context.Users.Where(u =&gt; u.IsActive).ToList();</span><br></pre></td></tr></table></figure>
+<h2 id="10-대량-데이터-처리-시-비동기-스트림-미사용">10. 대량 데이터 처리 시 비동기 스트림 미사용</h2>
+<p><strong>문제점:</strong></p>
+<ul>
+<li>대량 데이터를 한 번에 로드하면 메모리 사용량이 증가합니다.</li>
+</ul>
+<p><strong>해결 방법:</strong></p>
+<ul>
+<li>IAsyncEnumerable을 사용하여 스트리밍 방식으로 데이터 처리</li>
+</ul>
+<p><strong>예제 코드:</strong></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">async</span> IAsyncEnumerable&lt;User&gt; <span class="title">GetUsersAsync</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">await</span> <span class="keyword">foreach</span> (<span class="keyword">var</span> user <span class="keyword">in</span> context.Users.AsAsyncEnumerable())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">yield</span> <span class="keyword">return</span> user;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="핵심-요약">핵심 요약</h2>
+<p>✅ <strong>GC 부하를 줄이기 위해 과도한 객체 할당을 방지</strong><br>
+✅ <strong>비동기 프로그래밍을 적극 활용하여 응답성 향상</strong><br>
+✅ <strong>불필요한 데이터 조회를 최소화하도록 쿼리 최적화</strong><br>
+✅ <strong>캐싱을 활용하여 중복 연산 방지</strong><br>
+✅ <strong>성능이 중요한 경로에서 불필요한 로깅 최소화</strong></p>
+<p>이러한 안티 패턴을 개선하면 .NET 애플리케이션의 성능, 확장성, 안정성을 크게 향상시킬 수 있습니다.</p>
+
+        </div>
+        <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+        <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://hgko1207.github.io/2025/02/04/csharp-16/" data-id="cm6swe8w00001e4cxbrpjcstc" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Hyeong Gyun Ko"
+        },
+        "headline": ".NET 성능 저하 안티 패턴 10가지와 해결 방법",
+        "image": "http://hgko1207.github.io/images/thumbnail/csharp.png",
+        "keywords": "C# Programming Software Development .NET",
+        "genre": "Programming Language C#",
+        "datePublished": "2025-02-04",
+        "dateCreated": "2025-02-04",
+        "dateModified": "2025-02-04",
+        "url": "http://hgko1207.github.io/2025/02/04/csharp-16/",
+        "description": "애플리케이션의 성능 병목 현상은 효율성, 확장성, 사용자 경험을 저하시킬 수 있습니다. 많은 .NET 개발자들은 무의식적으로 성능을 저하시킬 수 있는 안티 패턴을 따르게 됩니다. 이번 글에서는 대표적인 .NET 성능 저하 안티 패턴 10가지를 살펴보고, 그것이 왜 문제인지, 그리고 최적화된 해결 방법을 제시하겠습니다.
+1. 과도한 객체 할당 및 가비지 컬렉",
+        "wordCount": 930
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                            <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>follow:</p>
+    <ul class="social-links">
+       
+      <li>
+        <a
+          class="social-tooltip"
+          title="github"
+          href="https://github.com/hgko1207"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-github"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="facebook"
+          href="https://www.facebook.com/profile.php?id=100003526102847"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-facebook"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="rss"
+          href="/"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-rss"></i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+   
+<nav id="article-nav">
+    
+        <a href="/2025/02/04/docker-3/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Docker 전문가들이 99%까지 이미지 크기를 줄이는 숨겨진 기술
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2025/01/17/github-1/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">코딩에 필요한 11개의 놀라운 GitHub 저장소</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+ 
+  <div class="widgets-container">
+      
+  
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/02/04/docker-3/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/docker.png)" alt="Docker 전문가들이 99%까지 이미지 크기를 줄이는 숨겨진 기술" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/DevOps/">DevOps</a></p>
+                            <p class="item-title"><a href="/2025/02/04/docker-3/" class="title">Docker 전문가들이 99%까지 이미지 크기를 줄이는 숨겨진 기술</a></p>
+                            <p class="item-date"><time datetime="2025-02-04T06:41:53.000Z" itemprop="datePublished">2025-02-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/02/04/csharp-16/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/csharp.png)" alt=".NET 성능 저하 안티 패턴 10가지와 해결 방법" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2025/02/04/csharp-16/" class="title">.NET 성능 저하 안티 패턴 10가지와 해결 방법</a></p>
+                            <p class="item-date"><time datetime="2025-02-04T06:08:38.000Z" itemprop="datePublished">2025-02-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/01/17/github-1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/git.png)" alt="코딩에 필요한 11개의 놀라운 GitHub 저장소" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/IT/">IT</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/IT/Git/">Git</a></p>
+                            <p class="item-title"><a href="/2025/01/17/github-1/" class="title">코딩에 필요한 11개의 놀라운 GitHub 저장소</a></p>
+                            <p class="item-date"><time datetime="2025-01-17T14:04:01.000Z" itemprop="datePublished">2025-01-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/01/09/chatgpt-34/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/chatgpt.png)" alt="ChatGPT가 만들어줄 수 있는 7가지 제품" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2025/01/09/chatgpt-34/" class="title">ChatGPT가 만들어줄 수 있는 7가지 제품</a></p>
+                            <p class="item-date"><time datetime="2025-01-09T06:11:57.000Z" itemprop="datePublished">2025-01-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/01/09/info-32/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/information.png)" alt="알아두어야 할 마이크로서비스 설계 패턴 TOP 10" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/IT/">IT</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/IT/Information/">Information</a></p>
+                            <p class="item-title"><a href="/2025/01/09/info-32/" class="title">알아두어야 할 마이크로서비스 설계 패턴 TOP 10</a></p>
+                            <p class="item-date"><time datetime="2025-01-09T05:13:41.000Z" itemprop="datePublished">2025-01-09</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">66</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">433</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">78</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">40</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Net-Core/">.Net Core</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">21</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">27</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/SQL/">SQL</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">36</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">29</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">120</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">25</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">8</span></li></ul></li></ul>
+        </div>
+    </div>
+
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+  <div class="widget-wrap widget-float">
+
+    <h3 class="widget-title">Sponsored</h3>
+    <div class="widget">
+        <a href="https://marcofranssen.nl?adsense_widget" target="_blank" rel="noopener">This widget is sponsored by, Marco Franssen, main contributor to this theme.</a>
+    </div>
+
+</div>
+  
+  </div>
+  <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+
+  <!-- hits 방문자수 -->
+  <a href="https://hits.seeyoufarm.com" target="_blank" rel="noopener">
+    <style>
+      .hits {
+        width: auto;
+        height: auto;
+        max-width: 99px;
+        max-height: 20px;
+      }
+    </style>
+    <img
+      src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhgko1207.github.io&count_bg=%23E6ADD5&title_bg=%23BF98D2&icon=&icon_color=%23E7E7E7&title=%EB%B0%A9%EB%AC%B8%EC%9E%90%EC%88%98&edge_flat=false"
+      alt="방문자수"
+    />
+  </a>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h2 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h2>
+                <p>&copy; 2025 Hyeong Gyun Ko</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://hgko1207.github.io/2025/02/04/csharp-16/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

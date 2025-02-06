@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Docker 전문가들이 99%까지 이미지 크기를 줄이는 숨겨진 기술 | 규니의 블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    <meta name="keywords" content="Docker,Programming,DevOps,Software Engineering,Docker Image,Docker Compose,Install Docker" />
+    
+    <meta name="description" content="Docker 이미지는 디스크 공간을 차지하고 배포 속도를 늦추는 문제를 유발할 수 있습니다. 하지만 최상위 DevOps 팀들은 이미 이미지 크기를 최대 99%까지 줄이는 기술을 활용하고 있습니다. 이번 글에서는 이러한 숨겨진 최적화 기법을 공개합니다. 🚀 과도한 Docker 이미지가 초래하는 숨은 비용 Docker 이미지가 너무 크면 단순한 불편을 넘어">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker 전문가들이 99%까지 이미지 크기를 줄이는 숨겨진 기술">
+<meta property="og:url" content="http://hgko1207.github.io/2025/02/04/docker-3/index.html">
+<meta property="og:site_name" content="규니의 블로그">
+<meta property="og:description" content="Docker 이미지는 디스크 공간을 차지하고 배포 속도를 늦추는 문제를 유발할 수 있습니다. 하지만 최상위 DevOps 팀들은 이미 이미지 크기를 최대 99%까지 줄이는 기술을 활용하고 있습니다. 이번 글에서는 이러한 숨겨진 최적화 기법을 공개합니다. 🚀 과도한 Docker 이미지가 초래하는 숨은 비용 Docker 이미지가 너무 크면 단순한 불편을 넘어">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/docker.png">
+<meta property="article:published_time" content="2025-02-04T06:41:53.000Z">
+<meta property="article:modified_time" content="2025-02-04T07:29:33.649Z">
+<meta property="article:author" content="Hyeong Gyun Ko">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="Programming">
+<meta property="article:tag" content="DevOps">
+<meta property="article:tag" content="Software Engineering">
+<meta property="article:tag" content="Docker Image">
+<meta property="article:tag" content="Docker Compose">
+<meta property="article:tag" content="Install Docker">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/docker.png">
+    
+
+    
+        <link rel="alternate" href="/" title="규니의 블로그" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-166318275-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+
+    <!-- <script
+  data-ad-client="ca-pub-7581566810202853"
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+></script>
+ -->
+
+    <!-- 구글 애드센스 -->
+    <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!-- 네이버 -->
+    <meta name="naver-site-verification" content="a6e2912bbd1e42226e10ee12d3498a246c51ec1f" />
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h2 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h2>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">hgko&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ETC/">ETC</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/">IT</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/BlockChain/">BlockChain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Blockchain/">Blockchain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Information/">Information</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Satellite/">Satellite</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Backend/">Backend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DB/">DB</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Frontend/">Frontend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Language/">Language</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Mobile/">Mobile</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Web/">Web</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about">About</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/profile">Profile</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h2 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/DevOps/">DevOps</a>
+    </h2>
+</div>
+
+                        <div class="main-body-content">
+                            <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+                            <!-- 상단 광고 -->
+<ins
+  class="adsbygoogle"
+  style="display: block"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="1131844921"
+  data-ad-format="auto"
+  data-full-width-responsive="true"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                            <article id="post-docker-3" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Docker 전문가들이 99%까지 이미지 크기를 줄이는 숨겨진 기술
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2025/02/04/docker-3/" class="article-date">
+         <time datetime="2025-02-04T06:41:53.000Z" itemprop="datePublished">2025-02-04</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/DevOps/" rel="tag">DevOps</a>, <a class="tag-link" href="/tags/Docker/" rel="tag">Docker</a>, <a class="tag-link" href="/tags/Docker-Compose/" rel="tag">Docker Compose</a>, <a class="tag-link" href="/tags/Docker-Image/" rel="tag">Docker Image</a>, <a class="tag-link" href="/tags/Install-Docker/" rel="tag">Install Docker</a>, <a class="tag-link" href="/tags/Programming/" rel="tag">Programming</a>, <a class="tag-link" href="/tags/Software-Engineering/" rel="tag">Software Engineering</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>Docker 이미지는 디스크 공간을 차지하고 배포 속도를 늦추는 문제를 유발할 수 있습니다. 하지만 최상위 DevOps 팀들은 이미 <strong>이미지 크기를 최대 99%까지 줄이는 기술</strong>을 활용하고 있습니다. 이번 글에서는 이러한 숨겨진 최적화 기법을 공개합니다.</p>
+<h2 id="🚀-과도한-Docker-이미지가-초래하는-숨은-비용">🚀 과도한 Docker 이미지가 초래하는 숨은 비용</h2>
+<p>Docker 이미지가 너무 크면 단순한 불편을 넘어 다음과 같은 비용을 발생시킵니다.</p>
+<ul>
+<li>✅ <strong>시간 낭비:</strong> 빌드 및 배포 속도가 느려짐</li>
+<li>✅ <strong>비용 증가:</strong> 저장 공간과 네트워크 대역폭 사용 증가</li>
+<li>✅ <strong>성능 저하:</strong> 애플리케이션 응답 속도 감소</li>
+</ul>
+<h2 id="📉-1-2GB-→-8MB로-최적화-실제-사례">📉 1.2GB → 8MB로 최적화: 실제 사례</h2>
+<p>이러한 기술의 힘을 보여주기 위해 실제 사례를 살펴보겠습니다. 초기 Docker 이미지 크기가 1.2GB인 기존 Python 기반 머신 러닝 애플리케이션을 가져와서 8MB로 최적화했습니다. 그 방법은 다음과 같습니다.</p>
+<ul>
+<li><strong>멀티 스테이지 빌드(Multi-Stage Builds)</strong></li>
+<li><strong>레이어 최적화(Layer Optimizations)</strong></li>
+<li><strong>최소 베이스 이미지(Scratch, Alpine 등) 활용</strong></li>
+<li><strong>Distroless 이미지 및 고급 최적화 기법</strong></li>
+<li><strong>보안 모범 사례 적용</strong></li>
+</ul>
+<h2 id="기본-Dockerfile-비효율적인-설정">기본 Dockerfile: 비효율적인 설정</h2>
+<p>일반적인 Dockerfile은 다음과 같을 것입니다.</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.9</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /app</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> requirements.txt .</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> pip install -r requirements.txt</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> . .</span></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> [<span class="string">"python"</span>, <span class="string">"main.py"</span>]</span></span><br></pre></td></tr></table></figure>
+<p>이 Dockerfile은 정상적으로 작동하지만, 다음과 같은 이유로 거대한 이미지 크기를 초래합니다.</p>
+<ul>
+<li><strong>전체 Python 이미지를 사용</strong></li>
+<li><strong>불필요한 빌드 도구 및 종속성 포함</strong></li>
+<li><strong>비효율적인 레이어 캐싱</strong></li>
+<li><strong>불필요한 파일이 포함될 가능성</strong></li>
+</ul>
+<p>이제 최적화 기술을 활용하여 이 문제를 해결해 보겠습니다.</p>
+<h2 id="1️⃣-멀티-스테이지-빌드-Multi-Stage-Builds">1️⃣ 멀티 스테이지 빌드(Multi-Stage Builds)</h2>
+<p>멀티 스테이지 빌드는 빌드 단계에서 필요한 패키지와 런타임 단계에서 필요한 패키지를 분리하여 최종 Docker 이미지의 크기를 크게 줄일 수 있습니다.</p>
+<p><strong>✅ 최소한의 베이스 이미지 사용</strong></p>
+<ul>
+<li>전체 Python 버전 대신 Slim 또는 Alpine 버전을 선택하여 사용 사례에 맞게 최적화합니다.</li>
+</ul>
+<h3 id="기존-단일-스테이지-Dockerfile">기존 단일 스테이지 Dockerfile</h3>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 공식 Python 런타임을 부모 이미지로 사용</span></span><br><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.9</span>-slim</span><br><span class="line"></span><br><span class="line"><span class="comment"># 필수 빌드 종속성 설치</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> apt-get update &amp;&amp; apt-get install -y --no-install-recommends \</span></span><br><span class="line"><span class="bash">    build-essential \</span></span><br><span class="line"><span class="bash">    gcc \</span></span><br><span class="line"><span class="bash">    &amp;&amp; rm -rf /var/lib/apt/lists/*</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 작업 디렉토리 설정</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /app</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 의존성 파일 복사 및 설치</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> requirements.txt ./</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> pip install --no-cache-dir -r requirements.txt</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 애플리케이션 코드 복사</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> . .</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 모델 컴파일 (필요한 경우)</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> python compile_model.py</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 스크립트 실행</span></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> [<span class="string">"python"</span>, <span class="string">"inference.py"</span>]</span></span><br></pre></td></tr></table></figure>
+<p>이 이미지의 최종 크기는 <strong>약 1.2GB</strong>입니다.<br>
+이는 빌드 도구와 개발 라이브러리를 포함하고 있기 때문입니다.</p>
+<h3 id="멀티-스테이지-Dockerfile-적용">멀티 스테이지 Dockerfile 적용</h3>
+<p><strong>🎯 단계 1: 빌드 스테이지</strong></p>
+<ul>
+<li>작업 디렉토리 설정</li>
+<li>필수 빌드 도구 설치</li>
+<li>Python 의존성 설치</li>
+<li>애플리케이션 코드 복사</li>
+<li>PyInstaller를 사용하여 독립 실행 파일 생성</li>
+</ul>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 빌드 스테이지</span></span><br><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.9</span>-slim AS builder</span><br><span class="line"></span><br><span class="line"><span class="comment"># 필수 빌드 종속성 설치</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> apt-get update &amp;&amp; apt-get install -y --no-install-recommends \</span></span><br><span class="line"><span class="bash">    build-essential \</span></span><br><span class="line"><span class="bash">    gcc \</span></span><br><span class="line"><span class="bash">    &amp;&amp; rm -rf /var/lib/apt/lists/*</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 작업 디렉토리 설정</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /app</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 의존성 파일 복사 및 설치</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> requirements.txt ./</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> pip install --no-cache-dir -r requirements.txt</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 애플리케이션 코드 복사</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> . .</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 모델 컴파일 (필요한 경우)</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> python compile_model.py</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># PyInstaller 설치</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> pip install pyinstaller</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 독립 실행 파일 생성</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> pyinstaller --onefile inference.py</span></span><br></pre></td></tr></table></figure>
+<p><strong>🎯 단계 2: 프로덕션 스테이지</strong></p>
+<ul>
+<li><code>scratch</code> 이미지를 사용하여 완전히 비어있는 환경에서 시작</li>
+<li>빌드 스테이지에서 필요한 파일만 복사</li>
+<li>컴파일된 실행 파일을 엔트리포인트로 설정</li>
+</ul>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 프로덕션 스테이지</span></span><br><span class="line"><span class="keyword">FROM</span> scratch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 작업 디렉토리 설정</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /app</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 빌드 스테이지에서 필요한 파일만 복사</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> --from=builder /app/dist/inference /app/inference</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> --from=builder /app/model /app/model</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 추론 실행 파일 실행</span></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="bash"> [<span class="string">"/app/inference"</span>]</span></span><br></pre></td></tr></table></figure>
+<p>✅ <strong>빌드 결과:</strong> 85MB 크기의 Docker 이미지 생성 (90% 이상 감소)</p>
+<h2 id="2️⃣-레이어-최적화-Layer-Optimization-불필요한-용량-줄이기">2️⃣ 레이어 최적화(Layer Optimization): 불필요한 용량 줄이기</h2>
+<p>Dockerfile에서 <code>RUN</code>, <code>COPY</code>, <code>ADD</code> 명령어는 각각 새로운 레이어를 생성합니다.<br>
+즉, 불필요한 레이어를 최소화하면 이미지 크기를 더욱 줄일 수 있습니다.</p>
+<h3 id="🚨-비효율적인-예제">🚨 비효율적인 예제</h3>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">RUN</span><span class="bash"> apt-get update</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> apt-get install -y python3-pip python3-dev</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> pip install numpy pandas</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> apt-get clean</span></span><br></pre></td></tr></table></figure>
+<p>🔴 각 RUN 명령어가 별도 레이어를 생성하여 이미지 크기가 커집니다.</p>
+<h3 id="✅-최적화된-예제">✅ 최적화된 예제</h3>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">RUN</span><span class="bash"> apt-get update &amp;&amp; apt-get install -y python3-pip python3-dev &amp;&amp; \</span></span><br><span class="line"><span class="bash">    pip install numpy pandas &amp;&amp; \</span></span><br><span class="line"><span class="bash">    apt-get clean &amp;&amp; rm -rf /var/lib/apt/lists/*</span></span><br></pre></td></tr></table></figure>
+<p>✅ 하나의 RUN 명령어에서 여러 작업을 수행하면 불필요한 레이어 생성을 방지할 수 있습니다.</p>
+<h2 id="3️⃣-최소-베이스-이미지-사용-Scratch-Alpine-등">3️⃣ 최소 베이스 이미지 사용 (Scratch, Alpine 등)</h2>
+<p>가장 강력하면서도 도전적인 방법은 <strong>Scratch 이미지</strong>를 사용하는 것입니다.</p>
+<p><strong>✅ Scratch 이미지란?</strong></p>
+<ul>
+<li>운영체제가 포함되지 않은 완전한 빈 이미지</li>
+<li>의존성 없음 (필요한 파일을 직접 추가해야 함)</li>
+<li>가장 작은 이미지 크기 유지</li>
+</ul>
+<p><strong>💡 Scratch 이미지가 유용한 경우:</strong></p>
+<ul>
+<li>
+<p><strong>사용자 정의 베이스 이미지 생성:</strong> 독자적인 리눅스 배포판을 만든 경우, Ubuntu 같은 베이스 이미지 없이 Scratch 이미지 위에서 실행 가능</p>
+</li>
+<li>
+<p><strong>독립 실행형 애플리케이션 배포:</strong> Python 기반 머신러닝 모델 서버를 PyInstaller로 컴파일 후, Scratch 이미지에 추가</p>
+</li>
+</ul>
+<p><strong>📌 예제 Dockerfile (Scratch 이미지 사용)</strong></p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># syntax=docker/dockerfile:1</span></span><br><span class="line"><span class="keyword">FROM</span> scratch</span><br><span class="line"><span class="keyword">ADD</span><span class="bash"> myapp /</span></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> [<span class="string">"/myapp"</span>]</span></span><br></pre></td></tr></table></figure>
+<h2 id="4️⃣-Distroless-이미지-사용">4️⃣ Distroless 이미지 사용</h2>
+<p>Distroless 이미지는 <strong>Scratch 이미지와 전체 운영체제 이미지의 중간 형태</strong>입니다.<br>
+Google에서 제공하며, 필수 구성 요소만 포함하여 불필요한 부분을 제거한 최적의 솔루션입니다.</p>
+<p><strong>📌 Distroless 이미지의 특징:</strong></p>
+<ul>
+<li>✅ 전체 운영체제 이미지보다 더 작음</li>
+<li>✅ 보안성이 강화됨 (불필요한 패키지 제거)</li>
+<li>✅ SSL 인증서 및 타임존 데이터 포함</li>
+</ul>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> gcr.io/distroless/python3-debian10</span><br><span class="line"></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> --from=builder /app/dist/main /app/main</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> --from=builder /app/model /app/model</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> --from=builder /app/config.yml /app/config.yml</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="bash"> [<span class="string">"/app/main"</span>]</span></span><br></pre></td></tr></table></figure>
+<h2 id="5️⃣-Docker-BuildKit-활성화">5️⃣ Docker BuildKit 활성화</h2>
+<p>Docker BuildKit을 활성화하면 <strong>더 빠르고 안전한 빌드</strong>가 가능합니다.</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DOCKER_BUILDKIT=<span class="number">1</span> docker build -t myapp .</span><br></pre></td></tr></table></figure>
+<h2 id="6️⃣-불필요한-파일-제거">6️⃣ 불필요한 파일 제거</h2>
+<ul>
+<li>❌ 애플리케이션 데이터를 Docker 이미지 내부에 보관하지 마세요.</li>
+<li>✅ 외부 스토리지 (예: AWS S3, MySQL) 또는 Docker 볼륨을 활용하세요.</li>
+</ul>
+<p>📌 <code>.dockerignore</code> 파일 활용:</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 대용량 데이터셋 제외</span></span><br><span class="line">data/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 가상 환경 제외</span></span><br><span class="line">venv/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 캐시 및 로그 및 임시 파일 제외</span></span><br><span class="line">__pycache__/</span><br><span class="line">*.log</span><br><span class="line">*.tmp</span><br><span class="line">*.pyc</span><br><span class="line">*.pyo</span><br><span class="line">.pytest_cache</span><br><span class="line">.git</span><br><span class="line">.gitignore</span><br><span class="line">README.md</span><br><span class="line"></span><br><span class="line"><span class="comment"># 모델 학습 체크포인트 및 텐서보드 로그</span></span><br><span class="line">checkpoints/</span><br><span class="line">runs/</span><br></pre></td></tr></table></figure>
+<h2 id="7️⃣-이미지-분석-도구-활용">7️⃣ 이미지 분석 도구 활용</h2>
+<p>Dive 및 Docker Slim 같은 도구를 활용하여 Docker 이미지 내부를 분석하고 불필요한 파일을 제거하세요.</p>
+<p><strong>📌 Dive 사용법:</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dive my-docker-image</span><br></pre></td></tr></table></figure>
+<p><strong>📌 Docker Slim 사용법:</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-slim build my-docker-image</span><br></pre></td></tr></table></figure>
+<h2 id="8️⃣-보안-강화를-위한-모범-사례">8️⃣ 보안 강화를 위한 모범 사례</h2>
+<ul>
+<li>✅ 신뢰할 수 있는 공식 베이스 이미지 사용</li>
+<li>✅ 루트 사용자를 피하고 일반 사용자로 컨테이너 실행</li>
+</ul>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">RUN</span><span class="bash"> adduser --disabled-password --gecos <span class="string">""</span> appuser</span></span><br><span class="line"><span class="keyword">USER</span> appuser</span><br></pre></td></tr></table></figure>
+<ul>
+<li>✅ 네트워크 노출 최소화</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 127.0.0.1:8080:8080 myimage</span><br></pre></td></tr></table></figure>
+<ul>
+<li>✅ 보안 취약점 스캔 (Trivy 활용)</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker scan my-image:tag</span><br></pre></td></tr></table></figure>
+<h2 id="최적화-결과">최적화 결과</h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>최적화 전</th>
+<th>최적화 후</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>이미지 크기</strong></td>
+<td>1.2GB</td>
+<td>8MB (99.33% 감소)</td>
+</tr>
+<tr>
+<td><strong>배포 시간</strong></td>
+<td>10초</td>
+<td>1.5초 (85% 감소)</td>
+</tr>
+<tr>
+<td><strong>클라우드 비용</strong></td>
+<td>100%</td>
+<td>40% 절감</td>
+</tr>
+</tbody>
+</table>
+<h2 id="결론">결론</h2>
+<ul>
+<li>멀티 스테이지 빌드와 Distroless 이미지를 활용하여 Docker 이미지를 최적화하세요.</li>
+<li>최소한의 패키지만 포함한 Slim 또는 Scratch 이미지를 사용하세요.</li>
+<li>레이어를 최소화하고 불필요한 파일을 제거하여 성능과 보안을 강화하세요.</li>
+</ul>
+<p>이제 <strong>여러분도 Docker 이미지를 99% 더 작게 만들 수 있습니다! 🚀</strong></p>
+
+        </div>
+        <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+        <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://hgko1207.github.io/2025/02/04/docker-3/" data-id="cm6swe8vu0000e4cxgqm9apcw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Hyeong Gyun Ko"
+        },
+        "headline": "Docker 전문가들이 99%까지 이미지 크기를 줄이는 숨겨진 기술",
+        "image": "http://hgko1207.github.io/images/thumbnail/docker.png",
+        "keywords": "Docker Programming DevOps Software Engineering Docker Image Docker Compose Install Docker",
+        "genre": "Programming DevOps",
+        "datePublished": "2025-02-04",
+        "dateCreated": "2025-02-04",
+        "dateModified": "2025-02-04",
+        "url": "http://hgko1207.github.io/2025/02/04/docker-3/",
+        "description": "Docker 이미지는 디스크 공간을 차지하고 배포 속도를 늦추는 문제를 유발할 수 있습니다. 하지만 최상위 DevOps 팀들은 이미 이미지 크기를 최대 99%까지 줄이는 기술을 활용하고 있습니다. 이번 글에서는 이러한 숨겨진 최적화 기법을 공개합니다.
+🚀 과도한 Docker 이미지가 초래하는 숨은 비용
+Docker 이미지가 너무 크면 단순한 불편을 넘어 ",
+        "wordCount": 1243
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                            <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>follow:</p>
+    <ul class="social-links">
+       
+      <li>
+        <a
+          class="social-tooltip"
+          title="github"
+          href="https://github.com/hgko1207"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-github"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="facebook"
+          href="https://www.facebook.com/profile.php?id=100003526102847"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-facebook"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="rss"
+          href="/"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-rss"></i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+   
+<nav id="article-nav">
+    
+    
+        <a href="/2025/02/04/csharp-16/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">.NET 성능 저하 안티 패턴 10가지와 해결 방법</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+ 
+  <div class="widgets-container">
+      
+  
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/02/04/docker-3/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/docker.png)" alt="Docker 전문가들이 99%까지 이미지 크기를 줄이는 숨겨진 기술" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/DevOps/">DevOps</a></p>
+                            <p class="item-title"><a href="/2025/02/04/docker-3/" class="title">Docker 전문가들이 99%까지 이미지 크기를 줄이는 숨겨진 기술</a></p>
+                            <p class="item-date"><time datetime="2025-02-04T06:41:53.000Z" itemprop="datePublished">2025-02-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/02/04/csharp-16/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/csharp.png)" alt=".NET 성능 저하 안티 패턴 10가지와 해결 방법" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2025/02/04/csharp-16/" class="title">.NET 성능 저하 안티 패턴 10가지와 해결 방법</a></p>
+                            <p class="item-date"><time datetime="2025-02-04T06:08:38.000Z" itemprop="datePublished">2025-02-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/01/17/github-1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/git.png)" alt="코딩에 필요한 11개의 놀라운 GitHub 저장소" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/IT/">IT</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/IT/Git/">Git</a></p>
+                            <p class="item-title"><a href="/2025/01/17/github-1/" class="title">코딩에 필요한 11개의 놀라운 GitHub 저장소</a></p>
+                            <p class="item-date"><time datetime="2025-01-17T14:04:01.000Z" itemprop="datePublished">2025-01-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/01/09/chatgpt-34/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/chatgpt.png)" alt="ChatGPT가 만들어줄 수 있는 7가지 제품" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2025/01/09/chatgpt-34/" class="title">ChatGPT가 만들어줄 수 있는 7가지 제품</a></p>
+                            <p class="item-date"><time datetime="2025-01-09T06:11:57.000Z" itemprop="datePublished">2025-01-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/01/09/info-32/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/information.png)" alt="알아두어야 할 마이크로서비스 설계 패턴 TOP 10" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/IT/">IT</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/IT/Information/">Information</a></p>
+                            <p class="item-title"><a href="/2025/01/09/info-32/" class="title">알아두어야 할 마이크로서비스 설계 패턴 TOP 10</a></p>
+                            <p class="item-date"><time datetime="2025-01-09T05:13:41.000Z" itemprop="datePublished">2025-01-09</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">66</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">433</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">78</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">40</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Net-Core/">.Net Core</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">21</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">27</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/SQL/">SQL</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">36</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">29</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">120</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">25</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">8</span></li></ul></li></ul>
+        </div>
+    </div>
+
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+  <div class="widget-wrap widget-float">
+
+    <h3 class="widget-title">Sponsored</h3>
+    <div class="widget">
+        <a href="https://marcofranssen.nl?adsense_widget" target="_blank" rel="noopener">This widget is sponsored by, Marco Franssen, main contributor to this theme.</a>
+    </div>
+
+</div>
+  
+  </div>
+  <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+
+  <!-- hits 방문자수 -->
+  <a href="https://hits.seeyoufarm.com" target="_blank" rel="noopener">
+    <style>
+      .hits {
+        width: auto;
+        height: auto;
+        max-width: 99px;
+        max-height: 20px;
+      }
+    </style>
+    <img
+      src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhgko1207.github.io&count_bg=%23E6ADD5&title_bg=%23BF98D2&icon=&icon_color=%23E7E7E7&title=%EB%B0%A9%EB%AC%B8%EC%9E%90%EC%88%98&edge_flat=false"
+      alt="방문자수"
+    />
+  </a>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h2 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h2>
+                <p>&copy; 2025 Hyeong Gyun Ko</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://hgko1207.github.io/2025/02/04/docker-3/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
