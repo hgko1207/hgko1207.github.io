@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>차세대 웹 앱을 위한 인기있는 상위 10개 Angular 라이브러리 | 규니의 블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    <meta name="keywords" content="JavaScript,Angular,Library,Frontend,라이브러리,Angularjs,차세대 웹 앱" />
+    
+    
+    
+    <meta name="description" content="Information related to IT" />
+    <meta name="description" content="Information related to IT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="차세대 웹 앱을 위한 인기있는 상위 10개 Angular 라이브러리">
+<meta property="og:url" content="http://hgko1207.github.io/2023/12/04/angular-32/index.html">
+<meta property="og:site_name" content="규니의 블로그">
+<meta property="og:description" content="Information related to IT">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/angular.png">
+<meta property="article:published_time" content="2023-12-04T02:44:19.000Z">
+<meta property="article:modified_time" content="2024-01-12T13:28:47.078Z">
+<meta property="article:author" content="Hyeong Gyun Ko">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="Angular">
+<meta property="article:tag" content="Library">
+<meta property="article:tag" content="Frontend">
+<meta property="article:tag" content="라이브러리">
+<meta property="article:tag" content="Angularjs">
+<meta property="article:tag" content="차세대 웹 앱">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/angular.png">
+    
+
+    
+        <link rel="alternate" href="/" title="규니의 블로그" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-73CH3S1C0L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-73CH3S1C0L');
+</script>
+
+    
+    
+    
+
+
+
+    <!-- <script
+  data-ad-client="ca-pub-7581566810202853"
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+></script>
+ -->
+
+    <!-- 구글 애드센스 -->
+    <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!-- 네이버 -->
+    <meta name="naver-site-verification" content="a6e2912bbd1e42226e10ee12d3498a246c51ec1f" />
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h2 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h2>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">hgko&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ETC/">ETC</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/">IT</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/BlockChain/">BlockChain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Blockchain/">Blockchain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Information/">Information</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Satellite/">Satellite</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Backend/">Backend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DB/">DB</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Frontend/">Frontend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Language/">Language</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Mobile/">Mobile</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Web/">Web</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about">About</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/profile">프로파일</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h2 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Frontend/">Frontend</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Frontend/Angular/">Angular</a>
+    </h2>
+</div>
+
+                        <div class="main-body-content">
+                            <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+                            <!-- 상단 광고 -->
+<ins
+  class="adsbygoogle"
+  style="display: block"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="1131844921"
+  data-ad-format="auto"
+  data-full-width-responsive="true"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                            <article id="post-angular-32" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        차세대 웹 앱을 위한 인기있는 상위 10개 Angular 라이브러리
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2023/12/04/angular-32/" class="article-date">
+         <time datetime="2023-12-04T02:44:19.000Z" itemprop="datePublished">2023-12-04</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Angular/" rel="tag">Angular</a>, <a class="tag-link" href="/tags/Angularjs/" rel="tag">Angularjs</a>, <a class="tag-link" href="/tags/Frontend/" rel="tag">Frontend</a>, <a class="tag-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>, <a class="tag-link" href="/tags/Library/" rel="tag">Library</a>, <a class="tag-link" href="/tags/%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC/" rel="tag">라이브러리</a>, <a class="tag-link" href="/tags/%EC%B0%A8%EC%84%B8%EB%8C%80-%EC%9B%B9-%EC%95%B1/" rel="tag">차세대 웹 앱</a>
+    </div>
+
+                
+
+                
+   <div class="article-counter">
+      <i class="fa fa-file-word-o"></i>
+      <span class="post-count-item-text">Symbols count in article: </span>
+      <span class="post-count">1.5k</span>
+      <i class="fa fa-clock-o"></i>
+      <span class="post-time-item-text">Reading time: </span>
+      <span class="post-count">9 mins. </span>
+   </div>
+
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>차세대 웹 앱에 적합한 Angular 라이브러리를 선택하는 것은 어려운 작업일 수 있습니다. 사용 가능한 옵션이 너무 많기 때문에 프로젝트에 가장 적합한 라이브러리를 결정하기가 어려울 수 있습니다. 하지만 프로젝트의 규모, 앱의 복잡성, 필요한 기능 등의 요소를 고려하면 선택의 폭을 좁히고 정보에 입각한 결정을 내릴 수 있습니다. 또한 라이브러리를 학습하고 구현하는 데 투자해야 하는 시간을 고려하는 것도 중요합니다. 이 글에서는 사용 가능한 라이브러리에 대한 개요와 프로젝트에 적합한 라이브러리를 선택할 때 고려해야 할 요소에 대해 설명합니다.</p>
+<h2 id="Angular-무엇입니까">Angular 무엇입니까?</h2>
+<p>Angular는 Google에서 개발하고 유지 관리하는 오픈 소스 웹 애플리케이션 프레임워크입니다. 웹 애플리케이션에서 자주 사용되는 구성 요소와 함께 클라이언트 측 MVC(Model-View-Controller) 및 MVVM(Model-View-View Model) 아키텍처를 위한 프레임워크를 제공함으로써 단일 페이지 애플리케이션을 구성하는 데도 사용되며 개발 및 테스트를 보다 쉽게 수행할 수 있도록 설계되었습니다.<br/></p>
+<p>Angular 애플리케이션을 빌드할 때는 프로젝트의 성공을 보장하기 위해 올바른 라이브러리와 프레임워크를 선택하는 것이 중요합니다. 차세대 웹 앱에 적합한 Angular 라이브러리를 선택하려면 필요한 기능, 프로젝트의 규모와 복잡성, 학습 및 구현에 투자해야 하는 시간 등을 신중하게 고려해야 합니다. 신뢰할 수 있고, 지원이 잘 제공되며, 정기적으로 업데이트되는 라이브러리를 선택하는 것이 중요합니다. 또한 서로 호환되고 앱과 원활하게 통합되는 라이브러리를 선택하는 것도 중요합니다. 시간을 들여 사용 가능한 라이브러리를 조사하고 비교하면 프로젝트에 적합한 라이브러리를 선택할 수 있습니다.</p>
+<h2 id="올바른-Angular-라이브러리를-선택하는-방법은-무엇입니까">올바른 Angular 라이브러리를 선택하는 방법은 무엇입니까?</h2>
+<p>라이브러리를 선택할 때 고려해야 할 몇 가지 중요한 요소가 있습니다.</p>
+<ul>
+<li>웹 앱에 필요한 기능을 고려합니다.</li>
+<li>프로젝트의 규모와 복잡성을 평가합니다.</li>
+<li>라이브러리를 학습하고 구현하는 데 투자해야 하는 시간을 고려합니다.</li>
+<li>신뢰할 수 있고, 지원이 잘 되며, 정기적으로 업데이트되는 라이브러리를 선택합니다.</li>
+<li>서로 호환되고 앱과 원활하게 통합되는 라이브러리를 선택합니다.</li>
+<li>사용 가능한 라이브러리를 조사하고 비교하여 프로젝트에 적합한 라이브러리를 선택해야 합니다.</li>
+</ul>
+<p>Angular 웹 애플리케이션을 개발할 때 사용할 수 있는 몇 가지 인기 있는 라이브러리가 있습니다. 각 라이브러리에는 고유한 기능과 장점이 있으므로 프로젝트에 가장 적합한 라이브러리를 선택하는 것이 중요합니다. 다음은 가장 인기 있는 Angular 라이브러리 중 일부입니다.</p>
+<h2 id="Angular-Material">Angular Material</h2>
+<p><a href="https://material.angular.io/" target="_blank" rel="noopener"><img src="/images/angular/angular-1.png" alt="Angular Material"></a></p>
+<p><strong><a href="https://github.com/angular/components" target="_blank" rel="noopener">GitHub</a> Stars:</strong> 23.2k<br/><br>
+<strong>License:</strong> MIT</p>
+<p>Angular Material은 사용자 인터페이스 디자인을 위한 다양한 컴포넌트를 제공하는 Angular 애플리케이션용 UI 컴포넌트 라이브러리입니다. Google의 Material Design 언어를 기반으로 하며 반응형 및 접근성 높은 웹 애플리케이션을 만드는 데 사용됩니다. Material Design 시스템을 기반으로 재사용 가능하고 충분한 테스트를 거친 접근 가능한 UI 컴포넌트 세트를 제공합니다. 또한 Angular Material은 광범위한 테마 시스템을 제공하여 개발자가 웹 애플리케이션의 모양과 느낌을 쉽게 커스터마이징할 수 있습니다.</p>
+<p>Angular Material 라이브러리의 주요 기능은 다음과 같습니다.</p>
+<ul>
+<li>Material 디자인 시스템을 기반으로 재사용 가능하고 잘 테스트되었으며 액세스 가능한 UI 컴포넌트 세트입니다.</li>
+<li>직관적이고 효율적인 방법으로 현대적인 대화형 웹 앱을 제작할 수 있습니다.</li>
+<li>웹 앱의 모양과 느낌을 쉽게 커스터마이징 할 수 있는 광범위한 테마 시스템입니다.</li>
+<li>완벽하게 반응하는 디자인으로 웹 앱이 모든 기기에서 멋지게 보입니다.</li>
+<li>방대한 문서화 및 지원을 통해 필요한 경우 쉽게 도움을 받을 수 있습니다.</li>
+<li>button, card, input field, slider 등과 같은 구현하기 쉬운 컴포넌트입니다.</li>
+</ul>
+<h2 id="AngularFire">AngularFire</h2>
+<p><img src="/images/angular/angular-2.png" alt="AngularFire"></p>
+<p><strong><a href="https://github.com/angular/angularfire" target="_blank" rel="noopener">GitHub</a> Stars:</strong> 7.5k<br/><br>
+<strong>License:</strong> MIT</p>
+<p>AngularFire는 Firebase 실시간 데이터베이스와 상호 작용하기 위한 사용하기 쉬운 API를 제공하는 Angular 애플리케이션용 라이브러리입니다. 개발자가 데이터 동기화, 인증 등과 같은 실시간 기능을 웹 앱에 더 쉽게 추가할 수 있도록 설계되었습니다. 또한 개발자가 Cloud Storage, Cloud Functions, Firebase 호스팅과 같은 Firebase 서비스에 액세스할 수 있는 인터페이스를 제공합니다.</p>
+<p>AngularFire는 개발자가 실시간 기능을 갖춘 웹 앱을 보다 쉽게 ​​구축할 수 있도록 하는 다양한 기능을 제공합니다.</p>
+<ul>
+<li>Firebase 실시간 데이터베이스와 상호작용하기 위한 사용하기 쉬운 API입니다.</li>
+<li>여러 클라이언트에서 데이터의 실시간 동기화를 지원합니다.</li>
+<li>사용자가 앱에 쉽게 가입하고 로그인할 수 있는 인증 시스템을 제공합니다.</li>
+<li>Cloud Storage, Functions, Firebase 호스팅과 같은 Firebase 서비스에 액세스합니다.</li>
+<li>개발자가 프로젝트를 빠르게 시작하고 실행할 수 있는 간단하고 직관적인 인터페이스입니다.</li>
+<li>Angular, React, Vue 등 다양한 플랫폼을 지원합니다.</li>
+</ul>
+<h2 id="Angular-CLI">Angular CLI</h2>
+<p><a href="https://angular.io/cli" target="_blank" rel="noopener"><img src="/images/angular/angular-3.png" alt="Angular CLI"></a></p>
+<p><strong><a href="https://github.com/angular/angular-cli" target="_blank" rel="noopener">GitHub</a> Stars:</strong> 26.4k<br/><br>
+<strong>License:</strong> MIT</p>
+<p>Angular CLI는 Angular 애플리케이션을 생성, 구축 및 배포하기 위한 명령줄(Command line) 인터페이스입니다. 개발자가 앱을 빠르게 생성, 빌드 및 배포할 수 있도록 설계되었습니다. 새 프로젝트를 빠르게 설정할 수 있는 직관적인 스캐폴딩 시스템을 제공하며 라우팅, 테스트 및 컴포넌트와 같은 일반적인 작업을 위한 코드를 생성합니다. 또한 개발자는 한 번의 명령으로 앱을 로컬에서 쉽게 서비스하고 프로덕션 환경에 배포할 수 있습니다.</p>
+<p>Angular CLI 라이브러리의 주요 기능은 다음과 같습니다.</p>
+<ul>
+<li>Angular 애플리케이션을 생성, 구축, 배포하기 위한 명령줄 인터페이스입니다.</li>
+<li>새로운 프로젝트를 빠르게 설정하기 위한 직관적인 스캐폴딩 시스템을 제공합니다.</li>
+<li>라우팅, 테스트, 컴포넌트 등 일반적인 작업을 위한 코드를 생성합니다.</li>
+<li>명령 한 번으로 앱을 로컬에서 쉽게 서비스하고 프로덕션 환경에 배포할 수 있습니다.</li>
+<li>다양한 타사 라이브러리를 지원하여 다른 도구와 프레임워크를 쉽게 통합할 수 있습니다.</li>
+<li>개발자가 프로젝트를 빠르게 설정하는 데 도움이 되는 다양한 도구와 명령을 제공합니다.</li>
+</ul>
+<h2 id="Angular-UI-Bootstrap">Angular UI Bootstrap</h2>
+<p><a href="https://angular-ui.github.io/bootstrap/versioned-docs/1.3.1/" target="_blank" rel="noopener"><img src="/images/angular/angular-4.png" alt="Angular UI Bootstrap"></a></p>
+<p><strong><a href="https://github.com/angular-ui/bootstrap" target="_blank" rel="noopener">GitHub</a> Stars:</strong> 14.3k<br/><br>
+<strong>License:</strong> MIT</p>
+<p>Angular UI Bootstrap은 Twitter Bootstrap을 기반으로 사용자 인터페이스를 생성하기 위한 Directive 세트를 제공하는 라이브러리입니다. 개발자가 반응형 모바일 친화적인 웹 애플리케이션을 더 쉽게 만들 수 있도록 설계되었습니다</p>
+<p>Angular UI Bootstrap 라이브러리의 주요 기능은 다음과 같습니다.</p>
+<ul>
+<li>Twitter Bootstrap을 기반으로 사용자 인터페이스를 생성하기 위한 Directive 세트입니다.</li>
+<li>반응성이 뛰어나고 모바일 친화적인 웹 애플리케이션을 만들 수 있습니다.</li>
+<li>alert, button, carousel 등과 같은 다양한 컴포넌트를 사용하여 시각적으로 매력적인 대화형 사용자 인터페이스를 만들 수 있습니다.</li>
+<li>웹 애플리케이션에 쉽게 통합할 수 있는 사전 구축된 컴포넌트입니다.</li>
+<li>문서화가 잘 되어 있어 필요한 경우 쉽게 도움을 받을 수 있습니다.</li>
+<li>시각적으로 매력적인 대화형 사용자 인터페이스를 만드는 직관적이고 효율적인 방법입니다.</li>
+</ul>
+<h2 id="Angular-Flex-Layout">Angular Flex Layout</h2>
+<p><img src="/images/angular/angular-5.png" alt="Angular Flex Layout"></p>
+<p><strong><a href="https://github.com/angular/flex-layout" target="_blank" rel="noopener">GitHub</a> Stars:</strong> 5.9k<br/><br>
+<strong>License:</strong> MIT</p>
+<p>Angular Flex-Layout은 Angular 애플리케이션 구축을 위한 반응형 레이아웃 시스템을 제공하는 라이브러리입니다. 개발자가 기기나 화면 크기에 관계없이 유연하고 반응이 빠른 사용자 인터페이스를 쉽게 만들 수 있도록 설계되었습니다.</p>
+<p>Angular Flex-Layout 라이브러리의 주요 기능은 다음과 같습니다.</p>
+<ul>
+<li>Angular 애플리케이션 구축을 위한 반응형 레이아웃 시스템을 제공합니다.</li>
+<li>fxLayout 및 fxFlex와 같은 다양한 Directive를 사용하여 유연하고 반응이 빠른 레이아웃을 만들 수 있습니다.</li>
+<li>맞춤형 반응형 레이아웃 및 컴포넌트를 생성하기 위한 API입니다.</li>
+<li>레이아웃 크기와 중단점을 쉽게 관리하는 기능을 제공합니다.</li>
+<li>문서화가 잘 되어 있어 필요한 경우 쉽게 도움을 받을 수 있습니다.</li>
+<li>개발자가 유연하고 반응이 빠른 사용자 인터페이스를 만들 수 있습니다.</li>
+</ul>
+<h2 id="NgRx">NgRx</h2>
+<p><a href="https://ngrx.io/" target="_blank" rel="noopener"><img src="/images/angular/angular-6.png" alt="NgRx"></a></p>
+<p><strong><a href="https://github.com/ngrx/platform" target="_blank" rel="noopener">GitHub</a> Stars:</strong> 7.8k<br/><br>
+<strong>License:</strong> MIT</p>
+<p>NgRx는 복잡한 애플리케이션에서 데이터를 관리하기 위한 상태 관리 시스템을 제공하는 Angular 애플리케이션용 라이브러리입니다. 개발자가 애플리케이션을 보다 쉽게 ​​생성, 유지 관리 및 테스트할 수 있도록 설계되었습니다.</p>
+<p>NgRx 라이브러리의 주요 기능은 다음과 같습니다.</p>
+<ul>
+<li>복잡한 애플리케이션의 데이터를 관리하기 위한 상태 관리 시스템을 제공합니다.</li>
+<li>예측 가능하고 일관되게 데이터를 관리하기 위한 API 및 도구 세트입니다.</li>
+<li>애플리케이션 상태 업데이트를 쉽게 관리하기 위한 직관적인 인터페이스입니다.</li>
+<li>상태 변경을 추적하고 추적하기 위한 강력한 디버깅 도구입니다.</li>
+<li>문서화가 잘 되어 있어 필요한 경우 쉽게 도움을 받을 수 있습니다.</li>
+<li>애플리케이션을 더욱 쉽게 생성, 유지 관리 및 테스트할 수 있습니다.</li>
+</ul>
+<h2 id="Angular-Charts">Angular Charts</h2>
+<p><strong><a href="https://github.com/valor-software/ng2-charts" target="_blank" rel="noopener">GitHub</a> Stars:</strong> 2.3k<br/><br>
+<strong>License:</strong> MIT</p>
+<p>Angular Charts 라이브러리는 Angular 팀에서 만든 오픈 소스 라이브러리로, Angular 애플리케이션에서 대화형 차트를 만들기 위한 선언형 API를 제공합니다. 선형, 막대형, 영역형, 원형, 도넛형, 분산형 차트를 포함한 다양한 차트 유형을 지원합니다. 또한 스타일과 애니메이션에 대한 다양한 커스터마이징 옵션도 제공합니다.</p>
+<p>Angular Charts 라이브러리의 주요 기능은 다음과 같습니다.</p>
+<ul>
+<li>Angular 애플리케이션에서 차트를 생성하기 위한 선언형 API
+<ul>
+<li>line, bar, area, pie, doughnut 및 scatter 차트를 포함한 다양한 차트 유형 지원</li>
+</ul>
+</li>
+<li>차트의 스타일, 애니메이션 및 기타 속성을 사용자에 맞게 설정하는 옵션 제공</li>
+<li>확대/축소 및 hovering 과 같은 대화형 기능 지원</li>
+<li>고급 기능을 위해 D3.js와 같은 다른 라이브러리와 통합하는 기능</li>
+<li>정적 데이터, 원격 REST API, 실시간 데이터 스트림을 포함한 여러 데이터 소스 지원</li>
+<li>Chrome, Firefox, Safari, Edge 등 다양한 브라우저 지원</li>
+</ul>
+<h2 id="Angular2-Google-Maps">Angular2-Google-Maps</h2>
+<p><a href="https://angular-maps.com/" target="_blank" rel="noopener"><img src="/images/angular/angular-7.png" alt="Angular2-Google-Maps"></a></p>
+<p><strong><a href="https://github.com/sebholstein/angular-google-maps" target="_blank" rel="noopener">GitHub</a> Stars:</strong> 2k<br/><br>
+<strong>License:</strong> MIT</p>
+<p>Angular2-Google-Maps는 Angular 팀에서 만든 오픈 소스 라이브러리로, Google 지도를 Angular 애플리케이션에 통합하기 위한 사용하기 쉬운 인터페이스를 제공합니다.</p>
+<p>Angular2-Google-Maps 라이브러리의 주요 기능은 다음과 같습니다.</p>
+<ul>
+<li>Google 지도 컴포넌트 생성을 위한 선언형 API</li>
+<li>center, zoom level, marker 등과 같은 다양한 속성을 지정하는 기능</li>
+<li>스타일링, 애니메이션 등 다양한 커스터마이징 옵션 지원</li>
+<li>고급 기능을 위해 D3.js와 같은 다른 라이브러리와 통합하는 기능</li>
+<li>정적 데이터, 원격 REST API, 실시간 데이터 스트림을 포함한 여러 데이터 소스 지원</li>
+<li>Chrome, Firefox, Safari, Edge 등 다양한 브라우저 지원</li>
+</ul>
+<h2 id="Angular-Draggable">Angular-Draggable</h2>
+<p><strong><a href="https://github.com/mattlewis92/angular-draggable-droppable" target="_blank" rel="noopener">GitHub</a> Stars:</strong> 132<br/><br>
+<strong>License:</strong> MIT</p>
+<p>Angular-Draggable 라이브러리는 널리 사용되는 JavaScript 프레임워크인 Angular를 사용하여 드래그(draggable) 및 크기 조정(resizable)이 가능한 사용자 인터페이스를 만들기 위한 오픈 소스 라이브러리입니다.</p>
+<p>Angular-Draggable의 주요 기능 중 일부는 다음과 같습니다.</p>
+<ul>
+<li>사용자 맞춤형 옵션이 포함된 드래그 앤 드롭 기능</li>
+<li>스냅 옵션으로 크기 조정 가능한 요소</li>
+<li>사용자 맞춤형 드래그 handle</li>
+<li>Placeholder 지원</li>
+<li>맞춤형 스타일</li>
+<li>다른 Angular 컴포넌트와 쉽게 통합</li>
+</ul>
+<h2 id="Ngx-datatable">Ngx-datatable</h2>
+<p><strong><a href="https://github.com/swimlane/ngx-datatable" target="_blank" rel="noopener">GitHub</a> Stars:</strong> 4.6k<br/><br>
+<strong>License:</strong> MIT</p>
+<p>Ngx-datatable은 개발자가 Sorting, Filtering, Pagination과 같은 고급 기능을 사용하여 동적이고 반응이 빠른 테이블을 쉽게 만들 수 있는 오픈 소스 라이브러리입니다. 또한 성능에 최적화되어 개발자가 성능 저하 없이 대규모 데이터 세트를 신속하게 렌더링할 수 있습니다. Ngx-datatable은 JSON, CSV, OData를 포함한 광범위한 데이터 소스를 지원합니다. 또한 클라이언트 또는 서버 측 데이터 처리를 지원하며 사용자에 맞는 템플릿 및 스타일을 설정할 수 있습니다.</p>
+<p>Ngx-datatable 라이브러리의 주요 기능은 다음과 같습니다.</p>
+<ul>
+<li><strong>유연한 데이터 바인딩:</strong> Ngx-datatable은 로컬 및 원격 데이터 바인딩을 모두 지원하므로 다양한 데이터 소스의 데이터를 쉽게 바인딩할 수 있습니다.</li>
+<li><strong>고급 필터링 및 정렬:</strong> Ngx-datatable을 사용하면 데이터를 빠르게 필터링하고 정렬하여 필요한 정보를 더 쉽게 찾을 수 있습니다.</li>
+<li><strong>열 크기 조정:</strong> 테이블 너비에 맞게 열 크기를 조정하거나 다양한 데이터 유형을 수용할 수 있습니다.</li>
+<li><strong>행 가상화(Virtualization):</strong> Ngx-datatable은 행이 표시되는 경우에만 행을 렌더링하므로 성능 문제 없이 대규모 데이터 세트를 스크롤할 수 있습니다.</li>
+<li><strong>열 재정렬:</strong> 열을 재정렬하여 테이블 레이아웃을 커스터마이징 할 수 있습니다.</li>
+<li><strong>편집 가능한 cell:</strong> 테이블의 특정 셀을 편집 가능하게 만들어 사용자가 데이터를 빠르게 업데이트할 수 있습니다.</li>
+</ul>
+<h2 id="결론">결론</h2>
+<p>성공적인 웹 애플리케이션을 제작하려면 차세대 웹 앱에 적합한 Angular 라이브러리를 선택하는 것이 필수적입니다. 올바른 라이브러리를 사용하면 개발에 많은 시간과 노력을 들이지 않고도 앱을 빠르게 구축할 수 있습니다. 라이브러리를 선택할 때는 라이브러리가 제공하는 기능뿐만 아니라 라이브러리의 성능과 확장성을 고려하는 것이 중요합니다. 또한 라이브러리의 비용과 라이브러리가 제공하는 지원 수준도 고려하세요. 요구 사항을 평가하고 사용 가능한 Angular 라이브러리를 조사하여 정보에 입각한 결정을 내리고 웹 애플리케이션에 가장 적합한 라이브러리를 선택할 수 있습니다.</p>
+
+        </div>
+        <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+        <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://hgko1207.github.io/2023/12/04/angular-32/" data-id="cmnbsny0w00sbukcxf9uu1hxa" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Hyeong Gyun Ko"
+        },
+        "headline": "차세대 웹 앱을 위한 인기있는 상위 10개 Angular 라이브러리",
+        "image": "http://hgko1207.github.io/images/thumbnail/angular.png",
+        "keywords": "JavaScript Angular Library Frontend 라이브러리 Angularjs 차세대 웹 앱",
+        "genre": "Programming Frontend Angular",
+        "datePublished": "2023-12-04",
+        "dateCreated": "2023-12-04",
+        "dateModified": "2024-01-12",
+        "url": "http://hgko1207.github.io/2023/12/04/angular-32/",
+        "description": "차세대 웹 앱에 적합한 Angular 라이브러리를 선택하는 것은 어려운 작업일 수 있습니다. 사용 가능한 옵션이 너무 많기 때문에 프로젝트에 가장 적합한 라이브러리를 결정하기가 어려울 수 있습니다. 하지만 프로젝트의 규모, 앱의 복잡성, 필요한 기능 등의 요소를 고려하면 선택의 폭을 좁히고 정보에 입각한 결정을 내릴 수 있습니다. 또한 라이브러리를 학습하고",
+        "wordCount": 1417
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                            <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>팔로우:</p>
+    <ul class="social-links">
+       
+      <li>
+        <a
+          class="social-tooltip"
+          title="github"
+          href="https://github.com/hgko1207"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-github"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="facebook"
+          href="https://www.facebook.com/profile.php?id=100003526102847"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-facebook"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="rss"
+          href="/"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-rss"></i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+   
+<nav id="article-nav">
+    
+        <a href="/2023/12/06/chatgpt-1/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">새로운</strong>
+        <p class="article-nav-title">
+        
+            ChatGPT란 무엇인가요? ChatGPT로 어떻게 돈을 벌까?
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2023/12/01/vue-3/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">Vue 2와 Vue 3의 차이점</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+ 
+  <div class="widgets-container">
+      
+  
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/03/29/gstack-install-guide/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/Claude.png)" alt="gstack 설치 가이드 (Windows) — Claude Code를 가상 엔지니어링 팀으로 만들기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2026/03/29/gstack-install-guide/" class="title">gstack 설치 가이드 (Windows) — Claude Code를 가상 엔지니어링 팀으로 만들기</a></p>
+                            <p class="item-date"><time datetime="2026-03-28T15:38:16.000Z" itemprop="datePublished">2026-03-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/05/01/devops-4/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/docker.png)" alt="🐳 Docker의 시대는 끝났을까? 개발자들이 런타임을 바꾸는 진짜 이유" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/DevOps/">DevOps</a></p>
+                            <p class="item-title"><a href="/2025/05/01/devops-4/" class="title">🐳 Docker의 시대는 끝났을까? 개발자들이 런타임을 바꾸는 진짜 이유</a></p>
+                            <p class="item-date"><time datetime="2025-05-01T13:38:35.000Z" itemprop="datePublished">2025-05-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/04/21/python-13/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/python.png)" alt="생산성을 폭발시키는 파이썬 자동화 스크립트 10개" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2025/04/21/python-13/" class="title">생산성을 폭발시키는 파이썬 자동화 스크립트 10개</a></p>
+                            <p class="item-date"><time datetime="2025-04-21T05:50:44.000Z" itemprop="datePublished">2025-04-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/04/11/java-6/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/java.png)" alt="Java는 죽지 않았다 – 2025년에도 여전히 강력한 이유" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2025/04/11/java-6/" class="title">Java는 죽지 않았다 – 2025년에도 여전히 강력한 이유</a></p>
+                            <p class="item-date"><time datetime="2025-04-11T04:53:05.000Z" itemprop="datePublished">2025-04-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/04/07/ai-29/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/ai.png)" alt="⚠️ 기술 쓰나미가 몰려온다" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2025/04/07/ai-29/" class="title">⚠️ 기술 쓰나미가 몰려온다</a></p>
+                            <p class="item-date"><time datetime="2025-04-07T05:54:32.000Z" itemprop="datePublished">2025-04-07</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">카테고리</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">66</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">443</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">82</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/CLAUDE/">CLAUDE</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">40</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Net-Core/">.Net Core</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">21</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">27</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/SQL/">SQL</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">38</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">30</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">124</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">25</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">8</span></li></ul></li></ul>
+        </div>
+    </div>
+
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">링크</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+  <div class="widget-wrap widget-float">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- huemen sidebar -->
+    <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-7581566810202853"
+            data-ad-slot="1131844921"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+</div>
+  
+  </div>
+  <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+
+  <!-- hits 방문자수 -->
+  <a href="https://hits.seeyoufarm.com" target="_blank" rel="noopener">
+    <style>
+      .hits {
+        width: auto;
+        height: auto;
+        max-width: 99px;
+        max-height: 20px;
+      }
+    </style>
+    <img
+      src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhgko1207.github.io&count_bg=%23E6ADD5&title_bg=%23BF98D2&icon=&icon_color=%23E7E7E7&title=%EB%B0%A9%EB%AC%B8%EC%9E%90%EC%88%98&edge_flat=false"
+      alt="방문자수"
+    />
+  </a>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h2 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h2>
+                <p>&copy; 2026 Hyeong Gyun Ko</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://hgko1207.github.io/2023/12/04/angular-32/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+      <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

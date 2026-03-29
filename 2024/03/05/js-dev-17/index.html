@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>JavaScript에서 변수가 배열인지 확인하는 방법 🧐 | 규니의 블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    <meta name="keywords" content="JavaScript,자바스크립트,변수,Programming,변수가 배열인지,배열" />
+    
+    
+    
+    <meta name="description" content="Information related to IT" />
+    <meta name="description" content="Information related to IT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript에서 변수가 배열인지 확인하는 방법 🧐">
+<meta property="og:url" content="http://hgko1207.github.io/2024/03/05/js-dev-17/index.html">
+<meta property="og:site_name" content="규니의 블로그">
+<meta property="og:description" content="Information related to IT">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/javascript.png">
+<meta property="article:published_time" content="2024-03-05T13:17:38.000Z">
+<meta property="article:modified_time" content="2024-03-06T06:28:56.006Z">
+<meta property="article:author" content="Hyeong Gyun Ko">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="자바스크립트">
+<meta property="article:tag" content="변수">
+<meta property="article:tag" content="Programming">
+<meta property="article:tag" content="변수가 배열인지">
+<meta property="article:tag" content="배열">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/javascript.png">
+    
+
+    
+        <link rel="alternate" href="/" title="규니의 블로그" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-73CH3S1C0L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-73CH3S1C0L');
+</script>
+
+    
+    
+    
+
+
+
+    <!-- <script
+  data-ad-client="ca-pub-7581566810202853"
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+></script>
+ -->
+
+    <!-- 구글 애드센스 -->
+    <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!-- 네이버 -->
+    <meta name="naver-site-verification" content="a6e2912bbd1e42226e10ee12d3498a246c51ec1f" />
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h2 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h2>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">hgko&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ETC/">ETC</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/">IT</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/BlockChain/">BlockChain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Blockchain/">Blockchain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Information/">Information</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Satellite/">Satellite</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Backend/">Backend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DB/">DB</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Frontend/">Frontend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Language/">Language</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Mobile/">Mobile</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Web/">Web</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about">About</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/profile">프로파일</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h2 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a>
+    </h2>
+</div>
+
+                        <div class="main-body-content">
+                            <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+                            <!-- 상단 광고 -->
+<ins
+  class="adsbygoogle"
+  style="display: block"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="1131844921"
+  data-ad-format="auto"
+  data-full-width-responsive="true"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                            <article id="post-js-dev-17" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        JavaScript에서 변수가 배열인지 확인하는 방법 🧐
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2024/03/05/js-dev-17/" class="article-date">
+         <time datetime="2024-03-05T13:17:38.000Z" itemprop="datePublished">2024-03-05</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>, <a class="tag-link" href="/tags/Programming/" rel="tag">Programming</a>, <a class="tag-link" href="/tags/%EB%B0%B0%EC%97%B4/" rel="tag">배열</a>, <a class="tag-link" href="/tags/%EB%B3%80%EC%88%98/" rel="tag">변수</a>, <a class="tag-link" href="/tags/%EB%B3%80%EC%88%98%EA%B0%80-%EB%B0%B0%EC%97%B4%EC%9D%B8%EC%A7%80/" rel="tag">변수가 배열인지</a>, <a class="tag-link" href="/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/" rel="tag">자바스크립트</a>
+    </div>
+
+                
+
+                
+   <div class="article-counter">
+      <i class="fa fa-file-word-o"></i>
+      <span class="post-count-item-text">Symbols count in article: </span>
+      <span class="post-count">412</span>
+      <i class="fa fa-clock-o"></i>
+      <span class="post-time-item-text">Reading time: </span>
+      <span class="post-count">2 mins. </span>
+   </div>
+
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="/images/header/js-dev-17.png" alt=""></p>
+<p>JavaScript에서 개발자의 기본적인 작업 중 하나는 주어진 변수의 유형을 결정하는 것입니다. 배열은 언어의 핵심 데이터 구조로, 단순한 데이터 저장부터 복잡한 알고리즘까지 다양한 연산에 자주 사용되기 때문에 배열을 다룰 때 특히 중요합니다. 그러나 배열을 객체의 한 유형으로 취급하는 JavaScript의 특성상 배열을 올바르게 식별하는 것이 항상 간단한 것은 아닙니다.</p>
+<p>이 글에서는 JavaScript에서 주어진 변수가 배열인지 아닌지 확인하는 3가지 방법을 설명합니다.</p>
+<h2 id="JavaScript의-변수-이해-🔍">JavaScript의 변수 이해 🔍</h2>
+<p>배열에 대해 자세히 알아보기 전에 JavaScript의 변수에 대해 간단히 살펴보겠습니다. JavaScript는 동적 타입 언어이므로 변수는 명시적으로 선언하지 않고도 모든 유형의 데이터를 저장할 수 있습니다. 이러한 유연성은 훌륭하지만, 특히 변수의 유형을 결정할 때 혼란을 초래할 수 있습니다.</p>
+<h2 id="배열-Array-딜레마-🤔">배열(Array) 딜레마 🤔</h2>
+<p>배열은 값의 목록을 저장하는 데 사용되는 JavaScript의 기본 데이터 구조입니다. 하지만 변수가 실제로 배열인지 어떻게 알 수 있을까요? 여기서 JavaScript가 우리에게 커브볼을 던집니다. JavaScript의 배열은 엄밀히 말해 객체이기 때문에 기존의 타입 검사 방법이 예상대로 작동하지 않을 수 있습니다.</p>
+<h2 id="자세히-알아보기-🏊‍♂️">자세히 알아보기 🏊‍♂️</h2>
+<h3 id="1-Array-isArray-사용⭐">1. <code>Array.isArray()</code> 사용⭐</h3>
+<p>변수가 배열인지 확인하는 가장 안정적이고 간단한 방법은 <code>Array.isArray()</code> 메서드를 사용하는 것입니다. ECMAScript 5에 도입된 이 메서드는 변수가 배열이면 <code>true</code>을 반환하고, 그렇지 않으면 <code>false</code>을 반환합니다. 다음과 같이 간단합니다</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'cherry'</span>];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray(fruits)); <span class="comment">// Output: true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> number = <span class="number">42</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray(number)); <span class="comment">// Output: false</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-instanceof-연산자-🛠️">2. <code>instanceof</code> 연산자 🛠️</h3>
+<p>배열을 확인하는 또 다른 방법은 <code>instanceof</code> 연산자를 사용하는 것입니다. 이 연산자는 객체가 특정 클래스 또는 생성자 함수의 인스턴스인지 여부를 확인합니다. 배열의 경우 다음과 같이 사용할 수 있습니다:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> vegetables = [<span class="string">'carrot'</span>, <span class="string">'potato'</span>, <span class="string">'onion'</span>];</span><br><span class="line"><span class="built_in">console</span>.log(vegetables <span class="keyword">instanceof</span> <span class="built_in">Array</span>); <span class="comment">// Output: true</span></span><br></pre></td></tr></table></figure>
+<p>하지만 한 가지 문제가 있습니다. <code>instanceof</code> 연산자는 특정 시나리오에서 예상대로 작동하지 않을 수 있으며, 특히 iframe과 같은 다른 실행 컨텍스트를 다룰 때 더욱 그렇습니다.</p>
+<h3 id="3-constructor-속성-🏗️">3. <code>constructor</code> 속성 🏗️</h3>
+<p>JavaScript의 모든 배열에는 <code>Array</code> 함수를 가리키는 <code>constructor</code> 속성이 있습니다. 이를 사용하여 변수가 배열인지 확인할 수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> colors = [<span class="string">'red'</span>, <span class="string">'green'</span>, <span class="string">'blue'</span>];</span><br><span class="line"><span class="built_in">console</span>.log(colors.constructor === <span class="built_in">Array</span>); <span class="comment">// Output: true</span></span><br></pre></td></tr></table></figure>
+<p>이 방법은 덜 일반적이며 특히 <code>constructor</code> 속성이 변경된 경우 약간 까다로울 수 있습니다.</p>
+<h2 id="올바른-메서드-선택하기-🧭">올바른 메서드 선택하기 🧭</h2>
+<p>변수가 배열인지 확인하는 데 사용할 메서드를 결정할 때는 코드의 컨텍스트를 고려하세요.</p>
+<ul>
+<li><strong>일반 사용:</strong> 정확성을 보장하는 <code>Array.isArray()</code>를 대부분의 상황에서 선택해야 합니다.</li>
+<li><strong>특정 컨텍스트:</strong> 일관된 단일 실행 컨텍스트에서 작업하고 있고 객체의 프로토타입 체인이 확실하다면 <code>instanceof</code>를 사용하세요.</li>
+<li><strong>제어 환경:</strong> <code>constructor</code> 속성 검사는 객체를 완전히 제어할 수 있고 <code>constructor</code>가 변조되지 않았다고 확신하는 시나리오에서 사용할 수 있습니다.</li>
+</ul>
+<h2 id="결론-🎉">결론 🎉</h2>
+<p>JavaScript에서 변수가 배열인지 확인하는 것은 개발자의 툴킷에서 핵심적인 기술입니다. 각 메서드에는 고유한 사용 사례가 있으며 <code>Array.isArray()</code>, <code>instanceof</code> 또는 <code>constructor</code> 속성을 언제 사용해야 하는지 알면 코드를 더욱 강력하고 오류 없이 만들 수 있습니다.</p>
+
+        </div>
+        <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+        <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://hgko1207.github.io/2024/03/05/js-dev-17/" data-id="cmnbsny2600z2ukcx6hx6gt4e" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Hyeong Gyun Ko"
+        },
+        "headline": "JavaScript에서 변수가 배열인지 확인하는 방법 🧐",
+        "image": "http://hgko1207.github.io/images/thumbnail/javascript.png",
+        "keywords": "JavaScript 자바스크립트 변수 Programming 변수가 배열인지 배열",
+        "genre": "Programming Language JavaScript",
+        "datePublished": "2024-03-05",
+        "dateCreated": "2024-03-05",
+        "dateModified": "2024-03-06",
+        "url": "http://hgko1207.github.io/2024/03/05/js-dev-17/",
+        "description": "
+JavaScript에서 개발자의 기본적인 작업 중 하나는 주어진 변수의 유형을 결정하는 것입니다. 배열은 언어의 핵심 데이터 구조로, 단순한 데이터 저장부터 복잡한 알고리즘까지 다양한 연산에 자주 사용되기 때문에 배열을 다룰 때 특히 중요합니다. 그러나 배열을 객체의 한 유형으로 취급하는 JavaScript의 특성상 배열을 올바르게 식별하는 것이 항상 간",
+        "wordCount": 430
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                            <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>팔로우:</p>
+    <ul class="social-links">
+       
+      <li>
+        <a
+          class="social-tooltip"
+          title="github"
+          href="https://github.com/hgko1207"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-github"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="facebook"
+          href="https://www.facebook.com/profile.php?id=100003526102847"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-facebook"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="rss"
+          href="/"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-rss"></i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+   
+<nav id="article-nav">
+    
+        <a href="/2024/03/06/chatgpt-19/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">새로운</strong>
+        <p class="article-nav-title">
+        
+            번역을 위한 ChatGPT 프롬프트 베스트 10
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2024/03/04/ai-22/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">AI로 수익을 창출하는 방법</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+ 
+  <div class="widgets-container">
+      
+  
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/03/29/gstack-install-guide/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/Claude.png)" alt="gstack 설치 가이드 (Windows) — Claude Code를 가상 엔지니어링 팀으로 만들기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2026/03/29/gstack-install-guide/" class="title">gstack 설치 가이드 (Windows) — Claude Code를 가상 엔지니어링 팀으로 만들기</a></p>
+                            <p class="item-date"><time datetime="2026-03-28T15:38:16.000Z" itemprop="datePublished">2026-03-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/05/01/devops-4/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/docker.png)" alt="🐳 Docker의 시대는 끝났을까? 개발자들이 런타임을 바꾸는 진짜 이유" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/DevOps/">DevOps</a></p>
+                            <p class="item-title"><a href="/2025/05/01/devops-4/" class="title">🐳 Docker의 시대는 끝났을까? 개발자들이 런타임을 바꾸는 진짜 이유</a></p>
+                            <p class="item-date"><time datetime="2025-05-01T13:38:35.000Z" itemprop="datePublished">2025-05-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/04/21/python-13/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/python.png)" alt="생산성을 폭발시키는 파이썬 자동화 스크립트 10개" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2025/04/21/python-13/" class="title">생산성을 폭발시키는 파이썬 자동화 스크립트 10개</a></p>
+                            <p class="item-date"><time datetime="2025-04-21T05:50:44.000Z" itemprop="datePublished">2025-04-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/04/11/java-6/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/java.png)" alt="Java는 죽지 않았다 – 2025년에도 여전히 강력한 이유" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2025/04/11/java-6/" class="title">Java는 죽지 않았다 – 2025년에도 여전히 강력한 이유</a></p>
+                            <p class="item-date"><time datetime="2025-04-11T04:53:05.000Z" itemprop="datePublished">2025-04-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/04/07/ai-29/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/ai.png)" alt="⚠️ 기술 쓰나미가 몰려온다" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2025/04/07/ai-29/" class="title">⚠️ 기술 쓰나미가 몰려온다</a></p>
+                            <p class="item-date"><time datetime="2025-04-07T05:54:32.000Z" itemprop="datePublished">2025-04-07</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">카테고리</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">66</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">443</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">82</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/CLAUDE/">CLAUDE</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">40</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Net-Core/">.Net Core</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">21</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">27</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/SQL/">SQL</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">38</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">30</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">124</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">25</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">8</span></li></ul></li></ul>
+        </div>
+    </div>
+
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">링크</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+  <div class="widget-wrap widget-float">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- huemen sidebar -->
+    <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-7581566810202853"
+            data-ad-slot="1131844921"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+</div>
+  
+  </div>
+  <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+
+  <!-- hits 방문자수 -->
+  <a href="https://hits.seeyoufarm.com" target="_blank" rel="noopener">
+    <style>
+      .hits {
+        width: auto;
+        height: auto;
+        max-width: 99px;
+        max-height: 20px;
+      }
+    </style>
+    <img
+      src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhgko1207.github.io&count_bg=%23E6ADD5&title_bg=%23BF98D2&icon=&icon_color=%23E7E7E7&title=%EB%B0%A9%EB%AC%B8%EC%9E%90%EC%88%98&edge_flat=false"
+      alt="방문자수"
+    />
+  </a>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h2 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h2>
+                <p>&copy; 2026 Hyeong Gyun Ko</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://hgko1207.github.io/2024/03/05/js-dev-17/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+      <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

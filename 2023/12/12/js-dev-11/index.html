@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>자바스크립트 성능 최적화 기술 익히기 | 규니의 블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    <meta name="keywords" content="JavaScript,자바스크립트,Frontend,성능 최적화" />
+    
+    
+    
+    <meta name="description" content="Information related to IT" />
+    <meta name="description" content="Information related to IT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="자바스크립트 성능 최적화 기술 익히기">
+<meta property="og:url" content="http://hgko1207.github.io/2023/12/12/js-dev-11/index.html">
+<meta property="og:site_name" content="규니의 블로그">
+<meta property="og:description" content="Information related to IT">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/javaScript.png">
+<meta property="article:published_time" content="2023-12-12T02:20:25.000Z">
+<meta property="article:modified_time" content="2023-12-25T14:26:12.521Z">
+<meta property="article:author" content="Hyeong Gyun Ko">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="자바스크립트">
+<meta property="article:tag" content="Frontend">
+<meta property="article:tag" content="성능 최적화">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/javaScript.png">
+    
+
+    
+        <link rel="alternate" href="/" title="규니의 블로그" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-73CH3S1C0L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-73CH3S1C0L');
+</script>
+
+    
+    
+    
+
+
+
+    <!-- <script
+  data-ad-client="ca-pub-7581566810202853"
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+></script>
+ -->
+
+    <!-- 구글 애드센스 -->
+    <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!-- 네이버 -->
+    <meta name="naver-site-verification" content="a6e2912bbd1e42226e10ee12d3498a246c51ec1f" />
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h2 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h2>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">hgko&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ETC/">ETC</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/">IT</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/BlockChain/">BlockChain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Blockchain/">Blockchain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Information/">Information</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Satellite/">Satellite</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Backend/">Backend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DB/">DB</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Frontend/">Frontend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Language/">Language</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Mobile/">Mobile</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Web/">Web</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about">About</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/profile">프로파일</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h2 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a>
+    </h2>
+</div>
+
+                        <div class="main-body-content">
+                            <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+                            <!-- 상단 광고 -->
+<ins
+  class="adsbygoogle"
+  style="display: block"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="1131844921"
+  data-ad-format="auto"
+  data-full-width-responsive="true"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                            <article id="post-js-dev-11" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        자바스크립트 성능 최적화 기술 익히기
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2023/12/12/js-dev-11/" class="article-date">
+         <time datetime="2023-12-12T02:20:25.000Z" itemprop="datePublished">2023-12-12</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Frontend/" rel="tag">Frontend</a>, <a class="tag-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>, <a class="tag-link" href="/tags/%EC%84%B1%EB%8A%A5-%EC%B5%9C%EC%A0%81%ED%99%94/" rel="tag">성능 최적화</a>, <a class="tag-link" href="/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/" rel="tag">자바스크립트</a>
+    </div>
+
+                
+
+                
+   <div class="article-counter">
+      <i class="fa fa-file-word-o"></i>
+      <span class="post-count-item-text">Symbols count in article: </span>
+      <span class="post-count">527</span>
+      <i class="fa fa-clock-o"></i>
+      <span class="post-time-item-text">Reading time: </span>
+      <span class="post-count">3 mins. </span>
+   </div>
+
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="/images/header/js-dev-11.png" alt=""></p>
+<p>빠르고 반응이 빠른 웹 애플리케이션을 만들려면 자바스크립트 실행 시간을 줄이는 것이 중요합니다. 자바스크립트는 강력하고 다재다능한 프로그래밍 언어이지만 제대로 최적화되지 않으면 웹 페이지 속도가 느려질 수 있습니다.</p>
+<p>자바스크립트 코드를 실행하는 데 시간이 너무 오래 걸리면 사용자 경험이 느려지고 페이지 렌더링이 지연되며 이탈률이 증가할 수 있습니다. 따라서 원활한 사용자 경험을 보장하기 위해서는 자바스크립트 실행 시간을 최적화하는 것이 중요합니다.</p>
+<h2 id="전략">전략</h2>
+<p>다음은 이를 달성하기 위한 몇 가지 전략입니다</p>
+<ol>
+<li><strong>자바스크립트 최소화 및 압축:</strong> 불필요한 코드를 제거하고 축소 및 압축 도구를 사용하여 웹페이지가 로드되는 자바스크립트 양을 줄입니다. 축소 및 압축된 자바스크립트 파일은 크기가 더 작으므로 다운로드가 더 빠르고 실행 시간이 단축됩니다.<br>
+<br/></li>
+<li><strong>비동기 로딩:</strong> 가능하면 자바스크립트 파일을 비동기식으로 로드하세요. 이렇게 하면 웹페이지의 다른 요소들이 자바스크립트와 동시에 로드되어 장기 실행 스크립트에 의해 차단되는 것을 방지할 수 있습니다.<br>
+<br/></li>
+<li><strong>로딩 연기:</strong> 중요한 렌더링 경로가 완료될 때까지 필수적이지 않은 자바스크립트 로딩을 연기합니다. 이렇게 하면 웹페이지가 처음에 더 빠르게 로드되고 브라우저가 덜 바쁠 때 자바스크립트를 실행할 수 있습니다.<br>
+<br/></li>
+<li><strong>지연 로딩:</strong> 페이지 로드 시 즉시 필요하지 않은 자바스크립트 모듈에 대한 지연 로딩(Lazy Loading)을 구현합니다. 이는 대용량 자바스크립트 파일이나 특정 사용자 상호 작용에만 필요한 파일에 특히 유용합니다.<br>
+<br/></li>
+<li><strong>코드 분할:</strong> 자바스크립트 코드를 더 작고 관리하기 쉬운 모듈로 분할하세요. 현재 사용자 경험에 필요한 모듈만 로드합니다. 이렇게 하면 초기 실행 시간이 줄어들고 시스템 리소스 사용이 최소화됩니다.<br>
+<br/></li>
+<li><strong>루프 및 반복 최적화:</strong> 자바스크립트 코드 내의 루프(Loop) 및 반복(Iteration)에 주의를 기울이십시오. 비효율적인 루프는 실행 시간을 크게 늘릴 수 있습니다. 특정 사용 사례에 최적화된 알고리즘과 데이터 구조를 사용하세요.<br>
+<br/></li>
+<li><strong>DOM 조작을 줄이세요:</strong> DOM(Document Object Model)을 과도하게 조작하면 심각한 병목 현상을 일으킬 수 있습니다. DOM에 대한 불필요한 업데이트를 최소화하고 일괄 처리 및 <code>requestAnimationFrame</code>과 같은 기술을 사용하여 애니메이션과 Transition을 원활하게 하세요.<br>
+<br/></li>
+<li><strong>캐싱:</strong> 자주 변경되지 않는 데이터와 계산을 저장하는 캐싱 메커니즘을 구현하세요. 캐싱은 반복적인 자바스크립트 실행의 필요성을 줄여 성능을 향상시킬 수 있습니다.<br>
+<br/></li>
+<li><strong>Web Worker 사용:</strong> 계산 집약적인 작업을 Web Worker에게 오프로드합니다. Web Worker를 사용하면 메인 스레드를 차단하지 않고 백그라운드에서 스크립트를 실행할 수 있으므로 자바스크립트가 사용자 상호 작용에 영향을 미치는 것을 방지할 수 있습니다.<br>
+<br/></li>
+<li><strong>프로파일링 및 최적화:</strong> 브라우저 개발자 도구를 활용하여 자바스크립트 코드를 프로파일링하고 성능 병목현상을 파악하세요. Chrome 개발자도구와 같은 도구는 코드 실행 시간과 메모리 사용량을 분석하는 기능을 제공하므로 개선이 필요한 부분을 정확히 찾아내는 데 도움이 됩니다.<br>
+<br/></li>
+<li><strong>CDN 호스팅:</strong> CDN(Content Delivery Network)을 사용하여 널리 사용되는 라이브러리 및 프레임워크를 호스팅하세요. CDN은 이러한 리소스를 보다 효율적으로 제공하여 다운로드 및 실행에 필요한 시간을 단축할 수 있습니다.<br>
+<br/></li>
+<li><strong>ES6 이상 사용:</strong> 최신 ECMAScript 기능과 최적화를 활용하세요. 최신 자바스크립트 버전에는 성능이 향상되고 코드를 간소화하는 데 도움이 되는 새로운 기능이 포함되는 경우가 많습니다.<br>
+<br/></li>
+<li><strong>테스트 및 벤치마킹:</strong> 정기적으로 웹 애플리케이션의 성능을 테스트하고 벤치마킹 도구를 사용하여 실행 시간을 측정하세요. 이를 통해 회귀를 감지하고 변경 사항이 자바스크립트 실행에 미치는 영향을 모니터링할 수 있습니다.<br>
+<br/></li>
+<li><strong>이미지(Image) 및 자산(Asset) 최적화:</strong> 웹 애플리케이션에 사용되는 이미지 및 자산의 크기를 줄이면 전체 로딩 프로세스의 속도를 높여 자바스크립트 실행 시간을 간접적으로 개선할 수 있습니다.<br>
+<br/></li>
+<li><strong>콘텐츠 전달 전략:</strong> 장치 및 네트워크 상태에 따라 사용자에게 다양한 자바스크립트 번들을 제공하는 등 스마트한 콘텐츠 전달 전략을 구현하세요. 이를 통해 사용자는 자신의 상황에 가장 최적화된 코드를 받을 수 있습니다.</li>
+</ol>
+<h2 id="결론">결론</h2>
+<p>자바스크립트 실행 시간 최적화는 지속적으로 해야하며 높은 수준의 성능을 유지하려면 전략 실행, 도구(Tool) 사용 및 지속적인 관심이 필요합니다. 이러한 기술을 사용하고 웹 애플리케이션의 성능을 지속적으로 모니터링하면 자바스크립트 코드가 효율적으로 실행되어 더 나은 사용자 경험을 제공할 수 있습니다.</p>
+
+        </div>
+        <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+        <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://hgko1207.github.io/2023/12/12/js-dev-11/" data-id="cmnbsny0z00squkcx1cl56sha" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Hyeong Gyun Ko"
+        },
+        "headline": "자바스크립트 성능 최적화 기술 익히기",
+        "image": "http://hgko1207.github.io/images/thumbnail/javaScript.png",
+        "keywords": "JavaScript 자바스크립트 Frontend 성능 최적화",
+        "genre": "Programming Language JavaScript",
+        "datePublished": "2023-12-12",
+        "dateCreated": "2023-12-12",
+        "dateModified": "2023-12-25",
+        "url": "http://hgko1207.github.io/2023/12/12/js-dev-11/",
+        "description": "
+빠르고 반응이 빠른 웹 애플리케이션을 만들려면 자바스크립트 실행 시간을 줄이는 것이 중요합니다. 자바스크립트는 강력하고 다재다능한 프로그래밍 언어이지만 제대로 최적화되지 않으면 웹 페이지 속도가 느려질 수 있습니다.
+자바스크립트 코드를 실행하는 데 시간이 너무 오래 걸리면 사용자 경험이 느려지고 페이지 렌더링이 지연되며 이탈률이 증가할 수 있습니다. 따라",
+        "wordCount": 493
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                            <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>팔로우:</p>
+    <ul class="social-links">
+       
+      <li>
+        <a
+          class="social-tooltip"
+          title="github"
+          href="https://github.com/hgko1207"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-github"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="facebook"
+          href="https://www.facebook.com/profile.php?id=100003526102847"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-facebook"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="rss"
+          href="/"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-rss"></i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+   
+<nav id="article-nav">
+    
+        <a href="/2023/12/12/web-design-2/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">새로운</strong>
+        <p class="article-nav-title">
+        
+            웹 개발자를 위한 CSS Flexbox 기술
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2023/12/11/info-6/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">반응형 웹 디자인을 사용해야 하는 10가지 이유</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+ 
+  <div class="widgets-container">
+      
+  
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/03/29/gstack-install-guide/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/Claude.png)" alt="gstack 설치 가이드 (Windows) — Claude Code를 가상 엔지니어링 팀으로 만들기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2026/03/29/gstack-install-guide/" class="title">gstack 설치 가이드 (Windows) — Claude Code를 가상 엔지니어링 팀으로 만들기</a></p>
+                            <p class="item-date"><time datetime="2026-03-28T15:38:16.000Z" itemprop="datePublished">2026-03-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/05/01/devops-4/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/docker.png)" alt="🐳 Docker의 시대는 끝났을까? 개발자들이 런타임을 바꾸는 진짜 이유" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/DevOps/">DevOps</a></p>
+                            <p class="item-title"><a href="/2025/05/01/devops-4/" class="title">🐳 Docker의 시대는 끝났을까? 개발자들이 런타임을 바꾸는 진짜 이유</a></p>
+                            <p class="item-date"><time datetime="2025-05-01T13:38:35.000Z" itemprop="datePublished">2025-05-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/04/21/python-13/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/python.png)" alt="생산성을 폭발시키는 파이썬 자동화 스크립트 10개" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2025/04/21/python-13/" class="title">생산성을 폭발시키는 파이썬 자동화 스크립트 10개</a></p>
+                            <p class="item-date"><time datetime="2025-04-21T05:50:44.000Z" itemprop="datePublished">2025-04-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/04/11/java-6/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/java.png)" alt="Java는 죽지 않았다 – 2025년에도 여전히 강력한 이유" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2025/04/11/java-6/" class="title">Java는 죽지 않았다 – 2025년에도 여전히 강력한 이유</a></p>
+                            <p class="item-date"><time datetime="2025-04-11T04:53:05.000Z" itemprop="datePublished">2025-04-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/04/07/ai-29/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/ai.png)" alt="⚠️ 기술 쓰나미가 몰려온다" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2025/04/07/ai-29/" class="title">⚠️ 기술 쓰나미가 몰려온다</a></p>
+                            <p class="item-date"><time datetime="2025-04-07T05:54:32.000Z" itemprop="datePublished">2025-04-07</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">카테고리</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">66</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">443</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">82</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/CLAUDE/">CLAUDE</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">40</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Net-Core/">.Net Core</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">21</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">27</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/SQL/">SQL</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">38</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">30</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">124</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">25</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">8</span></li></ul></li></ul>
+        </div>
+    </div>
+
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">링크</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+  <div class="widget-wrap widget-float">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- huemen sidebar -->
+    <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-7581566810202853"
+            data-ad-slot="1131844921"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+</div>
+  
+  </div>
+  <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+
+  <!-- hits 방문자수 -->
+  <a href="https://hits.seeyoufarm.com" target="_blank" rel="noopener">
+    <style>
+      .hits {
+        width: auto;
+        height: auto;
+        max-width: 99px;
+        max-height: 20px;
+      }
+    </style>
+    <img
+      src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhgko1207.github.io&count_bg=%23E6ADD5&title_bg=%23BF98D2&icon=&icon_color=%23E7E7E7&title=%EB%B0%A9%EB%AC%B8%EC%9E%90%EC%88%98&edge_flat=false"
+      alt="방문자수"
+    />
+  </a>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h2 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h2>
+                <p>&copy; 2026 Hyeong Gyun Ko</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://hgko1207.github.io/2023/12/12/js-dev-11/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+      <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

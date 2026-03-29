@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Python 프로젝트 구조화 방법 | 규니의 블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    <meta name="keywords" content="Python,Programming,Coding,Software Engineering,구조화" />
+    
+    
+    
+    <meta name="description" content="Information related to IT" />
+    <meta name="description" content="Information related to IT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 프로젝트 구조화 방법">
+<meta property="og:url" content="http://hgko1207.github.io/2025/01/09/python-12/index.html">
+<meta property="og:site_name" content="규니의 블로그">
+<meta property="og:description" content="Information related to IT">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/python.png">
+<meta property="article:published_time" content="2025-01-09T03:59:40.000Z">
+<meta property="article:modified_time" content="2025-01-09T04:24:58.376Z">
+<meta property="article:author" content="Hyeong Gyun Ko">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Programming">
+<meta property="article:tag" content="Coding">
+<meta property="article:tag" content="Software Engineering">
+<meta property="article:tag" content="구조화">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/python.png">
+    
+
+    
+        <link rel="alternate" href="/" title="규니의 블로그" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-73CH3S1C0L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-73CH3S1C0L');
+</script>
+
+    
+    
+    
+
+
+
+    <!-- <script
+  data-ad-client="ca-pub-7581566810202853"
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+></script>
+ -->
+
+    <!-- 구글 애드센스 -->
+    <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!-- 네이버 -->
+    <meta name="naver-site-verification" content="a6e2912bbd1e42226e10ee12d3498a246c51ec1f" />
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h2 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h2>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">hgko&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ETC/">ETC</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/">IT</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/BlockChain/">BlockChain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Blockchain/">Blockchain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Information/">Information</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Satellite/">Satellite</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Backend/">Backend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DB/">DB</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Frontend/">Frontend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Language/">Language</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Mobile/">Mobile</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Web/">Web</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about">About</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/profile">프로파일</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h2 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Language/Python/">Python</a>
+    </h2>
+</div>
+
+                        <div class="main-body-content">
+                            <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+                            <!-- 상단 광고 -->
+<ins
+  class="adsbygoogle"
+  style="display: block"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="1131844921"
+  data-ad-format="auto"
+  data-full-width-responsive="true"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                            <article id="post-python-12" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Python 프로젝트 구조화 방법
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2025/01/09/python-12/" class="article-date">
+         <time datetime="2025-01-09T03:59:40.000Z" itemprop="datePublished">2025-01-09</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Coding/" rel="tag">Coding</a>, <a class="tag-link" href="/tags/Programming/" rel="tag">Programming</a>, <a class="tag-link" href="/tags/Python/" rel="tag">Python</a>, <a class="tag-link" href="/tags/Software-Engineering/" rel="tag">Software Engineering</a>, <a class="tag-link" href="/tags/%EA%B5%AC%EC%A1%B0%ED%99%94/" rel="tag">구조화</a>
+    </div>
+
+                
+
+                
+   <div class="article-counter">
+      <i class="fa fa-file-word-o"></i>
+      <span class="post-count-item-text">Symbols count in article: </span>
+      <span class="post-count">691</span>
+      <i class="fa fa-clock-o"></i>
+      <span class="post-time-item-text">Reading time: </span>
+      <span class="post-count">4 mins. </span>
+   </div>
+
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>잘 구성된 <strong>Python</strong> 프로젝트 구조는 코드베이스를 관리하기 쉽게 만들고 확장성과 이해도를 높여줍니다. 이는 개인 개발자는 물론, 팀으로 협업할 때도 필수적인 요소입니다. 이 글에서는 Python 프로젝트를 효과적으로 구성하는 방법에 대해 단계별로 설명하고, 각 단계에서 모범 사례와 예시를 함께 다룹니다.</p>
+<h2 id="1단계-프로젝트-설정-🌳-루트-디렉터리">1단계: 프로젝트 설정 🌳 루트 디렉터리</h2>
+<p>가장 먼저 프로젝트와 관련된 모든 파일을 포함할 <strong>루트(Root) 디렉터리</strong>를 생성합니다. 디렉터리 이름은 프로젝트의 목적이나 내용을 명확하게 나타내도록 <strong>설명적이고 의미 있는 이름</strong>으로 지정하는 것이 좋습니다. 일반적으로 프로젝트 이름을 디렉터리 이름으로 사용하는 것이 권장됩니다.</p>
+<p><strong>예시:</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">my_project/</span><br></pre></td></tr></table></figure>
+<p>이 디렉터리 안에 소스 코드, 문서, 설정 파일 등을 추가하며 프로젝트를 구성해 나가게 됩니다.</p>
+<h2 id="2단계-가상-환경-생성-🌄">2단계: 가상 환경 생성 🌄</h2>
+<p>가상 환경은 프로젝트 간 종속성 충돌을 방지하고, <strong>종속성을 격리</strong>하여 관리할 수 있도록 해줍니다. 이를 통해 프로젝트마다 필요한 패키지 버전을 다르게 설정할 수 있으며, 안정적인 개발 환경을 유지할 수 있습니다.</p>
+<h3 id="가상-환경-생성-방법">가상 환경 생성 방법</h3>
+<p><strong>Linux/macOS 사용자:</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> my_project</span><br><span class="line">python3 -m venv venv</span><br></pre></td></tr></table></figure>
+<p><strong>Windows 사용자:</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m venv venv</span><br></pre></td></tr></table></figure>
+<p>가상 환경 생성 후, 아래 명령어로 활성화할 수 있습니다.</p>
+<p><strong>Linux/macOS에서 활성화:</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> venv/bin/activate</span><br></pre></td></tr></table></figure>
+<p><strong>Windows에서 활성화:</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">venv\Scripts\activate</span><br></pre></td></tr></table></figure>
+<p>이제 가상 환경이 활성화되었으며, 모든 종속성(라이브러리 및 패키지)은 이 환경에 설치됩니다. 이렇게 하면 프로젝트가 특정 버전의 라이브러리에 종속되어도 다른 프로젝트에 영향을 주지 않게 됩니다.</p>
+<h2 id="3단계-핵심-디렉터리-구조-정의-📗">3단계: 핵심 디렉터리 구조 정의 📗</h2>
+<p>Python 프로젝트의 핵심 프로젝트 구조는 <strong>패키지/모듈 디렉터리, 테스트 디렉터리</strong>, 그리고 루트 수준에 위치한 <strong>설정 및 구성 파일</strong>로 구성되어야 합니다. 이러한 구조는 프로젝트의 코드 관리와 확장을 용이하게 해줍니다.</p>
+<h3 id="예시-디렉터리-구조">예시 디렉터리 구조</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">my_project/</span><br><span class="line">│</span><br><span class="line">├── my_package/           # 메인 패키지 디렉터리</span><br><span class="line">│   ├── __init__.py       # 디렉터리를 패키지로 인식시키는 파일</span><br><span class="line">│   ├── module1.py</span><br><span class="line">│   ├── module2.py</span><br><span class="line">│   └── utils.py</span><br><span class="line">│</span><br><span class="line">├── tests/                # 각 모듈이나 기능에 대한 테스트 디렉터리</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   ├── test_module1.py</span><br><span class="line">│   ├── test_module2.py</span><br><span class="line">│   └── test_utils.py</span><br><span class="line">│</span><br><span class="line">├── venv/                 # 가상 환경 디렉터리 (.gitignore에 추가하여 무시)</span><br><span class="line">│</span><br><span class="line">├── requirements.txt      # 프로젝트 종속성 목록</span><br><span class="line">│</span><br><span class="line">└── README.md             # 프로젝트 설명 및 사용법</span><br></pre></td></tr></table></figure>
+<h3 id="구성-요소-설명">구성 요소 설명</h3>
+<ul>
+<li><strong><code>my_package/</code>:</strong> 프로젝트의 핵심 코드를 포함하는 디렉터리입니다.</li>
+<li><strong><code>tests/</code>:</strong> 각 모듈에 대한 단위 테스트가 포함된 디렉터리로, 테스트를 통해 코드의 안정성을 검증할 수 있습니다.</li>
+<li><strong><code>requirements.txt</code>:</strong> 프로젝트에 필요한 라이브러리와 종속성 목록을 관리하는 파일입니다. <code>pip freeze &gt; requirements.txt</code> 명령어로 자동 생성할 수 있습니다.</li>
+<li><strong><code>README.md</code>:</strong> 프로젝트에 대한 설명과 사용법을 제공하는 문서로, 다른 사용자들이 프로젝트를 쉽게 이해하고 사용할 수 있도록 도와줍니다.</li>
+</ul>
+<h2 id="4단계-init-py-파일-작성-📝">4단계: <code>__init__.py</code> 파일 작성 📝</h2>
+<p><code>__init__.py</code> 파일은 디렉터리를 Python 패키지로 인식하게 만듭니다. 또한, 이 파일을 통해 특정 모듈이나 함수에 대한 임포트를 간소화할 수 있습니다.</p>
+<p><strong>예시 <code>__init__.py</code> 파일 (my_package/ 디렉터리):</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># my_package/__init__.py</span></span><br><span class="line"><span class="keyword">from</span> .module1 <span class="keyword">import</span> function1</span><br><span class="line"><span class="keyword">from</span> .module2 <span class="keyword">import</span> function2</span><br></pre></td></tr></table></figure>
+<p>이렇게 하면 다음과 같이 간단하게 임포트할 수 있습니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> my_package <span class="keyword">import</span> function1</span><br></pre></td></tr></table></figure>
+<h2 id="5단계-설정-파일-추가-⚙️">5단계: 설정 파일 추가 ⚙️</h2>
+<p>테스트, 코드 스타일 검사, 배포 등을 자동화하려면 설정 파일을 추가하는 것이 좋습니다.</p>
+<h3 id="1-gitignore">1. <code>.gitignore</code></h3>
+<p><code>.gitignore</code> 파일을 통해 Git에서 관리하지 않을 파일과 디렉터리를 지정할 수 있습니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">venv/</span><br><span class="line">__pycache__/</span><br><span class="line">*.pyc</span><br></pre></td></tr></table></figure>
+<h3 id="2-requirements-txt">2. <code>requirements.txt</code></h3>
+<p><code>requirements.txt</code> 파일은 프로젝트 종속성을 관리하며, 동일한 개발 환경을 쉽게 재현할 수 있도록 도와줍니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 생성 방법</span></span><br><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure>
+<h2 id="6단계-테스트-설정-⚓️">6단계: 테스트 설정 ⚓️</h2>
+<p>테스트는 프로젝트의 품질을 보장하는 중요한 요소입니다. Python에서는 <strong>pytest</strong> 또는 <strong>unittest</strong>를 사용하여 테스트를 작성할 수 있습니다.</p>
+<p>테스트 파일은 일반적으로 <code>tests/</code> 디렉터리에 배치하며, 파일 이름은 <code>test_</code>로 시작하는 것이 관례입니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 예시 테스트 파일: tests/test_module1.py</span></span><br><span class="line"><span class="keyword">import</span> pytest</span><br><span class="line"><span class="keyword">from</span> my_package.module1 <span class="keyword">import</span> function1</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_function1</span><span class="params">()</span>:</span></span><br><span class="line">    result = function1()</span><br><span class="line">    <span class="keyword">assert</span> result == expected_output  <span class="comment"># 실제 예상 결과로 교체</span></span><br></pre></td></tr></table></figure>
+<p>명령어로 테스트 실행</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytest tests/</span><br></pre></td></tr></table></figure>
+<h2 id="7단계-패키징을-위한-setup-py-작성-📦-선택-사항">7단계: 패키징을 위한 <code>setup.py</code> 작성 📦 (선택 사항)</h2>
+<p>배포 가능한 Python 패키지를 만들려면 <code>setup.py</code> 파일을 추가해야 합니다.<br>
+이 파일은 Python이 패키지를 빌드하고 설치하는 방법을 정의합니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 예시</span></span><br><span class="line"><span class="keyword">from</span> setuptools <span class="keyword">import</span> setup, find_packages</span><br><span class="line"></span><br><span class="line">setup(</span><br><span class="line">    name=<span class="string">"my_project"</span>,</span><br><span class="line">    version=<span class="string">"0.1"</span>,</span><br><span class="line">    packages=find_packages(),</span><br><span class="line">    install_requires=[</span><br><span class="line">        <span class="string">"some_package&gt;=1.0.0"</span>,</span><br><span class="line">    ],</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>로컬에서 패키지 설치 방법</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -e .</span><br></pre></td></tr></table></figure>
+<p>이제 프로젝트를 다른 Python 환경에서도 쉽게 설치하고 사용할 수 있습니다.</p>
+<h2 id="8단계-프로젝트-문서화-📜">8단계: 프로젝트 문서화 📜</h2>
+<p>문서화는 프로젝트를 더 이해하기 쉽게 만들어 줍니다.<br>
+<code>README.md</code> 파일을 업데이트하여 프로젝트 개요, 설치 방법, 사용 예시 등을 포함하세요.</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># My Project</span></span><br><span class="line"></span><br><span class="line"><span class="section">## Overview</span></span><br><span class="line"></span><br><span class="line">This project does XYZ.</span><br><span class="line"></span><br><span class="line"><span class="section">## Installation</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">1. </span>Clone the repository.</span><br><span class="line"><span class="bullet">2. </span>Install dependencies:</span><br><span class="line">   <span class="code">```</span>bash</span><br><span class="line"><span class="code">      pip install -r requirements.txt</span></span><br><span class="line">   <span class="code">```</span></span><br></pre></td></tr></table></figure>
+<h2 id="최종">최종</h2>
+<p>최종 프로젝트 구조 예시입니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">my_project/</span><br><span class="line">│</span><br><span class="line">├── my_package/           # 메인 패키지 디렉터리</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   ├── module1.py</span><br><span class="line">│   ├── module2.py</span><br><span class="line">│   └── utils.py</span><br><span class="line">│</span><br><span class="line">├── tests/                # 테스트 디렉터리</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   ├── test_module1.py</span><br><span class="line">│   ├── test_module2.py</span><br><span class="line">│   └── test_utils.py</span><br><span class="line">│</span><br><span class="line">├── venv/                 # 가상 환경 디렉터리</span><br><span class="line">│</span><br><span class="line">├── requirements.txt      # 종속성 목록</span><br><span class="line">│</span><br><span class="line">├── README.md             # 프로젝트 설명 및 사용법</span><br><span class="line">│</span><br><span class="line">└── setup.py              # 선택 사항: 패키징 설정 파일</span><br></pre></td></tr></table></figure>
+<p>이러한 구조는 프로젝트를 체계적으로 관리할 수 있도록 도와주며, 개발, 테스트, 유지보수를 더 효율적으로 할 수 있게 만듭니다.</p>
+
+        </div>
+        <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+        <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://hgko1207.github.io/2025/01/09/python-12/" data-id="cmnbsnyzx04qaukcxev9j3ezm" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Hyeong Gyun Ko"
+        },
+        "headline": "Python 프로젝트 구조화 방법",
+        "image": "http://hgko1207.github.io/images/thumbnail/python.png",
+        "keywords": "Python Programming Coding Software Engineering 구조화",
+        "genre": "Programming Language Python",
+        "datePublished": "2025-01-09",
+        "dateCreated": "2025-01-09",
+        "dateModified": "2025-01-09",
+        "url": "http://hgko1207.github.io/2025/01/09/python-12/",
+        "description": "잘 구성된 Python 프로젝트 구조는 코드베이스를 관리하기 쉽게 만들고 확장성과 이해도를 높여줍니다. 이는 개인 개발자는 물론, 팀으로 협업할 때도 필수적인 요소입니다. 이 글에서는 Python 프로젝트를 효과적으로 구성하는 방법에 대해 단계별로 설명하고, 각 단계에서 모범 사례와 예시를 함께 다룹니다.
+1단계: 프로젝트 설정 🌳 루트 디렉터리
+가장 먼",
+        "wordCount": 1086
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                            <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>팔로우:</p>
+    <ul class="social-links">
+       
+      <li>
+        <a
+          class="social-tooltip"
+          title="github"
+          href="https://github.com/hgko1207"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-github"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="facebook"
+          href="https://www.facebook.com/profile.php?id=100003526102847"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-facebook"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="rss"
+          href="/"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-rss"></i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+   
+<nav id="article-nav">
+    
+        <a href="/2025/01/09/chatgpt-33/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">새로운</strong>
+        <p class="article-nav-title">
+        
+            개발자를 위한 고급 ChatGPT 프롬프트 기술
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2024/12/06/csharp-15/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">C# 13 및 .NET 9 필수 기능 소개</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+ 
+  <div class="widgets-container">
+      
+  
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/03/29/gstack-install-guide/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/Claude.png)" alt="gstack 설치 가이드 (Windows) — Claude Code를 가상 엔지니어링 팀으로 만들기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2026/03/29/gstack-install-guide/" class="title">gstack 설치 가이드 (Windows) — Claude Code를 가상 엔지니어링 팀으로 만들기</a></p>
+                            <p class="item-date"><time datetime="2026-03-28T15:38:16.000Z" itemprop="datePublished">2026-03-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/05/01/devops-4/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/docker.png)" alt="🐳 Docker의 시대는 끝났을까? 개발자들이 런타임을 바꾸는 진짜 이유" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/DevOps/">DevOps</a></p>
+                            <p class="item-title"><a href="/2025/05/01/devops-4/" class="title">🐳 Docker의 시대는 끝났을까? 개발자들이 런타임을 바꾸는 진짜 이유</a></p>
+                            <p class="item-date"><time datetime="2025-05-01T13:38:35.000Z" itemprop="datePublished">2025-05-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/04/21/python-13/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/python.png)" alt="생산성을 폭발시키는 파이썬 자동화 스크립트 10개" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2025/04/21/python-13/" class="title">생산성을 폭발시키는 파이썬 자동화 스크립트 10개</a></p>
+                            <p class="item-date"><time datetime="2025-04-21T05:50:44.000Z" itemprop="datePublished">2025-04-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/04/11/java-6/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/java.png)" alt="Java는 죽지 않았다 – 2025년에도 여전히 강력한 이유" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2025/04/11/java-6/" class="title">Java는 죽지 않았다 – 2025년에도 여전히 강력한 이유</a></p>
+                            <p class="item-date"><time datetime="2025-04-11T04:53:05.000Z" itemprop="datePublished">2025-04-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/04/07/ai-29/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/ai.png)" alt="⚠️ 기술 쓰나미가 몰려온다" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2025/04/07/ai-29/" class="title">⚠️ 기술 쓰나미가 몰려온다</a></p>
+                            <p class="item-date"><time datetime="2025-04-07T05:54:32.000Z" itemprop="datePublished">2025-04-07</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">카테고리</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">66</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">443</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">82</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/CLAUDE/">CLAUDE</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">40</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Net-Core/">.Net Core</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">21</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">27</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/SQL/">SQL</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">38</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">30</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">124</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">25</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">8</span></li></ul></li></ul>
+        </div>
+    </div>
+
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">링크</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+  <div class="widget-wrap widget-float">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- huemen sidebar -->
+    <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-7581566810202853"
+            data-ad-slot="1131844921"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+</div>
+  
+  </div>
+  <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+
+  <!-- hits 방문자수 -->
+  <a href="https://hits.seeyoufarm.com" target="_blank" rel="noopener">
+    <style>
+      .hits {
+        width: auto;
+        height: auto;
+        max-width: 99px;
+        max-height: 20px;
+      }
+    </style>
+    <img
+      src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhgko1207.github.io&count_bg=%23E6ADD5&title_bg=%23BF98D2&icon=&icon_color=%23E7E7E7&title=%EB%B0%A9%EB%AC%B8%EC%9E%90%EC%88%98&edge_flat=false"
+      alt="방문자수"
+    />
+  </a>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h2 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h2>
+                <p>&copy; 2026 Hyeong Gyun Ko</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://hgko1207.github.io/2025/01/09/python-12/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+      <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

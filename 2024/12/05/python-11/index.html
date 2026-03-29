@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>일상 작업을 자동화하는 10가지 Python 스크립트 | 규니의 블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    <meta name="keywords" content="Python,Script,Programming,Coding,Software Engineering" />
+    
+    
+    
+    <meta name="description" content="Information related to IT" />
+    <meta name="description" content="Information related to IT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="일상 작업을 자동화하는 10가지 Python 스크립트">
+<meta property="og:url" content="http://hgko1207.github.io/2024/12/05/python-11/index.html">
+<meta property="og:site_name" content="규니의 블로그">
+<meta property="og:description" content="Information related to IT">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/python.png">
+<meta property="article:published_time" content="2024-12-05T14:39:16.000Z">
+<meta property="article:modified_time" content="2024-12-12T13:48:59.518Z">
+<meta property="article:author" content="Hyeong Gyun Ko">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Script">
+<meta property="article:tag" content="Programming">
+<meta property="article:tag" content="Coding">
+<meta property="article:tag" content="Software Engineering">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/python.png">
+    
+
+    
+        <link rel="alternate" href="/" title="규니의 블로그" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-73CH3S1C0L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-73CH3S1C0L');
+</script>
+
+    
+    
+    
+
+
+
+    <!-- <script
+  data-ad-client="ca-pub-7581566810202853"
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+></script>
+ -->
+
+    <!-- 구글 애드센스 -->
+    <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!-- 네이버 -->
+    <meta name="naver-site-verification" content="a6e2912bbd1e42226e10ee12d3498a246c51ec1f" />
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h2 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h2>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">hgko&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ETC/">ETC</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/">IT</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/BlockChain/">BlockChain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Blockchain/">Blockchain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Information/">Information</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Satellite/">Satellite</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Backend/">Backend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DB/">DB</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Frontend/">Frontend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Language/">Language</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Mobile/">Mobile</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Web/">Web</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about">About</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/profile">프로파일</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h2 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Language/Python/">Python</a>
+    </h2>
+</div>
+
+                        <div class="main-body-content">
+                            <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+                            <!-- 상단 광고 -->
+<ins
+  class="adsbygoogle"
+  style="display: block"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="1131844921"
+  data-ad-format="auto"
+  data-full-width-responsive="true"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                            <article id="post-python-11" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        일상 작업을 자동화하는 10가지 Python 스크립트
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2024/12/05/python-11/" class="article-date">
+         <time datetime="2024-12-05T14:39:16.000Z" itemprop="datePublished">2024-12-05</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Coding/" rel="tag">Coding</a>, <a class="tag-link" href="/tags/Programming/" rel="tag">Programming</a>, <a class="tag-link" href="/tags/Python/" rel="tag">Python</a>, <a class="tag-link" href="/tags/Script/" rel="tag">Script</a>, <a class="tag-link" href="/tags/Software-Engineering/" rel="tag">Software Engineering</a>
+    </div>
+
+                
+
+                
+   <div class="article-counter">
+      <i class="fa fa-file-word-o"></i>
+      <span class="post-count-item-text">Symbols count in article: </span>
+      <span class="post-count">986</span>
+      <i class="fa fa-clock-o"></i>
+      <span class="post-time-item-text">Reading time: </span>
+      <span class="post-count">6 mins. </span>
+   </div>
+
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><strong>Python의 진정한 힘은 바로 자동화에 있습니다.</strong> 일상 작업에 이 힘을 활용하지 않으시겠습니까?</p>
+<p>다음의 10가지 Python 스크립트는 초보자부터 숙련된 개발자까지 반복적인 작업을 자동화하고, 시간을 절약하며, 효율성을 높이는 데 도움을 줄 것입니다.</p>
+<p>전문가 수준이 아니더라도 지금 바로 시작할 수 있습니다!</p>
+<h2 id="1-이미지-최적화-도구-Photoshop이-필요-없어요">1. 이미지 최적화 도구: Photoshop이 필요 없어요!</h2>
+<p>웹사이트나 소셜 미디어에 이미지를 최적화해야 할 때 Photoshop을 열기 귀찮으셨죠? 이제는 간단한 Python 스크립트로 해결할 수 있습니다. <strong>Pillow</strong> 라이브러리를 사용해 이미지 크기 조정, 회전, 필터 적용 등 다양한 작업을 수행할 수 있습니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image, ImageFilter, ImageOps, ImageEnhance</span><br><span class="line"></span><br><span class="line"><span class="comment"># 이미지 로드</span></span><br><span class="line">im = Image.open(<span class="string">"Image1.jpg"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 이미지 작업 예제</span></span><br><span class="line">im = im.crop((<span class="number">34</span>, <span class="number">23</span>, <span class="number">100</span>, <span class="number">100</span>))  <span class="comment"># 자르기</span></span><br><span class="line">im = im.resize((<span class="number">50</span>, <span class="number">50</span>))          <span class="comment"># 크기 조정</span></span><br><span class="line">im = im.transpose(Image.FLIP_LEFT_RIGHT)  <span class="comment"># 좌우 반전</span></span><br><span class="line">im = im.rotate(<span class="number">360</span>)               <span class="comment"># 회전</span></span><br><span class="line">im.save(<span class="string">"Image1.jpg"</span>, optimize=<span class="literal">True</span>, quality=<span class="number">90</span>)  <span class="comment"># 압축 저장</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 필터 및 효과 적용</span></span><br><span class="line">im = im.filter(ImageFilter.BLUR)          <span class="comment"># 블러 효과</span></span><br><span class="line">im = im.filter(ImageFilter.SHARPEN)       <span class="comment"># 선명도 효과</span></span><br><span class="line">im = ImageOps.grayscale(im)               <span class="comment"># 흑백 변환</span></span><br><span class="line">im = ImageOps.invert(im)                  <span class="comment"># 색상 반전</span></span><br><span class="line">im.save(<span class="string">"Image1_optimized.jpg"</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="2-비디오-최적화-전문가급-비디오-만들기">2. 비디오 최적화: 전문가급 비디오 만들기</h2>
+<p>요즘 시대에서 비디오 편집은 단지 유튜버만의 영역이 아닙니다. <strong>MoviePy</strong>를 통해 자르기, 속도 조절, 효과 추가 등 기본적인 기능뿐만 아니라 멋진 효과까지 손쉽게 추가할 수 있습니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> moviepy.editor <span class="keyword">as</span> pyedit</span><br><span class="line"></span><br><span class="line"><span class="comment"># 비디오 로드</span></span><br><span class="line">video = pyedit.VideoFileClip(<span class="string">"vid.mp4"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 비디오 자르기</span></span><br><span class="line">vid1 = video.subclip(<span class="number">0</span>, <span class="number">10</span>)  <span class="comment"># 0초부터 10초까지</span></span><br><span class="line">vid2 = video.subclip(<span class="number">20</span>, <span class="number">40</span>)  <span class="comment"># 20초부터 40초까지</span></span><br><span class="line">final_vid = pyedit.concatenate_videoclips([vid1, vid2])  <span class="comment"># 두 클립 합치기</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 비디오 속도 증가</span></span><br><span class="line">final_vid = final_vid.speedx(<span class="number">2</span>)  <span class="comment"># 2배 속도</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 오디오 추가</span></span><br><span class="line">aud = pyedit.AudioFileClip(<span class="string">"bg.mp3"</span>)  <span class="comment"># 오디오 파일 로드</span></span><br><span class="line">final_vid = final_vid.set_audio(aud)  <span class="comment"># 비디오에 오디오 설정</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 비디오 뒤집기 (역재생)</span></span><br><span class="line">final_vid = final_vid.fx(pyedit.vfx.time_mirror)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 두 비디오 병합</span></span><br><span class="line">vid1 = pyedit.VideoFileClip(<span class="string">"vid1.mp4"</span>)</span><br><span class="line">vid2 = pyedit.VideoFileClip(<span class="string">"vid2.mp4"</span>)</span><br><span class="line">final_vid = pyedit.concatenate_videoclips([vid1, vid2])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 비디오에 시각 효과(VFX) 추가</span></span><br><span class="line">vid1 = final_vid.fx(pyedit.vfx.mirror_x)  <span class="comment"># 좌우 반전 효과</span></span><br><span class="line">vid2 = final_vid.fx(pyedit.vfx.invert_colors)  <span class="comment"># 색상 반전 효과</span></span><br><span class="line">final_vid = pyedit.concatenate_videoclips([vid1, vid2])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 비디오에 이미지 추가</span></span><br><span class="line">img1 = pyedit.ImageClip(<span class="string">"img1.jpg"</span>)  <span class="comment"># 이미지 1</span></span><br><span class="line">img2 = pyedit.ImageClip(<span class="string">"img2.jpg"</span>)  <span class="comment"># 이미지 2</span></span><br><span class="line">final_vid = pyedit.concatenate_videoclips([img1, img2])  <span class="comment"># 이미지와 비디오 합치기</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 최종 비디오 저장</span></span><br><span class="line">final_vid.write_videofile(<span class="string">"final.mp4"</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="3-이메일-스케줄러-이메일-잊지-마세요">3. 이메일 스케줄러: 이메일 잊지 마세요!</h2>
+<p><strong>smtplib</strong>과 <strong>schedule</strong>을 사용하여 이메일을 자동으로 예약하고 발송할 수 있습니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> smtplib</span><br><span class="line"><span class="keyword">import</span> schedule</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">send_email</span><span class="params">()</span>:</span></span><br><span class="line">    sender_email = <span class="string">"your_email@gmail.com"</span></span><br><span class="line">    receiver_email = <span class="string">"recipient_email@gmail.com"</span></span><br><span class="line">    password = <span class="string">"your_email_password"</span></span><br><span class="line"></span><br><span class="line">    subject = <span class="string">"자동 이메일"</span></span><br><span class="line">    body = <span class="string">"이것은 Python으로 전송된 자동 이메일입니다."</span></span><br><span class="line"></span><br><span class="line">    message = <span class="string">f"Subject: <span class="subst">&#123;subject&#125;</span>\n\n<span class="subst">&#123;body&#125;</span>"</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> smtplib.SMTP_SSL(<span class="string">"smtp.gmail.com"</span>, <span class="number">465</span>) <span class="keyword">as</span> server:</span><br><span class="line">        server.login(sender_email, password)</span><br><span class="line">        server.sendmail(sender_email, receiver_email, message)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 매일 오전 8시에 이메일을 보내도록 예약</span></span><br><span class="line">schedule.every().day.at(<span class="string">"08:00"</span>).do(send_email)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    schedule.run_pending()</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="4-소셜-미디어-자동-게시-도구">4. 소셜 미디어 자동 게시 도구</h2>
+<p><strong>Tweepy</strong> 라이브러리를 사용해 Twitter와 같은 플랫폼에 자동으로 게시물을 올릴 수 있습니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tweepy</span><br><span class="line"><span class="keyword">import</span> schedule</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">post_to_twitter</span><span class="params">()</span>:</span></span><br><span class="line">    api_key = <span class="string">"YOUR_API_KEY"</span></span><br><span class="line">    api_secret = <span class="string">"YOUR_API_SECRET"</span></span><br><span class="line">    access_token = <span class="string">"YOUR_ACCESS_TOKEN"</span></span><br><span class="line">    access_token_secret = <span class="string">"YOUR_ACCESS_TOKEN_SECRET"</span></span><br><span class="line"></span><br><span class="line">    auth = tweepy.OAuthHandler(api_key, api_secret)</span><br><span class="line">    auth.set_access_token(access_token, access_token_secret)</span><br><span class="line">    api = tweepy.API(auth)</span><br><span class="line"></span><br><span class="line">    tweet = <span class="string">"이것은 Python으로 자동 게시된 트윗입니다!"</span></span><br><span class="line">    api.update_status(tweet)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 6시간마다 게시되도록 예약합니다.</span></span><br><span class="line">schedule.every(<span class="number">6</span>).hours.do(post_to_twitter)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    schedule.run_pending()</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="5-PDF를-이미지로-변환">5. PDF를 이미지로 변환</h2>
+<p><strong>PyMuPDF</strong>를 사용하여 PDF 페이지를 고화질 이미지로 변환합니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> fitz</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pdf_to_images</span><span class="params">(pdf_file)</span>:</span></span><br><span class="line">    doc = fitz.open(pdf_file)</span><br><span class="line">    <span class="keyword">for</span> page <span class="keyword">in</span> doc:</span><br><span class="line">        pix = page.get_pixmap()</span><br><span class="line">        output = <span class="string">f"page<span class="subst">&#123;page.number&#125;</span>.png"</span></span><br><span class="line">        pix.writePNG(output)</span><br><span class="line"></span><br><span class="line">pdf_to_images(<span class="string">"test.pdf"</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="6-API-데이터-가져오기">6. API 데이터 가져오기</h2>
+<p><strong>urllib3</strong>를 사용하여 API 데이터를 자동으로 가져오며, 날씨 정보, 주가, GitHub 저장소 정보 등 어떤 데이터든 처리할 수 있습니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib3</span><br><span class="line"></span><br><span class="line"><span class="comment"># GET 요청으로 API 데이터 가져오기</span></span><br><span class="line">url = <span class="string">"https://api.github.com/users/psf/repos"</span>  <span class="comment"># GitHub 저장소 API URL</span></span><br><span class="line">http = urllib3.PoolManager()  <span class="comment"># HTTP 연결 풀 생성</span></span><br><span class="line">response = http.request(<span class="string">'GET'</span>, url)  <span class="comment"># GET 요청 전송</span></span><br><span class="line">print(<span class="string">"Status Code:"</span>, response.status)  <span class="comment"># 상태 코드 출력</span></span><br><span class="line">print(<span class="string">"Response Data:"</span>, response.data)  <span class="comment"># 응답 데이터 출력</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># POST 요청으로 API 데이터 전송</span></span><br><span class="line">url = <span class="string">"https://httpbin.org/post"</span>  <span class="comment"># POST 테스트 API URL</span></span><br><span class="line">http = urllib3.PoolManager()  <span class="comment"># HTTP 연결 풀 생성</span></span><br><span class="line">response = http.request(<span class="string">'POST'</span>, url, fields=&#123;<span class="string">'hello'</span>: <span class="string">'world'</span>&#125;)  <span class="comment"># POST 요청 전송</span></span><br><span class="line">print(<span class="string">"Status Code:"</span>, response.status)  <span class="comment"># 상태 코드 출력</span></span><br></pre></td></tr></table></figure>
+<h2 id="7-배터리-알림-배터리-상태를-항상-주시하세요">7. 배터리 알림: 배터리 상태를 항상 주시하세요</h2>
+<p><strong>plyer</strong>와 <strong>psutil</strong>을 사용해 배터리 상태를 모니터링하고 충전이 필요할 때 알림을 보냅니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> plyer <span class="keyword">import</span> notification</span><br><span class="line"><span class="keyword">import</span> psutil</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    battery = psutil.sensors_battery()</span><br><span class="line">    life = battery.percent</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> life &lt; <span class="number">50</span>:</span><br><span class="line">        notification.notify(</span><br><span class="line">            title=<span class="string">"Battery Low"</span>,</span><br><span class="line">            message=<span class="string">"Please connect to a power source"</span>,</span><br><span class="line">            timeout=<span class="number">10</span></span><br><span class="line">        )</span><br><span class="line">    sleep(<span class="number">50</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="8-웹-스크래핑">8. 웹 스크래핑</h2>
+<p><strong>BeautifulSoup</strong>와 <strong>requests</strong>를 사용해 웹사이트에서 데이터를 자동으로 추출합니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line">url = <span class="string">"https://example.com"</span>  <span class="comment"># 스크래핑할 URL</span></span><br><span class="line">response = requests.get(url)  <span class="comment"># GET 요청</span></span><br><span class="line"></span><br><span class="line">soup = BeautifulSoup(response.text, <span class="string">"html.parser"</span>)  <span class="comment"># HTML 파싱</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 웹사이트에서 특정 데이터 추출</span></span><br><span class="line">data = soup.find(<span class="string">"div"</span>, &#123;<span class="string">"class"</span>: <span class="string">"content"</span>&#125;).get_text()  <span class="comment"># "content" 클래스 데이터 추출</span></span><br><span class="line">print(data)</span><br></pre></td></tr></table></figure>
+<h2 id="9-Pytest-자동화된-테스트로-오류-없는-코드-유지">9. Pytest: 자동화된 테스트로 오류 없는 코드 유지</h2>
+<p><strong>Pytest</strong>를 사용해 Python 코드가 올바르게 작동하는지 자동으로 테스트할 수 있습니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pytest</span><br><span class="line"></span><br><span class="line"><span class="comment"># 테스트할 함수</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_numbers</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 테스트 케이스</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_addition</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">assert</span> add_numbers(<span class="number">1</span>, <span class="number">2</span>) == <span class="number">3</span></span><br><span class="line">    <span class="keyword">assert</span> add_numbers(<span class="number">-1</span>, <span class="number">1</span>) == <span class="number">0</span></span><br><span class="line">    <span class="keyword">assert</span> add_numbers(<span class="number">0</span>, <span class="number">0</span>) == <span class="number">0</span></span><br><span class="line">    <span class="keyword">assert</span> add_numbers(<span class="number">10</span>, <span class="number">5</span>) == <span class="number">15</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    pytest.main()</span><br></pre></td></tr></table></figure>
+<h2 id="10-파일-백업-및-동기화">10. 파일 백업 및 동기화</h2>
+<p>파일을 자동으로 백업하고 동기화하여 데이터를 안전하게 관리할 수 있습니다. 이 스크립트는 두 폴더 간 파일 백업 및 동기화를 수행합니다. 한 폴더에서 문서를 수정하면 다른 폴더도 자동으로 업데이트됩니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">backup_and_sync</span><span class="params">(source_folder, backup_folder)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> root, _, files <span class="keyword">in</span> os.walk(source_folder):</span><br><span class="line">        <span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">            source_path = os.path.join(root, file)</span><br><span class="line">            backup_path = os.path.join(backup_folder, root.replace(source_folder, <span class="string">""</span>), file)</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 백업 폴더에 디렉토리가 없으면 생성</span></span><br><span class="line">            os.makedirs(os.path.dirname(backup_path), exist_ok=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 백업 폴더로 파일 복사</span></span><br><span class="line">            shutil.copy2(source_path, backup_path)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 백업 폴더에 남아있는 불필요한 파일 삭제</span></span><br><span class="line">    <span class="keyword">for</span> root, _, files <span class="keyword">in</span> os.walk(backup_folder):</span><br><span class="line">        <span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">            backup_path = os.path.join(root, file)</span><br><span class="line">            source_path = os.path.join(source_folder, root.replace(backup_folder, <span class="string">""</span>), file)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(source_path):</span><br><span class="line">                os.remove(backup_path)</span><br><span class="line"></span><br><span class="line">source_folder = <span class="string">"path/to/source/folder"</span>  <span class="comment"># 원본 폴더 경로</span></span><br><span class="line">backup_folder = <span class="string">"path/to/backup/folder"</span>  <span class="comment"># 백업 폴더 경로</span></span><br><span class="line"></span><br><span class="line">backup_and_sync(source_folder, backup_folder)</span><br></pre></td></tr></table></figure>
+
+        </div>
+        <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+        <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://hgko1207.github.io/2024/12/05/python-11/" data-id="cmnbsnyy604p9ukcxf08k1mss" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Hyeong Gyun Ko"
+        },
+        "headline": "일상 작업을 자동화하는 10가지 Python 스크립트",
+        "image": "http://hgko1207.github.io/images/thumbnail/python.png",
+        "keywords": "Python Script Programming Coding Software Engineering",
+        "genre": "Programming Language Python",
+        "datePublished": "2024-12-05",
+        "dateCreated": "2024-12-05",
+        "dateModified": "2024-12-12",
+        "url": "http://hgko1207.github.io/2024/12/05/python-11/",
+        "description": "Python의 진정한 힘은 바로 자동화에 있습니다. 일상 작업에 이 힘을 활용하지 않으시겠습니까?
+다음의 10가지 Python 스크립트는 초보자부터 숙련된 개발자까지 반복적인 작업을 자동화하고, 시간을 절약하며, 효율성을 높이는 데 도움을 줄 것입니다.
+전문가 수준이 아니더라도 지금 바로 시작할 수 있습니다!
+1. 이미지 최적화 도구: Photoshop이 ",
+        "wordCount": 1824
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                            <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>팔로우:</p>
+    <ul class="social-links">
+       
+      <li>
+        <a
+          class="social-tooltip"
+          title="github"
+          href="https://github.com/hgko1207"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-github"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="facebook"
+          href="https://www.facebook.com/profile.php?id=100003526102847"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-facebook"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="rss"
+          href="/"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-rss"></i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+   
+<nav id="article-nav">
+    
+        <a href="/2024/12/06/csharp-15/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">새로운</strong>
+        <p class="article-nav-title">
+        
+            C# 13 및 .NET 9 필수 기능 소개
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2024/11/25/spring-9/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">Spring Boot에서 Lombok을 활용한 효율적인 Java 개발 가이드 🌟</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+ 
+  <div class="widgets-container">
+      
+  
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/03/29/gstack-install-guide/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/Claude.png)" alt="gstack 설치 가이드 (Windows) — Claude Code를 가상 엔지니어링 팀으로 만들기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2026/03/29/gstack-install-guide/" class="title">gstack 설치 가이드 (Windows) — Claude Code를 가상 엔지니어링 팀으로 만들기</a></p>
+                            <p class="item-date"><time datetime="2026-03-28T15:38:16.000Z" itemprop="datePublished">2026-03-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/05/01/devops-4/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/docker.png)" alt="🐳 Docker의 시대는 끝났을까? 개발자들이 런타임을 바꾸는 진짜 이유" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/DevOps/">DevOps</a></p>
+                            <p class="item-title"><a href="/2025/05/01/devops-4/" class="title">🐳 Docker의 시대는 끝났을까? 개발자들이 런타임을 바꾸는 진짜 이유</a></p>
+                            <p class="item-date"><time datetime="2025-05-01T13:38:35.000Z" itemprop="datePublished">2025-05-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/04/21/python-13/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/python.png)" alt="생산성을 폭발시키는 파이썬 자동화 스크립트 10개" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2025/04/21/python-13/" class="title">생산성을 폭발시키는 파이썬 자동화 스크립트 10개</a></p>
+                            <p class="item-date"><time datetime="2025-04-21T05:50:44.000Z" itemprop="datePublished">2025-04-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/04/11/java-6/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/java.png)" alt="Java는 죽지 않았다 – 2025년에도 여전히 강력한 이유" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Language/">Language</a></p>
+                            <p class="item-title"><a href="/2025/04/11/java-6/" class="title">Java는 죽지 않았다 – 2025년에도 여전히 강력한 이유</a></p>
+                            <p class="item-date"><time datetime="2025-04-11T04:53:05.000Z" itemprop="datePublished">2025-04-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/04/07/ai-29/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/ai.png)" alt="⚠️ 기술 쓰나미가 몰려온다" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2025/04/07/ai-29/" class="title">⚠️ 기술 쓰나미가 몰려온다</a></p>
+                            <p class="item-date"><time datetime="2025-04-07T05:54:32.000Z" itemprop="datePublished">2025-04-07</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">카테고리</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">66</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">443</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">82</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/CLAUDE/">CLAUDE</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">40</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Net-Core/">.Net Core</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">21</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">27</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/SQL/">SQL</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">38</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">30</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">124</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">25</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">8</span></li></ul></li></ul>
+        </div>
+    </div>
+
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">링크</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+  <div class="widget-wrap widget-float">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- huemen sidebar -->
+    <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-7581566810202853"
+            data-ad-slot="1131844921"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+</div>
+  
+  </div>
+  <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+
+  <!-- hits 방문자수 -->
+  <a href="https://hits.seeyoufarm.com" target="_blank" rel="noopener">
+    <style>
+      .hits {
+        width: auto;
+        height: auto;
+        max-width: 99px;
+        max-height: 20px;
+      }
+    </style>
+    <img
+      src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhgko1207.github.io&count_bg=%23E6ADD5&title_bg=%23BF98D2&icon=&icon_color=%23E7E7E7&title=%EB%B0%A9%EB%AC%B8%EC%9E%90%EC%88%98&edge_flat=false"
+      alt="방문자수"
+    />
+  </a>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h2 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h2>
+                <p>&copy; 2026 Hyeong Gyun Ko</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://hgko1207.github.io/2024/12/05/python-11/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+      <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
