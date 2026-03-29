@@ -276,11 +276,11 @@
 
             <p><strong>Next.js</strong>에서 <strong>Redirect</strong>와 <strong>Rewrite</strong> 설정 방법에 대해 알아보겠습니다.</p>
 <p>Redirect와 Rewrite 설정은 next.config.js 파일에서 설정하게 됩니다.</p>
-<h2 id="next-config-js">next.config.js</h2>
+<h2 id="nextconfigjs"><a class="markdownIt-Anchor" href="#nextconfigjs"></a> next.config.js</h2>
 <p>Next.js에서 커스텀 설정을 하기 위해서는 프로젝트 디렉터리의 루트에 next.config.js 또는 next.config.mjs 파일을 만들 수 있습니다. <strong>next.config.js</strong>는 JSON 파일이 아닌 일반 Node.js 모듈입니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** <span class="doctag">@type <span class="type">&#123;import('next').NextConfig&#125;</span> </span>*/</span></span><br><span class="line"><span class="keyword">const</span> nextConfig = &#123;</span><br><span class="line">  reactStrictMode: <span class="literal">true</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = nextConfig;</span><br></pre></td></tr></table></figure>
 <p>Next.js 서버 및 빌드 단계에서 사용되며 브라우저 빌드에는 포함되지 않습니다.</p>
-<h2 id="Redirects-URL변경됨">Redirects (URL변경됨)</h2>
+<h2 id="redirects-url변경됨"><a class="markdownIt-Anchor" href="#redirects-url변경됨"></a> Redirects (URL변경됨)</h2>
 <p><strong>Redirect</strong> 을 사용하면 들어오는 request 경로를 다른 destination 경로로 Redirect 할 수 있습니다. Redirect 을 사용하려면 next.config.js 에서 <code>redirects</code> 키를 설정합니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> nextConfig = &#123;</span><br><span class="line">  reactStrictMode: <span class="literal">true</span>,</span><br><span class="line">  <span class="keyword">async</span> redirects() &#123;</span><br><span class="line">    <span class="keyword">return</span> [</span><br><span class="line">      &#123;</span><br><span class="line">        source: <span class="string">'/contact'</span>,</span><br><span class="line">        destination: <span class="string">'/form'</span>,</span><br><span class="line">        permanent: <span class="literal">false</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    ];</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">module</span>.exports = nextConfig;</span><br></pre></td></tr></table></figure>
 <p><code>redirects</code>은 source, destination 및 permanent 속성이 있는 객체를 포함하는 배열을 반환하는 비동기 함수입니다.</p>
@@ -292,13 +292,13 @@
 <p>request 경로에 요청되는 모든 쿼리 값도 destination 으로 전달됩니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> nextConfig = &#123;</span><br><span class="line">  reactStrictMode: <span class="literal">true</span>,</span><br><span class="line">  <span class="keyword">async</span> redirects() &#123;</span><br><span class="line">    <span class="keyword">return</span> [</span><br><span class="line">      &#123;</span><br><span class="line">        source: <span class="string">'/old-blog/:path*'</span>,</span><br><span class="line">        destination: <span class="string">'/blog/:path*'</span>,</span><br><span class="line">        permanent: <span class="literal">false</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    ];</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">module</span>.exports = nextConfig;</span><br></pre></td></tr></table></figure>
 <p>예를 들어 <code>/old-blog/post-1?hello=world</code> 요청이 들어오면 <code>/blog/post-1?hello=world</code> 경로로 Redirect 됩니다.</p>
-<h2 id="Rewrites-URL변경되지-않음">Rewrites (URL변경되지 않음)</h2>
+<h2 id="rewrites-url변경되지-않음"><a class="markdownIt-Anchor" href="#rewrites-url변경되지-않음"></a> Rewrites (URL변경되지 않음)</h2>
 <p><strong>Rewrites</strong>를 사용하면 들어오는 request 경로를 다른 destination 경로에 매핑할 수 있습니다.</p>
 <p>Rewrites은 URL 프록시 역할을 하고 destination 경로를 mask 하여 사용자가 사이트에서 위치를 변경하지 않은 것처럼 보이게 합니다. 반대로 redirects은 새 페이지로 reroute 되고 URL 변경 사항을 표시합니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> API_KEY = process.env.API_KEY;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> nextConfig = &#123;</span><br><span class="line">  reactStrictMode: <span class="literal">true</span>,</span><br><span class="line">  <span class="keyword">async</span> rewrites() &#123;</span><br><span class="line">    <span class="keyword">return</span> [</span><br><span class="line">      &#123;</span><br><span class="line">        source: <span class="string">'/api/movies'</span>,</span><br><span class="line">        destination: <span class="string">`https://api.themoviedb.org/3/movie/popular?api_key=<span class="subst">$&#123;API_KEY&#125;</span>`</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    ];</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">module</span>.exports = nextConfig;</span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 사용</span></span><br><span class="line"><span class="keyword">const</span> &#123; results &#125; = <span class="keyword">await</span> (<span class="keyword">await</span> fetch(<span class="string">`/api/movies`</span>)).json();</span><br></pre></td></tr></table></figure>
 <p>API를 통해 데이터를 조회할 때 API Key가 필요한 경우가 있습니다. 그럴 경우 API Key가 노출되어 위험할 수 있습니다. 위의 내용처럼 Rewrites를 사용하여 API 주소로 매핑을 하여 노출되지 않도록 해결하였습니다.</p>
-<h2 id="참고">참고</h2>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <ul>
 <li><a href="https://nextjs.org/docs/api-reference/next.config.js/introduction" target="_blank" rel="noopener">https://nextjs.org/docs/api-reference/next.config.js/introduction</a></li>
 <li><a href="https://nextjs.org/docs/api-reference/next.config.js/redirects" target="_blank" rel="noopener">https://nextjs.org/docs/api-reference/next.config.js/redirects</a></li>
@@ -337,7 +337,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2023/02/21/nextjs-5/" data-id="cmnbsnxzk00lkukcxany7e7xl" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2023/02/21/nextjs-5/" data-id="cmnbvrtta00llx4cxe1xn7go2" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -417,9 +417,9 @@
         "url": "http://hgko1207.github.io/2023/02/21/nextjs-5/",
         "description": "Next.js에서 Redirect와 Rewrite 설정 방법에 대해 알아보겠습니다.
 Redirect와 Rewrite 설정은 next.config.js 파일에서 설정하게 됩니다.
-next.config.js
-Next.js에서 커스텀 설정을 하기 위해서는 프로젝트 디렉터리의 루트에 next.config.js 또는 next.config.mjs 파일을 만들 수 있습",
-        "wordCount": 559
+ next.config.js
+Next.js에서 커스텀 설정을 하기 위해서는 프로젝트 디렉터리의 루트에 next.config.js 또는 next.config.mjs 파일을 만들 수 있",
+        "wordCount": 571
     }
 </script>
 

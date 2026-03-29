@@ -273,12 +273,12 @@
             
 
             <p><strong>Next.js</strong>를 사용하는 프로젝트 생성 하는 방법에 대해 알아보겠습니다.</p>
-<h2 id="시스템-요구-사항">시스템 요구 사항</h2>
+<h2 id="시스템-요구-사항"><a class="markdownIt-Anchor" href="#시스템-요구-사항"></a> 시스템 요구 사항</h2>
 <ul>
 <li>Node.js 14.6.0 이상</li>
 <li>MacOS, Windows(WSL 포함) 및 Linux 가 지원됩니다.</li>
 </ul>
-<h2 id="프로젝트-생성">프로젝트 생성</h2>
+<h2 id="프로젝트-생성"><a class="markdownIt-Anchor" href="#프로젝트-생성"></a> 프로젝트 생성</h2>
 <p>리액트 프로젝트를 생성하는 방법과 비슷하게 <code>create-next-app</code> 명령어를 사용합니다. <code>@latest</code> 를 추가하면 최신 버전으로 프로젝트를 생성합니다.</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">npx</span> <span class="string">create-next-app@latest</span></span><br><span class="line"><span class="comment"># or</span></span><br><span class="line"><span class="attr">yarn</span> <span class="string">create next-app</span></span><br></pre></td></tr></table></figure>
 <p>TypeScript 프로젝트로 시작하려면 <code>--typescript</code> 옵션을 추가합니다.</p>
@@ -286,13 +286,13 @@
 <p>위의 방법으로 프로젝트를 생성해 보겠습니다.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">D:\project\Study&gt;npx create-next-app@latest</span><br><span class="line">√ What is your project named? ... nextjs-intro</span><br><span class="line">√ Would you like to use TypeScript with this project? ... No / Yes</span><br><span class="line">√ Would you like to use ESLint with this project? ... No / Yes</span><br><span class="line">√ Would you like to use `src/` directory with this project? ... No / Yes</span><br><span class="line">√ Would you like to use experimental `app/` directory with this project? ... No / Yes</span><br><span class="line">√ What import <span class="built_in">alias</span> would you like configured? ... @/*</span><br><span class="line">Creating a new Next.js app <span class="keyword">in</span> D:\project\Study\nomadcoders\nextjs-intro.</span><br><span class="line"></span><br><span class="line">Using npm.</span><br><span class="line"></span><br><span class="line">Installing dependencies:</span><br><span class="line">- react</span><br><span class="line">- react-dom</span><br><span class="line">- next</span><br><span class="line">- @next/font</span><br><span class="line">- eslint</span><br><span class="line">- eslint-config-next</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">added 264 packages, and audited 265 packages <span class="keyword">in</span> 25s</span><br><span class="line"></span><br><span class="line">102 packages are looking <span class="keyword">for</span> funding</span><br><span class="line">  run `npm fund` <span class="keyword">for</span> details</span><br><span class="line"></span><br><span class="line">found 0 vulnerabilities</span><br><span class="line"></span><br><span class="line">Initializing project with template: default</span><br><span class="line"></span><br><span class="line">Success! Created nextjs-intro at D:\project\Study\nextjs-intro</span><br></pre></td></tr></table></figure>
 <p>프로젝트 이름을 입력하고 TypeScript와 ESLint 사용 여부를 선택하면 프로젝트가 성공적으로 생성됩니다.</p>
-<h2 id="시작">시작</h2>
+<h2 id="시작"><a class="markdownIt-Anchor" href="#시작"></a> 시작</h2>
 <p>프로젝트 기본 구조입니다.</p>
-<p><img src="/images/nextjs/1.png" alt=""></p>
+<p><img src="/images/nextjs/1.png" alt="" /></p>
 <p>다음 명령어를 실행하여 개발 서버를 시작합니다.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">yarn dev</span><br></pre></td></tr></table></figure>
 <p>개발 서버가 구동되면 <code>http://localhost:3000</code>에 접속하여 확인합니다.</p>
-<h2 id="참고">참고</h2>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <ul>
 <li><a href="https://nextjs.org/docs/getting-started" target="_blank" rel="noopener">https://nextjs.org/docs/getting-started</a></li>
 </ul>
@@ -329,7 +329,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2023/02/03/nextjs-1/" data-id="cmnbsnxzk00lnukcx9uth398j" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2023/02/03/nextjs-1/" data-id="cmnbvrtt600l2x4cx08gh5grv" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -408,14 +408,14 @@
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2023/02/03/nextjs-1/",
         "description": "Next.js를 사용하는 프로젝트 생성 하는 방법에 대해 알아보겠습니다.
-시스템 요구 사항
+ 시스템 요구 사항
 
 Node.js 14.6.0 이상
 MacOS, Windows(WSL 포함) 및 Linux 가 지원됩니다.
 
-프로젝트 생성
-리액트 프로젝트를 생성하는 방법과 비슷하게 create-next-app 명령어를 사용합니다. @latest 를 추가하면 최신 버전으로 프로젝트를 ",
-        "wordCount": 312
+ 프로젝트 생성
+리액트 프로젝트를 생성하는 방법과 비슷하게 create-next-app 명령어를 사용합니다. @latest 를 추가하면 최신 버전으로 프로젝트",
+        "wordCount": 325
     }
 </script>
 

@@ -273,33 +273,33 @@
             
 
             <p><strong>Recoil</strong> 사용 방법에 대해 알아보겠습니다.</p>
-<h2 id="Recoil">Recoil</h2>
+<h2 id="recoil"><a class="markdownIt-Anchor" href="#recoil"></a> Recoil</h2>
 <p><strong>Recoil</strong>는 페이스북에서 만든 React를 위한 상태 관리 라이브러리입니다. Recoil을 사용하면 atoms (공유 상태)에서 selectors (순수 함수)를 거쳐 React 컴포넌트로 내려가는 data-flow graph를 만들 수 있습니다.</p>
-<h2 id="설치">설치</h2>
+<h2 id="설치"><a class="markdownIt-Anchor" href="#설치"></a> 설치</h2>
 <p>Recoil 패키지는 npm에 존재합니다. 안정한 최신 버전을 설치하기 위해서는 다음의 명령어를 실행하면 됩니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install recoil</span></span><br></pre></td></tr></table></figure>
 <p>또는 yarn을 사용한다면 이 명령어를 사용하면 됩니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> yarn add recoil</span></span><br></pre></td></tr></table></figure>
-<h2 id="RecoilRoot">RecoilRoot</h2>
+<h2 id="recoilroot"><a class="markdownIt-Anchor" href="#recoilroot"></a> RecoilRoot</h2>
 <p>루트에 <code>RecoilRoot</code>를 감싸줍니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.tsx</span></span><br><span class="line"><span class="keyword">import</span> &#123; RecoilRoot &#125; <span class="keyword">from</span> <span class="string">'recoil'</span>;</span><br><span class="line"><span class="keyword">import</span> ToggleOutput <span class="keyword">from</span> <span class="string">'./ToggleOutput'</span>;</span><br><span class="line"><span class="keyword">import</span> ToggleButton <span class="keyword">from</span> <span class="string">'./ToggleButton'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;RecoilRoot&gt;</span><br><span class="line">      &lt;ToggleOutput /&gt;</span><br><span class="line">      &lt;ToggleButton /&gt;</span><br><span class="line">    &lt;<span class="regexp">/RecoilRoot&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
-<h2 id="사용">사용</h2>
-<h3 id="Atoms">Atoms</h3>
+<h2 id="사용"><a class="markdownIt-Anchor" href="#사용"></a> 사용</h2>
+<h3 id="atoms"><a class="markdownIt-Anchor" href="#atoms"></a> Atoms</h3>
 <p><strong>Atoms</strong>는 상태(state)의 일부를 나타냅니다. Atoms는 어떤 컴포넌트에서나 읽고 쓸 수 있습니다.</p>
-<p><code>atoms.ts</code> 파일을 생성하고 Recoil의 atom function 을 사용하여 필요한 데이터를 설정합니다.<br>
+<p><code>atoms.ts</code> 파일을 생성하고 Recoil의 atom function 을 사용하여 필요한 데이터를 설정합니다.<br />
 atom 은 두 가지를 요구하는데 첫 번째는 key 로 <strong>unique ID</strong> 이고 두 번째는 <strong>default value</strong>입니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// atoms.ts</span></span><br><span class="line"><span class="keyword">import</span> &#123; atom &#125; <span class="keyword">from</span> <span class="string">'recoil'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> isToggleAtom = atom(&#123;</span><br><span class="line">  key: <span class="string">'isToggle'</span>,</span><br><span class="line">  <span class="keyword">default</span>: <span class="literal">false</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>컴포넌트가 atom을 읽게 하기 위해서는 <code>useRecoilValue()</code>를 다음과 같이 사용하면 됩니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ToggleOutput.tsx</span></span><br><span class="line"><span class="keyword">import</span> &#123; useRecoilValue &#125; <span class="keyword">from</span> <span class="string">'recoil'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; isToggleAtom &#125; <span class="keyword">from</span> <span class="string">'./atoms'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ToggleOutput</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> isToggle = useRecoilValue(isToggleAtom);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &lt;div&gt;Toggle state: &#123;isToggle&#125;&lt;<span class="regexp">/div&gt;;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
-<p>컴포넌트가 atom을 쓰게 하기 위해서는 <code>useSetRecoilState()</code>를 다음과 같이 사용하면 됩니다.<br>
+<p>컴포넌트가 atom을 쓰게 하기 위해서는 <code>useSetRecoilState()</code>를 다음과 같이 사용하면 됩니다.<br />
 atom을 읽고 쓰게 하기 위해서는 <code>useRecoilState()</code>를 사용하면 됩니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ToggleButton.tsx</span></span><br><span class="line"><span class="keyword">import</span> &#123; useSetRecoilState &#125; <span class="keyword">from</span> <span class="string">'recoil'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; isToggleAtom &#125; <span class="keyword">from</span> <span class="string">'./atoms'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ToggleButton</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> setToggleAtom = useSetRecoilState(isToggleAtom);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> toggle = <span class="function"><span class="params">()</span> =&gt;</span> setToggleAtom(<span class="function">(<span class="params">prev</span>) =&gt;</span> !prev);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;br /&gt;</span><br><span class="line">      &lt;button onClick=&#123;toggle&#125;&gt;Toggle Mode&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Selectors">Selectors</h3>
-<p><strong>Selectors</strong>는 devived state를 나타냅니다. devived state 란 state 를 입력받아서 그걸 변형해 반환하는 순수 함수를 거쳐 반환된 값을 말합니다.<br>
+<h3 id="selectors"><a class="markdownIt-Anchor" href="#selectors"></a> Selectors</h3>
+<p><strong>Selectors</strong>는 devived state를 나타냅니다. devived state 란 state 를 입력받아서 그걸 변형해 반환하는 순수 함수를 거쳐 반환된 값을 말합니다.<br />
 atom의 output은 한 가지 형태이므로 조금 더 잘 써먹을 수 있는 형태로 변형해 줍니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">interface</span> IToDo &#123;</span><br><span class="line">  text: <span class="built_in">string</span>;</span><br><span class="line">  id: <span class="built_in">number</span>;</span><br><span class="line">  category: <span class="string">'TO_DO'</span> | <span class="string">'DOING'</span> | <span class="string">'DONE'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> toDoState = atom&lt;IToDo[]&gt;(&#123;</span><br><span class="line">  key: <span class="string">'toDo'</span>,</span><br><span class="line">  <span class="keyword">default</span>: [],</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> toDoSelector = selector(&#123;</span><br><span class="line">  key: <span class="string">'toDoSelector'</span>,</span><br><span class="line">  <span class="keyword">get</span>: <span class="function">(<span class="params">&#123; <span class="keyword">get</span> &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> toDos = <span class="keyword">get</span>(toDoState);</span><br><span class="line">    <span class="keyword">return</span> [</span><br><span class="line">      toDos.filter(<span class="function">(<span class="params">toDo</span>) =&gt;</span> toDo.category === <span class="string">'TO_DO'</span>),</span><br><span class="line">      toDos.filter(<span class="function">(<span class="params">toDo</span>) =&gt;</span> toDo.category === <span class="string">'DOING'</span>),</span><br><span class="line">      toDos.filter(<span class="function">(<span class="params">toDo</span>) =&gt;</span> toDo.category === <span class="string">'DONE'</span>),</span><br><span class="line">    ];</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>category 값을 3개의 타입 형태로 사용할 경우 타입 별로 값을 반환하고 싶을 때 selector를 사용하여 atom에서 각각의 타입 별로 값을 분류하고 합쳐서 하나의 값으로 반환합니다.</p>
-<h2 id="참고">참고</h2>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <ul>
 <li><a href="https://recoiljs.org/ko/docs/introduction/getting-started" target="_blank" rel="noopener">https://recoiljs.org/ko/docs/introduction/getting-started</a></li>
 <li><a href="https://recoiljs.org/docs/basic-tutorial/selectors/" target="_blank" rel="noopener">https://recoiljs.org/docs/basic-tutorial/selectors/</a></li>
@@ -337,7 +337,7 @@ atom의 output은 한 가지 형태이므로 조금 더 잘 써먹을 수 있는
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/07/25/react-6/" data-id="cmnbsnxy800dgukcxgi9s8h6o" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/07/25/react-6/" data-id="cmnbvrtrh00dex4cx6ojxhdvb" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -416,11 +416,11 @@ atom의 output은 한 가지 형태이므로 조금 더 잘 써먹을 수 있는
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2022/07/25/react-6/",
         "description": "Recoil 사용 방법에 대해 알아보겠습니다.
-Recoil
+ Recoil
 Recoil는 페이스북에서 만든 React를 위한 상태 관리 라이브러리입니다. Recoil을 사용하면 atoms (공유 상태)에서 selectors (순수 함수)를 거쳐 React 컴포넌트로 내려가는 data-flow graph를 만들 수 있습니다.
-설치
-Recoil 패키지는 npm에 존재합니다. ",
-        "wordCount": 668
+ 설치
+Recoil 패키지는 npm에 존재합니다",
+        "wordCount": 692
     }
 </script>
 

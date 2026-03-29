@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
-    <meta name="keywords" content="Dart,변수,Data Types" />
+    <meta name="keywords" content="Dart,Data Types,변수" />
     
     
     
@@ -27,8 +27,8 @@
 <meta property="article:modified_time" content="2024-01-12T07:09:13.930Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="Dart">
-<meta property="article:tag" content="변수">
 <meta property="article:tag" content="Data Types">
+<meta property="article:tag" content="변수">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/dart.png">
     
@@ -273,35 +273,35 @@
             
 
             <p><strong>Dart</strong>에서 데이터 타입 사용 방법에 대해 알아보겠습니다.</p>
-<h2 id="기본-데이터-타입">기본 데이터 타입</h2>
+<h2 id="기본-데이터-타입"><a class="markdownIt-Anchor" href="#기본-데이터-타입"></a> 기본 데이터 타입</h2>
 <p>Dart에는 대표적으로 <code>String</code>, <code>bool</code>, <code>int</code>, <code>double</code>, <code>num</code> 타입이 있습니다. 중요한 점은 이 모든 게 객체(object)라는 것입니다.</p>
 <p>Dart가 진정한 객체 지향 언어로 불리는 이유입니다.</p>
 <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  <span class="built_in">String</span> name = <span class="string">"eden"</span>;</span><br><span class="line">  <span class="built_in">bool</span> isPlay = <span class="keyword">true</span>;</span><br><span class="line">  <span class="built_in">int</span> age = <span class="number">3</span>;</span><br><span class="line">  <span class="built_in">double</span> money = <span class="number">59.99</span>;</span><br><span class="line">  <span class="built_in">num</span> x = <span class="number">12</span>;</span><br><span class="line">  <span class="built_in">num</span> y = <span class="number">1.2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="String-Interpoldation">String Interpoldation</h2>
+<h2 id="string-interpoldation"><a class="markdownIt-Anchor" href="#string-interpoldation"></a> String Interpoldation</h2>
 <p><strong>String Interpoldation</strong>은 텍스트에 변수를 추가하는 방법입니다.</p>
 <p>단순히 변수의 값을 넣고 싶다면 <code>$</code>달러 기호 뒤에 사용할 변수를 적어주면 됩니다. 변수의 값을 계산하고 싶다면 <code>$</code>와 함께 중괄호(`${ })내에 계산할 내용을 적어주면 됩니다.</p>
 <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">"eden"</span>;</span><br><span class="line">  <span class="keyword">var</span> age = <span class="number">3</span>;</span><br><span class="line">  <span class="keyword">var</span> greeting = <span class="string">"hello <span class="subst">$name</span>, I'm <span class="subst">$&#123;age + <span class="number">5</span>&#125;</span> years old."</span>;</span><br><span class="line">  <span class="built_in">print</span>(greeting);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Lists">Lists</h2>
+<h2 id="lists"><a class="markdownIt-Anchor" href="#lists"></a> Lists</h2>
 <p>Dart에서 <strong>List</strong>를 선언하는 것은 두 가지 방법이 있습니다.</p>
 <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  <span class="built_in">List</span>&lt;<span class="built_in">int</span>&gt; numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">  numbers.add(<span class="number">4</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> number2 = [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Dart에서 List의 유용한 점은 <code>collection if</code>와 <code>collection for</code>를 지원합니다.</p>
-<h3 id="collection-if">collection if</h3>
+<h3 id="collection-if"><a class="markdownIt-Anchor" href="#collection-if"></a> collection if</h3>
 <p>collection if는 List를 만들 때, if를 통해 <strong>존재할 수도 안 할 수도 있는 요소</strong>를 가지고 만들 수 있습니다.</p>
 <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  <span class="keyword">var</span> giveMeFive = <span class="keyword">true</span>;</span><br><span class="line">  <span class="keyword">var</span> item = [</span><br><span class="line">    <span class="number">1</span>,</span><br><span class="line">    <span class="number">2</span>,</span><br><span class="line">    <span class="number">3</span>,</span><br><span class="line">    <span class="number">4</span>,</span><br><span class="line">    <span class="keyword">if</span> (giveMeFive) <span class="number">5</span>, <span class="comment">// giveMeFive가 true이면 5가 추가됨</span></span><br><span class="line">  ];</span><br><span class="line">  <span class="built_in">print</span>(item);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Collection-For">Collection For</h3>
+<h3 id="collection-for"><a class="markdownIt-Anchor" href="#collection-for"></a> Collection For</h3>
 <p>Dart에서는 반복(for)을 사용하여 컬렉션을 구축하는 데 사용할 수 있는 Collection for를 제공합니다.</p>
 <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  <span class="keyword">var</span> oldFriends = [<span class="string">"ko"</span>, <span class="string">"lee"</span>];</span><br><span class="line">    <span class="keyword">var</span> newFriends = [</span><br><span class="line">    <span class="string">"eden"</span>,</span><br><span class="line">    <span class="string">"woorim"</span>,</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> friend <span class="keyword">in</span> oldFriends) <span class="string">"🥰 <span class="subst">$friend</span>"</span></span><br><span class="line">  ];</span><br><span class="line"></span><br><span class="line">  <span class="built_in">print</span>(newFriends); <span class="comment">// [eden, woorim, 🥰 ko, 🥰 lee]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Maps">Maps</h2>
+<h2 id="maps"><a class="markdownIt-Anchor" href="#maps"></a> Maps</h2>
 <p>일반적으로 Map은 key와 value를 연결하는 객체입니다. 키와 값 모두 모든 유형의 객체가 될 수 있습니다. 각 키는 한 번만 발생하지만 동일한 값을 여러 번 사용할 수 있습니다.</p>
 <p>Map을 정의하는 방법은 두 가지가 있습니다. 첫 번째는 <code>var</code> 를 이용한 방법입니다. 두 번째는 <code>var</code> 대신 <code>Map</code> 을 사용하고, 자료형을 명시하는 것입니다.</p>
 <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 첫 번째</span></span><br><span class="line"><span class="keyword">var</span> gifts = &#123;</span><br><span class="line">  <span class="comment">// Key: Value</span></span><br><span class="line">  <span class="string">'first'</span>: <span class="string">'smartphone'</span>,</span><br><span class="line">  <span class="string">'second'</span>: <span class="string">'laptop'</span>,</span><br><span class="line">  <span class="string">'third'</span>: <span class="string">'bicycle'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 두 번째</span></span><br><span class="line"><span class="built_in">Map</span> players = &#123;</span><br><span class="line">  <span class="number">1</span> : <span class="keyword">true</span>,</span><br><span class="line">  <span class="number">2</span> : <span class="keyword">false</span>,</span><br><span class="line">  <span class="number">3</span> : <span class="keyword">true</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Map 생성자를 사용하여 동일한 객체를 만들 수 있습니다.</span></span><br><span class="line"><span class="keyword">var</span> gifts = <span class="built_in">Map</span>();</span><br><span class="line">gifts[<span class="string">'first'</span>] = <span class="string">'smartphone'</span>;</span><br><span class="line">gifts[<span class="string">'second'</span>] = <span class="string">'laptop'</span>;</span><br><span class="line">gifts[<span class="string">'third'</span>] = <span class="string">'bicycle'</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="Sets">Sets</h2>
+<h2 id="sets"><a class="markdownIt-Anchor" href="#sets"></a> Sets</h2>
 <p><strong>Set</strong>에 속한 모든 아이템들이 유니크해야 될 때 사용합니다. 유니크할 필요가 없다면 <code>List</code>를 사용하면 됩니다.</p>
 <p><code>Set</code>도 두 가지 방법으로 정의할 수 있습니다.</p>
 <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  <span class="keyword">var</span> numbers1 = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line">  <span class="built_in">Set</span> numbers2 = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">Set</span>&lt;<span class="built_in">int</span>&gt; numbers3 = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line">  numbers3.add(<span class="number">1</span>);</span><br><span class="line">  numbers3.add(<span class="number">2</span>);</span><br><span class="line">  numbers3.add(<span class="number">4</span>);</span><br><span class="line">  <span class="built_in">print</span>(numbers3) <span class="comment">// &#123;1, 2, 3, 4&#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>List</code>는 대괄호를 쓰며 <code>Set</code>은 중괄호를 쓴다는 점이 다릅니다. <code>List</code>는 같은 요소가 여러 개 반복될 수 있지만, <code>Set</code>은 중복이 허용되지 않습니다.</p>
-<h2 id="참고">참고</h2>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <ul>
 <li><a href="https://dart.dev/guides/language/language-tour#collection-operators" target="_blank" rel="noopener">https://dart.dev/guides/language/language-tour#collection-operators</a></li>
 <li><a href="https://dart.dev/guides/language/language-tour#maps" target="_blank" rel="noopener">https://dart.dev/guides/language/language-tour#maps</a></li>
@@ -340,7 +340,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2023/04/17/dart-4/" data-id="cmnbsnxzr00mqukcxgu0j42rw" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2023/04/17/dart-4/" data-id="cmnbvrttj00mtx4cx1xwyfhq8" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -412,18 +412,18 @@
         },
         "headline": "[Dart] Data Types",
         "image": "http://hgko1207.github.io/images/thumbnail/dart.png",
-        "keywords": "Dart 변수 Data Types",
+        "keywords": "Dart Data Types 변수",
         "genre": "Programming Language Dart",
         "datePublished": "2023-04-17",
         "dateCreated": "2023-04-17",
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2023/04/17/dart-4/",
         "description": "Dart에서 데이터 타입 사용 방법에 대해 알아보겠습니다.
-기본 데이터 타입
+ 기본 데이터 타입
 Dart에는 대표적으로 String, bool, int, double, num 타입이 있습니다. 중요한 점은 이 모든 게 객체(object)라는 것입니다.
 Dart가 진정한 객체 지향 언어로 불리는 이유입니다.
-12345678void main() &#123;  String name",
-        "wordCount": 735
+12345678void main() &#123;  String nam",
+        "wordCount": 759
     }
 </script>
 

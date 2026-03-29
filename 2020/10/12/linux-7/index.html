@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
-    <meta name="keywords" content="리눅스,Linux,CentOS,Tomcat,톰캣" />
+    <meta name="keywords" content="리눅스,CentOS,Linux,Tomcat,톰캣" />
     
     
     
@@ -27,8 +27,8 @@
 <meta property="article:modified_time" content="2024-01-11T14:31:29.414Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="리눅스">
-<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="CentOS">
+<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Tomcat">
 <meta property="article:tag" content="톰캣">
 <meta name="twitter:card" content="summary_large_image">
@@ -275,33 +275,33 @@
             
 
             <p>리눅스 환경에서 아파치 톰캣 설치 및 사용 방법에 대해 알아보겠습니다.</p>
-<h2 id="아파치-톰캣-Tomcat-이란">아파치 톰캣(Tomcat) 이란</h2>
+<h2 id="아파치-톰캣tomcat-이란"><a class="markdownIt-Anchor" href="#아파치-톰캣tomcat-이란"></a> 아파치 톰캣(Tomcat) 이란</h2>
 <blockquote>
-<p>아파치 톰캣(Apache Tomcat)은 아파치 소프트웨어 재단에서 개발한 서블릿 컨테이너(또는 웹 컨테이너)만 있는 웹 애플리케이션 서버이다.<br>
-톰캣은 웹 서버와 연동하여 실행할 수 있는 자바 환경을 제공하여 자바서버 페이지(JSP)와 자바 서블릿이 실행할 수 있는 환경을 제공하고 있다.<br>
-톰캣은 관리툴을 통해 설정을 변경할 수 있지만, XML 파일을 편집하여 설정할 수도 있다. 그리고, 톰캣은 HTTP 서버도 자체 내장하기도 한다.<br>
+<p>아파치 톰캣(Apache Tomcat)은 아파치 소프트웨어 재단에서 개발한 서블릿 컨테이너(또는 웹 컨테이너)만 있는 웹 애플리케이션 서버이다.<br />
+톰캣은 웹 서버와 연동하여 실행할 수 있는 자바 환경을 제공하여 자바서버 페이지(JSP)와 자바 서블릿이 실행할 수 있는 환경을 제공하고 있다.<br />
+톰캣은 관리툴을 통해 설정을 변경할 수 있지만, XML 파일을 편집하여 설정할 수도 있다. 그리고, 톰캣은 HTTP 서버도 자체 내장하기도 한다.<br />
 출처 : <a href="https://ko.wikipedia.org/wiki/%EC%95%84%ED%8C%8C%EC%B9%98_%ED%86%B0%EC%BA%A3" target="_blank" rel="noopener">위키백과</a></p>
 </blockquote>
-<h2 id="1-다운로드">1. 다운로드</h2>
+<h2 id="1-다운로드"><a class="markdownIt-Anchor" href="#1-다운로드"></a> 1. 다운로드</h2>
 <p><a href="http://archive.apache.org/dist/tomcat/tomcat-8/" target="_blank" rel="noopener">http://archive.apache.org/dist/tomcat/tomcat-8/</a> 사이트에서 최신 버전을 확인하고 다운로드합니다.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[hgko@localhost ~]$ <span class="built_in">cd</span> /home/download</span><br><span class="line">[hgko@localhost download]$ wget http://archive.apache.org/dist/tomcat/tomcat-8/v8.5.59/bin/apache-tomcat-8.5.59.tar.gz</span><br></pre></td></tr></table></figure>
 <p>오프라인 환경에서는 <a href="https://tomcat.apache.org/download-80.cgi" target="_blank" rel="noopener">Tomcat 8 Download</a> 사이트 접속해서 tar.gz 파일을 직접 다운로드 후 서버에 전송합니다.</p>
-<h2 id="2-설치">2. 설치</h2>
+<h2 id="2-설치"><a class="markdownIt-Anchor" href="#2-설치"></a> 2. 설치</h2>
 <p>먼저 <code>tar</code> 명령어를 사용하여 압축을 풀어 줍니다. 압축이 풀리면 모든 사용자가 사용하고 관리가 편리하도록 Root 계정으로 접속 후 해당 폴더로 이동시켜줍니다.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 압축 해제</span></span><br><span class="line">[hgko@localhost download]$ tar zxvf apache-tomcat-8.5.59.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 폴더 이동</span></span><br><span class="line">[hgko@localhost download]$ sudo su</span><br><span class="line">[root@localhost download]$ mv /home/download/apache-tomcat-8.5.59 /usr/<span class="built_in">local</span>/lib</span><br></pre></td></tr></table></figure>
-<h2 id="3-환경-설정">3. 환경 설정</h2>
+<h2 id="3-환경-설정"><a class="markdownIt-Anchor" href="#3-환경-설정"></a> 3. 환경 설정</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]$ vi /etc/profile</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME=/usr/<span class="built_in">local</span>/java</span><br><span class="line">JRE_HOME=/usr/<span class="built_in">local</span>/java</span><br><span class="line">CATALINA_HOME=/usr/<span class="built_in">local</span>/lib/apache-tomcat-8.5.59</span><br><span class="line">CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/tools.jar:<span class="variable">$CATALINA_HOME</span>/lib/jsp-api.jar:<span class="variable">$CATALINA_HOME</span>/lib/servlet-api.jar</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$CATALINA_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> JAVA_HOME JRE_HOME CLASSPATH PATH CATALINA_HOME</span><br></pre></td></tr></table></figure>
 <p>Tomcat 설정 부분(CATALINA)만 수정하면 됩니다. 설정이 완료되면 반영합니다.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 설정 반영</span></span><br><span class="line">[root@localhost ~]$ <span class="built_in">source</span> /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 설정 확인</span></span><br><span class="line">[root@localhost ~]$ <span class="built_in">echo</span> <span class="variable">$CATALINA_HOME</span></span><br></pre></td></tr></table></figure>
-<h2 id="4-방화벽-설정">4. 방화벽 설정</h2>
+<h2 id="4-방화벽-설정"><a class="markdownIt-Anchor" href="#4-방화벽-설정"></a> 4. 방화벽 설정</h2>
 <p>현재 톰캣 포트가 8080이기 때문에 8080 포트에 대한 방화벽을 설정합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]$ firewall-cmd --permanent --zone=public --add-port=8080/tcp</span><br><span class="line">[root@localhost ~]$ firewall-cmd --reload</span><br></pre></td></tr></table></figure>
-<h2 id="5-실행">5. 실행</h2>
+<h2 id="5-실행"><a class="markdownIt-Anchor" href="#5-실행"></a> 5. 실행</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]$ cd /usr/local/lib/apache-tomcat-8.5.59/bin</span><br><span class="line">[root@localhost bin]$ ./startup.sh</span><br></pre></td></tr></table></figure>
-<h2 id="6-중지">6. 중지</h2>
+<h2 id="6-중지"><a class="markdownIt-Anchor" href="#6-중지"></a> 6. 중지</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost bin]$ ./shutdown.sh</span><br></pre></td></tr></table></figure>
-<h2 id="7-실행-확인">7. 실행 확인</h2>
+<h2 id="7-실행-확인"><a class="markdownIt-Anchor" href="#7-실행-확인"></a> 7. 실행 확인</h2>
 <p><code>http://localhost(ip 주소):8080</code> 에 접속해서 확인합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost bin]$ tail -f /usr/local/lib/apache-tomcat-8.5.59/logs/catalina.out</span><br></pre></td></tr></table></figure>
 <p><code>tail</code> 명령어를 사용하여 로그 내용을 출력해서 진행 상태를 파악할 수 있습니다.</p>
@@ -338,7 +338,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2020/10/12/linux-7/" data-id="cmnbsnxx90081ukcx6k46h9vo" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2020/10/12/linux-7/" data-id="cmnbvrtql00a3x4cx7qh4e2q5" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -410,18 +410,18 @@
         },
         "headline": "[CentOS] 아파치 톰캣(Tomcat) 설치 및 사용 방법",
         "image": "http://hgko1207.github.io/images/thumbnail/centos.png",
-        "keywords": "리눅스 Linux CentOS Tomcat 톰캣",
+        "keywords": "리눅스 CentOS Linux Tomcat 톰캣",
         "genre": "Programming DevOps Linux",
         "datePublished": "2020-10-12",
         "dateCreated": "2020-10-12",
         "dateModified": "2024-01-11",
         "url": "http://hgko1207.github.io/2020/10/12/linux-7/",
         "description": "리눅스 환경에서 아파치 톰캣 설치 및 사용 방법에 대해 알아보겠습니다.
-아파치 톰캣(Tomcat) 이란
+ 아파치 톰캣(Tomcat) 이란
 
 아파치 톰캣(Apache Tomcat)은 아파치 소프트웨어 재단에서 개발한 서블릿 컨테이너(또는 웹 컨테이너)만 있는 웹 애플리케이션 서버이다.
-톰캣은 웹 서버와 연동하여 실행할 수 있는 자바 환경을 제공하여 자바서버 페이지(JSP)와 자바 서블릿이 실",
-        "wordCount": 326
+톰캣은 웹 서버와 연동하여 실행할 수 있는 자바 환경을 제공하여 자바서버 페이지(JSP)와 자바 서블릿이 ",
+        "wordCount": 353
     }
 </script>
 

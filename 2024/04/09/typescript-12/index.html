@@ -275,25 +275,25 @@
 
             
 
-            <p><img src="/images/header/typescript-12.png" alt=""></p>
+            <p><img src="/images/header/typescript-12.png" alt="" /></p>
 <p>이번 글에서는 사용자 정의 타입, Enum 및 Interface를 만드는 데 초점을 맞춥니다. 이러한 강력한 구조를 사용하면 표현력이 풍부하고 잘 정의된 코드 구조를 만들 수 있습니다.</p>
 <p>타입을 만들고, 명명된 상수에 Enum을 활용하고, 명확한 Interface를 디자인하여 TypeScript 프로젝트의 협업과 유지 관리성을 향상시키는 방법을 살펴보세요.</p>
-<h2 id="1-Type-만들기">1. Type 만들기</h2>
+<h2 id="1-type-만들기"><a class="markdownIt-Anchor" href="#1-type-만들기"></a> 1. Type 만들기</h2>
 <p><code>type</code>을 사용하면 기존 타입에 대한 사용자 정의 이름을 정의하거나 타입의 조합을 만들 수 있습니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Status = <span class="string">'success'</span> | <span class="string">'error'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">processStatus</span>(<span class="params">status: Status</span>): <span class="title">void</span> </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Processing status: <span class="subst">$&#123;status&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> myStatus: Status = <span class="string">'success'</span>;</span><br><span class="line"></span><br><span class="line">processStatus(myStatus);</span><br><span class="line"><span class="comment">// Output: Processing status: success</span></span><br></pre></td></tr></table></figure>
 <p>이 예제에서 <code>Status</code>는 “success” 또는 &quot;error&quot;를 나타내는 사용자 정의 타입입니다.</p>
-<h2 id="2-Enum">2. Enum</h2>
+<h2 id="2-enum"><a class="markdownIt-Anchor" href="#2-enum"></a> 2. Enum</h2>
 <p><code>enum</code>은 숫자 값 집합에 보다 친숙한 이름을 부여하는 방법입니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> Direction &#123;</span><br><span class="line">  Up = <span class="string">'UP'</span>,</span><br><span class="line">  Down = <span class="string">'DOWN'</span>,</span><br><span class="line">  Left = <span class="string">'LEFT'</span>,</span><br><span class="line">  Right = <span class="string">'RIGHT'</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> playerDirection: Direction = Direction.Up;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`Player is moving <span class="subst">$&#123;playerDirection&#125;</span>`</span>);</span><br><span class="line"><span class="comment">// Output: Player is moving UP</span></span><br></pre></td></tr></table></figure>
 <p>여기서 <code>Direction</code>은 각 멤버에 문자열 값이 할당된 Enum 입니다.</p>
-<h2 id="3-Interface">3. Interface</h2>
+<h2 id="3-interface"><a class="markdownIt-Anchor" href="#3-interface"></a> 3. Interface</h2>
 <p><code>interface</code>는 객체 형상에 대한 컨트랙트를 정의하여 객체가 준수해야 하는 구조를 지정할 수 있습니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Person &#123;</span><br><span class="line">  firstName: <span class="built_in">string</span>;</span><br><span class="line">  lastName: <span class="built_in">string</span>;</span><br><span class="line">  age: <span class="built_in">number</span>;</span><br><span class="line">  sayHello: <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">void</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> john: Person = &#123;</span><br><span class="line">  firstName: <span class="string">'John'</span>,</span><br><span class="line">  lastName: <span class="string">'Doe'</span>,</span><br><span class="line">  age: <span class="number">30</span>,</span><br><span class="line">  sayHello: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`Hello, I'm <span class="subst">$&#123;john.firstName&#125;</span> <span class="subst">$&#123;john.lastName&#125;</span>.`</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">john.sayHello(); <span class="comment">// Output: Hello, I'm John Doe.</span></span><br></pre></td></tr></table></figure>
 <p>이 예제에서 <code>Person</code>은 <code>firstName</code>, <code>lastName</code>, <code>age</code> 및 <code>sayHello</code> 메서드가 있는 객체의 구조를 정의하는 인터페이스입니다.</p>
-<h2 id="Type-Enum-및-Interface-결합하기">Type, Enum 및 Interface 결합하기</h2>
+<h2 id="type-enum-및-interface-결합하기"><a class="markdownIt-Anchor" href="#type-enum-및-interface-결합하기"></a> Type, Enum 및 Interface 결합하기</h2>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Car = &#123;</span><br><span class="line">  make: <span class="built_in">string</span>;</span><br><span class="line">  model: <span class="built_in">string</span>;</span><br><span class="line">  year: <span class="built_in">number</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">enum</span> FuelType &#123;</span><br><span class="line">  Gasoline = <span class="string">'Gasoline'</span>,</span><br><span class="line">  Electric = <span class="string">'Electric'</span>,</span><br><span class="line">  Hybrid = <span class="string">'Hybrid'</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> ElectricCar <span class="keyword">extends</span> Car &#123;</span><br><span class="line">  batteryCapacity: <span class="built_in">number</span>;</span><br><span class="line">  fuelType: FuelType.Electric;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> myElectricCar: ElectricCar = &#123;</span><br><span class="line">  make: <span class="string">'Tesla'</span>,</span><br><span class="line">  model: <span class="string">'Model 3'</span>,</span><br><span class="line">  year: <span class="number">2022</span>,</span><br><span class="line">  batteryCapacity: <span class="number">75</span>,</span><br><span class="line">  fuelType: FuelType.Electric,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>여기에는 <code>Car</code> 타입, <code>FuelType</code> Enum, 그리고 <code>Car</code> 타입을 확장하는 <code>ElectricCar</code> 인터페이스가 있습니다. <code>myElectricCar</code>는 <code>ElectricCar</code> 인터페이스에 부합하는 객체입니다.</p>
-<h2 id="결론">결론</h2>
+<h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2>
 <p>이러한 개념을 사용하면 명확한 구조를 적용하고 유형과 값에 의미 있는 이름을 제공함으로써 보다 강력하고 유지 관리가 쉬운 코드를 만들 수 있습니다.</p>
 
         </div>
@@ -328,7 +328,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2024/04/09/typescript-12/" data-id="cmnbsny2k010wukcxfmke8l2v" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2024/04/09/typescript-12/" data-id="cmnbvrtxw0116x4cx0cs2hj97" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -409,7 +409,7 @@
         "description": "
 이번 글에서는 사용자 정의 타입, Enum 및 Interface를 만드는 데 초점을 맞춥니다. 이러한 강력한 구조를 사용하면 표현력이 풍부하고 잘 정의된 코드 구조를 만들 수 있습니다.
 타입을 만들고, 명명된 상수에 Enum을 활용하고, 명확한 Interface를 디자인하여 TypeScript 프로젝트의 협업과 유지 관리성을 향상시키는 방법을 살펴보세요.",
-        "wordCount": 509
+        "wordCount": 525
     }
 </script>
 

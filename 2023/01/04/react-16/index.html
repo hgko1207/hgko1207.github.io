@@ -275,21 +275,21 @@
 
             
 
-            <h2 id="useStaticQuery">useStaticQuery</h2>
+            <h2 id="usestaticquery"><a class="markdownIt-Anchor" href="#usestaticquery"></a> useStaticQuery</h2>
 <p><strong>useStaticQuery</strong>는 빌드 시 리액트 훅을 사용하여 Gatsby의 GraphQL 데이터 계층을 쿼리 하는 기능을 제공합니다. 이를 통해 React 컴포넌트는 구문 분석, 평가 및 컴포넌트에 삽입될 GraphQL 쿼리를 통해 데이터를 검색할 수 있습니다.</p>
 <p>useStaticQuery 훅은 모든 컴포넌트 또는 페이지에서 사용할 수 있습니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> data = useStaticQuery(graphql<span class="string">`</span></span><br><span class="line"><span class="string">  query HeaderQuery &#123;</span></span><br><span class="line"><span class="string">    site &#123;</span></span><br><span class="line"><span class="string">      siteMetadata &#123;</span></span><br><span class="line"><span class="string">        title</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">`</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="사용-방법">사용 방법</h2>
+<h2 id="사용-방법"><a class="markdownIt-Anchor" href="#사용-방법"></a> 사용 방법</h2>
 <p>TypeScript를 사용하고 <code>gatsby-config.ts</code> 파일에서 GraphQL 타입 생성에 관한 항목인 <code>graphqlTypegen</code> 값이 true로 설정되어 있다면 Gatsby가 쿼리를 읽고서 자동적으로 맞는 타입을 생성합니다.</p>
 <p><code>gatsby-types.d.ts</code> 파일을 열어서 보면 정의한 쿼리를 읽고 자동 타입 생성을 해버렸음을 확인 할 수 있습니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// useStaticQuery 정의</span></span><br><span class="line"><span class="keyword">const</span> data = useStaticQuery(graphql<span class="string">`</span></span><br><span class="line"><span class="string">  query SeoData &#123;</span></span><br><span class="line"><span class="string">    site &#123;</span></span><br><span class="line"><span class="string">      siteMetadata &#123;</span></span><br><span class="line"><span class="string">        title</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">`</span>);</span><br></pre></td></tr></table></figure>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// gatsby-types.d.ts</span></span><br><span class="line"><span class="keyword">type</span> SeoDataQuery = &#123; readonly site: &#123; readonly siteMetadata: &#123; readonly title: <span class="built_in">string</span> | <span class="literal">null</span> &#125; | <span class="literal">null</span> &#125; | <span class="literal">null</span> &#125;;</span><br></pre></td></tr></table></figure>
 <p>이렇게 자동 타입이 생성되었다면 <code>Queries</code>를 사용하여 <code>SeoDataQuery</code>를 찾아 타입을 부여합니다. TypeScript 자동완성이 제공됩니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> data = useStaticQuery&lt;Queries.SeoDataQuery&gt;(</span><br><span class="line">  graphql<span class="string">`</span></span><br><span class="line"><span class="string">    query SeoData &#123;</span></span><br><span class="line"><span class="string">      site &#123;</span></span><br><span class="line"><span class="string">        siteMetadata &#123;</span></span><br><span class="line"><span class="string">          title</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">);</span><br><span class="line"><span class="built_in">console</span>.log(data.site?.siteMetadata?.title);</span><br></pre></td></tr></table></figure>
-<h2 id="전체-코드">전체 코드</h2>
+<h2 id="전체-코드"><a class="markdownIt-Anchor" href="#전체-코드"></a> 전체 코드</h2>
 <p>GraphQL 쿼리를 통해 조회해서 Title를 설정하는 코드입니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; graphql, useStaticQuery &#125; <span class="keyword">from</span> <span class="string">'gatsby'</span>;</span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> ISeoProps &#123;</span><br><span class="line">  title: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">Seo</span>(<span class="params">&#123; title &#125;: ISeoProps</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> data = useStaticQuery&lt;Queries.SeoDataQuery&gt;(graphql<span class="string">`</span></span><br><span class="line"><span class="string">    query SeoData &#123;</span></span><br><span class="line"><span class="string">      site &#123;</span></span><br><span class="line"><span class="string">        siteMetadata &#123;</span></span><br><span class="line"><span class="string">          title</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  `</span>);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;title&gt;</span><br><span class="line">      &#123;title&#125; | &#123;data.site?.siteMetadata?.title&#125;</span><br><span class="line">    &lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
-<h2 id="참고">참고</h2>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <ul>
 <li><a href="https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/" target="_blank" rel="noopener">https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/</a></li>
 <li><a href="https://www.gatsbyjs.com/docs/reference/graphql-data-layer/graphql-api/#usestaticquery" target="_blank" rel="noopener">https://www.gatsbyjs.com/docs/reference/graphql-data-layer/graphql-api/#usestaticquery</a></li>
@@ -328,7 +328,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2023/01/04/react-16/" data-id="cmnbsnxza00k3ukcx4aiy4z6g" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2023/01/04/react-16/" data-id="cmnbvrtsx00jvx4cx6z2l9wws" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -406,10 +406,10 @@
         "dateCreated": "2023-01-04",
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2023/01/04/react-16/",
-        "description": "useStaticQuery
+        "description": " useStaticQuery
 useStaticQuery는 빌드 시 리액트 훅을 사용하여 Gatsby의 GraphQL 데이터 계층을 쿼리 하는 기능을 제공합니다. 이를 통해 React 컴포넌트는 구문 분석, 평가 및 컴포넌트에 삽입될 GraphQL 쿼리를 통해 데이터를 검색할 수 있습니다.
-useStaticQuery 훅은 모든 컴포넌트 또는 페이지에서 사용할 ",
-        "wordCount": 563
+useStaticQuery 훅은 모든 컴포넌트 또는 페이지에서 사용할",
+        "wordCount": 575
     }
 </script>
 

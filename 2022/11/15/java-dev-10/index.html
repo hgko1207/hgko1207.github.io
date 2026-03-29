@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
-    <meta name="keywords" content="Java,자바,스트림,Lambda,람다,Stream" />
+    <meta name="keywords" content="Java,자바,스트림,Lambda,Stream,람다" />
     
     
     
@@ -30,8 +30,8 @@
 <meta property="article:tag" content="자바">
 <meta property="article:tag" content="스트림">
 <meta property="article:tag" content="Lambda">
-<meta property="article:tag" content="람다">
 <meta property="article:tag" content="Stream">
+<meta property="article:tag" content="람다">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/java.png">
     
@@ -275,36 +275,36 @@
 
             
 
-            <h2 id="스트림-stream">스트림(stream)</h2>
-<p>Java 8 버전부터 추가되었고 특정 요소 형식으로 이루어진 연속된 값에 대한 집합 인터페이스를 제공합니다.<br>
+            <h2 id="스트림stream"><a class="markdownIt-Anchor" href="#스트림stream"></a> 스트림(stream)</h2>
+<p>Java 8 버전부터 추가되었고 특정 요소 형식으로 이루어진 연속된 값에 대한 집합 인터페이스를 제공합니다.<br />
 <code>filter</code>, <code>map</code>, <code>reduce</code>, <code>sort</code>, <code>find</code> 등의 함수들을 제공합니다.</p>
-<h2 id="사용-예">사용 예</h2>
+<h2 id="사용-예"><a class="markdownIt-Anchor" href="#사용-예"></a> 사용 예</h2>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> String age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Person&gt; people = Arrays.asList(</span><br><span class="line">    <span class="keyword">new</span> Person(<span class="string">"Eden"</span>, <span class="number">20</span>),</span><br><span class="line">    <span class="keyword">new</span> Person(<span class="string">"Ko"</span>, <span class="number">21</span>),</span><br><span class="line">    <span class="keyword">new</span> Person(<span class="string">"Lee"</span>, <span class="number">21</span>),</span><br><span class="line">    <span class="keyword">new</span> Person(<span class="string">"Kang"</span>, <span class="number">25</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<h3 id="Mutable">Mutable</h3>
+<h3 id="mutable"><a class="markdownIt-Anchor" href="#mutable"></a> Mutable</h3>
 <p>21살 이상의 사람을 찾는 코드입니다. <code>filter</code>를 사용하여 20살 초과인 사람만 찾고 List에 값을 넣는 예제입니다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Person&gt; olderThan20 = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">people.stream()</span><br><span class="line">  .filter(person -&gt; person.getAge() &gt; <span class="number">20</span>)</span><br><span class="line">  .forEach(person -&gt; olderThan20.add(person));</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"People older than 20: "</span> + olderThan20);</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 결과</span></span><br><span class="line">People older than 20: [Person(name=Ko, age=21), Person(name=Lee, age=21), Person(name=Kang, age=25)]</span><br></pre></td></tr></table></figure>
-<h3 id="Collect">Collect</h3>
+<h3 id="collect"><a class="markdownIt-Anchor" href="#collect"></a> Collect</h3>
 <p><code>collect</code>를 사용하여 ArrayList 형식의 List를 반환합니다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Person&gt; olderThan20 = people.stream()</span><br><span class="line">      .filter(person -&gt; person.getAge() &gt; <span class="number">20</span>)</span><br><span class="line">      .collect(ArrayList::<span class="keyword">new</span>, ArrayList::add, ArrayList::addAll);</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"People older than 20: "</span> + olderThan20);</span><br></pre></td></tr></table></figure>
-<h3 id="Collect-To-List">Collect To List</h3>
+<h3 id="collect-to-list"><a class="markdownIt-Anchor" href="#collect-to-list"></a> Collect To List</h3>
 <p><code>Collectors.toList()</code>를 사용하여 Collect 형식을 List로 변환합니다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Person&gt; olderThan20 = people.stream()</span><br><span class="line">      .filter(person -&gt; person.getAge() &gt; <span class="number">20</span>)</span><br><span class="line">      .collect(Collectors.toList());</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"People older than 20: "</span> + olderThan20);</span><br></pre></td></tr></table></figure>
-<h3 id="Group-By-1">Group By(1)</h3>
+<h3 id="group-by1"><a class="markdownIt-Anchor" href="#group-by1"></a> Group By(1)</h3>
 <p>나이를 Key로 해서 Map을 생성하는 예제입니다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;Integer, List&lt;Person&gt;&gt; peopleByAge = people.stream()</span><br><span class="line">        .collect(Collectors.groupingBy(Person::getAge));</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"Grouped by age: "</span> + peopleByAge);</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 결과</span></span><br><span class="line">Grouped by age: &#123;20=[Person(name=Eden, age=20)], 21=[Person(name=Ko, age=21), Person(name=Lee, age=21)], 25=[Person(name=Kang, age=25)]&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Group-By-2">Group By(2)</h3>
+<h3 id="group-by2"><a class="markdownIt-Anchor" href="#group-by2"></a> Group By(2)</h3>
 <p>값을 Person 객체가 아닌 이름으로 구성하는 예제입니다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;Integer, List&lt;String&gt;&gt; nameOfPeopleByAge = people.stream()</span><br><span class="line">        .collect(Collectors.groupingBy(Person::getAge,</span><br><span class="line">          Collectors.mapping(Person::getName, Collectors.toList())));</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"People grouped by age: "</span> + nameOfPeopleByAge);</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 결과</span></span><br><span class="line">People grouped by age: &#123;20=[Eden], 21=[Ko, Lee], 25=[Kang]&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="reducing">reducing</h3>
+<h3 id="reducing"><a class="markdownIt-Anchor" href="#reducing"></a> reducing</h3>
 <p>이름의 첫글자가 같은 사람 중 나이가 많은 사람만 찾는 예제입니다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 나이 비교</span></span><br><span class="line">Comparator&lt;Person&gt; byAge = Comparator.comparing(Person::getAge);</span><br><span class="line"></span><br><span class="line">Map&lt;Character, Optional&lt;Person&gt;&gt; oldestPersonOfEachLetter = people.stream()</span><br><span class="line">        .collect(Collectors.groupingBy(person -&gt; person.getName().charAt(<span class="number">0</span>),</span><br><span class="line">                  Collectors.reducing(BinaryOperator.maxBy(byAge))));</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"Oldest person of each letter: "</span> + oldestPersonOfEachLetter);</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 결과</span></span><br><span class="line">Oldest person of each letter: &#123;E=Optional[Person(name=Eden, age=20)], K=Optional[Person(name=Kang, age=25)], L=Optional[Person(name=Lee, age=21)]&#125;</span><br></pre></td></tr></table></figure>
 <p>예제들을 통해 스트림(Stream) 사용하는 방법을 알아봤습니다. 제공하는 함수들을 잘 사용하면 좋은 결과 값을 얻을 수 있습니다.</p>
-<h2 id="참고">참고</h2>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <ul>
 <li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html</a></li>
 </ul>
@@ -341,7 +341,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/11/15/java-dev-10/" data-id="cmnbsnxyr00gyukcx9l5z3aw2" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/11/15/java-dev-10/" data-id="cmnbvrtsb00gyx4cxdxr4d1g1" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -413,18 +413,18 @@
         },
         "headline": "[Java] 스트림(Stream) 사용 방법",
         "image": "http://hgko1207.github.io/images/thumbnail/java.png",
-        "keywords": "Java 자바 스트림 Lambda 람다 Stream",
+        "keywords": "Java 자바 스트림 Lambda Stream 람다",
         "genre": "Programming Language Java",
         "datePublished": "2022-11-15",
         "dateCreated": "2022-11-15",
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2022/11/15/java-dev-10/",
-        "description": "스트림(stream)
+        "description": " 스트림(stream)
 Java 8 버전부터 추가되었고 특정 요소 형식으로 이루어진 연속된 값에 대한 집합 인터페이스를 제공합니다.
 filter, map, reduce, sort, find 등의 함수들을 제공합니다.
-사용 예
-123456789@Data@NoArgsConstructor@AllArgsConstructorpublic class Person &#12",
-        "wordCount": 535
+ 사용 예
+123456789@Data@NoArgsConstructor@AllArgsConstructorpublic class Person &#",
+        "wordCount": 563
     }
 </script>
 

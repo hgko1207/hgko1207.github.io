@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
-    <meta name="keywords" content="리눅스,Linux,CentOS,TimeZone" />
+    <meta name="keywords" content="리눅스,CentOS,Linux,TimeZone" />
     
     
     
@@ -27,8 +27,8 @@
 <meta property="article:modified_time" content="2024-01-11T15:24:40.642Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="리눅스">
-<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="CentOS">
+<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="TimeZone">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/centos.png">
@@ -273,10 +273,10 @@
 
             
 
-            <h2 id="타임존-변경">타임존 변경</h2>
+            <h2 id="타임존-변경"><a class="markdownIt-Anchor" href="#타임존-변경"></a> 타임존 변경</h2>
 <p>리눅스 서버 타임존이 UTC인 경우가 있습니다. 이는 세계 표준 시간으로 한국의 시간대가 아닙니다. <strong>한국의 시간과는 9시간 차이</strong>가 발생하므로 서버에서 수행되는 애플리케이션에서 생성되는 시간도 모두 9시간씩 차이가 나기 때문에 수정이 필요합니다. 서버의 타임존을 한국 시간(KST)으로 변경하겠습니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo rm /etc/localtime</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo ln -s /usr/share/zoneinfo/Asia/Seoul /etc/localtime</span></span><br></pre></td></tr></table></figure>
-<h2 id="타임존-확인">타임존 확인</h2>
+<h2 id="타임존-확인"><a class="markdownIt-Anchor" href="#타임존-확인"></a> 타임존 확인</h2>
 <p>date 명령어로 타임존이 KST로 변경된 것을 확인 할 수 있습니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> date</span></span><br></pre></td></tr></table></figure>
 <p>결과입니다.</p>
@@ -314,7 +314,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/05/27/linux-15/" data-id="cmnbsnxxz00boukcx3fn75lva" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/05/27/linux-15/" data-id="cmnbvrtqv00b8x4cxcnfo4lsm" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -386,16 +386,16 @@
         },
         "headline": "[CentOS] 타임존 변경",
         "image": "http://hgko1207.github.io/images/thumbnail/centos.png",
-        "keywords": "리눅스 Linux CentOS TimeZone",
+        "keywords": "리눅스 CentOS Linux TimeZone",
         "genre": "Programming DevOps Linux",
         "datePublished": "2022-05-27",
         "dateCreated": "2022-05-27",
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2022/05/27/linux-15/",
-        "description": "타임존 변경
+        "description": " 타임존 변경
 리눅스 서버 타임존이 UTC인 경우가 있습니다. 이는 세계 표준 시간으로 한국의 시간대가 아닙니다. 한국의 시간과는 9시간 차이가 발생하므로 서버에서 수행되는 애플리케이션에서 생성되는 시간도 모두 9시간씩 차이가 나기 때문에 수정이 필요합니다. 서버의 타임존을 한국 시간(KST)으로 변경하겠습니다.
-12$ sudo rm /etc/localtim",
-        "wordCount": 88
+12$ sudo rm /etc/localti",
+        "wordCount": 94
     }
 </script>
 

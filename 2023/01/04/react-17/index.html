@@ -275,13 +275,13 @@
 
             
 
-            <h2 id="gatsby-source-filesystem">gatsby-source-filesystem</h2>
+            <h2 id="gatsby-source-filesystem"><a class="markdownIt-Anchor" href="#gatsby-source-filesystem"></a> gatsby-source-filesystem</h2>
 <p>로컬 파일 시스템에서 Gatsby 애플리케이션으로 데이터를 sourcing 하기 위한 Gatsby 소스 플러그인입니다.</p>
 <p>플러그인은 파일에서 파일 노드를 생성합니다. 다양한 “transformer” 플러그인은 파일 노드를 다양한 다른 유형의 데이터로 변환할 수 있습니다.</p>
 <p>Markdown, JSON, 이미지, YAML, CSV 및 기타 수집 가지 데이터 유형이 지원됩니다.</p>
-<h2 id="설치">설치</h2>
+<h2 id="설치"><a class="markdownIt-Anchor" href="#설치"></a> 설치</h2>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">npm</span> <span class="string">install gatsby-source-filesystem</span></span><br></pre></td></tr></table></figure>
-<h2 id="사용-방법">사용 방법</h2>
+<h2 id="사용-방법"><a class="markdownIt-Anchor" href="#사용-방법"></a> 사용 방법</h2>
 <ol>
 <li>예시로 <code>blog-posts</code> 디렉토리를 생성하고 디렉터리 안에 <code>post1.md</code>, <code>post2.md</code> 파일을 생성합니다.</li>
 <li><code>gatsby-config.ts</code> 파일의 plugin 부분을 다음과 같이 수정합니다. path 속성 값에는 생성한 <code>blog-posts</code> 디렉토리를 입력합니다.</li>
@@ -297,9 +297,9 @@
 </ol>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; graphql, PageProps &#125; <span class="keyword">from</span> <span class="string">'gatsby'</span>;</span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">IndexPage</span>(<span class="params">&#123; data &#125;: PageProps&lt;Queries.BlogTitlesQuery&gt;</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(data);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">      &#123;data.allFile.nodes.map(<span class="function">(<span class="params">file, index</span>) =&gt;</span> (</span><br><span class="line">        &lt;li key=&#123;index&#125;&gt;&#123;file.name&#125;&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">      ))&#125;</span></span><br><span class="line"><span class="regexp">    &lt;/u</span>l&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> query = graphql<span class="string">`</span></span><br><span class="line"><span class="string">  query BlogTitles &#123;</span></span><br><span class="line"><span class="string">    allFile &#123;</span></span><br><span class="line"><span class="string">      nodes &#123;</span></span><br><span class="line"><span class="string">        name</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">`</span>;</span><br></pre></td></tr></table></figure>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// data object</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"allFile"</span>: &#123;</span><br><span class="line">    <span class="attr">"nodes"</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">"name"</span>: <span class="string">"post1"</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">"name"</span>: <span class="string">"post2"</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="결론">결론</h2>
+<h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2>
 <p>위와 같이 gatsby-source-filesystem 플러그인을 사용하여 Gatsby 가 생성한 파일들을 관찰할 수 있게 허용해 주고 쿼리를 통해 더 많은 정보를 조회할 수 있도록 도와줍니다.</p>
-<h2 id="참고">참고</h2>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <ul>
 <li><a href="https://www.gatsbyjs.com/plugins/gatsby-source-filesystem" target="_blank" rel="noopener">https://www.gatsbyjs.com/plugins/gatsby-source-filesystem</a></li>
 </ul>
@@ -336,7 +336,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2023/01/04/react-17/" data-id="cmnbsnxzb00k8ukcx4tpt6syh" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2023/01/04/react-17/" data-id="cmnbvrtt000k3x4cx4dmk15lm" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -414,11 +414,11 @@
         "dateCreated": "2023-01-04",
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2023/01/04/react-17/",
-        "description": "gatsby-source-filesystem
+        "description": " gatsby-source-filesystem
 로컬 파일 시스템에서 Gatsby 애플리케이션으로 데이터를 sourcing 하기 위한 Gatsby 소스 플러그인입니다.
 플러그인은 파일에서 파일 노드를 생성합니다. 다양한 “transformer” 플러그인은 파일 노드를 다양한 다른 유형의 데이터로 변환할 수 있습니다.
-Markdown, JSON, 이미지, YAM",
-        "wordCount": 678
+Markdown, JSON, 이미지, YA",
+        "wordCount": 693
     }
 </script>
 

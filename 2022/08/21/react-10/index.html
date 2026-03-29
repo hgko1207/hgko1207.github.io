@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
-    <meta name="keywords" content="자바스크립트,React,리액트,reference" />
+    <meta name="keywords" content="React,리액트,자바스크립트,reference" />
     
     
     
@@ -26,9 +26,9 @@
 <meta property="article:published_time" content="2022-08-21T13:58:27.000Z">
 <meta property="article:modified_time" content="2024-01-12T01:35:13.373Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
-<meta property="article:tag" content="자바스크립트">
 <meta property="article:tag" content="React">
 <meta property="article:tag" content="리액트">
+<meta property="article:tag" content="자바스크립트">
 <meta property="article:tag" content="reference">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/react.png">
@@ -274,17 +274,17 @@
             
 
             <p><strong>reference</strong>는 react 코드를 이용해 HTML 요소를 지정하고 가져올 수 있는 방법입니다. 다시 말해서 자바스크립트로부터 HTML 요소를 가져오고 수정할 수 있도록 해줍니다.</p>
-<h2 id="사용">사용</h2>
+<h2 id="사용"><a class="markdownIt-Anchor" href="#사용"></a> 사용</h2>
 <p><code>useRef</code>를 사용하여 HTML 요소를 가져옵니다. 다음 코드는 <code>button</code> 클릭 시 <code>input</code>을 포커싱하고 해제하는 예제입니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useRef &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">RefEx</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> inputRef = useRef&lt;HTMLInputElement&gt;(<span class="literal">null</span>);</span><br><span class="line">  <span class="keyword">const</span> onClick = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    inputRef.current?.focus();</span><br><span class="line">    <span class="comment">// 5초 뒤에 focus 사라짐</span></span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      inputRef.current?.blur;</span><br><span class="line">    &#125;, <span class="number">5000</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;input ref=&#123;inputRef&#125; <span class="keyword">type</span>=<span class="string">"text"</span> placeholder=<span class="string">"input"</span> /&gt;</span><br><span class="line">      &lt;button onClick=&#123;onClick&#125;&gt;click&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> RefEx;</span><br></pre></td></tr></table></figure>
 <p>typescript 사용하므로 <code>HTMLInputElement</code>를 지정하였습니다. <code>useRef</code>를 사용하여 HTML 요소를 가져왔지만 수정할 경우에는 <code>HTMLInputElement</code> 지정한 것 처럼 일반 자바스크립트를 이용합니다.</p>
-<h2 id="useRef">useRef()</h2>
+<h2 id="useref"><a class="markdownIt-Anchor" href="#useref"></a> useRef()</h2>
 <blockquote>
-<p>useRef는 .current 프로퍼티로 전달된 인자(initialValue)로 초기화된 변경 가능한 ref 객체를 반환합니다. 반환된 객체는 컴포넌트의 전 life cycle을 통해 유지될 것입니다.<br>
-일반적인 사용 사례는 자식에게 접근하는 경우입니다.<br>
+<p>useRef는 .current 프로퍼티로 전달된 인자(initialValue)로 초기화된 변경 가능한 ref 객체를 반환합니다. 반환된 객체는 컴포넌트의 전 life cycle을 통해 유지될 것입니다.<br />
+일반적인 사용 사례는 자식에게 접근하는 경우입니다.<br />
 본질적으로 useRef는 .current 프로퍼티에 변경 가능한 값을 담고 있는 &quot;상자&quot;와 같습니다.</p>
 </blockquote>
-<h2 id="참고">참고</h2>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <ul>
 <li><a href="https://ko.reactjs.org/docs/hooks-reference.html#useref" target="_blank" rel="noopener">https://ko.reactjs.org/docs/hooks-reference.html#useref</a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#methods" target="_blank" rel="noopener">HTMLInputElement methods</a></li>
@@ -322,7 +322,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/08/21/react-10/" data-id="cmnbsnxyh00fbukcxcor96ks1" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/08/21/react-10/" data-id="cmnbvrtrw00epx4cxcbct28de" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -394,17 +394,17 @@
         },
         "headline": "[React] reference 사용 방법",
         "image": "http://hgko1207.github.io/images/thumbnail/react.png",
-        "keywords": "자바스크립트 React 리액트 reference",
+        "keywords": "React 리액트 자바스크립트 reference",
         "genre": "Programming Frontend React",
         "datePublished": "2022-08-21",
         "dateCreated": "2022-08-21",
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2022/08/21/react-10/",
         "description": "reference는 react 코드를 이용해 HTML 요소를 지정하고 가져올 수 있는 방법입니다. 다시 말해서 자바스크립트로부터 HTML 요소를 가져오고 수정할 수 있도록 해줍니다.
-사용
+ 사용
 useRef를 사용하여 HTML 요소를 가져옵니다. 다음 코드는 button 클릭 시 input을 포커싱하고 해제하는 예제입니다.
-1234567891011121314151",
-        "wordCount": 245
+123456789101112131415",
+        "wordCount": 256
     }
 </script>
 

@@ -272,16 +272,16 @@
 
             
 
-            <h2 id="율리우스력-변환하기">율리우스력 변환하기</h2>
+            <h2 id="율리우스력-변환하기"><a class="markdownIt-Anchor" href="#율리우스력-변환하기"></a> 율리우스력 변환하기</h2>
 <blockquote>
 <p>율리우스력은 고대 로마의 정치가 율리우스 카이사르가 기원전 46년에 제정해 기원전 45년부터 시행한 양력(陽曆) 역법이다. 율리우스력의 1년은 365일 또는 366일(4년에 한번)이다.</p>
 <p>기원전 46년 이전까지 고대 로마에서는 태음력을 사용하였으며, 점차 계절의 변화(즉, 태양의 일주)를 고려해 태음력과 태양력을 섞어서 년(年)과 월(月)을 계산하였다. 이에 따라 특히 달을 계산하는 데 적지 않은 혼란과 계산의 착오가 생겼으며, 이러한 착오는 제사장이 임의로 수정하였다.</p>
 <p>율리우스 카이사르가 채택한 달력은 태양력을 기준으로 2월을 제외한 달은 모두 30일 또는 31일로 정함으로써 이전에 있던 번거로움을 한꺼번에 해소하였다.</p>
 <p>출처 : 위키백과</p>
 </blockquote>
-<h3 id="1-Joda-Time-Library-사용">1. Joda-Time Library 사용</h3>
+<h3 id="1-joda-time-library-사용"><a class="markdownIt-Anchor" href="#1-joda-time-library-사용"></a> 1. Joda-Time Library 사용</h3>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String dateStr = <span class="string">"2009218"</span>;</span><br><span class="line">MutableDateTime mdt = <span class="keyword">new</span> MutableDateTime();</span><br><span class="line">mdt.setYear(Integer.parseInt(dateStr.subString(<span class="number">0</span>, <span class="number">3</span>)));</span><br><span class="line">mdt.setDayOfYear(Integer.parseInt(dateStr.subString(<span class="number">4</span>)));</span><br><span class="line">Date parsedDate  = mdt.toDate();</span><br></pre></td></tr></table></figure>
-<h3 id="2-Java-Api-사용">2. Java Api 사용</h3>
+<h3 id="2-java-api-사용"><a class="markdownIt-Anchor" href="#2-java-api-사용"></a> 2. Java Api 사용</h3>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String dateStr = <span class="string">"2009218"</span>;</span><br><span class="line">Calendar cal  = <span class="keyword">new</span> GregorianCalendar();</span><br><span class="line">cal.set(Calendar.YEAR,Integer.parseInt(dateStr.subString(<span class="number">0</span>, <span class="number">3</span>)));</span><br><span class="line">cal.set(Calendar.DAY_OF_YEAR,Integer.parseInt(dateStr.subString(<span class="number">4</span>)));</span><br><span class="line">Date parsedDate  = cal.getTime();</span><br></pre></td></tr></table></figure>
 
         </div>
@@ -316,7 +316,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2020/07/31/java-dev-1/" data-id="cmnbsnxwu0059ukcx9srn7t13" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2020/07/31/java-dev-1/" data-id="cmnbvrtog004xx4cx615gco36" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -394,11 +394,11 @@
         "dateCreated": "2020-07-31",
         "dateModified": "2023-03-14",
         "url": "http://hgko1207.github.io/2020/07/31/java-dev-1/",
-        "description": "율리우스력 변환하기
+        "description": " 율리우스력 변환하기
 
 율리우스력은 고대 로마의 정치가 율리우스 카이사르가 기원전 46년에 제정해 기원전 45년부터 시행한 양력(陽曆) 역법이다. 율리우스력의 1년은 365일 또는 366일(4년에 한번)이다.
-기원전 46년 이전까지 고대 로마에서는 태음력을 사용하였으며, 점차 계절의 변화(즉, 태양의 일주)를 고려해 태음력과 태양력을 섞어서 년(年)과 월(月",
-        "wordCount": 148
+기원전 46년 이전까지 고대 로마에서는 태음력을 사용하였으며, 점차 계절의 변화(즉, 태양의 일주)를 고려해 태음력과 태양력을 섞어서 년(年)과 월(",
+        "wordCount": 157
     }
 </script>
 

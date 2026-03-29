@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
-    <meta name="keywords" content="Node.js,리눅스,Linux,CentOS,NPM" />
+    <meta name="keywords" content="Node.js,리눅스,CentOS,Linux,NPM" />
     
     
     
@@ -28,8 +28,8 @@
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="Node.js">
 <meta property="article:tag" content="리눅스">
-<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="CentOS">
+<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="NPM">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/centos.png">
@@ -275,11 +275,11 @@
             
 
             <p>리눅스 환경에서 <strong>Node.js</strong> 와 <strong>NPM</strong> 설치하는 방법에 대해 알아보겠습니다.</p>
-<h2 id="운영환경">운영환경</h2>
+<h2 id="운영환경"><a class="markdownIt-Anchor" href="#운영환경"></a> 운영환경</h2>
 <ul>
 <li>Centor 7.6</li>
 </ul>
-<h2 id="저장소-추가">저장소 추가</h2>
+<h2 id="저장소-추가"><a class="markdownIt-Anchor" href="#저장소-추가"></a> 저장소 추가</h2>
 <p>설치하려는 Node.js 버전을 확인하여 NodeSource yum 저장소를 추가합니다.</p>
 <p><a href="https://github.com/nodesource/distributions" target="_blank" rel="noopener">NodeSource Node.js Binary Distributions</a> 사이트에 다음과 같은 내용이 정리되어 있습니다.</p>
 <p><strong>Node.js v19.x</strong></p>
@@ -294,14 +294,14 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># As root</span></span><br><span class="line">$ curl -fsSL https://rpm.nodesource.com/setup_lts.x | bash -</span><br><span class="line"></span><br><span class="line"><span class="comment"># No root privileges</span></span><br><span class="line">$ curl -fsSL https://rpm.nodesource.com/setup_lts.x | sudo bash -</span><br></pre></td></tr></table></figure>
 <p><strong>Node.js Current (19.x)</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># As root</span></span><br><span class="line">$ curl -fsSL https://rpm.nodesource.com/setup_current.x | bash -</span><br><span class="line"></span><br><span class="line"><span class="comment"># No root privileges</span></span><br><span class="line">$ curl -fsSL https://rpm.nodesource.com/setup_current.x | sudo bash -</span><br></pre></td></tr></table></figure>
-<h2 id="설치">설치</h2>
+<h2 id="설치"><a class="markdownIt-Anchor" href="#설치"></a> 설치</h2>
 <p>yum을 사용하여 Node.js 및 npm을 설치합니다. Node.js 14 버전을 설치해 보도록 하겠습니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> curl -fsSL https://rpm.nodesource.com/setup_14.x | bash -</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> yum install -y nodejs</span></span><br></pre></td></tr></table></figure>
-<h2 id="설치-확인">설치 확인</h2>
+<h2 id="설치-확인"><a class="markdownIt-Anchor" href="#설치-확인"></a> 설치 확인</h2>
 <p>다음 명령어를 통해 설치된 버전을 확인할 수 있습니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> node --version</span></span><br><span class="line">v14.20.0</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm --version</span></span><br><span class="line">6.14.17</span><br></pre></td></tr></table></figure>
-<h2 id="참고">참고</h2>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <ul>
 <li><a href="https://github.com/nodesource/distributions" target="_blank" rel="noopener">https://github.com/nodesource/distributions</a></li>
 </ul>
@@ -338,7 +338,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/12/07/linux-24/" data-id="cmnbsnxz000ijukcxe86vdz1s" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/12/07/linux-24/" data-id="cmnbvrtt300khx4cx3t1s2adx" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -410,23 +410,22 @@
         },
         "headline": "[CentOS] Node.js 및 NPM 설치",
         "image": "http://hgko1207.github.io/images/thumbnail/centos.png",
-        "keywords": "Node.js 리눅스 Linux CentOS NPM",
+        "keywords": "Node.js 리눅스 CentOS Linux NPM",
         "genre": "Programming DevOps Linux",
         "datePublished": "2022-12-07",
         "dateCreated": "2022-12-07",
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2022/12/07/linux-24/",
         "description": "리눅스 환경에서 Node.js 와 NPM 설치하는 방법에 대해 알아보겠습니다.
-운영환경
+ 운영환경
 
 Centor 7.6
 
-저장소 추가
+ 저장소 추가
 설치하려는 Node.js 버전을 확인하여 NodeSource yum 저장소를 추가합니다.
 NodeSource Node.js Binary Distributions 사이트에 다음과 같은 내용이 정리되어 있습니다.
-Node.js v19.x
-",
-        "wordCount": 315
+Node.js v19.",
+        "wordCount": 330
     }
 </script>
 

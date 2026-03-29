@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
-    <meta name="keywords" content="리눅스,Linux,CentOS,Hostname" />
+    <meta name="keywords" content="리눅스,CentOS,Linux,Hostname" />
     
     
     
@@ -27,8 +27,8 @@
 <meta property="article:modified_time" content="2024-01-11T15:25:41.575Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="리눅스">
-<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="CentOS">
+<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Hostname">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/centos.png">
@@ -273,7 +273,7 @@
 
             
 
-            <h2 id="HOSTNAME-등록">HOSTNAME 등록</h2>
+            <h2 id="hostname-등록"><a class="markdownIt-Anchor" href="#hostname-등록"></a> HOSTNAME 등록</h2>
 <p>각 서버가 어느 서비스 인지 표현하기 위해 <strong>HOSTNAME</strong>을 변경합니다. 다음 명령어로 편집 파일을 엽니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo vim /etc/sysconfig/network</span></span><br></pre></td></tr></table></figure>
 <p>편집 화면에서 <strong>HOSTNAME</strong> 항목을 <strong>본인이 원하는 서비스명</strong>으로 추가합니다.</p>
@@ -282,11 +282,11 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo reboot</span></span><br></pre></td></tr></table></figure>
 <p>재부팅이 끝나고 나서 <code>ssh</code> 명령어를 사용하여 다시 접속해 보면 <strong>HOSTNAME</strong>이 잘 변경됐는지 확인할 수 있습니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ssh hgko-webservice</span></span><br></pre></td></tr></table></figure>
-<h2 id="다른-HOSTNAME-등록">다른 HOSTNAME 등록</h2>
+<h2 id="다른-hostname-등록"><a class="markdownIt-Anchor" href="#다른-hostname-등록"></a> 다른 HOSTNAME 등록</h2>
 <p>리눅스 버전에 따라 명령어가 다르기 때문에 위의 내용으로 등록이 안될 시 다음 명령어를 통해 <strong>HOSTNAME</strong>을 등록합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo hostnamectl <span class="built_in">set</span>-hostname [변경할 호스트명]</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ sudo hostnamectl <span class="built_in">set</span>-hostname hgko-webservice</span><br><span class="line"></span><br><span class="line"><span class="comment"># 확인</span></span><br><span class="line">hostname</span><br><span class="line"></span><br><span class="line"><span class="comment"># 결과 출력</span></span><br><span class="line">hgko-webservice</span><br></pre></td></tr></table></figure>
-<h2 id="hosts-추가">hosts 추가</h2>
+<h2 id="hosts-추가"><a class="markdownIt-Anchor" href="#hosts-추가"></a> hosts 추가</h2>
 <p>호스트 주소를 찾을 때 먼저 검색해 보는 <code>/etc/hosts</code> 에 추가한 hostname을 등록합니다. 다음 명령어로 <code>/etc/hosts</code> 파일을 엽니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo vim /etc/hosts</span></span><br></pre></td></tr></table></figure>
 <p>편집 화면에서 등록한 <strong>HOSTNAME</strong>을 추가합니다.</p>
@@ -329,7 +329,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/05/28/linux-16/" data-id="cmnbsnxxs00b8ukcx072o7v6y" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/05/28/linux-16/" data-id="cmnbvrtqz00brx4cx9ozp7pc9" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -401,18 +401,18 @@
         },
         "headline": "[CentOS] Hostname 변경 방법",
         "image": "http://hgko1207.github.io/images/thumbnail/centos.png",
-        "keywords": "리눅스 Linux CentOS Hostname",
+        "keywords": "리눅스 CentOS Linux Hostname",
         "genre": "Programming DevOps Linux",
         "datePublished": "2022-05-28",
         "dateCreated": "2022-05-28",
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2022/05/28/linux-16/",
-        "description": "HOSTNAME 등록
+        "description": " HOSTNAME 등록
 각 서버가 어느 서비스 인지 표현하기 위해 HOSTNAME을 변경합니다. 다음 명령어로 편집 파일을 엽니다.
 1$ sudo vim /etc/sysconfig/network
 편집 화면에서 HOSTNAME 항목을 본인이 원하는 서비스명으로 추가합니다.
-123NETWORKING=yesHOSTNAME=hgko-webserviceNOZEROCO",
-        "wordCount": 245
+123NETWORKING=yesHOSTNAME=hgko-webserviceNOZEROC",
+        "wordCount": 254
     }
 </script>
 

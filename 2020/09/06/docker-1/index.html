@@ -272,15 +272,15 @@
             
 
             <p>리눅스 환경에서 Docker 명령어와 기본 사용 방법에 대해 알아보겠습니다.</p>
-<h2 id="운영환경">운영환경</h2>
+<h2 id="운영환경"><a class="markdownIt-Anchor" href="#운영환경"></a> 운영환경</h2>
 <ul>
 <li>CentOS 7.6</li>
 </ul>
-<h2 id="설치">설치</h2>
+<h2 id="설치"><a class="markdownIt-Anchor" href="#설치"></a> 설치</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> yum install docker</span></span><br></pre></td></tr></table></figure>
 <p>설치가 완료되면 버전을 조회하여 설치 확인을 합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker -v</span></span><br></pre></td></tr></table></figure>
-<h2 id="컨테이너-생성-및-실행">컨테이너 생성 및 실행</h2>
+<h2 id="컨테이너-생성-및-실행"><a class="markdownIt-Anchor" href="#컨테이너-생성-및-실행"></a> 컨테이너 생성 및 실행</h2>
 <p><code>docker run</code> 명령어는 컨테이너를 생성 및 실행과 동시에 컨테이너 내부로 들어갑니다.</p>
 <p>기본 포맷입니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker run (&lt;옵션&gt;) &lt;이미지 식별자&gt; (&lt;명령어&gt;) (&lt;인자&gt;)</span></span><br></pre></td></tr></table></figure>
@@ -288,7 +288,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker run -d \</span></span><br><span class="line">    --name hgko.default.local \</span><br><span class="line">    --privileged \</span><br><span class="line">    -h hgko --network insnet \</span><br><span class="line">    -v /data:/data \</span><br><span class="line">    -p 5914:5901 \</span><br><span class="line">    hgko</span><br></pre></td></tr></table></figure>
 <p>간략한 예시입니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker run -d -i -t <span class="built_in">test</span> /bin/bash</span></span><br></pre></td></tr></table></figure>
-<h3 id="Run-옵션-목록">Run 옵션 목록</h3>
+<h3 id="run-옵션-목록"><a class="markdownIt-Anchor" href="#run-옵션-목록"></a> Run 옵션 목록</h3>
 <ul>
 <li><code>-d</code> : 컨테이너를 백그라운드로 실행해야 할 때 사용</li>
 <li><code>-name</code> : 컨테이너를 식별할 수 있도록 이름을 부여</li>
@@ -298,20 +298,20 @@
 <li><code>--link</code> : 내부 IP를 알 필요 없이 항상 컨테이너에 별명으로 접근하도록 설정</li>
 <li><code>--privileged</code> : 시스템 내 장치 등 주요 자원에 접근하며 커널의 기능을 대부분 사용할 수 있도록 설정</li>
 </ul>
-<h3 id="컨테이너-생성">컨테이너 생성</h3>
+<h3 id="컨테이너-생성"><a class="markdownIt-Anchor" href="#컨테이너-생성"></a> 컨테이너 생성</h3>
 <p><code>docker create</code> 명령어는 컨테이너를 생성만 할 뿐 컨테이너 내부로 들어가지 않습니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker create -i -t --name mycentos centos:7</span></span><br></pre></td></tr></table></figure>
-<h3 id="컨테이너-실행">컨테이너 실행</h3>
+<h3 id="컨테이너-실행"><a class="markdownIt-Anchor" href="#컨테이너-실행"></a> 컨테이너 실행</h3>
 <p>다음 명령어를 실행하여 컨테이너를 시작합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker start mycentos</span></span><br></pre></td></tr></table></figure>
 <p>컨테이너 내부로 들어갑니다.(단, -i -t 옵션을 사용 했을 때)</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker attach mycentos</span></span><br></pre></td></tr></table></figure>
-<h3 id="컨테이너-내부-셸-사용">컨테이너 내부 셸 사용</h3>
+<h3 id="컨테이너-내부-셸-사용"><a class="markdownIt-Anchor" href="#컨테이너-내부-셸-사용"></a> 컨테이너 내부 셸 사용</h3>
 <p>mycentos 컨테이너 내부에 bash 프로세스를 실행하고, -i -t 옵션을 사용해서 bash 셸을 쓸 수 있게 유지합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker <span class="built_in">exec</span> -i -t  mycentos \bin\bash</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> docker <span class="built_in">exec</span> -i -t  mycentos bash</span></span><br></pre></td></tr></table></figure>
-<h3 id="컨테이너-내부에서-빠져나오기">컨테이너 내부에서 빠져나오기</h3>
+<h3 id="컨테이너-내부에서-빠져나오기"><a class="markdownIt-Anchor" href="#컨테이너-내부에서-빠져나오기"></a> 컨테이너 내부에서 빠져나오기</h3>
 <p>컨테이너 내부에서 빠져나오는 방법은 두 가지가 있습니다. 첫 번째는 컨테이너 셸에서 exit를 입력하거나 Ctrl + D를 동시에 입력하는 것 입니다. 이 방법은 컨테이너 내부에서 빠져나오면서 동시에 컨테이너를 정지시킵니다. 두 번째는 Ctrl + P, Q를 입력하는 것 입니다. 이 방법은 컨테이너를 정지하지 않고 빠져나옵니다.</p>
-<h2 id="컨테이너-확인">컨테이너 확인</h2>
+<h2 id="컨테이너-확인"><a class="markdownIt-Anchor" href="#컨테이너-확인"></a> 컨테이너 확인</h2>
 <p>정지되지 않은 컨테이너만 출력합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker ps</span></span><br></pre></td></tr></table></figure>
 <p>정지된 컨테이너를 포함한 모든 컨테이너를 출력합니다.</p>
@@ -320,20 +320,20 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker ps --format <span class="string">"table &#123;&#123;.ID&#125;&#125;\&#123;&#123;.Status&#125;&#125;\t&#123;&#123;.Image&#125;&#125;"</span></span></span><br></pre></td></tr></table></figure>
 <p>특정 컨테이너를 출력합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker ps | grep mycentos</span></span><br></pre></td></tr></table></figure>
-<h2 id="컨테이너-이름-변경">컨테이너 이름 변경</h2>
+<h2 id="컨테이너-이름-변경"><a class="markdownIt-Anchor" href="#컨테이너-이름-변경"></a> 컨테이너 이름 변경</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker rename mycentos my_centos</span></span><br></pre></td></tr></table></figure>
-<h2 id="컨테이너-삭제">컨테이너 삭제</h2>
+<h2 id="컨테이너-삭제"><a class="markdownIt-Anchor" href="#컨테이너-삭제"></a> 컨테이너 삭제</h2>
 <p>정지된 컨테이너만 삭제 가능합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker rm mycentos</span></span><br></pre></td></tr></table></figure>
 <p>실행 중인 컨테이너도 삭제 가능합니다. (-f : 강제 삭제)</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker rm -f mycentos</span></span><br></pre></td></tr></table></figure>
 <p>모든 컨테이너 삭제 가능합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker container prune</span></span><br></pre></td></tr></table></figure>
-<h2 id="이미지-목록">이미지 목록</h2>
+<h2 id="이미지-목록"><a class="markdownIt-Anchor" href="#이미지-목록"></a> 이미지 목록</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker images</span></span><br></pre></td></tr></table></figure>
-<h2 id="이미지-삭제">이미지 삭제</h2>
+<h2 id="이미지-삭제"><a class="markdownIt-Anchor" href="#이미지-삭제"></a> 이미지 삭제</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker rmi &lt;이미지 식별자&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="이미지-빌드">이미지 빌드</h2>
+<h2 id="이미지-빌드"><a class="markdownIt-Anchor" href="#이미지-빌드"></a> 이미지 빌드</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker build -t hgko ./image/</span></span><br></pre></td></tr></table></figure>
 
         </div>
@@ -368,7 +368,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2020/09/06/docker-1/" data-id="cmnbsnxx30072ukcx9dvqh476" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2020/09/06/docker-1/" data-id="cmnbvrtp30078x4cxfhrffla0" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -447,18 +447,18 @@
         "dateModified": "2024-01-11",
         "url": "http://hgko1207.github.io/2020/09/06/docker-1/",
         "description": "리눅스 환경에서 Docker 명령어와 기본 사용 방법에 대해 알아보겠습니다.
-운영환경
+ 운영환경
 
 CentOS 7.6
 
-설치
+ 설치
 1$ yum install docker
 설치가 완료되면 버전을 조회하여 설치 확인을 합니다.
 1$ docker -v
-컨테이너 생성 및 실행
+ 컨테이너 생성 및 실행
 docker run 명령어는 컨테이너를 생성 및 실행과 동시에 컨테이너 내부로 들어갑니다.
-기본 포맷입니",
-        "wordCount": 550
+기본 포",
+        "wordCount": 592
     }
 </script>
 

@@ -275,10 +275,10 @@
             
 
             <p><strong>Next.js</strong>에서 스타일 적용하는 방법에 대해 알아보겠습니다.</p>
-<h2 id="1-CSS-in-JS">1. CSS-in-JS</h2>
+<h2 id="1-css-in-js"><a class="markdownIt-Anchor" href="#1-css-in-js"></a> 1. CSS-in-JS</h2>
 <p>가장 간단한 방법은 인라인 스타일입니다.</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">Home</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;div style=&#123;&#123; <span class="attr">color</span>: <span class="string">'red'</span> &#125;&#125;&gt;Hello&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="2-CSS-Modules">2. CSS Modules</h2>
+<h2 id="2-css-modules"><a class="markdownIt-Anchor" href="#2-css-modules"></a> 2. CSS Modules</h2>
 <p>Next.js는 [name].module.css 파일 명명 규칙을 사용하여 CSS Module을 지원합니다.</p>
 <p><code>Common.module.css</code>파일을 생성하고 스타일을 다음과 같이 작성합니다. 중요한 것은 .module.css 패턴을 사용하는 것입니다.</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.nav</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">justify-content</span>: space-between;</span><br><span class="line">  <span class="attribute">background-color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.text</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -288,20 +288,20 @@
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> styles <span class="keyword">from</span> <span class="string">'./Common.module.css'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">Home</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;nav className=&#123;<span class="string">`<span class="subst">$&#123;styles.nav&#125;</span> <span class="subst">$&#123;styles.text&#125;</span>`</span>&#125;&gt;&lt;<span class="regexp">/nav&gt;</span></span><br><span class="line"><span class="regexp">      &lt;h1&gt;Hello&lt;/</span>h1&gt;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
 <p>또는 <code>join()</code> 함수를 사용해 적용합니다.</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> styles <span class="keyword">from</span> <span class="string">'./Common.module.css'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">Home</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;nav className=&#123;[styles.nav, styles.text].join(<span class="string">' '</span>)&#125;&gt;&lt;<span class="regexp">/nav&gt;</span></span><br><span class="line"><span class="regexp">      &lt;h1&gt;Hello&lt;/</span>h1&gt;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
-<h2 id="3-Styled-JSX">3. Styled JSX</h2>
+<h2 id="3-styled-jsx"><a class="markdownIt-Anchor" href="#3-styled-jsx"></a> 3. Styled JSX</h2>
 <p>격리된 범위 CSS 에 대한 지원을 제공하기 위해 <strong>styled-jsx</strong>를 번들로 제공합니다.</p>
 <p>styled-jsx를 사용하는 컴포넌트는 다음과 같습니다. style에 <code>jsx</code> prop 을 넣고 중괄호({})와 백틱(`)을 사용하여 작성합니다.</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;style jsx&gt;&#123;<span class="string">`</span></span><br><span class="line"><span class="string">  CSS 스타일..</span></span><br><span class="line"><span class="string">`</span>&#125;&lt;<span class="regexp">/style&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">Home</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;nav&gt;&lt;<span class="regexp">/nav&gt;</span></span><br><span class="line"><span class="regexp">      &lt;h1&gt;Hello&lt;/</span>h1&gt;</span><br><span class="line">      &lt;style jsx&gt;&#123;<span class="string">`</span></span><br><span class="line"><span class="string">        nav &#123;</span></span><br><span class="line"><span class="string">          background-color: red;</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">        h1 &#123;</span></span><br><span class="line"><span class="string">          color: blud;</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">      `</span>&#125;&lt;<span class="regexp">/style&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Global Styles 설정하는 방법은 <code>global</code> Prop 을 추가하면 됩니다.</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;style jsx global&gt;&#123;<span class="string">`</span></span><br><span class="line"><span class="string">  body &#123;</span></span><br><span class="line"><span class="string">    background: black;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">`</span>&#125;&lt;<span class="regexp">/style&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="VSCode-익스텐션">VSCode 익스텐션</h2>
+<h2 id="vscode-익스텐션"><a class="markdownIt-Anchor" href="#vscode-익스텐션"></a> VSCode 익스텐션</h2>
 <p>Styled JSX 사용 시 추천 VSCode 익스텐션입니다.</p>
 <ul>
 <li>styled-jsx : 하이라이팅, 코드 가독성에 도움이 됨</li>
 <li>styled-jsx Language Server : 자동완성</li>
 </ul>
-<h2 id="참고">참고</h2>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <ul>
 <li><a href="https://nextjs.org/docs/basic-features/built-in-css-support#css-in-js" target="_blank" rel="noopener">https://nextjs.org/docs/basic-features/built-in-css-support#css-in-js</a></li>
 <li><a href="https://github.com/vercel/styled-jsx" target="_blank" rel="noopener">https://github.com/vercel/styled-jsx</a></li>
@@ -339,7 +339,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2023/02/06/nextjs-3/" data-id="cmnbsnxzg00l0ukcxhnu5bba2" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2023/02/06/nextjs-3/" data-id="cmnbvrtt900lhx4cx2txr72d4" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -418,10 +418,10 @@
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2023/02/06/nextjs-3/",
         "description": "Next.js에서 스타일 적용하는 방법에 대해 알아보겠습니다.
-1. CSS-in-JS
+ 1. CSS-in-JS
 가장 간단한 방법은 인라인 스타일입니다.
-1234567export default function Home() &#123;  return (    &lt;div&gt;      &lt;div style=&#123;&#123; color: 'red' &#125;&#125;&g",
-        "wordCount": 630
+1234567export default function Home() &#123;  return (    &lt;div&gt;      &lt;div style=&#123;&#123; color: 'red' &#125;&#125;&",
+        "wordCount": 645
     }
 </script>
 

@@ -278,38 +278,38 @@
             
 
             <p><strong>WPF</strong>(Windows Presentation Foundation)에서 사용자 인터페이스(UI)를 디자인할 때 올바른 레이아웃 컨트롤을 선택하는 것은 반응이 빠르고 체계적으로 구성된 애플리케이션을 만드는 데 매우 중요합니다. WPF는 개발자가 UI에서 요소를 배치하고 크기를 조정하는 데 도움이 되는 여러 레이아웃 컨트롤을 제공합니다. 이러한 컨트롤 중 Grid 및 StackPanel이 가장 일반적으로 사용되지만 특정 시나리오에 필수적인 DockPanel과 같은 다른 컨트롤도 있습니다. 이 글에서는 코드 예제와 함께 이러한 컨트롤과 그 사용법, UI 디자인 모범 사례를 안내합니다.</p>
-<h2 id="1-Grid">1. Grid</h2>
+<h2 id="1-grid"><a class="markdownIt-Anchor" href="#1-grid"></a> 1. Grid</h2>
 <p><strong>Grid</strong>는 WPF에서 가장 강력하고 유연한 레이아웃 컨트롤 중 하나입니다. Grid를 사용하면 UI 요소를 정확하게 배치할 수 있는 행과 열의 구조를 만들 수 있습니다.</p>
-<h3 id="주요-기능">주요 기능</h3>
+<h3 id="주요-기능"><a class="markdownIt-Anchor" href="#주요-기능"></a> 주요 기능</h3>
 <ul>
-<li><strong>행과 열:</strong> 필요한 만큼의 행과 열을 정의할 수 있습니다. 각 요소는 <code>Grid.Row</code> 및 <code>Grid.Column </code>속성을 사용하여 배치할 수 있습니다.</li>
+<li><strong>행과 열:</strong> 필요한 만큼의 행과 열을 정의할 수 있습니다. 각 요소는 <code>Grid.Row</code> 및 <code>Grid.Column</code>속성을 사용하여 배치할 수 있습니다.</li>
 <li><strong>Grid Spanning:</strong> <code>Grid.RowSpan</code> 및 <code>Grid.ColumnSpan</code> 속성을 사용하여 요소를 여러 행 또는 열에 걸쳐 배치할 수 있으며, 이는 복잡한 레이아웃에 특히 유용합니다.</li>
 <li><strong>Auto, Star, Pixel Sizing:</strong> 콘텐츠에 따라 자동 크기 조정, ‘*’(별표) 크기 조정은 사용 가능한 공간을 비례적으로 배분, 픽셀 크기 조정은 고정 치수를 제공하는 등 다양한 방식으로 행과 열의 크기를 조정할 수 있습니다.</li>
 </ul>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Grid</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Grid.RowDefinitions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">RowDefinition</span> <span class="attr">Height</span>=<span class="string">"Auto"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">RowDefinition</span> <span class="attr">Height</span>=<span class="string">"*"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">RowDefinition</span> <span class="attr">Height</span>=<span class="string">"Auto"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Grid.RowDefinitions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Grid.ColumnDefinitions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ColumnDefinition</span> <span class="attr">Width</span>=<span class="string">"Auto"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ColumnDefinition</span> <span class="attr">Width</span>=<span class="string">"2*"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ColumnDefinition</span> <span class="attr">Width</span>=<span class="string">"*"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Grid.ColumnDefinitions</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- Labels --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextBlock</span> <span class="attr">Grid.Row</span>=<span class="string">"0"</span> <span class="attr">Grid.Column</span>=<span class="string">"0"</span> <span class="attr">Text</span>=<span class="string">"Name:"</span> <span class="attr">Margin</span>=<span class="string">"5"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextBlock</span> <span class="attr">Grid.Row</span>=<span class="string">"1"</span> <span class="attr">Grid.Column</span>=<span class="string">"0"</span> <span class="attr">Text</span>=<span class="string">"Email:"</span> <span class="attr">Margin</span>=<span class="string">"5"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- Input Fields --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextBox</span> <span class="attr">Grid.Row</span>=<span class="string">"0"</span> <span class="attr">Grid.Column</span>=<span class="string">"1"</span> <span class="attr">Grid.ColumnSpan</span>=<span class="string">"2"</span> <span class="attr">Margin</span>=<span class="string">"5"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextBox</span> <span class="attr">Grid.Row</span>=<span class="string">"1"</span> <span class="attr">Grid.Column</span>=<span class="string">"1"</span> <span class="attr">Grid.ColumnSpan</span>=<span class="string">"2"</span> <span class="attr">Margin</span>=<span class="string">"5"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- Buttons --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span> <span class="attr">Grid.Row</span>=<span class="string">"2"</span> <span class="attr">Grid.Column</span>=<span class="string">"1"</span> <span class="attr">Content</span>=<span class="string">"Submit"</span> <span class="attr">Margin</span>=<span class="string">"5"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span> <span class="attr">Grid.Row</span>=<span class="string">"2"</span> <span class="attr">Grid.Column</span>=<span class="string">"2"</span> <span class="attr">Content</span>=<span class="string">"Cancel"</span> <span class="attr">Margin</span>=<span class="string">"5"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="사용-사례-예시">사용 사례 예시</h3>
+<h3 id="사용-사례-예시"><a class="markdownIt-Anchor" href="#사용-사례-예시"></a> 사용 사례 예시</h3>
 <p>이 Grid 레이아웃은 각 컨트롤이 정확하게 정렬된 레이블과 입력 필드가 있는 간단한 양식을 만드는 데 적합합니다.</p>
-<h2 id="2-StackPanel">2. StackPanel</h2>
+<h2 id="2-stackpanel"><a class="markdownIt-Anchor" href="#2-stackpanel"></a> 2. StackPanel</h2>
 <p>StackPanel은 자식 요소를 세로 또는 가로로 한 줄로 정렬하는 간단한 레이아웃 컨트롤입니다.</p>
-<h3 id="주요-기능-2">주요 기능</h3>
+<h3 id="주요-기능-2"><a class="markdownIt-Anchor" href="#주요-기능-2"></a> 주요 기능</h3>
 <ul>
 <li><strong>방향:</strong> StackPanel은 요소를 가로(<code>Orientation=&quot;Horizontal&quot;</code>) 또는 세로(<code>Orientation=&quot;Vertical&quot;</code>)로 정렬할 수 있습니다.</li>
 <li><strong>자동 크기 조정:</strong> StackPanel은은 콘텐츠에 맞게 자동으로 크기가 조정되므로 동적이거나 가변적인 콘텐츠 크기에 이상적입니다.</li>
 </ul>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">StackPanel</span> <span class="attr">Orientation</span>=<span class="string">"Vertical"</span> <span class="attr">HorizontalAlignment</span>=<span class="string">"Center"</span> <span class="attr">VerticalAlignment</span>=<span class="string">"Center"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span> <span class="attr">Content</span>=<span class="string">"Button 1"</span> <span class="attr">Margin</span>=<span class="string">"5"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span> <span class="attr">Content</span>=<span class="string">"Button 2"</span> <span class="attr">Margin</span>=<span class="string">"5"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span> <span class="attr">Content</span>=<span class="string">"Button 3"</span> <span class="attr">Margin</span>=<span class="string">"5"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">StackPanel</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="사용-사례-예시-2">사용 사례 예시</h3>
+<h3 id="사용-사례-예시-2"><a class="markdownIt-Anchor" href="#사용-사례-예시-2"></a> 사용 사례 예시</h3>
 <p>메뉴나 대화 상자에서 볼 수 있듯이 버튼을 세로로 쌓아 올리는 데 이 StackPanel 레이아웃이 이상적입니다.</p>
-<h2 id="3-DockPanel">3. DockPanel</h2>
+<h2 id="3-dockpanel"><a class="markdownIt-Anchor" href="#3-dockpanel"></a> 3. DockPanel</h2>
 <p>DockPanel을 사용하면 하위 요소를 패널의 가장자리에 도킹할 수 있습니다. 요소를 상단, 하단, 왼쪽 또는 오른쪽에 도킹할 수 있으며 남은 공간은 일반적으로 마지막 요소가 차지합니다.</p>
-<h3 id="주요-기능-3">주요 기능</h3>
+<h3 id="주요-기능-3"><a class="markdownIt-Anchor" href="#주요-기능-3"></a> 주요 기능</h3>
 <ul>
 <li><strong>도킹 옵션:</strong> 요소는 <code>DockPanel.Dock</code> 첨부 속성을 사용하여 어느 면에나 도킹할 수 있습니다.</li>
 <li><strong>남은 공간 채우기:</strong> 기본적으로 달리 지정하지 않는 한 DockPanel의 마지막 자식이 남은 공간을 차지합니다.</li>
 </ul>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">DockPanel</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span> <span class="attr">Content</span>=<span class="string">"Top Button"</span> <span class="attr">DockPanel.Dock</span>=<span class="string">"Top"</span> <span class="attr">Height</span>=<span class="string">"50"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span> <span class="attr">Content</span>=<span class="string">"Bottom Button"</span> <span class="attr">DockPanel.Dock</span>=<span class="string">"Bottom"</span> <span class="attr">Height</span>=<span class="string">"50"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span> <span class="attr">Content</span>=<span class="string">"Left Button"</span> <span class="attr">DockPanel.Dock</span>=<span class="string">"Left"</span> <span class="attr">Width</span>=<span class="string">"100"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span> <span class="attr">Content</span>=<span class="string">"Right Button"</span> <span class="attr">DockPanel.Dock</span>=<span class="string">"Right"</span> <span class="attr">Width</span>=<span class="string">"100"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextBlock</span> <span class="attr">Text</span>=<span class="string">"Center Content"</span> <span class="attr">VerticalAlignment</span>=<span class="string">"Center"</span> <span class="attr">HorizontalAlignment</span>=<span class="string">"Center"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">DockPanel</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="사용-사례-예시-3">사용 사례 예시</h3>
+<h3 id="사용-사례-예시-3"><a class="markdownIt-Anchor" href="#사용-사례-예시-3"></a> 사용 사례 예시</h3>
 <p>이 DockPanel 레이아웃은 상단에 툴바, 하단에 상태 표시줄 및 측면 패널이 있는 창을 만드는 데 적합합니다.</p>
-<h2 id="다른-레이아웃-컨트롤">다른 레이아웃 컨트롤</h2>
+<h2 id="다른-레이아웃-컨트롤"><a class="markdownIt-Anchor" href="#다른-레이아웃-컨트롤"></a> 다른 레이아웃 컨트롤</h2>
 <p>Grid와 StackPanel이 가장 일반적이지만, WPF는 보다 전문적인 요구 사항을 위한 추가 레이아웃 컨트롤을 제공합니다.</p>
 <ul>
 <li><strong>WrapPanel:</strong> 현재 줄에 더 이상 공간이 없을 때 콘텐츠를 다음 줄로 래핑하여 갤러리 또는 flow 콘텐츠에 유용합니다.</li>
@@ -323,13 +323,13 @@
 <li><strong>Canvas:</strong> 절대 위치를 제공하여 좌표를 사용하여 요소 배치를 정밀하게 제어할 수 있습니다.</li>
 </ul>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Canvas</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span> <span class="attr">Content</span>=<span class="string">"Button 1"</span> <span class="attr">Canvas.Left</span>=<span class="string">"50"</span> <span class="attr">Canvas.Top</span>=<span class="string">"50"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span> <span class="attr">Content</span>=<span class="string">"Button 2"</span> <span class="attr">Canvas.Left</span>=<span class="string">"150"</span> <span class="attr">Canvas.Top</span>=<span class="string">"150"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="WPF-레이아웃-컨트롤을-사용한-UI-디자인-모범-사례">WPF 레이아웃 컨트롤을 사용한 UI 디자인 모범 사례</h2>
+<h2 id="wpf-레이아웃-컨트롤을-사용한-ui-디자인-모범-사례"><a class="markdownIt-Anchor" href="#wpf-레이아웃-컨트롤을-사용한-ui-디자인-모범-사례"></a> WPF 레이아웃 컨트롤을 사용한 UI 디자인 모범 사례</h2>
 <ul>
 <li><strong>올바른 컨트롤 선택하기:</strong> 항상 디자인 요구 사항에 맞는 레이아웃 컨트롤을 선택하세요. 동적 콘텐츠의 경우 StackPanel 또는 WrapPanel이 가장 적합할 수 있습니다. 구조화된 양식의 경우 Grid가 더 적합합니다.</li>
 <li><strong>레이아웃 컨트롤 결합:</strong> 여러 레이아웃 컨트롤을 결합하면 원하는 유연성을 제공할 수 있는 경우가 많습니다. 예를 들어 기본 구조에는 DockPanel을 사용하고 특정 영역 내에서는 Grid를 사용하여 세부적인 정렬을 할 수 있습니다.</li>
 <li><strong>성능 고려 사항:</strong> 복잡한 레이아웃은 성능에 영향을 줄 수 있습니다. 필요에 맞는 가장 간단한 레이아웃 컨트롤을 사용하고 가능한 경우 컨트롤을 깊게 중첩하지 않도록 하세요.</li>
 </ul>
-<h2 id="결론">결론</h2>
+<h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2>
 <p>Grid, StackPanel, DockPanel과 같은 WPF 레이아웃 컨트롤을 마스터하는 것은 체계적이고 반응이 빠른 UI를 만드는 데 필수적입니다. 각 컨트롤의 강점과 적절한 사용 사례를 이해하면 기능적이면서도 시각적으로 매력적인 인터페이스를 디자인할 수 있습니다. 다양한 조합을 계속 실험하여 애플리케이션의 요구 사항에 가장 적합한 레이아웃 구조를 찾아보세요.</p>
 
         </div>
@@ -364,7 +364,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2024/08/14/wpf-6/" data-id="cmnbsny49017jukcxgnxgda8z" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2024/08/14/wpf-6/" data-id="cmnbvruo903znx4cxctwhhtqq" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -443,7 +443,7 @@
         "dateModified": "2024-08-14",
         "url": "http://hgko1207.github.io/2024/08/14/wpf-6/",
         "description": "WPF(Windows Presentation Foundation)에서 사용자 인터페이스(UI)를 디자인할 때 올바른 레이아웃 컨트롤을 선택하는 것은 반응이 빠르고 체계적으로 구성된 애플리케이션을 만드는 데 매우 중요합니다. WPF는 개발자가 UI에서 요소를 배치하고 크기를 조정하는 데 도움이 되는 여러 레이아웃 컨트롤을 제공합니다. 이러한 컨트롤 중 Gri",
-        "wordCount": 1149
+        "wordCount": 1184
     }
 </script>
 

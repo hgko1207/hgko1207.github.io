@@ -273,8 +273,8 @@
 
             
 
-            <h2 id="사용자-인증">사용자 인증</h2>
-<p>Postgresql을 처음 설치하게 되면 비밀번호를 묻지 않고 로그인을 할 수 있습니다.<br>
+            <h2 id="사용자-인증"><a class="markdownIt-Anchor" href="#사용자-인증"></a> 사용자 인증</h2>
+<p>Postgresql을 처음 설치하게 되면 비밀번호를 묻지 않고 로그인을 할 수 있습니다.<br />
 인증과정을 포함하려면 <strong>pg_hba.conf</strong> 에서 설정해야 합니다.</p>
 <p><strong>pg_hba.conf</strong> 파일은 initdb 에서 생성된 클러스터 폴더에 위치합니다.</p>
 <p>Authentication Method 필드의 값에 따라서 인증처리가 됩니다.</p>
@@ -284,7 +284,7 @@
 <li>md5: 패스워드를 md5 로 암호화해서 전송</li>
 <li>password: text 로 패스워드를 사용 (스니핑에 바로 보임)</li>
 </ul>
-<h2 id="사용-예제">사용 예제</h2>
+<h2 id="사용-예제"><a class="markdownIt-Anchor" href="#사용-예제"></a> 사용 예제</h2>
 <p>TCP/IP로 127.0.0.1에 접근 시 모든 DB, 사용자로의 접근에 패스워드가 필요 없는 예제입니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">host  all  all  127.0.0.1/32  trust</span><br></pre></td></tr></table></figure>
 <p>TCP/IP로 192.168.0.1에 접근 시 hgko 계정으로 모든 DB에 대한 접근이 허용되며, md5로 패스워드를 암호화해야 하는 예제입니다.</p>
@@ -293,12 +293,12 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">host  mydb,<span class="built_in">test</span>  hgko  192.168.0.1/32  md5</span><br></pre></td></tr></table></figure>
 <p>원격 어디서든지 remotegroup의 SYSID로 설정된 계정들로 remotedb의 접근이 허용되며, md5로 패스워드를 암호화해야 하는 예제입니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">host  remotedb  +remotegroup  0.0.0.0/0  md5</span><br></pre></td></tr></table></figure>
-<h2 id="모든-호스트로-부터-접속-허용">모든 호스트로 부터 접속 허용</h2>
+<h2 id="모든-호스트로-부터-접속-허용"><a class="markdownIt-Anchor" href="#모든-호스트로-부터-접속-허용"></a> 모든 호스트로 부터 접속 허용</h2>
 <p><strong>postgresql.conf</strong> 파일을 수정합니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">listen_addresses = <span class="string">'*'</span></span><br></pre></td></tr></table></figure>
 <p><strong>pg_hba.conf</strong> 파일을 수정합니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># TYPE DATABASE USER CIDR-ADDRESS METHOD</span></span><br><span class="line">host  all  all  0.0.0.0/0  md5</span><br></pre></td></tr></table></figure>
-<h2 id="참고">참고</h2>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <ul>
 <li><a href="https://www.postgresql.kr/docs/9.5/auth-methods.html" target="_blank" rel="noopener">https://www.postgresql.kr/docs/9.5/auth-methods.html</a></li>
 </ul>
@@ -335,7 +335,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/11/08/postgresql-5/" data-id="cmnbsnxyo00glukcxb4el5tvd" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/11/08/postgresql-5/" data-id="cmnbvrts700gax4cx499vex7o" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -413,14 +413,14 @@
         "dateCreated": "2022-11-08",
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2022/11/08/postgresql-5/",
-        "description": "사용자 인증
+        "description": " 사용자 인증
 Postgresql을 처음 설치하게 되면 비밀번호를 묻지 않고 로그인을 할 수 있습니다.
 인증과정을 포함하려면 pg_hba.conf 에서 설정해야 합니다.
 pg_hba.conf 파일은 initdb 에서 생성된 클러스터 폴더에 위치합니다.
 Authentication Method 필드의 값에 따라서 인증처리가 됩니다.
 
-trust: 패스워드 없이 ",
-        "wordCount": 209
+trust: 패스워드 없이",
+        "wordCount": 222
     }
 </script>
 

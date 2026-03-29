@@ -274,13 +274,13 @@
 
             <p><strong>MySQL</strong> 서버에 접속 시도 시 다음과 같은 에러가 발생할 경우 해결 방법입니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo mysql -u root</span></span><br><span class="line"></span><br><span class="line">ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (111)</span><br></pre></td></tr></table></figure>
-<p>MySQL 사용자로 접속 시도 시 <strong>/var/lib/mysql/</strong> 경로에서 mysql.sock 파일을 찾을 수 없어서 나오는 오류입니다.<br>
+<p>MySQL 사용자로 접속 시도 시 <strong>/var/lib/mysql/</strong> 경로에서 mysql.sock 파일을 찾을 수 없어서 나오는 오류입니다.<br />
 먼저 mysql.sock 파일을 찾습니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> find / -name <span class="string">"mysql.sock"</span></span></span><br><span class="line">/db/mysql_data/mysql.sock</span><br></pre></td></tr></table></figure>
-<h2 id="해결-1">해결 1</h2>
+<h2 id="해결-1"><a class="markdownIt-Anchor" href="#해결-1"></a> 해결 1</h2>
 <p><code>my.cnf</code> 파일을 열고 다음 항목을 추가합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> vi /etc/my.cnf</span></span><br><span class="line">[client]</span><br><span class="line">socket=/db/mysql_data/mysql.sock</span><br><span class="line">[mysqld]</span><br><span class="line">socket=/db/mysql_data/mysql.sock</span><br></pre></td></tr></table></figure>
-<h2 id="해결-2">해결 2</h2>
+<h2 id="해결-2"><a class="markdownIt-Anchor" href="#해결-2"></a> 해결 2</h2>
 <p>심볼릭 링크를 사용합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ln -s /db/mysql_data/mysql.sock /var/lib/mysql/mysql.sock</span></span><br></pre></td></tr></table></figure>
 
@@ -316,7 +316,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/11/15/mysql-2/" data-id="cmnbsnxyr00h1ukcxh3rw8m4x" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/11/15/mysql-2/" data-id="cmnbvrtsd00h6x4cx00q99r6f" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -397,7 +397,7 @@
         "description": "MySQL 서버에 접속 시도 시 다음과 같은 에러가 발생할 경우 해결 방법입니다.
 123$ sudo mysql -u rootERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (111)
 MySQL 사용자로 접속 시도 시 /var/li",
-        "wordCount": 112
+        "wordCount": 119
     }
 </script>
 

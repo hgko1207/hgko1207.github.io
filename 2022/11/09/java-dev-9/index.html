@@ -273,13 +273,13 @@
 
             
 
-            <h2 id="람다-Lamdba-란">람다(Lamdba) 란</h2>
+            <h2 id="람다lamdba-란"><a class="markdownIt-Anchor" href="#람다lamdba-란"></a> 람다(Lamdba) 란</h2>
 <blockquote>
-<p>람다식, 또는 람다 함수라 부른다.<br>
-프로그래밍 언어에서 사용되는 개념으로, 익명 함수(Anonymous functions)를 지칭하는 용어이다.<br>
+<p>람다식, 또는 람다 함수라 부른다.<br />
+프로그래밍 언어에서 사용되는 개념으로, 익명 함수(Anonymous functions)를 지칭하는 용어이다.<br />
 <a href="https://namu.wiki/w/%EB%9E%8C%EB%8B%A4%EC%8B%9D" target="_blank" rel="noopener">나무위키</a></p>
 </blockquote>
-<h2 id="예제">예제</h2>
+<h2 id="예제"><a class="markdownIt-Anchor" href="#예제"></a> 예제</h2>
 <p>Map에서 특정한 값을 가지는 entry에 대해서 삭제하는 코드입니다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String, String&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">map.put(<span class="string">"XXX"</span>, <span class="string">"111"</span>);</span><br><span class="line">map.put(<span class="string">"YYY"</span>, <span class="string">"222"</span>);</span><br><span class="line">map.put(<span class="string">"ZZZ"</span>, <span class="string">"333"</span>);</span><br><span class="line">map.put(<span class="string">"AAA"</span>, <span class="string">"444"</span>);</span><br><span class="line">map.put(<span class="string">"BBB"</span>, <span class="string">"555"</span>);</span><br><span class="line"></span><br><span class="line">map.entrySet().stream()</span><br><span class="line">    .filter(entry -&gt; entry.getValue().equals(<span class="string">"111"</span>))</span><br><span class="line">    .map(entry -&gt; entry.getKey())</span><br><span class="line">    .collect(Collectors.toList())</span><br><span class="line">    .forEach(map::remove);</span><br><span class="line"></span><br><span class="line">System.out.println(map);</span><br></pre></td></tr></table></figure>
 <p>실행 결과입니다.</p>
@@ -320,7 +320,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/11/09/java-dev-9/" data-id="cmnbsnxyq00gvukcxeb2mbgv9" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/11/09/java-dev-9/" data-id="cmnbvrtsf00hmx4cx0h2d9j5p" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -398,16 +398,16 @@
         "dateCreated": "2022-11-09",
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2022/11/09/java-dev-9/",
-        "description": "람다(Lamdba) 란
+        "description": " 람다(Lamdba) 란
 
 람다식, 또는 람다 함수라 부른다.
 프로그래밍 언어에서 사용되는 개념으로, 익명 함수(Anonymous functions)를 지칭하는 용어이다.
 나무위키
 
-예제
+ 예제
 Map에서 특정한 값을 가지는 entry에 대해서 삭제하는 코드입니다.
-1234567891011121314Map&lt;String, String&gt; map = new H",
-        "wordCount": 154
+1234567891011121314Map&lt;String, String&gt; map = new",
+        "wordCount": 162
     }
 </script>
 

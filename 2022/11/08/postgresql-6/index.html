@@ -274,28 +274,28 @@
 
             
 
-            <h2 id="실행-파일을-통합-방법">실행 파일을 통합 방법</h2>
-<h3 id="사용자-생성">사용자 생성</h3>
+            <h2 id="실행-파일을-통합-방법"><a class="markdownIt-Anchor" href="#실행-파일을-통합-방법"></a> 실행 파일을 통합 방법</h2>
+<h3 id="사용자-생성"><a class="markdownIt-Anchor" href="#사용자-생성"></a> 사용자 생성</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> createuser hgko --createdb --no-superuser --no-createrole</span></span><br></pre></td></tr></table></figure>
-<h3 id="사용자-삭제">사용자 삭제</h3>
+<h3 id="사용자-삭제"><a class="markdownIt-Anchor" href="#사용자-삭제"></a> 사용자 삭제</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> dropuser hgko</span></span><br></pre></td></tr></table></figure>
-<h2 id="DB-접속을-통한-방법">DB 접속을 통한 방법</h2>
-<h3 id="GROUP-생성-수정-삭제">GROUP 생성, 수정, 삭제</h3>
+<h2 id="db-접속을-통한-방법"><a class="markdownIt-Anchor" href="#db-접속을-통한-방법"></a> DB 접속을 통한 방법</h2>
+<h3 id="group-생성-수정-삭제"><a class="markdownIt-Anchor" href="#group-생성-수정-삭제"></a> GROUP 생성, 수정, 삭제</h3>
 <ul>
 <li><strong>SYSID</strong>: 내부의 GROUP ID 구분용 숫자 코드이며, 설정하지 않으면 자동으로 100부터 1씩 증가합니다. (1~99는 핵심적인 그룹을 위함) 자동으로 설정되게 하면 됩니다.</li>
 </ul>
-<h4 id="GROUP-생성">GROUP 생성</h4>
+<h4 id="group-생성"><a class="markdownIt-Anchor" href="#group-생성"></a> GROUP 생성</h4>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">GROUP</span> [그룹명];</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">GROUP</span> [그룹명] <span class="keyword">WITH</span> <span class="keyword">USER</span> user1, user2, user3;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">GROUP</span> [그룹명] <span class="keyword">WITH</span> SYSID <span class="number">100</span> <span class="keyword">USER</span> user1;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">GROUP</span> [그룹명] <span class="keyword">WITH</span> SYSID <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
-<h4 id="GROUP-수정">GROUP 수정</h4>
+<h4 id="group-수정"><a class="markdownIt-Anchor" href="#group-수정"></a> GROUP 수정</h4>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">GROUP</span> [그룹명] <span class="keyword">ADD</span> <span class="keyword">USER</span> user4, user5;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">GROUP</span> [그룹명] <span class="keyword">DROP</span> <span class="keyword">USER</span> user3;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">GROUP</span> [그룹명] <span class="keyword">RENAME</span> <span class="keyword">TO</span> [새로운 그룹명];</span><br></pre></td></tr></table></figure>
-<h4 id="GROUP-삭제">GROUP 삭제</h4>
+<h4 id="group-삭제"><a class="markdownIt-Anchor" href="#group-삭제"></a> GROUP 삭제</h4>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">GROUP</span> [그룹명];</span><br></pre></td></tr></table></figure>
 <ul>
 <li>GROUP 조회</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 1)</span></span><br><span class="line">postgres=<span class="comment"># \dg</span></span><br><span class="line">postgres=<span class="comment"># \du</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 2)</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> pg_group;</span><br></pre></td></tr></table></figure>
-<h3 id="사용자-생성-수정-삭제">사용자 생성, 수정, 삭제</h3>
-<h4 id="사용자-생성-2">사용자 생성</h4>
+<h3 id="사용자-생성-수정-삭제"><a class="markdownIt-Anchor" href="#사용자-생성-수정-삭제"></a> 사용자 생성, 수정, 삭제</h3>
+<h4 id="사용자-생성-2"><a class="markdownIt-Anchor" href="#사용자-생성-2"></a> 사용자 생성</h4>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> test_user CREATEDB CREATEUSER <span class="keyword">IN</span> <span class="keyword">GROUP</span> test_group UNENCRYPTED <span class="keyword">PASSWORD</span> <span class="string">'1234'</span>;</span><br></pre></td></tr></table></figure>
 <p>사용자 생성에 사용되는 옵션들입니다.</p>
 <ul>
@@ -313,9 +313,9 @@
 <li>USER role_name [,…]</li>
 <li>SYSID uid</li>
 </ul>
-<h4 id="사용자-수정">사용자 수정</h4>
+<h4 id="사용자-수정"><a class="markdownIt-Anchor" href="#사용자-수정"></a> 사용자 수정</h4>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> [사용자명] <span class="keyword">RENAME</span> <span class="keyword">TO</span> [새로운 사용자명];</span><br></pre></td></tr></table></figure>
-<h4 id="사용자-삭제-2">사용자 삭제</h4>
+<h4 id="사용자-삭제-2"><a class="markdownIt-Anchor" href="#사용자-삭제-2"></a> 사용자 삭제</h4>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">USER</span> [사용자명]</span><br></pre></td></tr></table></figure>
 
         </div>
@@ -350,7 +350,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/11/08/postgresql-6/" data-id="cmnbsnxyq00gsukcx99e0fjf3" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/11/08/postgresql-6/" data-id="cmnbvrtsa00gqx4cx54fc39tc" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -428,16 +428,16 @@
         "dateCreated": "2022-11-08",
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2022/11/08/postgresql-6/",
-        "description": "실행 파일을 통합 방법
-사용자 생성
+        "description": " 실행 파일을 통합 방법
+ 사용자 생성
 1$ createuser hgko --createdb --no-superuser --no-createrole
-사용자 삭제
+ 사용자 삭제
 1$ dropuser hgko
-DB 접속을 통한 방법
-GROUP 생성, 수정, 삭제
+ DB 접속을 통한 방법
+ GROUP 생성, 수정, 삭제
 
-SYSID: 내부의 GROUP ID 구분용 숫자 코드이며, 설정하지 않으면 자동으로 100부터 1씩 증가합니다. (",
-        "wordCount": 295
+SYSID: 내부의 GROUP ID 구분용 숫자 코드이며, 설정하지 않으면 자동으로 100부터 1씩 증가합",
+        "wordCount": 331
     }
 </script>
 

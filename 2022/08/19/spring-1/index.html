@@ -272,13 +272,13 @@
             
 
             <p>Spring에서 Swagger Header 설정 방법에 대해 알아보겠습니다.</p>
-<h2 id="API-마다-설정">API 마다 설정</h2>
+<h2 id="api-마다-설정"><a class="markdownIt-Anchor" href="#api-마다-설정"></a> API 마다 설정</h2>
 <p>각 API 마다 <code>@ApiImplicitParam</code>을 통해 인증 정보(토큰)를 입력하도록 설정합니다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiImplicitParams</span>(&#123;<span class="meta">@ApiImplicitParam</span>(name = <span class="string">"Authorization"</span>, value = <span class="string">"JWT Token"</span>,</span><br><span class="line">      required = <span class="keyword">true</span>, dataType = <span class="string">"string"</span>, paramType = <span class="string">"header"</span>) &#125;)</span><br><span class="line"><span class="meta">@PostMapping</span>(<span class="string">"/auth/test"</span>)</span><br><span class="line"><span class="keyword">public</span> ResponseEntity&lt;?&gt; authTest() &#123;</span><br><span class="line">  System.err.println(<span class="string">"authTest"</span>);</span><br><span class="line">  <span class="keyword">return</span> ResponseEntity.ok(<span class="string">"test ok"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>이 방법은 API 개수가 많아질 경우 코드 양이 늘어나고 가독성이 나빠집니다. 그리고 <strong>Swagger</strong>를 통해 테스트 진행 시 각 API 마다 인증 정보를 입력해야 한다는 번거로움이 생기게 됩니다.</p>
-<h2 id="Authroize-버튼-활성화">Authroize 버튼 활성화</h2>
+<h2 id="authroize-버튼-활성화"><a class="markdownIt-Anchor" href="#authroize-버튼-활성화"></a> Authroize 버튼 활성화</h2>
 <p><strong>SWagger Version 2.9.2</strong>부터는 번거로움을 없애주는 기능이 생겼습니다. <strong>Swagger</strong> 화면 상단 부분에 <code>Autorize</code> 버튼이 생겼습니다. <code>Autorize</code> 버튼을 클릭하면 모든 API에 일괄 인증 할 수 있도록 해주는 인증 정보를 입력받는 창이 뜹니다.</p>
-<h3 id="설정">설정</h3>
+<h3 id="설정"><a class="markdownIt-Anchor" href="#설정"></a> 설정</h3>
 <p>먼저 maven 또는 gradle 설정을 합니다.</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">  <span class="keyword">compile</span> <span class="keyword">group</span>: <span class="string">'io.springfox'</span>, name: <span class="string">'springfox-swagger2'</span>, version: <span class="string">'2.9.2'</span></span><br><span class="line">  implementation <span class="keyword">group</span>: <span class="string">'io.springfox'</span>, name: <span class="string">'springfox-swagger-ui'</span>, version: <span class="string">'2.9.2'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -320,7 +320,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/08/19/spring-1/" data-id="cmnbsnxyc00e8ukcxa1em1pz6" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/08/19/spring-1/" data-id="cmnbvrtro00e5x4cx2zc741ab" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -399,10 +399,10 @@
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2022/08/19/spring-1/",
         "description": "Spring에서 Swagger Header 설정 방법에 대해 알아보겠습니다.
-API 마다 설정
+ API 마다 설정
 각 API 마다 @ApiImplicitParam을 통해 인증 정보(토큰)를 입력하도록 설정합니다.
-1234567@ApiImplicitParams(&#123;@ApiImplicitParam(name = "Authorization", value = "JWT Token",
-        "wordCount": 942
+1234567@ApiImplicitParams(&#123;@ApiImplicitParam(name = "Authorization", value = "JWT Toke",
+        "wordCount": 951
     }
 </script>
 

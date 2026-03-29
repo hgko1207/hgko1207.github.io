@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
-    <meta name="keywords" content="Node.js,TypeScript,Backend,Express,Programming,Logging,Winston" />
+    <meta name="keywords" content="Node.js,TypeScript,Express,Backend,Programming,Logging,Winston" />
     
     
     
@@ -28,8 +28,8 @@
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="Node.js">
 <meta property="article:tag" content="TypeScript">
-<meta property="article:tag" content="Backend">
 <meta property="article:tag" content="Express">
+<meta property="article:tag" content="Backend">
 <meta property="article:tag" content="Programming">
 <meta property="article:tag" content="Logging">
 <meta property="article:tag" content="Winston">
@@ -277,8 +277,8 @@
             
 
             <p><strong>로깅</strong>(Logging)은 모든 애플리케이션에서 중요한 부분입니다. 로깅은 코드 디버깅, 모니터링 및 유지 관리에 도움이 됩니다. <strong>Winston</strong>은 유연성과 풍부한 기능으로 인해 Node.js에서 가장 인기 있는 로깅 라이브러리 중 하나입니다. 이 글에서는 Winston을 Node.js 애플리케이션에 통합하고 그 기능을 최대한 활용하는 방법을 살펴봅니다.</p>
-<p><img src="/images/header/nodejs-8.png" alt=""></p>
-<h2 id="개요">개요</h2>
+<p><img src="/images/header/nodejs-8.png" alt="" /></p>
+<h2 id="개요"><a class="markdownIt-Anchor" href="#개요"></a> 개요</h2>
 <p>이 튜토리얼에서는 다음을 다룹니다:</p>
 <ul>
 <li>Node.js 프로젝트에서 Winston 설정하기</li>
@@ -289,17 +289,17 @@
 <li>일일 로그 파일에 로깅하기</li>
 <li>Express 애플리케이션에서 Winston 사용하기</li>
 </ul>
-<h2 id="전제-조건">전제 조건</h2>
+<h2 id="전제-조건"><a class="markdownIt-Anchor" href="#전제-조건"></a> 전제 조건</h2>
 <ul>
 <li>JavaScript 및 Node.js에 대한 기본 지식</li>
 <li>npm 및 Express에 익숙함(선택 사항이지만 마지막 단계에 권장됨).</li>
 </ul>
-<h2 id="설정">설정</h2>
+<h2 id="설정"><a class="markdownIt-Anchor" href="#설정"></a> 설정</h2>
 <p>Node.js 프로젝트를 초기화합니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir winston-logger-example</span><br><span class="line"><span class="built_in">cd</span> winston-logger-example</span><br><span class="line">npm init -y</span><br></pre></td></tr></table></figure>
 <p>Winston를 설치합니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install express winston winston-daily-rotate-file</span><br></pre></td></tr></table></figure>
-<h2 id="기본-설정">기본 설정</h2>
+<h2 id="기본-설정"><a class="markdownIt-Anchor" href="#기본-설정"></a> 기본 설정</h2>
 <p>Winston을 설정하기 위한 <code>logger.js</code> 파일을 생성합니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// logger.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; createLogger, format, transports &#125; = <span class="built_in">require</span>(<span class="string">'winston'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> logger = createLogger(&#123;</span><br><span class="line">  level: <span class="string">'info'</span>,</span><br><span class="line">  format: format.combine(</span><br><span class="line">    format.colorize(),</span><br><span class="line">    format.timestamp(),</span><br><span class="line">    format.printf(<span class="function">(<span class="params">&#123; timestamp, level, message &#125;</span>) =&gt;</span> <span class="string">`<span class="subst">$&#123;timestamp&#125;</span> <span class="subst">$&#123;level&#125;</span>: <span class="subst">$&#123;message&#125;</span>`</span>)</span><br><span class="line">  ),</span><br><span class="line">  transports: [<span class="keyword">new</span> transports.Console(), <span class="keyword">new</span> transports.File(&#123; <span class="attr">filename</span>: <span class="string">'app.log'</span> &#125;)],</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = logger;</span><br></pre></td></tr></table></figure>
 <ul>
@@ -307,14 +307,14 @@
 <li><strong>format.combine:</strong> 여러 형식을 결합합니다. 여기서는 <code>colorize</code>, <code>timestamp</code>, <code>printf</code>를 사용하고 있습니다.</li>
 <li><strong>transports:</strong> 로그를 전송할 위치를 지정합니다. 이 예에서는 콘솔과 파일(<code>app.log</code>)에 로깅합니다.</li>
 </ul>
-<h2 id="로깅-레벨-구성하기">로깅 레벨 구성하기</h2>
+<h2 id="로깅-레벨-구성하기"><a class="markdownIt-Anchor" href="#로깅-레벨-구성하기"></a> 로깅 레벨 구성하기</h2>
 <p>Winston은 <code>error</code>, <code>warn</code>, <code>info</code>, <code>http</code>, <code>verbose</code>, <code>debug</code>, <code>silly</code> 등 여러 로깅 레벨을 지원합니다. 캡처할 로그의 최소 레벨을 구성할 수 있습니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// logger.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; createLogger, format, transports &#125; = <span class="built_in">require</span>(<span class="string">'winston'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> logger = createLogger(&#123;</span><br><span class="line">  levels: &#123;</span><br><span class="line">    error: <span class="number">0</span>,</span><br><span class="line">    warn: <span class="number">1</span>,</span><br><span class="line">    info: <span class="number">2</span>,</span><br><span class="line">    http: <span class="number">3</span>,</span><br><span class="line">    verbose: <span class="number">4</span>,</span><br><span class="line">    debug: <span class="number">5</span>,</span><br><span class="line">    silly: <span class="number">6</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  level: <span class="string">'info'</span>, <span class="comment">// Set the default log level</span></span><br><span class="line">  format: format.combine(</span><br><span class="line">    format.colorize(),</span><br><span class="line">    format.timestamp(),</span><br><span class="line">    format.printf(<span class="function">(<span class="params">&#123; timestamp, level, message &#125;</span>) =&gt;</span> <span class="string">`<span class="subst">$&#123;timestamp&#125;</span> <span class="subst">$&#123;level&#125;</span>: <span class="subst">$&#123;message&#125;</span>`</span>)</span><br><span class="line">  ),</span><br><span class="line">  transports: [<span class="keyword">new</span> transports.Console(), <span class="keyword">new</span> transports.File(&#123; <span class="attr">filename</span>: <span class="string">'app.log'</span> &#125;)],</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = logger;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><strong>levels:</strong> 사용자 정의 로깅 레벨을 정의합니다.</li>
 <li><strong>level:</strong> 캡처할 로그의 최소 레벨을 설정합니다(여기서는 <code>info</code>로 설정되어 있음).</li>
 </ul>
-<h2 id="로그-레벨-이해하기">로그 레벨 이해하기</h2>
+<h2 id="로그-레벨-이해하기"><a class="markdownIt-Anchor" href="#로그-레벨-이해하기"></a> 로그 레벨 이해하기</h2>
 <p>로그 레벨은 기록되는 메시지의 심각도를 결정합니다. Winston은 가장 심각한 것부터 가장 덜 심각한 것까지 우선순위가 지정된 npm 스타일 로깅 레벨을 사용합니다.</p>
 <ul>
 <li><strong>error: (0)</strong> 즉각적인 주의가 필요할 수 있는 오류를 로깅합니다.</li>
@@ -326,26 +326,26 @@
 <li><strong>silly: (6)</strong> 가장 자세한 정보, 종종 필요 이상으로 많은 정보를 로깅합니다.</li>
 </ul>
 <p>최소 로그 레벨을 설정하여 덜 심각한 메시지를 필터링할 수 있습니다. 예를 들어 로그 레벨을 <code>info</code>로 설정하면 <code>info</code>, <code>warn</code> 및 <code>error</code> 메시지만 기록됩니다.</p>
-<h2 id="사용자-지정-로그-형식-만들기">사용자 지정 로그 형식 만들기</h2>
+<h2 id="사용자-지정-로그-형식-만들기"><a class="markdownIt-Anchor" href="#사용자-지정-로그-형식-만들기"></a> 사용자 지정 로그 형식 만들기</h2>
 <p>필요에 따라 사용자 지정 로그 형식을 만들 수 있습니다. 예를 들어 메타데이터를 추가하거나 로그 메시지 구조를 변경할 수 있습니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// logger.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; createLogger, format, transports &#125; = <span class="built_in">require</span>(<span class="string">'winston'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> customFormat = format.combine(</span><br><span class="line">  format.colorize(),</span><br><span class="line">  format.timestamp(),</span><br><span class="line">  format.printf(<span class="function">(<span class="params">&#123; timestamp, level, message, ...meta &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;timestamp&#125;</span> <span class="subst">$&#123;level&#125;</span>: <span class="subst">$&#123;message&#125;</span> <span class="subst">$&#123;<span class="built_in">Object</span>.keys(meta).length ? <span class="built_in">JSON</span>.stringify(meta, <span class="literal">null</span>, <span class="number">2</span>) : <span class="string">''</span>&#125;</span>`</span>;</span><br><span class="line">  &#125;)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> logger = createLogger(&#123;</span><br><span class="line">  level: <span class="string">'info'</span>,</span><br><span class="line">  format: customFormat,</span><br><span class="line">  transports: [<span class="keyword">new</span> transports.Console(), <span class="keyword">new</span> transports.File(&#123; <span class="attr">filename</span>: <span class="string">'app.log'</span> &#125;)],</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = logger;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><strong>customFormat:</strong> timestamp, log level, message 및 optional metadata를 구조화된 로그 형식으로 결합합니다.</li>
 </ul>
-<h2 id="여러-전송에-로깅">여러 전송에 로깅</h2>
+<h2 id="여러-전송에-로깅"><a class="markdownIt-Anchor" href="#여러-전송에-로깅"></a> 여러 전송에 로깅</h2>
 <p>Winston은 다양한 파일, 외부 로깅 서비스 또는 콘솔과 같은 여러 대상에 로깅할 수 있습니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// logger.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; createLogger, format, transports &#125; = <span class="built_in">require</span>(<span class="string">'winston'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> logger = createLogger(&#123;</span><br><span class="line">  level: <span class="string">'info'</span>,</span><br><span class="line">  format: format.combine(</span><br><span class="line">    format.timestamp(),</span><br><span class="line">    format.printf(<span class="function">(<span class="params">&#123; timestamp, level, message &#125;</span>) =&gt;</span> <span class="string">`<span class="subst">$&#123;timestamp&#125;</span> <span class="subst">$&#123;level&#125;</span>: <span class="subst">$&#123;message&#125;</span>`</span>)</span><br><span class="line">  ),</span><br><span class="line">  transports: [</span><br><span class="line">    <span class="keyword">new</span> transports.Console(),</span><br><span class="line">    <span class="keyword">new</span> transports.File(&#123; <span class="attr">filename</span>: <span class="string">'app.log'</span> &#125;),</span><br><span class="line">    <span class="keyword">new</span> transports.File(&#123; <span class="attr">filename</span>: <span class="string">'error.log'</span>, <span class="attr">level</span>: <span class="string">'error'</span> &#125;),</span><br><span class="line">  ],</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = logger;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><strong>transports.File({ filename: ‘error.log’, level: ‘error’ }):</strong> 오류 메시지를 별도의 파일에 기록합니다.</li>
 </ul>
-<h2 id="사용자-정의-로그-레벨-생성">사용자 정의 로그 레벨 생성</h2>
+<h2 id="사용자-정의-로그-레벨-생성"><a class="markdownIt-Anchor" href="#사용자-정의-로그-레벨-생성"></a> 사용자 정의 로그 레벨 생성</h2>
 <p>Winston에서 사용자 지정 로그 레벨을 직접 정의할 수 있습니다. 이 기능은 기본 레벨에서 다루지 않는 특정 요구 사항이 있는 경우에 유용합니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// logger.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; createLogger, format, transports, config &#125; = <span class="built_in">require</span>(<span class="string">'winston'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> customLevels = &#123;</span><br><span class="line">  levels: &#123;</span><br><span class="line">    critical: <span class="number">0</span>,</span><br><span class="line">    error: <span class="number">1</span>,</span><br><span class="line">    warn: <span class="number">2</span>,</span><br><span class="line">    info: <span class="number">3</span>,</span><br><span class="line">    debug: <span class="number">4</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  colors: &#123;</span><br><span class="line">    critical: <span class="string">'red'</span>,</span><br><span class="line">    error: <span class="string">'red'</span>,</span><br><span class="line">    warn: <span class="string">'yellow'</span>,</span><br><span class="line">    info: <span class="string">'green'</span>,</span><br><span class="line">    debug: <span class="string">'blue'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> logger = createLogger(&#123;</span><br><span class="line">  levels: customLevels.levels,</span><br><span class="line">  level: <span class="string">'info'</span>, <span class="comment">// Set the default log level</span></span><br><span class="line">  format: format.combine(</span><br><span class="line">    format.colorize(&#123; <span class="attr">all</span>: <span class="literal">true</span> &#125;),</span><br><span class="line">    format.timestamp(),</span><br><span class="line">    format.printf(<span class="function">(<span class="params">&#123; timestamp, level, message &#125;</span>) =&gt;</span> <span class="string">`<span class="subst">$&#123;timestamp&#125;</span> <span class="subst">$&#123;level&#125;</span>: <span class="subst">$&#123;message&#125;</span>`</span>)</span><br><span class="line">  ),</span><br><span class="line">  transports: [<span class="keyword">new</span> transports.Console(), <span class="keyword">new</span> transports.File(&#123; <span class="attr">filename</span>: <span class="string">'app.log'</span> &#125;)],</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">winston.addColors(customLevels.colors);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = logger;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><strong>customLevels:</strong> 사용자 지정 로깅 레벨과 해당 색상을 정의합니다.</li>
 <li><strong>winston.addColors:</strong> 로깅 레벨에 사용자 지정 색상을 적용합니다.</li>
 </ul>
-<h2 id="일일-로그-파일에-로깅하기">일일 로그 파일에 로깅하기</h2>
+<h2 id="일일-로그-파일에-로깅하기"><a class="markdownIt-Anchor" href="#일일-로그-파일에-로깅하기"></a> 일일 로그 파일에 로깅하기</h2>
 <p><code>winston-daily-rotate-file</code> 전송을 사용하여 매일 새 로그 파일을 만들 수 있습니다.</p>
 <p><code>winston-daily-rotate-file</code>을 설치합니다:</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install winston-daily-rotate-file</span><br></pre></td></tr></table></figure>
@@ -357,7 +357,7 @@
 <li><strong>maxSize:</strong> 회전하기 전 로그 파일의 최대 크기입니다.</li>
 <li><strong>maxFiles:</strong> 로그 파일을 보관할 수 있는 최대 일수입니다.</li>
 </ul>
-<h2 id="Express-애플리케이션에서-Winston-사용">Express 애플리케이션에서 Winston 사용</h2>
+<h2 id="express-애플리케이션에서-winston-사용"><a class="markdownIt-Anchor" href="#express-애플리케이션에서-winston-사용"></a> Express 애플리케이션에서 Winston 사용</h2>
 <p>Winston을 Express 애플리케이션에 통합하여 HTTP 요청 및 오류에 대한 로깅을 처리합니다.</p>
 <p>Express를 설치합니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install express</span><br></pre></td></tr></table></figure>
@@ -367,7 +367,7 @@
 <li><strong>HTTP 요청 로깅:</strong> 미들웨어는 <code>logger.http</code>를 사용하여 들어오는 모든 HTTP 요청을 기록합니다.</li>
 <li><strong>오류 처리 미들웨어:</strong> <code>logger.error</code>를 사용하여 오류를 기록합니다.</li>
 </ul>
-<h2 id="결론">결론</h2>
+<h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2>
 <p>Winston을 Node.js 애플리케이션에 통합하면 코드를 보다 효과적으로 디버그, 모니터링 및 유지 관리하는 데 도움이 되는 강력하고 유연한 로깅 시스템을 만들 수 있습니다. 콘솔, 파일 또는 외부 서비스에 로깅해야 하는 경우 Winston의 풍부한 기능 세트는 Node.js 로깅을 위한 탁월한 선택입니다.</p>
 
         </div>
@@ -402,7 +402,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2024/09/20/nodejs-8/" data-id="cmnbsny4h018iukcx6el56wjg" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2024/09/20/nodejs-8/" data-id="cmnbvrup6040lx4cxh4qj430y" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -474,7 +474,7 @@
         },
         "headline": "[Node.js] Winston 사용하여 로깅하기",
         "image": "http://hgko1207.github.io/images/thumbnail/nodejs.png",
-        "keywords": "Node.js TypeScript Backend Express Programming Logging Winston",
+        "keywords": "Node.js TypeScript Express Backend Programming Logging Winston",
         "genre": "Programming Backend Node.js",
         "datePublished": "2024-09-20",
         "dateCreated": "2024-09-20",
@@ -482,8 +482,8 @@
         "url": "http://hgko1207.github.io/2024/09/20/nodejs-8/",
         "description": "로깅(Logging)은 모든 애플리케이션에서 중요한 부분입니다. 로깅은 코드 디버깅, 모니터링 및 유지 관리에 도움이 됩니다. Winston은 유연성과 풍부한 기능으로 인해 Node.js에서 가장 인기 있는 로깅 라이브러리 중 하나입니다. 이 글에서는 Winston을 Node.js 애플리케이션에 통합하고 그 기능을 최대한 활용하는 방법을 살펴봅니다.
 
-개요",
-        "wordCount": 1565
+ 개",
+        "wordCount": 1602
     }
 </script>
 

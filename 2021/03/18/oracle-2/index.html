@@ -274,9 +274,9 @@
 
             
 
-            <h2 id="Table">Table</h2>
+            <h2 id="table"><a class="markdownIt-Anchor" href="#table"></a> Table</h2>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> sample_table</span><br><span class="line">(</span><br><span class="line">  <span class="keyword">id</span> <span class="built_in">NUMBER</span> PRIMARY <span class="keyword">KEY</span>,</span><br><span class="line">  <span class="keyword">name</span> <span class="built_in">VARCHAR2</span>(<span class="number">20</span>),</span><br><span class="line">  shape SDO_GEOMETRY</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<h2 id="INSERT">INSERT</h2>
+<h2 id="insert"><a class="markdownIt-Anchor" href="#insert"></a> INSERT</h2>
 <p>SDO_GEOMETRY 컬럼에 넣을 데이터는 타입마다 형식이 다릅니다.</p>
 <ul>
 <li>Point(점) 타입</li>
@@ -302,7 +302,7 @@
 <li>Insert 예제</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> sample_table (<span class="keyword">id</span>, <span class="keyword">name</span>, shape)</span><br><span class="line"><span class="keyword">VALUES</span> ( <span class="number">1</span>, <span class="string">'Rectangle'</span>,</span><br><span class="line">        SDO_GEOMETRY(<span class="number">2003</span>, <span class="number">4326</span>, <span class="literal">NULL</span>,</span><br><span class="line">          SDO_ELEM_INFO_ARRAY(<span class="number">1</span>,<span class="number">1003</span>,<span class="number">3</span>),</span><br><span class="line">          SDO_ORDINATE_ARRAY(<span class="number">126.63</span>,<span class="number">36.84</span>, <span class="number">126.65</span>,<span class="number">36.88</span>)) );</span><br></pre></td></tr></table></figure>
-<h2 id="SELECT">SELECT</h2>
+<h2 id="select"><a class="markdownIt-Anchor" href="#select"></a> SELECT</h2>
 <ul>
 <li>입력된 직사각형 영역 안의 데이터 조회</li>
 </ul>
@@ -321,7 +321,7 @@
 <li>Geometry 형식이 맞는가?</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> s.name, SDO_GEOM.VALIDATE_GEOMETRY_WITH_CONTEXT(s.shape, <span class="number">0.005</span>)</span><br><span class="line"><span class="keyword">FROM</span> sample_table s</span><br></pre></td></tr></table></figure>
-<h2 id="참고">참고</h2>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <ul>
 <li><a href="https://docs.oracle.com/database/121/SPATL/spatial-relationships-and-filtering.htm#SPATL460" target="_blank" rel="noopener">Oracle Help Center - Spatial Relationships and Filtering</a></li>
 </ul>
@@ -358,7 +358,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2021/03/18/oracle-2/" data-id="cmnbsnxxh009gukcx7vas31d9" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2021/03/18/oracle-2/" data-id="cmnbvrtqb009sx4cx09xq9mao" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -436,15 +436,15 @@
         "dateCreated": "2021-03-18",
         "dateModified": "2023-03-14",
         "url": "http://hgko1207.github.io/2021/03/18/oracle-2/",
-        "description": "Table
+        "description": " Table
 123456CREATE TABLE sample_table(  id NUMBER PRIMARY KEY,  name VARCHAR2(20),  shape SDO_GEOMETRY);
-INSERT
+ INSERT
 SDO_GEOMETRY 컬럼에 넣을 데이터는 타입마다 형식이 다릅니다.
 
 Point(점) 타입
 
-1234567SDO_GEOMETRY(    2001,    4",
-        "wordCount": 709
+1234567SDO_GEOMETRY(    2001,   ",
+        "wordCount": 721
     }
 </script>
 

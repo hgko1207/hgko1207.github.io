@@ -263,9 +263,9 @@
     
 
         <p class="article-excerpt">
-            테이블 스페이스 남은 공간 조회
+             테이블 스페이스 남은 공간 조회
 현재 접속한 사용자의 DEFAULT_TABLESPACE 남은 공간을 조회합니다.
-123456789101112SELECT  ts.tablespace_name,  TO_CHAR(SUM(NVL(fs.bytes, 0)) / 1024 / 1024, '99,999,990.99') AS MB_FREEFROM  user_free_space
+123456789101112SELECT  ts.tablespace_name,  TO_CHAR(SUM(NVL(fs.bytes, 0)) / 1024 / 1024, '99,999,990.99') AS MB_FREEFROM  user_free_spac
         </p>
     </div>
 </article>
@@ -274,59 +274,6 @@
     
     
     
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2022/11/04/oracle-3/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/oracle.png)" alt="[Oracle] 테이블 스페이스 사용 방법" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2022/11/04/oracle-3/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/DB/">DB</a>
-            </div>
-            <div class="date"><time datetime="2022-11-04T06:44:12.000Z" itemprop="datePublished">2022-11-04</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2022/11/04/oracle-3/">[Oracle] 테이블 스페이스 사용 방법</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            테이블 스페이스(Table Space)란
-
-테이블스페이스(Tablespace)는 데이터베이스 오브젝트 내 실제 데이터를 저장하는 공간이다. 이것은 데이터베이스의 물리적인 부분이며, 세그먼트로 관리되는 모든 DBMS에 대해 저장소(세그먼트)를 할당한다.
-테이블스페이스는 단지 데이터베이스 저장소 위치를 지정할 뿐이며, 논리적 데이터베이스 구조나 스키마를 지정하
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -365,8 +312,61 @@
 
         <p class="article-excerpt">
             Oracle에서 계정 생성, 삭제 및 권한을 부여하는 방법입니다.
-계정 생성 및 권한 부여
-12345SQL&gt; CREATE USER [계정]     IDENTIFIED BY [비밀번호]     DEFAULT TABLESPACE [테이블스페이스명]     QUOTA unlimited ON [테이블스페이스명]  -- 테이블 스페이스의 내용을 모두 쓸 수 있
+ 계정 생성 및 권한 부여
+12345SQL&gt; CREATE USER [계정]     IDENTIFIED BY [비밀번호]     DEFAULT TABLESPACE [테이블스페이스명]     QUOTA unlimited ON [테이블스페이스명]  -- 테이블 스페이스의 내용을 모두 쓸 수 
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2022/11/04/oracle-3/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/oracle.png)" alt="[Oracle] 테이블 스페이스 사용 방법" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2022/11/04/oracle-3/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/DB/">DB</a>
+            </div>
+            <div class="date"><time datetime="2022-11-04T06:44:12.000Z" itemprop="datePublished">2022-11-04</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2022/11/04/oracle-3/">[Oracle] 테이블 스페이스 사용 방법</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+             테이블 스페이스(Table Space)란
+
+테이블스페이스(Tablespace)는 데이터베이스 오브젝트 내 실제 데이터를 저장하는 공간이다. 이것은 데이터베이스의 물리적인 부분이며, 세그먼트로 관리되는 모든 DBMS에 대해 저장소(세그먼트)를 할당한다.
+테이블스페이스는 단지 데이터베이스 저장소 위치를 지정할 뿐이며, 논리적 데이터베이스 구조나 스키마를 지정
         </p>
     </div>
 </article>
@@ -413,11 +413,11 @@
 
         <p class="article-excerpt">
             MariaDB에서 계정을 생성하고 권한을 부여하는 방법입니다.
-로그인
+ 로그인
 root의 패스워드를 입력하여 로그인합니다.
 1$ sudo mysql -u root -p
-계정 확인
-123456789101112131415MariaDB [(none)]&gt; show databases;+--------------------+| Database           |+---
+ 계정 확인
+123456789101112131415MariaDB [(none)]&gt; show databases;+--------------------+| Database           |+-
         </p>
     </div>
 </article>
@@ -477,14 +477,14 @@ root의 패스워드를 입력하여 로그인합니다.
     
 
         <p class="article-excerpt">
-            Table
+             Table
 123456CREATE TABLE sample_table(  id NUMBER PRIMARY KEY,  name VARCHAR2(20),  shape SDO_GEOMETRY);
-INSERT
+ INSERT
 SDO_GEOMETRY 컬럼에 넣을 데이터는 타입마다 형식이 다릅니다.
 
 Point(점) 타입
 
-1234567SDO_GEOMETRY(    2001,    4
+1234567SDO_GEOMETRY(    2001,   
         </p>
     </div>
 </article>
@@ -530,10 +530,10 @@ Point(점) 타입
     
 
         <p class="article-excerpt">
-            SDO_GEOMETRY
+             SDO_GEOMETRY
 Oracle Spatial을 사용하여 공간 데이터를 생성하고 관리합니다. Oracle 에는 SDO_GEOMETRY 타입을 통하여 공간 데이터를 구성할 수 있습니다.
 SDO_GEOMETRY 은 다음과 같이 정의됩니다.
-1234567CREATE TYPE sdo_geometry AS OBJECT (  SDO_GTYPE NUMBER,  SD
+1234567CREATE TYPE sdo_geometry AS OBJECT (  SDO_GTYPE NUMBER,  S
         </p>
     </div>
 </article>
@@ -593,10 +593,10 @@ SDO_GEOMETRY 은 다음과 같이 정의됩니다.
     
 
         <p class="article-excerpt">
-            TimescaleDB 란
+             TimescaleDB 란
 TimescaleDB는 빠른 수집, 복잡한 쿼리를 편리하게 사용하기 위해 설계된 오픈 소스 시계열 데이터베이스입니다.
 PostgreSQL을 기반으로 하며 자동 파티셔닝과 SQL 지원을 제공합니다. PostgreSQL 보다 10 ~ 100배 빠른 쿼리를 수행하고 시계열에 대해 최적화가 되어 있습니다.
-5 ~ 10분 단위로 수집되는 많
+5 ~ 10분 단위로 수집되는 
         </p>
     </div>
 </article>
@@ -643,13 +643,13 @@ PostgreSQL을 기반으로 하며 자동 파티셔닝과 SQL 지원을 제공합
 
         <p class="article-excerpt">
             리눅스 환경에서 PostgreSQL 설치 및 시작 방법에 대해 알아보겠습니다.
-운영환경
+ 운영환경
 
 CentOS 7.6
 PostgreSQL 11.9
 
-인터넷이 되는 환경
-12345# Install the repository RPM:$ sudo yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/
+ 인터넷이 되는 환경
+12345# Install the repository RPM:$ sudo yum install -y https://download.postgresql.org/pub/repos/yum/reporpm
         </p>
     </div>
 </article>
@@ -699,13 +699,13 @@ PostgreSQL 11.9
     
 
         <p class="article-excerpt">
-            Geometry 데이터 형식 쿼리
-STContains
+             Geometry 데이터 형식 쿼리
+ STContains
 
 STContains(geometry 데이터 형식)
 
 geometry 인스턴스에 다른 geometry 인스턴스가 완전히 포함되어 있으면 1을 반환합니다. 그렇지 않으면 0을 반환합니다.
-123456DECLARE @g geometry;DECLARE @h geometry;SET @g = geometry::S
+123456DECLARE @g geometry;DECLARE @h geometry;SET @g = geometry:
         </p>
     </div>
 </article>

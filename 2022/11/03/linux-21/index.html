@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
-    <meta name="keywords" content="리눅스,Linux,CentOS,Service,서비스" />
+    <meta name="keywords" content="리눅스,CentOS,Linux,Service,서비스" />
     
     
     
@@ -27,8 +27,8 @@
 <meta property="article:modified_time" content="2024-01-12T05:18:34.961Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="리눅스">
-<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="CentOS">
+<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Service">
 <meta property="article:tag" content="서비스">
 <meta name="twitter:card" content="summary_large_image">
@@ -275,7 +275,7 @@
             
 
             <p>리눅스 환경에서 Tomcat을 구동하는 서비스를 등록하고 실행하는 방법에 대해 알아보겠습니다.</p>
-<h2 id="Service-파일-생성">Service 파일 생성</h2>
+<h2 id="service-파일-생성"><a class="markdownIt-Anchor" href="#service-파일-생성"></a> Service 파일 생성</h2>
 <p><strong>/etc/systemd/system/</strong> 위치에 service 파일을 생성합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo vi /etc/systemd/system/tomcat-server.service</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=TOMCAT SERVER Service</span><br><span class="line">After=network.target syslog.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">User=root</span><br><span class="line">Group=root</span><br><span class="line"></span><br><span class="line">ExecStart=/usr/<span class="built_in">local</span>/tomcat-server/bin/startup.sh</span><br><span class="line">ExecStop=/usr/<span class="built_in">local</span>/tomcat-server/bin/shutdown.sh</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
@@ -285,20 +285,20 @@
 <li>ExecStop: 종료할 서버 및 프로그램이 위치한 전체 경로</li>
 <li>WantedBy: systemctl enable 명령어로 유닛을 등록할 때 등록에 필요한 유닛 지정</li>
 </ul>
-<h2 id="Service-등록">Service 등록</h2>
+<h2 id="service-등록"><a class="markdownIt-Anchor" href="#service-등록"></a> Service 등록</h2>
 <p>생성한 서비스를 등록합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo systemctl <span class="built_in">enable</span> tomcat-server.service</span></span><br></pre></td></tr></table></figure>
-<h2 id="Service-비활성화">Service 비활성화</h2>
+<h2 id="service-비활성화"><a class="markdownIt-Anchor" href="#service-비활성화"></a> Service 비활성화</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo systemctl <span class="built_in">disable</span> tomcat-server.service</span></span><br></pre></td></tr></table></figure>
-<h2 id="Service-시작">Service 시작</h2>
+<h2 id="service-시작"><a class="markdownIt-Anchor" href="#service-시작"></a> Service 시작</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo systemctl start tomcat-server.service</span></span><br></pre></td></tr></table></figure>
-<h2 id="Service-재시작">Service 재시작</h2>
+<h2 id="service-재시작"><a class="markdownIt-Anchor" href="#service-재시작"></a> Service 재시작</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo systemctl restart tomcat-server.service</span></span><br></pre></td></tr></table></figure>
-<h2 id="Service-종료">Service 종료</h2>
+<h2 id="service-종료"><a class="markdownIt-Anchor" href="#service-종료"></a> Service 종료</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo systemctl stop tomcat-server.service</span></span><br></pre></td></tr></table></figure>
-<h2 id="Service-실행-확인">Service 실행 확인</h2>
+<h2 id="service-실행-확인"><a class="markdownIt-Anchor" href="#service-실행-확인"></a> Service 실행 확인</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo systemctl status tomcat-server.service</span></span><br></pre></td></tr></table></figure>
-<h2 id="Service-목록-확인">Service 목록 확인</h2>
+<h2 id="service-목록-확인"><a class="markdownIt-Anchor" href="#service-목록-확인"></a> Service 목록 확인</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo systemctl list-unit-files</span></span><br></pre></td></tr></table></figure>
 
         </div>
@@ -333,7 +333,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/11/03/linux-21/" data-id="cmnbsnxym00g1ukcx6kk4acr0" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/11/03/linux-21/" data-id="cmnbvrts600g6x4cx4xyn7ok5" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -405,18 +405,18 @@
         },
         "headline": "[CentOS] Service 등록 및 실행 방법",
         "image": "http://hgko1207.github.io/images/thumbnail/centos.png",
-        "keywords": "리눅스 Linux CentOS Service 서비스",
+        "keywords": "리눅스 CentOS Linux Service 서비스",
         "genre": "Programming DevOps Linux",
         "datePublished": "2022-11-03",
         "dateCreated": "2022-11-03",
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2022/11/03/linux-21/",
         "description": "리눅스 환경에서 Tomcat을 구동하는 서비스를 등록하고 실행하는 방법에 대해 알아보겠습니다.
-Service 파일 생성
+ Service 파일 생성
 /etc/systemd/system/ 위치에 service 파일을 생성합니다.
 1$ sudo vi /etc/systemd/system/tomcat-server.service
-1234567891011121314[Unit]Description",
-        "wordCount": 194
+1234567891011121314[Unit]Descriptio",
+        "wordCount": 218
     }
 </script>
 
@@ -497,11 +497,11 @@ Service 파일 생성
    
 <nav id="article-nav">
     
-        <a href="/2022/11/04/oracle-4/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2022/11/04/oracle-3/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">새로운</strong>
         <p class="article-nav-title">
         
-            [Oracle] 계정 관리
+            [Oracle] 테이블 스페이스 사용 방법
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>

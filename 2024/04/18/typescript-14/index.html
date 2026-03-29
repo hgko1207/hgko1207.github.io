@@ -274,25 +274,25 @@
 
             
 
-            <p><img src="/images/header/typescript-14.png" alt=""></p>
+            <p><img src="/images/header/typescript-14.png" alt="" /></p>
 <p>이번 글에서는 코드의 기능과 타입 안전을 보장하는 함수와 서명 입력에 중점을 둡니다. 함수 매개변수와 반환 타입에 주석을 다는 방법을 이해하는 것은 효과적인 타입스크립트 개발을 위해 매우 중요합니다. 코드베이스에 명확성과 자신감을 부여하는 함수 입력의 미묘한 차이를 살펴보세요.</p>
-<h2 id="1-Function-Parameter-and-Return-Type-Annotations">1. Function Parameter and Return Type Annotations</h2>
+<h2 id="1-function-parameter-and-return-type-annotations"><a class="markdownIt-Anchor" href="#1-function-parameter-and-return-type-annotations"></a> 1. Function Parameter and Return Type Annotations</h2>
 <p>타입 어노테이션을 사용하여 함수 매개변수 타입과 반환(Return) 타입을 명시적으로 지정할 수 있습니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x: <span class="built_in">number</span>, y: <span class="built_in">number</span></span>): <span class="title">number</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> result: <span class="built_in">number</span> = add(<span class="number">3</span>, <span class="number">5</span>);</span><br><span class="line"><span class="built_in">console</span>.log(result); <span class="comment">// Output: 8</span></span><br></pre></td></tr></table></figure>
 <p>이 예제에서 <code>add</code> 함수는 <code>number</code> 타입의 매개변수 두 개를 받아 <code>number</code> 타입의 값을 반환합니다.</p>
-<h2 id="2-Optional-and-Default-Parameters">2. Optional and Default Parameters</h2>
+<h2 id="2-optional-and-default-parameters"><a class="markdownIt-Anchor" href="#2-optional-and-default-parameters"></a> 2. Optional and Default Parameters</h2>
 <p>매개변수 이름 뒤에 <code>?</code>을 추가하여 선택적 매개변수로 만들 수 있으며, <code>=</code> 구문을 사용하여 기본값을 제공할 수 있습니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greet</span>(<span class="params">name: <span class="built_in">string</span>, greeting?: <span class="built_in">string</span></span>): <span class="title">string</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (greeting) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;greeting&#125;</span>, <span class="subst">$&#123;name&#125;</span>!`</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`Hello, <span class="subst">$&#123;name&#125;</span>!`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(greet(<span class="string">'John'</span>)); <span class="comment">// Output: Hello, John!</span></span><br><span class="line"><span class="built_in">console</span>.log(greet(<span class="string">'John'</span>, <span class="string">'Hi'</span>)); <span class="comment">// Output: Hi, John!</span></span><br></pre></td></tr></table></figure>
 <p>이 예제에서 <code>greet</code> 함수에는 선택적 매개변수(<code>greeting</code>)가 있으며, 이 매개변수가 제공되면 인사말에 사용됩니다.</p>
-<h2 id="3-Function-Types-and-Variable-Assignment">3. Function Types and Variable Assignment</h2>
+<h2 id="3-function-types-and-variable-assignment"><a class="markdownIt-Anchor" href="#3-function-types-and-variable-assignment"></a> 3. Function Types and Variable Assignment</h2>
 <p>함수에 대한 타입을 정의하고 변수에 할당할 수 있습니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Function type definition</span></span><br><span class="line"><span class="keyword">type</span> MathOperation = <span class="function">(<span class="params">a: <span class="built_in">number</span>, b: <span class="built_in">number</span></span>) =&gt;</span> <span class="built_in">number</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Function assigned to a variable with the defined type</span></span><br><span class="line"><span class="keyword">const</span> multiply: MathOperation = <span class="function">(<span class="params">x, y</span>) =&gt;</span> x * y;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> multiplicationResult: <span class="built_in">number</span> = multiply(<span class="number">4</span>, <span class="number">6</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(multiplicationResult); <span class="comment">// Output: 24</span></span><br></pre></td></tr></table></figure>
 <p>여기서 <code>MathOperation</code>은 <code>number</code> 타입의 매개변수 두 개를 받아 <code>number</code>를 반환하는 함수를 나타내는 타입입니다.</p>
-<h2 id="4-Function-Overloads">4. Function Overloads</h2>
+<h2 id="4-function-overloads"><a class="markdownIt-Anchor" href="#4-function-overloads"></a> 4. Function Overloads</h2>
 <p>함수 오버로드를 사용하여 함수에 대해 여러 타입 서명을 제공할 수 있습니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Function overloads</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">combine</span>(<span class="params">a: <span class="built_in">string</span>, b: <span class="built_in">string</span></span>): <span class="title">string</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">combine</span>(<span class="params">a: <span class="built_in">number</span>, b: <span class="built_in">number</span></span>): <span class="title">number</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">combine</span>(<span class="params">a: <span class="built_in">any</span>, b: <span class="built_in">any</span></span>): <span class="title">any</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> stringResult: <span class="built_in">string</span> = combine(<span class="string">'Hello, '</span>, <span class="string">'world!'</span>);</span><br><span class="line"><span class="keyword">let</span> numberResult: <span class="built_in">number</span> = combine(<span class="number">3</span>, <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(stringResult); <span class="comment">// Output: Hello, world!</span></span><br><span class="line"><span class="built_in">console</span>.log(numberResult); <span class="comment">// Output: 8</span></span><br></pre></td></tr></table></figure>
 <p>이 예제에서 <code>combine</code> 함수에는 여러 타입 서명이 있어 두 개의 문자열 또는 두 개의 숫자를 받아들일 수 있습니다.</p>
-<h2 id="결론">결론</h2>
+<h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2>
 <p>함수와 매개변수를 올바르게 입력하면 코드 명확성을 높이고, 더 나은 도구 지원을 가능하게 하며, 개발 중에 잠재적인 오류를 포착할 수 있습니다.</p>
 
         </div>
@@ -327,7 +327,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2024/04/18/typescript-14/" data-id="cmnbsny2o011bukcxe8a14k28" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2024/04/18/typescript-14/" data-id="cmnbvrty6011tx4cx1b4s0b6s" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -407,8 +407,8 @@
         "url": "http://hgko1207.github.io/2024/04/18/typescript-14/",
         "description": "
 이번 글에서는 코드의 기능과 타입 안전을 보장하는 함수와 서명 입력에 중점을 둡니다. 함수 매개변수와 반환 타입에 주석을 다는 방법을 이해하는 것은 효과적인 타입스크립트 개발을 위해 매우 중요합니다. 코드베이스에 명확성과 자신감을 부여하는 함수 입력의 미묘한 차이를 살펴보세요.
-1. Function Parameter and Return Type Annot",
-        "wordCount": 489
+ 1. Function Parameter and Return Type Anno",
+        "wordCount": 505
     }
 </script>
 

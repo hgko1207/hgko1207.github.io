@@ -273,11 +273,11 @@
 
             
 
-            <h2 id="타입스크립트란">타입스크립트란?</h2>
+            <h2 id="타입스크립트란"><a class="markdownIt-Anchor" href="#타입스크립트란"></a> 타입스크립트란?</h2>
 <p><strong>TypeScript</strong>는 JavaScript에 추가적인 구문을 추가하여 editor 와의 단단한 통합을 지원합니다. editor에서 초기에 오류를 잡을 수 있습니다.</p>
 <p><strong>TypeScript</strong> 코드는 JavaScript가 실행되는 모든 곳(브라우저, Node.js 또는 Deno 및 앱 등)에서 JavaScript로 변환될 수 있습니다.</p>
 <p><strong>TypeScript</strong>는 JavaScript를 이해하고 타입 추론(type inference)을 사용하여 추가 코드 없이도 훌륭한 도구를 제공합니다.</p>
-<h2 id="Types-기본">Types(기본)</h2>
+<h2 id="types기본"><a class="markdownIt-Anchor" href="#types기본"></a> Types(기본)</h2>
 <ul>
 <li>✅ 배열: 자료형[]</li>
 <li>✅ 숫자: number</li>
@@ -285,26 +285,26 @@
 <li>✅ 논리: boolean</li>
 </ul>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Player = &#123;</span><br><span class="line">  name: <span class="built_in">string</span>;</span><br><span class="line">  age: <span class="built_in">number</span>;</span><br><span class="line">  weapons: <span class="built_in">string</span>[];</span><br><span class="line">  attack: bool;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="optional-사용">optional 사용</h2>
+<h2 id="optional-사용"><a class="markdownIt-Anchor" href="#optional-사용"></a> optional 사용</h2>
 <p>?를 :앞에 붙이면 optional 사용 가능합니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> player: &#123;</span><br><span class="line">  name: <span class="built_in">string</span>;</span><br><span class="line">  age?: <span class="built_in">number</span>;</span><br><span class="line">&#125; = &#123;</span><br><span class="line">  name: <span class="string">'eden'</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>위와 같이 <code>player.age</code>를 optional로 설정할 경우 Typescript는 <code>player.age</code>가 undefined 일수도 있다고 오류를 알려줍니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ❌ player.age 가 undefined 일 가능성 알림</span></span><br><span class="line"><span class="keyword">if</span> (player.age &lt; <span class="number">10</span>) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>player.age</code>가 존재하는지 확인을 거쳐야 오류 알림이 사라집니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ⭕ player.age 가 undefined 일 가능성 체크</span></span><br><span class="line"><span class="keyword">if</span> (player.age &amp;&amp; player.age &lt; <span class="number">10</span>) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Alias-별칭-타입">Alias(별칭) 타입</h2>
+<h2 id="alias별칭-타입"><a class="markdownIt-Anchor" href="#alias별칭-타입"></a> Alias(별칭) 타입</h2>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Player = &#123;</span><br><span class="line">  name: <span class="built_in">string</span>;</span><br><span class="line">  age?: <span class="built_in">number</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> player: Player = &#123;</span><br><span class="line">  name: <span class="string">'eden'</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="readonly-사용">readonly 사용</h2>
+<h2 id="readonly-사용"><a class="markdownIt-Anchor" href="#readonly-사용"></a> readonly 사용</h2>
 <p>변수 또는 별칭 앞에 <code>readonly</code>를 붙이면 readonly 사용 가능합니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Player = &#123;</span><br><span class="line">  readonly name: <span class="built_in">string</span>;</span><br><span class="line">  age?: <span class="built_in">number</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p><code>readonly</code>가 있으면 최초 선언 후 수정 불가합니다. 불변성(immutability)이 부여됩니다. 하지만 javascript에서는 그냥 배열로 인식하여 수정이 됩니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> playerMaker = (name: <span class="built_in">string</span>): <span class="function"><span class="params">Player</span> =&gt;</span> (&#123; name &#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> player = playerMaker(<span class="string">'eden'</span>);</span><br><span class="line"><span class="comment">// [오류]</span></span><br><span class="line">🚫 player.name = <span class="string">"khk"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> numbers: readonly <span class="built_in">number</span>[] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="comment">// [오류]</span></span><br><span class="line">🚫 numbers.push(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="Tuple-타입">Tuple 타입</h2>
+<h2 id="tuple-타입"><a class="markdownIt-Anchor" href="#tuple-타입"></a> Tuple 타입</h2>
 <p>정해진 개수와 순서에 따라 배열 선언이 가능합니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> player: [<span class="built_in">string</span>, <span class="built_in">number</span>, <span class="built_in">boolean</span>] = [<span class="string">'eden'</span>, <span class="number">1</span>, <span class="literal">true</span>];</span><br><span class="line"><span class="comment">// [오류]</span></span><br><span class="line">🚫 player[<span class="number">0</span>] = <span class="number">1</span> <span class="comment">// 바꿀 수 없습니다. string으로 지정됨</span></span><br></pre></td></tr></table></figure>
 <p>readonly도 사용 가능 합니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> player: readonly [<span class="built_in">string</span>, <span class="built_in">number</span>, <span class="built_in">boolean</span>] = [<span class="string">'eden'</span>, <span class="number">1</span>, <span class="literal">true</span>];</span><br></pre></td></tr></table></figure>
-<h2 id="any-undefined-null-타입">any / undefined / null 타입</h2>
+<h2 id="any-undefined-null-타입"><a class="markdownIt-Anchor" href="#any-undefined-null-타입"></a> any / undefined / null 타입</h2>
 <ul>
 <li>✅ any: 어떠한 타입도 허용</li>
 </ul>
@@ -314,19 +314,19 @@
 <li>✅ null: null 값만 가질 수 있음</li>
 </ul>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> nullable: <span class="literal">null</span> = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">let</span> undefinedable: <span class="literal">undefined</span> = <span class="literal">undefined</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// [오류]</span></span><br><span class="line"><span class="comment">// 'undefined' 형식은 'null' 형식에 할당할 수 없습니다.</span></span><br><span class="line">🚫 nullable = <span class="literal">undefined</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="void-타입">void 타입</h2>
+<h2 id="void-타입"><a class="markdownIt-Anchor" href="#void-타입"></a> void 타입</h2>
 <p><strong>void</strong>는 값을 반환하지 않는 함수의 반환 값을 나타냅니다. 함수에 return 문이 없거나 해당 return 문에서 명시적 값을 반환하지 않을 때 항상 유추되는 타입입니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// The inferred return type is void</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">noop</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'x'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> a = test()</span><br><span class="line"><span class="comment">// [오류]</span></span><br><span class="line">🚫 a.toUpperCase()</span><br></pre></td></tr></table></figure>
-<h2 id="unknown-타입">unknown 타입</h2>
+<h2 id="unknown-타입"><a class="markdownIt-Anchor" href="#unknown-타입"></a> unknown 타입</h2>
 <p><strong>unknown</strong> 타입은 모든 값을 나타냅니다. 이것은 any 타입과 비슷하지만 any 보다 unknown 이 더 안전합니다. 이유는 unknown 값으로 작업을 수행하는 것은 합법적이지 않기 때문입니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">a: <span class="built_in">any</span></span>) </span>&#123;</span><br><span class="line">  a.b(); <span class="comment">// OK</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test2</span>(<span class="params">a: unknown</span>) </span>&#123;</span><br><span class="line">  🚫 a.b(); <span class="comment">// 에러: Object is of type 'unknown'.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="never-타입">never 타입</h2>
+<h2 id="never-타입"><a class="markdownIt-Anchor" href="#never-타입"></a> never 타입</h2>
 <p><strong>never</strong> 타입은 모든 타입에 할당 가능한 하위 타입이나, never 타입에는 본인 외에 다른 타입이 할당될 수는 없습니다. never 타입은 절대 발생할 수 없는 타입을 나타냅니다.</p>
 <p>가장 흔한 예제로는 에러를 발생시킬 때 사용됩니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fail</span>(<span class="params">msg: <span class="built_in">string</span></span>): <span class="title">never</span> </span>&#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(msg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>사용법에 대해 좀 더 찾아봐야겠지만 그 외에도 특정 타입 값을 할당받지 않도록 하거나, 매개변수의 제한을 건다거나 뭐 그런 곳들에 사용된다는데, 사실 많이 사용하는 타입은 아니라고 봐도 무방합니다.</p>
-<h2 id="참고">참고</h2>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <ul>
 <li><a href="https://www.typescriptlang.org/play" target="_blank" rel="noopener">타입스크립트 코드 테스트</a></li>
 <li><a href="https://typescript-kr.github.io/pages/basic-types.html" target="_blank" rel="noopener">타입스크립트 핸드북</a></li>
@@ -364,7 +364,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2023/03/13/typescript-1/" data-id="cmnbsnxzm00ltukcx82is364j" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2023/03/13/typescript-1/" data-id="cmnbvrttb00lwx4cxgiw1esmi" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -442,11 +442,11 @@
         "dateCreated": "2023-03-13",
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2023/03/13/typescript-1/",
-        "description": "타입스크립트란?
+        "description": " 타입스크립트란?
 TypeScript는 JavaScript에 추가적인 구문을 추가하여 editor 와의 단단한 통합을 지원합니다. editor에서 초기에 오류를 잡을 수 있습니다.
 TypeScript 코드는 JavaScript가 실행되는 모든 곳(브라우저, Node.js 또는 Deno 및 앱 등)에서 JavaScript로 변환될 수 있습니다.
-TypeScri",
-        "wordCount": 777
+TypeScr",
+        "wordCount": 810
     }
 </script>
 

@@ -277,14 +277,14 @@
             
 
             <p>Docker 이미지는 디스크 공간을 차지하고 배포 속도를 늦추는 문제를 유발할 수 있습니다. 하지만 최상위 DevOps 팀들은 이미 <strong>이미지 크기를 최대 99%까지 줄이는 기술</strong>을 활용하고 있습니다. 이번 글에서는 이러한 숨겨진 최적화 기법을 공개합니다.</p>
-<h2 id="🚀-과도한-Docker-이미지가-초래하는-숨은-비용">🚀 과도한 Docker 이미지가 초래하는 숨은 비용</h2>
+<h2 id="과도한-docker-이미지가-초래하는-숨은-비용"><a class="markdownIt-Anchor" href="#과도한-docker-이미지가-초래하는-숨은-비용"></a> 🚀 과도한 Docker 이미지가 초래하는 숨은 비용</h2>
 <p>Docker 이미지가 너무 크면 단순한 불편을 넘어 다음과 같은 비용을 발생시킵니다.</p>
 <ul>
 <li>✅ <strong>시간 낭비:</strong> 빌드 및 배포 속도가 느려짐</li>
 <li>✅ <strong>비용 증가:</strong> 저장 공간과 네트워크 대역폭 사용 증가</li>
 <li>✅ <strong>성능 저하:</strong> 애플리케이션 응답 속도 감소</li>
 </ul>
-<h2 id="📉-1-2GB-→-8MB로-최적화-실제-사례">📉 1.2GB → 8MB로 최적화: 실제 사례</h2>
+<h2 id="12gb-8mb로-최적화-실제-사례"><a class="markdownIt-Anchor" href="#12gb-8mb로-최적화-실제-사례"></a> 📉 1.2GB → 8MB로 최적화: 실제 사례</h2>
 <p>이러한 기술의 힘을 보여주기 위해 실제 사례를 살펴보겠습니다. 초기 Docker 이미지 크기가 1.2GB인 기존 Python 기반 머신 러닝 애플리케이션을 가져와서 8MB로 최적화했습니다. 그 방법은 다음과 같습니다.</p>
 <ul>
 <li><strong>멀티 스테이지 빌드(Multi-Stage Builds)</strong></li>
@@ -293,7 +293,7 @@
 <li><strong>Distroless 이미지 및 고급 최적화 기법</strong></li>
 <li><strong>보안 모범 사례 적용</strong></li>
 </ul>
-<h2 id="기본-Dockerfile-비효율적인-설정">기본 Dockerfile: 비효율적인 설정</h2>
+<h2 id="기본-dockerfile-비효율적인-설정"><a class="markdownIt-Anchor" href="#기본-dockerfile-비효율적인-설정"></a> 기본 Dockerfile: 비효율적인 설정</h2>
 <p>일반적인 Dockerfile은 다음과 같을 것입니다.</p>
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.9</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /app</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> requirements.txt .</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> pip install -r requirements.txt</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> . .</span></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> [<span class="string">"python"</span>, <span class="string">"main.py"</span>]</span></span><br></pre></td></tr></table></figure>
 <p>이 Dockerfile은 정상적으로 작동하지만, 다음과 같은 이유로 거대한 이미지 크기를 초래합니다.</p>
@@ -304,17 +304,17 @@
 <li><strong>불필요한 파일이 포함될 가능성</strong></li>
 </ul>
 <p>이제 최적화 기술을 활용하여 이 문제를 해결해 보겠습니다.</p>
-<h2 id="1️⃣-멀티-스테이지-빌드-Multi-Stage-Builds">1️⃣ 멀티 스테이지 빌드(Multi-Stage Builds)</h2>
+<h2 id="1️⃣-멀티-스테이지-빌드multi-stage-builds"><a class="markdownIt-Anchor" href="#1️⃣-멀티-스테이지-빌드multi-stage-builds"></a> 1️⃣ 멀티 스테이지 빌드(Multi-Stage Builds)</h2>
 <p>멀티 스테이지 빌드는 빌드 단계에서 필요한 패키지와 런타임 단계에서 필요한 패키지를 분리하여 최종 Docker 이미지의 크기를 크게 줄일 수 있습니다.</p>
 <p><strong>✅ 최소한의 베이스 이미지 사용</strong></p>
 <ul>
 <li>전체 Python 버전 대신 Slim 또는 Alpine 버전을 선택하여 사용 사례에 맞게 최적화합니다.</li>
 </ul>
-<h3 id="기존-단일-스테이지-Dockerfile">기존 단일 스테이지 Dockerfile</h3>
+<h3 id="기존-단일-스테이지-dockerfile"><a class="markdownIt-Anchor" href="#기존-단일-스테이지-dockerfile"></a> 기존 단일 스테이지 Dockerfile</h3>
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 공식 Python 런타임을 부모 이미지로 사용</span></span><br><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.9</span>-slim</span><br><span class="line"></span><br><span class="line"><span class="comment"># 필수 빌드 종속성 설치</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> apt-get update &amp;&amp; apt-get install -y --no-install-recommends \</span></span><br><span class="line"><span class="bash">    build-essential \</span></span><br><span class="line"><span class="bash">    gcc \</span></span><br><span class="line"><span class="bash">    &amp;&amp; rm -rf /var/lib/apt/lists/*</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 작업 디렉토리 설정</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /app</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 의존성 파일 복사 및 설치</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> requirements.txt ./</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> pip install --no-cache-dir -r requirements.txt</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 애플리케이션 코드 복사</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> . .</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 모델 컴파일 (필요한 경우)</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> python compile_model.py</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 스크립트 실행</span></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> [<span class="string">"python"</span>, <span class="string">"inference.py"</span>]</span></span><br></pre></td></tr></table></figure>
-<p>이 이미지의 최종 크기는 <strong>약 1.2GB</strong>입니다.<br>
+<p>이 이미지의 최종 크기는 <strong>약 1.2GB</strong>입니다.<br />
 이는 빌드 도구와 개발 라이브러리를 포함하고 있기 때문입니다.</p>
-<h3 id="멀티-스테이지-Dockerfile-적용">멀티 스테이지 Dockerfile 적용</h3>
+<h3 id="멀티-스테이지-dockerfile-적용"><a class="markdownIt-Anchor" href="#멀티-스테이지-dockerfile-적용"></a> 멀티 스테이지 Dockerfile 적용</h3>
 <p><strong>🎯 단계 1: 빌드 스테이지</strong></p>
 <ul>
 <li>작업 디렉토리 설정</li>
@@ -332,16 +332,16 @@
 </ul>
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 프로덕션 스테이지</span></span><br><span class="line"><span class="keyword">FROM</span> scratch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 작업 디렉토리 설정</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /app</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 빌드 스테이지에서 필요한 파일만 복사</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> --from=builder /app/dist/inference /app/inference</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> --from=builder /app/model /app/model</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 추론 실행 파일 실행</span></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="bash"> [<span class="string">"/app/inference"</span>]</span></span><br></pre></td></tr></table></figure>
 <p>✅ <strong>빌드 결과:</strong> 85MB 크기의 Docker 이미지 생성 (90% 이상 감소)</p>
-<h2 id="2️⃣-레이어-최적화-Layer-Optimization-불필요한-용량-줄이기">2️⃣ 레이어 최적화(Layer Optimization): 불필요한 용량 줄이기</h2>
-<p>Dockerfile에서 <code>RUN</code>, <code>COPY</code>, <code>ADD</code> 명령어는 각각 새로운 레이어를 생성합니다.<br>
+<h2 id="2️⃣-레이어-최적화layer-optimization-불필요한-용량-줄이기"><a class="markdownIt-Anchor" href="#2️⃣-레이어-최적화layer-optimization-불필요한-용량-줄이기"></a> 2️⃣ 레이어 최적화(Layer Optimization): 불필요한 용량 줄이기</h2>
+<p>Dockerfile에서 <code>RUN</code>, <code>COPY</code>, <code>ADD</code> 명령어는 각각 새로운 레이어를 생성합니다.<br />
 즉, 불필요한 레이어를 최소화하면 이미지 크기를 더욱 줄일 수 있습니다.</p>
-<h3 id="🚨-비효율적인-예제">🚨 비효율적인 예제</h3>
+<h3 id="비효율적인-예제"><a class="markdownIt-Anchor" href="#비효율적인-예제"></a> 🚨 비효율적인 예제</h3>
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">RUN</span><span class="bash"> apt-get update</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> apt-get install -y python3-pip python3-dev</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> pip install numpy pandas</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> apt-get clean</span></span><br></pre></td></tr></table></figure>
 <p>🔴 각 RUN 명령어가 별도 레이어를 생성하여 이미지 크기가 커집니다.</p>
-<h3 id="✅-최적화된-예제">✅ 최적화된 예제</h3>
+<h3 id="최적화된-예제"><a class="markdownIt-Anchor" href="#최적화된-예제"></a> ✅ 최적화된 예제</h3>
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">RUN</span><span class="bash"> apt-get update &amp;&amp; apt-get install -y python3-pip python3-dev &amp;&amp; \</span></span><br><span class="line"><span class="bash">    pip install numpy pandas &amp;&amp; \</span></span><br><span class="line"><span class="bash">    apt-get clean &amp;&amp; rm -rf /var/lib/apt/lists/*</span></span><br></pre></td></tr></table></figure>
 <p>✅ 하나의 RUN 명령어에서 여러 작업을 수행하면 불필요한 레이어 생성을 방지할 수 있습니다.</p>
-<h2 id="3️⃣-최소-베이스-이미지-사용-Scratch-Alpine-등">3️⃣ 최소 베이스 이미지 사용 (Scratch, Alpine 등)</h2>
+<h2 id="3️⃣-최소-베이스-이미지-사용-scratch-alpine-등"><a class="markdownIt-Anchor" href="#3️⃣-최소-베이스-이미지-사용-scratch-alpine-등"></a> 3️⃣ 최소 베이스 이미지 사용 (Scratch, Alpine 등)</h2>
 <p>가장 강력하면서도 도전적인 방법은 <strong>Scratch 이미지</strong>를 사용하는 것입니다.</p>
 <p><strong>✅ Scratch 이미지란?</strong></p>
 <ul>
@@ -360,8 +360,8 @@
 </ul>
 <p><strong>📌 예제 Dockerfile (Scratch 이미지 사용)</strong></p>
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># syntax=docker/dockerfile:1</span></span><br><span class="line"><span class="keyword">FROM</span> scratch</span><br><span class="line"><span class="keyword">ADD</span><span class="bash"> myapp /</span></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> [<span class="string">"/myapp"</span>]</span></span><br></pre></td></tr></table></figure>
-<h2 id="4️⃣-Distroless-이미지-사용">4️⃣ Distroless 이미지 사용</h2>
-<p>Distroless 이미지는 <strong>Scratch 이미지와 전체 운영체제 이미지의 중간 형태</strong>입니다.<br>
+<h2 id="4️⃣-distroless-이미지-사용"><a class="markdownIt-Anchor" href="#4️⃣-distroless-이미지-사용"></a> 4️⃣ Distroless 이미지 사용</h2>
+<p>Distroless 이미지는 <strong>Scratch 이미지와 전체 운영체제 이미지의 중간 형태</strong>입니다.<br />
 Google에서 제공하며, 필수 구성 요소만 포함하여 불필요한 부분을 제거한 최적의 솔루션입니다.</p>
 <p><strong>📌 Distroless 이미지의 특징:</strong></p>
 <ul>
@@ -370,23 +370,23 @@ Google에서 제공하며, 필수 구성 요소만 포함하여 불필요한 부
 <li>✅ SSL 인증서 및 타임존 데이터 포함</li>
 </ul>
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> gcr.io/distroless/python3-debian10</span><br><span class="line"></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> --from=builder /app/dist/main /app/main</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> --from=builder /app/model /app/model</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> --from=builder /app/config.yml /app/config.yml</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="bash"> [<span class="string">"/app/main"</span>]</span></span><br></pre></td></tr></table></figure>
-<h2 id="5️⃣-Docker-BuildKit-활성화">5️⃣ Docker BuildKit 활성화</h2>
+<h2 id="5️⃣-docker-buildkit-활성화"><a class="markdownIt-Anchor" href="#5️⃣-docker-buildkit-활성화"></a> 5️⃣ Docker BuildKit 활성화</h2>
 <p>Docker BuildKit을 활성화하면 <strong>더 빠르고 안전한 빌드</strong>가 가능합니다.</p>
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DOCKER_BUILDKIT=<span class="number">1</span> docker build -t myapp .</span><br></pre></td></tr></table></figure>
-<h2 id="6️⃣-불필요한-파일-제거">6️⃣ 불필요한 파일 제거</h2>
+<h2 id="6️⃣-불필요한-파일-제거"><a class="markdownIt-Anchor" href="#6️⃣-불필요한-파일-제거"></a> 6️⃣ 불필요한 파일 제거</h2>
 <ul>
 <li>❌ 애플리케이션 데이터를 Docker 이미지 내부에 보관하지 마세요.</li>
 <li>✅ 외부 스토리지 (예: AWS S3, MySQL) 또는 Docker 볼륨을 활용하세요.</li>
 </ul>
 <p>📌 <code>.dockerignore</code> 파일 활용:</p>
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 대용량 데이터셋 제외</span></span><br><span class="line">data/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 가상 환경 제외</span></span><br><span class="line">venv/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 캐시 및 로그 및 임시 파일 제외</span></span><br><span class="line">__pycache__/</span><br><span class="line">*.log</span><br><span class="line">*.tmp</span><br><span class="line">*.pyc</span><br><span class="line">*.pyo</span><br><span class="line">.pytest_cache</span><br><span class="line">.git</span><br><span class="line">.gitignore</span><br><span class="line">README.md</span><br><span class="line"></span><br><span class="line"><span class="comment"># 모델 학습 체크포인트 및 텐서보드 로그</span></span><br><span class="line">checkpoints/</span><br><span class="line">runs/</span><br></pre></td></tr></table></figure>
-<h2 id="7️⃣-이미지-분석-도구-활용">7️⃣ 이미지 분석 도구 활용</h2>
+<h2 id="7️⃣-이미지-분석-도구-활용"><a class="markdownIt-Anchor" href="#7️⃣-이미지-분석-도구-활용"></a> 7️⃣ 이미지 분석 도구 활용</h2>
 <p>Dive 및 Docker Slim 같은 도구를 활용하여 Docker 이미지 내부를 분석하고 불필요한 파일을 제거하세요.</p>
 <p><strong>📌 Dive 사용법:</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dive my-docker-image</span><br></pre></td></tr></table></figure>
 <p><strong>📌 Docker Slim 사용법:</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-slim build my-docker-image</span><br></pre></td></tr></table></figure>
-<h2 id="8️⃣-보안-강화를-위한-모범-사례">8️⃣ 보안 강화를 위한 모범 사례</h2>
+<h2 id="8️⃣-보안-강화를-위한-모범-사례"><a class="markdownIt-Anchor" href="#8️⃣-보안-강화를-위한-모범-사례"></a> 8️⃣ 보안 강화를 위한 모범 사례</h2>
 <ul>
 <li>✅ 신뢰할 수 있는 공식 베이스 이미지 사용</li>
 <li>✅ 루트 사용자를 피하고 일반 사용자로 컨테이너 실행</li>
@@ -400,7 +400,7 @@ Google에서 제공하며, 필수 구성 요소만 포함하여 불필요한 부
 <li>✅ 보안 취약점 스캔 (Trivy 활용)</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker scan my-image:tag</span><br></pre></td></tr></table></figure>
-<h2 id="최적화-결과">최적화 결과</h2>
+<h2 id="최적화-결과"><a class="markdownIt-Anchor" href="#최적화-결과"></a> 최적화 결과</h2>
 <table>
 <thead>
 <tr>
@@ -427,7 +427,7 @@ Google에서 제공하며, 필수 구성 요소만 포함하여 불필요한 부
 </tr>
 </tbody>
 </table>
-<h2 id="결론">결론</h2>
+<h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2>
 <ul>
 <li>멀티 스테이지 빌드와 Distroless 이미지를 활용하여 Docker 이미지를 최적화하세요.</li>
 <li>최소한의 패키지만 포함한 Slim 또는 Scratch 이미지를 사용하세요.</li>
@@ -467,7 +467,7 @@ Google에서 제공하며, 필수 구성 요소만 포함하여 불필요한 부
 
 
 
-    <a data-url="http://hgko1207.github.io/2025/02/04/docker-3/" data-id="cmnbsnyzj04q0ukcx49ma8vc7" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2025/02/04/docker-3/" data-id="cmnbvrusr044ax4cx794t154k" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -546,9 +546,9 @@ Google에서 제공하며, 필수 구성 요소만 포함하여 불필요한 부
         "dateModified": "2025-03-17",
         "url": "http://hgko1207.github.io/2025/02/04/docker-3/",
         "description": "Docker 이미지는 디스크 공간을 차지하고 배포 속도를 늦추는 문제를 유발할 수 있습니다. 하지만 최상위 DevOps 팀들은 이미 이미지 크기를 최대 99%까지 줄이는 기술을 활용하고 있습니다. 이번 글에서는 이러한 숨겨진 최적화 기법을 공개합니다.
-🚀 과도한 Docker 이미지가 초래하는 숨은 비용
-Docker 이미지가 너무 크면 단순한 불편을 넘어 ",
-        "wordCount": 1243
+ 🚀 과도한 Docker 이미지가 초래하는 숨은 비용
+Docker 이미지가 너무 크면 단순한 불편을 넘어",
+        "wordCount": 1297
     }
 </script>
 

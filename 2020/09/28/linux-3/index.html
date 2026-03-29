@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
-    <meta name="keywords" content="리눅스,Linux,CentOS,Proxy,Yum" />
+    <meta name="keywords" content="리눅스,CentOS,Linux,Proxy,Yum" />
     
     
     
@@ -27,8 +27,8 @@
 <meta property="article:modified_time" content="2024-01-11T08:25:32.267Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="리눅스">
-<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="CentOS">
+<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Proxy">
 <meta property="article:tag" content="Yum">
 <meta name="twitter:card" content="summary_large_image">
@@ -276,29 +276,29 @@
 
             <p>서버가 운영되는 시스템은 인터넷이 안 되는 시스템이 많습니다. 이런 상황에서 <strong>yum</strong> 을 통한 Package 를 설치할 수 없게 되어 관리가 쉽지 않습니다.</p>
 <p>Proxy 서버를 이용하여 인터넷이 가능한 하나의 서버 시스템을 통해 모든 서버가 인터넷이 가능하도록 구성할 수 있습니다.</p>
-<h2 id="운영환경">운영환경</h2>
+<h2 id="운영환경"><a class="markdownIt-Anchor" href="#운영환경"></a> 운영환경</h2>
 <ul>
 <li>CentOS 7.6</li>
 </ul>
-<h2 id="설치">설치</h2>
+<h2 id="설치"><a class="markdownIt-Anchor" href="#설치"></a> 설치</h2>
 <p>인터넷이 되는 서버에 <code>squid</code> Package를 설치합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> yum -y install squid</span></span><br></pre></td></tr></table></figure>
-<h2 id="설정">설정</h2>
+<h2 id="설정"><a class="markdownIt-Anchor" href="#설정"></a> 설정</h2>
 <p>다음과 같이 Proxy 정책을 설정합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> vi /etc/squid/squid.conf</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">... 생략 ...</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Only allow cachemgr access from localhost</span></span><br><span class="line"><span class="meta">#</span><span class="bash">http_access allow localhost manager</span></span><br><span class="line"><span class="meta">#</span><span class="bash">http_access deny manager</span></span><br><span class="line"></span><br><span class="line">http_access allow all                      # 모든 IP 에 대해 Allow 정책 추가</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> And finally deny all other access to this proxy</span></span><br><span class="line"><span class="meta">#</span><span class="bash">http_access deny all                      <span class="comment"># deny 정책 해제</span></span></span><br><span class="line"></span><br><span class="line">... 생략 ...</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Squid normally listens to port 3128</span></span><br><span class="line">http_port 8080                             # Proxy 로 사용하길 원하는 Port 지정</span><br><span class="line"><span class="meta">#</span><span class="bash">http_port 3128</span></span><br></pre></td></tr></table></figure>
-<h2 id="서비스-시작">서비스 시작</h2>
+<h2 id="서비스-시작"><a class="markdownIt-Anchor" href="#서비스-시작"></a> 서비스 시작</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> systemctl start squid</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> systemctl status squid</span></span><br></pre></td></tr></table></figure>
 <p>정상적으로 Proxy 서비스가 안될경우 다음과 같이 커널 파라미터를 추가합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">net.ipv6.conf.all.disable_ipv6 = 1</span><br><span class="line">net.ipv4.ip_forward = 1</span><br></pre></td></tr></table></figure>
-<h2 id="Proxy-서비스-테스트">Proxy 서비스 테스트</h2>
+<h2 id="proxy-서비스-테스트"><a class="markdownIt-Anchor" href="#proxy-서비스-테스트"></a> Proxy 서비스 테스트</h2>
 <p>인터넷이 안되는 내부 시스템에서 다음 명령어를 실행합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# yum repolist</span><br><span class="line">Loaded plugins: fastestmirror</span><br><span class="line">Determining fastest mirrors</span><br><span class="line">Could not retrieve mirrorlist http://mirrorlist.centos.org/?release=7&amp;arch=x86_64&amp;repo=os&amp;infra=stock error was</span><br><span class="line">14: curl#6 - "Could not resolve host: mirrorlist.centos.org; Unknown error"</span><br><span class="line">Loading mirror speeds from cached hostfile</span><br><span class="line">Loading mirror speeds from cached hostfile</span><br><span class="line">Loading mirror speeds from cached hostfile</span><br><span class="line">repo id                         repo name                        status</span><br><span class="line">base/7/x86_64                   CentOS-7 - Base                    0</span><br><span class="line">extras/7/x86_64                 CentOS-7 - Extras                  0</span><br><span class="line">updates/7/x86_64                CentOS-7 - Updates                 0</span><br><span class="line">repolist: 0</span><br><span class="line">[root@localhost ~]#</span><br></pre></td></tr></table></figure>
 <p>아직 <code>yum</code> 을 사용 할 수 없습니다.</p>
-<h2 id="yum-conf-수정">yum.conf 수정</h2>
+<h2 id="yumconf-수정"><a class="markdownIt-Anchor" href="#yumconf-수정"></a> yum.conf 수정</h2>
 <p><code>/etc/yum.conf</code> 파일에 다음과 같이 <code>proxy</code> 옵션을 추가합니다. 인터넷이 되는 시스템의 IP와 Port 정보를 입력합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# vi /etc/yum.conf</span><br><span class="line"></span><br><span class="line">[main]</span><br><span class="line">cachedir=/var/cache/yum/$basearch/$releasever</span><br><span class="line">keepcache=0</span><br><span class="line">debuglevel=2</span><br><span class="line">logfile=/var/log/yum.log</span><br><span class="line">exactarch=1</span><br><span class="line">obsoletes=1</span><br><span class="line">gpgcheck=1</span><br><span class="line">plugins=1</span><br><span class="line">installonly_limit=5</span><br><span class="line">bugtracker_url=http://bugs.centos.org/set_project.php?project_id=23&amp;ref=http://bugs.centos.org/bug_report_page.php?category=yum</span><br><span class="line">distroverpkg=centos-release</span><br><span class="line"></span><br><span class="line">proxy=http://192.168.100.200:8080      # Proxy 서버 정보 추가</span><br></pre></td></tr></table></figure>
-<h2 id="테스트">테스트</h2>
+<h2 id="테스트"><a class="markdownIt-Anchor" href="#테스트"></a> 테스트</h2>
 <p><code>yum</code> 사용이 가능한지 다시 확인합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# yum repolist</span><br><span class="line">Loaded plugins: fastestmirror</span><br><span class="line">Loaded plugins: fastestmirror, langpacks</span><br><span class="line">Repository nodesource is listed more than once in the configuration</span><br><span class="line">Repository nodesource-source is listed more than once in the configuration</span><br><span class="line">Loading mirror speeds from cached hostfile</span><br><span class="line"> * base: mirror.kakao.com</span><br><span class="line"> * epel: ftp.riken.jp</span><br><span class="line"> * extras: mirror.kakao.com</span><br><span class="line"> * updates: mirror.kakao.com</span><br><span class="line">repo id                         repo name                        status</span><br><span class="line">base/7/x86_64                   CentOS-7 - Base                  10,070</span><br><span class="line">extras/7/x86_64                 CentOS-7 - Extras                413</span><br><span class="line">updates/7/x86_64                CentOS-7 - Updates               1,134</span><br><span class="line">repolist: 11,617</span><br><span class="line">[root@localhost ~]#</span><br></pre></td></tr></table></figure>
 <p>위와 같은 결과가 나타나면 <code>yum</code> 을 사용할 수 있습니다.</p>
@@ -335,7 +335,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2020/09/28/linux-3/" data-id="cmnbsnxx9007yukcxhmzm3gez" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2020/09/28/linux-3/" data-id="cmnbvrtpk0080x4cxdna00aog" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -407,7 +407,7 @@
         },
         "headline": "[CentOS] Proxy 서버를 사용한 내부망 yum 사용 방법",
         "image": "http://hgko1207.github.io/images/thumbnail/centos.png",
-        "keywords": "리눅스 Linux CentOS Proxy Yum",
+        "keywords": "리눅스 CentOS Linux Proxy Yum",
         "genre": "Programming DevOps Linux",
         "datePublished": "2020-09-28",
         "dateCreated": "2020-09-28",
@@ -415,13 +415,13 @@
         "url": "http://hgko1207.github.io/2020/09/28/linux-3/",
         "description": "서버가 운영되는 시스템은 인터넷이 안 되는 시스템이 많습니다. 이런 상황에서 yum 을 통한 Package 를 설치할 수 없게 되어 관리가 쉽지 않습니다.
 Proxy 서버를 이용하여 인터넷이 가능한 하나의 서버 시스템을 통해 모든 서버가 인터넷이 가능하도록 구성할 수 있습니다.
-운영환경
+ 운영환경
 
 CentOS 7.6
 
-설치
-인터넷이 되는 서버에 squid Packa",
-        "wordCount": 854
+ 설치
+인터넷이 되는 서버에 squid Pac",
+        "wordCount": 875
     }
 </script>
 

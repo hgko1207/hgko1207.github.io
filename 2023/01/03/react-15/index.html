@@ -274,14 +274,14 @@
 
             
 
-            <h2 id="Gatsby-Head-API">Gatsby Head API</h2>
+            <h2 id="gatsby-head-api"><a class="markdownIt-Anchor" href="#gatsby-head-api"></a> Gatsby Head API</h2>
 <p><strong>Gatsby</strong> 에는 페이지의 문서 헤드에 요소를 추가할 수 있는 내장 head가 포함되어 있습니다.</p>
 <p><code>react-helmet</code> 또는 기타 유사한 솔루션과 비교할 때 Gatsby Head는 사용하기 쉽고 성능이 우수하며 번들 크기가 더 작고 최신 React 기능을 지원합니다.</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ex)</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> Head = <span class="function"><span class="params">()</span> =&gt;</span> <span class="xml"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Home Page<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span>;</span><br></pre></td></tr></table></figure>
 <p>SEO Component 를 사용하여 <code>Head</code> 함수를 정의할 수 있습니다.</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/components/Seo.tsx</span></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line">interface ISeoProps &#123;</span><br><span class="line">  title: string;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">Seo</span>(<span class="params">&#123; title &#125;: ISeoProps</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">title</span>&gt;</span>&#123;title&#125; | Hello!<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.tsx</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> Seo <span class="keyword">from</span> <span class="string">'../components/Seo'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">IndexPage</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>Welcome<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> Head = <span class="function"><span class="params">()</span> =&gt;</span> <span class="xml"><span class="tag">&lt;<span class="name">Seo</span> <span class="attr">title</span>=<span class="string">"Home Page"</span> /&gt;</span></span>;</span><br></pre></td></tr></table></figure>
-<h2 id="Usage-notes">Usage notes</h2>
+<h2 id="usage-notes"><a class="markdownIt-Anchor" href="#usage-notes"></a> Usage notes</h2>
 <p>Gatsby Head를 사용할 때 다음 사항에 유의해야 합니다.</p>
 <ul>
 <li>컴포넌트가 아닌 페이지 내부에서만 <code>Head</code> export 를 정의할 수 있습니다.</li>
@@ -289,7 +289,7 @@
 <li><code>Head</code> 함수는 유효한 JSX를 반환해야 합니다.</li>
 <li><code>Head</code> 함수 내부의 유효한 태그는 <code>link</code>, <code>meta</code>, <code>style</code>, <code>title</code>, <code>base</code>, <code>script</code> 및 <code>noscript</code> 입니다.</li>
 </ul>
-<h2 id="참고">참고</h2>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <ul>
 <li><a href="https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/" target="_blank" rel="noopener">https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/</a></li>
 <li><a href="https://www.gatsbyjs.com/docs/how-to/adding-common-features/adding-seo-component" target="_blank" rel="noopener">https://www.gatsbyjs.com/docs/how-to/adding-common-features/adding-seo-component</a></li>
@@ -327,7 +327,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2023/01/03/react-15/" data-id="cmnbsnxz900jwukcx977wda3x" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2023/01/03/react-15/" data-id="cmnbvrtt200kfx4cx9qciabje" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -405,11 +405,11 @@
         "dateCreated": "2023-01-03",
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2023/01/03/react-15/",
-        "description": "Gatsby Head API
+        "description": " Gatsby Head API
 Gatsby 에는 페이지의 문서 헤드에 요소를 추가할 수 있는 내장 head가 포함되어 있습니다.
 react-helmet 또는 기타 유사한 솔루션과 비교할 때 Gatsby Head는 사용하기 쉽고 성능이 우수하며 번들 크기가 더 작고 최신 React 기능을 지원합니다.
-12// ex)export const Head = () =&",
-        "wordCount": 266
+12// ex)export const Head = () =",
+        "wordCount": 275
     }
 </script>
 

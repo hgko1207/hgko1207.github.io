@@ -274,45 +274,45 @@
             
 
             <p><strong>MySQL</strong>에서 계정 생성 및 권한 부여와 계정 정보 수정하는 방법에 대해 알아보겠습니다.</p>
-<h2 id="로그인">로그인</h2>
+<h2 id="로그인"><a class="markdownIt-Anchor" href="#로그인"></a> 로그인</h2>
 <p>root의 패스워드를 입력하여 로그인합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo mysql -u root -p</span></span><br></pre></td></tr></table></figure>
-<h2 id="계정-확인">계정 확인</h2>
+<h2 id="계정-확인"><a class="markdownIt-Anchor" href="#계정-확인"></a> 계정 확인</h2>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">MySQL [(none)]&gt; show databases;</span><br><span class="line">+<span class="comment">--------------------+</span></span><br><span class="line">| Database           |</span><br><span class="line">+<span class="comment">--------------------+</span></span><br><span class="line">| information_schema |</span><br><span class="line">| mysql              |</span><br><span class="line">| performance_schema |</span><br><span class="line">| sys                |</span><br><span class="line">| test               |</span><br><span class="line">| triplet_db         |</span><br><span class="line">+<span class="comment">--------------------+</span></span><br><span class="line">6 rows in <span class="keyword">set</span> (<span class="number">0.435</span> sec)</span><br><span class="line"></span><br><span class="line">MySQL [(<span class="keyword">none</span>)]&gt; <span class="keyword">use</span> mysql;</span><br><span class="line">Database changed</span><br></pre></td></tr></table></figure>
 <p>다음 명령어를 실행하여 사용자 계정들을 확인합니다.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">MySQL [mysql]&gt; SELECT user, host FROM user;</span><br><span class="line">+<span class="comment">-------------+-----------+</span></span><br><span class="line">| User        | Host      |</span><br><span class="line">+<span class="comment">-------------+-----------+</span></span><br><span class="line">|             | localhost |</span><br><span class="line">| mariadb.sys | localhost |</span><br><span class="line">| mysql       | localhost |</span><br><span class="line">| root        | localhost |</span><br><span class="line">+<span class="comment">-------------+-----------+</span></span><br></pre></td></tr></table></figure>
-<h2 id="계정-생성">계정 생성</h2>
+<h2 id="계정-생성"><a class="markdownIt-Anchor" href="#계정-생성"></a> 계정 생성</h2>
 <p>사용자 계정을 생성하는 방법입니다.</p>
-<h3 id="CREATE-문으로-생성">CREATE 문으로 생성</h3>
+<h3 id="create-문으로-생성"><a class="markdownIt-Anchor" href="#create-문으로-생성"></a> CREATE 문으로 생성</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">'계정명'</span>@<span class="string">'localhost'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'비밀번호'</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="INSERT-문으로-생성">INSERT 문으로 생성</h3>
+<h3 id="insert-문으로-생성"><a class="markdownIt-Anchor" href="#insert-문으로-생성"></a> INSERT 문으로 생성</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">user</span> (host, <span class="keyword">user</span>, <span class="keyword">password</span>) <span class="keyword">VALUES</span> (<span class="string">'localhost'</span>, <span class="string">'계정명'</span>, <span class="keyword">password</span>(<span class="string">'비밀번호'</span>));</span><br></pre></td></tr></table></figure>
 <p>**‘localhost’**를 **’%’**로 변경하면 원격에서 접속 가능합니다.</p>
-<h2 id="권한-부여">권한 부여</h2>
+<h2 id="권한-부여"><a class="markdownIt-Anchor" href="#권한-부여"></a> 권한 부여</h2>
 <p>생성된 계정에 대해 모든 권한을 부여하도록 설정합니다.</p>
-<h3 id="GRANT-문으로-권한-부여">GRANT 문으로 권한 부여</h3>
+<h3 id="grant-문으로-권한-부여"><a class="markdownIt-Anchor" href="#grant-문으로-권한-부여"></a> GRANT 문으로 권한 부여</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grant</span> <span class="keyword">all</span> <span class="keyword">privileges</span> <span class="keyword">on</span> *.* <span class="keyword">to</span> <span class="string">'USERNAME'</span>@<span class="string">'%'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'PASSWORD'</span>;</span><br></pre></td></tr></table></figure>
 <p>해당 데이터베이스에 대해서만 권한을 부여하도록 설정합니다.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grant</span> <span class="keyword">all</span> <span class="keyword">privileges</span> <span class="keyword">on</span> DB명.* <span class="keyword">to</span> <span class="string">'계정명'</span>@<span class="string">'%'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'비밀번호'</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="INSERT-문으로-권한-부여">INSERT 문으로 권한 부여</h3>
+<h3 id="insert-문으로-권한-부여"><a class="markdownIt-Anchor" href="#insert-문으로-권한-부여"></a> INSERT 문으로 권한 부여</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> db (Host, Db, <span class="keyword">USer</span>, select_priv, Insert_priv, Update_priv, Delete_priv, Create_priv, Drop_priv)</span><br><span class="line"><span class="keyword">VALUES</span> (<span class="string">'localhost'</span>, <span class="string">'DB명'</span>, <span class="string">'계정명'</span>, <span class="string">'Y'</span>, <span class="string">'Y'</span>, <span class="string">'Y'</span>, <span class="string">'Y'</span>, <span class="string">'Y'</span>, <span class="string">'Y'</span>);</span><br></pre></td></tr></table></figure>
 <p>DB명에 ‘%’ 를 넣으면 모든 DB를 나타냅니다.</p>
-<h2 id="계정-정보-변경">계정 정보 변경</h2>
+<h2 id="계정-정보-변경"><a class="markdownIt-Anchor" href="#계정-정보-변경"></a> 계정 정보 변경</h2>
 <p>계정의 비밀번호 변경 하는 방법입니다.</p>
-<h3 id="UPDATE-문으로-변경">UPDATE 문으로 변경</h3>
+<h3 id="update-문으로-변경"><a class="markdownIt-Anchor" href="#update-문으로-변경"></a> UPDATE 문으로 변경</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> <span class="keyword">user</span> <span class="keyword">SET</span> <span class="keyword">password</span>=<span class="keyword">password</span>(<span class="string">'비밀번호'</span>) <span class="keyword">where</span> <span class="keyword">user</span>=<span class="string">'계정명'</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="SET-문으로-변경">SET 문으로 변경</h3>
+<h3 id="set-문으로-변경"><a class="markdownIt-Anchor" href="#set-문으로-변경"></a> SET 문으로 변경</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> <span class="keyword">PASSWORD</span> <span class="keyword">FOR</span> <span class="string">'계정명'</span>@<span class="string">'localhost'</span> = <span class="keyword">PASSWORD</span>(<span class="string">'비밀번호'</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="계정-삭제">계정 삭제</h2>
-<h3 id="DELETE-문으로-삭제">DELETE 문으로 삭제</h3>
+<h2 id="계정-삭제"><a class="markdownIt-Anchor" href="#계정-삭제"></a> 계정 삭제</h2>
+<h3 id="delete-문으로-삭제"><a class="markdownIt-Anchor" href="#delete-문으로-삭제"></a> DELETE 문으로 삭제</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> <span class="keyword">user</span> <span class="keyword">WHERE</span> <span class="keyword">user</span> = <span class="string">'계정명'</span>;</span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> db <span class="keyword">WHERE</span> <span class="keyword">user</span> = <span class="string">'계정명'</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="DROP-문으로-삭제">DROP 문으로 삭제</h3>
+<h3 id="drop-문으로-삭제"><a class="markdownIt-Anchor" href="#drop-문으로-삭제"></a> DROP 문으로 삭제</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">USER</span> <span class="string">'계정명'</span>@<span class="string">'localhost'</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="권한-삭제">권한 삭제</h2>
+<h2 id="권한-삭제"><a class="markdownIt-Anchor" href="#권한-삭제"></a> 권한 삭제</h2>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">REVOKE</span> <span class="keyword">ALL</span> <span class="keyword">ON</span> *.* <span class="keyword">FROM</span> <span class="string">'계정명'</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="권한-확인">권한 확인</h2>
+<h2 id="권한-확인"><a class="markdownIt-Anchor" href="#권한-확인"></a> 권한 확인</h2>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">MySQL [mysql]&gt; SHOW GRANTS FOR root;</span><br><span class="line">+<span class="comment">--------------------------------------------------------------------------------------------------------------+</span></span><br><span class="line">| Grants for root@%                                                                                            |</span><br><span class="line">+<span class="comment">--------------------------------------------------------------------------------------------------------------+</span></span><br><span class="line">| <span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">`root`</span>@<span class="string">`%`</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="keyword">PASSWORD</span> <span class="string">'*D08D94B3E46A8CCDA5F1682F57F8BE24F5FD1C79'</span> |</span><br><span class="line">+<span class="comment">--------------------------------------------------------------------------------------------------------------+</span></span><br><span class="line"><span class="number">1</span> <span class="keyword">row</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.002</span> sec)</span><br></pre></td></tr></table></figure>
-<h2 id="설정-적용">설정 적용</h2>
+<h2 id="설정-적용"><a class="markdownIt-Anchor" href="#설정-적용"></a> 설정 적용</h2>
 <p>위의 설정 명령어들을 실행 후 다음 명령어를 실행해야 적용이 됩니다.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br></pre></td></tr></table></figure>
 
@@ -348,7 +348,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/11/17/mysql-3/" data-id="cmnbsnxys00h6ukcxg7ne44ae" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/11/17/mysql-3/" data-id="cmnbvrtsc00h4x4cxhn9x64a1" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -427,12 +427,12 @@
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2022/11/17/mysql-3/",
         "description": "MySQL에서 계정 생성 및 권한 부여와 계정 정보 수정하는 방법에 대해 알아보겠습니다.
-로그인
+ 로그인
 root의 패스워드를 입력하여 로그인합니다.
 1$ sudo mysql -u root -p
-계정 확인
-123456789101112131415MySQL [(none)]&gt; show databases;+--------------------+| Database   ",
-        "wordCount": 723
+ 계정 확인
+123456789101112131415MySQL [(none)]&gt; show databases;+--------------------+| Database ",
+        "wordCount": 774
     }
 </script>
 

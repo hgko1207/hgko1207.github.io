@@ -274,16 +274,16 @@
             
 
             <p>.NET 개발자라면 <strong>LINQ</strong>(Language Integrated Query)를 프로젝트에서 효과적으로 사용하는 가이드라인을 확립하는 것이 중요합니다. LINQ는 코드 간결성과 가독성을 높일 수 있지만, 성능에 미치는 영향을 이해하고 신중하게 사용해야 합니다. 이번 글에서는 LINQ 사용 시의 모범 사례, 가이드라인, 그리고 벤치마크 정보를 제공해 LINQ를 언제, 어떻게 사용할지에 대한 인사이트를 드리겠습니다.</p>
-<h2 id="LINQ-이해하기">LINQ 이해하기</h2>
+<h2 id="linq-이해하기"><a class="markdownIt-Anchor" href="#linq-이해하기"></a> LINQ 이해하기</h2>
 <p>LINQ는 .NET에서 컬렉션과 다른 데이터 소스 작업을 표현력 있고 읽기 쉽게 쿼리할 수 있게 해주는 강력한 기능입니다. 메모리 내 객체, 데이터베이스, XML 등 다양한 데이터 소스에서 일관된 쿼리 환경을 제공합니다.</p>
-<h2 id="LINQ의-장점">LINQ의 장점</h2>
+<h2 id="linq의-장점"><a class="markdownIt-Anchor" href="#linq의-장점"></a> LINQ의 장점</h2>
 <ul>
 <li><strong>가독성:</strong> LINQ 쿼리는 기존의 루프 및 조건보다 가독성과 표현력이 뛰어난 경우가 많습니다.</li>
 <li><strong>일관성:</strong> 다양한 데이터 소스를 대상으로 일관된 쿼리 방식을 제공합니다.</li>
 <li><strong>컴파일 타임 검사:</strong> 컴파일 시점에서 쿼리를 검사하여 런타임 오류를 줄입니다.</li>
 <li><strong>지연 실행:</strong> 많은 LINQ 작업이 지연 실행되므로 특정 시나리오에서 성능이 향상될 수 있습니다.</li>
 </ul>
-<h2 id="성능-고려사항">성능 고려사항</h2>
+<h2 id="성능-고려사항"><a class="markdownIt-Anchor" href="#성능-고려사항"></a> 성능 고려사항</h2>
 <p>LINQ는 많은 이점을 제공하지만 성능 특성을 이해하는 것이 중요합니다.</p>
 <ul>
 <li><strong>오버헤드:</strong> LINQ 작업에는 종종 델리게이트 인스턴스 생성과 반복자 사용으로 인해 약간의 오버헤드가 발생할 수 있습니다.</li>
@@ -291,18 +291,18 @@
 <li><strong>쿼리 복잡성:</strong> 복잡한 LINQ 쿼리는 수동 반복문보다 효율이 떨어질 수 있습니다.</li>
 <li><strong>지연 실행:</strong> 유용하지만, 이해 없이 사용하면 예상치 못한 성능 문제가 발생할 수 있습니다.</li>
 </ul>
-<h2 id="모범-사례">모범 사례</h2>
-<h3 id="1-가독성과-유지보수를-위해-LINQ-사용하기">1. 가독성과 유지보수를 위해 LINQ 사용하기</h3>
+<h2 id="모범-사례"><a class="markdownIt-Anchor" href="#모범-사례"></a> 모범 사례</h2>
+<h3 id="1-가독성과-유지보수를-위해-linq-사용하기"><a class="markdownIt-Anchor" href="#1-가독성과-유지보수를-위해-linq-사용하기"></a> 1. 가독성과 유지보수를 위해 LINQ 사용하기</h3>
 <p>작은~중간 크기의 컬렉션에서, 성능이 중요한 요구사항이 아니라면 가독성을 우선시하는 것이 좋습니다.</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 권장 방식</span></span><br><span class="line"><span class="keyword">var</span> activeUsers = users.Where(u =&gt; u.IsActive).ToList();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 비추천 방식</span></span><br><span class="line"><span class="keyword">var</span> activeUsers = <span class="keyword">new</span> List&lt;User&gt;();</span><br><span class="line"><span class="keyword">foreach</span> (<span class="keyword">var</span> user <span class="keyword">in</span> users)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (user.IsActive)</span><br><span class="line">    &#123;</span><br><span class="line">        activeUsers.Add(user);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2-큰-컬렉션에서-LINQ-사용-주의하기">2. 큰 컬렉션에서 LINQ 사용 주의하기</h3>
+<h3 id="2-큰-컬렉션에서-linq-사용-주의하기"><a class="markdownIt-Anchor" href="#2-큰-컬렉션에서-linq-사용-주의하기"></a> 2. 큰 컬렉션에서 LINQ 사용 주의하기</h3>
 <p>매우 큰 컬렉션이나 성능이 중요한 구간에서는 기존 반복문 사용을 고려하세요.</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 큰 컬렉션에서 더 빠를 수 있음:</span></span><br><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">foreach</span> (<span class="keyword">var</span> item <span class="keyword">in</span> largeCollection)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (item.SomeProperty &gt; <span class="number">100</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        count++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// LINQ 방식:</span></span><br><span class="line"><span class="keyword">var</span> count = largeCollection.Count(item =&gt; item.SomeProperty &gt; <span class="number">100</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="3-지연-실행-이해하고-활용하기">3. 지연 실행 이해하고 활용하기</h3>
+<h3 id="3-지연-실행-이해하고-활용하기"><a class="markdownIt-Anchor" href="#3-지연-실행-이해하고-활용하기"></a> 3. 지연 실행 이해하고 활용하기</h3>
 <p>LINQ는 많은 작업에서 지연 실행을 사용하므로 결과가 실제로 필요할 때까지 쿼리가 실행되지 않습니다.</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 아직 쿼리 실행 안 됨</span></span><br><span class="line"><span class="keyword">var</span> query = numbers.Where(n =&gt; n % <span class="number">2</span> == <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 여기서 쿼리 실행됨</span></span><br><span class="line"><span class="keyword">foreach</span> (<span class="keyword">var</span> number <span class="keyword">in</span> query)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(number);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>지연 실행을 활용하여 복잡한 쿼리를 단계별로 작성하고 필요한 시점에만 실행하세요.</p>
-<h3 id="4-ToList-ToArray-ToDictionary-를-목적에-맞게-사용하기">4. <code>ToList()</code>, <code>ToArray()</code>, <code>ToDictionary()</code>를 목적에 맞게 사용하기</h3>
+<h3 id="4-tolist-toarray-todictionary를-목적에-맞게-사용하기"><a class="markdownIt-Anchor" href="#4-tolist-toarray-todictionary를-목적에-맞게-사용하기"></a> 4. <code>ToList()</code>, <code>ToArray()</code>, <code>ToDictionary()</code>를 목적에 맞게 사용하기</h3>
 <p>이 메서드들은 쿼리를 즉시 실행합니다. 다음과 같은 경우 사용하세요.</p>
 <ul>
 <li>쿼리가 한 번만 실행되도록 하고 싶을 때</li>
@@ -310,16 +310,16 @@
 <li>데이터 스냅샷을 생성할 때</li>
 </ul>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> activeUsersList = users.Where(u =&gt; u.IsActive).ToList();</span><br></pre></td></tr></table></figure>
-<h3 id="5-LINQ와-기존-반복문-혼용-피하기">5. LINQ와 기존 반복문 혼용 피하기</h3>
+<h3 id="5-linq와-기존-반복문-혼용-피하기"><a class="markdownIt-Anchor" href="#5-linq와-기존-반복문-혼용-피하기"></a> 5. LINQ와 기존 반복문 혼용 피하기</h3>
 <p>혼합하면 코드가 혼란스러워지고 유지보수가 어려워질 수 있으니 한 가지 방식만 사용하는 것이 좋습니다.</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 혼용하지 말기</span></span><br><span class="line"><span class="keyword">var</span> query = users.Where(u =&gt; u.IsActive);</span><br><span class="line"><span class="keyword">foreach</span> (<span class="keyword">var</span> user <span class="keyword">in</span> query)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (user.Age &gt; <span class="number">30</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 작업 수행</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 권장 방식</span></span><br><span class="line"><span class="keyword">var</span> relevantUsers = users.Where(u =&gt; u.IsActive &amp;&amp; u.Age &gt; <span class="number">30</span>);</span><br><span class="line"><span class="keyword">foreach</span> (<span class="keyword">var</span> user <span class="keyword">in</span> relevantUsers)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 작업 수행</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="6-복잡한-쿼리에는-메서드-구문-사용하기">6. 복잡한 쿼리에는 메서드 구문 사용하기</h3>
+<h3 id="6-복잡한-쿼리에는-메서드-구문-사용하기"><a class="markdownIt-Anchor" href="#6-복잡한-쿼리에는-메서드-구문-사용하기"></a> 6. 복잡한 쿼리에는 메서드 구문 사용하기</h3>
 <p>복잡한 쿼리는 메서드 구문이 더 읽기 쉽고 유연합니다.</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 메서드 구문</span></span><br><span class="line"><span class="keyword">var</span> result = users</span><br><span class="line">    .Where(u =&gt; u.IsActive)</span><br><span class="line">    .OrderBy(u =&gt; u.LastName)</span><br><span class="line">    .ThenBy(u =&gt; u.FirstName)</span><br><span class="line">    .Select(u =&gt; <span class="keyword">new</span> &#123; u.FullName, u.Email &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 쿼리 구문</span></span><br><span class="line"><span class="keyword">var</span> result = <span class="keyword">from</span> u <span class="keyword">in</span> users</span><br><span class="line">             <span class="keyword">where</span> u.IsActive</span><br><span class="line">             <span class="keyword">orderby</span> u.LastName, u.FirstName</span><br><span class="line">             <span class="keyword">select</span> <span class="keyword">new</span> &#123; u.FullName, u.Email &#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="7-여러-번-열거-피하기">7. 여러 번 열거 피하기</h3>
+<h3 id="7-여러-번-열거-피하기"><a class="markdownIt-Anchor" href="#7-여러-번-열거-피하기"></a> 7. 여러 번 열거 피하기</h3>
 <p>같은 LINQ 쿼리를 여러 번 열거하면 성능이 저하될 수 있습니다. 여러 번 사용해야 한다면 결과를 리스트에 저장하세요.</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 비효율적: 두 번 열거함</span></span><br><span class="line"><span class="keyword">var</span> count = query.Count();</span><br><span class="line"><span class="keyword">var</span> firstItem = query.FirstOrDefault();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 효율적: 한 번만 열거</span></span><br><span class="line"><span class="keyword">var</span> results = query.ToList();</span><br><span class="line"><span class="keyword">var</span> count = results.Count;</span><br><span class="line"><span class="keyword">var</span> firstItem = results.FirstOrDefault();</span><br></pre></td></tr></table></figure>
-<h3 id="8-적절한-LINQ-메서드-사용하기">8. 적절한 LINQ 메서드 사용하기</h3>
+<h3 id="8-적절한-linq-메서드-사용하기"><a class="markdownIt-Anchor" href="#8-적절한-linq-메서드-사용하기"></a> 8. 적절한 LINQ 메서드 사용하기</h3>
 <p>상황에 맞는 LINQ 메서드를 선택하세요.</p>
 <ul>
 <li>한 개의 항목만 필요할 때 <code>First()</code> 또는 <code>FirstOrDefault()</code> 사용</li>
@@ -328,7 +328,7 @@
 <li>결과 수를 제한할 때는 <code>Take()</code> 사용</li>
 </ul>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 권장 방식</span></span><br><span class="line"><span class="keyword">if</span> (users.Any(u =&gt; u.IsAdmin))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 비권장 방식</span></span><br><span class="line"><span class="keyword">if</span> (users.Count(u =&gt; u.IsAdmin) &gt; <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="벤치마크-예제">벤치마크 예제</h2>
+<h2 id="벤치마크-예제"><a class="markdownIt-Anchor" href="#벤치마크-예제"></a> 벤치마크 예제</h2>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Benchmarks</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;<span class="keyword">int</span>&gt; numbers;</span><br><span class="line"></span><br><span class="line">    [<span class="meta">GlobalSetup</span>]</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Setup</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        numbers = Enumerable.Range(<span class="number">1</span>, <span class="number">1</span>_000_000).ToList();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    [<span class="meta">Benchmark</span>]</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">SumWithLinq</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">return</span> numbers.Sum();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    [<span class="meta">Benchmark</span>]</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">SumWithLoop</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numbers.Count; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            sum += numbers[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    [<span class="meta">Benchmark</span>]</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;<span class="keyword">int</span>&gt; <span class="title">FilterWithLinq</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">return</span> numbers.Where(n =&gt; n % <span class="number">2</span> == <span class="number">0</span>).ToList();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    [<span class="meta">Benchmark</span>]</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;<span class="keyword">int</span>&gt; <span class="title">FilterWithLoop</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">var</span> result = <span class="keyword">new</span> List&lt;<span class="keyword">int</span>&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numbers.Count; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (numbers[i] % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                result.Add(numbers[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>결과 예시 (예시일 뿐 실제 결과는 다를 수 있음)</p>
 <table>
@@ -368,7 +368,7 @@
 </tbody>
 </table>
 <p>단순 작업에서는 LINQ와 반복문의 성능 차이가 크지 않지만, 필터링 같은 복잡한 작업에서는 반복문이 훨씬 빠를 수 있습니다.</p>
-<h2 id="결론">결론</h2>
+<h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2>
 <p>LINQ는 코드 가독성과 유지보수성을 크게 향상할 수 있는 강력한 도구입니다. 하지만 성능이 중요한 경우 신중히 사용해야 합니다. 주요 포인트는 다음과 같습니다:</p>
 <ul>
 <li>작은~중간 크기 컬렉션에서는 LINQ를 사용해 가독성을 향상하세요.</li>
@@ -411,7 +411,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2024/10/28/csharp-13/" data-id="cmnbsny5001anukcxf5xnfntk" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2024/10/28/csharp-13/" data-id="cmnbvruqn0429x4cxcyttd9hb" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -490,7 +490,7 @@
         "dateModified": "2024-10-28",
         "url": "http://hgko1207.github.io/2024/10/28/csharp-13/",
         "description": ".NET 개발자라면 LINQ(Language Integrated Query)를 프로젝트에서 효과적으로 사용하는 가이드라인을 확립하는 것이 중요합니다. LINQ는 코드 간결성과 가독성을 높일 수 있지만, 성능에 미치는 영향을 이해하고 신중하게 사용해야 합니다. 이번 글에서는 LINQ 사용 시의 모범 사례, 가이드라인, 그리고 벤치마크 정보를 제공해 LINQ를",
-        "wordCount": 1479
+        "wordCount": 1521
     }
 </script>
 

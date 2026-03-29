@@ -274,12 +274,12 @@
 
             <p><strong>Spring Data JPA</strong> 쿼리 메서드는 가장 강력한 메서드이며, SQL 쿼리를 작성하지 않고도 데이터베이스에서 레코드를 선택하는 쿼리 메서드를 만들 수 있습니다. 백그라운드에서 <strong>Spring Data JPA</strong>는 쿼리 메서드를 기반으로 SQL 쿼리를 생성하고 쿼리를 실행합니다.</p>
 <p>Entity 필드를 사용하여 Repository에 대한 쿼리 메서드를 생성할 수 있으며 쿼리 메서드 생성을 finder methods(findBy, findAll …)라고도 합니다.</p>
-<h2 id="예">예</h2>
+<h2 id="예"><a class="markdownIt-Anchor" href="#예"></a> 예</h2>
 <p><code>findByEmailAddressAndName()</code> 이 쿼리 메서드인 UserRepository 가 있다고 가정합니다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserRepository</span> <span class="keyword">extends</span> <span class="title">Repository</span>&lt;<span class="title">User</span>, <span class="title">Long</span>&gt; </span>&#123;</span><br><span class="line">  <span class="function">List&lt;User&gt; <span class="title">findByEmailAddressAndName</span><span class="params">(String emailAddress, String name)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>백그라운드에서 Spring Data JPA 는 위의 메서드(findByEmailAddressAndName)에서 JPA 기준 API를 사용하여 쿼리를 생성하지만 기본적으로 다음과 같은 JPQL 쿼리로 변환됩니다.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> u <span class="keyword">from</span> <span class="keyword">User</span> u <span class="keyword">where</span> u.emailAddress = ?<span class="number">1</span> <span class="keyword">and</span> u.name = ?<span class="number">2</span></span><br></pre></td></tr></table></figure>
-<h2 id="키워드들">키워드들</h2>
+<h2 id="키워드들"><a class="markdownIt-Anchor" href="#키워드들"></a> 키워드들</h2>
 <p><strong>JPA</strong>에 대해 지원되는 키워드와 해당 키워드를 포함하는 메서드가 무엇을 의미하는지 설명합니다.</p>
 <table>
 <thead>
@@ -412,7 +412,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="참고">참고</h2>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <ul>
 <li><a href="https://www.javaguides.net/2018/11/spring-data-jpa-query-creation-from-method-names.html" target="_blank" rel="noopener">https://www.javaguides.net/2018/11/spring-data-jpa-query-creation-from-method-names.html</a></li>
 <li><a href="https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation" target="_blank" rel="noopener">https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation</a></li>
@@ -450,7 +450,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/11/24/spring-jpa-4/" data-id="cmnbsnxyw00huukcx85f238ce" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/11/24/spring-jpa-4/" data-id="cmnbvrtsh00hzx4cxc4an5217" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -530,7 +530,7 @@
         "url": "http://hgko1207.github.io/2022/11/24/spring-jpa-4/",
         "description": "Spring Data JPA 쿼리 메서드는 가장 강력한 메서드이며, SQL 쿼리를 작성하지 않고도 데이터베이스에서 레코드를 선택하는 쿼리 메서드를 만들 수 있습니다. 백그라운드에서 Spring Data JPA는 쿼리 메서드를 기반으로 SQL 쿼리를 생성하고 쿼리를 실행합니다.
 Entity 필드를 사용하여 Repository에 대한 쿼리 메서드를 생성할 수 ",
-        "wordCount": 286
+        "wordCount": 295
     }
 </script>
 

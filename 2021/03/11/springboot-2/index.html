@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
-    <meta name="keywords" content="Spring Boot,스프링부트,Properties" />
+    <meta name="keywords" content="Spring Boot,Properties,스프링부트" />
     
     
     
@@ -27,8 +27,8 @@
 <meta property="article:modified_time" content="2024-01-11T14:37:10.341Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="Spring Boot">
-<meta property="article:tag" content="스프링부트">
 <meta property="article:tag" content="Properties">
+<meta property="article:tag" content="스프링부트">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/spring.png">
     
@@ -274,14 +274,14 @@
 
             <p><strong>Spring Boot</strong>를 사용하여 웹 프로젝트를 할 때에 환경(개발 또는 배포)에 따라 설정 값들을 달리 할 필요가 있습니다.</p>
 <p>Spring Boot 에서는 <code>application.properties</code> 파일을 <strong>profile</strong> 로 구분하여 사용할 수 있습니다. <strong>profile</strong>을 작성하지 않을 경우 <strong>default</strong>로 <code>application.properties</code>를 사용합니다.</p>
-<h2 id="application-properties-작성-규칙">application.properties 작성 규칙</h2>
+<h2 id="applicationproperties-작성-규칙"><a class="markdownIt-Anchor" href="#applicationproperties-작성-규칙"></a> application.properties 작성 규칙</h2>
 <p><code>profile</code>을 포함한 파일명을 작성합니다.</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># default</span></span><br><span class="line"><span class="attr">application.properties</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 배포 환경(prod)</span></span><br><span class="line"><span class="attr">application-prod.properties</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 개발 환경(dev)</span></span><br><span class="line"><span class="attr">application-dev.properties</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 테스트 환경(test)</span></span><br><span class="line"><span class="attr">application-test.properties</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># custom</span></span><br><span class="line"><span class="attr">application-custom.properties</span></span><br></pre></td></tr></table></figure>
-<h2 id="예제">예제</h2>
+<h2 id="예제"><a class="markdownIt-Anchor" href="#예제"></a> 예제</h2>
 <p>개발과 배포할 때의 설정을 나눈 예제입니다.</p>
-<h3 id="파일-생성">파일 생성</h3>
+<h3 id="파일-생성"><a class="markdownIt-Anchor" href="#파일-생성"></a> 파일 생성</h3>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 배포용(기본)</span></span><br><span class="line"><span class="attr">application.properties</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 개발용(dev)</span></span><br><span class="line"><span class="attr">application-dev.properties</span></span><br></pre></td></tr></table></figure>
-<h3 id="application-properties-설정">application.properties 설정</h3>
+<h3 id="applicationproperties-설정"><a class="markdownIt-Anchor" href="#applicationproperties-설정"></a> application.properties 설정</h3>
 <p><code>application-dev.properties</code> 파일에 <code>spring.profiles.active=dev</code> 을 추가합니다.</p>
 <ul>
 <li><strong>application.properties</strong></li>
@@ -291,11 +291,11 @@
 <li><strong>application-dev.properties</strong></li>
 </ul>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Profile 설정 - 이 값을 꼭 넣어야 합니다.</span></span><br><span class="line"><span class="meta">spring.profiles.active</span>=<span class="string">dev</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Server 설정</span></span><br><span class="line"><span class="meta">server.port</span>=<span class="string">8081</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Database 설정</span></span><br><span class="line"><span class="meta">spring.datasource.driver-class-name</span>=<span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line"><span class="meta">spring.datasource.url</span>=<span class="string">jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8</span></span><br><span class="line"><span class="meta">spring.datasource.username</span>=<span class="string">root</span></span><br><span class="line"><span class="meta">spring.datasource.password</span>=<span class="string">test!23</span></span><br></pre></td></tr></table></figure>
-<h3 id="Application-실행-설정">Application 실행 설정</h3>
-<h4 id="STS-Spring-Tool-Suite-Spring-Boot-Run"><strong>STS(Spring Tool Suite)</strong> - Spring Boot Run</h4>
+<h3 id="application-실행-설정"><a class="markdownIt-Anchor" href="#application-실행-설정"></a> Application 실행 설정</h3>
+<h4 id="stsspring-tool-suite-spring-boot-run"><a class="markdownIt-Anchor" href="#stsspring-tool-suite-spring-boot-run"></a> <strong>STS(Spring Tool Suite)</strong> - Spring Boot Run</h4>
 <p>다음의 이미지와 같이 <code>Profile</code>에 적용하고자 하는 환경 값(예: dev)을 선택하면 <code>application-dev.properties</code>의 설정을 읽어옵니다.</p>
-<p><img src="/images/springboot/profile_setting.png" alt=""></p>
-<h3 id="실행-테스트">실행 테스트</h3>
+<p><img src="/images/springboot/profile_setting.png" alt="" /></p>
+<h3 id="실행-테스트"><a class="markdownIt-Anchor" href="#실행-테스트"></a> 실행 테스트</h3>
 <p><code>dev</code> 환경을 주입 후 실행 테스트를 하였습니다. <code>dev</code> 환경일 때 서버 포트를 <strong>8081</strong>으로 설정을 하였었는데 다음의 실행 로그를 보면 <code>Tomcat started on port(s): 8081</code> 처럼 <strong>8081</strong> 포트로 서버가 실행된 것을 확인할 수 있습니다.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2021-03-11 13:52:28.738  INFO 13588 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory <span class="keyword">for</span> persistence unit <span class="string">'default'</span></span><br><span class="line">2021-03-11 13:52:28.772  INFO 13588 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729</span><br><span class="line">2021-03-11 13:52:29.903  INFO 13588 --- [  restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService <span class="string">'applicationTaskExecutor'</span></span><br><span class="line">2021-03-11 13:52:30.836  INFO 13588 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path <span class="string">'/admin'</span></span><br><span class="line">2021-03-11 13:52:30.839  INFO 13588 --- [  restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Started EAfterschoolAdminApplication <span class="keyword">in</span> 6.985 seconds (JVM running <span class="keyword">for</span> 7.822)</span><br></pre></td></tr></table></figure>
 
@@ -331,7 +331,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2021/03/11/springboot-2/" data-id="cmnbsnxxg009dukcxftpb6m1h" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2021/03/11/springboot-2/" data-id="cmnbvrtq2009dx4cxdougfokj" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -403,7 +403,7 @@
         },
         "headline": "[Spring Boot] 환경에 따른 설정 방법",
         "image": "http://hgko1207.github.io/images/thumbnail/spring.png",
-        "keywords": "Spring Boot 스프링부트 Properties",
+        "keywords": "Spring Boot Properties 스프링부트",
         "genre": "Programming Backend Spring",
         "datePublished": "2021-03-11",
         "dateCreated": "2021-03-11",
@@ -412,7 +412,7 @@
         "description": "Spring Boot를 사용하여 웹 프로젝트를 할 때에 환경(개발 또는 배포)에 따라 설정 값들을 달리 할 필요가 있습니다.
 Spring Boot 에서는 application.properties 파일을 profile 로 구분하여 사용할 수 있습니다. profile을 작성하지 않을 경우 default로 application.properties를 사용합니다.
 ",
-        "wordCount": 390
+        "wordCount": 412
     }
 </script>
 

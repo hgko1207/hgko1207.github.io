@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
-    <meta name="keywords" content="리눅스,Linux,CentOS,PM2,Service,서비스" />
+    <meta name="keywords" content="리눅스,CentOS,Linux,PM2,Service,서비스" />
     
     
     
@@ -27,8 +27,8 @@
 <meta property="article:modified_time" content="2024-01-12T06:29:03.302Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="리눅스">
-<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="CentOS">
+<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="PM2">
 <meta property="article:tag" content="Service">
 <meta property="article:tag" content="서비스">
@@ -277,9 +277,9 @@
 
             <p>리눅스 환경에서 PM2 서비스 등록하는 방법에 대해 알아보겠습니다.</p>
 <p><strong>PM2</strong>에서는 시스템이 부팅되고 나서 자동으로 실행되도록 하는 서비스를 등록해 주는 <code>startup</code> 명령어가 있습니다.</p>
-<h2 id="pm2-등록">pm2 등록</h2>
+<h2 id="pm2-등록"><a class="markdownIt-Anchor" href="#pm2-등록"></a> pm2 등록</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pm2 start [파일명] --name <span class="built_in">test</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> pm2 list</span></span><br></pre></td></tr></table></figure>
-<h2 id="서비스-등록">서비스 등록</h2>
+<h2 id="서비스-등록"><a class="markdownIt-Anchor" href="#서비스-등록"></a> 서비스 등록</h2>
 <p><code>pm2 startup</code> 명령어를 사용하여 PM2 서비스를 등록합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pm2 startup</span></span><br><span class="line">[PM2] Init System found: systemd</span><br><span class="line">Platform systemd</span><br><span class="line">Template</span><br><span class="line">[Unit]</span><br><span class="line">Description=PM2 process manager</span><br><span class="line">Documentation=https://pm2.keymetrics.io/</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">User=root</span><br><span class="line">LimitNOFILE=infinity</span><br><span class="line">LimitNPROC=infinity</span><br><span class="line">LimitCORE=infinity</span><br><span class="line">Environment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin</span><br><span class="line">Environment=PM2_HOME=/root/.pm2</span><br><span class="line">PIDFile=/root/.pm2/pm2.pid</span><br><span class="line">Restart=on-failure</span><br><span class="line"></span><br><span class="line">ExecStart=/usr/lib/node_modules/pm2/bin/pm2 resurrect</span><br><span class="line">ExecReload=/usr/lib/node_modules/pm2/bin/pm2 reload all</span><br><span class="line">ExecStop=/usr/lib/node_modules/pm2/bin/pm2 kill</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line"></span><br><span class="line">Target path</span><br><span class="line">/etc/systemd/system/pm2-root.service</span><br><span class="line">Command list</span><br><span class="line">[ 'systemctl enable pm2-root' ]</span><br><span class="line">[PM2] Writing init configuration in /etc/systemd/system/pm2-root.service</span><br><span class="line">[PM2] Making script booting at startup...</span><br><span class="line">[PM2] [-] Executing: systemctl enable pm2-root...</span><br><span class="line">Created symlink from /etc/systemd/system/multi-user.target.wants/pm2-root.service to /etc/systemd/system/pm2-root.service.</span><br><span class="line">[PM2] [v] Command successfully executed.</span><br><span class="line">+---------------------------------------+</span><br><span class="line">[PM2] Freeze a process list on reboot via:</span><br><span class="line"><span class="meta">$</span><span class="bash"> pm2 save</span></span><br><span class="line"></span><br><span class="line">[PM2] Remove init script via:</span><br><span class="line"><span class="meta">$</span><span class="bash"> pm2 unstartup systemd</span></span><br></pre></td></tr></table></figure>
 <p><code>pm2 save</code> 명령어를 통해 재부팅 시 프로세스 목록을 고정시킵니다.</p>
@@ -322,7 +322,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/12/09/linux-25/" data-id="cmnbsnxz200iwukcx1pm99cnm" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/12/09/linux-25/" data-id="cmnbvrtss00j6x4cxf78361cq" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -394,7 +394,7 @@
         },
         "headline": "[CentOS] PM2 서비스 등록",
         "image": "http://hgko1207.github.io/images/thumbnail/centos.png",
-        "keywords": "리눅스 Linux CentOS PM2 Service 서비스",
+        "keywords": "리눅스 CentOS Linux PM2 Service 서비스",
         "genre": "Programming DevOps Linux",
         "datePublished": "2022-12-09",
         "dateCreated": "2022-12-09",
@@ -402,12 +402,12 @@
         "url": "http://hgko1207.github.io/2022/12/09/linux-25/",
         "description": "리눅스 환경에서 PM2 서비스 등록하는 방법에 대해 알아보겠습니다.
 PM2에서는 시스템이 부팅되고 나서 자동으로 실행되도록 하는 서비스를 등록해 주는 startup 명령어가 있습니다.
-pm2 등록
+ pm2 등록
 12$ pm2 start [파일명] --name test$ pm2 list
-서비스 등록
+ 서비스 등록
 pm2 startup 명령어를 사용하여 PM2 서비스를 등록합니다.
-123",
-        "wordCount": 375
+1",
+        "wordCount": 381
     }
 </script>
 

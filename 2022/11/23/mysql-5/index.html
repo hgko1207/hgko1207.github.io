@@ -274,8 +274,8 @@
             
 
             <p><strong>MySQL</strong>에서 사용하는 <code>ALTER TABLE</code> 구문에 대해 알아보겠습니다.</p>
-<h1>테이블 관련</h1>
-<h2 id="테이블-생성">테이블 생성</h2>
+<h1 id="테이블-관련"><a class="markdownIt-Anchor" href="#테이블-관련"></a> 테이블 관련</h1>
+<h2 id="테이블-생성"><a class="markdownIt-Anchor" href="#테이블-생성"></a> 테이블 생성</h2>
 <p>테이블 2개를 생성합니다.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">test</span> (</span><br><span class="line">  <span class="keyword">id</span> <span class="built_in">INT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  age <span class="built_in">INT</span>,</span><br><span class="line">  <span class="keyword">name</span> <span class="built_in">VARCHAR</span>(<span class="number">50</span>),</span><br><span class="line">  jumin VARCAHR(<span class="number">15</span>),</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span>(<span class="keyword">id</span>),</span><br><span class="line">  <span class="keyword">UNIQUE</span>(age),</span><br><span class="line">  <span class="keyword">INDEX</span>(<span class="keyword">name</span>),</span><br><span class="line">  <span class="keyword">KEY</span>(jumin),</span><br><span class="line">  <span class="keyword">INDEX</span>(<span class="keyword">name</span>, jumin)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> test2 (</span><br><span class="line">  <span class="keyword">id</span> <span class="built_in">INT</span>,</span><br><span class="line">  parent_id <span class="built_in">INT</span>,</span><br><span class="line">  <span class="keyword">FOREIGN</span> <span class="keyword">KEY</span> (parent_id) <span class="keyword">REFERENCES</span> <span class="keyword">test</span>(<span class="keyword">id</span>) <span class="keyword">ON</span> <span class="keyword">DELETE</span> <span class="keyword">CASCADE</span> <span class="keyword">ON</span> UIPDATE <span class="keyword">CASCADE</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
@@ -283,47 +283,47 @@
 <li>INDEX를 KEY로 바꿔도 됩니다.</li>
 <li>INDEX(name, jumin) 과 INDEX(name), INDEX(jumin) 은 다릅니다.</li>
 </ul>
-<h2 id="테이블-속성-변경">테이블 속성 변경</h2>
+<h2 id="테이블-속성-변경"><a class="markdownIt-Anchor" href="#테이블-속성-변경"></a> 테이블 속성 변경</h2>
 <p><strong>[]</strong> 에 들어가 있는 내용은 생략 가능합니다.</p>
-<h3 id="1-필드-추가">1. 필드 추가</h3>
+<h3 id="1-필드-추가"><a class="markdownIt-Anchor" href="#1-필드-추가"></a> 1. 필드 추가</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 <span class="keyword">ADD</span> [<span class="keyword">COLUMN</span>] 추가할필드명 필드타입 [<span class="keyword">FIRST</span> | <span class="keyword">AFTER</span> 필드명];</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 <span class="keyword">ADD</span> [<span class="keyword">COLUMN</span>] (추가할필드명 필드타입, ...);</span><br></pre></td></tr></table></figure>
-<h3 id="2-필드명-및-타입-변경">2. 필드명 및 타입 변경</h3>
+<h3 id="2-필드명-및-타입-변경"><a class="markdownIt-Anchor" href="#2-필드명-및-타입-변경"></a> 2. 필드명 및 타입 변경</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 <span class="keyword">CHANGE</span> [<span class="keyword">COLUMN</span>] 기존필드명 변경할필드명 변경할필드타입 [<span class="keyword">FIRST</span> | <span class="keyword">AFTER</span> 필드명];</span><br></pre></td></tr></table></figure>
-<h3 id="3-필드-타입-변경">3. 필드 타입 변경</h3>
+<h3 id="3-필드-타입-변경"><a class="markdownIt-Anchor" href="#3-필드-타입-변경"></a> 3. 필드 타입 변경</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 <span class="keyword">MODIFY</span> [<span class="keyword">COLUMN</span>] 기존필드명 변경할필드명 [<span class="keyword">FIRST</span> | <span class="keyword">AFTER</span> 필드명];</span><br></pre></td></tr></table></figure>
-<h3 id="4-필드-삭제">4. 필드 삭제</h3>
+<h3 id="4-필드-삭제"><a class="markdownIt-Anchor" href="#4-필드-삭제"></a> 4. 필드 삭제</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 <span class="keyword">DROP</span> [<span class="keyword">COLUMN</span>] 제거할필드명;</span><br></pre></td></tr></table></figure>
-<h3 id="5-필드-디폴트-정의">5. 필드 디폴트 정의</h3>
+<h3 id="5-필드-디폴트-정의"><a class="markdownIt-Anchor" href="#5-필드-디폴트-정의"></a> 5. 필드 디폴트 정의</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 <span class="keyword">ALTER</span> [<span class="keyword">COLUMN</span>] 필드명 &#123;<span class="keyword">SET</span> <span class="keyword">DEFAULT</span> <span class="string">'XXX'</span> | <span class="keyword">DROP</span> <span class="keyword">DEFAULT</span>&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="6-테이블명-변경">6. 테이블명 변경</h3>
+<h3 id="6-테이블명-변경"><a class="markdownIt-Anchor" href="#6-테이블명-변경"></a> 6. 테이블명 변경</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 <span class="keyword">RENAME</span> 변경할테이블명;</span><br></pre></td></tr></table></figure>
-<h3 id="7-COMMENT-추가">7. COMMENT 추가</h3>
+<h3 id="7-comment-추가"><a class="markdownIt-Anchor" href="#7-comment-추가"></a> 7. COMMENT 추가</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 <span class="keyword">COMMENT</span> <span class="string">'내용'</span>;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 <span class="keyword">MODIFY</span> 필드명 필드타입 [<span class="keyword">DEFAULT</span> <span class="string">'XXX'</span>] <span class="keyword">COMMENT</span> <span class="string">'내용'</span>;</span><br></pre></td></tr></table></figure>
-<h1>인덱스 관련</h1>
-<h2 id="인덱스-생성">인덱스 생성</h2>
-<h3 id="INDEX">INDEX</h3>
+<h1 id="인덱스-관련"><a class="markdownIt-Anchor" href="#인덱스-관련"></a> 인덱스 관련</h1>
+<h2 id="인덱스-생성"><a class="markdownIt-Anchor" href="#인덱스-생성"></a> 인덱스 생성</h2>
+<h3 id="index"><a class="markdownIt-Anchor" href="#index"></a> INDEX</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> 인덱스명 <span class="keyword">ON</span> 테이블명 (필드<span class="number">1</span>, 필드<span class="number">2</span>, ...);</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 <span class="keyword">ADD</span> <span class="keyword">INDEX</span> [인덱스명] [인덱스타입] (필드<span class="number">1</span>, 필드<span class="number">2</span>, ...);</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 <span class="keyword">ADD</span> <span class="keyword">KEY</span> [인덱스명 ] [인덱스타입] (필드<span class="number">1</span>, 필드<span class="number">2</span>, ...);</span><br></pre></td></tr></table></figure>
-<h3 id="UNIQUE">UNIQUE</h3>
+<h3 id="unique"><a class="markdownIt-Anchor" href="#unique"></a> UNIQUE</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">UNIQUE</span> <span class="keyword">INDEX</span> 인덱스명 <span class="keyword">ON</span> 테이블명 (필드<span class="number">1</span>, 필드<span class="number">2</span>, ...);</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 <span class="keyword">ADD</span> [<span class="keyword">CONSTRAINT</span> [심볼]] <span class="keyword">UNIQUE</span> [인덱스명] [인덱스타입] (필드<span class="number">1</span>, 필드<span class="number">2</span>, ...);</span><br></pre></td></tr></table></figure>
-<h3 id="PRIMARY-KEY">PRIMARY KEY</h3>
+<h3 id="primary-key"><a class="markdownIt-Anchor" href="#primary-key"></a> PRIMARY KEY</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 <span class="keyword">ADD</span> [<span class="keyword">CONSTRAINT</span> [심볼]] PRIMARY <span class="keyword">KEY</span> [인덱스타입] (필드<span class="number">1</span>, 필드<span class="number">2</span>, ...);</span><br></pre></td></tr></table></figure>
-<h3 id="FOREIGN-KEY">FOREIGN KEY</h3>
+<h3 id="foreign-key"><a class="markdownIt-Anchor" href="#foreign-key"></a> FOREIGN KEY</h3>
 <p>외래키 생성 시 제약 조건과 INDEX 가 같이 생성되며, 외래키를 삭제하더라도 INDEX는 남게 됩니다. 만약 인덱스도 삭제가 필요하다면 같이 삭제해야 합니다.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 <span class="keyword">ADD</span> [<span class="keyword">CONSTRAINT</span> [심볼]] <span class="keyword">FOREIGN</span> <span class="keyword">KEY</span> [인덱스명] (필드<span class="number">1</span>, 필드<span class="number">2</span>, ...) [레퍼런스조건]</span><br><span class="line"> <span class="keyword">ON</span> <span class="keyword">UPDATE</span> [RESTRICT | <span class="keyword">CASCADE</span> | <span class="keyword">SET</span> <span class="literal">NULL</span> | <span class="keyword">NO</span> <span class="keyword">ACTION</span> | <span class="keyword">SET</span> <span class="keyword">DEFAULT</span>]</span><br><span class="line"> <span class="keyword">ON</span> <span class="keyword">DELETE</span> [RESTRICT | <span class="keyword">CASCADE</span> | <span class="keyword">SET</span> <span class="literal">NULL</span> | <span class="keyword">NO</span> <span class="keyword">ACTION</span> | <span class="keyword">SET</span> <span class="keyword">DEFAULT</span>];</span><br></pre></td></tr></table></figure>
-<h3 id="FULLTEXT">FULLTEXT</h3>
+<h3 id="fulltext"><a class="markdownIt-Anchor" href="#fulltext"></a> FULLTEXT</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> FULLTEXT <span class="keyword">INDEX</span> 인덱스명 <span class="keyword">ON</span> 테이블명 (필드<span class="number">1</span>, 필드<span class="number">2</span>, ...);</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 <span class="keyword">ADD</span> FULLTEXT [인덱스명 ] (필드<span class="number">1</span>, 필드<span class="number">2</span>, ...);</span><br></pre></td></tr></table></figure>
-<h2 id="인덱스-보기">인덱스 보기</h2>
+<h2 id="인덱스-보기"><a class="markdownIt-Anchor" href="#인덱스-보기"></a> 인덱스 보기</h2>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">INDEX</span> <span class="keyword">FROM</span> 테이블명</span><br></pre></td></tr></table></figure>
-<h2 id="인덱스-삭제">인덱스 삭제</h2>
+<h2 id="인덱스-삭제"><a class="markdownIt-Anchor" href="#인덱스-삭제"></a> 인덱스 삭제</h2>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">INDEX</span> 인덱스명 <span class="keyword">ON</span> 테이블명;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 <span class="keyword">DROP</span> <span class="keyword">INDEX</span> 인덱스명;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 <span class="keyword">DROP</span> <span class="keyword">INDEX</span> PRIMARY <span class="keyword">KEY</span>;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 <span class="keyword">DROP</span> <span class="keyword">INDEX</span> <span class="keyword">FOREIGN</span> <span class="keyword">KEY</span> [fk_symbol];</span><br></pre></td></tr></table></figure>
-<h1>기타</h1>
-<h2 id="키-활성화">키 활성화</h2>
+<h1 id="기타"><a class="markdownIt-Anchor" href="#기타"></a> 기타</h1>
+<h2 id="키-활성화"><a class="markdownIt-Anchor" href="#키-활성화"></a> 키 활성화</h2>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 <span class="keyword">ENABLE</span> <span class="keyword">KEYS</span>;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 <span class="keyword">DISABLE</span> <span class="keyword">KEYS</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="정렬">정렬</h2>
+<h2 id="정렬"><a class="markdownIt-Anchor" href="#정렬"></a> 정렬</h2>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 <span class="keyword">ORDER</span> <span class="keyword">BY</span> 필드명;</span><br></pre></td></tr></table></figure>
-<h2 id="캐릭터-셋">캐릭터 셋</h2>
+<h2 id="캐릭터-셋"><a class="markdownIt-Anchor" href="#캐릭터-셋"></a> 캐릭터 셋</h2>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 CONVER <span class="keyword">TO</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> 캐릭터셋</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> 캐릭터셋</span><br></pre></td></tr></table></figure>
-<h2 id="데이터베이스-엔진-변경">데이터베이스 엔진 변경</h2>
+<h2 id="데이터베이스-엔진-변경"><a class="markdownIt-Anchor" href="#데이터베이스-엔진-변경"></a> 데이터베이스 엔진 변경</h2>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 <span class="keyword">ENGINE</span>=&#123;<span class="keyword">InnoDB</span> | MyISAM&#125;</span><br></pre></td></tr></table></figure>
 
         </div>
@@ -358,7 +358,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/11/23/mysql-5/" data-id="cmnbsnxyt00heukcx0jaf2yy4" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/11/23/mysql-5/" data-id="cmnbvrtse00hex4cx07v7eo7j" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -437,11 +437,11 @@
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2022/11/23/mysql-5/",
         "description": "MySQL에서 사용하는 ALTER TABLE 구문에 대해 알아보겠습니다.
-테이블 관련
-테이블 생성
+ 테이블 관련
+ 테이블 생성
 테이블 2개를 생성합니다.
-1234567891011CREATE TABLE test (  id INT NOT NULL AUTO_INCREMENT,  age INT,  name VARCHAR(50),  jumin VARCAHR(15),  PRIMARY KEY(id",
-        "wordCount": 764
+1234567891011CREATE TABLE test (  id INT NOT NULL AUTO_INCREMENT,  age INT,  name VARCHAR(50),  jumin VARCAHR(15),  PRIMARY KEY(",
+        "wordCount": 839
     }
 </script>
 

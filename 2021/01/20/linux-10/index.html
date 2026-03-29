@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
-    <meta name="keywords" content="리눅스,Linux,CentOS,명령어" />
+    <meta name="keywords" content="리눅스,CentOS,Linux,명령어" />
     
     
     
@@ -27,8 +27,8 @@
 <meta property="article:modified_time" content="2023-03-14T02:22:03.502Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="리눅스">
-<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="CentOS">
+<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="명령어">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/centos.png">
@@ -273,7 +273,7 @@
 
             
 
-            <h2 id="유용하게-쓰는-명령어들">유용하게 쓰는 명령어들</h2>
+            <h2 id="유용하게-쓰는-명령어들"><a class="markdownIt-Anchor" href="#유용하게-쓰는-명령어들"></a> 유용하게 쓰는 명령어들</h2>
 <table>
 <thead>
 <tr>
@@ -338,7 +338,7 @@
 </table>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 특정 파일 제외하고 삭제</span></span><br><span class="line">find ./ ! -name <span class="string">'*.h'</span> -<span class="built_in">exec</span> rm -rf &#123;&#125; \;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 두 개의 파일 형식 빼고 다 삭제</span></span><br><span class="line"><span class="comment"># 예) .h, .inl 파일 빼고 삭제</span></span><br><span class="line">find ./ \( ! -name <span class="string">'*.inl'</span> ! -name <span class="string">'*.h'</span> \) -<span class="built_in">exec</span> rm -rf &#123;&#125; \;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 별칭 설정</span></span><br><span class="line"><span class="built_in">alias</span> rm=<span class="string">'rm -i'</span></span><br><span class="line"><span class="built_in">alias</span> cp=<span class="string">'cp -i'</span></span><br><span class="line"><span class="built_in">alias</span> mv=<span class="string">'mv -i'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 환경변수 설정</span></span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=/usr/bin:<span class="variable">$LD_LIBRARY_PATH</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 폴더와 하위 폴더에 있는 파일명 텍스트로 추출</span></span><br><span class="line">dir [폴더경로] &gt; list.txt</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># tail -n 로 가장 나중의 jar 파일 찾기</span></span><br><span class="line">ls -tr | grep jar | tail -n 1</span><br></pre></td></tr></table></figure>
-<h2 id="가끔-쓰인-명령어들">가끔 쓰인 명령어들</h2>
+<h2 id="가끔-쓰인-명령어들"><a class="markdownIt-Anchor" href="#가끔-쓰인-명령어들"></a> 가끔 쓰인 명령어들</h2>
 <table>
 <thead>
 <tr>
@@ -390,7 +390,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2021/01/20/linux-10/" data-id="cmnbsnxxb008dukcx76xkhp83" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2021/01/20/linux-10/" data-id="cmnbvrtq00095x4cxh8v41fql" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -462,13 +462,13 @@
         },
         "headline": "[CentOS] 유용하게 쓰는 명령어들",
         "image": "http://hgko1207.github.io/images/thumbnail/centos.png",
-        "keywords": "리눅스 Linux CentOS 명령어",
+        "keywords": "리눅스 CentOS Linux 명령어",
         "genre": "Programming DevOps Linux",
         "datePublished": "2021-01-20",
         "dateCreated": "2021-01-20",
         "dateModified": "2023-03-14",
         "url": "http://hgko1207.github.io/2021/01/20/linux-10/",
-        "description": "유용하게 쓰는 명령어들
+        "description": " 유용하게 쓰는 명령어들
 
 
 
@@ -503,8 +503,8 @@ chmod -R 755 [폴더 or 파일]
 
 
 chown -R root:root [폴더 or 파일]
-소유",
-        "wordCount": 209
+소",
+        "wordCount": 215
     }
 </script>
 

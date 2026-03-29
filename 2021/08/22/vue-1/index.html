@@ -272,7 +272,7 @@
 
             
 
-            <h2 id="Vue-쓰는-이유">Vue 쓰는 이유</h2>
+            <h2 id="vue-쓰는-이유"><a class="markdownIt-Anchor" href="#vue-쓰는-이유"></a> Vue 쓰는 이유</h2>
 <ul>
 <li><strong>Web app(Single Page Application)</strong> 만들 때 사용합니다.</li>
 <li>코드 작성할 때 방법이 정해져 있습니다.
@@ -285,35 +285,35 @@
 <li>업데이트가 잘 됩니다.</li>
 </ul>
 <p>결론은 <strong>React</strong> 보다 학습 곡선이 낮아 쉽고, 가볍고 빠르며, 누구나 빨리 배울 수 있어 접근성이 뛰어나 많이 쓰이고 있습니다.</p>
-<h2 id="설치하기">설치하기</h2>
-<h3 id="1-Nodejs-설치">1. Nodejs 설치</h3>
-<p><a href="https://nodejs.org/ko/download/" target="_blank" rel="noopener">Node.js 공식 다운로드 페이지</a>에서 운영체제에 맞게 다운로드하고 설치합니다.<br>
+<h2 id="설치하기"><a class="markdownIt-Anchor" href="#설치하기"></a> 설치하기</h2>
+<h3 id="1-nodejs-설치"><a class="markdownIt-Anchor" href="#1-nodejs-설치"></a> 1. Nodejs 설치</h3>
+<p><a href="https://nodejs.org/ko/download/" target="_blank" rel="noopener">Node.js 공식 다운로드 페이지</a>에서 운영체제에 맞게 다운로드하고 설치합니다.<br />
 현재 최신 버전은 <strong>14.17.5</strong> 입니다.</p>
-<p><a href="https://nodejs.org/ko/download/" target="_blank" rel="noopener"><img src="/images/vue/download.png" alt="Windows Installer를 클릭하여 다운로드"></a></p>
+<p><a href="https://nodejs.org/ko/download/" target="_blank" rel="noopener"><img src="/images/vue/download.png" alt="Windows Installer를 클릭하여 다운로드" /></a></p>
 <p>설치가 끝나면 터미널(또는 명령프롬프트) 창을 열고, 다음 명령어를 실행하여 제대로 설치했는지 확인합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> node -v</span></span><br><span class="line">v14.17.5</span><br></pre></td></tr></table></figure>
-<h3 id="2-에디터-설치">2. 에디터 설치</h3>
+<h3 id="2-에디터-설치"><a class="markdownIt-Anchor" href="#2-에디터-설치"></a> 2. 에디터 설치</h3>
 <p><a href="https://code.visualstudio.com/Download" target="_blank" rel="noopener">VS Code 공식 다운로드 페이지</a>에서 운영체제에 맞는 버전을 설치합니다. 여기서는 Windows 버전을 설치합니다. 이 에디터는 macOS, Window, 리눅스를 모두 지원합니다.</p>
-<p><a href="https://code.visualstudio.com/Download" target="_blank" rel="noopener"><img src="/images/vue/vscode.png" alt="Visual Studio Code 다운로드"></a></p>
+<p><a href="https://code.visualstudio.com/Download" target="_blank" rel="noopener"><img src="/images/vue/vscode.png" alt="Visual Studio Code 다운로드" /></a></p>
 <p>VS Code 설치가 완료되었으면 <strong>Vue</strong> 개발을 효율적으로 하기 위해 Extension을 설치합니다.</p>
 <ul>
 <li>Vetur</li>
 <li>html css support</li>
 <li>Vue 3 Snippets</li>
 </ul>
-<h3 id="Vue-cli-설치">Vue-cli 설치</h3>
+<h3 id="vue-cli-설치"><a class="markdownIt-Anchor" href="#vue-cli-설치"></a> Vue-cli 설치</h3>
 <p>Vue 개발환경 세팅을 도와주는 프로그램을 설치합니다. 명령어를 실행하고 vue 버전 선택을 하면 설치가 완료됩니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install -g @vue/cli</span></span><br></pre></td></tr></table></figure>
-<h2 id="프로젝트-생성">프로젝트 생성</h2>
+<h2 id="프로젝트-생성"><a class="markdownIt-Anchor" href="#프로젝트-생성"></a> 프로젝트 생성</h2>
 <p>프로젝트를 생성할 때는 <code>vue create &lt;프로젝트명&gt;</code> 명령어를 사용합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> vue create exapmle-vue</span></span><br></pre></td></tr></table></figure>
-<h2 id="실행">실행</h2>
+<h2 id="실행"><a class="markdownIt-Anchor" href="#실행"></a> 실행</h2>
 <p>터미널에 <code>npm run serve</code> 명령어를 실행합니다. 실행하여 완료했다면 <a href="http://localhost:8080/" target="_blank" rel="noopener">http://localhost:8080/</a> 로 접속하여 웹 페이지를 확인합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> example-vue</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm run serve</span></span><br></pre></td></tr></table></figure>
 <img width="75%" src="/images/vue/webpage.png" alt="초기 프로젝트 페이지" title="" >
-<h2 id="정리">정리</h2>
+<h2 id="정리"><a class="markdownIt-Anchor" href="#정리"></a> 정리</h2>
 <p><strong>Vue</strong>에 대한 설명부터 설치, 프로젝트 실행까지 진행했습니다. 프로젝트를 진행하면서 중요한 부분을 정리할 예정입니다.</p>
-<h2 id="참고">참고</h2>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <ul>
 <li><a href="https://kr.vuejs.org/v2/guide/index.html" target="_blank" rel="noopener">https://kr.vuejs.org/v2/guide/index.html</a></li>
 </ul>
@@ -350,7 +350,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2021/08/22/vue-1/" data-id="cmnbsnxxr00b5ukcx8ea9ed2w" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2021/08/22/vue-1/" data-id="cmnbvrtqt00ayx4cxded88vi7" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -428,7 +428,7 @@
         "dateCreated": "2021-08-22",
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2021/08/22/vue-1/",
-        "description": "Vue 쓰는 이유
+        "description": " Vue 쓰는 이유
 
 Web app(Single Page Application) 만들 때 사용합니다.
 코드 작성할 때 방법이 정해져 있습니다.
@@ -437,8 +437,8 @@ React는 방법이 다양한 방면 Vue는 v-for, v-if, v-else 등 방법이 하
 물론 Vue 도 React처럼 자유도 높은 개발도 가능합니다.
 
 
-HTML 렌더링",
-        "wordCount": 267
+HTML 렌더",
+        "wordCount": 297
     }
 </script>
 

@@ -274,20 +274,20 @@
             
 
             <p><strong>Gatsby</strong> 설치 및 사용 방법에 대해 알아보겠습니다.</p>
-<h2 id="Gatsby-개츠비-란">Gatsby(개츠비) 란</h2>
+<h2 id="gatsby개츠비-란"><a class="markdownIt-Anchor" href="#gatsby개츠비-란"></a> Gatsby(개츠비) 란</h2>
 <p>개츠비는 리액트 기반의 프레임워크입니다. 리액트를 이용하면서도 리액트에 새로운 규칙 몇 가지를 추가해 주면서 아주 약간의 복잡함을 더해주고 있습니다.</p>
 <p>주로 서버사이드 렌더링을 위해 사용하는 Next.js 와는 달리 개츠비는 서버 없이, 오로지 정적 웹사이트 생성을 위해 사용하는 오픈소스 프레임워크입니다.</p>
 <blockquote>
-<p>정적 웹 페이지, 플랫 페이지는 저장된 그대로 사용자에게 전달되는 웹 페이지로서, 이는 웹 애플리케이션에 의해 생성되는 동적 웹 페이지와 반대되는 용어이다.<br>
+<p>정적 웹 페이지, 플랫 페이지는 저장된 그대로 사용자에게 전달되는 웹 페이지로서, 이는 웹 애플리케이션에 의해 생성되는 동적 웹 페이지와 반대되는 용어이다.<br />
 즉, 정적 웹 페이지는 모든 상황에서 모든 사용자에게 동일한 정보를 표시하며, 콘텐츠 타입이나 문서 언어의 협상(negotiate)을 위해 웹 서버의 현대적 기능에 종속된다. <a href="https://ko.wikipedia.org/wiki/%EC%A0%95%EC%A0%81_%EC%9B%B9_%ED%8E%98%EC%9D%B4%EC%A7%80" target="_blank" rel="noopener">위키백과</a></p>
 </blockquote>
 <p>서비스 및 블로그, 포트폴리오 등에서 많이 사용됩니다.</p>
-<h3 id="설치">설치</h3>
+<h3 id="설치"><a class="markdownIt-Anchor" href="#설치"></a> 설치</h3>
 <p>Gatsby를 사용하기 위해 <code>gatsby-cli</code>를 설치합니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g gatsby-cli</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Gatsby requires Node.js 18.0.0 or higher (you have v14.17.5).</span><br><span class="line">Upgrade Node to the latest stable release: https:&#x2F;&#x2F;gatsby.dev&#x2F;upgrading-node-js</span><br></pre></td></tr></table></figure>
 <p>개츠비를 사용하려면 Node.js 18 이상 버전이 필요합니다. 버전이 낮다면 위와 같은 에러가 발생합니다.</p>
-<h3 id="프로젝트-생성">프로젝트 생성</h3>
+<h3 id="프로젝트-생성"><a class="markdownIt-Anchor" href="#프로젝트-생성"></a> 프로젝트 생성</h3>
 <p>Gatsby CLI를 사용하여 프로젝트를 만듭니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm init gatsby</span><br></pre></td></tr></table></figure>
 <p>또는</p>
@@ -302,23 +302,23 @@
 <li>구글 애널리틱스, 반응형 이미지나 사이트맵 등을 추가할 것인지 묻습니다. 없다면 Done을 선택합니다.</li>
 </ol>
 <p>CMS 는 비개발자인 사람들이 콘텐츠를 계속 올리는 웹사이트 혹은 앱입니다.</p>
-<h3 id="실행">실행</h3>
+<h3 id="실행"><a class="markdownIt-Anchor" href="#실행"></a> 실행</h3>
 <p>다음 명령어를 실행합니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> my-gatsby-site/</span><br><span class="line">$ npm run develop</span><br></pre></td></tr></table></figure>
 <p>완료가 되면 사이트를 접속해서 확인합니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">You can now view dev-stickers <span class="keyword">in</span> the browser.</span><br><span class="line"></span><br><span class="line">  http://localhost:8000/</span><br></pre></td></tr></table></figure>
-<h3 id="빌드">빌드</h3>
+<h3 id="빌드"><a class="markdownIt-Anchor" href="#빌드"></a> 빌드</h3>
 <p>빌드를 진행하면 축소된 파일, 변환된 이미지, 페이지별 정보와 데이터가 있는 JSON 파일, 페이지별 정적 HTML 등이 모두 포함됩니다.</p>
 <p>최적화가 잘되어 있어 빠르게 로드되는 정적 웹사이트를 배포할 수 있습니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm run build</span><br></pre></td></tr></table></figure>
-<h2 id="결론">결론</h2>
+<h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2>
 <p>개츠비 설치와 기본적인 사용 방법에 대해서 정리하였습니다. 나만의 블로그를 만들고 싶을 때 사용하면 좋을 것 같습니다.</p>
-<h2 id="Gatsby-Plugin-Library">Gatsby Plugin Library</h2>
+<h2 id="gatsby-plugin-library"><a class="markdownIt-Anchor" href="#gatsby-plugin-library"></a> Gatsby Plugin Library</h2>
 <p>Gatsby 사이트나 앱을 커스텀할 수 있는 기능을 제공하는 라이브러리들입니다.</p>
 <ul>
 <li><a href="https://www.gatsbyjs.com/plugins" target="_blank" rel="noopener">https://www.gatsbyjs.com/plugins</a></li>
 </ul>
-<h2 id="참고">참고</h2>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <ul>
 <li><a href="https://www.gatsbyjs.com/docs/?utm_source=starter&amp;utm_medium=readme&amp;utm_campaign=minimal-starter-ts" target="_blank" rel="noopener">Documentation</a></li>
 <li><a href="https://www.gatsbyjs.com/tutorial/?utm_source=starter&amp;utm_medium=readme&amp;utm_campaign=minimal-starter-ts" target="_blank" rel="noopener">Tutorials</a></li>
@@ -357,7 +357,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/12/29/react-12/" data-id="cmnbsnxz600jhukcx7t8cfura" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/12/29/react-12/" data-id="cmnbvrtsv00jnx4cxbnr6gfyq" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -436,10 +436,10 @@
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2022/12/29/react-12/",
         "description": "Gatsby 설치 및 사용 방법에 대해 알아보겠습니다.
-Gatsby(개츠비) 란
+ Gatsby(개츠비) 란
 개츠비는 리액트 기반의 프레임워크입니다. 리액트를 이용하면서도 리액트에 새로운 규칙 몇 가지를 추가해 주면서 아주 약간의 복잡함을 더해주고 있습니다.
-주로 서버사이드 렌더링을 위해 사용하는 Next.js 와는 달리 개츠비는 서버 없이, 오로지 정적 웹사이트 생성을 위해 사용하는",
-        "wordCount": 343
+주로 서버사이드 렌더링을 위해 사용하는 Next.js 와는 달리 개츠비는 서버 없이, 오로지 정적 웹사이트 생성을 위해 사용하",
+        "wordCount": 368
     }
 </script>
 

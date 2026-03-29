@@ -277,11 +277,11 @@
 
             <p><strong>Angular</strong>에서 <code>@Component</code> 데코레이터는 재사용 가능한 UI 컴포넌트(Component)를 구축하는 초석입니다. Angular 애플리케이션 내에서 컴포넌트를 처리하고, 인스턴스화하고, 사용하는 방법을 정의하는 메타데이터를 제공합니다.</p>
 <p>이 글에서는 <code>@Component</code> 데코레이터를 심층적으로 살펴보고, 다양한 속성에 대해 논의하고, 이러한 속성을 사용하여 코드 복잡성을 관리하는 방법을 설명합니다.</p>
-<h2 id="기본-사항">기본 사항</h2>
+<h2 id="기본-사항"><a class="markdownIt-Anchor" href="#기본-사항"></a> 기본 사항</h2>
 <p><code>@Component</code> 데코레이터는 구성 개체를 인수로 사용하는 함수입니다. 메타데이터를 컴포넌트 클래스와 연결하는 데 사용되므로 Angular가 컴포넌트를 생성하고 렌더링 하는 방법을 이해할 수 있습니다.</p>
 <p><code>@Component</code> 데코레이터를 사용하는 간단한 예는 다음과 같습니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Component &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">'app-example'</span>,</span><br><span class="line">  templateUrl: <span class="string">'./example.component.html'</span>,</span><br><span class="line">  styleUrls: [<span class="string">'./example.component.scss'</span>],</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> ExampleComponent &#123;</span><br><span class="line">  <span class="comment">// Component logic</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="속성">속성</h2>
+<h2 id="속성"><a class="markdownIt-Anchor" href="#속성"></a> 속성</h2>
 <p><code>@Component</code> 데코레이터는 컴포넌트의 다양한 측면을 정의하는 다양한 속성을 허용합니다. 가장 일반적으로 사용되는 속성 중 일부를 살펴보겠습니다.</p>
 <ul>
 <li><code>selector</code>: 템플릿에서 이 컴포넌트를 식별하는 CSS 선택자(selector)입니다. Angular는 템플릿에서 해당 선택자를 찾을 때마다 컴포넌트의 인스턴스를 생성하고 삽입합니다.</li>
@@ -293,7 +293,7 @@
 <li><code>encapsulation</code>: 컴포넌트의 템플릿에 스타일이 적용되는 방식을 결정하는 속성입니다. ViewEncapsulation.None, ViewEncapsulation.Emulated 또는 ViewEncapsulation.ShadowDom으로 설정할 수 있습니다.</li>
 <li><code>changeDetection</code>: 컴포넌트의 변경 감지 전략을 결정하는 속성입니다. ChangeDetectionStrategy.Default 또는 ChangeDetectionStrategy.OnPush 로 설정할 수 있습니다.</li>
 </ul>
-<h2 id="코드-복잡성-관리">코드 복잡성 관리</h2>
+<h2 id="코드-복잡성-관리"><a class="markdownIt-Anchor" href="#코드-복잡성-관리"></a> 코드 복잡성 관리</h2>
 <p><code>@Component</code> 데코레이터에서 사용할 수 있는 다양한 속성을 사용하면 문제를 명확하게 분리하고 컴포넌트의 리소스를 구성하여 코드 복잡성을 관리할 수 있습니다. 다음은 코드 복잡성 관리에 대한 몇 가지 팁입니다.</p>
 <ul>
 <li>
@@ -308,7 +308,7 @@
 </ul>
 <p>예:</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Component, ViewEncapsulation, ChangeDetectionStrategy &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">'app-complex'</span>,</span><br><span class="line">  templateUrl: <span class="string">'./complex.component.html'</span>,</span><br><span class="line">  styleUrls: [<span class="string">'./complex.component.scss'</span>],</span><br><span class="line">  encapsulation: ViewEncapsulation.Emulated,</span><br><span class="line">  changeDetection: ChangeDetectionStrategy.OnPush,</span><br><span class="line">  providers: [CustomService],</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> ComplexComponent &#123;</span><br><span class="line">  <span class="comment">// Component logic</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="결론">결론</h2>
+<h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2>
 <p>강력하고 효율적인 Angular 컴포넌트를 생성하려면 <code>@Component</code> 데코레이터와 해당 속성을 이해하는 것이 필수적입니다. 다양한 속성을 활용하여 코드 복잡성을 관리하고, 성능을 개선하고, 유지 관리 가능한 모듈식 애플리케이션을 만들 수 있습니다. 계속해서 Angular를 탐색하고 컴포넌트로 작업하면서 코드를 최적화하고 원활한 사용자 경험을 만드는 새로운 방법을 발견하게 될 것입니다.</p>
 
         </div>
@@ -343,7 +343,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2023/11/28/angular-31/" data-id="cmnbsny0n00rzukcxgi4w6aa0" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2023/11/28/angular-31/" data-id="cmnbvrtuv00s8x4cx03seawdr" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -423,7 +423,7 @@
         "url": "http://hgko1207.github.io/2023/11/28/angular-31/",
         "description": "Angular에서 @Component 데코레이터는 재사용 가능한 UI 컴포넌트(Component)를 구축하는 초석입니다. Angular 애플리케이션 내에서 컴포넌트를 처리하고, 인스턴스화하고, 사용하는 방법을 정의하는 메타데이터를 제공합니다.
 이 글에서는 @Component 데코레이터를 심층적으로 살펴보고, 다양한 속성에 대해 논의하고, 이러한 속성을 사용",
-        "wordCount": 438
+        "wordCount": 450
     }
 </script>
 

@@ -275,9 +275,9 @@
 
             
 
-            <p><img src="/images/header/typescript-17.png" alt=""></p>
+            <p><img src="/images/header/typescript-17.png" alt="" /></p>
 <p>이번 글에서는 set/get, protected, private/public, static 멤버의 복잡한 기능에 대해 살펴보겠습니다. 이러한 기능은 타입스크립트 클래스 내에서 접근과 가시성을 제어하는 데 중요한 역할을 합니다. 멤버 가시성 및 접근 제어의 미묘한 차이를 살펴보고 강력하고 캡슐화된 코드 구조를 만드는 데 필요한 도구를 함께 살펴보세요.</p>
-<h2 id="1-Public-Private-and-Protected-Members">1. Public, Private, and Protected Members</h2>
+<h2 id="1-public-private-and-protected-members"><a class="markdownIt-Anchor" href="#1-public-private-and-protected-members"></a> 1. Public, Private, and Protected Members</h2>
 <ul>
 <li><strong>Public:</strong> <code>public</code>으로 표시된 멤버는 클래스 외부에서 액세스할 수 있습니다.</li>
 </ul>
@@ -290,7 +290,7 @@
 <li><strong>Protected:</strong> <code>protected</code>으로 표시된 멤버는 클래스와 그 하위 클래스(파생 클래스) 내에서 액세스할 수 있습니다.</li>
 </ul>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Vehicle &#123;</span><br><span class="line">  <span class="keyword">protected</span> wheels: <span class="built_in">number</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params">wheels: <span class="built_in">number</span></span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.wheels = wheels;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Car <span class="keyword">extends</span> Vehicle &#123;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params">wheels: <span class="built_in">number</span></span>) &#123;</span><br><span class="line">    <span class="keyword">super</span>(wheels);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  getWheels(): <span class="built_in">number</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.wheels; <span class="comment">// 파생 클래스에서 접근 가능</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> myCar = <span class="keyword">new</span> Car(<span class="number">4</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// console.log(myCar.wheels); // Error: 'wheels' 속성은 보호되어 있으며 'Vehicle' 클래스와 그 하위 클래스 내에서만 접근할 수 있습니다.</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(myCar.getWheels()); <span class="comment">// 메서드를 통해 액세스할 수 있습니다.</span></span><br></pre></td></tr></table></figure>
-<h2 id="2-Getter-and-Setter">2. Getter and Setter</h2>
+<h2 id="2-getter-and-setter"><a class="markdownIt-Anchor" href="#2-getter-and-setter"></a> 2. Getter and Setter</h2>
 <ul>
 <li><strong>Getter:</strong> private 속성의 값을 검색하는 데 사용됩니다.</li>
 </ul>
@@ -299,11 +299,11 @@
 <li><strong>Setter:</strong> private 프로퍼티의 값을 업데이트하는 데 사용됩니다.</li>
 </ul>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Circle &#123;</span><br><span class="line">  <span class="keyword">private</span> _radius: <span class="built_in">number</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params">radius: <span class="built_in">number</span></span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>._radius = radius;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">get</span> radius(): <span class="built_in">number</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>._radius;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">set</span> radius(newRadius: <span class="built_in">number</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (newRadius &gt; <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">this</span>._radius = newRadius;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> myCircle = <span class="keyword">new</span> Circle(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(myCircle.radius); <span class="comment">// 5</span></span><br><span class="line"></span><br><span class="line">myCircle.radius = <span class="number">7</span>; <span class="comment">// setter를 통해 설정합니다.</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(myCircle.radius); <span class="comment">// 7</span></span><br><span class="line"></span><br><span class="line">myCircle.radius = <span class="number">-3</span>; <span class="comment">// setter에 의해 무시됨</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(myCircle.radius); <span class="comment">// 7</span></span><br></pre></td></tr></table></figure>
-<h2 id="3-Static-Members">3. Static Members</h2>
+<h2 id="3-static-members"><a class="markdownIt-Anchor" href="#3-static-members"></a> 3. Static Members</h2>
 <p>정적 멤버는 클래스의 인스턴스가 아닌 클래스 자체에 속합니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> MathOperations &#123;</span><br><span class="line">  <span class="keyword">static</span> PI: <span class="built_in">number</span> = <span class="number">3.14159</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> calculateCircumference(radius: <span class="built_in">number</span>): <span class="built_in">number</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span> * <span class="keyword">this</span>.PI * radius;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(MathOperations.PI); <span class="comment">// 정적 속성 접근하기</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(MathOperations.calculateCircumference(<span class="number">5</span>)); <span class="comment">// 정적 메서드 호출하기</span></span><br></pre></td></tr></table></figure>
 <p>정적 멤버는 인스턴스를 생성하지 않고 클래스에서 직접 액세스할 수 있습니다.</p>
-<h2 id="결론">결론</h2>
+<h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2>
 <p>이러한 기능은 클래스의 내부 상태에 대한 액세스를 캡슐화하고 제어할 수 있는 방법을 제공하여 코드 구성과 유지보수성을 향상시킵니다. 각 멤버에 대해 원하는 캡슐화 수준과 가시성에 따라 적절한 접근 제어자를 선택하세요.</p>
 
         </div>
@@ -338,7 +338,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2024/04/19/typescript-17/" data-id="cmnbsny2q011nukcx011l1jiv" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2024/04/19/typescript-17/" data-id="cmnbvrty90124x4cx9061a2pl" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -418,8 +418,8 @@
         "url": "http://hgko1207.github.io/2024/04/19/typescript-17/",
         "description": "
 이번 글에서는 set/get, protected, private/public, static 멤버의 복잡한 기능에 대해 살펴보겠습니다. 이러한 기능은 타입스크립트 클래스 내에서 접근과 가시성을 제어하는 데 중요한 역할을 합니다. 멤버 가시성 및 접근 제어의 미묘한 차이를 살펴보고 강력하고 캡슐화된 코드 구조를 만드는 데 필요한 도구를 함께 살펴보세요.
-1.",
-        "wordCount": 793
+ 1",
+        "wordCount": 806
     }
 </script>
 

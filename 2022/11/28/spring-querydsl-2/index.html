@@ -282,7 +282,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserRepositoryCustom</span> </span>&#123;</span><br><span class="line">  <span class="function">List&lt;UserRoleCountDTO&gt; <span class="title">getUserRoleCount</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>UserRepository</code>에 상속 시킵니다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserRepository</span> <span class="keyword">extends</span> <span class="title">JpaRepository</span>&lt;<span class="title">User</span>, <span class="title">Long</span>&gt;, <span class="title">UserRepositoryCustom</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>QuerydslRepositorySupport</code>를 이용해서 <code>UserRepositoryCustom</code>를 구현하는 클래스를 작성합니다.<br>
+<p><code>QuerydslRepositorySupport</code>를 이용해서 <code>UserRepositoryCustom</code>를 구현하는 클래스를 작성합니다.<br />
 <code>UserRepository</code> 이름 뒤에 Impl이라는 Postfix 가 붙으면 자동으로 Spring Data JPA의 AOP 주입 대상이 됩니다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserRepositoryImpl</span> <span class="keyword">extends</span> <span class="title">QuerydslRepositorySupport</span> <span class="keyword">implements</span> <span class="title">UserRepositoryCustom</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">UserRepositoryImpl</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>(User<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> List&lt;UserRoleCountDTO&gt; <span class="title">getUserRoleCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    QUser user = QUser.user;</span><br><span class="line">    <span class="keyword">return</span> from(user).groupBy(user.role)</span><br><span class="line">                  .list(Projections.constructor(UserRoleCountDTO<span class="class">.<span class="keyword">class</span>, <span class="title">user</span>.<span class="title">role</span>, <span class="title">user</span>.<span class="title">role</span>.<span class="title">sum</span>))</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>위의 예제를 통해 JpaRepository의 기능과 추가로 구현한 UserRepositoryCustom의 추가 기능까지 사용할 수 있습니다.</p>
@@ -320,7 +320,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/11/28/spring-querydsl-2/" data-id="cmnbsnxyz00ibukcxbfx8h7u7" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/11/28/spring-querydsl-2/" data-id="cmnbvrtsl00idx4cx4b34fl81" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -400,7 +400,7 @@
         "url": "http://hgko1207.github.io/2022/11/28/spring-querydsl-2/",
         "description": "QueryDslPredicateExecutor를 이용하는 findAll, findOne 등은 where, Sort, Limit 등의 조건만 넣을 수 있습니다. 하지만 Join이나 Group by 등의 기능을 사용하려면 인터페이스 선언만으로는 기능을 구현하기 힘듭니다.
 이를 해결하기 위해서 Spring Data JPA에서 제공하는 QuerydslReposit",
-        "wordCount": 504
+        "wordCount": 505
     }
 </script>
 

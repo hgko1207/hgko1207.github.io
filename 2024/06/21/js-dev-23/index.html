@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
-    <meta name="keywords" content="JavaScript,Programming,Web Development,Coding,Web Developer,Javascript Development,Javascript Tips" />
+    <meta name="keywords" content="JavaScript,Programming,Web Development,Web Developer,Coding,Javascript Development,Javascript Tips" />
     
     
     
@@ -29,8 +29,8 @@
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="Programming">
 <meta property="article:tag" content="Web Development">
-<meta property="article:tag" content="Coding">
 <meta property="article:tag" content="Web Developer">
+<meta property="article:tag" content="Coding">
 <meta property="article:tag" content="Javascript Development">
 <meta property="article:tag" content="Javascript Tips">
 <meta name="twitter:card" content="summary_large_image">
@@ -276,59 +276,59 @@
 
             
 
-            <p><img src="/images/header/js-dev-23.png" alt=""></p>
+            <p><img src="/images/header/js-dev-23.png" alt="" /></p>
 <p>여러분이 복잡한 웹 개발 프로젝트를 진행 중이라고 가정해 봅시다. 여러 API에서 들어오는 데이터를 효율적으로 처리, 필터링, 분석하는 것이 여러분의 임무입니다. 일정이 촉박하기 때문에 모든 코드 줄이 중요합니다.</p>
 <p>이럴 때 고급 자바스크립트 배열 메서드를 배우면 큰 도움이 됩니다. 이러한 함수는 코드를 줄일 뿐만 아니라 성능을 개선하고 개발 기술을 향상시킵니다.</p>
 <p>복잡한 작업을 빠르고 정확하게 수행하기 위해 모든 시니어 개발자가 알아두어야 할 10가지 배열 함수를 살펴보세요.</p>
-<h2 id="1-forEach">1. forEach()</h2>
+<h2 id="1-foreach"><a class="markdownIt-Anchor" href="#1-foreach"></a> 1. forEach()</h2>
 <p><code>forEach()</code> 함수는 배열의 각 항목을 돌면서 설정한 작업을 완료합니다. 이 함수는 각 요소에서 실행되는 콜백 함수를 취하므로 로깅, DOM 수정 및 데이터 조작과 같은 기능에 유용합니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 배열의 모든 요소를 로깅합니다.</span></span><br><span class="line"><span class="keyword">const</span> fruits = [<span class="string">"apple"</span>, <span class="string">"banana"</span>, <span class="string">"cherry"</span>];</span><br><span class="line"></span><br><span class="line">fruits.forEach(<span class="function"><span class="params">fruit</span> =&gt;</span> <span class="built_in">console</span>.log(fruit));</span><br></pre></td></tr></table></figure>
-<h2 id="2-map">2. map()</h2>
+<h2 id="2-map"><a class="markdownIt-Anchor" href="#2-map"></a> 2. map()</h2>
 <p>현재 배열을 기반으로 하지만 약간 변형된 완전히 새로운 배열이 필요하신가요? <code>map()</code>은 각 요소에 콜백 함수를 적용한 결과로 새로운 배열을 생성합니다. 데이터 집합을 추출하고, 데이터를 제공하고, 계산을 수행하는 데 적합합니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 배열의 각 숫자를 두 배로 늘리기</span></span><br><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> doubledNumbers = numbers.map(<span class="function"><span class="params">number</span> =&gt;</span> number * <span class="number">2</span>);</span><br><span class="line"><span class="built_in">console</span>.log(doubledNumbers);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Output [2, 4, 6, 8]</span></span><br></pre></td></tr></table></figure>
-<h2 id="3-filter">3. filter()</h2>
+<h2 id="3-filter"><a class="markdownIt-Anchor" href="#3-filter"></a> 3. filter()</h2>
 <p><code>filter()</code>는 콜백 함수 기반 테스트를 통과한 항목만 포함하는 새 배열을 만듭니다. 이 함수를 사용하여 기준을 사용하여 데이터를 필터링하거나, 원하지 않는 항목을 제거하거나, 사용자 정의 하위 집합을 만들 수 있습니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 배열에서 짝수 가져오기</span></span><br><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> evenNumbers = numbers.filter(<span class="function"><span class="params">number</span> =&gt;</span> number % <span class="number">2</span> === <span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(evenNumbers); </span><br><span class="line"></span><br><span class="line"><span class="comment">// Output [2, 4]</span></span><br></pre></td></tr></table></figure>
-<h2 id="4-reduce">4. reduce()</h2>
+<h2 id="4-reduce"><a class="markdownIt-Anchor" href="#4-reduce"></a> 4. reduce()</h2>
 <p><code>reduce()</code>는 콜백 함수를 사용하여 전체 배열을 단일 값으로 통합하는 함수입니다. 매우 유연하여 합계와 평균을 계산하고, 최대값과 최소값을 찾고, 복잡한 데이터 구조를 만들 수도 있습니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 배열의 합계 찾기</span></span><br><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> sum = numbers.reduce(<span class="function">(<span class="params">accumulator, current</span>) =&gt;</span> accumulator + current, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(sum); </span><br><span class="line"></span><br><span class="line"><span class="comment">// Output: 10</span></span><br></pre></td></tr></table></figure>
-<h2 id="5-find">5. find()</h2>
+<h2 id="5-find"><a class="markdownIt-Anchor" href="#5-find"></a> 5. find()</h2>
 <p>주어진 조건에 맞는 첫 번째 부분을 찾아야 할 때 <code>find()</code>가 구세주입니다. 콜백 함수에 의해 주어진 테스트를 통과한 첫 번째 부분의 값을 반환하므로 빠른 조회와 전체 배열 루프 제거에 유용합니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 3보다 큰 첫 번째 요소 찾기</span></span><br><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> firstGreaterThanThree = numbers.find(<span class="function"><span class="params">number</span> =&gt;</span> number &gt; <span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(firstGreaterThanThree);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Output: 4</span></span><br></pre></td></tr></table></figure>
-<h2 id="6-findIndex">6. findIndex()</h2>
+<h2 id="6-findindex"><a class="markdownIt-Anchor" href="#6-findindex"></a> 6. findIndex()</h2>
 <p><code>findIndex()</code>는 <code>find()</code>보다 한 단계 더 나아가 콜백 테스트를 통과한 첫 번째 요소의 인덱스를 반환합니다. 배열 내에서 특정 데이터를 찾고, 배열 내 위치에 따라 항목을 변경하고, 집중된 작업을 수행할 때 유용합니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 3보다 큰 첫 번째 요소의 인덱스 찾기</span></span><br><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> indexOfFirstGreaterThanThree = numbers.findIndex(<span class="function"><span class="params">number</span> =&gt;</span> number &gt; <span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(indexOfFirstGreaterThanThree);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Output: 2</span></span><br></pre></td></tr></table></figure>
-<h2 id="7-some">7. some()</h2>
+<h2 id="7-some"><a class="markdownIt-Anchor" href="#7-some"></a> 7. some()</h2>
 <p>배열에 특정 조건을 충족하는 항목이 하나 이상 포함되어 있는지 알아보고 싶었던 적이 있나요? <code>some()</code>가 도움이 될 것입니다.</p>
 <p>이 함수는 콜백 함수에 의해 수행된 테스트를 통과한 요소가 하나 이상 있는지 확인합니다. 일치하는 요소가 하나면 충분할 때 조건을 확인하거나 입력의 유효성을 검사하거나 짧은 로직을 작성할 때 이 함수를 사용할 수 있습니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 배열의 요소가 10보다 큰지 확인합니다.</span></span><br><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">12</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> hasElementGreaterThanTen = numbers.some(<span class="function"><span class="params">number</span> =&gt;</span> number &gt; <span class="number">10</span>);</span><br><span class="line"><span class="built_in">console</span>.log(hasElementGreaterThanTen);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Output: true</span></span><br></pre></td></tr></table></figure>
-<h2 id="8-every">8. every()</h2>
+<h2 id="8-every"><a class="markdownIt-Anchor" href="#8-every"></a> 8. every()</h2>
 <p><code>every()</code>는 <code>some()</code>의 엄격한 형입니다. 이 함수는 배열의 모든 항목이 콜백 함수에 의해 주어진 테스트를 통과하도록 보장합니다. 이는 데이터 유효성 검사, 지정된 구조에 따른 모든 요소 확인, 품질 검사에 유용합니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 배열의 모든 요소가 문자열인지 확인하기</span></span><br><span class="line"><span class="keyword">const</span> data = [<span class="string">"apple"</span>, <span class="string">"banana"</span>, <span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> allStrings = data.every(<span class="function"><span class="params">element</span> =&gt;</span> <span class="keyword">typeof</span> element === <span class="string">"string"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(allStrings);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Output: false</span></span><br></pre></td></tr></table></figure>
-<h2 id="9-include">9. include()</h2>
+<h2 id="9-include"><a class="markdownIt-Anchor" href="#9-include"></a> 9. include()</h2>
 <p>배열에 특정 값이 존재하는지 알고 싶을 때가 있습니다. <code>include()</code>는 간단한 유효성 검사를 위한 가장 좋은 친구입니다.</p>
 <p>주어진 값이 배열에 존재하는지 빠르게 확인하므로 개별 데이터 요소를 식별하거나 배열 멤버십에 따라 조건부 논리를 만들 때 중요합니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 배열에 "orange" 값이 포함되어 있는지 확인합니다.</span></span><br><span class="line"><span class="keyword">const</span> fruits = [<span class="string">"apple"</span>, <span class="string">"banana"</span>, <span class="string">"cherry"</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> hasOrange = fruits.includes(<span class="string">"orange"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(hasOrange);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Output: false</span></span><br></pre></td></tr></table></figure>
-<h2 id="10-flat">10. flat()</h2>
+<h2 id="10-flat"><a class="markdownIt-Anchor" href="#10-flat"></a> 10. flat()</h2>
 <p>다차원 배열이나 배열 내부의 배열을 본 적이 있나요? 지저분할 수 있습니다. <code>flat()</code>은 이를 1차원 배열로 변환하여 도움을 줍니다.</p>
 <p>중첩 배열을 단순화하고, 중첩 구조가 있을 수 있는 API의 데이터로 작업하고, 추가 처리를 위해 데이터를 저장할 때 유용합니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 중첩 배열 평탄화하기</span></span><br><span class="line"><span class="keyword">const</span> nestedArray = [<span class="number">1</span>, [<span class="number">2</span>, <span class="number">3</span>], <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> flattenedArray = nestedArray.flat();</span><br><span class="line"><span class="built_in">console</span>.log(flattenedArray);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 출력: [1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure>
 <p>보너스 팁: 평탄화 및 변환을 더 잘 제어하려면 최근에 자바스크립트에 추가된 또 다른 함수인 <code>flatMap()</code>을 사용하는 것도 고려해 보세요.</p>
-<h2 id="몇-가지-전술">몇 가지 전술</h2>
+<h2 id="몇-가지-전술"><a class="markdownIt-Anchor" href="#몇-가지-전술"></a> 몇 가지 전술</h2>
 <p>이제 기본 사항을 배웠으니 배열 학습을 강화할 수 있는 몇 가지 고급 주제를 살펴봅시다.</p>
-<h3 id="배열-메서드-체인-연결하기">배열 메서드 체인 연결하기</h3>
+<h3 id="배열-메서드-체인-연결하기"><a class="markdownIt-Anchor" href="#배열-메서드-체인-연결하기"></a> 배열 메서드 체인 연결하기</h3>
 <p>여러 배열 메서드를 서로 연결하여 복잡한 변경 사항을 명확하고 쉽게 이해할 수 있도록 만들 수 있습니다.</p>
 <p>예를 들어 배열에서 짝수를 필터링한 다음 사각형 면적을 구할 수 있습니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> evenSquares = numbers.filter(<span class="function"><span class="params">number</span> =&gt;</span> number % <span class="number">2</span> === <span class="number">0</span>)</span><br><span class="line">                           .map(<span class="function"><span class="params">number</span> =&gt;</span> number * number);</span><br><span class="line"><span class="built_in">console</span>.log(evenSquares);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Output: [4, 16]</span></span><br></pre></td></tr></table></figure>
-<h3 id="사용자-정의-콜백-함수">사용자 정의 콜백 함수</h3>
+<h3 id="사용자-정의-콜백-함수"><a class="markdownIt-Anchor" href="#사용자-정의-콜백-함수"></a> 사용자 정의 콜백 함수</h3>
 <p>많은 배열 함수가 콜백 함수에 의존한다는 것을 기억하세요. 강력하고 잘 정의된 콜백을 만들어 극단적인 상황을 처리하고, 예상 데이터 타입을 명시하여 타입 안전성을 보장하며, 코드 유지보수성을 높이세요.</p>
 <p>예를 들어 숫자가 짝수인지 확인하기 위한 잘 정의된 콜백은 다음과 같습니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isEven</span>(<span class="params">number</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> number !== <span class="string">'number'</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Input must be a number'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> number % <span class="number">2</span> === <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="오류-처리">오류 처리</h3>
+<h3 id="오류-처리"><a class="markdownIt-Anchor" href="#오류-처리"></a> 오류 처리</h3>
 <p>예기치 않은 데이터나 누락된 조각으로 인해 오류가 발생할 수 있습니다. 예기치 않은 동작을 피하기 위해 배열 함수 내에서 발생할 수 있는 실수를 처리하는 방법에 대해 논의하세요.</p>
 <p>예외를 우아하게 처리하려면 <strong>try-catch</strong> 컴포넌트를 사용할 수 있습니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="string">"two"</span>, <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> doubledNumbers = numbers.map(<span class="function"><span class="params">number</span> =&gt;</span> number * <span class="number">2</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(doubledNumbers);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// [2, NaN, 6] (Error for "two")</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(error);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="성능-고려-사항">성능 고려 사항</h3>
+<h3 id="성능-고려-사항"><a class="markdownIt-Anchor" href="#성능-고려-사항"></a> 성능 고려 사항</h3>
 <p>모든 배열 메서드가 똑같이 만들어지는 것은 아닙니다. 크기가 크거나 복잡한 배열의 성능 영향(예: <code>forEach</code>와 for loop)에 대해 간략히 설명합니다.</p>
 <ul>
 <li><strong>메모리:</strong> 데이터가 많으면 시스템에 과부하가 걸릴 수 있습니다.</li>
@@ -336,16 +336,16 @@
 <li><strong>복잡한 요소:</strong> 배열의 복잡한 데이터를 처리하는 속도가 현저히 느립니다.</li>
 </ul>
 <p>정말 큰 데이터 집합의 경우, 특히 배열 함수 구현이 최적화되지 않은 구형 브라우저에서는 기존 루프를 사용하여 효율성을 개선하세요.</p>
-<h3 id="함수형-프로그래밍">함수형 프로그래밍</h3>
+<h3 id="함수형-프로그래밍"><a class="markdownIt-Anchor" href="#함수형-프로그래밍"></a> 함수형 프로그래밍</h3>
 <p>배열 함수는 함수형 프로그래밍 접근 방식에 잘 적응합니다. 함수형 프로그래밍은 순수 함수(부작용이 없는)와 변경할 수 없는 데이터 작업에 중점을 둡니다.</p>
 <p>배열 메서드를 사용하여 기존 배열에서 새 배열을 구축하면 원본 데이터를 유효하게 유지하고 예측 가능성을 높이며 디버깅을 더 쉽게 할 수 있습니다.</p>
-<h2 id="모범-사례">모범 사례</h2>
+<h2 id="모범-사례"><a class="markdownIt-Anchor" href="#모범-사례"></a> 모범 사례</h2>
 <ul>
 <li><strong>함수 결합:</strong> 앞서 언급했듯이 여러 작업을 연결하면 빠르고 강력한 작업에 도움이 됩니다. 한 줄에 복잡한 변경 사항을 만들기 위해 실험하고 혼합하는 것을 두려워하지 마세요.</li>
 <li><strong>불변성:</strong> 가능하면 기존 배열을 변경하는 대신 새 배열을 만들어 보세요. 이렇게 하면 가독성이 향상되고 원치 않는 효과가 발생할 위험이 줄어듭니다 map, filter, slice 등의 방법을 사용하여 새 배열을 만드세요.</li>
 <li><strong>오류 처리:</strong> 콜백 습관에 항상 작업 오류 처리를 사용하여 이상한 입력이나 누락된 항목을 포착하세요. 이렇게 하면 오류로 인한 프로그램 결합 및 충돌을 방지할 수 있습니다.</li>
 </ul>
-<h2 id="결론">결론</h2>
+<h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2>
 <p>이 10가지 배열 메서드를 익히면 자바스크립트 초보자도 어느 정도 수준에 도달할 수 있습니다. 더 이해하기 쉽고 효율적이며 유연한 코드를 작성할 수 있게 되어 데이터 작업을 더 수월하게 할 수 있습니다.</p>
 
         </div>
@@ -380,7 +380,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2024/06/21/js-dev-23/" data-id="cmnbsny3q015jukcx4dzw512w" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2024/06/21/js-dev-23/" data-id="cmnbvrulw03x8x4cxhrdsfutb" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -452,7 +452,7 @@
         },
         "headline": "자바스크립트 배열 함수 10가지",
         "image": "http://hgko1207.github.io/images/thumbnail/javascript.png",
-        "keywords": "JavaScript Programming Web Development Coding Web Developer Javascript Development Javascript Tips",
+        "keywords": "JavaScript Programming Web Development Web Developer Coding Javascript Development Javascript Tips",
         "genre": "Programming Language JavaScript",
         "datePublished": "2024-06-21",
         "dateCreated": "2024-06-21",
@@ -461,7 +461,7 @@
         "description": "
 여러분이 복잡한 웹 개발 프로젝트를 진행 중이라고 가정해 봅시다. 여러 API에서 들어오는 데이터를 효율적으로 처리, 필터링, 분석하는 것이 여러분의 임무입니다. 일정이 촉박하기 때문에 모든 코드 줄이 중요합니다.
 이럴 때 고급 자바스크립트 배열 메서드를 배우면 큰 도움이 됩니다. 이러한 함수는 코드를 줄일 뿐만 아니라 성능을 개선하고 개발 기술을 향상시",
-        "wordCount": 1417
+        "wordCount": 1472
     }
 </script>
 

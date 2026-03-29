@@ -276,19 +276,19 @@
             
 
             <p><strong>Next.js</strong>에서 <strong>Head</strong> 사용 방법에 대해 알아보겠습니다.</p>
-<h2 id="Title-설정">Title 설정</h2>
+<h2 id="title-설정"><a class="markdownIt-Anchor" href="#title-설정"></a> Title 설정</h2>
 <p>Next.js에는 페이지 헤더의 제목을 변경하고 meta를 추가할 수 있는 내장 컴포넌트를 가지고 있습니다.</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Head <span class="keyword">from</span> <span class="string">'next/head'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">Home</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;Head&gt;</span><br><span class="line">        &lt;title&gt;Home | Title&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>Head&gt;</span><br><span class="line">      &lt;h1&gt;Hello&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="태그-중복-방지">태그 중복 방지</h2>
+<h2 id="태그-중복-방지"><a class="markdownIt-Anchor" href="#태그-중복-방지"></a> 태그 중복 방지</h2>
 <p><code>head</code>에 태그가 중복되는 것을 방지하려면 다음 예제와 같이 태그가 한 번만 렌더링 되도록 하는 key 속성을 사용할 수 있습니다.</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Head <span class="keyword">from</span> <span class="string">'next/head'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">Home</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;Head&gt;</span><br><span class="line">        &lt;title&gt;Home | Title&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">        &lt;meta property="og:title" content="My page title" key="title" /</span>&gt;</span><br><span class="line">      &lt;<span class="regexp">/Head&gt;</span></span><br><span class="line"><span class="regexp">      &lt;Head&gt;</span></span><br><span class="line"><span class="regexp">        &lt;meta property="og:title" content="My new title" key="title" /</span>&gt;</span><br><span class="line">      &lt;<span class="regexp">/Head&gt;</span></span><br><span class="line"><span class="regexp">      &lt;h1&gt;Hello&lt;/</span>h1&gt;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
 <p>이 경우 두 번째 <code>meta property=&quot;og:title&quot;</code>만 렌더링 됩니다. 중복 키 속성이 있는 meta 태그는 자동으로 처리됩니다.</p>
 <p>key를 지정해주지 않으면 <code>meta property=&quot;og:title&quot;</code>가 중복해서 2번 랜더링 됩니다. Title 은 지정하지 않아도 2번 랜더링 되지 않습니다.</p>
-<h2 id="공통-컴포넌트">공통 컴포넌트</h2>
+<h2 id="공통-컴포넌트"><a class="markdownIt-Anchor" href="#공통-컴포넌트"></a> 공통 컴포넌트</h2>
 <p>공통으로 사용할 컴포넌트 파일(예: Seo.js)을 생성합니다. title prop을 받아서 화면마다 제목을 설정할 수 있습니다.</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Head <span class="keyword">from</span> <span class="string">'next/head'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">Seo</span>(<span class="params">&#123; title &#125;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;Head&gt;</span><br><span class="line">      &lt;title&gt;&#123;<span class="string">`<span class="subst">$&#123;title&#125;</span> | Title`</span>&#125;&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>Head&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Seo <span class="keyword">from</span> <span class="string">'@/components/Seo'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">Home</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;Seo title=<span class="string">"Home"</span> /&gt;</span><br><span class="line">      &lt;h1&gt;Hello&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="참고">참고</h2>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <ul>
 <li><a href="https://nextjs.org/docs/api-reference/next/head" target="_blank" rel="noopener">https://nextjs.org/docs/api-reference/next/head</a></li>
 </ul>
@@ -325,7 +325,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2023/02/07/nextjs-4/" data-id="cmnbsnxzh00l4ukcx9jpkgdw3" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2023/02/07/nextjs-4/" data-id="cmnbvrtt800lfx4cx02rqb7y9" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -404,10 +404,10 @@
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2023/02/07/nextjs-4/",
         "description": "Next.js에서 Head 사용 방법에 대해 알아보겠습니다.
-Title 설정
+ Title 설정
 Next.js에는 페이지 헤더의 제목을 변경하고 meta를 추가할 수 있는 내장 컴포넌트를 가지고 있습니다.
-123456789101112import Head from 'next/head';export default function Home() &#123;  return (    &",
-        "wordCount": 462
+123456789101112import Head from 'next/head';export default function Home() &#123;  return (    ",
+        "wordCount": 474
     }
 </script>
 

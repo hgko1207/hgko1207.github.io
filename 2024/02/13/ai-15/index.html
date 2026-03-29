@@ -276,40 +276,40 @@
 
             
 
-            <p><img src="/images/header/ai-15.png" alt=""></p>
-<h2 id="소개">소개</h2>
+            <p><img src="/images/header/ai-15.png" alt="" /></p>
+<h2 id="소개"><a class="markdownIt-Anchor" href="#소개"></a> 소개</h2>
 <p>오늘날과 같이 빠르게 변화하는 디지털 시대에 기업들은 고객 경험을 향상시킬 수 있는 혁신적인 방법을 끊임없이 모색하고 있습니다. 최근 큰 인기를 얻고 있는 획기적인 기술 중 하나는 AI 챗봇과 시각적 지원의 통합입니다. 이러한 강력한 도구는 고객과의 상호작용을 간소화할 뿐만 아니라 개인화되고 효율적인 경험을 제공합니다. 이 글에서는 AI 챗봇과 시각적 지원의 세계를 자세히 살펴보고, 그 장점과 구현 단계를 살펴보고, 코드 예제를 통해 직접 이해할 수 있도록 도와드립니다.</p>
-<h2 id="AI-챗봇-이해하기">AI 챗봇 이해하기</h2>
-<p><img src="/images/header/ai-15_1.png" alt=""></p>
+<h2 id="ai-챗봇-이해하기"><a class="markdownIt-Anchor" href="#ai-챗봇-이해하기"></a> AI 챗봇 이해하기</h2>
+<p><img src="/images/header/ai-15_1.png" alt="" /></p>
 <p>AI 챗봇은 인간 사용자와의 대화를 시뮬레이션하여 쿼리에 즉각적인 응답을 제공하도록 설계된 컴퓨터 프로그램입니다. 자연어 처리(NLP)와 머신 러닝 알고리즘을 활용하여 사용자 입력을 이해하고 이에 응답합니다. Python과 인기 있는 라이브러리인 ChatterBot을 사용하여 기본적인 AI 챗봇을 만드는 과정을 분석해 보겠습니다.</p>
-<h3 id="1단계-ChatterBot-설치">1단계: ChatterBot 설치</h3>
+<h3 id="1단계-chatterbot-설치"><a class="markdownIt-Anchor" href="#1단계-chatterbot-설치"></a> 1단계: ChatterBot 설치</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install chatterbot</span><br></pre></td></tr></table></figure>
-<h3 id="2단계-기본-챗봇-만들기">2단계: 기본 챗봇 만들기</h3>
+<h3 id="2단계-기본-챗봇-만들기"><a class="markdownIt-Anchor" href="#2단계-기본-챗봇-만들기"></a> 2단계: 기본 챗봇 만들기</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> chatterbot <span class="keyword">import</span> ChatBot</span><br><span class="line"></span><br><span class="line"><span class="comment"># ChatBot 인스턴스 만들기</span></span><br><span class="line">chatbot = ChatBot(<span class="string">'MyBot'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 샘플 데이터로 챗봇을 훈련시킵니다.</span></span><br><span class="line"><span class="keyword">from</span> chatterbot.trainers <span class="keyword">import</span> ChatterBotCorpusTrainer</span><br><span class="line">trainer = ChatterBotCorpusTrainer(chatbot)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 영어 데이터로 챗봇 훈련하기</span></span><br><span class="line">trainer.train(<span class="string">'chatterbot.corpus.english'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 응답 가져오기</span></span><br><span class="line">response = chatbot.get_response(<span class="string">"What is your name?"</span>)</span><br><span class="line">print(response)</span><br></pre></td></tr></table></figure>
-<h2 id="AI-챗봇의-장점">AI 챗봇의 장점</h2>
-<p><img src="/images/header/ai-15_2.png" alt=""></p>
+<h2 id="ai-챗봇의-장점"><a class="markdownIt-Anchor" href="#ai-챗봇의-장점"></a> AI 챗봇의 장점</h2>
+<p><img src="/images/header/ai-15_2.png" alt="" /></p>
 <ul>
 <li><strong>24시간 연중무휴 가용성:</strong> 챗봇은 24시간 내내 지원을 제공하여 고객 서비스를 향상시킵니다.</li>
 <li><strong>비용 효율적:</strong> 일상적인 문의에 사람이 직접 개입할 필요성을 줄여 운영 비용을 절감합니다.</li>
 <li><strong>즉각적인 응답:</strong> AI 챗봇은 빠르고 정확한 응답을 제공하므로 사용자 만족도가 향상됩니다.</li>
 </ul>
-<h2 id="실제-시각적-지원">실제 시각적 지원</h2>
-<p><img src="/images/header/ai-15_3.png" alt=""></p>
+<h2 id="실제-시각적-지원"><a class="markdownIt-Anchor" href="#실제-시각적-지원"></a> 실제 시각적 지원</h2>
+<p><img src="/images/header/ai-15_3.png" alt="" /></p>
 <p>시각적 지원은 이미지, 동영상, AR 기술을 대화에 통합하여 고객 지원 수준을 한 단계 끌어올립니다. 예를 들어 제품에 대한 도움을 요청하는 고객이 스마트폰 카메라를 사용하여 문제의 이미지나 동영상을 공유할 수 있습니다.</p>
-<h3 id="1단계-시각적-인식-통합하기">1단계: 시각적 인식 통합하기</h3>
+<h3 id="1단계-시각적-인식-통합하기"><a class="markdownIt-Anchor" href="#1단계-시각적-인식-통합하기"></a> 1단계: 시각적 인식 통합하기</h3>
 <p>IBM Watson Visual Recognition과 같은 시각 인식 API를 활용하세요. 먼저 IBM Cloud에서 API 키를 등록합니다.</p>
-<h3 id="2단계-Watson-Developer-SDK-설치">2단계: Watson Developer SDK 설치</h3>
+<h3 id="2단계-watson-developer-sdk-설치"><a class="markdownIt-Anchor" href="#2단계-watson-developer-sdk-설치"></a> 2단계: Watson Developer SDK 설치</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install ibm-watson</span><br></pre></td></tr></table></figure>
-<h3 id="3단계-시각적-인식-사용">3단계: 시각적 인식 사용</h3>
+<h3 id="3단계-시각적-인식-사용"><a class="markdownIt-Anchor" href="#3단계-시각적-인식-사용"></a> 3단계: 시각적 인식 사용</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> ibm_watson <span class="keyword">import</span> VisualRecognitionV4</span><br><span class="line"><span class="keyword">from</span> ibm_cloud_sdk_core.authenticators <span class="keyword">import</span> IAMAuthenticator</span><br><span class="line"></span><br><span class="line"><span class="comment"># 시각적 인식 설정</span></span><br><span class="line">authenticator = IAMAuthenticator(<span class="string">'&lt;YOUR_API_KEY&gt;'</span>)</span><br><span class="line">visual_recognition = VisualRecognitionV4(</span><br><span class="line">    version=<span class="string">'2018-03-19'</span>,</span><br><span class="line">    authenticator=authenticator</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 이미지 분석</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'sample_image.jpg'</span>, <span class="string">'rb'</span>) <span class="keyword">as</span> image_file:</span><br><span class="line">    result = visual_recognition.analyze(</span><br><span class="line">        collection_ids=[<span class="string">'&lt;COLLECTION_ID&gt;'</span>],</span><br><span class="line">        images_file=image_file,</span><br><span class="line">    ).get_result()</span><br><span class="line"></span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
-<h2 id="시각-지원의-이점">시각 지원의 이점</h2>
-<p><img src="/images/header/ai-15_4.png" alt=""></p>
+<h2 id="시각-지원의-이점"><a class="markdownIt-Anchor" href="#시각-지원의-이점"></a> 시각 지원의 이점</h2>
+<p><img src="/images/header/ai-15_4.png" alt="" /></p>
 <ul>
 <li><strong>문제 해결 능력 향상:</strong> 시각적 컨텍스트는 지원 상담원이 고객 문제를 더 잘 이해하고 해결하는 데 도움이 됩니다.</li>
 <li><strong>사용자 경험 개선:</strong> 사용자는 복잡한 문제를 시각적으로 전달할 수 있어 문제를 더 빨리 해결할 수 있습니다.</li>
 <li><strong>제품 추천:</strong> 시각적 지원을 활용하여 고객의 선호도에 따라 제품을 추천할 수 있습니다.</li>
 </ul>
-<h2 id="결론">결론</h2>
+<h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2>
 <p>AI 챗봇과 시각적 지원의 결합은 최고의 고객 서비스를 제공하고자 하는 기업의 판도를 바꿀 수 있습니다. 제공된 단계와 사례를 따라 고급 고객 참여의 영역으로 여정을 시작하여 경쟁이 치열한 디지털 환경에서 앞서 나갈 수 있습니다. 이러한 기술을 도입하여 고객과의 상호작용이 원활하고 만족스러운 경험으로 변화하는 과정을 지켜보세요.</p>
 
         </div>
@@ -344,7 +344,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2024/02/13/ai-15/" data-id="cmnbsny1q00x5ukcx4io63119" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2024/02/13/ai-15/" data-id="cmnbvrtwa00xcx4cxbx0r14f7" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -423,9 +423,9 @@
         "dateModified": "2024-02-15",
         "url": "http://hgko1207.github.io/2024/02/13/ai-15/",
         "description": "
-소개
-오늘날과 같이 빠르게 변화하는 디지털 시대에 기업들은 고객 경험을 향상시킬 수 있는 혁신적인 방법을 끊임없이 모색하고 있습니다. 최근 큰 인기를 얻고 있는 획기적인 기술 중 하나는 AI 챗봇과 시각적 지원의 통합입니다. 이러한 강력한 도구는 고객과의 상호작용을 간소화할 뿐만 아니라 개인화되고 효율적인 경험을 제공합니다. 이 글에서는 AI 챗봇과 시각",
-        "wordCount": 499
+ 소개
+오늘날과 같이 빠르게 변화하는 디지털 시대에 기업들은 고객 경험을 향상시킬 수 있는 혁신적인 방법을 끊임없이 모색하고 있습니다. 최근 큰 인기를 얻고 있는 획기적인 기술 중 하나는 AI 챗봇과 시각적 지원의 통합입니다. 이러한 강력한 도구는 고객과의 상호작용을 간소화할 뿐만 아니라 개인화되고 효율적인 경험을 제공합니다. 이 글에서는 AI 챗봇과 시",
+        "wordCount": 537
     }
 </script>
 

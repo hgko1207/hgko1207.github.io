@@ -275,28 +275,28 @@
             
 
             <p><strong>MariaDB</strong>에서 계정을 생성하고 권한을 부여하는 방법입니다.</p>
-<h2 id="로그인">로그인</h2>
+<h2 id="로그인"><a class="markdownIt-Anchor" href="#로그인"></a> 로그인</h2>
 <p>root의 패스워드를 입력하여 로그인합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo mysql -u root -p</span></span><br></pre></td></tr></table></figure>
-<h2 id="계정-확인">계정 확인</h2>
+<h2 id="계정-확인"><a class="markdownIt-Anchor" href="#계정-확인"></a> 계정 확인</h2>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [(none)]&gt; show databases;</span><br><span class="line">+<span class="comment">--------------------+</span></span><br><span class="line">| Database           |</span><br><span class="line">+<span class="comment">--------------------+</span></span><br><span class="line">| information_schema |</span><br><span class="line">| mysql              |</span><br><span class="line">| performance_schema |</span><br><span class="line">| sys                |</span><br><span class="line">| test               |</span><br><span class="line">| triplet_db         |</span><br><span class="line">+<span class="comment">--------------------+</span></span><br><span class="line">6 rows in <span class="keyword">set</span> (<span class="number">0.435</span> sec)</span><br><span class="line"></span><br><span class="line">MariaDB [(<span class="keyword">none</span>)]&gt; <span class="keyword">use</span> mysql;</span><br><span class="line">Database changed</span><br></pre></td></tr></table></figure>
 <p>다음 명령어를 실행하여 사용자 계정들을 확인합니다.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [mysql]&gt; SELECT user, host FROM user;</span><br><span class="line">+<span class="comment">-------------+-----------+</span></span><br><span class="line">| User        | Host      |</span><br><span class="line">+<span class="comment">-------------+-----------+</span></span><br><span class="line">|             | localhost |</span><br><span class="line">| mariadb.sys | localhost |</span><br><span class="line">| mysql       | localhost |</span><br><span class="line">| root        | localhost |</span><br><span class="line">+<span class="comment">-------------+-----------+</span></span><br><span class="line">4 rows in <span class="keyword">set</span> (<span class="number">0.002</span> sec)</span><br></pre></td></tr></table></figure>
-<h2 id="계정-생성">계정 생성</h2>
+<h2 id="계정-생성"><a class="markdownIt-Anchor" href="#계정-생성"></a> 계정 생성</h2>
 <p>로컬에서만 접속이 가능하도록 계정을 생성하는 방법입니다.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">'계정명'</span>@<span class="string">'localhost'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'비밀번호'</span>;</span><br></pre></td></tr></table></figure>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 예)</span></span><br><span class="line">MariaDB [mysql]&gt; CREATE USER 'test'@'localhost' IDENTIFIED BY 'test!@';</span><br></pre></td></tr></table></figure>
 <p>로컬 및 원격에서 접속이 가능하도록 계정을 생성하는 방법입니다.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">'계정명'</span>@<span class="string">'%'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'비밀번호'</span>;</span><br></pre></td></tr></table></figure>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 예)</span></span><br><span class="line">MariaDB [mysql]&gt; CREATE USER 'test'@'%' IDENTIFIED BY 'test!@';</span><br></pre></td></tr></table></figure>
-<h2 id="권한-부여">권한 부여</h2>
+<h2 id="권한-부여"><a class="markdownIt-Anchor" href="#권한-부여"></a> 권한 부여</h2>
 <p>생성된 계정에 대해 모든 권한을 부여하도록 설정합니다.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grant</span> <span class="keyword">all</span> <span class="keyword">privileges</span> <span class="keyword">on</span> *.* <span class="keyword">to</span> <span class="string">'계정명'</span>@<span class="string">'%'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'비밀번호'</span>;</span><br></pre></td></tr></table></figure>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 예</span></span><br><span class="line">MariaDB [mysql]&gt; grant all privileges on *.* to 'test'@'%' identified by 'test!@';</span><br><span class="line"><span class="comment">-- 변경된 권한 적용</span></span><br><span class="line">MariaDB [mysql]&gt; flush privileges;</span><br></pre></td></tr></table></figure>
 <p>해당 데이터베이스에 대해서만 권한을 부여하도록 설정합니다.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grant</span> <span class="keyword">all</span> <span class="keyword">privileges</span> <span class="keyword">on</span> DB명.* <span class="keyword">to</span> <span class="string">'계정명'</span>@<span class="string">'%'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'비밀번호'</span>;</span><br></pre></td></tr></table></figure>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 예)</span></span><br><span class="line">MariaDB [mysql]&gt; grant all privileges on test_db.* to 'test'@'%' identified by 'test!@';</span><br><span class="line">MariaDB [mysql]&gt; flush privileges;</span><br></pre></td></tr></table></figure>
-<h2 id="확인">확인</h2>
+<h2 id="확인"><a class="markdownIt-Anchor" href="#확인"></a> 확인</h2>
 <p>계정 생성이 완료되면 생성된 계정으로 로그인합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo mysql -u <span class="built_in">test</span> -p</span></span><br></pre></td></tr></table></figure>
 
@@ -332,7 +332,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/10/28/mariadb-1/" data-id="cmnbsnxyk00frukcxgwynf05d" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/10/28/mariadb-1/" data-id="cmnbvrts300fux4cx9l5019fm" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -411,12 +411,12 @@
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2022/10/28/mariadb-1/",
         "description": "MariaDB에서 계정을 생성하고 권한을 부여하는 방법입니다.
-로그인
+ 로그인
 root의 패스워드를 입력하여 로그인합니다.
 1$ sudo mysql -u root -p
-계정 확인
-123456789101112131415MariaDB [(none)]&gt; show databases;+--------------------+| Database           |+---",
-        "wordCount": 474
+ 계정 확인
+123456789101112131415MariaDB [(none)]&gt; show databases;+--------------------+| Database           |+-",
+        "wordCount": 489
     }
 </script>
 

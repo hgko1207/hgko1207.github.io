@@ -263,9 +263,9 @@
     
 
         <p class="article-excerpt">
-            테이블 스페이스 남은 공간 조회
+             테이블 스페이스 남은 공간 조회
 현재 접속한 사용자의 DEFAULT_TABLESPACE 남은 공간을 조회합니다.
-123456789101112SELECT  ts.tablespace_name,  TO_CHAR(SUM(NVL(fs.bytes, 0)) / 1024 / 1024, '99,999,990.99') AS MB_FREEFROM  user_free_space
+123456789101112SELECT  ts.tablespace_name,  TO_CHAR(SUM(NVL(fs.bytes, 0)) / 1024 / 1024, '99,999,990.99') AS MB_FREEFROM  user_free_spac
         </p>
     </div>
 </article>
@@ -274,59 +274,6 @@
     
     
     
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2022/11/04/oracle-3/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnail/oracle.png)" alt="[Oracle] 테이블 스페이스 사용 방법" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2022/11/04/oracle-3/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/DB/">DB</a>
-            </div>
-            <div class="date"><time datetime="2022-11-04T06:44:12.000Z" itemprop="datePublished">2022-11-04</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2022/11/04/oracle-3/">[Oracle] 테이블 스페이스 사용 방법</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            테이블 스페이스(Table Space)란
-
-테이블스페이스(Tablespace)는 데이터베이스 오브젝트 내 실제 데이터를 저장하는 공간이다. 이것은 데이터베이스의 물리적인 부분이며, 세그먼트로 관리되는 모든 DBMS에 대해 저장소(세그먼트)를 할당한다.
-테이블스페이스는 단지 데이터베이스 저장소 위치를 지정할 뿐이며, 논리적 데이터베이스 구조나 스키마를 지정하
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -365,8 +312,61 @@
 
         <p class="article-excerpt">
             Oracle에서 계정 생성, 삭제 및 권한을 부여하는 방법입니다.
-계정 생성 및 권한 부여
-12345SQL&gt; CREATE USER [계정]     IDENTIFIED BY [비밀번호]     DEFAULT TABLESPACE [테이블스페이스명]     QUOTA unlimited ON [테이블스페이스명]  -- 테이블 스페이스의 내용을 모두 쓸 수 있
+ 계정 생성 및 권한 부여
+12345SQL&gt; CREATE USER [계정]     IDENTIFIED BY [비밀번호]     DEFAULT TABLESPACE [테이블스페이스명]     QUOTA unlimited ON [테이블스페이스명]  -- 테이블 스페이스의 내용을 모두 쓸 수 
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2022/11/04/oracle-3/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/oracle.png)" alt="[Oracle] 테이블 스페이스 사용 방법" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://hgko1207.github.io/2022/11/04/oracle-3/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/DB/">DB</a>
+            </div>
+            <div class="date"><time datetime="2022-11-04T06:44:12.000Z" itemprop="datePublished">2022-11-04</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2022/11/04/oracle-3/">[Oracle] 테이블 스페이스 사용 방법</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+             테이블 스페이스(Table Space)란
+
+테이블스페이스(Tablespace)는 데이터베이스 오브젝트 내 실제 데이터를 저장하는 공간이다. 이것은 데이터베이스의 물리적인 부분이며, 세그먼트로 관리되는 모든 DBMS에 대해 저장소(세그먼트)를 할당한다.
+테이블스페이스는 단지 데이터베이스 저장소 위치를 지정할 뿐이며, 논리적 데이터베이스 구조나 스키마를 지정
         </p>
     </div>
 </article>
@@ -413,10 +413,10 @@
 
         <p class="article-excerpt">
             리눅스 환경에서 Tomcat을 구동하는 서비스를 등록하고 실행하는 방법에 대해 알아보겠습니다.
-Service 파일 생성
+ Service 파일 생성
 /etc/systemd/system/ 위치에 service 파일을 생성합니다.
 1$ sudo vi /etc/systemd/system/tomcat-server.service
-1234567891011121314[Unit]Description
+1234567891011121314[Unit]Descriptio
         </p>
     </div>
 </article>
@@ -514,10 +514,10 @@ Service 파일 생성
     
 
         <p class="article-excerpt">
-            책 정보
+             책 정보
 
-책 소개
-Angular는 Google이 주관하는 웹 애플리케이션 프레임워크다. 개발자들에게 큰 인기를 끌었던 이전 버전의 AngularJS는 이제 새로운 구조와 철학을 도입해서 완전히 새로운 프레임워크가 되어 돌아왔다. 새로운 버전의 Angular에서 제공하는 훌륭한 기능과 웹 컴포넌트 기반 철학을 깊이 있게 알아보고, 데이터를 뷰에 표시하는 방
+ 책 소개
+Angular는 Google이 주관하는 웹 애플리케이션 프레임워크다. 개발자들에게 큰 인기를 끌었던 이전 버전의 AngularJS는 이제 새로운 구조와 철학을 도입해서 완전히 새로운 프레임워크가 되어 돌아왔다. 새로운 버전의 Angular에서 제공하는 훌륭한 기능과 웹 컴포넌트 기반 철학을 깊이 있게 알아보고, 데이터를 뷰에 표시하는
         </p>
     </div>
 </article>
@@ -568,11 +568,11 @@ Angular는 Google이 주관하는 웹 애플리케이션 프레임워크다. 개
 
         <p class="article-excerpt">
             MariaDB에서 계정을 생성하고 권한을 부여하는 방법입니다.
-로그인
+ 로그인
 root의 패스워드를 입력하여 로그인합니다.
 1$ sudo mysql -u root -p
-계정 확인
-123456789101112131415MariaDB [(none)]&gt; show databases;+--------------------+| Database           |+---
+ 계정 확인
+123456789101112131415MariaDB [(none)]&gt; show databases;+--------------------+| Database           |+-
         </p>
     </div>
 </article>
@@ -619,9 +619,9 @@ root의 패스워드를 입력하여 로그인합니다.
 
         <p class="article-excerpt">
             리눅스 환경에서 MariaDB 설치 방법에 대해 알아보겠습니다.
-MariaDB 란
+ MariaDB 란
 
-MariaDB는 오픈 소스의 관계형 데이터베이스 관리 시스템이다. MySQL과 동일한 소스 코드를 기반으로 하며, GPL v2 라이선스를 따른다. 오라클 소유의 현재 불확실한 MySQL의 라이선스 상태에 반발하여 만들어졌으며, 배포자는 몬티 프로그램 AB와 저작권을 공유해야
+MariaDB는 오픈 소스의 관계형 데이터베이스 관리 시스템이다. MySQL과 동일한 소스 코드를 기반으로 하며, GPL v2 라이선스를 따른다. 오라클 소유의 현재 불확실한 MySQL의 라이선스 상태에 반발하여 만들어졌으며, 배포자는 몬티 프로그램 AB와 저작권을 공유해
         </p>
     </div>
 </article>
@@ -672,10 +672,10 @@ MariaDB는 오픈 소스의 관계형 데이터베이스 관리 시스템이다.
 
         <p class="article-excerpt">
             Windows 환경에서 NVM를 설치하고 Node 버전을 관리하는 방법에 대해 알아보겠습니다.
-NVM(Node Version Manager)
+ NVM(Node Version Manager)
 NVM 은 Node.js의 버전을 관리하는 도구입니다. 여러 개의 Node.js 버전을 설치할 수 있고 설치된 모든 버전을 확인할 수 있습니다. 그리고 필요에 따라 버전 변경도 할 수 있습니다.
-설치
-NVM Githu
+ 설치
+NVM Git
         </p>
     </div>
 </article>
@@ -722,12 +722,12 @@ NVM Githu
 
         <p class="article-excerpt">
             JavaScript에서 주민등록번호 유효성 검사 방법에 대해 알아보겠습니다.
-주민등록번호란
+ 주민등록번호란
 
 주민등록번호는 “주민의 거주관계를 파악하고 상시로 인구의 동태를 명확히 하여 행정사무의 적정하고 간이 한 처리를 도모함”(1962년 주민등록법) 등을 목적으로 만든 일련번호로서, 개개인의 신원을 명확하게 구분하는 역할을 한다.
 나무위키
 
-내국인과 외국인 주민등록번호
+내국인과 외국인 주민등록번
         </p>
     </div>
 </article>

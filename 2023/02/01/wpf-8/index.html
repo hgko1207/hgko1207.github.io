@@ -274,22 +274,22 @@
             
 
             <p><strong>WPF</strong>에서 Windows Forms(WinForm) Control 사용하는 방법에 대해 알아보겠습니다.</p>
-<h2 id="참조-추가">참조 추가</h2>
+<h2 id="참조-추가"><a class="markdownIt-Anchor" href="#참조-추가"></a> 참조 추가</h2>
 <p>프로젝트에 다음 어셈블리에 대한 참조를 추가합니다.</p>
 <ul>
 <li>WindowsFormsIntegration</li>
 <li>System.Windows.Forms</li>
 </ul>
-<h2 id="XAML에-추가">XAML에 추가</h2>
+<h2 id="xaml에-추가"><a class="markdownIt-Anchor" href="#xaml에-추가"></a> XAML에 추가</h2>
 <p>WinForm 컨트롤을 사용하려는 XAML 파일을 열고 아래 네임스페이스 매핑을 추가합니다. <code>wf</code> 네임스페이스 매핑은 Windows Forms 컨트롤이 포함된 어셈블리에 대한 참조를 설정합니다.</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"</span><br></pre></td></tr></table></figure>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Window</span> <span class="attr">x:Class</span>=<span class="string">"WPF.Text.MainWindow"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">xmlns</span>=<span class="string">"http://schemas.microsoft.com/winfx/2006/xaml/presentation"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">xmlns:x</span>=<span class="string">"http://schemas.microsoft.com/winfx/2006/xaml"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">xmlns:wf</span>=<span class="string">"clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">Title</span>=<span class="string">"MainWindow"</span> <span class="attr">Height</span>=<span class="string">"350"</span> <span class="attr">Width</span>=<span class="string">"500"</span>&gt;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<h2 id="사용">사용</h2>
+<h2 id="사용"><a class="markdownIt-Anchor" href="#사용"></a> 사용</h2>
 <p><code>WindowsFormsHost</code> 컨트롤을 사용하고 자식으로는 WinForm 컨트롤을 사용합니다.</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">WindowsFormsHost</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">wf:PictureBox</span> <span class="attr">x:Name</span>=<span class="string">"DisplayImage"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">WindowsFormsHost</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="전체-소스">전체 소스</h2>
+<h2 id="전체-소스"><a class="markdownIt-Anchor" href="#전체-소스"></a> 전체 소스</h2>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Window</span> <span class="attr">x:Class</span>=<span class="string">"WPF.Text.MainWindow"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">xmlns</span>=<span class="string">"http://schemas.microsoft.com/winfx/2006/xaml/presentation"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">xmlns:x</span>=<span class="string">"http://schemas.microsoft.com/winfx/2006/xaml"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">xmlns:wf</span>=<span class="string">"clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">Title</span>=<span class="string">"MainWindow"</span> <span class="attr">Height</span>=<span class="string">"350"</span> <span class="attr">Width</span>=<span class="string">"500"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Grid</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">WindowsFormsHost</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">wf:PictureBox</span> <span class="attr">x:Name</span>=<span class="string">"DisplayImage"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">WindowsFormsHost</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Window</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="참고">참고</h2>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <ul>
 <li><a href="https://learn.microsoft.com/ko-kr/dotnet/api/system.windows.forms.integration.windowsformshost?view=windowsdesktop-7.0" target="_blank" rel="noopener">WindowsFormsHost 클래스</a></li>
 <li><a href="https://learn.microsoft.com/ko-kr/dotnet/desktop/wpf/advanced/walkthrough-hosting-a-windows-forms-control-in-wpf-by-using-xaml?view=netframeworkdesktop-4.8" target="_blank" rel="noopener">연습: XAML을 사용하여 WPF에서 Windows Forms 컨트롤 호스팅</a></li>
@@ -327,7 +327,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2023/02/01/wpf-8/" data-id="cmnbsnxzf00kuukcx0wpfczi3" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2023/02/01/wpf-8/" data-id="cmnbvrtt500kxx4cxaklpabel" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -406,15 +406,15 @@
         "dateModified": "2023-03-14",
         "url": "http://hgko1207.github.io/2023/02/01/wpf-8/",
         "description": "WPF에서 Windows Forms(WinForm) Control 사용하는 방법에 대해 알아보겠습니다.
-참조 추가
+ 참조 추가
 프로젝트에 다음 어셈블리에 대한 참조를 추가합니다.
 
 WindowsFormsIntegration
 System.Windows.Forms
 
-XAML에 추가
-WinForm 컨트롤을 사용하려는 XAML 파일을 열고 아래 네임스페이스 매핑을 추가합니다.",
-        "wordCount": 296
+ XAML에 추가
+WinForm 컨트롤을 사용하려는 XAML 파일을 열고 아래 네임스페이스 매핑을 추가합니",
+        "wordCount": 311
     }
 </script>
 

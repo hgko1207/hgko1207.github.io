@@ -276,7 +276,7 @@ code {
   padding: 10px 0;
   width: 180px;
   height: 60px;
-  background-image: url("images/logo.png");
+  background-image: url("/images/logo.png");
   background-position: 0px 10px;
   background-repeat: no-repeat;
   -webkit-background-size: 180px 60px;

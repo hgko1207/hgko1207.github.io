@@ -274,14 +274,14 @@
 
             
 
-            <h2 id="Iteration">Iteration</h2>
+            <h2 id="iteration"><a class="markdownIt-Anchor" href="#iteration"></a> Iteration</h2>
 <p>람다(Lambda)의 <code>forEach</code> 함수를 사용하는 예제입니다.</p>
-<h2 id="사용-예">사용 예</h2>
+<h2 id="사용-예"><a class="markdownIt-Anchor" href="#사용-예"></a> 사용 예</h2>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; friends = Arrays.asList(<span class="string">"Brian"</span>, <span class="string">"Nate"</span>, <span class="string">"Neal"</span>, <span class="string">"Raju"</span>, <span class="string">"Sara"</span>, <span class="string">"Scott"</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="기존-for-문">기존 for 문</h3>
+<h3 id="기존-for-문"><a class="markdownIt-Anchor" href="#기존-for-문"></a> 기존 for 문</h3>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; friends.size(); i++) &#123;</span><br><span class="line">  System.out.println(friends.get(i));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (String name : friends) &#123;</span><br><span class="line">  System.out.println(name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 결과</span></span><br><span class="line">Brian</span><br><span class="line">Nate</span><br><span class="line">Neal</span><br><span class="line">Raju</span><br><span class="line">Sara</span><br><span class="line">Scott</span><br></pre></td></tr></table></figure>
-<h2 id="forEach-사용">forEach 사용</h2>
+<h2 id="foreach-사용"><a class="markdownIt-Anchor" href="#foreach-사용"></a> forEach 사용</h2>
 <p>forEach 함수를 사용한 예제입니다. 첫 번째부터 마지막까지 점점 코드가 간략해지는 것을 볼 수 있습니다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1)</span></span><br><span class="line">friends.forEach(<span class="keyword">new</span> Consumer&lt;String&gt;() &#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">    System.out.println(name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2)</span></span><br><span class="line">friends.forEach((<span class="keyword">final</span> String name) -&gt; System.out.println(name));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3)</span></span><br><span class="line">friends.forEach(name -&gt; System.out.println(name));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4)</span></span><br><span class="line">friends.forEach(System.out::println);</span><br></pre></td></tr></table></figure>
 <p>결과는 모두 같습니다.</p>
@@ -319,7 +319,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/11/15/java-dev-11/" data-id="cmnbsnxys00h4ukcxd78b5yhp" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/11/15/java-dev-11/" data-id="cmnbvrtsc00h0x4cx6rbadejc" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -397,13 +397,13 @@
         "dateCreated": "2022-11-15",
         "dateModified": "2023-03-14",
         "url": "http://hgko1207.github.io/2022/11/15/java-dev-11/",
-        "description": "Iteration
+        "description": " Iteration
 람다(Lambda)의 forEach 함수를 사용하는 예제입니다.
-사용 예
+ 사용 예
 1List&lt;String&gt; friends = Arrays.asList("Brian", "Nate", "Neal", "Raju", "Sara", "Scott");
-기존 for 문
-1234567for (int i = 0; i &lt; friends.size();",
-        "wordCount": 202
+ 기존 for 문
+1234567for (int i = 0; i &lt; friends.size",
+        "wordCount": 214
     }
 </script>
 

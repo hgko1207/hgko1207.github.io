@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
-    <meta name="keywords" content="리눅스,Linux,CentOS,Tomcat,톰캣,방화벽" />
+    <meta name="keywords" content="리눅스,CentOS,Linux,Tomcat,톰캣,방화벽" />
     
     
     
@@ -27,8 +27,8 @@
 <meta property="article:modified_time" content="2024-01-12T01:35:37.710Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="리눅스">
-<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="CentOS">
+<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Tomcat">
 <meta property="article:tag" content="톰캣">
 <meta property="article:tag" content="방화벽">
@@ -276,11 +276,11 @@
             
 
             <p>리눅스 환경에서 <strong>Tomcat</strong>을 다중 설치하고 운영하는 방법에 대해 알아보겠습니다.</p>
-<h2 id="1-Tomcat-설치">1. Tomcat 설치</h2>
+<h2 id="1-tomcat-설치"><a class="markdownIt-Anchor" href="#1-tomcat-설치"></a> 1. Tomcat 설치</h2>
 <p>이전 글 <a href="https://hgko1207.github.io/2020/10/12/linux-7/">[CentOS] 아파치 톰캣(Tomcat) 설치 및 사용 방법</a> 을 보면서 Tomcat 을 설치합니다.</p>
 <p>설치된 Tomcat 폴더를 서로 다른 이름의 폴더로 복사합니다.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- tomcat1 : /usr/<span class="built_in">local</span>/tomcat_1</span><br><span class="line">- tomcat2 : /usr/<span class="built_in">local</span>/tomcat_2</span><br></pre></td></tr></table></figure>
-<h2 id="2-catalina-sh-파일-수정">2. <a href="http://catalina.sh" target="_blank" rel="noopener">catalina.sh</a> 파일 수정</h2>
+<h2 id="2-catalinash-파일-수정"><a class="markdownIt-Anchor" href="#2-catalinash-파일-수정"></a> 2. <a href="http://catalina.sh" target="_blank" rel="noopener">catalina.sh</a> 파일 수정</h2>
 <p><code>/bin/catalina.sh</code> 파일을 열고 다음 내용을 추가합니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> CATALINA_HOME=[Tomcat Path]</span><br><span class="line"><span class="built_in">export</span> TOMCAT_HOME=[Tomcat Path]</span><br><span class="line"><span class="built_in">export</span> CATALINA_BASE=[Tomcat Path]</span><br><span class="line">CATALINA_PID=[Tomcat Path]/bin/tomcat.pid</span><br></pre></td></tr></table></figure>
 <ul>
@@ -291,7 +291,7 @@
 <li><strong>tomcat2</strong></li>
 </ul>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> CATALINA_HOME=/usr/<span class="built_in">local</span>/tomcat_2</span><br><span class="line"><span class="built_in">export</span> TOMCAT_HOME=/usr/<span class="built_in">local</span>/tomcat_2</span><br><span class="line"><span class="built_in">export</span> CATALINA_BASE=/usr/<span class="built_in">local</span>/tomcat_2</span><br><span class="line">CATALINA_PID=/usr/<span class="built_in">local</span>/tomcat_2/bin/tomcat.pid</span><br></pre></td></tr></table></figure>
-<h2 id="3-포트-변경">3. 포트 변경</h2>
+<h2 id="3-포트-변경"><a class="markdownIt-Anchor" href="#3-포트-변경"></a> 3. 포트 변경</h2>
 <p><code>/conf/server.xml</code> 파일에서 포트를 수정합니다. Tomcat 마다 포트 3개를 다르게 입력해야 합니다.</p>
 <p>다음과 같이 <strong>tomcat1</strong> 은 80XX, <strong>tomcat2</strong> 은 81XX 포트로 변경합니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Server Port 는 8005, 8105</span><br><span class="line">Connector Port 는 8080, 8180</span><br><span class="line">AJP/1.3 Port 는 8009, 8109</span><br></pre></td></tr></table></figure>
@@ -303,7 +303,7 @@
 <li><strong>tomcat2</strong></li>
 </ul>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">Server</span> <span class="attr">port</span>=<span class="string">"8105"</span> <span class="attr">shutdown</span>=<span class="string">"SHUTDOWN"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Listener</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.startup.VersionLoggerListener"</span> /&gt;</span></span><br><span class="line">...</span><br><span class="line">      <span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8180"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span></span></span><br><span class="line"><span class="tag">               <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span></span></span><br><span class="line"><span class="tag">               <span class="attr">redirectPort</span>=<span class="string">"8443"</span> /&gt;</span></span><br><span class="line">...</span><br><span class="line">    <span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8109"</span> <span class="attr">protocol</span>=<span class="string">"AJP/1.3"</span> <span class="attr">redirectPort</span>=<span class="string">"8443"</span> /&gt;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<h2 id="4-방화벽-해제">4. 방화벽 해제</h2>
+<h2 id="4-방화벽-해제"><a class="markdownIt-Anchor" href="#4-방화벽-해제"></a> 4. 방화벽 해제</h2>
 <p>설정된 HTTP 포트의 방화벽을 해제합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo firewall-cmd --zone=public --add-port=8080/tcp --permanent</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo firewall-cmd --zone=public --add-port=8180/tcp --permanent</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo firewall-cmd --reload</span></span><br></pre></td></tr></table></figure>
 <p>서비스를 시작 시킨 후 각각의 서비스 포트로 접속해서 제대로 동작하는지 확인합니다.</p>
@@ -340,7 +340,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/08/23/linux-18/" data-id="cmnbsnxyc00eeukcx5842b7ne" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/08/23/linux-18/" data-id="cmnbvrtrr00e9x4cxelby2cdi" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -412,18 +412,18 @@
         },
         "headline": "[CentOS] Tomcat 다중 설치 및 운영 방법",
         "image": "http://hgko1207.github.io/images/thumbnail/centos.png",
-        "keywords": "리눅스 Linux CentOS Tomcat 톰캣 방화벽",
+        "keywords": "리눅스 CentOS Linux Tomcat 톰캣 방화벽",
         "genre": "Programming DevOps Linux",
         "datePublished": "2022-08-23",
         "dateCreated": "2022-08-23",
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2022/08/23/linux-18/",
         "description": "리눅스 환경에서 Tomcat을 다중 설치하고 운영하는 방법에 대해 알아보겠습니다.
-1. Tomcat 설치
+ 1. Tomcat 설치
 이전 글 [CentOS] 아파치 톰캣(Tomcat) 설치 및 사용 방법 을 보면서 Tomcat 을 설치합니다.
 설치된 Tomcat 폴더를 서로 다른 이름의 폴더로 복사합니다.
-12- tomcat1 : /usr/local/tomcat_1- tomcat2 ",
-        "wordCount": 431
+12- tomcat1 : /usr/local/tomcat_1- tomcat2",
+        "wordCount": 443
     }
 </script>
 

@@ -273,41 +273,41 @@
 
             
 
-            <p><img src="/images/header/netcore-1.png" alt=""></p>
+            <p><img src="/images/header/netcore-1.png" alt="" /></p>
 <p>디지털 환경에서 API는 최신 웹 애플리케이션의 중추로, 서로 다른 소프트웨어 시스템 간의 원활한 통신을 가능하게 합니다. <strong>.NET Web API</strong>는 개발자가 강력하고 확장 가능한 API를 구축할 수 있는 강력한 프레임워크입니다. 이 글에서는 효율적이고 안전하며 유지 관리가 용이한 API를 만들기 위해 .NET Web API를 마스터하기 위한 모범 사례를 살펴봅니다.</p>
-<h2 id="1-RESTful-API-설계">1. RESTful API 설계</h2>
-<h3 id="REST-원칙-준수">REST 원칙 준수</h3>
+<h2 id="1-restful-api-설계"><a class="markdownIt-Anchor" href="#1-restful-api-설계"></a> 1. RESTful API 설계</h2>
+<h3 id="rest-원칙-준수"><a class="markdownIt-Anchor" href="#rest-원칙-준수"></a> REST 원칙 준수</h3>
 <p>Stateless, 확장성, 이해하기 쉽도록 REST 원칙을 준수하여 API를 설계하세요. 다양한 작업에 적절한 HTTP 메서드(GET, POST, PUT, DELETE)와 표준 상태 코드를 사용하여 API 호출의 결과를 표시하세요.</p>
-<h3 id="API-버전-관리">API 버전 관리</h3>
+<h3 id="api-버전-관리"><a class="markdownIt-Anchor" href="#api-버전-관리"></a> API 버전 관리</h3>
 <p>버전 관리를 구현하여 변경 사항을 관리하고 이전 버전과의 호환성을 보장하세요. URL, Query String 또는 헤더에 버전 번호를 포함할 수 있습니다.</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">ApiVersion(<span class="meta-string">"1.0"</span>)</span>]</span><br><span class="line">[<span class="meta">Route(<span class="meta-string">"api/v&#123;version:apiVersion&#125;/[controller]"</span>)</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ProductsController</span> : <span class="title">ControllerBase</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// Actions</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="2-강력한-보안-구현">2. 강력한 보안 구현</h2>
-<h3 id="HTTPS-사용">HTTPS 사용</h3>
+<h2 id="2-강력한-보안-구현"><a class="markdownIt-Anchor" href="#2-강력한-보안-구현"></a> 2. 강력한 보안 구현</h2>
+<h3 id="https-사용"><a class="markdownIt-Anchor" href="#https-사용"></a> HTTPS 사용</h3>
 <p>항상 HTTPS를 사용하여 클라이언트와 서버 간에 전송되는 데이터를 암호화하여 가로채기 및 변조로부터 데이터를 보호하세요.</p>
-<h3 id="인증-및-권한-부여-구현">인증 및 권한 부여 구현</h3>
+<h3 id="인증-및-권한-부여-구현"><a class="markdownIt-Anchor" href="#인증-및-권한-부여-구현"></a> 인증 및 권한 부여 구현</h3>
 <p>Stateless(무상태) 인증 및 권한 부여를 위한 역할 기반 액세스 제어를 위해 JWT(JSON Web Token)를 사용하세요.</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer((options) =&gt; &#123;</span><br><span class="line">  options.TokenValidationParameters = <span class="keyword">new</span> TokenValidationParameters();</span><br><span class="line">  &#123;</span><br><span class="line">      (ValidateIssuer = <span class="literal">true</span>),</span><br><span class="line">      (ValidateAudience = <span class="literal">true</span>),</span><br><span class="line">      (ValidateLifetime = <span class="literal">true</span>),</span><br><span class="line">      (ValidateIssuerSigningKey = <span class="literal">true</span>),</span><br><span class="line">      (ValidIssuer = Configuration[<span class="string">'Jwt:Issuer'</span>]),</span><br><span class="line">      (ValidAudience = Configuration[<span class="string">'Jwt:Issuer'</span>]),</span><br><span class="line">      (IssuerSigningKey = <span class="keyword">new</span> SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration[<span class="string">'Jwt:Key'</span>])));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h2 id="3-성능-최적화">3. 성능 최적화</h2>
-<h3 id="캐싱-구현">캐싱 구현</h3>
+<h2 id="3-성능-최적화"><a class="markdownIt-Anchor" href="#3-성능-최적화"></a> 3. 성능 최적화</h2>
+<h3 id="캐싱-구현"><a class="markdownIt-Anchor" href="#캐싱-구현"></a> 캐싱 구현</h3>
 <p>자주 액세스하는 데이터에는 인메모리 캐싱을 사용하고 대규모 분산 시스템에는 분산 캐싱(예: Redis)을 사용합니다.</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ProductService</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> IMemoryCache _cache;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ProductService</span>(<span class="params">IMemoryCache cache</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        _cache = cache;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Product <span class="title">GetProduct</span>(<span class="params"><span class="keyword">int</span> id</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">return</span> _cache.GetOrCreate(id, entry =&gt;</span><br><span class="line">        &#123;</span><br><span class="line">            entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(<span class="number">5</span>);</span><br><span class="line">            <span class="keyword">return</span> _context.Products.Find(id);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="비동기-프로그래밍-사용">비동기 프로그래밍 사용</h3>
+<h3 id="비동기-프로그래밍-사용"><a class="markdownIt-Anchor" href="#비동기-프로그래밍-사용"></a> 비동기 프로그래밍 사용</h3>
 <p><code>async</code> 및 <code>await</code>을 활용하여 I/O 바인딩 연산을 효율적으로 처리하고 다른 요청을 처리할 수 있는 스레드를 확보하세요.</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">async</span> Task&lt;IActionResult&gt; <span class="title">GetProduct</span>(<span class="params"><span class="keyword">int</span> id</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> product = <span class="keyword">await</span> _context.Products.FindAsync(id);</span><br><span class="line">    <span class="keyword">return</span> Ok(product);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="4-유지보수성-향상">4. 유지보수성 향상</h2>
-<h3 id="종속성-주입-사용">종속성 주입 사용</h3>
+<h2 id="4-유지보수성-향상"><a class="markdownIt-Anchor" href="#4-유지보수성-향상"></a> 4. 유지보수성 향상</h2>
+<h3 id="종속성-주입-사용"><a class="markdownIt-Anchor" href="#종속성-주입-사용"></a> 종속성 주입 사용</h3>
 <p>종속성 주입을 도입하여 종속성을 관리하고 코드를 보다 모듈화하고 테스트할 수 있도록 하세요.</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ConfigureServices</span>(<span class="params">IServiceCollection services</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    services.AddScoped&lt;IProductService, ProductService&gt;();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="SOLID-원칙-준수">SOLID 원칙 준수</h3>
+<h3 id="solid-원칙-준수"><a class="markdownIt-Anchor" href="#solid-원칙-준수"></a> SOLID 원칙 준수</h3>
 <p>SOLID 원칙(Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion)을 준수하여 깔끔하고 유지 관리 가능한 코드를 작성하세요.</p>
-<h2 id="5-모니터링-및-진단">5. 모니터링 및 진단</h2>
-<h3 id="로깅-구현">로깅 구현</h3>
+<h2 id="5-모니터링-및-진단"><a class="markdownIt-Anchor" href="#5-모니터링-및-진단"></a> 5. 모니터링 및 진단</h2>
+<h3 id="로깅-구현"><a class="markdownIt-Anchor" href="#로깅-구현"></a> 로깅 구현</h3>
 <p>Serilog 또는 NLog와 같은 로깅 프레임워크를 사용하여 모니터링 및 문제 해결을 위한 자세한 로그를 캡처하세요.</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ConfigureServices</span>(<span class="params">IServiceCollection services</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    services.AddLogging(config =&gt;</span><br><span class="line">    &#123;</span><br><span class="line">        config.AddSerilog();</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="애플리케이션-인사이트-Insights-사용">애플리케이션 인사이트(Insights) 사용</h3>
+<h3 id="애플리케이션-인사이트insights-사용"><a class="markdownIt-Anchor" href="#애플리케이션-인사이트insights-사용"></a> 애플리케이션 인사이트(Insights) 사용</h3>
 <p>애플리케이션 인사이트를 통합하여 API의 성능과 사용량에 대한 종합적인 모니터링 및 진단을 수행하세요.</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ConfigureServices</span>(<span class="params">IServiceCollection services</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    services.AddApplicationInsightsTelemetry(Configuration[<span class="string">"ApplicationInsights:InstrumentationKey"</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="결론">결론</h2>
+<h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2>
 <p>.NET Web API를 마스터하려면 디자인, 보안, 성능, 유지 관리 및 모니터링에 대한 모범 사례를 조합해야 합니다. 이러한 전략을 구현하면 최신 웹 애플리케이션의 요구 사항을 충족하는 강력하고 확장 가능하며 안전한 API를 구축할 수 있습니다.</p>
 
         </div>
@@ -342,7 +342,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2024/10/10/netcore-1/" data-id="cmnbsny4l0190ukcx8xvb0rhv" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2024/10/10/netcore-1/" data-id="cmnbvrupc040sx4cx3gyt8lzf" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -422,7 +422,7 @@
         "url": "http://hgko1207.github.io/2024/10/10/netcore-1/",
         "description": "
 디지털 환경에서 API는 최신 웹 애플리케이션의 중추로, 서로 다른 소프트웨어 시스템 간의 원활한 통신을 가능하게 합니다. .NET Web API는 개발자가 강력하고 확장 가능한 API를 구축할 수 있는 강력한 프레임워크입니다. 이 글에서는 효율적이고 안전하며 유지 관리가 용이한 API를 만들기 위해 .NET Web API를 마스터하기 위한 모범 사례를 ",
-        "wordCount": 719
+        "wordCount": 768
     }
 </script>
 

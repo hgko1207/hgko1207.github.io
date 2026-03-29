@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
-    <meta name="keywords" content="차이점,OAuth,JWT,인증,보안,Backend" />
+    <meta name="keywords" content="차이점,Backend,OAuth,JWT,인증,보안" />
     
     
     
@@ -27,11 +27,11 @@
 <meta property="article:modified_time" content="2024-01-12T08:26:04.177Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="차이점">
+<meta property="article:tag" content="Backend">
 <meta property="article:tag" content="OAuth">
 <meta property="article:tag" content="JWT">
 <meta property="article:tag" content="인증">
 <meta property="article:tag" content="보안">
-<meta property="article:tag" content="Backend">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/information.png">
     
@@ -277,22 +277,22 @@
 
             <p><strong>OAuth</strong>와 <strong>JWT</strong>는 웹 애플리케이션에서 일반적으로 사용되는 두 가지 보안 메커니즘입니다. 둘 다 인증 기능을 제공하지만 접근 방식과 사용 사례가 다릅니다.</p>
 <p>이 글에서는 OAuth와 JWT의 차이점과 각각을 언제 사용하는지 살펴보겠습니다.</p>
-<h2 id="Section-1-OAuth">Section 1: OAuth</h2>
-<p>OAuth는 자격 증명을 노출하지 않고 타사 애플리케이션이 사용자의 리소스에 액세스 할 수 있도록 하는 개방형 인증 표준입니다. OAuth 흐름에는 리소스 소유자(사용자), 클라이언트(애플리케이션) 및 권한 부여 서버 이 세 가지가 관련됩니다. 클라이언트는 Authorization Server를 통해 리소스 소유자에게 Authorization(권한부여)을 요청하고, 승인이 나면 클라이언트는 리소스에 접근하기 위한 Access Token을 받습니다.<br>
+<h2 id="section-1-oauth"><a class="markdownIt-Anchor" href="#section-1-oauth"></a> Section 1: OAuth</h2>
+<p>OAuth는 자격 증명을 노출하지 않고 타사 애플리케이션이 사용자의 리소스에 액세스 할 수 있도록 하는 개방형 인증 표준입니다. OAuth 흐름에는 리소스 소유자(사용자), 클라이언트(애플리케이션) 및 권한 부여 서버 이 세 가지가 관련됩니다. 클라이언트는 Authorization Server를 통해 리소스 소유자에게 Authorization(권한부여)을 요청하고, 승인이 나면 클라이언트는 리소스에 접근하기 위한 Access Token을 받습니다.<br />
 OAuth는 일반적으로 사용자가 Facebook 또는 Google 자격 증명을 사용하여 애플리케이션에 로그인할 수 있는 소셜 미디어 로그인에 사용됩니다.</p>
-<h2 id="Section-2-JWT">Section 2: JWT</h2>
-<p>JWT(JSON Web Token)는 두 당사자 간에 전송될 클레임(claim)을 표현하는 URL 안전의 컴팩트한 수단입니다. 헤더(header), 페이로드(payload), 서명(signature)의 세 부분으로 구성됩니다. 헤더는 토큰 유형과 서명 알고리즘을 지정하고, 페이로드에는 클레임이 포함되며, 서명은 토큰의 무결성을 확인하는 데 사용됩니다.<br>
+<h2 id="section-2-jwt"><a class="markdownIt-Anchor" href="#section-2-jwt"></a> Section 2: JWT</h2>
+<p>JWT(JSON Web Token)는 두 당사자 간에 전송될 클레임(claim)을 표현하는 URL 안전의 컴팩트한 수단입니다. 헤더(header), 페이로드(payload), 서명(signature)의 세 부분으로 구성됩니다. 헤더는 토큰 유형과 서명 알고리즘을 지정하고, 페이로드에는 클레임이 포함되며, 서명은 토큰의 무결성을 확인하는 데 사용됩니다.<br />
 JWT는 일반적으로 사용자가 애플리케이션에 로그인하고 JWT를 응답으로 받는 인증에 사용됩니다. 그런 다음 JWT를 사용하여 애플리케이션 내의 보호된 리소스에 액세스 할 수 있습니다.</p>
-<h2 id="Section-3-OAuth와-JWT의-차이점">Section 3: OAuth와 JWT의 차이점</h2>
-<p>OAuth와 JWT는 서로 다른 목적으로 사용되며 사용 사례도 다릅니다. OAuth는 권한부여(authorization)에 사용되고 JWT는 인증(authentication)에 사용됩니다. OAuth는 타사 애플리케이션에 리소스에 대한 액세스 권한을 부여하는 데 사용되는 반면, JWT는 애플리케이션 내의 보호된 리소스에 액세스 하는 데 사용됩니다.<br>
+<h2 id="section-3-oauth와-jwt의-차이점"><a class="markdownIt-Anchor" href="#section-3-oauth와-jwt의-차이점"></a> Section 3: OAuth와 JWT의 차이점</h2>
+<p>OAuth와 JWT는 서로 다른 목적으로 사용되며 사용 사례도 다릅니다. OAuth는 권한부여(authorization)에 사용되고 JWT는 인증(authentication)에 사용됩니다. OAuth는 타사 애플리케이션에 리소스에 대한 액세스 권한을 부여하는 데 사용되는 반면, JWT는 애플리케이션 내의 보호된 리소스에 액세스 하는 데 사용됩니다.<br />
 OAuth에는 인증 서버가 필요하지만 JWT에는 그렇지 않습니다. OAuth 흐름에는 여러 단계와 당사자가 포함되는 반면, JWT 흐름은 더 간단하고 두 당사자만 포함합니다.</p>
-<h2 id="Section-4-OAuth를-사용해야-하는-경우">Section 4: OAuth를 사용해야 하는 경우</h2>
-<p>OAuth는 자격 증명을 노출하지 않고 사용자 리소스에 대한 액세스 권한을 타사 애플리케이션에 부여해야 할 때 유용합니다.<br>
+<h2 id="section-4-oauth를-사용해야-하는-경우"><a class="markdownIt-Anchor" href="#section-4-oauth를-사용해야-하는-경우"></a> Section 4: OAuth를 사용해야 하는 경우</h2>
+<p>OAuth는 자격 증명을 노출하지 않고 사용자 리소스에 대한 액세스 권한을 타사 애플리케이션에 부여해야 할 때 유용합니다.<br />
 예를 들어 소셜 미디어 앱을 구축하는 경우 사용자가 Facebook 또는 Google 계정으로 로그인하도록 허용할 수 있습니다. 이 경우 OAuth를 사용하면 자격 증명을 입력하지 않고도 사용자를 인증할 수 있습니다.</p>
-<h2 id="Section-5-JWT를-사용해야-하는-경우">Section 5: JWT를 사용해야 하는 경우</h2>
-<p>JWT는 사용자를 인증하고 애플리케이션 내의 보호된 리소스에 대한 액세스 권한을 부여해야 할 때 유용합니다.<br>
+<h2 id="section-5-jwt를-사용해야-하는-경우"><a class="markdownIt-Anchor" href="#section-5-jwt를-사용해야-하는-경우"></a> Section 5: JWT를 사용해야 하는 경우</h2>
+<p>JWT는 사용자를 인증하고 애플리케이션 내의 보호된 리소스에 대한 액세스 권한을 부여해야 할 때 유용합니다.<br />
 예를 들어 사용자가 로그인해야 하는 웹 애플리케이션을 구축하는 경우 JWT를 사용하여 사용자를 인증하고 애플리케이션의 특정 부분에 대한 액세스를 보호할 수 있습니다. JWT를 사용하여 당사자 간에 데이터를 안전하게 전송할 수도 있습니다.</p>
-<h2 id="결론">결론</h2>
+<h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2>
 <p>OAuth와 JWT는 모두 웹 애플리케이션 보안을 위한 강력한 도구입니다. 유사해 보일 수도 있지만 용도가 다르며 사용 사례도 다릅니다. OAuth와 JWT의 차이점을 이해하면 특정 사용 사례에 적합한 도구를 선택하고 애플리케이션의 보안을 보장할 수 있습니다.</p>
 
         </div>
@@ -327,7 +327,7 @@ OAuth에는 인증 서버가 필요하지만 JWT에는 그렇지 않습니다. O
 
 
 
-    <a data-url="http://hgko1207.github.io/2023/09/10/backend-1/" data-id="cmnbsny0d00qgukcx28tl3yet" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2023/09/10/backend-1/" data-id="cmnbvrtuk00qxx4cxfw6y15kz" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -399,7 +399,7 @@ OAuth에는 인증 서버가 필요하지만 JWT에는 그렇지 않습니다. O
         },
         "headline": "OAuth와 JWT 차이점 및 사용 사례",
         "image": "http://hgko1207.github.io/images/thumbnail/information.png",
-        "keywords": "차이점 OAuth JWT 인증 보안 Backend",
+        "keywords": "차이점 Backend OAuth JWT 인증 보안",
         "genre": "Programming Backend",
         "datePublished": "2023-09-10",
         "dateCreated": "2023-09-10",
@@ -407,9 +407,9 @@ OAuth에는 인증 서버가 필요하지만 JWT에는 그렇지 않습니다. O
         "url": "http://hgko1207.github.io/2023/09/10/backend-1/",
         "description": "OAuth와 JWT는 웹 애플리케이션에서 일반적으로 사용되는 두 가지 보안 메커니즘입니다. 둘 다 인증 기능을 제공하지만 접근 방식과 사용 사례가 다릅니다.
 이 글에서는 OAuth와 JWT의 차이점과 각각을 언제 사용하는지 살펴보겠습니다.
-Section 1: OAuth
-OAuth는 자격 증명을 노출하지 않고 타사 애플리케이션이 사용자의 리소스에 액세스 할 ",
-        "wordCount": 338
+ Section 1: OAuth
+OAuth는 자격 증명을 노출하지 않고 타사 애플리케이션이 사용자의 리소스에 액세스 할",
+        "wordCount": 361
     }
 </script>
 

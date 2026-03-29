@@ -275,15 +275,15 @@
             <p>RDB(Relational DataBase) 에는 Collection 형태의 데이터를 칼럼에 저장할 수 있는 방법이 없습니다. 그래서 별도의 테이블을 생성하고 Collection을 관리해야 합니다.</p>
 <p>JPA의 <strong>@ElementCollection</strong> 사용하여 별도의 테이블을 생성하고 Collection 을 관리할 수 있습니다.</p>
 <p><strong>ElementCollection</strong> 특징은 부모 Entity에 의해 관리되고, 항상 부모와 함께 저장되고 삭제됩니다. casecade 옵션이 default입니다.</p>
-<h2 id="예">예</h2>
+<h2 id="예"><a class="markdownIt-Anchor" href="#예"></a> 예</h2>
 <p>Collection 대상이 되는 객체는 <code>@Entity</code> 가 아닌 Embeddable Class로 생성하여 One-To-Many 관계를 맺습니다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Embeddable</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Address</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Column</span>(length = <span class="number">50</span>)</span><br><span class="line">  <span class="keyword">public</span> String address;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Column</span>(length = <span class="number">50</span>)</span><br><span class="line">  <span class="keyword">public</span> String detailAddress;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>@ElementCollection</code> 생성하여 Collection 테이블을 생성합니다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@ElementCollection</span>(fetch = FetchType.LAZY)</span><br><span class="line">  <span class="meta">@CollectionTable</span>(</span><br><span class="line">    name = <span class="string">"user_address"</span>,</span><br><span class="line">    joinColumns = <span class="meta">@JoinColumn</span>(name = <span class="string">"userId"</span>)</span><br><span class="line">  )</span><br><span class="line">  <span class="meta">@ForeignKey</span>(name = <span class="string">"fk_user_address"</span>)</span><br><span class="line">  <span class="keyword">private</span> List&lt;Address&gt; addresses;</span><br><span class="line"></span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="결과">결과</h2>
+<h2 id="결과"><a class="markdownIt-Anchor" href="#결과"></a> 결과</h2>
 <p>다음과 같은 DDL 스크립트가 만들어집니다.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`user_address`</span> (</span><br><span class="line">  <span class="string">`user_id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`address`</span> <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`detail_address`</span> <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="keyword">KEY</span> <span class="string">`fk_user_address`</span> (<span class="string">`user_id`</span>),</span><br><span class="line">  <span class="keyword">CONSTRAINT</span> <span class="string">`fk_user_address`</span> <span class="keyword">FOREIGN</span> <span class="keyword">KEY</span> (<span class="string">`user_id`</span>) <span class="keyword">REFERENCES</span> <span class="string">`user`</span> (<span class="string">`id`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8;</span><br></pre></td></tr></table></figure>
-<h2 id="참고">참고</h2>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <ul>
 <li><a href="https://prohannah.tistory.com/133" target="_blank" rel="noopener">https://prohannah.tistory.com/133</a></li>
 </ul>
@@ -320,7 +320,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/11/24/spring-jpa-3/" data-id="cmnbsnxyv00hrukcxakrj0pee" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/11/24/spring-jpa-3/" data-id="cmnbvrtsi00i1x4cx9qjs1q8e" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -401,7 +401,7 @@
         "description": "RDB(Relational DataBase) 에는 Collection 형태의 데이터를 칼럼에 저장할 수 있는 방법이 없습니다. 그래서 별도의 테이블을 생성하고 Collection을 관리해야 합니다.
 JPA의 @ElementCollection 사용하여 별도의 테이블을 생성하고 Collection 을 관리할 수 있습니다.
 ElementCollection 특징은",
-        "wordCount": 289
+        "wordCount": 298
     }
 </script>
 

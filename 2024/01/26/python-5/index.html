@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
-    <meta name="keywords" content="Python,Programming,파이썬,Pandas" />
+    <meta name="keywords" content="Python,Programming,Pandas,파이썬" />
     
     
     
@@ -28,8 +28,8 @@
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="Programming">
-<meta property="article:tag" content="파이썬">
 <meta property="article:tag" content="Pandas">
+<meta property="article:tag" content="파이썬">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/python.png">
     
@@ -273,20 +273,20 @@
 
             
 
-            <p><img src="/images/header/python-5.png" alt=""></p>
+            <p><img src="/images/header/python-5.png" alt="" /></p>
 <p><strong>Pandas</strong>는 가장 인기 있고 강력한 Python용 데이터 분석 라이브러리 중 하나입니다. 사용하기 쉬운 데이터 구조와 구조화된 데이터 작업을 위한 도구를 제공합니다. 이 글에서는 데이터 분석에 Pandas를 사용하는 방법에 대한 실용적인 소개를 살펴보겠습니다.</p>
-<h2 id="Pandas-가져오기">Pandas 가져오기</h2>
+<h2 id="pandas-가져오기"><a class="markdownIt-Anchor" href="#pandas-가져오기"></a> Pandas 가져오기</h2>
 <p>Pandas를 사용하려면 먼저 Pandas를 가져와야 합니다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
 <p>일반적으로 <code>pd</code>를 약어로 사용하여 Pandas를 가져오는 것이 일반적입니다.</p>
-<h2 id="Pandas-DataFrame-만들기">Pandas DataFrame 만들기</h2>
+<h2 id="pandas-dataframe-만들기"><a class="markdownIt-Anchor" href="#pandas-dataframe-만들기"></a> Pandas DataFrame 만들기</h2>
 <p>Pandas DataFrame은 다양한 데이터 유형(string, number, boolean 등)을 열에 저장할 수 있는 2차원 레이블이 지정된 데이터 구조입니다. 스프레드시트나 SQL 테이블과 비슷합니다.</p>
 <p>dictionary에서 간단한 DataFrame을 만들어 보겠습니다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data = &#123;<span class="string">'Name'</span>: [<span class="string">'John'</span>, <span class="string">'Mary'</span>, <span class="string">'Peter'</span>, <span class="string">'Jeff'</span>, <span class="string">'Bill'</span>],</span><br><span class="line">        <span class="string">'Age'</span>: [<span class="number">28</span>, <span class="number">32</span>, <span class="number">47</span>, <span class="number">19</span>, <span class="number">55</span>],</span><br><span class="line">        <span class="string">'Gender'</span>: [<span class="string">'Male'</span>, <span class="string">'Female'</span>, <span class="string">'Male'</span>, <span class="string">'Male'</span>, <span class="string">'Male'</span>]</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(data)</span><br><span class="line">print(df)</span><br></pre></td></tr></table></figure>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  Name  Age  Gender</span><br><span class="line">0  John   28    Male</span><br><span class="line">1  Mary   32  Female</span><br><span class="line">2  Peter  47    Male</span><br><span class="line">3   Jeff   19    Male</span><br><span class="line">4   Bill   55    Male</span><br></pre></td></tr></table></figure>
 <p>dictionary 키는 열 이름이 되고 값은 열의 데이터가 됩니다.</p>
-<h2 id="열-선택하기">열 선택하기</h2>
+<h2 id="열-선택하기"><a class="markdownIt-Anchor" href="#열-선택하기"></a> 열 선택하기</h2>
 <p>dictionary 키와 같은 열 이름을 사용하여 Pandas에서 열을 선택할 수 있습니다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ages = df[<span class="string">'Age'</span>]</span><br><span class="line">print(ages)</span><br></pre></td></tr></table></figure>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">0    28</span><br><span class="line">1    32</span><br><span class="line">2    47</span><br><span class="line">3    19</span><br><span class="line">4    55</span><br><span class="line">Name: Age, dtype: int64</span><br></pre></td></tr></table></figure>
@@ -294,25 +294,25 @@
 <blockquote>
 <p>Pandas Series는 인덱싱된 데이터의 1 차원 배열입니다.</p>
 </blockquote>
-<h2 id="행-선택하기">행 선택하기</h2>
+<h2 id="행-선택하기"><a class="markdownIt-Anchor" href="#행-선택하기"></a> 행 선택하기</h2>
 <p>integer 위치 또는 boolean 인덱싱을 통해 행을 선택할 수 있습니다. 처음 3개 행을 구해 보겠습니다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(df[<span class="number">0</span>:<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  Name  Age  Gender</span><br><span class="line">0  John   28    Male</span><br><span class="line">1  Mary   32  Female</span><br><span class="line">2  Peter  47    Male</span><br></pre></td></tr></table></figure>
 <p>그리고 'Age’가 30보다 큰 행은 다음과 같습니다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(df[df[<span class="string">'Age'</span>] &gt; <span class="number">30</span>])</span><br></pre></td></tr></table></figure>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  Name  Age  Gender</span><br><span class="line">1  Mary   32  Female</span><br><span class="line">2  Peter  47    Male</span><br><span class="line">4   Bill   55    Male</span><br></pre></td></tr></table></figure>
-<h2 id="CSV에서-데이터-로드하기">CSV에서 데이터 로드하기</h2>
+<h2 id="csv에서-데이터-로드하기"><a class="markdownIt-Anchor" href="#csv에서-데이터-로드하기"></a> CSV에서 데이터 로드하기</h2>
 <p><code>read_csv()</code>를 사용하여 CSV 파일에서 DataFrame으로 데이터를 쉽게 로드할 수 있습니다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">'data.csv'</span>)</span><br></pre></td></tr></table></figure>
 <p>그러면 ‘data.csv’ 파일이 Pandas DataFrame에 로드됩니다. 날짜 구문 분석 및 누락된 값 처리와 같은 많은 추가 옵션을 지정할 수 있습니다.</p>
-<h2 id="기본-데이터-정리">기본 데이터 정리</h2>
+<h2 id="기본-데이터-정리"><a class="markdownIt-Anchor" href="#기본-데이터-정리"></a> 기본 데이터 정리</h2>
 <p>Pandas를 사용하면 누락된 데이터를 쉽게 제거하고 지저분한 데이터를 정리할 수 있습니다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 누락된 값이 있는 행 삭제</span></span><br><span class="line">df.dropna()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 누락된 값 채우기</span></span><br><span class="line">df.fillna(value)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 열 이름 변경</span></span><br><span class="line">df.rename(columns=&#123;<span class="string">'old_name'</span>: <span class="string">'new_ name'</span>&#125;)</span><br></pre></td></tr></table></figure>
-<h2 id="유용한-연산">유용한 연산</h2>
+<h2 id="유용한-연산"><a class="markdownIt-Anchor" href="#유용한-연산"></a> 유용한 연산</h2>
 <p>Pandas에는 데이터 정리를 빠르게 해주는 많은 벡터화된 기능이 포함되어 있습니다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Age 열의 합계 계산</span></span><br><span class="line">df[<span class="string">'Age'</span>].sum()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Age 열의 평균 계산</span></span><br><span class="line">df[<span class="string">'Age'</span>].mean()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Age 열의 최대값 얻기</span></span><br><span class="line">df[<span class="string">'Age'</span>].max()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Age 열을 기준으로 정렬</span></span><br><span class="line">df.sort_values(<span class="string">'Age'</span>)</span><br></pre></td></tr></table></figure>
 <p>데이터를 집계, 분할, 변환, 결합, 시각화하기 위한 더 많은 함수가 있습니다.</p>
-<h2 id="결론">결론</h2>
+<h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2>
 <p>지금까지 Python에서 실제 데이터 분석을 위해 Pandas를 사용하는 몇 가지 기본 사항을 다루었습니다. 핵심 내용은 다음과 같습니다.</p>
 <ul>
 <li>표 형식 데이터 저장을 위한 DataFrame</li>
@@ -355,7 +355,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2024/01/26/python-5/" data-id="cmnbsny1k00w5ukcxd72ycscn" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2024/01/26/python-5/" data-id="cmnbvrtw100w2x4cxeotrem63" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -427,7 +427,7 @@
         },
         "headline": "초보자를 위한 Pandas 소개",
         "image": "http://hgko1207.github.io/images/thumbnail/python.png",
-        "keywords": "Python Programming 파이썬 Pandas",
+        "keywords": "Python Programming Pandas 파이썬",
         "genre": "Programming Language Python",
         "datePublished": "2024-01-26",
         "dateCreated": "2024-01-26",
@@ -435,10 +435,10 @@
         "url": "http://hgko1207.github.io/2024/01/26/python-5/",
         "description": "
 Pandas는 가장 인기 있고 강력한 Python용 데이터 분석 라이브러리 중 하나입니다. 사용하기 쉬운 데이터 구조와 구조화된 데이터 작업을 위한 도구를 제공합니다. 이 글에서는 데이터 분석에 Pandas를 사용하는 방법에 대한 실용적인 소개를 살펴보겠습니다.
-Pandas 가져오기
+ Pandas 가져오기
 Pandas를 사용하려면 먼저 Pandas를 가져와야 합니다.
-1impo",
-        "wordCount": 647
+1imp",
+        "wordCount": 672
     }
 </script>
 

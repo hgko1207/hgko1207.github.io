@@ -274,25 +274,25 @@
             
 
             <p><strong>TypeScript</strong>에서 인터페이스(Interface)를 생성하고 사용하는 방법에 대해 알아보겠습니다.</p>
-<h2 id="Interfaces">Interfaces</h2>
+<h2 id="interfaces"><a class="markdownIt-Anchor" href="#interfaces"></a> Interfaces</h2>
 <p>객체의 모양을 특정해 주기 위해 사용합니다. 여기서는 <code>firstName</code> 및 <code>lastName</code> 필드가 있는 객체를 설명하는 인터페이스를 사용합니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Person &#123;</span><br><span class="line">  firstName: <span class="built_in">string</span>;</span><br><span class="line">  lastName: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>다른 인터페이스를 상속 받아 사용할 수 있습니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> User &#123;</span><br><span class="line">  name: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> Player <span class="keyword">extends</span> User &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> eden: Player = &#123;</span><br><span class="line">  name: <span class="string">'eden'</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>인터페이스 이름이 같도록 3번 각각 만들어도 타입스크립트는 알아서 하나로 합쳐줍니다. Type과 차이점입니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> User &#123;</span><br><span class="line">  name: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> User &#123;</span><br><span class="line">  nickname: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> User &#123;</span><br><span class="line">  age: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> eden: User = &#123;</span><br><span class="line">  name: <span class="string">'eden'</span>,</span><br><span class="line">  nickname: <span class="string">'ko'</span>,</span><br><span class="line">  age: <span class="number">30</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="implements">implements</h2>
-<p>implements 을 사용하여 클래스가 특정 인터페이스를 충족하는지 확인할 수 있습니다.<br>
+<h2 id="implements"><a class="markdownIt-Anchor" href="#implements"></a> implements</h2>
+<p>implements 을 사용하여 클래스가 특정 인터페이스를 충족하는지 확인할 수 있습니다.<br />
 클래스를 올바르게 구현하지 못하면 오류가 발생합니다.</p>
-<p>implements 절은 클래스가 인터페이스 유형으로 처리될 수 있는지 확인하는 것입니다. 클래스의 유형이나 메서드는 전혀 변경하지 않습니다.<br>
+<p>implements 절은 클래스가 인터페이스 유형으로 처리될 수 있는지 확인하는 것입니다. 클래스의 유형이나 메서드는 전혀 변경하지 않습니다.<br />
 또한 클래스는 여러 인터페이스를 구현할 수도 있습니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ex) 클래스 C 는 A, B 를 구현합니다.</span></span><br><span class="line"><span class="keyword">class</span> C <span class="keyword">implements</span> A, B &#123;&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Pingable &#123;</span><br><span class="line">  ping(): <span class="built_in">void</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sonar 클래스는 Pingable 인터페이스를 implement 했기 때문에</span></span><br><span class="line"><span class="comment">// Pingable 가 가진 ping 메서드를 구현해줘야 합니다.</span></span><br><span class="line"><span class="keyword">class</span> Sonar <span class="keyword">implements</span> Pingable &#123;</span><br><span class="line">  ping() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'ping!'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>여러 개의 인터페이스를 상속받아 사용할 수 있습니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> User &#123;</span><br><span class="line">  firstName: <span class="built_in">string</span>;</span><br><span class="line">  lastName: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> Human &#123;</span><br><span class="line">  health: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Player <span class="keyword">implements</span> User, Human &#123;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"><span class="keyword">public</span> firstName: <span class="built_in">string</span>, <span class="keyword">public</span> lastName: <span class="built_in">string</span>, <span class="keyword">public</span> health: <span class="built_in">number</span></span>) &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Type-Aliases-과-Interfaces의-차이점">Type Aliases 과 Interfaces의 차이점</h2>
+<h2 id="type-aliases-과-interfaces의-차이점"><a class="markdownIt-Anchor" href="#type-aliases-과-interfaces의-차이점"></a> Type Aliases 과 Interfaces의 차이점</h2>
 <p>Type Aliases 과 인터페이스는 매우 유사하며 많은 경우 자유롭게 선택할 수 있습니다. 인터페이스의 거의 모든 기능은 type에서 사용할 수 있으며, 주요 차이점은 type을 다시 열어 새 속성을 추가할 수 없는 것입니다. 반면 인터페이스는 항상 확장 가능합니다.</p>
-<h2 id="참고">참고</h2>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <ul>
 <li><a href="https://www.typescriptlang.org/docs/handbook/typescript-tooling-in-5-minutes.html#interfaces" target="_blank" rel="noopener">https://www.typescriptlang.org/docs/handbook/typescript-tooling-in-5-minutes.html#interfaces</a></li>
 <li><a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces" target="_blank" rel="noopener">https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces</a></li>
@@ -330,7 +330,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2023/04/06/typescript-5/" data-id="cmnbsnxzo00m9ukcx9o2rfs4c" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2023/04/06/typescript-5/" data-id="cmnbvrtti00mpx4cxex5qd1d1" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -409,10 +409,10 @@
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2023/04/06/typescript-5/",
         "description": "TypeScript에서 인터페이스(Interface)를 생성하고 사용하는 방법에 대해 알아보겠습니다.
-Interfaces
+ Interfaces
 객체의 모양을 특정해 주기 위해 사용합니다. 여기서는 firstName 및 lastName 필드가 있는 객체를 설명하는 인터페이스를 사용합니다.
-1234interface Person &#123;  firstName: string;  la",
-        "wordCount": 434
+1234interface Person &#123;  firstName: string;  l",
+        "wordCount": 448
     }
 </script>
 

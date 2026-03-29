@@ -275,14 +275,14 @@
             
 
             <p>잘 구성된 <strong>Python</strong> 프로젝트 구조는 코드베이스를 관리하기 쉽게 만들고 확장성과 이해도를 높여줍니다. 이는 개인 개발자는 물론, 팀으로 협업할 때도 필수적인 요소입니다. 이 글에서는 Python 프로젝트를 효과적으로 구성하는 방법에 대해 단계별로 설명하고, 각 단계에서 모범 사례와 예시를 함께 다룹니다.</p>
-<h2 id="1단계-프로젝트-설정-🌳-루트-디렉터리">1단계: 프로젝트 설정 🌳 루트 디렉터리</h2>
+<h2 id="1단계-프로젝트-설정-루트-디렉터리"><a class="markdownIt-Anchor" href="#1단계-프로젝트-설정-루트-디렉터리"></a> 1단계: 프로젝트 설정 🌳 루트 디렉터리</h2>
 <p>가장 먼저 프로젝트와 관련된 모든 파일을 포함할 <strong>루트(Root) 디렉터리</strong>를 생성합니다. 디렉터리 이름은 프로젝트의 목적이나 내용을 명확하게 나타내도록 <strong>설명적이고 의미 있는 이름</strong>으로 지정하는 것이 좋습니다. 일반적으로 프로젝트 이름을 디렉터리 이름으로 사용하는 것이 권장됩니다.</p>
 <p><strong>예시:</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">my_project/</span><br></pre></td></tr></table></figure>
 <p>이 디렉터리 안에 소스 코드, 문서, 설정 파일 등을 추가하며 프로젝트를 구성해 나가게 됩니다.</p>
-<h2 id="2단계-가상-환경-생성-🌄">2단계: 가상 환경 생성 🌄</h2>
+<h2 id="2단계-가상-환경-생성"><a class="markdownIt-Anchor" href="#2단계-가상-환경-생성"></a> 2단계: 가상 환경 생성 🌄</h2>
 <p>가상 환경은 프로젝트 간 종속성 충돌을 방지하고, <strong>종속성을 격리</strong>하여 관리할 수 있도록 해줍니다. 이를 통해 프로젝트마다 필요한 패키지 버전을 다르게 설정할 수 있으며, 안정적인 개발 환경을 유지할 수 있습니다.</p>
-<h3 id="가상-환경-생성-방법">가상 환경 생성 방법</h3>
+<h3 id="가상-환경-생성-방법"><a class="markdownIt-Anchor" href="#가상-환경-생성-방법"></a> 가상 환경 생성 방법</h3>
 <p><strong>Linux/macOS 사용자:</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> my_project</span><br><span class="line">python3 -m venv venv</span><br></pre></td></tr></table></figure>
 <p><strong>Windows 사용자:</strong></p>
@@ -293,49 +293,49 @@
 <p><strong>Windows에서 활성화:</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">venv\Scripts\activate</span><br></pre></td></tr></table></figure>
 <p>이제 가상 환경이 활성화되었으며, 모든 종속성(라이브러리 및 패키지)은 이 환경에 설치됩니다. 이렇게 하면 프로젝트가 특정 버전의 라이브러리에 종속되어도 다른 프로젝트에 영향을 주지 않게 됩니다.</p>
-<h2 id="3단계-핵심-디렉터리-구조-정의-📗">3단계: 핵심 디렉터리 구조 정의 📗</h2>
+<h2 id="3단계-핵심-디렉터리-구조-정의"><a class="markdownIt-Anchor" href="#3단계-핵심-디렉터리-구조-정의"></a> 3단계: 핵심 디렉터리 구조 정의 📗</h2>
 <p>Python 프로젝트의 핵심 프로젝트 구조는 <strong>패키지/모듈 디렉터리, 테스트 디렉터리</strong>, 그리고 루트 수준에 위치한 <strong>설정 및 구성 파일</strong>로 구성되어야 합니다. 이러한 구조는 프로젝트의 코드 관리와 확장을 용이하게 해줍니다.</p>
-<h3 id="예시-디렉터리-구조">예시 디렉터리 구조</h3>
+<h3 id="예시-디렉터리-구조"><a class="markdownIt-Anchor" href="#예시-디렉터리-구조"></a> 예시 디렉터리 구조</h3>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">my_project/</span><br><span class="line">│</span><br><span class="line">├── my_package/           # 메인 패키지 디렉터리</span><br><span class="line">│   ├── __init__.py       # 디렉터리를 패키지로 인식시키는 파일</span><br><span class="line">│   ├── module1.py</span><br><span class="line">│   ├── module2.py</span><br><span class="line">│   └── utils.py</span><br><span class="line">│</span><br><span class="line">├── tests/                # 각 모듈이나 기능에 대한 테스트 디렉터리</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   ├── test_module1.py</span><br><span class="line">│   ├── test_module2.py</span><br><span class="line">│   └── test_utils.py</span><br><span class="line">│</span><br><span class="line">├── venv/                 # 가상 환경 디렉터리 (.gitignore에 추가하여 무시)</span><br><span class="line">│</span><br><span class="line">├── requirements.txt      # 프로젝트 종속성 목록</span><br><span class="line">│</span><br><span class="line">└── README.md             # 프로젝트 설명 및 사용법</span><br></pre></td></tr></table></figure>
-<h3 id="구성-요소-설명">구성 요소 설명</h3>
+<h3 id="구성-요소-설명"><a class="markdownIt-Anchor" href="#구성-요소-설명"></a> 구성 요소 설명</h3>
 <ul>
 <li><strong><code>my_package/</code>:</strong> 프로젝트의 핵심 코드를 포함하는 디렉터리입니다.</li>
 <li><strong><code>tests/</code>:</strong> 각 모듈에 대한 단위 테스트가 포함된 디렉터리로, 테스트를 통해 코드의 안정성을 검증할 수 있습니다.</li>
 <li><strong><code>requirements.txt</code>:</strong> 프로젝트에 필요한 라이브러리와 종속성 목록을 관리하는 파일입니다. <code>pip freeze &gt; requirements.txt</code> 명령어로 자동 생성할 수 있습니다.</li>
 <li><strong><code>README.md</code>:</strong> 프로젝트에 대한 설명과 사용법을 제공하는 문서로, 다른 사용자들이 프로젝트를 쉽게 이해하고 사용할 수 있도록 도와줍니다.</li>
 </ul>
-<h2 id="4단계-init-py-파일-작성-📝">4단계: <code>__init__.py</code> 파일 작성 📝</h2>
+<h2 id="4단계-__init__py-파일-작성"><a class="markdownIt-Anchor" href="#4단계-__init__py-파일-작성"></a> 4단계: <code>__init__.py</code> 파일 작성 📝</h2>
 <p><code>__init__.py</code> 파일은 디렉터리를 Python 패키지로 인식하게 만듭니다. 또한, 이 파일을 통해 특정 모듈이나 함수에 대한 임포트를 간소화할 수 있습니다.</p>
 <p><strong>예시 <code>__init__.py</code> 파일 (my_package/ 디렉터리):</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># my_package/__init__.py</span></span><br><span class="line"><span class="keyword">from</span> .module1 <span class="keyword">import</span> function1</span><br><span class="line"><span class="keyword">from</span> .module2 <span class="keyword">import</span> function2</span><br></pre></td></tr></table></figure>
 <p>이렇게 하면 다음과 같이 간단하게 임포트할 수 있습니다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> my_package <span class="keyword">import</span> function1</span><br></pre></td></tr></table></figure>
-<h2 id="5단계-설정-파일-추가-⚙️">5단계: 설정 파일 추가 ⚙️</h2>
+<h2 id="5단계-설정-파일-추가-️"><a class="markdownIt-Anchor" href="#5단계-설정-파일-추가-️"></a> 5단계: 설정 파일 추가 ⚙️</h2>
 <p>테스트, 코드 스타일 검사, 배포 등을 자동화하려면 설정 파일을 추가하는 것이 좋습니다.</p>
-<h3 id="1-gitignore">1. <code>.gitignore</code></h3>
+<h3 id="1-gitignore"><a class="markdownIt-Anchor" href="#1-gitignore"></a> 1. <code>.gitignore</code></h3>
 <p><code>.gitignore</code> 파일을 통해 Git에서 관리하지 않을 파일과 디렉터리를 지정할 수 있습니다.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">venv/</span><br><span class="line">__pycache__/</span><br><span class="line">*.pyc</span><br></pre></td></tr></table></figure>
-<h3 id="2-requirements-txt">2. <code>requirements.txt</code></h3>
+<h3 id="2-requirementstxt"><a class="markdownIt-Anchor" href="#2-requirementstxt"></a> 2. <code>requirements.txt</code></h3>
 <p><code>requirements.txt</code> 파일은 프로젝트 종속성을 관리하며, 동일한 개발 환경을 쉽게 재현할 수 있도록 도와줍니다.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 생성 방법</span></span><br><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure>
-<h2 id="6단계-테스트-설정-⚓️">6단계: 테스트 설정 ⚓️</h2>
+<h2 id="6단계-테스트-설정-️"><a class="markdownIt-Anchor" href="#6단계-테스트-설정-️"></a> 6단계: 테스트 설정 ⚓️</h2>
 <p>테스트는 프로젝트의 품질을 보장하는 중요한 요소입니다. Python에서는 <strong>pytest</strong> 또는 <strong>unittest</strong>를 사용하여 테스트를 작성할 수 있습니다.</p>
 <p>테스트 파일은 일반적으로 <code>tests/</code> 디렉터리에 배치하며, 파일 이름은 <code>test_</code>로 시작하는 것이 관례입니다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 예시 테스트 파일: tests/test_module1.py</span></span><br><span class="line"><span class="keyword">import</span> pytest</span><br><span class="line"><span class="keyword">from</span> my_package.module1 <span class="keyword">import</span> function1</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_function1</span><span class="params">()</span>:</span></span><br><span class="line">    result = function1()</span><br><span class="line">    <span class="keyword">assert</span> result == expected_output  <span class="comment"># 실제 예상 결과로 교체</span></span><br></pre></td></tr></table></figure>
 <p>명령어로 테스트 실행</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytest tests/</span><br></pre></td></tr></table></figure>
-<h2 id="7단계-패키징을-위한-setup-py-작성-📦-선택-사항">7단계: 패키징을 위한 <code>setup.py</code> 작성 📦 (선택 사항)</h2>
-<p>배포 가능한 Python 패키지를 만들려면 <code>setup.py</code> 파일을 추가해야 합니다.<br>
+<h2 id="7단계-패키징을-위한-setuppy-작성-선택-사항"><a class="markdownIt-Anchor" href="#7단계-패키징을-위한-setuppy-작성-선택-사항"></a> 7단계: 패키징을 위한 <code>setup.py</code> 작성 📦 (선택 사항)</h2>
+<p>배포 가능한 Python 패키지를 만들려면 <code>setup.py</code> 파일을 추가해야 합니다.<br />
 이 파일은 Python이 패키지를 빌드하고 설치하는 방법을 정의합니다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 예시</span></span><br><span class="line"><span class="keyword">from</span> setuptools <span class="keyword">import</span> setup, find_packages</span><br><span class="line"></span><br><span class="line">setup(</span><br><span class="line">    name=<span class="string">"my_project"</span>,</span><br><span class="line">    version=<span class="string">"0.1"</span>,</span><br><span class="line">    packages=find_packages(),</span><br><span class="line">    install_requires=[</span><br><span class="line">        <span class="string">"some_package&gt;=1.0.0"</span>,</span><br><span class="line">    ],</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <p>로컬에서 패키지 설치 방법</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -e .</span><br></pre></td></tr></table></figure>
 <p>이제 프로젝트를 다른 Python 환경에서도 쉽게 설치하고 사용할 수 있습니다.</p>
-<h2 id="8단계-프로젝트-문서화-📜">8단계: 프로젝트 문서화 📜</h2>
-<p>문서화는 프로젝트를 더 이해하기 쉽게 만들어 줍니다.<br>
+<h2 id="8단계-프로젝트-문서화"><a class="markdownIt-Anchor" href="#8단계-프로젝트-문서화"></a> 8단계: 프로젝트 문서화 📜</h2>
+<p>문서화는 프로젝트를 더 이해하기 쉽게 만들어 줍니다.<br />
 <code>README.md</code> 파일을 업데이트하여 프로젝트 개요, 설치 방법, 사용 예시 등을 포함하세요.</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># My Project</span></span><br><span class="line"></span><br><span class="line"><span class="section">## Overview</span></span><br><span class="line"></span><br><span class="line">This project does XYZ.</span><br><span class="line"></span><br><span class="line"><span class="section">## Installation</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">1. </span>Clone the repository.</span><br><span class="line"><span class="bullet">2. </span>Install dependencies:</span><br><span class="line">   <span class="code">```</span>bash</span><br><span class="line"><span class="code">      pip install -r requirements.txt</span></span><br><span class="line">   <span class="code">```</span></span><br></pre></td></tr></table></figure>
-<h2 id="최종">최종</h2>
+<h2 id="최종"><a class="markdownIt-Anchor" href="#최종"></a> 최종</h2>
 <p>최종 프로젝트 구조 예시입니다.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">my_project/</span><br><span class="line">│</span><br><span class="line">├── my_package/           # 메인 패키지 디렉터리</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   ├── module1.py</span><br><span class="line">│   ├── module2.py</span><br><span class="line">│   └── utils.py</span><br><span class="line">│</span><br><span class="line">├── tests/                # 테스트 디렉터리</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   ├── test_module1.py</span><br><span class="line">│   ├── test_module2.py</span><br><span class="line">│   └── test_utils.py</span><br><span class="line">│</span><br><span class="line">├── venv/                 # 가상 환경 디렉터리</span><br><span class="line">│</span><br><span class="line">├── requirements.txt      # 종속성 목록</span><br><span class="line">│</span><br><span class="line">├── README.md             # 프로젝트 설명 및 사용법</span><br><span class="line">│</span><br><span class="line">└── setup.py              # 선택 사항: 패키징 설정 파일</span><br></pre></td></tr></table></figure>
 <p>이러한 구조는 프로젝트를 체계적으로 관리할 수 있도록 도와주며, 개발, 테스트, 유지보수를 더 효율적으로 할 수 있게 만듭니다.</p>
@@ -372,7 +372,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2025/01/09/python-12/" data-id="cmnbsnyzx04qaukcxev9j3ezm" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2025/01/09/python-12/" data-id="cmnbvrusj0440x4cxboafdhtt" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -451,9 +451,9 @@
         "dateModified": "2025-01-09",
         "url": "http://hgko1207.github.io/2025/01/09/python-12/",
         "description": "잘 구성된 Python 프로젝트 구조는 코드베이스를 관리하기 쉽게 만들고 확장성과 이해도를 높여줍니다. 이는 개인 개발자는 물론, 팀으로 협업할 때도 필수적인 요소입니다. 이 글에서는 Python 프로젝트를 효과적으로 구성하는 방법에 대해 단계별로 설명하고, 각 단계에서 모범 사례와 예시를 함께 다룹니다.
-1단계: 프로젝트 설정 🌳 루트 디렉터리
-가장 먼",
-        "wordCount": 1086
+ 1단계: 프로젝트 설정 🌳 루트 디렉터리
+가장 ",
+        "wordCount": 1130
     }
 </script>
 

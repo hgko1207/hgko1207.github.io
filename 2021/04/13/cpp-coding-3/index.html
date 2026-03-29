@@ -270,22 +270,22 @@
 
             
 
-            <h2 id="point-in-polygon-PIP">point-in-polygon (PIP)</h2>
+            <h2 id="point-in-polygon-pip"><a class="markdownIt-Anchor" href="#point-in-polygon-pip"></a> point-in-polygon (PIP)</h2>
 <blockquote>
 <p>“In computational geometry, the point-in-polygon (PIP) problem asks whether a given point in the plane lies inside, outside, or on the boundary of a polygon.” Wikipedia.</p>
 </blockquote>
 <p>점이 다각형(Polygon) 내부에 있는지 확인하는 코드입니다.</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="keyword">int</span> x;</span><br><span class="line">  <span class="keyword">int</span> y;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">InsidePolygon</span><span class="params">(<span class="keyword">int</span> nvert, Point polygon[], <span class="keyword">int</span> pointx, <span class="keyword">int</span> pointy)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">bool</span> inside = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>, j = nvert - <span class="number">1</span>; i &lt; nvert; j = i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (((polygon[i].y &gt; pointy) != (polygon[j].y &gt; pointy)) &amp;&amp;</span><br><span class="line">          (pointx &lt; (polygon[j].x - polygon[i].x) * (pointy - polygon[i].y) / (polygon[j].y - polygon[i].y) + polygon[i].x)) &#123;</span><br><span class="line">            inside = !inside;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> inside;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="인수">인수</h3>
+<h3 id="인수"><a class="markdownIt-Anchor" href="#인수"></a> 인수</h3>
 <ul>
 <li>nvert : 다각형의 정점 수</li>
 <li>polygon[] : 다각형을 형성하는 점의 배열</li>
 <li>pointx : 점의 X 좌표</li>
 <li>pointy : 점의 Y 좌표</li>
 </ul>
-<h2 id="테스트">테스트</h2>
+<h2 id="테스트"><a class="markdownIt-Anchor" href="#테스트"></a> 테스트</h2>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  Point polygon[] = &#123;&#123;<span class="number">0</span>, <span class="number">0</span>&#125;, &#123;<span class="number">50</span>, <span class="number">0</span>&#125;, &#123;<span class="number">50</span>, <span class="number">50</span>&#125;, &#123;<span class="number">0</span>, <span class="number">50</span>&#125;&#125;;</span><br><span class="line">  <span class="keyword">int</span> n = <span class="keyword">sizeof</span>(polygon) / <span class="keyword">sizeof</span>(polygon[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">bool</span> result = InsidePolygon(n, polygon, <span class="number">0</span>, <span class="number">5</span>);</span><br><span class="line">  result ? <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"YES \n"</span> : <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"NO \n"</span>;</span><br><span class="line"></span><br><span class="line">  result = InsidePolygon(n, polygon, <span class="number">60</span>, <span class="number">20</span>);</span><br><span class="line">  result ? <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"YES \n"</span> : <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"NO \n"</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="결과">결과</h2>
+<h2 id="결과"><a class="markdownIt-Anchor" href="#결과"></a> 결과</h2>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">YES</span><br><span class="line">NO</span><br></pre></td></tr></table></figure>
 
         </div>
@@ -320,7 +320,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2021/04/13/cpp-coding-3/" data-id="cmnbsnxxm00a9ukcx2ld35jbx" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2021/04/13/cpp-coding-3/" data-id="cmnbvrtqb009vx4cx792f8fad" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -398,12 +398,12 @@
         "dateCreated": "2021-04-13",
         "dateModified": "2023-03-14",
         "url": "http://hgko1207.github.io/2021/04/13/cpp-coding-3/",
-        "description": "point-in-polygon (PIP)
+        "description": " point-in-polygon (PIP)
 
 “In computational geometry, the point-in-polygon (PIP) problem asks whether a given point in the plane lies inside, outside, or on the boundary of a polygon.” Wikipedia.
 
-점이 다각",
-        "wordCount": 382
+점이 다",
+        "wordCount": 394
     }
 </script>
 

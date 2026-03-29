@@ -274,7 +274,7 @@
             
 
             <p><strong>TypeScript</strong>에서 클래스(Class)를 생성하고 사용하는 방법에 대해 알아보겠습니다.</p>
-<h2 id="클래스-Class">클래스(Class)</h2>
+<h2 id="클래스class"><a class="markdownIt-Anchor" href="#클래스class"></a> 클래스(Class)</h2>
 <p>가장 기본적인 클래스입니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Player &#123;&#125;</span><br></pre></td></tr></table></figure>
 <p>필드를 선언해서 사용 가능합니다.</p>
@@ -286,16 +286,16 @@
 <li>private: 해당 클래스 내에서만 접근 가능 (자식 클래스에서도 접근 불가)</li>
 <li>protected: 해당 클래스와 자식 클래스에서 접근 가능</li>
 </ul>
-<h2 id="추상-클래스-Abstract-Class">추상 클래스(Abstract Class)</h2>
+<h2 id="추상-클래스abstract-class"><a class="markdownIt-Anchor" href="#추상-클래스abstract-class"></a> 추상 클래스(Abstract Class)</h2>
 <p>TypeScript와 객체지향 프로그램이 가지고 있는 엄청 훌륭한 것은 추상 클래스(Abstract Class)라고 생각됩니다.</p>
 <p>추상클래스는 다른 클래스가 상속받을 수 있는 클래스입니다. 하지만 이 클래스는 직접 새로운 인스턴스를 만들 수는 없습니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> User &#123;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"></span></span><br><span class="line"><span class="params">    <span class="keyword">private</span> firstname: <span class="built_in">string</span>,</span></span><br><span class="line"><span class="params">    <span class="keyword">private</span> lastname: <span class="built_in">string</span>,</span></span><br><span class="line"><span class="params">    <span class="keyword">public</span> nickname: <span class="built_in">string</span></span></span><br><span class="line"><span class="params">  </span>) &#123;</span><br><span class="line">    <span class="keyword">abstract</span> getNickname(): <span class="built_in">void</span></span><br><span class="line"></span><br><span class="line">    getFullName() &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.firstname&#125;</span> <span class="subst">$&#123;<span class="keyword">this</span>.lastname&#125;</span>`</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// [오류]</span></span><br><span class="line"><span class="comment">// TypeScript 가 추상 클래스의 인스턴스를 만들 수 없다고 경고함</span></span><br><span class="line">🚫 <span class="keyword">const</span> eden = <span class="keyword">new</span> User(<span class="string">"ko"</span>, <span class="string">"eden"</span>, <span class="string">"고수"</span>);</span><br></pre></td></tr></table></figure>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Player <span class="keyword">extends</span> User &#123;</span><br><span class="line">  <span class="comment">// 추상 메서드는 추상 클래스를 상속받는 클래스들이 반드시 구현(implement)해야하는 메서드입니다.</span></span><br><span class="line">  getNickname() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.nickname);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> eden = <span class="keyword">new</span> Player(<span class="string">'ko'</span>, <span class="string">'eden'</span>, <span class="string">'고수'</span>);</span><br><span class="line">eden.getNickname();</span><br><span class="line">eden.getFullName();</span><br></pre></td></tr></table></figure>
 <p>추상 클래스를 사용하기 위해서는 상속을 받아 사용합니다.</p>
-<h2 id="Static-Members">Static Members</h2>
+<h2 id="static-members"><a class="markdownIt-Anchor" href="#static-members"></a> Static Members</h2>
 <p>클래스에는 static 멤버가 있을 수 있습니다. 이 멤버는 클래스의 특정 인스턴스와 연결되지 않습니다. 클래스 생성자 객체 자체를 통해 액세스 할 수 있습니다. static 멤버는 동일한 public, protected 및 private과 함께 사용할 수도 있습니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> MyClass &#123;</span><br><span class="line">  <span class="keyword">static</span> x = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> printX() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(MyClass.x);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(MyClass.x);</span><br><span class="line">MyClass.printX();</span><br></pre></td></tr></table></figure>
-<h2 id="참고">참고</h2>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <ul>
 <li><a href="https://www.typescriptlang.org/docs/handbook/2/classes.html" target="_blank" rel="noopener">https://www.typescriptlang.org/docs/handbook/2/classes.html</a></li>
 <li><a href="https://www.typescriptlang.org/docs/handbook/2/classes.html#static-members" target="_blank" rel="noopener">https://www.typescriptlang.org/docs/handbook/2/classes.html#static-members</a></li>
@@ -333,7 +333,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2023/03/29/typescript-4/" data-id="cmnbsnxzn00m1ukcx97d74v7i" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2023/03/29/typescript-4/" data-id="cmnbvrttc00m3x4cxexlu31yh" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -412,12 +412,12 @@
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2023/03/29/typescript-4/",
         "description": "TypeScript에서 클래스(Class)를 생성하고 사용하는 방법에 대해 알아보겠습니다.
-클래스(Class)
+ 클래스(Class)
 가장 기본적인 클래스입니다.
 1class Player &#123;&#125;
 필드를 선언해서 사용 가능합니다.
-12345678class Player &#123;  firstname: string;  lastname: string;&#125;cons",
-        "wordCount": 508
+12345678class Player &#123;  firstname: string;  lastname: string;&#125;con",
+        "wordCount": 520
     }
 </script>
 

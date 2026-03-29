@@ -274,7 +274,7 @@
             
 
             <p>이 글에서는 모든 개발자가 반드시 알아야 할 다양한 C# 개념을 살펴봅니다. 코드 예제를 알고 이해한다면 .NET에서 꽤 잘하고 있는 것일 가능성이 높습니다.</p>
-<h2 id="1-IEnumerable-T-와-ICollection-T-의-차이점">1. <code>IEnumerable&lt;T&gt;</code>와 <code>ICollection&lt;T&gt;</code>의 차이점</h2>
+<h2 id="1-ienumerablet와-icollectiont의-차이점"><a class="markdownIt-Anchor" href="#1-ienumerablet와-icollectiont의-차이점"></a> 1. <code>IEnumerable&lt;T&gt;</code>와 <code>ICollection&lt;T&gt;</code>의 차이점</h2>
 <p>C#으로 로직을 작성할 때 개발자는 <code>IEnumerable&lt;T&gt;</code>와 <code>ICollection&lt;T&gt;</code>를 자주 접하게 됩니다. 이 둘은 매우 비슷해 보이지만 소프트웨어 개발에서 서로 다른 용도로 사용됩니다.</p>
 <ul>
 <li><code>IEnumerable&lt;T&gt;</code>는 일반 컬렉션이 아닌 컬렉션의 기본 인터페이스 역할을 합니다. 정의된 유형의 컬렉션을 반복하는 데 도움이 됩니다.</li>
@@ -286,7 +286,7 @@
 </ul>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ICollection&lt;<span class="keyword">int</span>&gt; data = <span class="keyword">new</span> List&lt;<span class="keyword">int</span>&gt; &#123; <span class="number">12</span>, <span class="number">34</span>, <span class="number">56</span> &#125;;</span><br><span class="line">data.Add(<span class="number">4</span>);</span><br><span class="line">Console.WriteLine(data.Count); <span class="comment">// Outputs: 4</span></span><br></pre></td></tr></table></figure>
 <p>컬렉션에 변경 메서드가 필요한 경우 <code>ICollection&lt;T&gt;</code>, 간단한 읽기 작업에는 <code>IEnumerable&lt;T&gt;</code>를 사용하는 것이 좋습니다.</p>
-<h2 id="2-NET-Core에서-종속성-주입의-역할">2. .NET Core에서 종속성 주입의 역할</h2>
+<h2 id="2-net-core에서-종속성-주입의-역할"><a class="markdownIt-Anchor" href="#2-net-core에서-종속성-주입의-역할"></a> 2. .NET Core에서 종속성 주입의 역할</h2>
 <p>느슨하게 결합되고 테스트 가능한 코드를 작성하려는 경우, DI(Dependency Injection) 디자인 패턴을 사용하는 것을 권장합니다. .NET Core는 DI를 기본적으로 지원하므로 쉽게 구현할 수 있습니다.</p>
 <ul>
 <li><code>Startup.cs</code> 파일의 <code>ConfigureServices</code> 메서드에 서비스를 등록합니다. 여기에서 주입할 수 있는 서비스를 정의합니다.</li>
@@ -295,7 +295,7 @@
 <p>생성자 주입을 통해 클래스에 서비스를 주입하세요. 이렇게 하면 클래스가 직접 생성할 필요 없이 종속성을 받을 수 있습니다.</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyController</span> : <span class="title">Controller</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> IMyService _myService;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyController</span>(<span class="params">IMyService myService</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        _myService = myService;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> IActionResult <span class="title">Index</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">var</span> data = _myService.GetData();</span><br><span class="line">        <span class="keyword">return</span> View(data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>개발자가 서비스 생성을 분리하면 코드의 유지 관리와 테스트가 더 쉬워집니다.</p>
-<h2 id="3-ref와-out-매개변수의-차이점">3. <code>ref</code>와 <code>out</code> 매개변수의 차이점</h2>
+<h2 id="3-ref와-out-매개변수의-차이점"><a class="markdownIt-Anchor" href="#3-ref와-out-매개변수의-차이점"></a> 3. <code>ref</code>와 <code>out</code> 매개변수의 차이점</h2>
 <p>C#에서 <code>ref</code>와 <code>out</code>은 매개변수를 참조로 전달하는 데 사용되지만, 서로 다른 특징이 있습니다.</p>
 <ul>
 <li><code>ref</code> 매개변수는 메서드에 전달되기 전에 변수를 초기화해야 합니다. 그런 다음 메서드는 변수 값을 수정할 수 있습니다.</li>
@@ -306,7 +306,7 @@
 </ul>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">GetValues</span>(<span class="params"><span class="keyword">out</span> <span class="keyword">int</span> value1, <span class="keyword">out</span> <span class="keyword">int</span> value2</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    value1 = <span class="number">10</span>;</span><br><span class="line">    value2 = <span class="number">20</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">GetValues(<span class="keyword">out</span> <span class="keyword">int</span> a, <span class="keyword">out</span> <span class="keyword">int</span> b);</span><br><span class="line">Console.WriteLine(a); <span class="comment">// Outputs: 10</span></span><br><span class="line">Console.WriteLine(b); <span class="comment">// Outputs: 20</span></span><br></pre></td></tr></table></figure>
 <p><code>ref</code>는 일반적으로 메서드가 기존 변수를 수정해야 할 때 사용되며, <code>out</code>은 메서드가 여러 값을 반환하거나 호출자가 제공하지 않은 값을 초기화해야 할 때 사용됩니다.</p>
-<h2 id="4-async-및-await">4. <code>async</code> 및 <code>await</code></h2>
+<h2 id="4-async-및-await"><a class="markdownIt-Anchor" href="#4-async-및-await"></a> 4. <code>async</code> 및 <code>await</code></h2>
 <p>.NET에서 비동기 프로그래밍은 부하가 걸린 상태에서도 잘 작동하는 효율적인 애플리케이션을 작성하는 데 필수적입니다. <code>async</code> 및 <code>await</code> 키워드는 비동기 작업을 간소화합니다.</p>
 <ul>
 <li><code>async</code> 메서드를 사용하면 작업을 비동기적으로 수행할 수 있습니다. 메서드에 <code>async</code> 키워드를 표시하면 그 안에 <code>await</code>을 사용할 수 있습니다.</li>
@@ -317,7 +317,7 @@
 </ul>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">async</span> Task <span class="title">ShowDataAsync</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">string</span> data = <span class="keyword">await</span> FetchDataAsync();</span><br><span class="line">    Console.WriteLine(data);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>애플리케이션의 성능을 향상시키려면 <code>async</code> 및 <code>await</code> 기능을 효과적으로 사용하면서 동시에 애플리케이션 UI의 반응성을 유지하세요.</p>
-<h2 id="5-예외-처리">5. 예외 처리</h2>
+<h2 id="5-예외-처리"><a class="markdownIt-Anchor" href="#5-예외-처리"></a> 5. 예외 처리</h2>
 <p>예외를 원활하게 처리하는 것은 견고하고 사용자 친화적인 애플리케이션을 유지하는 데 매우 중요합니다. .NET Core는 예외 처리를 위한 다양한 메커니즘을 제공합니다.</p>
 <ul>
 <li><strong>Local 예외 처리:</strong> try-catch 블록을 사용하여 예외를 포착하고 처리합니다.</li>
@@ -328,7 +328,7 @@
 </ul>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Configure</span>(<span class="params">IApplicationBuilder app</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    app.UseExceptionHandler(<span class="string">"/Home/Error"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Global 예외 처리 미들웨어는 모든 애플리케이션 오류와 예외를 처리할 수 있는 공통된 장소를 제공합니다. 이를 통해 애플리케이션이 일관되게 응답을 처리할 수 있습니다.</p>
-<h2 id="6-ASP-NET-Core에서-appsettings-json의-역할">6. <a href="http://ASP.NET" target="_blank" rel="noopener">ASP.NET</a> Core에서 <code>appsettings.json</code>의 역할</h2>
+<h2 id="6-aspnet-core에서-appsettingsjson의-역할"><a class="markdownIt-Anchor" href="#6-aspnet-core에서-appsettingsjson의-역할"></a> 6. <a href="http://ASP.NET" target="_blank" rel="noopener">ASP.NET</a> Core에서 <code>appsettings.json</code>의 역할</h2>
 <p><code>appsettings.json</code> 파일은 구성(configuration) 문자열 및 애플리케이션별 키와 같은 애플리케이션 자격 증명을 관리하는 데 사용됩니다. 구성 설정은 환경별로 나눌 수도 있습니다.</p>
 <ul>
 <li><code>appsettings.json</code> 파일 예시:</li>
@@ -337,7 +337,7 @@
 <p>애플리케이션의 구성 설정 값에 액세스하는 방법은 내장된 구성 시스템을 사용하면 간단합니다.</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyService</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> <span class="keyword">string</span> _connectionString;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyService</span>(<span class="params">IConfiguration configuration</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        _connectionString = configuration.GetConnectionString(<span class="string">"DefaultConnection"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>appettings.json</code> 파일을 사용하면 구성 설정을 쉽게 가져올 수 있으므로 효율적으로 처리해야 합니다.</p>
-<h2 id="7-C-에서-Task와-Thread-이해하기">7. C#에서 <code>Task</code>와 <code>Thread</code> 이해하기</h2>
+<h2 id="7-c에서-task와-thread-이해하기"><a class="markdownIt-Anchor" href="#7-c에서-task와-thread-이해하기"></a> 7. C#에서 <code>Task</code>와 <code>Thread</code> 이해하기</h2>
 <p><code>Task</code>와 <code>Thread</code>는 모두 C#에서 동시(concurrent) 프로그래밍에 사용되지만 서로 다른 용도로 사용됩니다.</p>
 <ul>
 <li><code>Thread</code>는 단일 실행 경로를 나타내며 하위 레벨 구조입니다. 실행에 대한 더 많은 제어 기능을 제공하지만 수동 관리가 필요합니다.</li>
@@ -381,7 +381,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2024/10/17/csharp-12/" data-id="cmnbsny4m0195ukcx90zx2nag" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2024/10/17/csharp-12/" data-id="cmnbvrupw041hx4cxg97mc2fp" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -460,9 +460,9 @@
         "dateModified": "2024-10-17",
         "url": "http://hgko1207.github.io/2024/10/17/csharp-12/",
         "description": "이 글에서는 모든 개발자가 반드시 알아야 할 다양한 C# 개념을 살펴봅니다. 코드 예제를 알고 이해한다면 .NET에서 꽤 잘하고 있는 것일 가능성이 높습니다.
-1. IEnumerable&lt;T&gt;와 ICollection&lt;T&gt;의 차이점
-C#으로 로직을 작성할 때 개발자는 IEnumerable&lt;T&gt;와 ICollection&lt;T&g",
-        "wordCount": 1163
+ 1. IEnumerable&lt;T&gt;와 ICollection&lt;T&gt;의 차이점
+C#으로 로직을 작성할 때 개발자는 IEnumerable&lt;T&gt;와 ICollection&lt;T&",
+        "wordCount": 1184
     }
 </script>
 

@@ -275,16 +275,16 @@
 
             
 
-            <p><img src="/images/header/typescript-20.png" alt=""></p>
+            <p><img src="/images/header/typescript-20.png" alt="" /></p>
 <p>오늘은 네임스페이스(Namespace), 제네릭(Generic), 사용자 정의 모듈(Custom Module)의 시너지 효과에 대해 알아보겠습니다. 이 강력한 도구는 TypeScript 프로젝트에 구조, 유연성 및 모듈성을 제공합니다. 이 시리즈를 살펴보면서 이러한 기능을 결합하여 코드베이스를 효과적으로 구성, 확장 및 확장할 수 있는 방법을 확인하실 수 있습니다.</p>
-<h2 id="Namespace">Namespace</h2>
+<h2 id="namespace"><a class="markdownIt-Anchor" href="#namespace"></a> Namespace</h2>
 <p>TypeScript의 네임스페이스는 로직을 명명된 범위로 캡슐화하여 코드를 구성하는 방법을 제공합니다. 네임스페이스는 이름 충돌을 방지하고 대규모 애플리케이션을 구조화하는 데 유용합니다. 네임스페이스는 네임스페이스 키워드를 사용하여 선언합니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> Geometry &#123;</span><br><span class="line">  <span class="keyword">export</span> <span class="keyword">interface</span> Point &#123;</span><br><span class="line">    x: <span class="built_in">number</span>;</span><br><span class="line">    y: <span class="built_in">number</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">distance</span>(<span class="params">point1: Point, point2: Point</span>): <span class="title">number</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 거리 로직 계산</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.sqrt(<span class="built_in">Math</span>.pow(point2.x - point1.x, <span class="number">2</span>) + <span class="built_in">Math</span>.pow(point2.y - point1.y, <span class="number">2</span>));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> p1: Geometry.Point = &#123; x: <span class="number">0</span>, y: <span class="number">0</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> p2: Geometry.Point = &#123; x: <span class="number">3</span>, y: <span class="number">4</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> distance = Geometry.distance(p1, p2);</span><br><span class="line"><span class="built_in">console</span>.log(distance);</span><br></pre></td></tr></table></figure>
 <p>이 예에서 <code>Geometry</code>는 <code>Point</code> 인터페이스와 <code>distance</code> 함수를 포함하는 네임스페이스입니다.</p>
-<h2 id="제네릭">제네릭</h2>
+<h2 id="제네릭"><a class="markdownIt-Anchor" href="#제네릭"></a> 제네릭</h2>
 <p>앞서 언급했듯이 타입스크립트의 제네릭을 사용하면 다양한 데이터 유형에서 작동할 수 있는 함수와 클래스를 작성할 수 있습니다. 제네릭은 유연성과 유형 안전성을 제공합니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">identity</span>&lt;<span class="title">T</span>&gt;(<span class="params">arg: T</span>): <span class="title">T</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> arg;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> result = identity&lt;<span class="built_in">string</span>&gt;(<span class="string">'Hello, TypeScript!'</span>);</span><br><span class="line"><span class="comment">// 결과는 문자열 타입입니다.</span></span><br></pre></td></tr></table></figure>
-<h2 id="사용자-정의-모듈">사용자 정의 모듈</h2>
+<h2 id="사용자-정의-모듈"><a class="markdownIt-Anchor" href="#사용자-정의-모듈"></a> 사용자 정의 모듈</h2>
 <p>사용자 정의 모듈은 코드를 별도의 파일로 구성하고 각 파일에 모듈을 포함하는 것을 말합니다. 모듈은 모듈식 유지 관리가 가능한 코드베이스를 만드는 데 도움이 됩니다.</p>
 <p>두 개의 파일이 있다고 가정해 보겠습니다.</p>
 <p><code>math.ts</code></p>
@@ -292,7 +292,7 @@
 <p><code>app.ts</code></p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; add, subtract &#125; <span class="keyword">from</span> <span class="string">'./math'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> sum = add(<span class="number">5</span>, <span class="number">3</span>);</span><br><span class="line"><span class="keyword">const</span> difference = subtract(<span class="number">5</span>, <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(sum); <span class="comment">// Output: 8</span></span><br><span class="line"><span class="built_in">console</span>.log(difference); <span class="comment">// Output: 2</span></span><br></pre></td></tr></table></figure>
 <p>이 예제에서 <code>math.ts</code>는 덧셈과 뺄셈 함수가 포함된 모듈입니다. <code>app.ts</code> 파일은 이러한 함수를 가져와 사용합니다.</p>
-<h2 id="결론">결론</h2>
+<h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2>
 <p>이러한 개념을 결합하면 체계적이고 유연한 타입스크립트 애플리케이션을 구축할 수 있습니다. 네임스페이스는 파일 내에서 코드를 구조화하는 데 도움이 되고, 제네릭은 유연성을 제공하며, 모듈은 여러 파일에 걸쳐 조직화를 가능하게 합니다.</p>
 
         </div>
@@ -327,7 +327,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2024/05/03/typescript-20/" data-id="cmnbsny2x012eukcx6kmc0mkc" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2024/05/03/typescript-20/" data-id="cmnbvrtye012nx4cx55al3ori" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -407,7 +407,7 @@
         "url": "http://hgko1207.github.io/2024/05/03/typescript-20/",
         "description": "
 오늘은 네임스페이스(Namespace), 제네릭(Generic), 사용자 정의 모듈(Custom Module)의 시너지 효과에 대해 알아보겠습니다. 이 강력한 도구는 TypeScript 프로젝트에 구조, 유연성 및 모듈성을 제공합니다. 이 시리즈를 살펴보면서 이러한 기능을 결합하여 코드베이스를 효과적으로 구성, 확장 및 확장할 수 있는 방법을 확인하실 수",
-        "wordCount": 451
+        "wordCount": 464
     }
 </script>
 

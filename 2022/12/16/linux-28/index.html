@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
-    <meta name="keywords" content="리눅스,Linux,CentOS,mount,마운트" />
+    <meta name="keywords" content="리눅스,CentOS,Linux,mount,마운트" />
     
     
     
@@ -27,8 +27,8 @@
 <meta property="article:modified_time" content="2024-01-12T06:32:22.563Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="리눅스">
-<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="CentOS">
+<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="mount">
 <meta property="article:tag" content="마운트">
 <meta name="twitter:card" content="summary_large_image">
@@ -276,7 +276,7 @@
 
             <p><strong>mount</strong> 명령어는 디스크 드라이브와 같은 블록 디바이스(Block Device)만 마운트가 가능합니다. <code>--bind</code> 옵션을 추가하면 특정 디렉터리를 다른 디렉터리에 마운트(mount)해서 양쪽 디렉터리가 같은 곳으로 연결되도록 할 수 있습니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mount --<span class="built_in">bind</span> [원본 디렉토리] [붙일 디렉토리]</span></span><br></pre></td></tr></table></figure>
-<h2 id="사용-예시">사용 예시</h2>
+<h2 id="사용-예시"><a class="markdownIt-Anchor" href="#사용-예시"></a> 사용 예시</h2>
 <p>먼저 두 개의 디렉토리를 생성합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mkdir src</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mkdir dest</span></span><br></pre></td></tr></table></figure>
 <p><code>--bind</code> 또는 <code>-B</code> 옵션을 사용해서 <strong>src</strong> 디렉토리를 <strong>dest</strong> 디렉토리에 연결합니다.</p>
@@ -318,7 +318,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/12/16/linux-28/" data-id="cmnbsnxz700jkukcx1jl30b8s" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/12/16/linux-28/" data-id="cmnbvrtsv00jkx4cxc6n77eq6" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -390,7 +390,7 @@
         },
         "headline": "[리눅스] mount --bind 사용 방법",
         "image": "http://hgko1207.github.io/images/thumbnail/centos.png",
-        "keywords": "리눅스 Linux CentOS mount 마운트",
+        "keywords": "리눅스 CentOS Linux mount 마운트",
         "genre": "Programming DevOps Linux",
         "datePublished": "2022-12-16",
         "dateCreated": "2022-12-16",
@@ -398,9 +398,9 @@
         "url": "http://hgko1207.github.io/2022/12/16/linux-28/",
         "description": "mount 명령어는 디스크 드라이브와 같은 블록 디바이스(Block Device)만 마운트가 가능합니다. --bind 옵션을 추가하면 특정 디렉터리를 다른 디렉터리에 마운트(mount)해서 양쪽 디렉터리가 같은 곳으로 연결되도록 할 수 있습니다.
 1$ mount --bind [원본 디렉토리] [붙일 디렉토리]
-사용 예시
-먼저 두 개의 디렉토리를 생성합니다.",
-        "wordCount": 130
+ 사용 예시
+먼저 두 개의 디렉토리를 생성합니다",
+        "wordCount": 133
     }
 </script>
 

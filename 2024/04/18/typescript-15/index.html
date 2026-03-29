@@ -276,29 +276,29 @@
 
             
 
-            <p><img src="/images/header/typescript-15.png" alt=""></p>
+            <p><img src="/images/header/typescript-15.png" alt="" /></p>
 <p>이번 글에서는 타입스크립트 타입의 동적 환경을 탐색하고, <code>any</code>, <code>void</code>, <code>never</code>, <code>null</code>, 그리고 엄격한 null 체크의 중요성에 대해 살펴봅니다. 이러한 타입을 이해하는 것은 타입 안전을 유지하고 일반적인 프로그래밍 오류를 방지하는 데 필수적입니다. TypeScript의 타입 역학에 대해 알아보세요.</p>
-<h2 id="1-Any-Type">1. Any Type</h2>
+<h2 id="1-any-type"><a class="markdownIt-Anchor" href="#1-any-type"></a> 1. Any Type</h2>
 <p><code>any</code> 타입은 모든 타입의 값을 나타내는 데 사용됩니다. 기본적으로 특정 변수나 표현식에 대한 타입 검사를 사용하지 않습니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myVariable: <span class="built_in">any</span> = <span class="string">'Hello, TypeScript!'</span>;</span><br><span class="line"></span><br><span class="line">myVariable = <span class="number">42</span>; <span class="comment">// No type error</span></span><br></pre></td></tr></table></figure>
 <p><code>any</code>를 사용하면 편리할 수 있지만 TypeScript의 정적 타입 검사의 이점을 희생합니다.</p>
-<h2 id="2-Void-Type">2. Void Type</h2>
+<h2 id="2-void-type"><a class="markdownIt-Anchor" href="#2-void-type"></a> 2. Void Type</h2>
 <p><code>void</code> 타입은 값을 반환하지 않는 함수에 사용됩니다. 함수에 부작용이 있지만 의미 있는 결과를 생성하지 않는 함수를 나타낼 때 자주 사용됩니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">logMessage</span>(<span class="params">message: <span class="built_in">string</span></span>): <span class="title">void</span> </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(message);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="3-Never-Type">3. Never Type</h2>
+<h2 id="3-never-type"><a class="markdownIt-Anchor" href="#3-never-type"></a> 3. Never Type</h2>
 <p><code>never</code> 타입은 절대 발생하지 않는 값을 나타냅니다. 예외를 던지거나 무한 루프에 들어가는 함수의 반환 타입으로 자주 사용됩니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throwError</span>(<span class="params">message: <span class="built_in">string</span></span>): <span class="title">never</span> </span>&#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(message);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">infiniteLoop</span>(<span class="params"></span>): <span class="title">never</span> </span>&#123;</span><br><span class="line">  <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="comment">// do something indefinitely</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="4-Null-Type">4. Null Type</h2>
+<h2 id="4-null-type"><a class="markdownIt-Anchor" href="#4-null-type"></a> 4. Null Type</h2>
 <p>타입스크립트에서 <code>null</code>과 <code>undefined</code>는 기본적으로 모든 타입의 일부입니다. 그러나 엄격 null 검사를 활성화하면 <code>null</code>과 <code>undefined</code>은 모든 타입과 해당 타입에만 할당할 수 있습니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myString: <span class="built_in">string</span> = <span class="literal">null</span>; <span class="comment">// Error with strict null checks enabled</span></span><br></pre></td></tr></table></figure>
-<h2 id="5-Strict-Null-Checks">5. Strict Null Checks</h2>
+<h2 id="5-strict-null-checks"><a class="markdownIt-Anchor" href="#5-strict-null-checks"></a> 5. Strict Null Checks</h2>
 <p>기본적으로 TypeScript에는 변수가 <code>null</code>이거나 <code>undefined</code> 경우 이를 명시적으로 표시하여 타입 안전성을 향상시키는 &quot;strict null checks&quot;라는 기능이 있습니다. 이를 통해 null 및 undefined 값과 관련된 많은 일반적인 프로그래밍 오류를 방지할 수 있습니다.</p>
 <p>TypeScript 프로젝트에서 엄격한 null 검사를 사용하려면 <code>tsconfig.json</code> 파일에서 <code>&quot;strictNullChecks&quot;</code> 옵션을 <code>true</code>로 설정하면 됩니다.</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"compilerOptions"</span>: &#123;</span><br><span class="line">    <span class="attr">"strictNullChecks"</span>: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>strict null checks를 활성화하면 변수가 <code>null</code>이거나 <code>undefined</code> 경우를 명시적으로 지정해야 합니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myString: <span class="built_in">string</span> | <span class="literal">null</span> = <span class="literal">null</span>; <span class="comment">// OK with strict null checks</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> myNumber: <span class="built_in">number</span> | <span class="literal">undefined</span> = <span class="literal">undefined</span>; <span class="comment">// OK with strict null checks</span></span><br></pre></td></tr></table></figure>
-<h2 id="결론">결론</h2>
+<h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2>
 <p>TypeScript의 이러한 기능을 사용하면 보다 안전하고 예측 가능한 코드를 작성하여 런타임 오류 발생 가능성을 줄이고 애플리케이션의 유지 관리성을 향상시킬 수 있습니다.</p>
 
         </div>
@@ -333,7 +333,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2024/04/18/typescript-15/" data-id="cmnbsny2r011qukcx88d5bibx" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2024/04/18/typescript-15/" data-id="cmnbvrty7011xx4cx3csbbeyv" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -413,9 +413,9 @@
         "url": "http://hgko1207.github.io/2024/04/18/typescript-15/",
         "description": "
 이번 글에서는 타입스크립트 타입의 동적 환경을 탐색하고, any, void, never, null, 그리고 엄격한 null 체크의 중요성에 대해 살펴봅니다. 이러한 타입을 이해하는 것은 타입 안전을 유지하고 일반적인 프로그래밍 오류를 방지하는 데 필수적입니다. TypeScript의 타입 역학에 대해 알아보세요.
-1. Any Type
-any 타입은 모든 타",
-        "wordCount": 414
+ 1. Any Type
+any 타입은 모든 ",
+        "wordCount": 433
     }
 </script>
 

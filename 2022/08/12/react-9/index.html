@@ -277,17 +277,17 @@
 <p>컴포넌트가 동일한 props로 동일한 결과를 렌더링 해낸다면, React.memo를 호출하고 결과를 메모이징(Memoizing)하도록 래핑 하여 경우에 따라 성능 향상을 누릴 수 있습니다. 즉, React는 컴포넌트를 렌더링 하지 않고 마지막으로 렌더링 된 결과를 재사용합니다.</p>
 </blockquote>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyComponent</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="comment">/* props를 사용하여 렌더링 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> React.memo(MyComponent, areEqual);</span><br></pre></td></tr></table></figure>
-<h2 id="사용">사용</h2>
+<h2 id="사용"><a class="markdownIt-Anchor" href="#사용"></a> 사용</h2>
 <p>이전 포스트 <a href="https://hgko1207.github.io/2022/08/12/react-8/">[React] Drag and Drop</a>에서 드래그, 드롭 시 바뀐 부분이 아닌 전체가 리랜더링이 되어 텍스트의 흔들림이 가끔씩 발생하는 문제가 있었습니다.</p>
 <p><code>Card</code> 부분을 <strong>DraggableCard Component</strong>로 새로 만들었습니다. <code>DraggableCard</code>에게 동일한 index와 todo prop을 주고 불필요한 리랜더링을 하지 않도록 하기 위해 <code>memo</code>를 사용하였습니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// DraggableCard.tsx</span></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Draggable &#125; <span class="keyword">from</span> <span class="string">'react-beautiful-dnd'</span>;</span><br><span class="line"><span class="keyword">import</span> styled <span class="keyword">from</span> <span class="string">'styled-components'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Card = styled.div<span class="string">`</span></span><br><span class="line"><span class="string">  border-radius: 5px;</span></span><br><span class="line"><span class="string">  margin-bottom: 5px;</span></span><br><span class="line"><span class="string">  padding: 10px 10px;</span></span><br><span class="line"><span class="string">  background-color: white;</span></span><br><span class="line"><span class="string">`</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> IDraggableCardProps &#123;</span><br><span class="line">  toDo: <span class="built_in">string</span>;</span><br><span class="line">  index: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">DraggableCard</span>(<span class="params">&#123; toDo, index &#125;: IDraggableCardProps</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;Draggable key=&#123;toDo&#125; draggableId=&#123;toDo&#125; index=&#123;index&#125;&gt;</span><br><span class="line">      &#123;<span class="function">(<span class="params">provided</span>) =&gt;</span> (</span><br><span class="line">        &lt;Card ref=&#123;provided.innerRef&#125; &#123;...provided.dragHandleProps&#125; &#123;...provided.draggableProps&#125;&gt;</span><br><span class="line">          &#123;toDo&#125;</span><br><span class="line">        &lt;<span class="regexp">/Card&gt;</span></span><br><span class="line"><span class="regexp">      )&#125;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>Draggable&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> React.memo(DraggableCard);</span><br></pre></td></tr></table></figure>
 <p>실제로 바뀐 것들만 리렌더링 되어 텍스트가 흔들리는 문제를 해결함으로써 최적화 할 수 있었습니다.</p>
-<h2 id="주의">주의</h2>
+<h2 id="주의"><a class="markdownIt-Anchor" href="#주의"></a> 주의</h2>
 <blockquote>
 <p>React.memo는 props 변화에만 영향을 줍니다. React.memo로 감싸진 함수 컴포넌트 구현에 useState, useReducer 또는 useContext 훅을 사용한다면, 여전히 state나 context가 변할 때 다시 렌더링 됩니다.</p>
 </blockquote>
 <p>이 메서드는 오직 성능 최적화를 위하여 사용됩니다. 렌더링을 <strong>방지</strong>하기 위하여 사용하지 마세요. 버그를 만들 수 있습니다.</p>
-<h2 id="참고">참고</h2>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <ul>
 <li><a href="https://ko.reactjs.org/docs/react-api.html#reactmemo" target="_blank" rel="noopener">https://ko.reactjs.org/docs/react-api.html#reactmemo</a></li>
 </ul>
@@ -324,7 +324,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/08/12/react-9/" data-id="cmnbsnxya00dwukcxgohe38ul" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/08/12/react-9/" data-id="cmnbvrtrm00dwx4cxaefl3m52" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -407,7 +407,7 @@
 컴포넌트가 동일한 props로 동일한 결과를 렌더링 해낸다면, React.memo를 호출하고 결과를 메모이징(Memoizing)하도록 래핑 하여 경우에 따라 성능 향상을 누릴 수 있습니다. 즉, React는 컴포넌트를 렌더링 하지 않고 마지막으로 렌더링 된 결과를 재사용합니다.
 
 1234567imp",
-        "wordCount": 373
+        "wordCount": 382
     }
 </script>
 

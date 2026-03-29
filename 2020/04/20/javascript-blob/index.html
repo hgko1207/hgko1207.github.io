@@ -274,7 +274,7 @@
 
             <p>이미지를 Jcrop 라이브러리를 사용하여 자르고 <strong>Canvas</strong> 영역을 blob 형식으로 바꿔서 <code>a</code> Tag 를 생성하여 다운로드를 시도하였다. 크롬에서는 잘 동작하였지만 IE 에서는 동작하지 않고 에러를 발생하였다.</p>
 <p>아래 코드처럼 작성하였더니 둘 다 동작하였다.</p>
-<h2 id="소스-코드">소스 코드</h2>
+<h2 id="소스-코드"><a class="markdownIt-Anchor" href="#소스-코드"></a> 소스 코드</h2>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">downloadURI</span>(<span class="params">blob, name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">window</span>.navigator &amp;&amp; <span class="built_in">window</span>.navigator.msSaveOrOpenBlob) &#123;</span><br><span class="line">    <span class="comment">// IE에서 동작</span></span><br><span class="line">    <span class="built_in">window</span>.navigator.msSaveBlob(blob, name);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 크롬에서 동작</span></span><br><span class="line">    <span class="keyword">var</span> link = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>);</span><br><span class="line">    link.download = name;</span><br><span class="line">    link.href = URL.createObjectURL(blob);</span><br><span class="line">    link.click();</span><br><span class="line">    <span class="keyword">delete</span> link;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
         </div>
@@ -309,7 +309,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2020/04/20/javascript-blob/" data-id="cmnbsnxwm0040ukcx05cd7vey" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2020/04/20/javascript-blob/" data-id="cmnbvrtn0002nx4cx6uqg92m5" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -389,9 +389,9 @@
         "url": "http://hgko1207.github.io/2020/04/20/javascript-blob/",
         "description": "이미지를 Jcrop 라이브러리를 사용하여 자르고 Canvas 영역을 blob 형식으로 바꿔서 a Tag 를 생성하여 다운로드를 시도하였다. 크롬에서는 잘 동작하였지만 IE 에서는 동작하지 않고 에러를 발생하였다.
 아래 코드처럼 작성하였더니 둘 다 동작하였다.
-소스 코드
-12345678910111213function downloadURI(blob, name)",
-        "wordCount": 137
+ 소스 코드
+12345678910111213function downloadURI(blob, name",
+        "wordCount": 140
     }
 </script>
 

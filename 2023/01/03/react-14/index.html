@@ -274,18 +274,18 @@
 
             
 
-            <h2 id="Layout-Components">Layout Components</h2>
+            <h2 id="layout-components"><a class="markdownIt-Anchor" href="#layout-components"></a> Layout Components</h2>
 <p><strong>Gatsby</strong>는 기본적으로 레이아웃을 페이지에 자동으로 적용하지 않습니다. 대신 Layout Component를 사용하면 Header 및 Footer, 그리고 일부 페이지에서 사용하는 사이드바와 같은 여러 가지 레이아웃을 만들 수 있습니다. 또한 레이아웃과 페이지 컴포넌트 간에 데이터를 전달할 수 있습니다.</p>
 <p>즉, Layout Component를 사용하여 여러 페이지에서 일반적으로 사용하는 Header 및 Footer의 레이아웃을 공유하도록 구성할 수 있습니다.</p>
-<h3 id="예제">예제</h3>
-<p><code>src/components/</code> 디렉터리를 생성하고 <code>Layout.tsx</code> 파일을 생성합니다.<br>
+<h3 id="예제"><a class="markdownIt-Anchor" href="#예제"></a> 예제</h3>
+<p><code>src/components/</code> 디렉터리를 생성하고 <code>Layout.tsx</code> 파일을 생성합니다.<br />
 다음과 같이 Gatsby 의 <code>Link</code>를 사용하여 페이지를 이동하는 Layout Component를 구성합니다.</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/components/Layout.tsx</span></span><br><span class="line"><span class="keyword">import</span> &#123; Link &#125; <span class="keyword">from</span> <span class="string">'gatsby'</span>;</span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line">interface ILayoutProps &#123;</span><br><span class="line">  children: any;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">Layout</span>(<span class="params">&#123; children &#125;: ILayoutProps</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;nav&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">          &lt;li&gt;</span><br><span class="line">            &lt;Link to=<span class="string">"/"</span>&gt;Home&lt;<span class="regexp">/Link&gt;</span></span><br><span class="line"><span class="regexp">          &lt;/</span>li&gt;</span><br><span class="line">          &lt;li&gt;</span><br><span class="line">            &lt;Link to=<span class="string">"/blog"</span>&gt;Blog&lt;<span class="regexp">/Link&gt;</span></span><br><span class="line"><span class="regexp">          &lt;/</span>li&gt;</span><br><span class="line">        &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>nav&gt;</span><br><span class="line">      &lt;main&gt;&#123;children&#125;&lt;<span class="regexp">/main&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>페이지에 레이아웃을 적용하려면 <code>Layout</code> Component 를 포함하고 그 안에 페이지 내용을 넣어야 합니다.<br>
+<p>페이지에 레이아웃을 적용하려면 <code>Layout</code> Component 를 포함하고 그 안에 페이지 내용을 넣어야 합니다.<br />
 레이아웃을 페이지에 적용하는 방법은 다음과 같습니다.</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/pages/index.tsx</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> Layout <span class="keyword">from</span> <span class="string">'../components/Layout'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> IndexPage = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;Layout&gt;</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;Welcome to Home&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>div&gt;</span><br><span class="line">    &lt;<span class="regexp">/Layout&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br></pre></td></tr></table></figure>
 <p>이 레이아웃이 필요한 모든 페이지와 템플릿에 대해 반복을 합니다.</p>
-<h2 id="참고">참고</h2>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <ul>
 <li><a href="https://www.gatsbyjs.com/docs/how-to/routing/layout-components/" target="_blank" rel="noopener">https://www.gatsbyjs.com/docs/how-to/routing/layout-components/</a></li>
 <li><a href="https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-link/" target="_blank" rel="noopener">https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-link/</a></li>
@@ -323,7 +323,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2023/01/03/react-14/" data-id="cmnbsnxza00k0ukcx4g8zdxcn" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2023/01/03/react-14/" data-id="cmnbvrtt100k8x4cxdmukgx2p" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -401,10 +401,10 @@
         "dateCreated": "2023-01-03",
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2023/01/03/react-14/",
-        "description": "Layout Components
+        "description": " Layout Components
 Gatsby는 기본적으로 레이아웃을 페이지에 자동으로 적용하지 않습니다. 대신 Layout Component를 사용하면 Header 및 Footer, 그리고 일부 페이지에서 사용하는 사이드바와 같은 여러 가지 레이아웃을 만들 수 있습니다. 또한 레이아웃과 페이지 컴포넌트 간에 데이터를 전달할 수 있습니다.
-즉, Layout ",
-        "wordCount": 410
+즉, Layout",
+        "wordCount": 421
     }
 </script>
 

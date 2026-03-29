@@ -273,14 +273,14 @@
 
             
 
-            <h2 id="테이블-스페이스-Table-Space-란">테이블 스페이스(Table Space)란</h2>
+            <h2 id="테이블-스페이스table-space란"><a class="markdownIt-Anchor" href="#테이블-스페이스table-space란"></a> 테이블 스페이스(Table Space)란</h2>
 <blockquote>
-<p><strong>테이블스페이스</strong>(Tablespace)는 데이터베이스 오브젝트 내 실제 데이터를 저장하는 공간이다. 이것은 데이터베이스의 물리적인 부분이며, 세그먼트로 관리되는 모든 DBMS에 대해 저장소(세그먼트)를 할당한다.<br>
+<p><strong>테이블스페이스</strong>(Tablespace)는 데이터베이스 오브젝트 내 실제 데이터를 저장하는 공간이다. 이것은 데이터베이스의 물리적인 부분이며, 세그먼트로 관리되는 모든 DBMS에 대해 저장소(세그먼트)를 할당한다.<br />
 테이블스페이스는 단지 데이터베이스 저장소 위치를 지정할 뿐이며, 논리적 데이터베이스 구조나 스키마를 지정하지 않는다. 예를 들면, 동일한 스키마 내의 다른 오브젝트는 서로 다른 테이블스페이스에 놓일 수 있다. 마찬가지로, 하나의 테이블스페이스는 여러 세그먼트들을 서비스할 수 있다. <a href="https://ko.wikipedia.org/wiki/%ED%85%8C%EC%9D%B4%EB%B8%94%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A4" target="_blank" rel="noopener">위키백과</a></p>
 </blockquote>
-<h2 id="테이블-스페이스-조회">테이블 스페이스 조회</h2>
+<h2 id="테이블-스페이스-조회"><a class="markdownIt-Anchor" href="#테이블-스페이스-조회"></a> 테이블 스페이스 조회</h2>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; SELECT * FROM dba_tablespaces;</span><br><span class="line">SQL&gt; SELECT * FROM dba_data_files;</span><br></pre></td></tr></table></figure>
-<h2 id="테이블-스페이스-생성">테이블 스페이스 생성</h2>
+<h2 id="테이블-스페이스-생성"><a class="markdownIt-Anchor" href="#테이블-스페이스-생성"></a> 테이블 스페이스 생성</h2>
 <p>오라클 DBMS는 테이블스페이스 생성을 위해 <strong>CREATE TABLESPACE</strong> 명령어를 사용합니다.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; CREATE TABLESPACE [테이블스페이스명]</span><br><span class="line">     DATAFILE '/db/oracle_data/ts.dbf'</span><br><span class="line">     SIZE 200M autoextent on next 100M;</span><br></pre></td></tr></table></figure>
 <ul>
@@ -288,14 +288,14 @@
 <li>SIZE: 초기 데이터 파일 크기 설정</li>
 <li>autoextent on next: 초기 크기 공간을 모두 사용하는 경우 자동으로 파일의 크기가 커지는 기능</li>
 </ul>
-<h2 id="테이블-스페이스-삭제">테이블 스페이스 삭제</h2>
+<h2 id="테이블-스페이스-삭제"><a class="markdownIt-Anchor" href="#테이블-스페이스-삭제"></a> 테이블 스페이스 삭제</h2>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; DROP TABLESPACE [테이블스페이스명]</span><br><span class="line">     INCLUDING CONTENTS AND DATAFILES</span><br><span class="line">     CASCADE CONSTRAINTS;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>INCLUDING CONTENTS: 테이블 스페이스의 모든 세그먼트 삭제</li>
 <li>INCLUDING CONTENTS AND DATAFILES: 테이블 스페이스의 물리적파일까지 삭제</li>
 <li>CASCADE CONSTRAINTS: 제약 조건 삭제</li>
 </ul>
-<h2 id="테이블-스페이스-이동">테이블 스페이스 이동</h2>
+<h2 id="테이블-스페이스-이동"><a class="markdownIt-Anchor" href="#테이블-스페이스-이동"></a> 테이블 스페이스 이동</h2>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; ALTER TABLE [테이블명] MOVE TABLESPACE [테이블스페이스명];</span><br><span class="line">SQL&gt; ALTER INDEX [인덱스명] REBUILD TABLESPACE [테이블스페이스명];</span><br></pre></td></tr></table></figure>
 
         </div>
@@ -330,7 +330,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/11/04/oracle-3/" data-id="cmnbsnxyn00g9ukcxd2mzdmsh" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/11/04/oracle-3/" data-id="cmnbvrtsm00ihx4cxgjo334oz" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -408,11 +408,11 @@
         "dateCreated": "2022-11-04",
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2022/11/04/oracle-3/",
-        "description": "테이블 스페이스(Table Space)란
+        "description": " 테이블 스페이스(Table Space)란
 
 테이블스페이스(Tablespace)는 데이터베이스 오브젝트 내 실제 데이터를 저장하는 공간이다. 이것은 데이터베이스의 물리적인 부분이며, 세그먼트로 관리되는 모든 DBMS에 대해 저장소(세그먼트)를 할당한다.
-테이블스페이스는 단지 데이터베이스 저장소 위치를 지정할 뿐이며, 논리적 데이터베이스 구조나 스키마를 지정하",
-        "wordCount": 206
+테이블스페이스는 단지 데이터베이스 저장소 위치를 지정할 뿐이며, 논리적 데이터베이스 구조나 스키마를 지정",
+        "wordCount": 222
     }
 </script>
 
@@ -493,20 +493,20 @@
    
 <nav id="article-nav">
     
-        <a href="/2022/11/04/oracle-5/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2022/11/04/oracle-4/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">새로운</strong>
         <p class="article-nav-title">
         
-            [Oracle] 사용자 및 테이블 조회
+            [Oracle] 계정 관리
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
     
-        <a href="/2022/11/04/oracle-4/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2022/11/03/linux-21/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">오래된</strong>
-        <p class="article-nav-title">[Oracle] 계정 관리</p>
+        <p class="article-nav-title">[CentOS] Service 등록 및 실행 방법</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     

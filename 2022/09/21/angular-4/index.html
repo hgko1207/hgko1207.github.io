@@ -271,10 +271,10 @@
             
 
             <p>Angular 14 버전을 사용하면서 <strong>ERROR ReferenceError: process is not defined</strong> 오류가 발생할 경우 해결 방법입니다.</p>
-<h2 id="설치">설치</h2>
+<h2 id="설치"><a class="markdownIt-Anchor" href="#설치"></a> 설치</h2>
 <p><code>process</code> 패키지를 설치합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install --save-dev process</span></span><br></pre></td></tr></table></figure>
-<h2 id="내용-추가">내용 추가</h2>
+<h2 id="내용-추가"><a class="markdownIt-Anchor" href="#내용-추가"></a> 내용 추가</h2>
 <p><code>src/polyfill.ts</code> 파일을 열고 다음 내용을 추가합니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="built_in">window</span> <span class="keyword">as</span> <span class="built_in">any</span>).global = <span class="built_in">window</span>;</span><br><span class="line">global.Buffer = global.Buffer || <span class="built_in">require</span>(<span class="string">'buffer'</span>).Buffer;</span><br><span class="line">global.process = <span class="built_in">require</span>(<span class="string">'process'</span>);</span><br></pre></td></tr></table></figure>
 
@@ -310,7 +310,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/09/21/angular-4/" data-id="cmnbsnxyg00f2ukcxanfz5dhs" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/09/21/angular-4/" data-id="cmnbvrtrx00exx4cx1q4q9brz" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -389,13 +389,13 @@
         "dateModified": "2023-07-20",
         "url": "http://hgko1207.github.io/2022/09/21/angular-4/",
         "description": "Angular 14 버전을 사용하면서 ERROR ReferenceError: process is not defined 오류가 발생할 경우 해결 방법입니다.
-설치
+ 설치
 process 패키지를 설치합니다.
 1$ npm install --save-dev process
-내용 추가
+ 내용 추가
 src/polyfill.ts 파일을 열고 다음 내용을 추가합니다.
-123(window as",
-        "wordCount": 65
+123(window ",
+        "wordCount": 71
     }
 </script>
 

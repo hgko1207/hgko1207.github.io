@@ -271,14 +271,14 @@
             
 
             <p><strong>Angular</strong>는 구글이 만든 단일 페이지 웹 애플리케이션 개발을 위한 자바스크립트 프레임워크입니다. 다양한 플랫폼에서 동작할 수 있게 하는 개발 툴과 기능들을 제공합니다.</p>
-<h2 id="Module">Module</h2>
+<h2 id="module"><a class="markdownIt-Anchor" href="#module"></a> Module</h2>
 <p>컴포넌트, 파이프, 서비스 등과 같은 앵귤러 애플리케이션의 주요 부분을 기능단위로 그룹핑하게 해 줍니다.</p>
 <ul>
 <li>모든 앵귤러 애플리케이션은 하나의 Root Module을 가집니다.</li>
 <li>여러 Feature Module을 가질 수 있습니다.</li>
 <li>재사용할 수 있는 기능을 외부에 배포하기 위해 사용되기도 합니다.</li>
 </ul>
-<h2 id="Component">Component</h2>
+<h2 id="component"><a class="markdownIt-Anchor" href="#component"></a> Component</h2>
 <ul>
 <li>빌딩 블록 형식</li>
 <li>HTML 요소들의 그룹</li>
@@ -287,7 +287,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ng g component todo/todos --module todo/todo.module.ts --<span class="built_in">export</span></span></span><br></pre></td></tr></table></figure>
 <p>컴포넌트 내부에서 html, css 코드를 작성하도록 생성할 수 있습니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ng g component todos/todo --inline-template --inline-style</span></span><br></pre></td></tr></table></figure>
-<h2 id="Template">Template</h2>
+<h2 id="template"><a class="markdownIt-Anchor" href="#template"></a> Template</h2>
 <ul>
 <li>HTML 코드로서 템플릿을 표현합니다.</li>
 <li>Template 표현식(Expression)과 Template 문장(Statement)을 가집니다.</li>
@@ -298,7 +298,7 @@
 </li>
 </ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- &#123;&#123; 템플릿 표현식 &#125;&#125; --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123;title&#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- [속성]="템플릿 표현식" --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">todo</span> [<span class="attr">todo</span>]=<span class="string">"work"</span>&gt;</span><span class="tag">&lt;/<span class="name">todo</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- (이벤트)="템플릿 문장(함수)" --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> (<span class="attr">click</span>)=<span class="string">"handle()"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- [(ngModel)]="템플릿 문장" --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 양방향 바인딩을 사용할 수 있음 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> [(<span class="attr">ngModel</span>)]=<span class="string">"name"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="컴포넌트-간-커뮤니케이션">컴포넌트 간 커뮤니케이션</h2>
+<h2 id="컴포넌트-간-커뮤니케이션"><a class="markdownIt-Anchor" href="#컴포넌트-간-커뮤니케이션"></a> 컴포넌트 간 커뮤니케이션</h2>
 <ul>
 <li>
 <p>부모 컴포넌트 -&gt; 자식 컴포넌트</p>
@@ -318,7 +318,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="파이프-Pipe">파이프(Pipe)</h2>
+<h2 id="파이프pipe"><a class="markdownIt-Anchor" href="#파이프pipe"></a> 파이프(Pipe)</h2>
 <ul>
 <li>템플릿(HTML)에서 보이는 데이터를 변환해 줍니다.</li>
 <li>AngularJs 1.x에서는 필터로 제공되었습니다.</li>
@@ -358,7 +358,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/08/07/angular-2/" data-id="cmnbsnxya00e0ukcxcoe9fk07" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/08/07/angular-2/" data-id="cmnbvrtrn00dyx4cx3hmd57hj" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -437,11 +437,11 @@
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2022/08/07/angular-2/",
         "description": "Angular는 구글이 만든 단일 페이지 웹 애플리케이션 개발을 위한 자바스크립트 프레임워크입니다. 다양한 플랫폼에서 동작할 수 있게 하는 개발 툴과 기능들을 제공합니다.
-Module
+ Module
 컴포넌트, 파이프, 서비스 등과 같은 앵귤러 애플리케이션의 주요 부분을 기능단위로 그룹핑하게 해 줍니다.
 
-모든 앵귤러 애플리케이션은 하나의 Root Module을 가집니다.",
-        "wordCount": 300
+모든 앵귤러 애플리케이션은 하나의 Root Module을 가집니다",
+        "wordCount": 315
     }
 </script>
 

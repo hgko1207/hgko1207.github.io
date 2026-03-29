@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
-    <meta name="keywords" content="Java,Linux,CentOS,CentOS 9 Stream,Java 설치 방법" />
+    <meta name="keywords" content="Java,CentOS,Linux,CentOS 9 Stream,Java 설치 방법" />
     
     
     
@@ -27,8 +27,8 @@
 <meta property="article:modified_time" content="2024-03-28T01:51:45.537Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="Java">
-<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="CentOS">
+<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="CentOS 9 Stream">
 <meta property="article:tag" content="Java 설치 방법">
 <meta name="twitter:card" content="summary_large_image">
@@ -274,25 +274,25 @@
 
             
 
-            <p><img src="/images/header/linux-29.png" alt=""></p>
+            <p><img src="/images/header/linux-29.png" alt="" /></p>
 <p>Java는 많은 서버 측 애플리케이션을 실행할 수 있는 인기 있는 프로그래밍 언어 및 소프트웨어 플랫폼입니다. 이 글에서는 CentOS 9 Stream에 Java의 오픈 소스 구현인 OpenJDK를 설치하는 방법을 보여드리겠습니다.</p>
-<p><img src="/images/header/linux-29_1.png" alt=""></p>
-<h2 id="1단계-운영-체제-확인">1단계: 운영 체제 확인</h2>
+<p><img src="/images/header/linux-29_1.png" alt="" /></p>
+<h2 id="1단계-운영-체제-확인"><a class="markdownIt-Anchor" href="#1단계-운영-체제-확인"></a> 1단계: 운영 체제 확인</h2>
 <p>먼저 다음 명령을 실행하여 사용 중인 운영 체제를 확인해 보겠습니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/*release</span><br></pre></td></tr></table></figure>
-<h2 id="2단계-Package-Repository-업데이트하기">2단계: Package Repository 업데이트하기</h2>
+<h2 id="2단계-package-repository-업데이트하기"><a class="markdownIt-Anchor" href="#2단계-package-repository-업데이트하기"></a> 2단계: Package Repository 업데이트하기</h2>
 <p>다음으로 최신 소프트웨어를 다운로드할 수 있도록 dnf 패키지 리포지토리를 업데이트합니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf update</span><br></pre></td></tr></table></figure>
-<h2 id="3단계-현재-Java-버전-확인">3단계: 현재 Java 버전 확인</h2>
+<h2 id="3단계-현재-java-버전-확인"><a class="markdownIt-Anchor" href="#3단계-현재-java-버전-확인"></a> 3단계: 현재 Java 버전 확인</h2>
 <p>이제 다음 명령을 실행하여 설치한 Java 버전을 확인해 보겠습니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
 <p>Java가 설치되지 않은 경우 출력에 명령을 찾을 수 없다는 메시지가 표시됩니다.</p>
-<h2 id="4단계-OpenJDK-설치">4단계: OpenJDK 설치</h2>
+<h2 id="4단계-openjdk-설치"><a class="markdownIt-Anchor" href="#4단계-openjdk-설치"></a> 4단계: OpenJDK 설치</h2>
 <p>최신 버전의 OpenJDK를 설치하려면 다음 명령을 실행합니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install java-latest-openjdk-devel</span><br></pre></td></tr></table></figure>
 <p>설치가 완료되면 다음 명령을 실행하여 최신 버전의 Java가 성공적으로 설치되었는지 확인해 보겠습니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
-<h2 id="5단계-Java-Home-Path-설정">5단계: Java Home Path 설정</h2>
+<h2 id="5단계-java-home-path-설정"><a class="markdownIt-Anchor" href="#5단계-java-home-path-설정"></a> 5단계: Java Home Path 설정</h2>
 <p>마지막으로 Linux에서 Java Home Path를 영구적으로 설정해 보겠습니다. 이렇게 하려면 선호하는 텍스트 편집기를 사용하여 <code>/etc/environment</code> 파일을 열고 파일 끝에 다음 줄을 추가합니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME=<span class="string">"/usr/lib/jvm/java-latest-openjdk"</span></span><br></pre></td></tr></table></figure>
 <p>파일을 저장하고 닫은 다음 다음 명령을 실행하여 변경 사항을 적용합니다.</p>
@@ -331,7 +331,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2024/03/26/linux-29/" data-id="cmnbsny2g0109ukcx1spefrjj" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2024/03/26/linux-29/" data-id="cmnbvrtxh010bx4cx34r87mld" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -403,7 +403,7 @@
         },
         "headline": "CentOS 9 Stream에 최신 버전의 Java 설치 방법",
         "image": "http://hgko1207.github.io/images/header/linux-29.png",
-        "keywords": "Java Linux CentOS CentOS 9 Stream Java 설치 방법",
+        "keywords": "Java CentOS Linux CentOS 9 Stream Java 설치 방법",
         "genre": "Programming DevOps Linux",
         "datePublished": "2024-03-26",
         "dateCreated": "2024-03-26",
@@ -412,10 +412,10 @@
         "description": "
 Java는 많은 서버 측 애플리케이션을 실행할 수 있는 인기 있는 프로그래밍 언어 및 소프트웨어 플랫폼입니다. 이 글에서는 CentOS 9 Stream에 Java의 오픈 소스 구현인 OpenJDK를 설치하는 방법을 보여드리겠습니다.
 
-1단계: 운영 체제 확인
+ 1단계: 운영 체제 확인
 먼저 다음 명령을 실행하여 사용 중인 운영 체제를 확인해 보겠습니다.
-1cat /etc/*rele",
-        "wordCount": 202
+1cat /etc/*rel",
+        "wordCount": 219
     }
 </script>
 

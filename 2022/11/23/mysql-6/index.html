@@ -272,17 +272,17 @@
 
             
 
-            <h2 id="Help">Help</h2>
+            <h2 id="help"><a class="markdownIt-Anchor" href="#help"></a> Help</h2>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">HELP</span> <span class="keyword">SHOW</span>;</span><br><span class="line"><span class="keyword">HELP</span> &#123;<span class="keyword">SELECT</span> | <span class="keyword">DELETE</span> | <span class="keyword">UPDATE</span>&#125;;</span><br><span class="line"><span class="keyword">HELP</span> <span class="keyword">ALTER</span>;</span><br><span class="line"><span class="keyword">HELP</span> <span class="keyword">ALTER</span> &#123;<span class="keyword">DATABASE</span> | <span class="keyword">TABLE</span>&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="Show">Show</h2>
+<h2 id="show"><a class="markdownIt-Anchor" href="#show"></a> Show</h2>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">PRIVILEGES</span>;</span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">OPEN</span> <span class="keyword">TABLES</span>;</span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">TABLE</span> <span class="keyword">STATUS</span>;</span><br></pre></td></tr></table></figure>
 <p>테이블 칼럼 조회 명령어입니다. (코멘트 포함)</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">FULL</span> <span class="keyword">COLUMNS</span> <span class="keyword">FROM</span> 테이블명;</span><br></pre></td></tr></table></figure>
-<h2 id="Select">Select</h2>
+<h2 id="select"><a class="markdownIt-Anchor" href="#select"></a> Select</h2>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 왜래키 규약</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> information_schema.REFERENTIAL_CONSTRAINTS;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- PRIMARY KEY, UNIQUE 규악 등</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> information_schema.TABLE_CONSTRAINTS <span class="keyword">WHERE</span> table_schema = 데이터베이스명;</span><br></pre></td></tr></table></figure>
-<h2 id="백업">백업</h2>
+<h2 id="백업"><a class="markdownIt-Anchor" href="#백업"></a> 백업</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mysqldump &#123; -h 호스트 &#125; -u 사용자 -p 데이터베이스명 &gt; 백업파일명.sql</span></span><br></pre></td></tr></table></figure>
-<h2 id="복구">복구</h2>
+<h2 id="복구"><a class="markdownIt-Anchor" href="#복구"></a> 복구</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mysql &#123; -h 호스트 &#125; -u 사용자 -p 데이터베이스명 &lt; 백업파일명.sql</span></span><br></pre></td></tr></table></figure>
 
         </div>
@@ -317,7 +317,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/11/23/mysql-6/" data-id="cmnbsnxyu00hjukcx20w3b5q6" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/11/23/mysql-6/" data-id="cmnbvrtsg00hrx4cxguttf2ct" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -395,13 +395,12 @@
         "dateCreated": "2022-11-23",
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2022/11/23/mysql-6/",
-        "description": "Help
+        "description": " Help
 1234HELP SHOW;HELP &#123;SELECT | DELETE | UPDATE&#125;;HELP ALTER;HELP ALTER &#123;DATABASE | TABLE&#125;;
-Show
+ Show
 123SHOW PRIVILEGES;SHOW OPEN TABLES;SHOW TABLE STATUS;
-테이블 칼럼 조회 명령어입니다. (코멘트 포함)
-",
-        "wordCount": 159
+테이블 칼럼 조회 명령어입니다. (코멘트 포함",
+        "wordCount": 174
     }
 </script>
 

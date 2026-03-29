@@ -272,15 +272,15 @@
 
             
 
-            <h2 id="서론">서론</h2>
+            <h2 id="서론"><a class="markdownIt-Anchor" href="#서론"></a> 서론</h2>
 <p>복합키는 기본키가 되지 못하는 칼럼들을 서로 묶어서 기본키처럼 사용하는 것입니다.</p>
-<h2 id="Entity">Entity</h2>
+<h2 id="entity"><a class="markdownIt-Anchor" href="#entity"></a> Entity</h2>
 <p>예를 들어 사용자명과 이메일을 복합키로 사용한다고 가정합니다. 복합키로 묶는 <code>CompositePK</code> 클래스를 생성하고, <code>@IdClass</code> 어노테이션을 사용하여 설정합니다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tb_user"</span>)</span><br><span class="line"><span class="meta">@IdClass</span>(CompositePK<span class="class">.<span class="keyword">class</span>) //이름과 이메일을 <span class="title">primary</span> <span class="title">key</span>로 사용</span></span><br><span class="line"><span class="class">@<span class="title">Data</span></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Data</span></span><br><span class="line">  <span class="meta">@AllArgsConstructor</span></span><br><span class="line">  <span class="meta">@NoArgsConstructor</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">CompositePK</span> <span class="keyword">implements</span> <span class="title">Domain</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 사용자명 */</span></span><br><span class="line">    <span class="meta">@Column</span>(nullable = <span class="keyword">false</span>, length = <span class="number">100</span>)</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 이메일 */</span></span><br><span class="line">    <span class="meta">@Column</span>(length = <span class="number">45</span>)</span><br><span class="line">    <span class="keyword">private</span> String email;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/** 사용자비밀번호 */</span></span><br><span class="line">  <span class="meta">@Column</span>(nullable = <span class="keyword">false</span>, length = <span class="number">100</span>)</span><br><span class="line">  <span class="keyword">private</span> String password;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/** 연락처 */</span></span><br><span class="line">  <span class="meta">@Column</span>(length = <span class="number">20</span>)</span><br><span class="line">  <span class="keyword">private</span> String tel;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/** 생성일시 */</span></span><br><span class="line">  <span class="meta">@CreationTimestamp</span></span><br><span class="line">  <span class="keyword">private</span> LocalDateTime createDate;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/** 수정일시 */</span></span><br><span class="line">  <span class="meta">@UpdateTimestamp</span></span><br><span class="line">  <span class="keyword">private</span> LocalDateTime updateDate;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/** 권한 */</span></span><br><span class="line">  <span class="meta">@Enumerated</span>(EnumType.STRING)</span><br><span class="line">  <span class="meta">@Column</span>(nullable = <span class="keyword">false</span>)</span><br><span class="line">  <span class="keyword">private</span> UserRole role;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">enum</span> UserRole &#123;</span><br><span class="line">    ADMIN, GUEST</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Repository">Repository</h2>
+<h2 id="repository"><a class="markdownIt-Anchor" href="#repository"></a> Repository</h2>
 <p>Repository 인터페이스를 생성하고 <code>JpaRepository</code> 를 상속받습니다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserRepository</span> <span class="keyword">extends</span> <span class="title">JpaRepository</span>&lt;<span class="title">User</span>, <span class="title">CompositePK</span>&gt;  </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="사용">사용</h2>
+<h2 id="사용"><a class="markdownIt-Anchor" href="#사용"></a> 사용</h2>
 <p>Service 클래스를 생성하고 Repository 인터페이스를 불러와서 사용합니다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Autowired</span></span><br><span class="line">  <span class="keyword">private</span> UserRepository userRepository;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> User <span class="title">get</span><span class="params">(CompositePK id)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> userRepository.findById(id).orElse(<span class="keyword">null</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -316,7 +316,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/07/13/spring-jpa-2/" data-id="cmnbsnxy500cwukcx3ntodcfe" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/07/13/spring-jpa-2/" data-id="cmnbvrtrg00dax4cxdt7uexrj" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -394,12 +394,12 @@
         "dateCreated": "2022-07-13",
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2022/07/13/spring-jpa-2/",
-        "description": "서론
+        "description": " 서론
 복합키는 기본키가 되지 못하는 칼럼들을 서로 묶어서 기본키처럼 사용하는 것입니다.
-Entity
+ Entity
 예를 들어 사용자명과 이메일을 복합키로 사용한다고 가정합니다. 복합키로 묶는 CompositePK 클래스를 생성하고, @IdClass 어노테이션을 사용하여 설정합니다.
-12345678910111213141516171819202122232425262728293",
-        "wordCount": 412
+123456789101112131415161718192021222324252627282",
+        "wordCount": 424
     }
 </script>
 

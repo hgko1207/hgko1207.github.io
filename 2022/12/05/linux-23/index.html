@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
-    <meta name="keywords" content="리눅스,Linux,CentOS,계정관리" />
+    <meta name="keywords" content="리눅스,CentOS,Linux,계정관리" />
     
     
     
@@ -27,8 +27,8 @@
 <meta property="article:modified_time" content="2024-01-12T06:24:36.794Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="리눅스">
-<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="CentOS">
+<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="계정관리">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/centos.png">
@@ -274,20 +274,20 @@
             
 
             <p>리눅스 환경에서 사용자 계정 조회, 추가, 수정, 삭제하는 방법에 대해 알아보겠습니다.</p>
-<h2 id="사용자-조회">사용자 조회</h2>
+<h2 id="사용자-조회"><a class="markdownIt-Anchor" href="#사용자-조회"></a> 사용자 조회</h2>
 <p>모든 사용자를 출력합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> cat /etc/passwd</span></span><br><span class="line">root:x:0:0:root:/root:/bin/bash</span><br><span class="line">bin:x:1:1:bin:/bin:/sbin/nologin</span><br><span class="line">daemon:x:2:2:daemon:/sbin:/sbin/nologin</span><br><span class="line">adm:x:3:4:adm:/var/adm:/sbin/nologin</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<h2 id="사용자-계정-확인">사용자 계정 확인</h2>
+<h2 id="사용자-계정-확인"><a class="markdownIt-Anchor" href="#사용자-계정-확인"></a> 사용자 계정 확인</h2>
 <p>root와 useradd 또는 adduser 명령어를 통해 생성한 사용자 계정을 출력합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> grep /bin/bash /etc/passwd</span></span><br><span class="line">root:x:0:0:root:/root:/bin/bash</span><br><span class="line">hgko:x:1000:1000:hgko:/home/hgko:/bin/bash</span><br></pre></td></tr></table></figure>
-<h2 id="특정-사용자-계정-확인">특정 사용자 계정 확인</h2>
+<h2 id="특정-사용자-계정-확인"><a class="markdownIt-Anchor" href="#특정-사용자-계정-확인"></a> 특정 사용자 계정 확인</h2>
 <p>입력한 특정 사용자 계정을 출력합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> cat /etc/passwd | grep [사용자계정]</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> cat /etc/passwd | grep hgko</span></span><br><span class="line">hgko:x:1000:1000:hgko:/home/hgko:/bin/bash</span><br></pre></td></tr></table></figure>
 <p>특정 조건(ID 500 이상)을 통해 사용자 목록을 조회합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> awk -F<span class="string">':'</span> <span class="string">'&#123;if($3 &gt;= 500)print $1&#125;'</span> /etc/passwd</span></span><br><span class="line">polkitd</span><br><span class="line">unbound</span><br><span class="line">libstoragemgmt</span><br><span class="line">colord</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<h2 id="사용자-추가">사용자 추가</h2>
-<h3 id="useradd">useradd</h3>
+<h2 id="사용자-추가"><a class="markdownIt-Anchor" href="#사용자-추가"></a> 사용자 추가</h2>
+<h3 id="useradd"><a class="markdownIt-Anchor" href="#useradd"></a> useradd</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> useradd [사용자계정]</span></span><br></pre></td></tr></table></figure>
 <p>test 사용자를 생성합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> useradd <span class="built_in">test</span></span></span><br></pre></td></tr></table></figure>
@@ -295,14 +295,14 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 홈 디렉토리를 지정할 때 사용하고 디렉토리가 없으면 생성</span></span><br><span class="line">$ useradd <span class="built_in">test</span> -m</span><br><span class="line"></span><br><span class="line"><span class="comment"># 홈 디렉토리 지정</span></span><br><span class="line">$ useradd <span class="built_in">test</span> -d /home/<span class="built_in">test</span></span><br></pre></td></tr></table></figure>
 <p>test 사용자의 비밀번호를 생성합니다. <strong>passwd</strong>는 리눅스 사용자 계정의 비밀번호를 변경하는 명령어입니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> passwd <span class="built_in">test</span></span></span><br><span class="line">Changing password for user test.</span><br><span class="line">New password: ****</span><br><span class="line">Retype new password: ****</span><br><span class="line">passwd: all authentication tokens updated successfully.</span><br></pre></td></tr></table></figure>
-<h3 id="adduser">adduser</h3>
+<h3 id="adduser"><a class="markdownIt-Anchor" href="#adduser"></a> adduser</h3>
 <p><strong>adduser</strong> 명령어는 <strong>useradd</strong> 명령어와 달리 사용자 홈 디렉터리를 자동으로 만들고, 비밀번호 설정 등로 한 번에 할 수 있습니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> adduser <span class="built_in">test</span></span></span><br><span class="line">Adding user `test' ...</span><br><span class="line">Adding new group `test' (1000) ...</span><br><span class="line">Adding new user `test' (1000) with group `test' ...</span><br><span class="line">Creating home directory `/home/test' ...</span><br><span class="line">Copying files from `/etc/skel' ...</span><br><span class="line">New password: ****</span><br><span class="line">Retype new password: ****</span><br><span class="line">passwd: password updated successfully</span><br><span class="line">Changing the user information for test</span><br><span class="line">Enter the new value, or press ENTER for the default</span><br><span class="line">        Full Name []: test</span><br><span class="line">        Room Number []:</span><br><span class="line">        Work Phone []:</span><br><span class="line">        Home Phone []:</span><br><span class="line">        Other []:</span><br><span class="line">Is the information correct? [Y/n]</span><br></pre></td></tr></table></figure>
-<h2 id="사용자-수정">사용자 수정</h2>
+<h2 id="사용자-수정"><a class="markdownIt-Anchor" href="#사용자-수정"></a> 사용자 수정</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> usermod [option] [사용자계정]</span></span><br></pre></td></tr></table></figure>
 <p>test 사용자의 홈 디렉터리를 변경합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> usermod -d /home/test1 <span class="built_in">test</span></span></span><br></pre></td></tr></table></figure>
-<h2 id="사용자-삭제">사용자 삭제</h2>
+<h2 id="사용자-삭제"><a class="markdownIt-Anchor" href="#사용자-삭제"></a> 사용자 삭제</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> userdel [사용자계정]</span></span><br></pre></td></tr></table></figure>
 <p>test 사용자를 삭제합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> userdel <span class="built_in">test</span></span></span><br></pre></td></tr></table></figure>
@@ -343,7 +343,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/12/05/linux-23/" data-id="cmnbsnxyz00ieukcx4j4s6wqw" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/12/05/linux-23/" data-id="cmnbvrtsn00ikx4cxgl4whutf" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -415,17 +415,17 @@
         },
         "headline": "[CentOS] 사용자 계정 관리",
         "image": "http://hgko1207.github.io/images/thumbnail/centos.png",
-        "keywords": "리눅스 Linux CentOS 계정관리",
+        "keywords": "리눅스 CentOS Linux 계정관리",
         "genre": "Programming DevOps Linux",
         "datePublished": "2022-12-05",
         "dateCreated": "2022-12-05",
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2022/12/05/linux-23/",
         "description": "리눅스 환경에서 사용자 계정 조회, 추가, 수정, 삭제하는 방법에 대해 알아보겠습니다.
-사용자 조회
+ 사용자 조회
 모든 사용자를 출력합니다.
-123456$ cat /etc/passwdroot:x:0:0:root:/root:/bin/bashbin:x:1:1:bin:/bin:/sbin/nologindaemon:x:2:2:daemon:/sbin:/sbin/nologinadm:",
-        "wordCount": 497
+123456$ cat /etc/passwdroot:x:0:0:root:/root:/bin/bashbin:x:1:1:bin:/bin:/sbin/nologindaemon:x:2:2:daemon:/sbin:/sbin/nologinadm",
+        "wordCount": 521
     }
 </script>
 

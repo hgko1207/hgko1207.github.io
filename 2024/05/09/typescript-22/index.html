@@ -274,13 +274,13 @@
 
             
 
-            <p><img src="/images/header/typescript-22.png" alt=""></p>
+            <p><img src="/images/header/typescript-22.png" alt="" /></p>
 <p>이번 글에서는 TypeScript의 타입 시스템을 크게 향상시키는 두 가지 강력한 기능을 살펴보는 여정을 시작합니다.</p>
-<h2 id="Indexed-Access-Types">Indexed Access Types</h2>
+<h2 id="indexed-access-types"><a class="markdownIt-Anchor" href="#indexed-access-types"></a> Indexed Access Types</h2>
 <p>조회 타입이라고도 하는 인덱싱된 액세스 타입을 사용하면 키를 기반으로 객체에서 프로퍼티 타입을 조회할 수 있습니다. 이 구문은 대괄호 안에 키 타입이 들어 있는 대괄호를 사용합니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Person = &#123;</span><br><span class="line">  name: <span class="built_in">string</span>;</span><br><span class="line">  age: <span class="built_in">number</span>;</span><br><span class="line">  city: <span class="built_in">string</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> AgeType = Person[<span class="string">'age'</span>]; <span class="comment">// number</span></span><br></pre></td></tr></table></figure>
 <p>이 예제에서 <code>Person['age']</code>는 <code>Person</code> 타입에서 ‘age’ 속성의 타입을 검색합니다.</p>
-<h2 id="Mapped-Types">Mapped Types</h2>
+<h2 id="mapped-types"><a class="markdownIt-Anchor" href="#mapped-types"></a> Mapped Types</h2>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Flags = &#123;</span><br><span class="line">  option1: <span class="built_in">boolean</span>;</span><br><span class="line">  option2: <span class="built_in">boolean</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> NullableFlags = &#123;</span><br><span class="line">  [K <span class="keyword">in</span> keyof Flags]: <span class="built_in">boolean</span> | <span class="literal">null</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Result: &#123; option1: boolean | null, option2: boolean | null &#125;</span></span><br></pre></td></tr></table></figure>
 <p>여기서 <code>NullableFlags</code>는 <code>Flags</code>의 각 프로퍼티를 <code>null</code>을 허용하도록 변환합니다.</p>
 
@@ -316,7 +316,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2024/05/09/typescript-22/" data-id="cmnbsny360139ukcxeaea8ew0" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2024/05/09/typescript-22/" data-id="cmnbvrtyg012yx4cxewc5gaap" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -396,10 +396,10 @@
         "url": "http://hgko1207.github.io/2024/05/09/typescript-22/",
         "description": "
 이번 글에서는 TypeScript의 타입 시스템을 크게 향상시키는 두 가지 강력한 기능을 살펴보는 여정을 시작합니다.
-Indexed Access Types
+ Indexed Access Types
 조회 타입이라고도 하는 인덱싱된 액세스 타입을 사용하면 키를 기반으로 객체에서 프로퍼티 타입을 조회할 수 있습니다. 이 구문은 대괄호 안에 키 타입이 들어 있는 대괄호를 사용합니다.
-1234567typ",
-        "wordCount": 165
+1234567ty",
+        "wordCount": 172
     }
 </script>
 

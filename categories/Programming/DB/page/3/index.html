@@ -263,10 +263,10 @@
     
 
         <p class="article-excerpt">
-            TimescaleDB 란
+             TimescaleDB 란
 TimescaleDB는 빠른 수집, 복잡한 쿼리를 편리하게 사용하기 위해 설계된 오픈 소스 시계열 데이터베이스입니다.
 PostgreSQL을 기반으로 하며 자동 파티셔닝과 SQL 지원을 제공합니다. PostgreSQL 보다 10 ~ 100배 빠른 쿼리를 수행하고 시계열에 대해 최적화가 되어 있습니다.
-5 ~ 10분 단위로 수집되는 많
+5 ~ 10분 단위로 수집되는 
         </p>
     </div>
 </article>
@@ -312,7 +312,7 @@ PostgreSQL을 기반으로 하며 자동 파티셔닝과 SQL 지원을 제공합
     
 
         <p class="article-excerpt">
-            명령어
+             명령어
 PostgreSQL에 접속합니다.
 1$ psql -U postgres
 다음은 데이터베이스와 테이블 관련 명령어입니다.
@@ -342,7 +342,7 @@ PostgreSQL에 접속합니다.
 
 
 \dt [Table Name]
-지
+
         </p>
     </div>
 </article>
@@ -392,15 +392,15 @@ PostgreSQL에 접속합니다.
     
 
         <p class="article-excerpt">
-            외부 접속 허용 설정
-1. 사용자 비밀번호 설정
+             외부 접속 허용 설정
+ 1. 사용자 비밀번호 설정
 외부에서 접속하기 위해선 우선 postgres 비밀번호를 설정해야 합니다.
 postgres 계정으로 접속합니다.
 1$ su - postgres psql
 12345# 비밀번호 설정\password postgres# 종료\q
-2. 방화벽 개방
+ 2. 방화벽 개방
 방화벽에서 5432 포트를 개방합니다.
-12$ firewall-cmd 
+12$ firewall-c
         </p>
     </div>
 </article>
@@ -447,13 +447,13 @@ postgres 계정으로 접속합니다.
 
         <p class="article-excerpt">
             리눅스 환경에서 PostgreSQL 설치 및 시작 방법에 대해 알아보겠습니다.
-운영환경
+ 운영환경
 
 CentOS 7.6
 PostgreSQL 11.9
 
-인터넷이 되는 환경
-12345# Install the repository RPM:$ sudo yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/
+ 인터넷이 되는 환경
+12345# Install the repository RPM:$ sudo yum install -y https://download.postgresql.org/pub/repos/yum/reporpm
         </p>
     </div>
 </article>
@@ -503,13 +503,13 @@ PostgreSQL 11.9
     
 
         <p class="article-excerpt">
-            Geometry 데이터 형식 쿼리
-STContains
+             Geometry 데이터 형식 쿼리
+ STContains
 
 STContains(geometry 데이터 형식)
 
 geometry 인스턴스에 다른 geometry 인스턴스가 완전히 포함되어 있으면 1을 반환합니다. 그렇지 않으면 0을 반환합니다.
-123456DECLARE @g geometry;DECLARE @h geometry;SET @g = geometry::S
+123456DECLARE @g geometry;DECLARE @h geometry;SET @g = geometry:
         </p>
     </div>
 </article>
@@ -606,10 +606,10 @@ geometry 인스턴스에 다른 geometry 인스턴스가 완전히 포함되어 
     
 
         <p class="article-excerpt">
-            SELECT
+             SELECT
 123SELECT * FROM 테이블명SELECT * FROM 테이블명 WHERE 조건SELECT 필드명1, 필드명2, ... FROM 테이블명 WHERE 조건
-INSERT
-123INSERT INTO 테이블명(필드명1, 필드명2, 필드명3, ...) VALUES (데이터값1, 데이터값2, 데이터값3, ...)또는INSERT INTO 테이블명 V
+ INSERT
+123INSERT INTO 테이블명(필드명1, 필드명2, 필드명3, ...) VALUES (데이터값1, 데이터값2, 데이터값3, ...)또는INSERT INTO 테이블명
         </p>
     </div>
 </article>

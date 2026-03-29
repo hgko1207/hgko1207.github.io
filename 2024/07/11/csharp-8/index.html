@@ -274,45 +274,45 @@
 
             
 
-            <p><img src="/images/header/csharp-8.png" alt=""></p>
+            <p><img src="/images/header/csharp-8.png" alt="" /></p>
 <p>WPF(Windows Presentation Foundation) 개발에서 변수 선언에 <code>var</code>을 사용하면 다른 C# 애플리케이션과 마찬가지로 여러 가지 장점과 단점이 있을 수 있습니다. 고려해야 할 몇 가지 사항은 다음과 같습니다.</p>
-<h2 id="var-사용의-장점"><code>var</code> 사용의 장점</h2>
-<h3 id="1-간결">1. 간결</h3>
+<h2 id="var-사용의-장점"><a class="markdownIt-Anchor" href="#var-사용의-장점"></a> <code>var</code> 사용의 장점</h2>
+<h3 id="1-간결"><a class="markdownIt-Anchor" href="#1-간결"></a> 1. 간결</h3>
 <p><code>var</code>를 사용하면 특히 할당의 오른쪽에서 유형이 분명한 경우 중복을 제거하여 코드를 더 짧고 읽기 쉽게 만들 수 있습니다.</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> customer = <span class="keyword">new</span> Customer();</span><br><span class="line"><span class="keyword">var</span> orders = <span class="keyword">new</span> List&lt;Order&gt;();</span><br></pre></td></tr></table></figure>
-<h3 id="2-유지관리성">2. 유지관리성</h3>
+<h3 id="2-유지관리성"><a class="markdownIt-Anchor" href="#2-유지관리성"></a> 2. 유지관리성</h3>
 <p>변수 유형이 변경되면 한 곳(할당 오른쪽)에서만 변경하면 됩니다. 이렇게 하면 불일치의 위험이 줄어듭니다.</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myCollection = <span class="keyword">new</span> ObservableCollection&lt;<span class="keyword">string</span>&gt;();</span><br><span class="line"><span class="comment">// If you change ObservableCollection to List, only the right side changes.</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-복잡한-유형">3. 복잡한 유형</h3>
+<h3 id="3-복잡한-유형"><a class="markdownIt-Anchor" href="#3-복잡한-유형"></a> 3. 복잡한 유형</h3>
 <p>복잡한 유형, 특히 긴 이름이나 익명 유형을 가진 유형의 경우 'var’을 사용하면 코드를 더 읽기 쉽고 덜 복잡하게 만들 수 있습니다.</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dictionary = <span class="keyword">new</span> Dictionary&lt;<span class="keyword">string</span>, List&lt;Tuple&lt;<span class="keyword">int</span>, <span class="keyword">string</span>&gt;&gt;&gt;();</span><br></pre></td></tr></table></figure>
-<h3 id="4-유형-추론">4. 유형 추론</h3>
+<h3 id="4-유형-추론"><a class="markdownIt-Anchor" href="#4-유형-추론"></a> 4. 유형 추론</h3>
 <p>컴파일러는 형식을 유추할 수 있으며 이는 LINQ 쿼리 또는 익명 형식으로 작업할 때 유용할 수 있습니다.</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> results = <span class="keyword">from</span> order <span class="keyword">in</span> orders</span><br><span class="line">              <span class="keyword">where</span> order.Total &gt; <span class="number">100</span></span><br><span class="line">              <span class="keyword">select</span> order;</span><br></pre></td></tr></table></figure>
-<h2 id="var-사용의-단점"><code>var</code> 사용의 단점</h2>
-<h3 id="1-가독성">1. 가독성</h3>
+<h2 id="var-사용의-단점"><a class="markdownIt-Anchor" href="#var-사용의-단점"></a> <code>var</code> 사용의 단점</h2>
+<h3 id="1-가독성"><a class="markdownIt-Anchor" href="#1-가독성"></a> 1. 가독성</h3>
 <p><code>var</code>를 과도하게 사용하면 특히 관련 컨텍스트나 유형에 익숙하지 않은 사람의 경우 코드 읽기가 어려워질 수 있습니다. 명시적 유형은 더 명확성을 제공할 수 있습니다.</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = Calculate(); <span class="comment">// What is the type of x?</span></span><br></pre></td></tr></table></figure>
-<h3 id="2-명시성">2. 명시성</h3>
+<h3 id="2-명시성"><a class="markdownIt-Anchor" href="#2-명시성"></a> 2. 명시성</h3>
 <p>어떤 경우에는 유형을 명시적으로 지정하면 코드를 더 이해하기 쉽고 따라가기 쉽게 만들 수 있습니다. 특히 복잡한 논리의 경우나 코드를 검토할 때 더욱 그렇습니다.</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> count = <span class="number">10</span>; <span class="comment">// It's clear that count is an integer.</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-혼란-가능성">3. 혼란 가능성</h3>
+<h3 id="3-혼란-가능성"><a class="markdownIt-Anchor" href="#3-혼란-가능성"></a> 3. 혼란 가능성</h3>
 <p>과제의 오른쪽에서 유형이 바로 명확하지 않은 경우 <code>var</code>를 사용하면 혼동이나 오류가 발생할 수 있습니다.</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = GetData(); <span class="comment">// What is the type of data?</span></span><br></pre></td></tr></table></figure>
-<h2 id="var-사용-지침"><code>var</code> 사용 지침</h2>
-<h3 id="1-유형이-분명한-경우-var을-사용하세요">1. 유형이 분명한 경우 <code>var</code>을 사용하세요</h3>
+<h2 id="var-사용-지침"><a class="markdownIt-Anchor" href="#var-사용-지침"></a> <code>var</code> 사용 지침</h2>
+<h3 id="1-유형이-분명한-경우-var을-사용하세요"><a class="markdownIt-Anchor" href="#1-유형이-분명한-경우-var을-사용하세요"></a> 1. 유형이 분명한 경우 <code>var</code>을 사용하세요</h3>
 <p>클래스의 새 인스턴스를 생성하거나 잘 알려진 반환 유형을 사용하여 메서드를 호출하는 등 컨텍스트에서 유형이 명확한 경우 <code>var</code>을 사용하면 코드가 더 깔끔해집니다.</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> customer = <span class="keyword">new</span> Customer();</span><br><span class="line"><span class="keyword">var</span> orders = <span class="keyword">new</span> List&lt;Order&gt;();</span><br></pre></td></tr></table></figure>
-<h3 id="2-유형이-명확하지-않은-경우-var를-피하세요">2. 유형이 명확하지 않은 경우 <code>var</code>를 피하세요</h3>
+<h3 id="2-유형이-명확하지-않은-경우-var를-피하세요"><a class="markdownIt-Anchor" href="#2-유형이-명확하지-않은-경우-var를-피하세요"></a> 2. 유형이 명확하지 않은 경우 <code>var</code>를 피하세요</h3>
 <p>유형이 즉시 명확하지 않거나 코드를 이해하기 어렵게 만드는 경우 대신 명시적인 유형을 사용하십시오.</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> total = CalculateTotal();</span><br></pre></td></tr></table></figure>
-<h3 id="3-일관성을-유지하세요">3. 일관성을 유지하세요</h3>
+<h3 id="3-일관성을-유지하세요"><a class="markdownIt-Anchor" href="#3-일관성을-유지하세요"></a> 3. 일관성을 유지하세요</h3>
 <p>어떤 규칙을 선택하든 코드베이스 전체에서 일관성을 유지하여 가독성과 일관성을 유지하세요.</p>
-<h2 id="WPF의-실제-예">WPF의 실제 예</h2>
+<h2 id="wpf의-실제-예"><a class="markdownIt-Anchor" href="#wpf의-실제-예"></a> WPF의 실제 예</h2>
 <p>UI 요소와 데이터 바인딩을 처리하는 WPF 애플리케이션을 생각해 보세요. 다음은 <code>var</code>를 적절하게 사용하는 예입니다.</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Creating a new instance of a Button, type is obvious</span></span><br><span class="line"><span class="keyword">var</span> button = <span class="keyword">new</span> Button();</span><br><span class="line">button.Content = <span class="string">"Click Me"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Adding the button to a panel</span></span><br><span class="line"><span class="keyword">var</span> panel = <span class="keyword">new</span> StackPanel();</span><br><span class="line">panel.Children.Add(button);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Using LINQ to filter a list</span></span><br><span class="line"><span class="keyword">var</span> filteredItems = items.Where(item =&gt; item.IsActive).ToList();</span><br></pre></td></tr></table></figure>
 <p>위의 예에서 <code>var</code>은 유형이 분명하고 코드를 간결하고 읽기 쉽게 만드는 데 도움이 되는 곳에 사용되었습니다.</p>
-<h2 id="결론">결론</h2>
+<h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2>
 <p>WPF 또는 C# 코드에서 <code>var</code>를 사용하면 중복을 줄이고 유지 관리성을 향상시키는 데 도움이 될 수 있지만 신중하게 사용해야 합니다. 유형이 명확하고 가독성이 저하되지 않는 경우 <code>var</code>는 훌륭한 도구가 될 수 있습니다. 그러나 유형이 명확하지 않은 경우 유형을 명시적으로 지정하면 코드를 더 이해하기 쉽고 유지 관리하기 쉽게 만들 수 있습니다. 일관성과 명확성은 항상 기본 원칙이 되어야 합니다.</p>
 
         </div>
@@ -347,7 +347,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2024/07/11/csharp-8/" data-id="cmnbsny3v0163ukcxd2hb8dvp" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2024/07/11/csharp-8/" data-id="cmnbvrumx03y7x4cxgg7v13zc" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -427,10 +427,10 @@
         "url": "http://hgko1207.github.io/2024/07/11/csharp-8/",
         "description": "
 WPF(Windows Presentation Foundation) 개발에서 변수 선언에 var을 사용하면 다른 C# 애플리케이션과 마찬가지로 여러 가지 장점과 단점이 있을 수 있습니다. 고려해야 할 몇 가지 사항은 다음과 같습니다.
-var 사용의 장점
-1. 간결
-var를 사용하면 특히 할당의 오른쪽에서 유형이 분명한 경우 중복을 제거하여 코드를 더 짧고 ",
-        "wordCount": 593
+ var 사용의 장점
+ 1. 간결
+var를 사용하면 특히 할당의 오른쪽에서 유형이 분명한 경우 중복을 제거하여 코드를 더 짧",
+        "wordCount": 639
     }
 </script>
 

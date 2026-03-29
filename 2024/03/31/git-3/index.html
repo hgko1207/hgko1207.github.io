@@ -272,69 +272,69 @@
 
             
 
-            <p><img src="/images/header/git-3.png" alt=""></p>
+            <p><img src="/images/header/git-3.png" alt="" /></p>
 <p><strong>Git</strong>은 프로그래머의 일상적인 워크플로, 특히 팀 내에서 협업할 때 중요한 역할을 하며 소프트웨어 업계에서 없어서는 안 될 도구로 자리 잡고 있습니다. 효율적인 버전 관리와 협업을 위해서는 Git 명령어를 잘 이해하는 것이 필수적입니다.</p>
 <p>이 글에서는 모든 개발자가 알아야 할 상위 14개의 Git 명령어를 공유하겠습니다.</p>
-<h2 id="1-git-init">1. git init</h2>
+<h2 id="1-git-init"><a class="markdownIt-Anchor" href="#1-git-init"></a> 1. git init</h2>
 <p><code>git init</code> 명령은 프로젝트 폴더에 새 리포지토리를 초기화하는 데 사용됩니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-<h2 id="2-git-clone">2. git clone</h2>
+<h2 id="2-git-clone"><a class="markdownIt-Anchor" href="#2-git-clone"></a> 2. git clone</h2>
 <p><code>git clone</code> 명령은 기존 git 리포지토리를 로컬 머신에 복제하는 데 사용됩니다. 리포지토리를 복제하면 기존 프로젝트에서 공동 작업을 시작할 수 있습니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> &lt;repository_url&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="3-git-branch">3. git branch</h2>
+<h2 id="3-git-branch"><a class="markdownIt-Anchor" href="#3-git-branch"></a> 3. git branch</h2>
 <p><code>git branch</code> 명령은 브랜치를 만들고, 나열하고, 삭제하는 데 사용됩니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch &lt;new_branch_name&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="새-브랜치-만들기">새 브랜치 만들기</h3>
+<h3 id="새-브랜치-만들기"><a class="markdownIt-Anchor" href="#새-브랜치-만들기"></a> 새 브랜치 만들기</h3>
 <p>다음 명령을 사용하여 로컬로 브랜치를 만들 수 있습니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch &lt;new_branch_name&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="브랜치-나열하기">브랜치 나열하기</h3>
+<h3 id="브랜치-나열하기"><a class="markdownIt-Anchor" href="#브랜치-나열하기"></a> 브랜치 나열하기</h3>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
-<h3 id="브랜치-삭제하기">브랜치 삭제하기</h3>
+<h3 id="브랜치-삭제하기"><a class="markdownIt-Anchor" href="#브랜치-삭제하기"></a> 브랜치 삭제하기</h3>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d &lt;branch_name&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="4-git-checkout">4. git checkout</h2>
+<h2 id="4-git-checkout"><a class="markdownIt-Anchor" href="#4-git-checkout"></a> 4. git checkout</h2>
 <p><code>git checkout</code> 명령은 브랜치 간에 전환하는 데 사용됩니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout &lt;branch_name&gt;</span><br></pre></td></tr></table></figure>
 <p>브랜치 간에 전환하려면 전환하기 전에 현재 브랜치의 모든 변경 사항이 커밋되었거나 저장되어 있는지 확인하세요. 또한 체크아웃하려는 브랜치가 로컬에 이미 존재하는지 확인하세요.</p>
 <p>다음 명령어를 사용하면 브랜치 생성 및 전환을 한 번에 원활하게 수행할 수 있습니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b &lt;branch_name&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="5-git-add">5. git add</h2>
+<h2 id="5-git-add"><a class="markdownIt-Anchor" href="#5-git-add"></a> 5. git add</h2>
 <p><code>git add</code> 명령은 특정 파일 또는 다음 커밋을 위한 모든 변경 사항을 스테이징하는 데 사용됩니다.</p>
 <p>특정 파일의 경우:</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add &lt;file_name&gt;</span><br></pre></td></tr></table></figure>
 <p>모든 변경사항의 경우:</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
-<h2 id="6-git-reset">6. git reset</h2>
+<h2 id="6-git-reset"><a class="markdownIt-Anchor" href="#6-git-reset"></a> 6. git reset</h2>
 <p><code>git reset</code> 명령은 파일의 변경 상태를 해제하는 데 사용됩니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset &lt;file_name&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="7-git-commit">7. git commit</h2>
+<h2 id="7-git-commit"><a class="markdownIt-Anchor" href="#7-git-commit"></a> 7. git commit</h2>
 <p><code>git commit</code> 명령은 설명 메시지와 함께 단계적 변경 내용을 커밋하는 데 사용됩니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">"Your message"</span></span><br></pre></td></tr></table></figure>
-<h2 id="8-git-status">8. git status</h2>
+<h2 id="8-git-status"><a class="markdownIt-Anchor" href="#8-git-status"></a> 8. git status</h2>
 <p><code>git status</code> 명령은 리포지토리의 상태(예: 추적되지 않은 파일 및 커밋할 준비가 된 변경 사항)를 확인하는 데 사용됩니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
-<h2 id="9-git-log">9. git log</h2>
+<h2 id="9-git-log"><a class="markdownIt-Anchor" href="#9-git-log"></a> 9. git log</h2>
 <p><code>git log</code> 명령은 모든 커밋의 기록을 표시하는 데 사용됩니다. 여기에는 커밋 해시, 작성자, 날짜 및 커밋 메시지가 포함됩니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
-<h2 id="10-git-diff">10. git diff</h2>
+<h2 id="10-git-diff"><a class="markdownIt-Anchor" href="#10-git-diff"></a> 10. git diff</h2>
 <p><code>git diff</code> 명령은 현재 작업 디렉터리와 마지막 커밋 간의 차이점을 확인하는 데 사용됩니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff</span><br></pre></td></tr></table></figure>
-<h2 id="11-git-push">11. git push</h2>
+<h2 id="11-git-push"><a class="markdownIt-Anchor" href="#11-git-push"></a> 11. git push</h2>
 <p><code>git push</code> 명령은 커밋을 원격 리포지토리로 보내는 데 사용됩니다. 이 명령은 커밋된 변경 내용만 푸시한다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin &lt;branch_name&gt;</span><br></pre></td></tr></table></figure>
 <p>브랜치를 새로 만든 경우 다음 명령으로 브랜치를 업로드해야 합니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin &lt;branch_name&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="12-git-pull">12. git pull</h2>
+<h2 id="12-git-pull"><a class="markdownIt-Anchor" href="#12-git-pull"></a> 12. git pull</h2>
 <p><code>git pull</code> 명령은 원격 리포지토리에서 변경 내용을 가져와 로컬 브랜치에 통합하는 데 사용됩니다.</p>
 <p>이 명령은 기본적으로 두 개의 개별 Git 명령, 즉 <code>git fetch</code>와 <code>git merge</code>의 조합입니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin</span><br></pre></td></tr></table></figure>
-<h2 id="13-git-stash">13. git stash</h2>
+<h2 id="13-git-stash"><a class="markdownIt-Anchor" href="#13-git-stash"></a> 13. git stash</h2>
 <p><code>git stash</code> 명령은 커밋할 준비가 되지 않은 변경 내용을 일시적으로 저장하는 데 사용됩니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></table></figure>
-<h2 id="14-git-merge">14. git merge</h2>
+<h2 id="14-git-merge"><a class="markdownIt-Anchor" href="#14-git-merge"></a> 14. git merge</h2>
 <p><code>git merge</code> 명령은 모든 브랜치 변경 내용을 하나의 브랜치로 합친다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge &lt;branch_name&gt;</span><br></pre></td></tr></table></figure>
 <p>브랜치를 병합하려면 먼저 모든 브랜치를 병합하려는 브랜치에 체크 아웃해야 합니다.</p>
-<h2 id="결론">결론</h2>
+<h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2>
 <p>이 필수 Git 명령어는 코딩 여정에서 항상 함께해야 할 동반자가 될 것입니다. 새 프로젝트를 시작하거나 팀과 협업하거나 버그를 수정할 때 이러한 명령은 버전 관리를 안내하여 개발 여정을 간소화하고 원활하게 진행할 수 있도록 도와줍니다.</p>
 
         </div>
@@ -369,7 +369,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2024/03/31/git-3/" data-id="cmnbsny2h010dukcxetxuhbgb" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2024/03/31/git-3/" data-id="cmnbvrtxt010yx4cxafg7anwe" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -450,9 +450,9 @@
         "description": "
 Git은 프로그래머의 일상적인 워크플로, 특히 팀 내에서 협업할 때 중요한 역할을 하며 소프트웨어 업계에서 없어서는 안 될 도구로 자리 잡고 있습니다. 효율적인 버전 관리와 협업을 위해서는 Git 명령어를 잘 이해하는 것이 필수적입니다.
 이 글에서는 모든 개발자가 알아야 할 상위 14개의 Git 명령어를 공유하겠습니다.
-1. git init
-git ini",
-        "wordCount": 531
+ 1. git init
+git in",
+        "wordCount": 586
     }
 </script>
 

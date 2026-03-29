@@ -275,9 +275,9 @@
 
             
 
-            <p><img src="/images/header/typescript-21.png" alt=""></p>
+            <p><img src="/images/header/typescript-21.png" alt="" /></p>
 <p>타입스크립트의 강점은 표현력이 풍부한 구문뿐만 아니라 강력한 타입 검사 및 컴파일 옵션에도 있습니다. 이번 글에서는 엄격한 타입 검사 및 고급 컴파일러 옵션에 대해 집중적으로 살펴봅니다. 이러한 기능은 코드 품질을 높이고, 잠재적인 오류를 조기에 발견하며, 컴파일 프로세스를 미세 조정하는 데 도움이 됩니다. 타입 안전성을 보장하고 TypeScript 워크플로를 최적화하는 미묘한 차이를 알아보는 여정에 함께하세요.</p>
-<h2 id="엄격한-타입-검사-Strict-Type-Checking">엄격한 타입 검사(Strict Type Checking)</h2>
+<h2 id="엄격한-타입-검사strict-type-checking"><a class="markdownIt-Anchor" href="#엄격한-타입-검사strict-type-checking"></a> 엄격한 타입 검사(Strict Type Checking)</h2>
 <p>엄격한 타입 검사를 사용하려면 컴파일 시 일반적인 프로그래밍 오류를 포착하는 데 도움이 되는 여러 가지 TypeScript 컴파일러 옵션을 사용 설정해야 합니다. 엄격한 타입 검사를 사용하려면 몇 가지 하위 옵션이 포함된 <code>--strict</code> 플래그를 사용하면 됩니다.</p>
 <ul>
 <li><code>--strictNullChecks</code>: 변수의 타입에서 명시적으로 허용하지 않는 한 변수가 null 또는 정의되지 않은 상태로 할당되지 않도록 합니다.</li>
@@ -289,7 +289,7 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tsc --strict tsfile.ts</span><br></pre></td></tr></table></figure>
 <p>또는 <code>tsconfig.json</code>에서 설정할 수 있습니다.</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"compilerOptions"</span>: &#123;</span><br><span class="line">    <span class="attr">"strict"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"strictNullChecks"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"strictFunctionTypes"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"strictPropertyInitialization"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"strictBindCallApply"</span>: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="고급-컴파일러-옵션-Advanced-Compiler-Option">고급 컴파일러 옵션(Advanced Compiler Option)</h2>
+<h2 id="고급-컴파일러-옵션advanced-compiler-option"><a class="markdownIt-Anchor" href="#고급-컴파일러-옵션advanced-compiler-option"></a> 고급 컴파일러 옵션(Advanced Compiler Option)</h2>
 <p>엄격한 타입 검사 외에도 TypeScript는 컴파일러의 동작을 미세 조정할 수 있는 다양한 고급 컴파일러 옵션을 제공합니다. 주목할 만한 옵션은 다음과 같습니다.</p>
 <ul>
 <li><code>--target</code>: 생성된 JavaScript 코드의 ECMAScript 대상 버전을 지정합니다(예: “es5”, “es6”).</li>
@@ -301,7 +301,7 @@
 </ul>
 <p>이러한 옵션은 <code>tsconfig.json</code> 파일에서 구성할 수 있습니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"compilerOptions"</span>: &#123;</span><br><span class="line">    <span class="string">"target"</span>: <span class="string">"es5"</span>,</span><br><span class="line">    <span class="string">"module"</span>: <span class="string">"commonjs"</span>,</span><br><span class="line">    <span class="string">"esModuleInterop"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"declaration"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"sourceMap"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"noEmitOnError"</span>: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="결론">결론</h2>
+<h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2>
 <p>이러한 옵션을 사용하면 TypeScript가 코드를 트랜스파일하는 방식을 제어하여 호환성을 보장하고 선언 파일을 생성하며 디버깅 프로세스를 지원할 수 있습니다.</p>
 
         </div>
@@ -336,7 +336,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2024/05/09/typescript-21/" data-id="cmnbsny38013jukcxbb7dbl8u" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2024/05/09/typescript-21/" data-id="cmnbvrtyd012ix4cxa91k30rb" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -416,7 +416,7 @@
         "url": "http://hgko1207.github.io/2024/05/09/typescript-21/",
         "description": "
 타입스크립트의 강점은 표현력이 풍부한 구문뿐만 아니라 강력한 타입 검사 및 컴파일 옵션에도 있습니다. 이번 글에서는 엄격한 타입 검사 및 고급 컴파일러 옵션에 대해 집중적으로 살펴봅니다. 이러한 기능은 코드 품질을 높이고, 잠재적인 오류를 조기에 발견하며, 컴파일 프로세스를 미세 조정하는 데 도움이 됩니다. 타입 안전성을 보장하고 TypeScript 워크",
-        "wordCount": 387
+        "wordCount": 397
     }
 </script>
 

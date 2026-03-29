@@ -275,21 +275,21 @@
 
             
 
-            <p><img src="/images/header/typescript-13.png" alt=""></p>
+            <p><img src="/images/header/typescript-13.png" alt="" /></p>
 <p>이번 글에서는 타입 정의의 정확성과 표현력을 높여주는 Union 타입, Literal 타입, Tagged 타입에 대해 살펴봅니다. 이러한 기능을 이해하면 더욱 강력하고 미묘한 타입 시스템을 만들 수 있습니다. TypeScript의 고급 유형 기능의 세계를 탐색하는 이 여정에 함께하세요.</p>
-<h2 id="1-Union-Types">1. Union Types</h2>
+<h2 id="1-union-types"><a class="markdownIt-Anchor" href="#1-union-types"></a> 1. Union Types</h2>
 <p>Union 타입은 변수가 두 가지 이상의 타입을 가질 수 있게 해줍니다. 연산자를 사용하여 유형을 결합할 수 있습니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Result = <span class="built_in">number</span> | <span class="built_in">string</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">displayResult</span>(<span class="params">result: Result</span>): <span class="title">void</span> </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">displayResult(<span class="number">42</span>); <span class="comment">// Output: 42</span></span><br><span class="line">displayResult(<span class="string">'hello'</span>); <span class="comment">// Output: hello</span></span><br></pre></td></tr></table></figure>
 <p>이 예제에서 <code>Result</code>는 숫자나 문자열일 수 있습니다.</p>
-<h2 id="2-Literal-Types">2. Literal Types</h2>
+<h2 id="2-literal-types"><a class="markdownIt-Anchor" href="#2-literal-types"></a> 2. Literal Types</h2>
 <p>Literal 타입을 사용하면 변수가 가질 수 있는 정확한 값을 지정할 수 있습니다. 문자열 리터럴, 숫자 리터럴, 부울 리터럴 등과 함께 사용할 수 있습니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Direction = <span class="string">'up'</span> | <span class="string">'down'</span> | <span class="string">'left'</span> | <span class="string">'right'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params">direction: Direction</span>): <span class="title">void</span> </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Moving <span class="subst">$&#123;direction&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">move(<span class="string">'up'</span>); <span class="comment">// Output: Moving up</span></span><br><span class="line">move(<span class="string">'right'</span>); <span class="comment">// Output: Moving right</span></span><br></pre></td></tr></table></figure>
 <p>여기서 <code>Direction</code>은 특정 문자열 “up”, “down”, “left” 또는 &quot;right&quot;를 나타내는 리터럴 타입입니다.</p>
-<h2 id="3-Tagged-Union-Types">3. Tagged Union Types</h2>
+<h2 id="3-tagged-union-types"><a class="markdownIt-Anchor" href="#3-tagged-union-types"></a> 3. Tagged Union Types</h2>
 <p>Tagged Union 타입은 값이 여러 타입 중 하나일 수 있고 공통 속성(태그)으로 구분하려는 시나리오를 모델링하는 데 자주 사용됩니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Square &#123;</span><br><span class="line">  kind: <span class="string">'square'</span>;</span><br><span class="line">  size: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> Circle &#123;</span><br><span class="line">  kind: <span class="string">'circle'</span>;</span><br><span class="line">  radius: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Shape = Square | Circle;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">area</span>(<span class="params">shape: Shape</span>): <span class="title">number</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (shape.kind === <span class="string">'square'</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> shape.size * shape.size;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.PI * shape.radius * shape.radius;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> mySquare: Square = &#123; kind: <span class="string">'square'</span>, size: <span class="number">4</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> myCircle: Circle = &#123; kind: <span class="string">'circle'</span>, radius: <span class="number">3</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(area(mySquare)); <span class="comment">// Output: 16</span></span><br><span class="line"><span class="built_in">console</span>.log(area(myCircle)); <span class="comment">// Output: 28.274333882308138</span></span><br></pre></td></tr></table></figure>
 <p>이 예제에서 <code>Shape</code>는 두 가지 가능한 모양을 가진 Tagged 유니온 유형입니다: <code>Square</code>과 <code>Circle</code>입니다. <code>kind</code> 속성은 두 도형을 구분하는 태그 역할을 합니다.</p>
-<h2 id="결론">결론</h2>
+<h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2>
 <p>이러한 기능은 표현력이 풍부하고 정확한 유형 정의를 생성할 수 있는 강력한 도구를 제공하여 코드에서 특정 패턴을 캡처하고 적용할 수 있게 해줍니다.</p>
 
         </div>
@@ -324,7 +324,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2024/04/17/typescript-13/" data-id="cmnbsny2n0117ukcx516b4du7" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2024/04/17/typescript-13/" data-id="cmnbvrty3011lx4cxcco6evb0" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -404,9 +404,9 @@
         "url": "http://hgko1207.github.io/2024/04/17/typescript-13/",
         "description": "
 이번 글에서는 타입 정의의 정확성과 표현력을 높여주는 Union 타입, Literal 타입, Tagged 타입에 대해 살펴봅니다. 이러한 기능을 이해하면 더욱 강력하고 미묘한 타입 시스템을 만들 수 있습니다. TypeScript의 고급 유형 기능의 세계를 탐색하는 이 여정에 함께하세요.
-1. Union Types
-Union 타입은 변수가 두 가지 이상의 ",
-        "wordCount": 430
+ 1. Union Types
+Union 타입은 변수가 두 가지 이상의",
+        "wordCount": 443
     }
 </script>
 

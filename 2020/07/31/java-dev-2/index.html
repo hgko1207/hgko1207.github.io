@@ -273,13 +273,13 @@
 
             
 
-            <h2 id="투형-변환">투형 변환</h2>
+            <h2 id="투형-변환"><a class="markdownIt-Anchor" href="#투형-변환"></a> 투형 변환</h2>
 <p>TM(미국좌표) 좌표와 WGS84(한국좌표) 좌표를 서로 변환한다.</p>
-<h2 id="다운로드">다운로드</h2>
+<h2 id="다운로드"><a class="markdownIt-Anchor" href="#다운로드"></a> 다운로드</h2>
 <p><a href="http://www.jhlabs.com/java/maps/proj/" target="_blank" rel="noopener">Java Map Projection Library</a> 사이트에 접속하여 다음의 Download에서 소스 및 jar 파일을 다운로드한다. 다운로드한 jar 파일은 프로젝트의 classpath 경로에 추가한다.</p>
-<h2 id="샘플">샘플</h2>
+<h2 id="샘플"><a class="markdownIt-Anchor" href="#샘플"></a> 샘플</h2>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 투형 정보 입력(중부원점 직각좌표 투형정보)</span></span><br><span class="line">String[] proj4 = <span class="keyword">new</span> String[] &#123;</span><br><span class="line">        <span class="string">"+proj=tmerc"</span>,</span><br><span class="line">        <span class="string">"+lat_0=38N"</span>,</span><br><span class="line">        <span class="string">"+lon_0=127.00289027777777777776E"</span>,</span><br><span class="line">        <span class="string">"+ellps=bessel"</span>,</span><br><span class="line">        <span class="string">"+units=m"</span>,</span><br><span class="line">        <span class="string">"+x_0=200000"</span>,</span><br><span class="line">        <span class="string">"+y_0=500000"</span>,</span><br><span class="line">        <span class="string">"+k=1.0"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Projection proj = ProjectionFactory.fromPROJ4Specification(proj4);</span><br><span class="line"></span><br><span class="line">Point2D.Double srcProject = <span class="keyword">new</span> Point2D.Double(<span class="number">132</span>, <span class="number">37</span>);</span><br><span class="line">Point2D.Double dstProject = proj.transform(srcProject, <span class="keyword">new</span> Point2D.Double());</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"TM : "</span> + dstProject);</span><br><span class="line"></span><br><span class="line">srcProject = <span class="keyword">new</span> Point2D.Double(<span class="number">644904.399587292</span>, <span class="number">400717.8948938238</span>);</span><br><span class="line">dstProject = proj.inverseTransForm(srcProject, <span class="keyword">new</span> Point2D.Double());</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"WGS84 : "</span> + dstProjec);</span><br></pre></td></tr></table></figure>
-<h2 id="결과">결과</h2>
+<h2 id="결과"><a class="markdownIt-Anchor" href="#결과"></a> 결과</h2>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TM : Point2D.Double[<span class="number">644904.399587292</span>, <span class="number">400717.8948938238</span>]</span><br><span class="line">WGS84 : Point2D.Double[<span class="number">132.00000000065793</span>, <span class="number">36.999999999128526</span>]</span><br></pre></td></tr></table></figure>
 
         </div>
@@ -314,7 +314,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2020/07/31/java-dev-2/" data-id="cmnbsnxwt0053ukcxco6z2tom" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2020/07/31/java-dev-2/" data-id="cmnbvrtoh0050x4cx26qt9o75" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -392,13 +392,13 @@
         "dateCreated": "2020-07-31",
         "dateModified": "2024-01-11",
         "url": "http://hgko1207.github.io/2020/07/31/java-dev-2/",
-        "description": "투형 변환
+        "description": " 투형 변환
 TM(미국좌표) 좌표와 WGS84(한국좌표) 좌표를 서로 변환한다.
-다운로드
+ 다운로드
 Java Map Projection Library 사이트에 접속하여 다음의 Download에서 소스 및 jar 파일을 다운로드한다. 다운로드한 jar 파일은 프로젝트의 classpath 경로에 추가한다.
-샘플
-1234567891011121314151617181920212",
-        "wordCount": 224
+ 샘플
+1234567891011121314151617181920",
+        "wordCount": 236
     }
 </script>
 

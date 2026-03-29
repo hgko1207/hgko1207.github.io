@@ -275,22 +275,22 @@
             
 
             <p>JavaScript 파일에서 TypeScript처럼 코드를 보호받을 수 있도록 하는 방법에 대해 알아보겠습니다.</p>
-<h2 id="ts-check">@ts-check</h2>
+<h2 id="ts-check"><a class="markdownIt-Anchor" href="#ts-check"></a> @ts-check</h2>
 <p>JavaScript 파일에서 오류를 활성화하려면 <code>// @ts-check</code>를 .js 파일의 첫 번째 줄에 추가하여 TypeScript가 오류를 발생시키도록 합니다. TypeScript는 여러 오류를 제공할 수 있습니다.</p>
 <p>아래 코드는 TypeScript와 같이 함수 파라미터에 정의가 되어 있지 않아 오류가 발생합니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// @ts-check</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// [오류]</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params">🚫 config</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// [오류]</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">exit</span>(<span class="params">🚫 code</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> code + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>이러한 오류를 무시하고 싶다면 <code>// @ts-ignore</code> 또는 <code>// @ts-expect-error</code>를 추가하여 특정 줄의 오류를 무시할 수 있습니다.</p>
-<h2 id="JSDoc-Reference">JSDoc Reference</h2>
+<h2 id="jsdoc-reference"><a class="markdownIt-Anchor" href="#jsdoc-reference"></a> JSDoc Reference</h2>
 <p>JSDoc 주석을 사용하여 JavaScript 파일에 type 정보를 제공할 수 있습니다. (자바스크립트 파일에서 타입 정보를 제공할 수 있습니다.)</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// @ts-check</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Initializes the project</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;object&#125;</span> <span class="variable">config</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;boolean&#125;</span> </span>config.debug</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> </span>config.url</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns <span class="type">&#123;boolean&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params">config</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Exits the program</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">code</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">exit</span>(<span class="params">code</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> code + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>JSDoc 주석을 통해 타입을 정의하고 TypeScript 파일에서 다음과 같이 함수를 사용할 수 있습니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">init(&#123;</span><br><span class="line">  debug: <span class="literal">false</span>,</span><br><span class="line">  url: <span class="string">'true'</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">exit(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="주의-사항">주의 사항</h2>
+<h2 id="주의-사항"><a class="markdownIt-Anchor" href="#주의-사항"></a> 주의 사항</h2>
 <ul>
 <li><code>@ts-check</code>를 사용하면 JavaScript 파일 내에서 타입 검사를 허용합니다.</li>
 <li><code>@ts-check</code>를 사용하지 않고 JSDoc 만 사용하면 TypeScript 파일에서는 JavaScript의 타입을 검사 하지만, JavaScript 내에서는 단순 주석이나 타입을 명시하는 정도로만 사용할 수 있는 것 같습니다</li>
 </ul>
-<h2 id="참고">참고</h2>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <ul>
 <li><a href="https://www.typescriptlang.org/docs/handbook/intro-to-js-ts.html#ts-check" target="_blank" rel="noopener">https://www.typescriptlang.org/docs/handbook/intro-to-js-ts.html#ts-check</a></li>
 <li><a href="https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html" target="_blank" rel="noopener">https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html</a></li>
@@ -328,7 +328,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2023/04/11/typescript-7/" data-id="cmnbsnxzs00mwukcxhide5kq6" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2023/04/11/typescript-7/" data-id="cmnbvrtth00mlx4cxatxn5z6u" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -407,10 +407,10 @@
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2023/04/11/typescript-7/",
         "description": "JavaScript 파일에서 TypeScript처럼 코드를 보호받을 수 있도록 하는 방법에 대해 알아보겠습니다.
-@ts-check
+ @ts-check
 JavaScript 파일에서 오류를 활성화하려면 // @ts-check를 .js 파일의 첫 번째 줄에 추가하여 TypeScript가 오류를 발생시키도록 합니다. TypeScript는 여러 오류를 제공할 수 있습니다.
-아래 코드는",
-        "wordCount": 349
+아래 코드",
+        "wordCount": 361
     }
 </script>
 

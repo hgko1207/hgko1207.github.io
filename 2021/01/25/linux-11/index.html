@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
-    <meta name="keywords" content="리눅스,Linux,CentOS,Cmake" />
+    <meta name="keywords" content="리눅스,CentOS,Linux,Cmake" />
     
     
     
@@ -27,8 +27,8 @@
 <meta property="article:modified_time" content="2024-01-11T14:34:58.640Z">
 <meta property="article:author" content="Hyeong Gyun Ko">
 <meta property="article:tag" content="리눅스">
-<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="CentOS">
+<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Cmake">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/centos.png">
@@ -274,25 +274,25 @@
             
 
             <p>리눅스 환경에서 Cmake 설치 및 사용 방법에 대해 알아보겠습니다.</p>
-<h2 id="다운로드">다운로드</h2>
+<h2 id="다운로드"><a class="markdownIt-Anchor" href="#다운로드"></a> 다운로드</h2>
 <p><a href="https://cmake.org/download/" target="_blank" rel="noopener">https://cmake.org/download/</a> 페이지를 가서 최신 버전을 다운로드합니다.현재 날짜 기준으로 3.19.3 버전입니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[hgko@localhost ~]$ sudo su</span><br><span class="line">[root@localhost ~]$ cd /usr/local/src</span><br><span class="line">[root@localhost src]$ wget http://www.cmake.org/files/v3.19/cmake-3.19.3.tar.gz</span><br></pre></td></tr></table></figure>
 <p>다운로드가 완료되면 압축해제를 합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost src]$ tar -zxvf cmake-3.19.3.tar.gz</span><br></pre></td></tr></table></figure>
-<h2 id="설치">설치</h2>
+<h2 id="설치"><a class="markdownIt-Anchor" href="#설치"></a> 설치</h2>
 <p>/usr/local 경로의 bin 폴더에 설치가 됩니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost src]$ cd cmake-3.19.3</span><br><span class="line">[root@localhost cmake-3.19.3]$ ./bootstrap --prefix=/usr/local</span><br><span class="line">[root@localhost cmake-3.19.3]$ make</span><br><span class="line">[root@localhost cmake-3.19.3]$ make install</span><br></pre></td></tr></table></figure>
-<h2 id="설치-확인">설치 확인</h2>
+<h2 id="설치-확인"><a class="markdownIt-Anchor" href="#설치-확인"></a> 설치 확인</h2>
 <p>다음과 같이 버전 정보가 출력되면 성공적으로 설치가 완료되었습니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]$ cmake --version</span><br><span class="line">cmake version 3.19.3</span><br><span class="line"></span><br><span class="line">CMake suite maintained and supported by Kitware (kitware.com/cmake).</span><br></pre></td></tr></table></figure>
-<h2 id="사용-방법">사용 방법</h2>
+<h2 id="사용-방법"><a class="markdownIt-Anchor" href="#사용-방법"></a> 사용 방법</h2>
 <p>다음 명령어는 사용 방법입니다.</p>
 <ol>
 <li>CMakeLists.txt 파일을 생성하고 내용을 작성</li>
 <li>cmake 명령어로 실행</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> cmake CMakeLists.txt</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> make</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> make install</span></span><br></pre></td></tr></table></figure>
-<h3 id="make-파일-정리">make 파일 정리</h3>
+<h3 id="make-파일-정리"><a class="markdownIt-Anchor" href="#make-파일-정리"></a> make 파일 정리</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> make clean</span></span><br></pre></td></tr></table></figure>
 
         </div>
@@ -327,7 +327,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2021/01/25/linux-11/" data-id="cmnbsnxxf0092ukcx8angcn82" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2021/01/25/linux-11/" data-id="cmnbvrtpv008qx4cxfueg4bt2" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -399,17 +399,17 @@
         },
         "headline": "[CentOS] Cmake 설치 및 사용 방법",
         "image": "http://hgko1207.github.io/images/thumbnail/centos.png",
-        "keywords": "리눅스 Linux CentOS Cmake",
+        "keywords": "리눅스 CentOS Linux Cmake",
         "genre": "Programming DevOps Linux",
         "datePublished": "2021-01-25",
         "dateCreated": "2021-01-25",
         "dateModified": "2024-01-11",
         "url": "http://hgko1207.github.io/2021/01/25/linux-11/",
         "description": "리눅스 환경에서 Cmake 설치 및 사용 방법에 대해 알아보겠습니다.
-다운로드
+ 다운로드
 https://cmake.org/download/ 페이지를 가서 최신 버전을 다운로드합니다.현재 날짜 기준으로 3.19.3 버전입니다.
-123[hgko@localhost ~]$ sudo su[root@localhost ~]$ cd /usr/local/src[root@localho",
-        "wordCount": 161
+123[hgko@localhost ~]$ sudo su[root@localhost ~]$ cd /usr/local/src[root@localh",
+        "wordCount": 176
     }
 </script>
 

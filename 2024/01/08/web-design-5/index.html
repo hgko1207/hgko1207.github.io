@@ -274,30 +274,30 @@
 
             
 
-            <p><img src="/images/header/web-design-5.png" alt=""></p>
-<h2 id="소개">소개</h2>
+            <p><img src="/images/header/web-design-5.png" alt="" /></p>
+<h2 id="소개"><a class="markdownIt-Anchor" href="#소개"></a> 소개</h2>
 <p>역동적인 웹 개발 세계에서 CSS는 웹사이트의 시각적 매력을 형성하는 데 중요한 역할을 합니다. 수년에 걸쳐 개발자들은 레이아웃을 효율적으로 효율적으로 만들 수 있는 혁신적인 방법을 고안해 왔습니다. 이 글에서는 각각 단 한 줄의 코드로 구현할 수 있는 10가지 최신 CSS 레이아웃을 살펴보겠습니다.이러한 간결한 솔루션은 시간을 절약할 뿐만 아니라 CSS(Cascading Style Sheets)의 강력한 성능과 유연성을 보여줍니다.</p>
-<h2 id="1-Flexbox-Centering">1) Flexbox Centering</h2>
+<h2 id="1-flexbox-centering"><a class="markdownIt-Anchor" href="#1-flexbox-centering"></a> 1) Flexbox Centering</h2>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="2-Grid-Centering">2) Grid Centering</h2>
+<h2 id="2-grid-centering"><a class="markdownIt-Anchor" href="#2-grid-centering"></a> 2) Grid Centering</h2>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  <span class="attribute">place-items</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="3-전체-페이지-이미지-배경">3) 전체 페이지 이미지 배경</h2>
+<h2 id="3-전체-페이지-이미지-배경"><a class="markdownIt-Anchor" href="#3-전체-페이지-이미지-배경"></a> 3) 전체 페이지 이미지 배경</h2>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">'image.jpg'</span>) center/cover no-repeat;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="4-반응형-Square">4) 반응형 Square</h2>
+<h2 id="4-반응형-square"><a class="markdownIt-Anchor" href="#4-반응형-square"></a> 4) 반응형 Square</h2>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.square</span> &#123;</span><br><span class="line">  <span class="attribute">aspect-ratio</span>: <span class="number">1</span>/<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="5-고정-바닥글">5) 고정 바닥글</h2>
+<h2 id="5-고정-바닥글"><a class="markdownIt-Anchor" href="#5-고정-바닥글"></a> 5) 고정 바닥글</h2>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-direction</span>: column;</span><br><span class="line">  <span class="attribute">min-height</span>: <span class="number">100vh</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.content</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="6-같은-너비의-열-Column">6) 같은 너비의 열(Column)</h2>
+<h2 id="6-같은-너비의-열column"><a class="markdownIt-Anchor" href="#6-같은-너비의-열column"></a> 6) 같은 너비의 열(Column)</h2>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.column</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="7-원형-요소-Element">7) 원형 요소(Element)</h2>
+<h2 id="7-원형-요소element"><a class="markdownIt-Anchor" href="#7-원형-요소element"></a> 7) 원형 요소(Element)</h2>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.circle</span> &#123;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="8-유동적인-타이포그래피-Typography">8) 유동적인 타이포그래피(Typography)</h2>
+<h2 id="8-유동적인-타이포그래피typography"><a class="markdownIt-Anchor" href="#8-유동적인-타이포그래피typography"></a> 8) 유동적인 타이포그래피(Typography)</h2>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="built_in">calc</span>(<span class="number">1rem</span> + <span class="number">1vw</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="9-Multi-column-Text">9) Multi-column Text</h2>
+<h2 id="9-multi-column-text"><a class="markdownIt-Anchor" href="#9-multi-column-text"></a> 9) Multi-column Text</h2>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.text</span> &#123;</span><br><span class="line">  <span class="attribute">column-count</span>: <span class="number">3</span>;</span><br><span class="line">  <span class="attribute">column-gap</span>: <span class="number">1rem</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="10-반응형-Square-Grid">10) 반응형 Square Grid</h2>
+<h2 id="10-반응형-square-grid"><a class="markdownIt-Anchor" href="#10-반응형-square-grid"></a> 10) 반응형 Square Grid</h2>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.grid</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(auto-fit, minmax(<span class="number">100px</span>, <span class="number">1</span>fr));</span><br><span class="line">  <span class="attribute">gap</span>: <span class="number">1rem</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="결론">결론</h2>
+<h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2>
 <p>모던하고 반응이 빠른 웹 디자인을 제작하려면 CSS 레이아웃 기술을 숙지하는 것이 필수적입니다. 이 한 줄짜리 솔루션은 CSS가 프로젝트에 가져올 수 있는 우아함과 단순함을 보여줍니다. 이러한 스니펫(Snippets)을 실험해보고 필요에 맞게 조정하여 최소한의 코드로 최대의 효과를 내면서 웹 개발의 수준을 높여보세요.</p>
 
         </div>
@@ -332,7 +332,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2024/01/08/web-design-5/" data-id="cmnbsny1c00uuukcxc18i4sn7" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2024/01/08/web-design-5/" data-id="cmnbvrtvq00v1x4cx4udg2pn0" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -411,9 +411,9 @@
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2024/01/08/web-design-5/",
         "description": "
-소개
-역동적인 웹 개발 세계에서 CSS는 웹사이트의 시각적 매력을 형성하는 데 중요한 역할을 합니다. 수년에 걸쳐 개발자들은 레이아웃을 효율적으로 효율적으로 만들 수 있는 혁신적인 방법을 고안해 왔습니다. 이 글에서는 각각 단 한 줄의 코드로 구현할 수 있는 10가지 최신 CSS 레이아웃을 살펴보겠습니다.이러한 간결한 솔루션은 시간을 절약할 뿐만 아니라 ",
-        "wordCount": 375
+ 소개
+역동적인 웹 개발 세계에서 CSS는 웹사이트의 시각적 매력을 형성하는 데 중요한 역할을 합니다. 수년에 걸쳐 개발자들은 레이아웃을 효율적으로 효율적으로 만들 수 있는 혁신적인 방법을 고안해 왔습니다. 이 글에서는 각각 단 한 줄의 코드로 구현할 수 있는 10가지 최신 CSS 레이아웃을 살펴보겠습니다.이러한 간결한 솔루션은 시간을 절약할 뿐만 아니라",
+        "wordCount": 412
     }
 </script>
 

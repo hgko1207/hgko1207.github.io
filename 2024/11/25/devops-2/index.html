@@ -276,7 +276,7 @@
             <p><strong>Docker</strong>는 애플리케이션과 그 의존성을 패키징하여 이식 가능하고 격리된 컨테이너를 효율적으로 관리할 수 있게 해줍니다.</p>
 <p>이론만 이해하는 것으로는 충분하지 않습니다. 개발자를 한 단계 더 성장시키는 것은 <strong>Docker 명령어</strong>를 활용해 워크플로를 최적화하고, 성능을 개선하며, 확장 가능한 애플리케이션을 구축하는 능력입니다.</p>
 <p>이 글에서는 Docker 명령어 25가지를 소개하며, 이를 통해 개발 및 배포 프로세스를 완벽하게 제어하고 일상적인 작업을 개선하는 방법을 알려드립니다.</p>
-<h2 id="1-docker-update">1. <code>docker update</code></h2>
+<h2 id="1-docker-update"><a class="markdownIt-Anchor" href="#1-docker-update"></a> 1. <code>docker update</code></h2>
 <ul>
 <li><strong>설명:</strong> 컨테이너를 재시작하지 않고 리소스 제한을 업데이트합니다.</li>
 <li><strong>장점:</strong> 중단 없이 리소스를 조정해 컨테이너 성능 저하를 방지합니다.</li>
@@ -285,7 +285,7 @@
 <ul>
 <li><strong>팁:</strong> 트래픽이 많은 시간대에 리소스를 늘렸다가, 이후 다시 축소하여 자원을 절약하세요.</li>
 </ul>
-<h2 id="2-docker-stats">2. <code>docker stats</code></h2>
+<h2 id="2-docker-stats"><a class="markdownIt-Anchor" href="#2-docker-stats"></a> 2. <code>docker stats</code></h2>
 <ul>
 <li><strong>설명:</strong> 실행 중인 컨테이너의 실시간 리소스 사용량을 표시합니다.</li>
 <li><strong>장점:</strong> CPU, 메모리, 네트워크 사용량을 실시간으로 모니터링할 수 있습니다.</li>
@@ -294,79 +294,79 @@
 <ul>
 <li><strong>팁:</strong> --all 옵션으로 백그라운드 컨테이너까지 모니터링하세요.</li>
 </ul>
-<h2 id="3-docker-diff">3. <code>docker diff</code></h2>
+<h2 id="3-docker-diff"><a class="markdownIt-Anchor" href="#3-docker-diff"></a> 3. <code>docker diff</code></h2>
 <ul>
 <li><strong>설명:</strong> 컨테이너 파일 시스템에서 변경된 내용을 보여줍니다.</li>
 <li><strong>장점:</strong> 배포 후 변경된 파일을 빠르게 확인하고 문제를 해결합니다.</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker diff &lt;container_name&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="4-docker-commit">4. <code>docker commit</code></h2>
+<h2 id="4-docker-commit"><a class="markdownIt-Anchor" href="#4-docker-commit"></a> 4. <code>docker commit</code></h2>
 <ul>
 <li><strong>설명:</strong> 컨테이너의 현재 상태를 기반으로 새로운 이미지를 생성합니다.</li>
 <li><strong>장점:</strong> 변경된 상태를 저장해 디버깅이나 테스트 환경에 활용할 수 있습니다.</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit &lt;container_name&gt; &lt;new_image_name&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="5-docker-cp">5. <code>docker cp</code></h2>
+<h2 id="5-docker-cp"><a class="markdownIt-Anchor" href="#5-docker-cp"></a> 5. <code>docker cp</code></h2>
 <ul>
 <li><strong>설명:</strong> 컨테이너와 호스트 간 파일을 복사합니다.</li>
 <li><strong>장점:</strong> 컨테이너를 중단하지 않고 로그나 설정 파일에 접근할 수 있습니다.</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker cp &lt;container_name&gt;:/path/to/file /host/path</span><br></pre></td></tr></table></figure>
-<h2 id="6-docker-build-squash">6. <code>docker build --squash</code></h2>
+<h2 id="6-docker-build-squash"><a class="markdownIt-Anchor" href="#6-docker-build-squash"></a> 6. <code>docker build --squash</code></h2>
 <ul>
 <li><strong>설명:</strong> 빌드 중 레이어를 하나로 압축하여 이미지 크기를 줄입니다.</li>
 <li><strong>장점:</strong> 이미지 크기를 줄여 로드 시간을 단축하고 저장 공간을 절약합니다.</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build --squash -t &lt;image_name&gt; .</span><br></pre></td></tr></table></figure>
-<h2 id="7-docker-system-df">7. <code>docker system df</code></h2>
+<h2 id="7-docker-system-df"><a class="markdownIt-Anchor" href="#7-docker-system-df"></a> 7. <code>docker system df</code></h2>
 <ul>
 <li><strong>설명:</strong> Docker 디스크 사용량 요약 정보를 제공합니다.</li>
 <li><strong>장점:</strong> 디스크 공간을 많이 차지하는 요소를 빠르게 파악할 수 있습니다.</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker system df</span><br></pre></td></tr></table></figure>
-<h2 id="8-docker-network-inspect">8. <code>docker network inspect</code></h2>
+<h2 id="8-docker-network-inspect"><a class="markdownIt-Anchor" href="#8-docker-network-inspect"></a> 8. <code>docker network inspect</code></h2>
 <ul>
 <li><strong>설명:</strong> Docker 네트워크의 상세 정보를 확인합니다.</li>
 <li><strong>장점:</strong> 컨테이너 간 네트워킹 문제를 디버깅하는 데 유용합니다.</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network inspect &lt;network_name&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="9-docker-exec-u">9. <code>docker exec -u</code></h2>
+<h2 id="9-docker-exec-u"><a class="markdownIt-Anchor" href="#9-docker-exec-u"></a> 9. <code>docker exec -u</code></h2>
 <ul>
 <li><strong>설명:</strong> 특정 사용자를 지정해 컨테이너에서 명령을 실행합니다.</li>
 <li><strong>장점:</strong> 다양한 사용자 환경을 테스트할 때 유용합니다.</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -u &lt;user&gt; &lt;container_name&gt; &lt;<span class="built_in">command</span>&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="10-docker-run-rm">10. <code>docker run --rm</code></h2>
+<h2 id="10-docker-run-rm"><a class="markdownIt-Anchor" href="#10-docker-run-rm"></a> 10. <code>docker run --rm</code></h2>
 <ul>
 <li><strong>설명:</strong> 컨테이너 종료 후 자동으로 삭제합니다.</li>
 <li><strong>장점:</strong> 임시 작업 후 불필요한 컨테이너를 자동으로 정리합니다.</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm &lt;image_name&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="11-docker-compose-config">11. <code>docker-compose config</code></h2>
+<h2 id="11-docker-compose-config"><a class="markdownIt-Anchor" href="#11-docker-compose-config"></a> 11. <code>docker-compose config</code></h2>
 <ul>
 <li><strong>설명:</strong> <code>docker-compose.yml</code> 파일을 검증하고 구성을 표시합니다.</li>
 <li><strong>장점:</strong> 구성 파일의 구문 오류를 사전에 감지할 수 있습니다.</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose config</span><br></pre></td></tr></table></figure>
-<h2 id="12-docker-rm-v">12. <code>docker rm -v</code></h2>
+<h2 id="12-docker-rm-v"><a class="markdownIt-Anchor" href="#12-docker-rm-v"></a> 12. <code>docker rm -v</code></h2>
 <ul>
 <li><strong>설명:</strong> 컨테이너와 관련된 익명의 볼륨을 함께 삭제합니다.</li>
 <li><strong>장점:</strong> 고아 볼륨을 방지해 디스크 공간을 효율적으로 사용합니다.</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm -v &lt;container_name&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="13-docker-export-docker-import">13. <code>docker export / docker import</code></h2>
+<h2 id="13-docker-export-docker-import"><a class="markdownIt-Anchor" href="#13-docker-export-docker-import"></a> 13. <code>docker export / docker import</code></h2>
 <ul>
 <li><strong>설명:</strong> 컨테이너 파일 시스템을 tar 파일로 내보내거나 새 이미지로 가져옵니다.</li>
 <li><strong>장점:</strong> 특정 상태를 다른 환경으로 쉽게 전환할 수 있습니다.</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">export</span> &lt;container_name&gt; &gt; container.tar</span><br><span class="line">docker import container.tar &lt;new_image_name&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="14-docker-history">14. <code>docker history</code></h2>
+<h2 id="14-docker-history"><a class="markdownIt-Anchor" href="#14-docker-history"></a> 14. <code>docker history</code></h2>
 <ul>
 <li><strong>설명:</strong> 이미지의 각 레이어 변경 이력을 보여줍니다.</li>
 <li><strong>장점:</strong> 큰 이미지를 디버깅하거나 최적화할 때 유용합니다.</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">history</span> &lt;image_name&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="15-docker-logs-since">15. <code>docker logs --since</code></h2>
+<h2 id="15-docker-logs-since"><a class="markdownIt-Anchor" href="#15-docker-logs-since"></a> 15. <code>docker logs --since</code></h2>
 <ul>
 <li><strong>설명:</strong> 특정 시간 이후의 로그를 검색합니다.</li>
 <li><strong>장점:</strong> 최근 업데이트 이후의 문제를 빠르게 찾을 수 있습니다.</li>
@@ -406,7 +406,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2024/11/25/devops-2/" data-id="cmnbsnyy304p5ukcx2gfe3ota" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2024/11/25/devops-2/" data-id="cmnbvrusl0443x4cxebvk3vli" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -487,7 +487,7 @@
         "description": "Docker는 애플리케이션과 그 의존성을 패키징하여 이식 가능하고 격리된 컨테이너를 효율적으로 관리할 수 있게 해줍니다.
 이론만 이해하는 것으로는 충분하지 않습니다. 개발자를 한 단계 더 성장시키는 것은 Docker 명령어를 활용해 워크플로를 최적화하고, 성능을 개선하며, 확장 가능한 애플리케이션을 구축하는 능력입니다.
 이 글에서는 Docker 명령어 25",
-        "wordCount": 486
+        "wordCount": 531
     }
 </script>
 

@@ -275,19 +275,19 @@
 
             
 
-            <p><img src="/images/header/typescript-22.png" alt=""></p>
+            <p><img src="/images/header/typescript-22.png" alt="" /></p>
 <p>타입을 보호하는 기술을 익혀 코드의 견고성을 강화하는 여정을 시작하겠습니다. typeof, instanceof, literal을 사용하면 정확한 타입을 적용하고 타입스크립트 프로젝트 초기에 잠재적인 오류를 잡아낼 수 있는 힘을 얻을 수 있습니다. 이러한 기술을 자세히 살펴보면서 의도하지 않은 동작으로부터 코드를 강화하고 더 높은 수준의 유형 안전을 달성하는 방법을 알아보세요.</p>
-<h2 id="typeof"><code>typeof</code></h2>
+<h2 id="typeof"><a class="markdownIt-Anchor" href="#typeof"></a> <code>typeof</code></h2>
 <p><code>typeof</code> 연산자를 사용하면 값이나 변수의 유형을 확인할 수 있습니다. 타입 가드에서 타입을 좁히기 위해 자주 사용됩니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">logMessage</span>(<span class="params">message: <span class="built_in">string</span> | <span class="built_in">number</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> message === <span class="string">'string'</span>) &#123;</span><br><span class="line">    <span class="comment">// 이 블록 내에서 TypeScript는 'message'가 'string' 유형임을 알고 있습니다.</span></span><br><span class="line">    <span class="built_in">console</span>.log(message.toUpperCase());</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 이 블록 안에서, 타입스크립트는 'message'의 타입이 'number'라는 것을 알고 있습니다.</span></span><br><span class="line">    <span class="built_in">console</span>.log(message.toFixed(<span class="number">2</span>));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="instanceof"><code>instanceof</code></h2>
+<h2 id="instanceof"><a class="markdownIt-Anchor" href="#instanceof"></a> <code>instanceof</code></h2>
 <p><code>instanceof</code> 연산자는 객체가 특정 클래스 또는 생성자 함수의 인스턴스인지 여부를 확인합니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Dog &#123;</span><br><span class="line">  bark() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Woof!'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Cat &#123;</span><br><span class="line">  meow() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Meow!'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">petSound</span>(<span class="params">animal: Dog | Cat</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (animal <span class="keyword">instanceof</span> Dog) &#123;</span><br><span class="line">    <span class="comment">// 이 블록 안에서, 타입스크립트는 'animal'이 'Dog' 타입임을 알고 있습니다.</span></span><br><span class="line">    animal.bark();</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 이 블록 안에서, 타입스크립트는 'animal'이 'Cat' 타입임을 알고 있습니다.</span></span><br><span class="line">    animal.meow();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Literal-Types">Literal Types</h2>
+<h2 id="literal-types"><a class="markdownIt-Anchor" href="#literal-types"></a> Literal Types</h2>
 <p>TypeScript의 Literal 타입을 사용하면 변수의 정확한 값을 지정할 수 있습니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleStatus</span>(<span class="params">status: 'success' | 'error' | 'pending'</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 'status'는 리터럴 타입 'success', 'error' 또는 'pending'으로 좁혀집니다.</span></span><br><span class="line">  <span class="keyword">switch</span> (status) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'success'</span>:</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'Operation succeeded!'</span>);</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'error'</span>:</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'An error occurred.'</span>);</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'pending'</span>:</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'Operation is pending.'</span>);</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>이 예제에서 <code>status</code> 매개변수는 지정된 리터럴 값 중 하나만 가질 수 있습니다.</p>
-<h2 id="마무리">마무리</h2>
+<h2 id="마무리"><a class="markdownIt-Anchor" href="#마무리"></a> 마무리</h2>
 <p>이러한 기술을 사용하면 TypeScript가 조건부 블록 내에서 보다 구체적인 유형을 이해하고 적용하여 코드의 유형 안전성을 향상시킬 수 있습니다.</p>
 
         </div>
@@ -322,7 +322,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2024/05/13/typescript-23/" data-id="cmnbsny33012zukcx9cdq23mg" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2024/05/13/typescript-23/" data-id="cmnbvrtyh0133x4cx91phen2r" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -402,7 +402,7 @@
         "url": "http://hgko1207.github.io/2024/05/13/typescript-23/",
         "description": "
 타입을 보호하는 기술을 익혀 코드의 견고성을 강화하는 여정을 시작하겠습니다. typeof, instanceof, literal을 사용하면 정확한 타입을 적용하고 타입스크립트 프로젝트 초기에 잠재적인 오류를 잡아낼 수 있는 힘을 얻을 수 있습니다. 이러한 기술을 자세히 살펴보면서 의도하지 않은 동작으로부터 코드를 강화하고 더 높은 수준의 유형 안전을 달성하",
-        "wordCount": 470
+        "wordCount": 483
     }
 </script>
 

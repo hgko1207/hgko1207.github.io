@@ -274,22 +274,22 @@
             
 
             <p><strong>NestJS</strong>에서 사용하는 <strong>Controller, Provider, Module</strong>에 대한 간략한 내용을 정리하였습니다.</p>
-<h2 id="Controllers">Controllers</h2>
+<h2 id="controllers"><a class="markdownIt-Anchor" href="#controllers"></a> Controllers</h2>
 <p>컨트롤러는 들어오는 요청을 처리하고 클라이언트에 응답을 반환하는 역할을 합니다. express의 라우터 같은 역할을 합니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Controller, Get &#125; <span class="keyword">from</span> <span class="string">'@nestjs/common'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; AppService &#125; <span class="keyword">from</span> <span class="string">'./app.service'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span>()</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppController &#123;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"><span class="keyword">private</span> readonly appService: AppService</span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Get</span>()</span><br><span class="line">  getHello(): <span class="built_in">string</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.appService.getHello();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Get</span>(<span class="string">'/hello'</span>)</span><br><span class="line">  sayHello(): <span class="built_in">string</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello everyone'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>@Controller()</code>: express의 <code>app.use('/', router)</code> 에서 '/'와 같은 역할을 합니다. <code>@Controller('req')</code> 이렇게 인자로 string을 넘겨주면 express에서 <code>app.use('/req', router)</code> 처럼 코드를 작성한 것과 같습니다.</li>
 <li><code>@Get()</code>: Route 핸들러(메서드) 데코레이터입니다. HTTP GET 요청을 지정된 경로로 라우팅 합니다. <code>@Get('hello')</code> 이렇게 인자로 string을 넘겨주면 express 에서 <code>router.get('/hello', sayHello)</code> 처럼 코드를 작성한 것과 같습니다.</li>
 </ul>
-<h2 id="Providers">Providers</h2>
+<h2 id="providers"><a class="markdownIt-Anchor" href="#providers"></a> Providers</h2>
 <p>Provider는 Nest의 기본 개념입니다. 대부분의 기본 Nest Class 인 services, repositories, factories, helpers 등은 provider로 취급될 수 있습니다. provider는 단순히 <code>@Injectable()</code> 데코레이터가 달린 클래스입니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Injectable &#125; <span class="keyword">from</span> <span class="string">'@nestjs/common'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Injectable</span>()</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppService &#123;</span><br><span class="line">  getHello(): <span class="built_in">string</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello World!'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>provider 의 주요 아이디어는 의존성을 <strong>주입</strong>할 수 있다는 것입니다. 즉, 개체가 서로 다양한 관계를 만들 수 있으며 개체 인스턴스를 &quot;연결&quot;하는 기능은 대부분 Nest 런타임 시스템에 위임할 수 있습니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Controller, Get &#125; <span class="keyword">from</span> <span class="string">'@nestjs/common'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; AppService &#125; <span class="keyword">from</span> <span class="string">'./app.service'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span>()</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppController &#123;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"><span class="keyword">private</span> readonly appService: AppService</span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Get</span>()</span><br><span class="line">  getHello(): <span class="built_in">string</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.appService.getHello();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>위의 <code>AppController</code> 생성자에 변수의 타입을 <code>AppService</code> 로 지정해 줌으로써 Nest Injector 가 appService 변수를 <code>AppService</code>의 인스턴스로 만들어줍니다(인스턴스화한다).</p>
-<h2 id="Modules">Modules</h2>
-<p>NestJS 에는 모듈이 있습니다. <code>@Module()</code> 데코레이터로 모듈을 만들 수 있습니다.<br>
-Nest 어플리케이션을 만들면 최소 하나의 모듈, 루트 모듈(<code>AppModule</code>)이 있습니다.<br>
+<h2 id="modules"><a class="markdownIt-Anchor" href="#modules"></a> Modules</h2>
+<p>NestJS 에는 모듈이 있습니다. <code>@Module()</code> 데코레이터로 모듈을 만들 수 있습니다.<br />
+Nest 어플리케이션을 만들면 최소 하나의 모듈, 루트 모듈(<code>AppModule</code>)이 있습니다.<br />
 이 루트 모듈은 Nest가 Module 및 Provider 관계와 의존성을 해결하는 데 사용하는 내부 데이터 구조를 구축하는 시작점입니다. 모듈을 만들면 루트 모듈과 연결되어야 합니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Module &#125; <span class="keyword">from</span> <span class="string">'@nestjs/common'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; AppController &#125; <span class="keyword">from</span> <span class="string">'./app.controller'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; AppService &#125; <span class="keyword">from</span> <span class="string">'./app.service'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Module</span>(&#123;</span><br><span class="line">  imports: [],</span><br><span class="line">  controllers: [AppController],</span><br><span class="line">  providers: [AppService],</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppModule &#123;&#125;</span><br></pre></td></tr></table></figure>
 <p><code>@Module()</code> 데코레이터는 하나의 객체를 인자로 가지며, 객체가 가질 수 있는 프로퍼티는 다음과 같습니다.</p>
@@ -299,16 +299,16 @@ Nest 어플리케이션을 만들면 최소 하나의 모듈, 루트 모듈(<cod
 <li><code>imports</code>: 임포트 된 모듈들의 리스트입니다. 이 리스트의 모듈들은 데코레이터에 사용 중인 모듈에서 필요한 <code>providers</code>를 export 하고 있어야 합니다.</li>
 <li><code>exports</code>: <code>providers</code>의 하위 집합으로, 데코레이터를 사용 중인 모듈이 제공받은 Provider의 일부를 내보낼 수 있습니다. 이는 다른 모듈에서 <code>import</code> 할 때 사용됩니다.</li>
 </ul>
-<h2 id="파일-생성">파일 생성</h2>
-<h3 id="Module-생성">Module 생성</h3>
+<h2 id="파일-생성"><a class="markdownIt-Anchor" href="#파일-생성"></a> 파일 생성</h2>
+<h3 id="module-생성"><a class="markdownIt-Anchor" href="#module-생성"></a> Module 생성</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nest g mo module-name</span><br></pre></td></tr></table></figure>
-<h3 id="Controller-생성">Controller 생성</h3>
+<h3 id="controller-생성"><a class="markdownIt-Anchor" href="#controller-생성"></a> Controller 생성</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nest g co controller-name</span><br></pre></td></tr></table></figure>
-<h3 id="Service-생성">Service 생성</h3>
+<h3 id="service-생성"><a class="markdownIt-Anchor" href="#service-생성"></a> Service 생성</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nest g s service-name</span><br></pre></td></tr></table></figure>
-<h3 id="Provider-생성">Provider 생성</h3>
+<h3 id="provider-생성"><a class="markdownIt-Anchor" href="#provider-생성"></a> Provider 생성</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nest g pr provider-name</span><br></pre></td></tr></table></figure>
-<h2 id="참고">참고</h2>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <ul>
 <li><a href="https://docs.nestjs.com/controllers#controllers" target="_blank" rel="noopener">https://docs.nestjs.com/controllers#controllers</a></li>
 <li><a href="https://docs.nestjs.com/controllers#routing" target="_blank" rel="noopener">https://docs.nestjs.com/controllers#routing</a></li>
@@ -348,7 +348,7 @@ Nest 어플리케이션을 만들면 최소 하나의 모듈, 루트 모듈(<cod
 
 
 
-    <a data-url="http://hgko1207.github.io/2023/05/08/nest-2/" data-id="cmnbsnxzw00nqukcx4g115ius" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2023/05/08/nest-2/" data-id="cmnbvrttm00nbx4cxhoi684df" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -427,10 +427,10 @@ Nest 어플리케이션을 만들면 최소 하나의 모듈, 루트 모듈(<cod
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2023/05/08/nest-2/",
         "description": "NestJS에서 사용하는 Controller, Provider, Module에 대한 간략한 내용을 정리하였습니다.
-Controllers
+ Controllers
 컨트롤러는 들어오는 요청을 처리하고 클라이언트에 응답을 반환하는 역할을 합니다. express의 라우터 같은 역할을 합니다.
-1234567891011121314151617import &#123; Controller, Get",
-        "wordCount": 594
+1234567891011121314151617import &#123; Controller, Ge",
+        "wordCount": 623
     }
 </script>
 

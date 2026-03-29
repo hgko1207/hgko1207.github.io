@@ -273,15 +273,15 @@
 
             
 
-            <h2 id="Geometry-데이터-형식-쿼리">Geometry 데이터 형식 쿼리</h2>
-<h3 id="STContains">STContains</h3>
+            <h2 id="geometry-데이터-형식-쿼리"><a class="markdownIt-Anchor" href="#geometry-데이터-형식-쿼리"></a> Geometry 데이터 형식 쿼리</h2>
+<h3 id="stcontains"><a class="markdownIt-Anchor" href="#stcontains"></a> STContains</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/ko-kr/sql/t-sql/spatial-geometry/stcontains-geometry-data-type?view=sql-server-ver15" target="_blank" rel="noopener">STContains(geometry 데이터 형식)</a></li>
 </ul>
 <p><strong>geometry</strong> 인스턴스에 다른 <strong>geometry</strong> 인스턴스가 완전히 포함되어 있으면 1을 반환합니다. 그렇지 않으면 0을 반환합니다.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DECLARE</span> @g geometry;</span><br><span class="line"><span class="keyword">DECLARE</span> @h geometry;</span><br><span class="line"><span class="keyword">SET</span> @g = geometry::STGeomFromText(<span class="string">'POLYGON((-122.358 47.653, -122.348 47.649, -122.348 47.658, -122.358 47.658, -122.358 47.653))'</span>, <span class="number">4326</span>);</span><br><span class="line"><span class="keyword">SET</span> @h = geometry::STGeomFromText(<span class="string">'POINT(-122.358 47.656)'</span>, <span class="number">4326</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> @g.STContains(@h);</span><br></pre></td></tr></table></figure>
 <p>POINT 좌표가 POLYGON 좌표에 완전히 포함되어 있지 않기 때문에 결과는 0을 반환합니다.</p>
-<h3 id="STIntersects">STIntersects</h3>
+<h3 id="stintersects"><a class="markdownIt-Anchor" href="#stintersects"></a> STIntersects</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/ko-kr/sql/t-sql/spatial-geometry/stintersects-geometry-data-type?view=sql-server-ver15" target="_blank" rel="noopener">STIntersects(geometry 데이터 형식)</a></li>
 </ul>
@@ -321,7 +321,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2020/09/01/mssql-1/" data-id="cmnbsnxx2006yukcx0lqa0404" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2020/09/01/mssql-1/" data-id="cmnbvrtp6007fx4cx013a2jwk" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -399,14 +399,14 @@
         "dateCreated": "2020-09-01",
         "dateModified": "2023-03-14",
         "url": "http://hgko1207.github.io/2020/09/01/mssql-1/",
-        "description": "Geometry 데이터 형식 쿼리
-STContains
+        "description": " Geometry 데이터 형식 쿼리
+ STContains
 
 STContains(geometry 데이터 형식)
 
 geometry 인스턴스에 다른 geometry 인스턴스가 완전히 포함되어 있으면 1을 반환합니다. 그렇지 않으면 0을 반환합니다.
-123456DECLARE @g geometry;DECLARE @h geometry;SET @g = geometry::S",
-        "wordCount": 156
+123456DECLARE @g geometry;DECLARE @h geometry;SET @g = geometry:",
+        "wordCount": 165
     }
 </script>
 

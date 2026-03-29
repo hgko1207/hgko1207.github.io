@@ -273,26 +273,26 @@
             
 
             <p><strong>MYSQL</strong>을 사용하여 5분 단위로 그룹핑하여 평균값 계산하는 방법에 대해 알아보겠습니다.</p>
-<h2 id="테이블-생성">테이블 생성</h2>
+<h2 id="테이블-생성"><a class="markdownIt-Anchor" href="#테이블-생성"></a> 테이블 생성</h2>
 <p>먼저 분 단위로 그룹핑과 평균값 계산을 위해 DATETIME, FLOAT 타입이 포함된 테이블을 생성합니다.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">test</span> (</span><br><span class="line">  <span class="keyword">id</span> <span class="built_in">INT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  sensor_value <span class="built_in">FLOAT</span>,</span><br><span class="line">  log_time DATETIME,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span>(<span class="keyword">id</span>),</span><br><span class="line">) <span class="keyword">ENGINE</span>=MYISAM <span class="keyword">CHARSET</span>=utf8;</span><br></pre></td></tr></table></figure>
 <p>테이블이 생성되면 값을 입력합니다.</p>
-<h2 id="첫-번째-방법">첫 번째 방법</h2>
+<h2 id="첫-번째-방법"><a class="markdownIt-Anchor" href="#첫-번째-방법"></a> 첫 번째 방법</h2>
 <p>시간 단위로 먼저 그룹핑한 후 분단위를 5로 나누어 그룹핑합니다.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">date_format</span>(log_time, <span class="string">'%Y%m%d%H%i%S'</span>), <span class="keyword">AVG</span>(sensor_value)</span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">test</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">SUBSTR</span>(<span class="keyword">date_format</span>(log_time, <span class="string">'%Y%m%d%H%i%S'</span>), <span class="number">1</span>, <span class="number">10</span>),</span><br><span class="line">        <span class="keyword">FLOOR</span>(<span class="keyword">SUBSTR</span>(<span class="keyword">date_format</span>(log_time, <span class="string">'%Y%m%d%H%i%S'</span>), <span class="number">11</span>, <span class="number">2</span>) / <span class="number">5</span>)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> log_time;</span><br></pre></td></tr></table></figure>
 <p>또는 다음과 같이 SUBSTR 함수를 빼고 format을 다르게 해서 할 수 있습니다.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">date_format</span>(log_time, <span class="string">'%Y%m%d%H%i%S'</span>), <span class="keyword">AVG</span>(sensor_value)</span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">test</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">date_format</span>(log_time, <span class="string">'%Y%m%d%H'</span>),</span><br><span class="line">        <span class="keyword">FLOOR</span>(<span class="keyword">date_format</span>(log_time, <span class="string">'%i'</span>) / <span class="number">5</span>);</span><br><span class="line">ORDER BY log_time;</span><br></pre></td></tr></table></figure>
 <p>FLOOR 함수는 가장 가까운 정수로 버림하여 반환합니다.</p>
-<h2 id="두-번째-방법">두 번째 방법</h2>
+<h2 id="두-번째-방법"><a class="markdownIt-Anchor" href="#두-번째-방법"></a> 두 번째 방법</h2>
 <p>시간 및 분 단위로 분리하는 함수를 사용합니다.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">date_format</span>(log_time, <span class="string">'%Y%m%d%H%i%S'</span>), <span class="keyword">AVG</span>(sensor_value)</span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">test</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="built_in">DATE</span>(log_time), <span class="keyword">HOUR</span>(log_time), <span class="keyword">FLOOR</span>(<span class="keyword">MINUTE</span>(log_time) / <span class="number">5</span>)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> log_time;</span><br></pre></td></tr></table></figure>
 <p>DATE, HOUR, MINUTE 함수는 날짜, 시간, 분의 값을 반환합니다.</p>
-<h2 id="5분-단위-데이터-출력">5분 단위 데이터 출력</h2>
+<h2 id="5분-단위-데이터-출력"><a class="markdownIt-Anchor" href="#5분-단위-데이터-출력"></a> 5분 단위 데이터 출력</h2>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">test</span></span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">MOD</span>(<span class="keyword">date_format</span>(log_time, <span class="string">'%i'</span>), <span class="number">5</span>) = <span class="number">0</span></span><br></pre></td></tr></table></figure>
 <p>또는</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">test</span></span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">date_format</span>(log_time, <span class="string">'%i'</span>) % <span class="number">5</span> = <span class="number">0</span></span><br></pre></td></tr></table></figure>
 <p>MOD 함수는 첫 번째 값을 두 번째 값으로 나눈 나머지를 반환합니다.</p>
-<h2 id="참고">참고</h2>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <p><strong>date_format</strong> 함수의 두 번째 항목인 format 내용은 아래 사이트에서 자세하게 확인해 볼 수 있습니다.</p>
 <ul>
 <li><a href="https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_date-format" target="_blank" rel="noopener">https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_date-format</a></li>
@@ -330,7 +330,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2023/01/02/mysql-8/" data-id="cmnbsnxz800jqukcxgp6t1fpj" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2023/01/02/mysql-8/" data-id="cmnbvrtsy00k0x4cxg6zj4ums" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -409,10 +409,10 @@
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2023/01/02/mysql-8/",
         "description": "MYSQL을 사용하여 5분 단위로 그룹핑하여 평균값 계산하는 방법에 대해 알아보겠습니다.
-테이블 생성
+ 테이블 생성
 먼저 분 단위로 그룹핑과 평균값 계산을 위해 DATETIME, FLOAT 타입이 포함된 테이블을 생성합니다.
-123456CREATE TABLE test (  id INT NOT NULL AUTO_INCREMENT,  sensor_value FLOAT,  l",
-        "wordCount": 350
+123456CREATE TABLE test (  id INT NOT NULL AUTO_INCREMENT,  sensor_value FLOAT,  ",
+        "wordCount": 365
     }
 </script>
 

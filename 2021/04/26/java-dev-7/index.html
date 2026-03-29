@@ -273,9 +273,9 @@
             
 
             <p><strong>SimpleDateFormat</strong>을 이용한 날짜 비교하는 방법에 대해 알아보겠습니다.</p>
-<h2 id="소스코드">소스코드</h2>
+<h2 id="소스코드"><a class="markdownIt-Anchor" href="#소스코드"></a> 소스코드</h2>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.text.SimpleDateFormat;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleDateFormatExample</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">getDayCount</span><span class="params">( String start, String end )</span> </span>&#123;</span><br><span class="line">        SimpleDateFormat format = <span class="keyword">new</span> SimpleDateFormat( <span class="string">"yyyy-M-d"</span> );</span><br><span class="line"></span><br><span class="line">        <span class="keyword">long</span> diff = -<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Date dateStart = format.parse( start );</span><br><span class="line">            Date dateEnd = format.parse( end );</span><br><span class="line"></span><br><span class="line">            <span class="comment">// time is always 00:00:00 so rounding should help to ignore the</span></span><br><span class="line">            <span class="comment">// missing hour when going from winter to summer time as well as the</span></span><br><span class="line">            <span class="comment">// extra hour in the other direction</span></span><br><span class="line">            diff = Math.round( ( dateEnd.getTime() - dateStart.getTime() ) / (<span class="keyword">double</span>)( <span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span> * <span class="number">1000</span> ) );</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span> ( Exception e ) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> diff;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">( String[] args )</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> diff = getDayCount( <span class="string">"2021-1-1"</span>, <span class="string">"2021-4-26"</span> );</span><br><span class="line">        System.out.println( <span class="string">"결과 : "</span> + diff + <span class="string">" 일"</span> );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="결과">결과</h2>
+<h2 id="결과"><a class="markdownIt-Anchor" href="#결과"></a> 결과</h2>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">결과 : <span class="number">115</span> 일</span><br></pre></td></tr></table></figure>
 
         </div>
@@ -310,7 +310,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2021/04/26/java-dev-7/" data-id="cmnbsnxxg0098ukcx86h9cev6" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2021/04/26/java-dev-7/" data-id="cmnbvrtq7009lx4cx909k63i1" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -389,9 +389,9 @@
         "dateModified": "2024-01-11",
         "url": "http://hgko1207.github.io/2021/04/26/java-dev-7/",
         "description": "SimpleDateFormat을 이용한 날짜 비교하는 방법에 대해 알아보겠습니다.
-소스코드
-12345678910111213141516171819202122232425262728293031import java.text.SimpleDateFormat;import java.util.Date;public class SimpleDateFormatExample &#1",
-        "wordCount": 405
+ 소스코드
+12345678910111213141516171819202122232425262728293031import java.text.SimpleDateFormat;import java.util.Date;public class SimpleDateFormatExample &#",
+        "wordCount": 411
     }
 </script>
 

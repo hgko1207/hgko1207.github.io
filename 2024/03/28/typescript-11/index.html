@@ -274,53 +274,53 @@
 
             
 
-            <p><img src="/images/header/typescript-11.png" alt=""></p>
+            <p><img src="/images/header/typescript-11.png" alt="" /></p>
 <p>타입스크립트의 기본 구성 요소인 <strong>원시 타입</strong>(Primitive Type)과 <strong>기본 타입</strong>(Basic Type)에 대해 살펴봅니다. 이러한 타입은 코드의 기초를 형성하여 더 복잡한 구조를 위한 토대를 제공합니다. 원시 타입과 기본 타입의 뉘앙스를 살펴보면서 타입스크립트의 타입 시스템을 탄탄하게 이해할 수 있는 토대를 마련하세요.</p>
 <p>프로그래밍, 특히 자바스크립트나 타입스크립트와 같은 언어에서 원시 타입과 기본 타입은 단순한 값을 표현하는 데 사용되는 가장 기본적인 데이터 타입을 의미합니다. 이러한 타입은 일반적으로 언어에 내장되어 있으며 다른 타입으로 구성되지 않습니다. 원시 타입과 기본 타입에 대해 자바스크립트와 타입스크립트의 맥락에서 설명해 보겠습니다.</p>
-<h2 id="Primitive-Types-자바스크립트와-타입스크립트">Primitive Types (자바스크립트와 타입스크립트)</h2>
+<h2 id="primitive-types-자바스크립트와-타입스크립트"><a class="markdownIt-Anchor" href="#primitive-types-자바스크립트와-타입스크립트"></a> Primitive Types (자바스크립트와 타입스크립트)</h2>
 <p>자바스크립트에는 7가지 기본 타입이 있습니다.</p>
-<h3 id="string">string</h3>
+<h3 id="string"><a class="markdownIt-Anchor" href="#string"></a> string</h3>
 <p>문자의 시퀀스를 나타냅니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myString = <span class="string">'Hello, World!'</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="number">number</h3>
+<h3 id="number"><a class="markdownIt-Anchor" href="#number"></a> number</h3>
 <p>정수 및 부동 소수점 숫자를 포함한 숫자 값을 나타냅니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myNumber = <span class="number">42</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="boolean">boolean</h3>
+<h3 id="boolean"><a class="markdownIt-Anchor" href="#boolean"></a> boolean</h3>
 <p>논리값(<code>true</code> 또는 <code>false</code>)을 나타냅니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myBoolean = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="null">null</h3>
+<h3 id="null"><a class="markdownIt-Anchor" href="#null"></a> null</h3>
 <p>객체 값이 없음을 나타냅니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myNull = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="undefined">undefined</h3>
+<h3 id="undefined"><a class="markdownIt-Anchor" href="#undefined"></a> undefined</h3>
 <p>초기화되지 않았거나 정의되지 않은 값을 나타냅니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myUndefined = <span class="literal">undefined</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="symbol">symbol</h3>
+<h3 id="symbol"><a class="markdownIt-Anchor" href="#symbol"></a> symbol</h3>
 <p>고유 식별자를 나타냅니다. Symbol은 이름 충돌을 피하기 위해 객체에서 키로 사용되는 경우가 많습니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> mySymbol = <span class="built_in">Symbol</span>(<span class="string">'mySymbol'</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="bigint">bigint</h3>
+<h3 id="bigint"><a class="markdownIt-Anchor" href="#bigint"></a> bigint</h3>
 <p>정수를 <a href="https://en.wikipedia.org/wiki/Arbitrary-precision_arithmetic" target="_blank" rel="noopener">임의의 정밀도 형식</a>으로 나타낼 수 있는 숫자 데이터 타입을 나타냅니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myBigInt = BigInt(<span class="number">1234567890123456789012345</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="Basic-Types-타입스크립트">Basic Types (타입스크립트)</h2>
+<h2 id="basic-types-타입스크립트"><a class="markdownIt-Anchor" href="#basic-types-타입스크립트"></a> Basic Types (타입스크립트)</h2>
 <p>타입스크립트는 자바스크립트를 기반으로 구축되었으며 추가적인 정적 타이핑을 도입했습니다. 자바스크립트에서 기본 타입을 상속하고 몇 가지를 추가합니다.</p>
-<h3 id="any">any</h3>
+<h3 id="any"><a class="markdownIt-Anchor" href="#any"></a> any</h3>
 <p>모든 타입을 나타냅니다. <code>any</code> 타입의 변수는 타입 검사 없이 모든 타입의 값을 저장할 수 있습니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myAny: <span class="built_in">any</span> = <span class="string">'This can be anything.'</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="void">void</h3>
+<h3 id="void"><a class="markdownIt-Anchor" href="#void"></a> void</h3>
 <p>값이 없음을 나타내며, 값을 반환하지 않는 함수의 반환 타입으로 자주 사용됩니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params"></span>): <span class="title">void</span> </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"This function doesn't return anything."</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="array">array</h3>
+<h3 id="array"><a class="markdownIt-Anchor" href="#array"></a> array</h3>
 <p>타입이 지정된 배열을 나타냅니다. 배열에 포함할 수 있는 요소의 타입을 지정할 수 있습니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myArray: <span class="built_in">number</span>[] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br></pre></td></tr></table></figure>
-<h3 id="tuple">tuple</h3>
+<h3 id="tuple"><a class="markdownIt-Anchor" href="#tuple"></a> tuple</h3>
 <p>각각 고유한 타입을 가진 고정된 수의 요소를 가진 배열을 나타냅니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myTuple: [<span class="built_in">string</span>, <span class="built_in">number</span>] = [<span class="string">'John'</span>, <span class="number">25</span>];</span><br></pre></td></tr></table></figure>
-<h3 id="enum">enum</h3>
+<h3 id="enum"><a class="markdownIt-Anchor" href="#enum"></a> enum</h3>
 <p>명명된 상수 값의 집합을 나타냅니다. 열거형(Enum)은 종종 관련 값의 집합을 만드는 데 사용됩니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> Color &#123;</span><br><span class="line">  Red,</span><br><span class="line">  Green,</span><br><span class="line">  Blue,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> myColor: Color = Color.Red;</span><br></pre></td></tr></table></figure>
-<h3 id="never">never</h3>
+<h3 id="never"><a class="markdownIt-Anchor" href="#never"></a> never</h3>
 <p>절대 발생하지 않는 값을 나타냅니다. 항상 예외를 던지거나 절대 반환하지 않는 함수의 반환 타입으로 자주 사용됩니다.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throwError</span>(<span class="params">message: <span class="built_in">string</span></span>): <span class="title">never</span> </span>&#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(message);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="결론">결론</h2>
+<h2 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h2>
 <p>이러한 원시적이고 기본적인 타입은 자바스크립트와 타입스크립트에서 데이터 작업을 위한 기초를 제공합니다. 효과적이고 타입이 안전한 프로그래밍을 위해서는 이러한 타입을 이해하는 것이 중요합니다.</p>
 
         </div>
@@ -355,7 +355,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2024/03/28/typescript-11/" data-id="cmnbsny2i010lukcx4yng2v99" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2024/03/28/typescript-11/" data-id="cmnbvrtxl010hx4cx95pb8pnh" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -436,7 +436,7 @@
         "description": "
 타입스크립트의 기본 구성 요소인 원시 타입(Primitive Type)과 기본 타입(Basic Type)에 대해 살펴봅니다. 이러한 타입은 코드의 기초를 형성하여 더 복잡한 구조를 위한 토대를 제공합니다. 원시 타입과 기본 타입의 뉘앙스를 살펴보면서 타입스크립트의 타입 시스템을 탄탄하게 이해할 수 있는 토대를 마련하세요.
 프로그래밍, 특히 자바스크립트나 ",
-        "wordCount": 470
+        "wordCount": 519
     }
 </script>
 

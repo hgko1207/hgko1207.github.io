@@ -273,24 +273,24 @@
             
 
             <p>node-gyp 설치 과정 중 오류가 발생하였을 때 해결 방법입니다.</p>
-<h2 id="npm-버전-확인">npm 버전 확인</h2>
+<h2 id="npm-버전-확인"><a class="markdownIt-Anchor" href="#npm-버전-확인"></a> npm 버전 확인</h2>
 <p>npm 버전을 확인하고 버전에 맞게 수행합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm --version</span></span><br></pre></td></tr></table></figure>
-<h2 id="Windows">Windows</h2>
-<p>PowerShell 또는 명령 프롬프트(cmd.exe)를 &quot;관리자 권한으로 실행&quot;으로 실행합니다.<br>
+<h2 id="windows"><a class="markdownIt-Anchor" href="#windows"></a> Windows</h2>
+<p>PowerShell 또는 명령 프롬프트(cmd.exe)를 &quot;관리자 권한으로 실행&quot;으로 실행합니다.<br />
 먼저 node 가 설치된 디렉토리로 이동합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> <span class="string">"C:\Program Files\nodejs"</span></span></span><br></pre></td></tr></table></figure>
 <p>npm 버전이 7 미만인 경우</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> node_modules\npm\node_modules\npm-lifecycle</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install node-gyp@latest</span></span><br></pre></td></tr></table></figure>
 <p>npm 버전이 7 또는 8 일 경우 다음을 수행합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> node_modules\npm\node_modules\@npmcli\run-script</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install node-gyp@latest</span></span><br></pre></td></tr></table></figure>
-<h2 id="Linux-MacOS">Linux, MacOS</h2>
+<h2 id="linux-macos"><a class="markdownIt-Anchor" href="#linux-macos"></a> Linux, MacOS</h2>
 <p>다음 명령어를 실행하면 됩니다. 권한 오류가 나서 실패하면 앞에 <code>sudo</code> 명령어를 추가합니다.</p>
 <p>npm 버전이 7 미만인 경우 다음을 수행합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm explore npm/node_modules/npm-lifecycle -g -- npm install node-gyp@latest</span></span><br></pre></td></tr></table></figure>
 <p>npm 버전이 7 또는 8 일 경우 다음을 수행합니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm explore npm/node_modules/@npmcli/run-script -g -- npm_config_global=<span class="literal">false</span> npm install node-gyp@latest</span></span><br></pre></td></tr></table></figure>
-<h2 id="참고">참고</h2>
+<h2 id="참고"><a class="markdownIt-Anchor" href="#참고"></a> 참고</h2>
 <ul>
 <li><a href="https://github.com/nodejs/node-gyp/blob/main/docs/Updating-npm-bundled-node-gyp.md" target="_blank" rel="noopener">https://github.com/nodejs/node-gyp/blob/main/docs/Updating-npm-bundled-node-gyp.md</a></li>
 </ul>
@@ -327,7 +327,7 @@
 
 
 
-    <a data-url="http://hgko1207.github.io/2022/09/16/nodejs-3/" data-id="cmnbsnxye00equkcxd7fqejdp" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="http://hgko1207.github.io/2022/09/16/nodejs-3/" data-id="cmnbvrtrx00f0x4cx7kwcepi4" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -406,14 +406,14 @@
         "dateModified": "2024-01-12",
         "url": "http://hgko1207.github.io/2022/09/16/nodejs-3/",
         "description": "node-gyp 설치 과정 중 오류가 발생하였을 때 해결 방법입니다.
-npm 버전 확인
+ npm 버전 확인
 npm 버전을 확인하고 버전에 맞게 수행합니다.
 1$ npm --version
-Windows
+ Windows
 PowerShell 또는 명령 프롬프트(cmd.exe)를 &quot;관리자 권한으로 실행&quot;으로 실행합니다.
 먼저 node 가 설치된 디렉토리로 이동합니다.
-1$ cd "",
-        "wordCount": 166
+1$ cd",
+        "wordCount": 179
     }
 </script>
 
