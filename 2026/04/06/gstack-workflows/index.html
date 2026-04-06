@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>stack 실전 워크플로우 | 규니의 블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    <meta name="keywords" content="AI,개발,Programming,claude,claude code,ai개발도구,gstack,AI코딩,클로드코드" />
+    
+    
+    
+    <meta name="description" content="Information related to IT" />
+    <meta name="description" content="Information related to IT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="stack 실전 워크플로우">
+<meta property="og:url" content="http://hgko1207.github.io/2026/04/06/gstack-workflows/index.html">
+<meta property="og:site_name" content="규니의 블로그">
+<meta property="og:description" content="Information related to IT">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/claude.png">
+<meta property="article:published_time" content="2026-04-06T12:58:22.000Z">
+<meta property="article:modified_time" content="2026-04-06T12:58:47.436Z">
+<meta property="article:author" content="Hyeong Gyun Ko">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="개발">
+<meta property="article:tag" content="Programming">
+<meta property="article:tag" content="claude">
+<meta property="article:tag" content="claude code">
+<meta property="article:tag" content="ai개발도구">
+<meta property="article:tag" content="gstack">
+<meta property="article:tag" content="AI코딩">
+<meta property="article:tag" content="클로드코드">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/claude.png">
+    
+
+    
+        <link rel="alternate" href="/" title="규니의 블로그" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-73CH3S1C0L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-73CH3S1C0L');
+</script>
+
+    
+    
+    
+
+
+
+    <!-- <script
+  data-ad-client="ca-pub-7581566810202853"
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+></script>
+ -->
+
+    <!-- 구글 애드센스 -->
+    <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!-- 네이버 -->
+    <meta name="naver-site-verification" content="a6e2912bbd1e42226e10ee12d3498a246c51ec1f" />
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h2 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h2>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">hgko&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ETC/">ETC</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/">IT</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/BlockChain/">BlockChain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Blockchain/">Blockchain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Information/">Information</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Satellite/">Satellite</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Backend/">Backend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DB/">DB</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Frontend/">Frontend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Language/">Language</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Mobile/">Mobile</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Web/">Web</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about">About</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/profile">프로파일</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h2 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/AI/">AI</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/AI/CLAUDE/">CLAUDE</a>
+    </h2>
+</div>
+
+                        <div class="main-body-content">
+                            <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+                            <!-- 상단 광고 -->
+<ins
+  class="adsbygoogle"
+  style="display: block"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="1131844921"
+  data-ad-format="auto"
+  data-full-width-responsive="true"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                            <article id="post-gstack-workflows" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        stack 실전 워크플로우
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2026/04/06/gstack-workflows/" class="article-date">
+         <time datetime="2026-04-06T12:58:22.000Z" itemprop="datePublished">2026-04-06</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/AI/" rel="tag">AI</a>, <a class="tag-link" href="/tags/AI%EC%BD%94%EB%94%A9/" rel="tag">AI코딩</a>, <a class="tag-link" href="/tags/Programming/" rel="tag">Programming</a>, <a class="tag-link" href="/tags/ai%EA%B0%9C%EB%B0%9C%EB%8F%84%EA%B5%AC/" rel="tag">ai개발도구</a>, <a class="tag-link" href="/tags/claude/" rel="tag">claude</a>, <a class="tag-link" href="/tags/claude-code/" rel="tag">claude code</a>, <a class="tag-link" href="/tags/gstack/" rel="tag">gstack</a>, <a class="tag-link" href="/tags/%EA%B0%9C%EB%B0%9C/" rel="tag">개발</a>, <a class="tag-link" href="/tags/%ED%81%B4%EB%A1%9C%EB%93%9C%EC%BD%94%EB%93%9C/" rel="tag">클로드코드</a>
+    </div>
+
+                
+
+                
+   <div class="article-counter">
+      <i class="fa fa-file-word-o"></i>
+      <span class="post-count-item-text">Symbols count in article: </span>
+      <span class="post-count">572</span>
+      <i class="fa fa-clock-o"></i>
+      <span class="post-time-item-text">Reading time: </span>
+      <span class="post-count">3 mins. </span>
+   </div>
+
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <blockquote>
+<p>상황별 최적 명령어 조합 패턴입니다.</p>
+</blockquote>
+<hr />
+<h2 id="워크플로우-1-새-기능-개발-풀-사이클"><a class="markdownIt-Anchor" href="#워크플로우-1-새-기능-개발-풀-사이클"></a> 워크플로우 1: 새 기능 개발 (풀 사이클)</h2>
+<p>가장 완전한 흐름입니다. 아이디어부터 배포, 문서까지 포함합니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;office-hours                    → 기능이 진짜 필요한지 검증</span><br><span class="line">  ↓</span><br><span class="line">plan.md 작성                     → 구현 계획 문서화</span><br><span class="line">  ↓</span><br><span class="line">&#x2F;autoplan                        → CEO + Eng + Design 리뷰 자동 실행</span><br><span class="line">  ↓</span><br><span class="line">구현                             → 코딩</span><br><span class="line">  ↓</span><br><span class="line">&#x2F;simplify                        → 코드 품질 정리</span><br><span class="line">  ↓</span><br><span class="line">&#x2F;review                          → PR 코드 리뷰</span><br><span class="line">  ↓</span><br><span class="line">&#x2F;qa                              → QA 테스트 + 버그 수정</span><br><span class="line">  ↓</span><br><span class="line">&#x2F;ship                            → PR 생성</span><br><span class="line">  ↓</span><br><span class="line">&#x2F;land-and-deploy                 → 머지 + 배포 + 헬스체크</span><br><span class="line">  ↓</span><br><span class="line">&#x2F;canary                          → 라이브 모니터링</span><br><span class="line">  ↓</span><br><span class="line">&#x2F;document-release                → 문서 업데이트</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="워크플로우-2-빠른-버그-수정"><a class="markdownIt-Anchor" href="#워크플로우-2-빠른-버그-수정"></a> 워크플로우 2: 빠른 버그 수정</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;careful                         → 안전 모드 켜기</span><br><span class="line">  ↓</span><br><span class="line">&#x2F;investigate [버그 설명]          → 원인 분석</span><br><span class="line">  ↓</span><br><span class="line">수정</span><br><span class="line">  ↓</span><br><span class="line">&#x2F;review                          → 변경사항 확인</span><br><span class="line">  ↓</span><br><span class="line">&#x2F;ship → &#x2F;land-and-deploy         → 배포</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="워크플로우-3-새-프로젝트-ui-세팅"><a class="markdownIt-Anchor" href="#워크플로우-3-새-프로젝트-ui-세팅"></a> 워크플로우 3: 새 프로젝트 UI 세팅</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;design-consultation             → 디자인 시스템 수립 → DESIGN.md 생성</span><br><span class="line">  ↓</span><br><span class="line">CLAUDE.md에 @DESIGN.md 추가</span><br><span class="line">  ↓</span><br><span class="line">UI 개발</span><br><span class="line">  ↓</span><br><span class="line">&#x2F;design-review                   → 라이브 시각적 감사 + 자동 수정</span><br><span class="line">  ↓</span><br><span class="line">&#x2F;qa                              → 기능 QA</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="워크플로우-4-주간-회고-다음-주-계획"><a class="markdownIt-Anchor" href="#워크플로우-4-주간-회고-다음-주-계획"></a> 워크플로우 4: 주간 회고 + 다음 주 계획</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">매주 금요일:</span><br><span class="line">&#x2F;retro                           → 커밋 히스토리 분석, 팀 기여 회고</span><br><span class="line">  ↓</span><br><span class="line">&#x2F;office-hours                    → 다음 주 작업 방향 검토</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="워크플로우-5-보안-점검"><a class="markdownIt-Anchor" href="#워크플로우-5-보안-점검"></a> 워크플로우 5: 보안 점검</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;cso                             → 전체 보안 감사</span><br><span class="line">  ↓</span><br><span class="line">발견된 취약점 수정</span><br><span class="line">  ↓</span><br><span class="line">&#x2F;review                          → 수정사항 검토</span><br><span class="line">  ↓</span><br><span class="line">&#x2F;ship → &#x2F;land-and-deploy</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="워크플로우-6-성능-최적화"><a class="markdownIt-Anchor" href="#워크플로우-6-성능-최적화"></a> 워크플로우 6: 성능 최적화</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;benchmark                       → 현재 성능 기준선 측정</span><br><span class="line">  ↓</span><br><span class="line">성능 개선 작업</span><br><span class="line">  ↓</span><br><span class="line">&#x2F;benchmark                       → 개선 후 비교</span><br><span class="line">  ↓</span><br><span class="line">&#x2F;qa                              → 기능 회귀 없는지 확인</span><br><span class="line">  ↓</span><br><span class="line">&#x2F;ship → &#x2F;land-and-deploy</span><br><span class="line">  ↓</span><br><span class="line">&#x2F;canary                          → 프로덕션 성능 모니터링</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="워크플로우-7-안전한-리팩토링"><a class="markdownIt-Anchor" href="#워크플로우-7-안전한-리팩토링"></a> 워크플로우 7: 안전한 리팩토링</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;freeze src&#x2F;리팩토링할경로&#x2F;        → 범위 외 편집 차단</span><br><span class="line">  ↓</span><br><span class="line">&#x2F;careful                         → 위험 명령어 경고 켜기</span><br><span class="line">  ↓</span><br><span class="line">리팩토링</span><br><span class="line">  ↓</span><br><span class="line">&#x2F;unfreeze                        → freeze 해제</span><br><span class="line">  ↓</span><br><span class="line">&#x2F;review                          → 리팩토링 검토</span><br><span class="line">  ↓</span><br><span class="line">&#x2F;qa                              → 회귀 테스트</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="워크플로우-8-독립-코드-검증"><a class="markdownIt-Anchor" href="#워크플로우-8-독립-코드-검증"></a> 워크플로우 8: 독립 코드 검증</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;review                          → Claude 리뷰</span><br><span class="line">  ↓</span><br><span class="line">&#x2F;codex review                    → Codex 독립 리뷰</span><br><span class="line">  ↓</span><br><span class="line">(두 리뷰가 다른 점 확인 → 논쟁 포인트 집중)</span><br><span class="line">  ↓</span><br><span class="line">&#x2F;codex challenge                 → 적대적 테스트</span><br><span class="line">  ↓</span><br><span class="line">수정</span><br><span class="line">  ↓</span><br><span class="line">&#x2F;ship</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="상황별-빠른-선택-가이드"><a class="markdownIt-Anchor" href="#상황별-빠른-선택-가이드"></a> 상황별 빠른 선택 가이드</h2>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>명령어</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>아이디어 검증</td>
+<td><code>/office-hours</code></td>
+</tr>
+<tr>
+<td>플랜 검토 (빠르게)</td>
+<td><code>/autoplan</code></td>
+</tr>
+<tr>
+<td>플랜 검토 (깊게)</td>
+<td><code>/plan-ceo-review</code> → <code>/plan-eng-review</code> → <code>/plan-design-review</code></td>
+</tr>
+<tr>
+<td>버그 찾기</td>
+<td><code>/investigate</code></td>
+</tr>
+<tr>
+<td>코드 리뷰</td>
+<td><code>/review</code></td>
+</tr>
+<tr>
+<td>코드 이중 검증</td>
+<td><code>/review</code> + <code>/codex review</code></td>
+</tr>
+<tr>
+<td>UI 품질 개선</td>
+<td><code>/design-review</code></td>
+</tr>
+<tr>
+<td>새 디자인 시스템</td>
+<td><code>/design-consultation</code></td>
+</tr>
+<tr>
+<td>QA (수정 포함)</td>
+<td><code>/qa</code></td>
+</tr>
+<tr>
+<td>QA (리포트만)</td>
+<td><code>/qa-only</code></td>
+</tr>
+<tr>
+<td>성능 확인</td>
+<td><code>/benchmark</code></td>
+</tr>
+<tr>
+<td>배포 (PR 생성)</td>
+<td><code>/ship</code></td>
+</tr>
+<tr>
+<td>배포 (풀 배포)</td>
+<td><code>/ship</code> → <code>/land-and-deploy</code></td>
+</tr>
+<tr>
+<td>배포 후 모니터링</td>
+<td><code>/canary</code></td>
+</tr>
+<tr>
+<td>보안 감사</td>
+<td><code>/cso</code></td>
+</tr>
+<tr>
+<td>위험 작업 전</td>
+<td><code>/careful</code> 또는 <code>/guard</code></td>
+</tr>
+<tr>
+<td>주간 회고</td>
+<td><code>/retro</code></td>
+</tr>
+<tr>
+<td>문서 업데이트</td>
+<td><code>/document-release</code></td>
+</tr>
+<tr>
+<td>gstack 업데이트</td>
+<td><code>/gstack-upgrade</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="꿀팁-모음"><a class="markdownIt-Anchor" href="#꿀팁-모음"></a> 꿀팁 모음</h2>
+<h3 id="1-플래닝-먼저-코딩-나중에"><a class="markdownIt-Anchor" href="#1-플래닝-먼저-코딩-나중에"></a> 1. 플래닝 먼저 / 코딩 나중에</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;autoplan 또는 &#x2F;plan-eng-review 없이 바로 코딩하면 나중에 구조 뜯어야 합니다.</span><br><span class="line">5분 투자 → 나중에 몇 시간 절약됩니다.</span><br></pre></td></tr></table></figure>
+<h3 id="2-setup-deploy는-한-번만"><a class="markdownIt-Anchor" href="#2-setup-deploy는-한-번만"></a> 2. /setup-deploy는 한 번만</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">프로젝트마다 한 번 실행하면 이후 &#x2F;ship, &#x2F;land-and-deploy, &#x2F;canary가 자동으로 연결됩니다.</span><br><span class="line">새 프로젝트 시작하면 바로 실행하는 습관을 들이세요.</span><br></pre></td></tr></table></figure>
+<h3 id="3-setup-browser-cookies-인증-설정"><a class="markdownIt-Anchor" href="#3-setup-browser-cookies-인증-설정"></a> 3. /setup-browser-cookies 인증 설정</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">인증이 필요한 페이지가 있는 앱은 &#x2F;qa, &#x2F;design-review 전에 항상 실행합니다.</span><br><span class="line">한 번 설정하면 세션 동안 유지됩니다.</span><br></pre></td></tr></table></figure>
+<h3 id="4-cso-정기-실행"><a class="markdownIt-Anchor" href="#4-cso-정기-실행"></a> 4. /cso 정기 실행</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">큰 의존성 업데이트 후, 새 외부 API 연동 후, 배포 전 중요한 릴리즈 전에 실행합니다.</span><br><span class="line">보안 문제는 나중에 발견할수록 비용이 커집니다.</span><br></pre></td></tr></table></figure>
+<h3 id="5-retro로-패턴-발견"><a class="markdownIt-Anchor" href="#5-retro로-패턴-발견"></a> 5. /retro로 패턴 발견</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">매주 &#x2F;retro 실행하면 어떤 버그가 반복되는지, 어디서 시간이 낭비되는지 패턴이 보입니다.</span><br><span class="line">그 패턴을 CLAUDE.md에 기록하면 Claude가 반복 실수를 피할 수 있습니다.</span><br></pre></td></tr></table></figure>
+<h3 id="6-careful은-프로덕션-작업-기본값"><a class="markdownIt-Anchor" href="#6-careful은-프로덕션-작업-기본값"></a> 6. /careful은 프로덕션 작업 기본값</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">프로덕션 DB, 라이브 서버, 공유 인프라 작업 시 항상 먼저 실행합니다.</span><br><span class="line">실수 한 번이 서비스 다운으로 이어질 수 있을 때 사용합니다.</span><br></pre></td></tr></table></figure>
+<hr />
+<p><strong>출처</strong>: <a href="https://github.com/garrytan/gstack" target="_blank" rel="noopener">gstack GitHub</a> — Garry Tan (Y Combinator CEO)<br />
+<strong>태그</strong>: #ClaudeCode #gstack #워크플로우 #실전패턴</p>
+
+        </div>
+        <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+        <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://hgko1207.github.io/2026/04/06/gstack-workflows/" data-id="cmnn75f8p00007kcx2k2m9377" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Hyeong Gyun Ko"
+        },
+        "headline": "stack 실전 워크플로우",
+        "image": "http://hgko1207.github.io/images/thumbnail/claude.png",
+        "keywords": "AI 개발 Programming claude claude code ai개발도구 gstack AI코딩 클로드코드",
+        "genre": "Programming AI CLAUDE",
+        "datePublished": "2026-04-06",
+        "dateCreated": "2026-04-06",
+        "dateModified": "2026-04-06",
+        "url": "http://hgko1207.github.io/2026/04/06/gstack-workflows/",
+        "description": "
+상황별 최적 명령어 조합 패턴입니다.
+
+
+ 워크플로우 1: 새 기능 개발 (풀 사이클)
+가장 완전한 흐름입니다. 아이디어부터 배포, 문서까지 포함합니다.
+123456789101112131415161718192021&#x2F;office-hours                    → 기능이 진짜 필요한지 검증  ↓plan.md 작성             ",
+        "wordCount": 1535
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                            <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>팔로우:</p>
+    <ul class="social-links">
+       
+      <li>
+        <a
+          class="social-tooltip"
+          title="github"
+          href="https://github.com/hgko1207"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-github"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="facebook"
+          href="https://www.facebook.com/profile.php?id=100003526102847"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-facebook"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="rss"
+          href="/"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-rss"></i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+   
+<nav id="article-nav">
+    
+    
+        <a href="/2026/04/03/qa-deploy-guide/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">gstack QA &amp; 배포 가이드</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+ 
+  <div class="widgets-container">
+      
+  
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/04/06/gstack-workflows/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/claude.png)" alt="stack 실전 워크플로우" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2026/04/06/gstack-workflows/" class="title">stack 실전 워크플로우</a></p>
+                            <p class="item-date"><time datetime="2026-04-06T12:58:22.000Z" itemprop="datePublished">2026-04-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/04/03/qa-deploy-guide/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/claude.png)" alt="gstack QA &amp; 배포 가이드" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2026/04/03/qa-deploy-guide/" class="title">gstack QA &amp; 배포 가이드</a></p>
+                            <p class="item-date"><time datetime="2026-04-03T12:21:48.000Z" itemprop="datePublished">2026-04-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/04/03/design-guide/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/claude.png)" alt="gstack 디자인 가이드" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2026/04/03/design-guide/" class="title">gstack 디자인 가이드</a></p>
+                            <p class="item-date"><time datetime="2026-04-02T15:14:06.000Z" itemprop="datePublished">2026-04-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/04/01/development-guide/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/claude.png)" alt="gstack 개발 &amp; 코드 품질 가이드" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2026/04/01/development-guide/" class="title">gstack 개발 &amp; 코드 품질 가이드</a></p>
+                            <p class="item-date"><time datetime="2026-04-01T13:26:23.000Z" itemprop="datePublished">2026-04-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/03/30/planning-guide/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/claude.png)" alt="gstack 기획 &amp; 플래닝 가이드" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2026/03/30/planning-guide/" class="title">gstack 기획 &amp; 플래닝 가이드</a></p>
+                            <p class="item-date"><time datetime="2026-03-30T12:03:20.000Z" itemprop="datePublished">2026-03-30</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">카테고리</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">66</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">448</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">87</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/CLAUDE/">CLAUDE</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">40</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Net-Core/">.Net Core</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">21</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">27</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/SQL/">SQL</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">38</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">30</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">124</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">25</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">8</span></li></ul></li></ul>
+        </div>
+    </div>
+
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">링크</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+  <div class="widget-wrap widget-float">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- huemen sidebar -->
+    <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-7581566810202853"
+            data-ad-slot="1131844921"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+</div>
+  
+  </div>
+  <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+
+  <!-- hits 방문자수 -->
+  <a href="https://hits.seeyoufarm.com" target="_blank" rel="noopener">
+    <style>
+      .hits {
+        width: auto;
+        height: auto;
+        max-width: 99px;
+        max-height: 20px;
+      }
+    </style>
+    <img
+      src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhgko1207.github.io&count_bg=%23E6ADD5&title_bg=%23BF98D2&icon=&icon_color=%23E7E7E7&title=%EB%B0%A9%EB%AC%B8%EC%9E%90%EC%88%98&edge_flat=false"
+      alt="방문자수"
+    />
+  </a>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h2 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h2>
+                <p>&copy; 2026 Hyeong Gyun Ko</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://hgko1207.github.io/2026/04/06/gstack-workflows/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+      <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
