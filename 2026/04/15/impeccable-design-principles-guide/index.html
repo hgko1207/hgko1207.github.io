@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Impeccable 디자인 원칙 &amp; 안티패턴 가이드 | 규니의 블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    <meta name="keywords" content="AI,개발,디자인,Programming,claude,claude code,ai개발도구,AI코딩,클로드코드,impeccable" />
+    
+    
+    
+    <meta name="description" content="Information related to IT" />
+    <meta name="description" content="Information related to IT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Impeccable 디자인 원칙 &amp; 안티패턴 가이드">
+<meta property="og:url" content="http://hgko1207.github.io/2026/04/15/impeccable-design-principles-guide/index.html">
+<meta property="og:site_name" content="규니의 블로그">
+<meta property="og:description" content="Information related to IT">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="http://hgko1207.github.io/images/thumbnail/claude.png">
+<meta property="article:published_time" content="2026-04-15T12:30:05.000Z">
+<meta property="article:modified_time" content="2026-04-15T12:30:35.881Z">
+<meta property="article:author" content="Hyeong Gyun Ko">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="개발">
+<meta property="article:tag" content="디자인">
+<meta property="article:tag" content="Programming">
+<meta property="article:tag" content="claude">
+<meta property="article:tag" content="claude code">
+<meta property="article:tag" content="ai개발도구">
+<meta property="article:tag" content="AI코딩">
+<meta property="article:tag" content="클로드코드">
+<meta property="article:tag" content="impeccable">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://hgko1207.github.io/images/thumbnail/claude.png">
+    
+
+    
+        <link rel="alternate" href="/" title="규니의 블로그" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-73CH3S1C0L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-73CH3S1C0L');
+</script>
+
+    
+    
+    
+
+
+
+    <!-- <script
+  data-ad-client="ca-pub-7581566810202853"
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+></script>
+ -->
+
+    <!-- 구글 애드센스 -->
+    <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!-- 네이버 -->
+    <meta name="naver-site-verification" content="a6e2912bbd1e42226e10ee12d3498a246c51ec1f" />
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h2 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h2>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">hgko&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ETC/">ETC</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/">IT</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/BlockChain/">BlockChain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Blockchain/">Blockchain</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Information/">Information</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/IT/Satellite/">Satellite</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Backend/">Backend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DB/">DB</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Frontend/">Frontend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Language/">Language</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Mobile/">Mobile</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Web/">Web</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about">About</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/profile">프로파일</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h2 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/AI/">AI</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/AI/CLAUDE/">CLAUDE</a>
+    </h2>
+</div>
+
+                        <div class="main-body-content">
+                            <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+                            <!-- 상단 광고 -->
+<ins
+  class="adsbygoogle"
+  style="display: block"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="1131844921"
+  data-ad-format="auto"
+  data-full-width-responsive="true"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                            <article id="post-impeccable-design-principles-guide" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Impeccable 디자인 원칙 &amp; 안티패턴 가이드
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2026/04/15/impeccable-design-principles-guide/" class="article-date">
+         <time datetime="2026-04-15T12:30:05.000Z" itemprop="datePublished">2026-04-15</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/AI/" rel="tag">AI</a>, <a class="tag-link" href="/tags/AI%EC%BD%94%EB%94%A9/" rel="tag">AI코딩</a>, <a class="tag-link" href="/tags/Programming/" rel="tag">Programming</a>, <a class="tag-link" href="/tags/ai%EA%B0%9C%EB%B0%9C%EB%8F%84%EA%B5%AC/" rel="tag">ai개발도구</a>, <a class="tag-link" href="/tags/claude/" rel="tag">claude</a>, <a class="tag-link" href="/tags/claude-code/" rel="tag">claude code</a>, <a class="tag-link" href="/tags/impeccable/" rel="tag">impeccable</a>, <a class="tag-link" href="/tags/%EA%B0%9C%EB%B0%9C/" rel="tag">개발</a>, <a class="tag-link" href="/tags/%EB%94%94%EC%9E%90%EC%9D%B8/" rel="tag">디자인</a>, <a class="tag-link" href="/tags/%ED%81%B4%EB%A1%9C%EB%93%9C%EC%BD%94%EB%93%9C/" rel="tag">클로드코드</a>
+    </div>
+
+                
+
+                
+   <div class="article-counter">
+      <i class="fa fa-file-word-o"></i>
+      <span class="post-count-item-text">Symbols count in article: </span>
+      <span class="post-count">1.2k</span>
+      <i class="fa fa-clock-o"></i>
+      <span class="post-time-item-text">Reading time: </span>
+      <span class="post-count">7 mins. </span>
+   </div>
+
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <blockquote>
+<p>Impeccable이 AI에게 주입하는 7가지 디자인 레퍼런스와, AI Slop을 방지하기 위한 구체적 안티패턴 목록입니다.</p>
+</blockquote>
+<hr />
+<h2 id="7가지-디자인-레퍼런스"><a class="markdownIt-Anchor" href="#7가지-디자인-레퍼런스"></a> 7가지 디자인 레퍼런스</h2>
+<p>Impeccable의 <code>frontend-design</code> 스킬은 7개의 레퍼런스 파일로 구성됩니다. 각 레퍼런스는 AI가 코드를 생성할 때 참조하는 디자인 원칙을 담고 있습니다.</p>
+<h3 id="1-typography-타이포그래피"><a class="markdownIt-Anchor" href="#1-typography-타이포그래피"></a> 1. Typography (타이포그래피)</h3>
+<p>타이포그래피는 UI의 가독성과 시각적 계층을 결정하는 가장 중요한 요소입니다.</p>
+<ul>
+<li><strong>모듈러 스케일</strong>: 1.25(Major Third) 또는 1.333(Perfect Fourth) 비율로 일관된 크기 체계를 구성합니다. 임의의 px 값을 나열하지 않습니다</li>
+<li><strong>폰트 페어링</strong>: 헤딩과 본문에 서로 다른 서체를 조합할 때, 대비(contrast)와 조화(harmony)를 동시에 고려합니다. Sans-serif + Serif 조합이 기본입니다</li>
+<li><strong>OpenType 기능</strong>: <code>font-feature-settings</code>를 활용하여 올드스타일 숫자(<code>onum</code>), 리가처(<code>liga</code>), 커닝(<code>kern</code>) 등을 적절히 사용합니다</li>
+<li><strong>유동적 사이징</strong>: <code>clamp()</code> 함수로 뷰포트에 따라 자연스럽게 스케일되는 폰트 크기를 구현합니다. 미디어 쿼리 브레이크포인트마다 하드코딩하지 않습니다</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 유동적 타이포그래피 예시 */</span></span><br><span class="line"><span class="selector-tag">font-size</span>: <span class="selector-tag">clamp</span>(1<span class="selector-tag">rem</span>, 0<span class="selector-class">.5rem</span> + 1<span class="selector-class">.5vw</span>, 1<span class="selector-class">.5rem</span>);</span><br><span class="line"><span class="selector-tag">line-height</span>: <span class="selector-tag">clamp</span>(1<span class="selector-class">.4</span>, 1<span class="selector-class">.2</span> + 0<span class="selector-class">.5vw</span>, 1<span class="selector-class">.6</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="2-color-contrast-색상과-대비"><a class="markdownIt-Anchor" href="#2-color-contrast-색상과-대비"></a> 2. Color &amp; Contrast (색상과 대비)</h3>
+<p>색상은 브랜드 아이덴티티와 접근성을 동시에 만족해야 합니다.</p>
+<ul>
+<li><strong>OKLCH 색상 공간</strong>: sRGB 대신 OKLCH를 사용하면 지각적으로 균일한(perceptually uniform) 색상 팔레트를 생성할 수 있습니다. 채도와 명도 조절이 직관적입니다</li>
+<li><strong>틴티드 뉴트럴(Tinted Neutrals)</strong>: 순수한 그레이 대신, 브랜드 색상을 미세하게 섞은 뉴트럴을 사용합니다. <code>gray-500</code> 대신 브랜드 블루가 살짝 들어간 뉴트럴이 훨씬 정교해 보입니다</li>
+<li><strong>다크모드</strong>: 단순히 색상을 반전하지 않습니다. 명도(Lightness)를 조절하되, 채도(Chroma)는 낮추고, 배경은 순수 검정이 아닌 매우 어두운 회색을 사용합니다</li>
+<li><strong>접근성 (WCAG AA)</strong>: 일반 텍스트는 최소 4.5:1, 대형 텍스트는 3:1의 대비율을 보장합니다. 색상만으로 정보를 전달하지 않습니다</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* OKLCH 기반 색상 팔레트 예시 */</span></span><br><span class="line"><span class="selector-tag">--color-primary</span>: <span class="selector-tag">oklch</span>(55% 0<span class="selector-class">.15</span> 250);</span><br><span class="line"><span class="selector-tag">--color-surface</span>: <span class="selector-tag">oklch</span>(98% 0<span class="selector-class">.005</span> 250); <span class="comment">/* 틴티드 뉴트럴 */</span></span><br><span class="line"><span class="selector-tag">--color-surface-dark</span>: <span class="selector-tag">oklch</span>(15% 0<span class="selector-class">.005</span> 250); <span class="comment">/* 다크모드 배경 */</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-spatial-design-공간-디자인"><a class="markdownIt-Anchor" href="#3-spatial-design-공간-디자인"></a> 3. Spatial Design (공간 디자인)</h3>
+<p>일관된 간격 시스템은 UI의 질서와 리듬을 만듭니다.</p>
+<ul>
+<li><strong>스페이싱 시스템</strong>: 4px 또는 8px 기반 그리드를 사용합니다. 모든 여백, 패딩, 갭은 이 시스템의 배수로 설정합니다(4, 8, 12, 16, 24, 32, 48, 64…)</li>
+<li><strong>그리드 시스템</strong>: CSS Grid를 활용하여 콘텐츠 영역을 체계적으로 분할합니다. 12컬럼 그리드가 범용적이며, <code>subgrid</code>로 중첩 그리드를 깔끔하게 처리합니다</li>
+<li><strong>비대칭 레이아웃</strong>: 모든 것을 정중앙에 배치하지 않습니다. 의도적 비대칭은 시각적 긴장감과 흥미를 만들어냅니다. 골든 레이시오(1:1.618)를 참고합니다</li>
+<li><strong>Container Queries</strong>: 뷰포트가 아닌 컨테이너 크기에 따라 레이아웃을 조절합니다. 재사용 가능한 컴포넌트에 필수입니다</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 스페이싱 시스템 예시 */</span></span><br><span class="line"><span class="selector-tag">--space-1</span>: 0<span class="selector-class">.25rem</span>; <span class="comment">/* 4px */</span></span><br><span class="line"><span class="selector-tag">--space-2</span>: 0<span class="selector-class">.5rem</span>; <span class="comment">/* 8px */</span></span><br><span class="line"><span class="selector-tag">--space-3</span>: 0<span class="selector-class">.75rem</span>; <span class="comment">/* 12px */</span></span><br><span class="line"><span class="selector-tag">--space-4</span>: 1<span class="selector-tag">rem</span>; <span class="comment">/* 16px */</span></span><br><span class="line"><span class="selector-tag">--space-6</span>: 1<span class="selector-class">.5rem</span>; <span class="comment">/* 24px */</span></span><br><span class="line"><span class="selector-tag">--space-8</span>: 2<span class="selector-tag">rem</span>; <span class="comment">/* 32px */</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-motion-design-모션-디자인"><a class="markdownIt-Anchor" href="#4-motion-design-모션-디자인"></a> 4. Motion Design (모션 디자인)</h3>
+<p>모션은 상태 변화를 사용자에게 자연스럽게 전달합니다.</p>
+<ul>
+<li><strong>이징 커브</strong>: <code>linear</code>와 <code>ease</code>를 피하고, 용도별 커스텀 이징을 사용합니다. 진입은 <code>ease-out</code>, 퇴장은 <code>ease-in</code>, 상태 변화는 <code>ease-in-out</code>이 기본입니다</li>
+<li><strong>스태거링(Staggering)</strong>: 리스트 항목이 순차적으로 나타나도록 딜레이를 줍니다. <code>animation-delay</code>를 <code>calc(var(--index) * 50ms)</code> 패턴으로 구현합니다</li>
+<li><strong>Reduced Motion</strong>: <code>prefers-reduced-motion</code> 미디어 쿼리를 반드시 존중합니다. 모션을 완전히 제거하거나, 지속시간을 대폭 줄입니다</li>
+<li><strong>성능 원칙</strong>: 애니메이션은 <code>transform</code>과 <code>opacity</code>만 사용합니다. <code>width</code>, <code>height</code>, <code>top</code>, <code>left</code> 등을 애니메이션하면 레이아웃 리플로우가 발생합니다</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 모션 디자인 예시 */</span></span><br><span class="line"><span class="selector-tag">--ease-out</span>: <span class="selector-tag">cubic-bezier</span>(0<span class="selector-class">.16</span>, 1, 0<span class="selector-class">.3</span>, 1);</span><br><span class="line"><span class="selector-tag">--ease-in</span>: <span class="selector-tag">cubic-bezier</span>(0<span class="selector-class">.7</span>, 0, 0<span class="selector-class">.84</span>, 0);</span><br><span class="line"><span class="selector-tag">--duration-fast</span>: 150<span class="selector-tag">ms</span>;</span><br><span class="line"><span class="selector-tag">--duration-normal</span>: 250<span class="selector-tag">ms</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">prefers-reduced-motion:</span> reduce) &#123;</span><br><span class="line">  *,</span><br><span class="line">  *<span class="selector-pseudo">::before</span>,</span><br><span class="line">  *<span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">    <span class="attribute">animation-duration</span>: <span class="number">0.01ms</span> <span class="meta">!important</span>;</span><br><span class="line">    <span class="attribute">transition-duration</span>: <span class="number">0.01ms</span> <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5-interaction-design-인터랙션-디자인"><a class="markdownIt-Anchor" href="#5-interaction-design-인터랙션-디자인"></a> 5. Interaction Design (인터랙션 디자인)</h3>
+<p>사용자가 UI와 상호작용하는 모든 순간을 세심하게 설계합니다.</p>
+<ul>
+<li><strong>폼 디자인</strong>: 레이블은 항상 입력 필드 위에 배치합니다. 플레이스홀더를 레이블 대용으로 사용하지 않습니다. 실시간 유효성 검사는 사용자가 입력을 마친 후(<code>blur</code>)에 표시합니다</li>
+<li><strong>포커스 상태</strong>: 모든 인터랙티브 요소에 명확한 포커스 링을 제공합니다. <code>outline: none</code>으로 제거하지 않습니다. <code>focus-visible</code>을 사용하여 키보드 사용자에게만 표시할 수 있습니다</li>
+<li><strong>로딩 패턴</strong>: 스켈레톤 UI를 기본으로 사용합니다. 스피너는 최후의 수단입니다. 낙관적 업데이트(optimistic update)를 적극 활용합니다</li>
+<li><strong>키보드 네비게이션</strong>: 모든 기능이 키보드만으로 접근 가능해야 합니다. 탭 순서가 논리적이어야 하고, 커스텀 컴포넌트는 ARIA 역할과 키보드 핸들러를 구현합니다</li>
+</ul>
+<h3 id="6-responsive-design-반응형-디자인"><a class="markdownIt-Anchor" href="#6-responsive-design-반응형-디자인"></a> 6. Responsive Design (반응형 디자인)</h3>
+<p>모든 화면 크기에서 최적의 경험을 제공합니다.</p>
+<ul>
+<li><strong>모바일 퍼스트</strong>: 작은 화면부터 스타일을 작성하고, <code>min-width</code> 미디어 쿼리로 확장합니다. 데스크톱부터 시작하면 모바일에서 불필요한 오버라이드가 쌓입니다</li>
+<li><strong>Fluid Design</strong>: 고정 브레이크포인트 대신 <code>clamp()</code>, <code>min()</code>, <code>max()</code> 함수로 연속적으로 반응하는 레이아웃을 구현합니다</li>
+<li><strong>Container Queries</strong>: 미디어 쿼리가 뷰포트 기준인 반면, 컨테이너 쿼리는 부모 요소 기준입니다. 컴포넌트의 재사용성을 높여줍니다</li>
+<li><strong>터치 타겟</strong>: 모바일 터치 타겟은 최소 44x44px을 보장합니다. 이보다 작으면 오탭이 빈번하게 발생합니다</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 반응형 디자인 예시 */</span></span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="built_in">clamp</span>(<span class="number">320px</span>, <span class="number">90vw</span>, <span class="number">1200px</span>);</span><br><span class="line">  <span class="attribute">padding</span>: <span class="built_in">clamp</span>(<span class="number">1rem</span>, <span class="number">3vw</span>, <span class="number">3rem</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Container Queries */</span></span><br><span class="line"><span class="selector-class">.card-container</span> &#123;</span><br><span class="line">  <span class="attribute">container-type</span>: inline-size;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@container</span> (<span class="attribute">min-width:</span> <span class="number">400px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.card</span> &#123;</span><br><span class="line">    <span class="attribute">flex-direction</span>: row;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="7-ux-writing-ux-라이팅"><a class="markdownIt-Anchor" href="#7-ux-writing-ux-라이팅"></a> 7. UX Writing (UX 라이팅)</h3>
+<p>인터페이스의 모든 텍스트는 사용자의 행동을 돕습니다.</p>
+<ul>
+<li><strong>버튼 레이블</strong>: “확인”, “제출” 대신 행동을 구체적으로 명시합니다. “변경사항 저장”, “계정 생성”, “결제 진행” 등 사용자가 클릭 결과를 예측할 수 있어야 합니다</li>
+<li><strong>에러 메시지</strong>: “오류가 발생했습니다” 대신, 무엇이 잘못되었고 어떻게 해결하는지 안내합니다. &quot;이메일 형식이 올바르지 않습니다. <a href="mailto:example@email.com">example@email.com</a> 형식으로 입력해주세요&quot;가 좋은 예시입니다</li>
+<li><strong>빈 상태(Empty State)</strong>: 데이터가 없을 때 단순히 &quot;데이터 없음&quot;이 아니라, 다음 행동을 유도합니다. &quot;아직 프로젝트가 없습니다. 첫 번째 프로젝트를 만들어보세요&quot;가 올바른 패턴입니다</li>
+<li><strong>마이크로카피</strong>: 툴팁, 도움말 텍스트, 성공 메시지 등 작은 텍스트도 일관된 톤을 유지합니다. 브랜드 보이스 가이드라인을 따릅니다</li>
+</ul>
+<hr />
+<h2 id="ai-slop-안티패턴-목록"><a class="markdownIt-Anchor" href="#ai-slop-안티패턴-목록"></a> AI Slop 안티패턴 목록</h2>
+<p>AI가 프론트엔드 코드를 생성할 때 빈번하게 발생하는 안티패턴입니다. Impeccable의 <code>/audit</code> 명령어가 이런 패턴을 자동으로 탐지합니다.</p>
+<h3 id="typography-안티패턴"><a class="markdownIt-Anchor" href="#typography-안티패턴"></a> Typography 안티패턴</h3>
+<table>
+<thead>
+<tr>
+<th>DO</th>
+<th>DON’T</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>프로젝트에 맞는 서체를 의도적으로 선택합니다</td>
+<td>Inter, Roboto, Arial을 아무 생각 없이 기본값으로 사용합니다</td>
+</tr>
+<tr>
+<td>모듈러 스케일로 일관된 크기 체계를 구성합니다</td>
+<td>임의의 px 값을 그때그때 지정합니다</td>
+</tr>
+<tr>
+<td>코드 표시 등 실제 용도에 맞게 모노스페이스를 사용합니다</td>
+<td>모노스페이스를 “기술적/해커 느낌” 연출 목적으로 남용합니다</td>
+</tr>
+<tr>
+<td><code>line-height</code>를 서체와 크기에 맞게 세밀히 조절합니다</td>
+<td>모든 텍스트에 <code>line-height: 1.5</code>를 일괄 적용합니다</td>
+</tr>
+</tbody>
+</table>
+<h3 id="color-안티패턴"><a class="markdownIt-Anchor" href="#color-안티패턴"></a> Color 안티패턴</h3>
+<table>
+<thead>
+<tr>
+<th>DO</th>
+<th>DON’T</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>틴티드 뉴트럴로 정교한 배경/텍스트 색상을 사용합니다</td>
+<td>순수 검정(<code>#000000</code>)과 순수 흰색(<code>#ffffff</code>)을 사용합니다</td>
+</tr>
+<tr>
+<td>프로젝트 브랜드에 맞는 고유한 팔레트를 설계합니다</td>
+<td>AI가 기본으로 생성하는 cyan-on-dark, 보라-파랑 그라데이션을 그대로 사용합니다</td>
+</tr>
+<tr>
+<td>컬러 배경 위 텍스트의 대비율(4.5:1)을 확인합니다</td>
+<td>회색 텍스트를 컬러 배경 위에 올려 가독성을 해칩니다</td>
+</tr>
+<tr>
+<td>색상은 의미 전달과 계층 구분에 사용합니다</td>
+<td>그라데이션 텍스트로 “화려한” 느낌을 연출합니다</td>
+</tr>
+<tr>
+<td>의도적으로 제한된 색상 팔레트를 유지합니다</td>
+<td>5가지 이상의 액센트 컬러를 무분별하게 사용합니다</td>
+</tr>
+</tbody>
+</table>
+<h3 id="layout-안티패턴"><a class="markdownIt-Anchor" href="#layout-안티패턴"></a> Layout 안티패턴</h3>
+<table>
+<thead>
+<tr>
+<th>DO</th>
+<th>DON’T</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>콘텐츠 성격에 맞는 레이아웃 패턴을 선택합니다</td>
+<td>모든 것을 카드(<code>.card</code>)로 감쌉니다</td>
+</tr>
+<tr>
+<td>계층 구조를 시각적 여백과 타이포그래피로 표현합니다</td>
+<td>카드 안에 카드를 중첩하여 불필요한 시각적 노이즈를 만듭니다</td>
+</tr>
+<tr>
+<td>콘텐츠에 충분한 여백(whitespace)을 제공합니다</td>
+<td>화면을 빈틈없이 채우려고 합니다</td>
+</tr>
+<tr>
+<td>자연스러운 문서 흐름(document flow)을 존중합니다</td>
+<td>모든 요소에 <code>position: absolute</code>를 남발합니다</td>
+</tr>
+</tbody>
+</table>
+<h3 id="motion-안티패턴"><a class="markdownIt-Anchor" href="#motion-안티패턴"></a> Motion 안티패턴</h3>
+<table>
+<thead>
+<tr>
+<th>DO</th>
+<th>DON’T</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ease-out</code>, <code>ease-in-out</code> 등 자연스러운 이징을 사용합니다</td>
+<td><code>bounce</code>, <code>elastic</code> 이징을 사용합니다</td>
+</tr>
+<tr>
+<td>상태 전환에만 짧은 애니메이션을 적용합니다</td>
+<td>모든 요소에 호버 애니메이션을 추가합니다</td>
+</tr>
+<tr>
+<td><code>transform</code>과 <code>opacity</code>만 애니메이션합니다</td>
+<td><code>width</code>, <code>margin</code>, <code>padding</code>을 애니메이션합니다</td>
+</tr>
+<tr>
+<td><code>prefers-reduced-motion</code>을 존중합니다</td>
+<td>모션 설정을 무시합니다</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dark-mode-안티패턴"><a class="markdownIt-Anchor" href="#dark-mode-안티패턴"></a> Dark Mode 안티패턴</h3>
+<table>
+<thead>
+<tr>
+<th>DO</th>
+<th>DON’T</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>라이트모드를 기본으로, 다크모드를 옵션으로 제공합니다</td>
+<td>다크모드를 글로잉 액센트(neon glow)와 함께 기본값으로 사용합니다</td>
+</tr>
+<tr>
+<td>다크모드에서 채도를 낮추고 명도 차이를 줄입니다</td>
+<td>라이트모드의 색상을 단순히 반전합니다</td>
+</tr>
+<tr>
+<td>매우 어두운 회색(<code>oklch(15% ...)</code>)을 배경으로 사용합니다</td>
+<td>순수 검정(<code>#000</code>)을 배경으로 사용합니다</td>
+</tr>
+</tbody>
+</table>
+<h3 id="종합-안티패턴"><a class="markdownIt-Anchor" href="#종합-안티패턴"></a> 종합 안티패턴</h3>
+<table>
+<thead>
+<tr>
+<th>DO</th>
+<th>DON’T</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>의미 있는 요소만 추가합니다</td>
+<td>장식적 그라데이션, 불필요한 보더 라디우스, 과한 그림자를 남발합니다</td>
+</tr>
+<tr>
+<td>적은 요소로 최대한의 효과를 냅니다</td>
+<td>&quot;비어 보인다&quot;는 이유로 장식을 추가합니다</td>
+</tr>
+<tr>
+<td>디자인 시스템의 토큰을 일관되게 사용합니다</td>
+<td>하드코딩된 값을 컴포넌트마다 다르게 설정합니다</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>출처:</strong> <a href="https://github.com/pbakaus/impeccable" target="_blank" rel="noopener">github.com/pbakaus/impeccable</a> | <a href="https://impeccable.style" target="_blank" rel="noopener">impeccable.style</a></p>
+
+        </div>
+        <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+        <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://hgko1207.github.io/2026/04/15/impeccable-design-principles-guide/" data-id="cmo013voq0000a4cxe7f92ohu" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Hyeong Gyun Ko"
+        },
+        "headline": "Impeccable 디자인 원칙 &amp; 안티패턴 가이드",
+        "image": "http://hgko1207.github.io/images/thumbnail/claude.png",
+        "keywords": "AI 개발 디자인 Programming claude claude code ai개발도구 AI코딩 클로드코드 impeccable",
+        "genre": "Programming AI CLAUDE",
+        "datePublished": "2026-04-15",
+        "dateCreated": "2026-04-15",
+        "dateModified": "2026-04-15",
+        "url": "http://hgko1207.github.io/2026/04/15/impeccable-design-principles-guide/",
+        "description": "
+Impeccable이 AI에게 주입하는 7가지 디자인 레퍼런스와, AI Slop을 방지하기 위한 구체적 안티패턴 목록입니다.
+
+
+ 7가지 디자인 레퍼런스
+Impeccable의 frontend-design 스킬은 7개의 레퍼런스 파일로 구성됩니다. 각 레퍼런스는 AI가 코드를 생성할 때 참조하는 디자인 원칙을 담고 있습니다.
+ 1. Typography (타",
+        "wordCount": 1176
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                            <!-- 콘텐츠 내 자동 삽입 광고 배치하기 -->
+<ins
+  class="adsbygoogle"
+  style="display: block; text-align: center"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-7581566810202853"
+  data-ad-slot="5075244775"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>팔로우:</p>
+    <ul class="social-links">
+       
+      <li>
+        <a
+          class="social-tooltip"
+          title="github"
+          href="https://github.com/hgko1207"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-github"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="facebook"
+          href="https://www.facebook.com/profile.php?id=100003526102847"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-facebook"></i>
+        </a>
+      </li>
+        
+      <li>
+        <a
+          class="social-tooltip"
+          title="rss"
+          href="/"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="icon fa fa-rss"></i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+   
+<nav id="article-nav">
+    
+    
+        <a href="/2026/04/10/impeccable-usage-guide/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">Impeccable 사용 가이드 — AI가 만든 뻔한 UI, 이제 끝입니다</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+ 
+  <div class="widgets-container">
+      
+  
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/04/15/impeccable-design-principles-guide/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/claude.png)" alt="Impeccable 디자인 원칙 &amp; 안티패턴 가이드" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2026/04/15/impeccable-design-principles-guide/" class="title">Impeccable 디자인 원칙 &amp; 안티패턴 가이드</a></p>
+                            <p class="item-date"><time datetime="2026-04-15T12:30:05.000Z" itemprop="datePublished">2026-04-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/04/10/impeccable-usage-guide/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/claude.png)" alt="Impeccable 사용 가이드 — AI가 만든 뻔한 UI, 이제 끝입니다" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2026/04/10/impeccable-usage-guide/" class="title">Impeccable 사용 가이드 — AI가 만든 뻔한 UI, 이제 끝입니다</a></p>
+                            <p class="item-date"><time datetime="2026-04-10T11:48:48.000Z" itemprop="datePublished">2026-04-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/04/08/impeccable-install-guide/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/claude.png)" alt="Impeccable 설치 가이드 — Claude Code에서 프로급 디자인 스킬 세팅하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2026/04/08/impeccable-install-guide/" class="title">Impeccable 설치 가이드 — Claude Code에서 프로급 디자인 스킬 세팅하기</a></p>
+                            <p class="item-date"><time datetime="2026-04-08T12:54:52.000Z" itemprop="datePublished">2026-04-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/04/06/gstack-workflows/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/claude.png)" alt="stack 실전 워크플로우" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2026/04/06/gstack-workflows/" class="title">stack 실전 워크플로우</a></p>
+                            <p class="item-date"><time datetime="2026-04-06T12:58:22.000Z" itemprop="datePublished">2026-04-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/04/03/qa-deploy-guide/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnail/claude.png)" alt="gstack QA &amp; 배포 가이드" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/AI/">AI</a></p>
+                            <p class="item-title"><a href="/2026/04/03/qa-deploy-guide/" class="title">gstack QA &amp; 배포 가이드</a></p>
+                            <p class="item-date"><time datetime="2026-04-03T12:21:48.000Z" itemprop="datePublished">2026-04-03</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">카테고리</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ETC/">ETC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/">IT</a><span class="category-list-count">66</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IT/BlockChain/">BlockChain</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Blockchain/">Blockchain</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Git/">Git</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Information/">Information</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IT/Satellite/">Satellite</a><span class="category-list-count">13</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">451</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/">AI</a><span class="category-list-count">90</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/AI/CLAUDE/">CLAUDE</a><span class="category-list-count">9</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/">Backend</a><span class="category-list-count">40</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Net-Core/">.Net Core</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/MyBatis/">MyBatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/NestJS/">NestJS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Node-js/">Node.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Backend/Spring/">Spring</a><span class="category-list-count">21</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/">DB</a><span class="category-list-count">27</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Elasticsearch/">Elasticsearch</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MSSQL/">MSSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MariaDB/">MariaDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/MySQL/">MySQL</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/Oracle/">Oracle</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/PostgreSQL/">PostgreSQL</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DB/SQL/">SQL</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/">DevOps</a><span class="category-list-count">38</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DevOps/Linux/">Linux</a><span class="category-list-count">30</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/">Frontend</a><span class="category-list-count">117</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Angular/">Angular</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Eclipse-RCP/">Eclipse RCP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Flutter/">Flutter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/HTML-CSS/">HTML, CSS</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Next-js/">Next.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/React/">React</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/Vue/">Vue</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WPF/">WPF</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Frontend/WinUI/">WinUI</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/">Language</a><span class="category-list-count">124</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C#</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Dart/">Dart</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Java/">Java</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/JavaScript/">JavaScript</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/MATLAB/">MATLAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/Python/">Python</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Language/TypeScript/">TypeScript</a><span class="category-list-count">25</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/">Mobile</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Mobile/React-Native/">React Native</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Web/">Web</a><span class="category-list-count">8</span></li></ul></li></ul>
+        </div>
+    </div>
+
+  
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">링크</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+  <div class="widget-wrap widget-float">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- huemen sidebar -->
+    <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-7581566810202853"
+            data-ad-slot="1131844921"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+</div>
+  
+  </div>
+  <!-- <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+  //new PartnersCoupang.G({ id: 286226 });
+  new PartnersCoupang.G({
+    id: 286226,
+    trackingCode: 'AF1935979',
+    subId: null,
+    template: 'carousel',
+    width: '100%',
+    height: '140',
+  });
+</script>
+ -->
+
+  <!-- hits 방문자수 -->
+  <a href="https://hits.seeyoufarm.com" target="_blank" rel="noopener">
+    <style>
+      .hits {
+        width: auto;
+        height: auto;
+        max-width: 99px;
+        max-height: 20px;
+      }
+    </style>
+    <img
+      src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhgko1207.github.io&count_bg=%23E6ADD5&title_bg=%23BF98D2&icon=&icon_color=%23E7E7E7&title=%EB%B0%A9%EB%AC%B8%EC%9E%90%EC%88%98&edge_flat=false"
+      alt="방문자수"
+    />
+  </a>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h2 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h2>
+                <p>&copy; 2026 Hyeong Gyun Ko</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://hgko1207.github.io/2026/04/15/impeccable-design-principles-guide/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+      <script data-ad-client="ca-pub-7581566810202853" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
